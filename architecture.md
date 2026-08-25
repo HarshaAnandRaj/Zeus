@@ -128,7 +128,35 @@ Two coupled mechanisms:
    Crucially `d_soc` does not script behavior; it re-weights a gradient pressure. What the
    model *does* with elevated affinity remains its own equilibrium's business.
 
-### 5.7 Adaptive teacher (withdrawal controller, law-v2 heritage)
+### 5.7 Memory system (three tiers)
+
+| Tier | Substrate | Lifetime | Bypass-safe by design |
+|---|---|---|---|
+| M1 Working | τ hierarchy inside S (fast dims <0.5 track input; slow dims >5 integrate) | tokens–minutes | yes — it IS the dynamics |
+| M2 Episodic | `S_history` deque (readout window W) | last W tokens | yes — readout attends only own states |
+| M3a Slow carry | 64-dim gated channel, keep-gate ≈ 0.9; feeds `W_slow·m` modulation into dS; persisted across sessions | hours–forever | in-model; ablatable (zero it) |
+| M3b Traces | model-written notes: text + embedding, external store | forever | recall = **resonance**: top-k traces by cos(emb, S) above threshold re-enter via predictive coding `err = embed(trace) − anticipate`; never injected as tokens |
+
+Rules:
+
+1. **Recall is perception.** Trace re-entry uses the identical input pathway; there is no
+   side-channel into readout or logits. Removing recall must measurably change behavior
+   (probe: `memory_ablation.py` — disable each tier, report behavioral delta).
+2. **Writes are earned.** Traces are written only via the action pathway (stage P4+), capped
+   (default ≤ 512 active traces, LRU + strength-weighted eviction).
+3. **Consolidation ("sleep").** When rest-drive dominates and input is quiet, idle ticks replay
+   random stored traces at low gain (×0.2): Hebbian thickening on used synapse paths + slow-carry
+   update. This is the only time M3b content shapes weights offline.
+4. **Continuity.** Checkpoint/deploy snapshots save S, slow carry, and trace index — the organism
+   wakes as the same individual. Session restart ≠ amnesia (v2 never had this).
+5. **Anti-crutch guard.** Echo detector additionally scores replies against retrieved-trace text;
+   verbatim trace regurgitation is flagged as fugazee, not counted as generation.
+
+Staged rollout: M1/M2 from step 0 (P2); M3a enabled P3; M3b writes/recall P4; consolidation P5
+(alongside hesitation — both are rest-phase competences).
+
+### 5.8 Adaptive teacher (withdrawal controller, law-v2 heritage)
+
 
 Teacher probability p starts 1.0 (or ckpt-stored). Controller every 500 steps:
 `degraded = confEMA > confBest + margin` · `learning = intBlockMean < intBest − learnMargin`
