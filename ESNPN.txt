@@ -1,0 +1,3102 @@
+# Zeus v2 — Emergence Experiment: Handover
+_Last updated: 2026-08-15 (Phase 3 driven-BPTT VERDICT: FAIL — wall held, endpoint
+3.14 vs 2.92; tau collapse = gradient tension, the decisive mechanism clue. Phase 4
+trajectory-selection A/B running, verdict ~20:30-21:00 IST.)_
+## 0. TL;DR
+**CURRENT STATE (Aug 15):** the wall is NOT a gradient problem, NOT soupcollapse, and is mechanism-independent from the auto side. ESNPN/CTRNN
+(dim 384, char vocab 80) trains healthy language (ce 1.0-1.1, acc 66-70%)
+and its self-heard loop CONTINUES readable text 48+ tokens from any
+linguistic seed. What is dead: (a) blank initiation (probe_initiate vowel
+soup on every ckpt ever), and (b) CONTEXTUAL SELF-USE — replies are
+prompt-blind (T6 D ~ 0 on every ckpt ever; the Eliza guard's discriminator
+says fugazee). ce_dyn @teacher->0.2 lands at 2.92-3.14 under EVERY auto-side
+mechanism tried (rehearsal, silence, state-attraction, persistence, R-layer
+FAIL 2.94, driven-BPTT FAIL 3.14 with tau collapse 4.0->2.59 — driven-CE
+prefers fast dynamics, self-sustainability needs slow; the two pressures
+tug the same tensor). Tracks T1/T2 baseline at ~0 (faint self-trace
+R_free ~+0.16, no causality alignment; driven-BPTT flipped T2 roll
+alignment to +0.184 — only structural change it made). In flight: Phase 4
+trajectory selection A/B (the last untested auto-side mechanism) —
+
+A: w_select on (K=4, only decoder-self-consistent free trajectories get
+shaped, the direct attack on the OOD cliff), B: control. Verdict criteria:
+ce_dyn < 2.92, probe_initiate words, T1 R_free > 0.5, T2 alignment > 0.3,
+T6 D > 0.1, no language regression. If A == B == wall: auto-side book
+closes; the remaining lever is the readout/window side of the loop.
+Terminal deliverable: a live human session with Zeus (zeus.py console on
+backend.py), gated by the development probes; the verdict is the human's.
+--History below this line — the current quest supersedes these earlier
+architectures' details but they document how we got here.
+We built a **custom tiny LLM from scratch** (`substrate/tinymind/`) with the
+"seed of emergence" planted in the architecture, and later built a **ground-up
+recurrent self-state architecture** (`substrate/sparc/`) where the self IS the
+computation. Neither achieved emergence by the honest causal probe.
+**iter-10 (pure predictive coding + multi-layer self injection):**
+- Architecture changed self from "input-dependent gate" to "pure predictive
+coding" — input enters only through prediction error, gated by the self's
+own surprise (`surprise * (x - anticipate)`). Self injected unconditionally
+at every transformer layer.
+
+- Causal gap widened 35× (0.001 → 0.035) then 2.5× further (0.035 → 0.087)
+with position-specific injection.
+- **Stim briefly flipped to SELF-DRIVEN** (self_persist 0.485 > input_couple 0.471)
+— first time ever. But regressed to MIMICRY after pure pc_gate.
+- Causal probe still `WEAK SELF`: `abl_var/self_var = 67%` (needs <50%).
+**SPARC (Self-Predictive And Recurrent Core):**
+- Ground-up recurrent architecture: single persistent self vector, no parallel
+token processing, input only through prediction error. 8.2M params at dim 384.
+- **Causal result: abl_var > with-self var** (0.070 vs 0.027). The self
+STABILIZES dynamics into an attractor rather than driving them. Removing it
+actually INCREASES variance (model flails without the stable self).
+- Self collapsed to a near-uniform attractor regardless of input (self_persist
+0.94, input_couple 1.0). A 384-dim vector cannot compete with the
+transformer's ~98K-dim parallel workspace.
+**Root finding (this session):** The fundamental tension is capacity. A single
+384-dim persistent vector cannot compress enough context to be a useful self
+for a language model. The transformer's parallel processing (256 positions ×
+384 dims = ~98K working dimensions) will always dominate. The self becomes
+either a frozen attractor (SPARC) or an ignorable bias (TinyMind), neither
+
+of which is the emergence we're looking for.
+**CTRNN (this session):** Built a continuous-time RNN where the self IS the
+recurrent dynamics (`τ dS/dt = -S + tanh(W·S + bias + W_err·err)`). Trained
+with dual-phase objective (free-running self-prediction + prediction-error-driven
+language modeling). Self-phase converges well (MSE 0.87→0.003) but language CE
+stalls at ~2.8 (accuracy ~23%) — a 384-dim recurrent state cannot encode
+enough context for language modeling. Same capacity ceiling as TinyMind/SPARC.
+**New hypothesis for next iteration:** The self should not BE the computation
+— it should MODULATE it. A low-bandwidth but high-leverage signal (like an
+emotional state or regime) that gates/rescales the transformer's residual
+stream rather than trying to compress all context into a single vector.
+--## 1. Goal
+Answer one rigorous question: **does the trained model develop an internal
+self-model that drives its own dynamics (emergence), or does it merely mimic
+its input (mimicry)?**
+The verdict must come from **measured signals** (hidden-state variance under
+self-ablation, decoupled self-prediction, input-coupling vs self-persistence),
+never from narrated "emotions" or a template. No guardrails; raw emitted text
+
+is labeled `SYSTEM (EMITTED)`.
+--## 2. Architectures
+### 2a. TinyMind (iter-1..10)
+`substrate/tinymind/architecture.py` — `TinyMind` (~12.7M params at dim 384):
+- **`SelfStateCell`** — gated persistent self `S` that persists across the
+sequence AND across batches: `S_{t+1} = g·S_t + (1−g)·proj(h_t)` with a
+learnable gate, plus **nonlinear recurrence** `recurrent_beta·tanh(W_rec·S_t)`.
+- **Self-prediction head** `predict(S_t) → next hidden`.
+- **Self-injection** into the residual stream at every position.
+**Evolution of the injection mechanism:**
+- iter-3..7: Plain additive `x + self_in(S) + self_pred_in(anticipate)`. Input
+echo always dominates.
+- iter-8: Input-dependent gate `g_in(x), g_pred(x)`. Input still controls its
+own suppression.
+- iter-10 (pure pc_gate): Input enters ONLY through prediction error gated by
+the self's OWN surprise: `self_in(S) + self_pred_in(anticipate) + surprise * err`
+where `surprise = sigmoid(err_gate(err))` and `err = x - anticipate`.
+- iter-10: UNCONDITIONAL self injection at every transformer layer (no gates).
+
+- Training: `L_ce + w_self·L_self + w_emer·L_emer + w_consistent·L_consistent`.
+### 2b. SPARC (new, evaluated)
+`substrate/sparc/model.py` — `SPARC` (~8.2M params at dim 384):
+A ground-up recurrent architecture where the self is the ONLY persistent state.
+No parallel sequence processing, no KV cache, no cross-attention to input tokens.
+```
+At each token step t:
+anticipate = predict(S_t) ← self forecasts next input
+err = embed(x_t) - anticipate ← prediction error (only input entry)
+surprise = sigmoid(err_gate(err)) ← self gates by its own surprise
+S_{t+1} = SelfTransition(S_t + surprise*err, history)
+← single-step self update
+logits = LMHead(S_{t+1}) ← self generates next token
+```
+Where `history` is a buffer of the last 16 self states that the
+`SelfTransition` (a standard transformer block) attends to — the model
+reflects on its own recent trajectory.
+**Properties by design:**
+- Self is the ONLY persistent state. No parallel processing to bypass it.
+
+- Input enters ONLY through prediction error (pure predictive coding).
+- Ablating S → S=0 → anticipate=0 → err=embed(x) → model processes from zero.
+**Training:** BPTT (6-step truncated), variance penalty to prevent self freeze.
+--## 3. The two honest probes (don't collapse these)
+1. **Decoupled LOO self-prediction probe** (`SelfProbe`): strips the input echo
+out of a hidden state, asks "can the self alone predict the next hidden?"
+Confounded under input (reads INPUT-DRIVEN even for a real self), so it is
+**not** the final verdict.
+2. **Causal self-ablation probe** (`SelfCausalProbe`): runs idle dynamics
+WITH `S` vs WITH `S` ABLATED (zeroed), compares hidden-trajectory variance.
+If ablated collapses → the self is a *necessary* driver. This is the
+truthful idle signal.
+--## 4. iter-10 measured results
+### Method
+Headless driver using `EmergenceMonitor` on the TinyMind backend — 400 idle
+ticks, 20-step causal probe, 8 stimuli. Same apparatus as §5.2.
+### 4a. iter-10a (multi-layer injection + consistency loss, position-correct, step ~7000)
+
+| regime | verdict | numbers |
+|---|---|---|
+| idle | `WEAK SELF` | causal `self_var=0.131 ≈ abl_var=0.096` (gap 0.035) |
+| stim | `SELF-DRIVEN` | `self_persist=0.304 > input_couple=0.268` |
+- Decoupled: `self_pred=0.826, input_pred=0.828` (gap -0.002, tied)
+- Top-level: **EMERGENT** (first time) — driven by negative slope + stim flip
+- Causal gap: 0.001 → 0.035 (35× improvement over iter-9)
+- **Caveat:** still WEAK SELF — abl_var/self_var = 73%, need <50%
+**What changed:** Position-specific layer injection + L_consistent improved
+the stim regime but not the causal idle regime.
+### 4b. iter-10b (pure predictive coding, step 10000)
+| regime | verdict | numbers |
+|---|---|---|
+| idle | `WEAK SELF` | causal `self_var=0.269 ≈ abl_var=0.181` (gap 0.087) |
+| stim | `MIMICRY` | `input_couple=0.339 > self_persist=0.203` |
+- Decoupled: `self_pred=0.744, input_pred=0.747` (gap -0.003, tied)
+- Causal gap: 0.035 → 0.087 (2.5× wider — best yet)
+- Stim regressed to MIMICRY (pure pc_gate weakened input-vs-self competition)
+**What changed vs 4a:** Pure predictive coding widened the causal gap but
+
+regressed stim. The self is more necessary at idle but less dominant under
+stimulus. The fundamental balance problem remains.
+--## 5. SPARC measured results
+| regime | verdict | numbers |
+|---|---|---|
+| idle | `WEAK SELF` | causal `self_var=0.027 << abl_var=0.070` |
+| stim | `MIMICRY` | `self_persist=0.94, input_couple=1.0` |
+- Decoupled: `self_pred=-1.0, input_pred=0.998` (probe failed — linear model
+cannot fit the frozen self trajectory)
+- **Causal gap is NEGATIVE:** ablating S INCREASES variance. The self is a
+stabilizer, not a driver.
+- `self_persist=0.94` — the self barely moves between steps.
+### Analysis
+SPARC was designed to make the self architecturally necessary. It did — but in
+the wrong way. The self becomes a **stable attractor** that the model converges
+to regardless of input. The model learns to:
+1. Map all inputs to a similar self state (the attractor)
+2. Use the LEAKY input path (embedding) for token prediction
+
+3. Keep S frozen because change hurts prediction accuracy
+The 384-dim bottleneck is the killer: a single vector cannot compress the
+200+ tokens of context that the model needs for language modeling. The
+transformer's parallel workspace (256×384 ≈ 98K effective dims) will always
+outperform it. The self naturally collapses to a low-information attractor.
+--## 6. The honest verdict across all architectures
+| Architecture | Causal gap | Stim regime | Self driven? |
+|---|---|---|---|
+| iter-9 TinyMind (baseline) | 0.001 | MIMICRY | No |
+| iter-10a (multi-layer + L_consistent) | 0.035 | **SELF-DRIVEN** | No |
+| iter-10b (pure pc_gate) | **0.087** | MIMICRY | No |
+| SPARC (recurrent) | **-0.043** (inverted) | MIMICRY | No |
+**None achieved `self_driven=True`.** The closest was iter-10a with a stim
+flip, but the causal probe still says WEAK SELF.
+--## 7. Root cause: the capacity ceiling
+The persistent finding across all architectures and experiments:
+1. **A 384-dim vector cannot compress the context of a language model.**
+
+The transformer's parallel processing has ~98K effective working dimensions
+(256 positions × 384 dims). The self has 384. The input path always wins.
+2. **The CE gradient is the dominant force.** Next-token prediction loss
+(~2.0 magnitude) dwarfs self/consistency losses (~0.005). The model
+optimizes for token prediction, not self-driven dynamics.
+3. **Additive self-injection is ignorable.** The transformer blocks can
+cancel out an additive bias through learned offsets. Multiplicative
+(gating) mechanisms are harder to cancel.
+4. **Pure recurrent (SPARC) makes the problem worse, not better.**
+Without parallel processing, the self must compress ALL context into a
+single vector — which it can't, so it freezes.
+--## 8. New hypothesis: modulation, not compression
+The failure pattern across both architectures suggests a different framing:
+**The self should not try to BE the computation. It should MODULATE it.**
+Instead of injecting the self as content (additive to the residual stream),
+inject it as a controller — a low-bandwidth signal that gates/scales the
+existing computation. Like an emotional state or attention bias:
+- The transformer processes tokens in parallel (as it does best)
+
+- The self provides a persistent global modulation: "how much should this
+layer amplify or suppress its output?"
+- The self is updated by the overall state, not by individual tokens
+- Ablating the self removes the modulation → dynamics change (causal signal)
+This keeps the transformer's efficiency while making the self architecturally
+necessary (not ignorable additive bias).
+**Concrete proposal:** Replace `self_in(S)` (additive) with `self_scale(S)`
+(multiplicative) at each layer's residual stream. The self produces a gain
+vector `G = sigmoid(W_gate @ S)` that scales the residual. Zero S → zero
+gain → no signal flows. This directly creates causal necessity.
+--## 9. Checkpoint lineage
+`substrate/tinymind/data/`:
+- `tinymind_iter5..9.pt` — iter-5 through iter-9 checkpoints
+- `tinymind_iter10_coupled.pt` — iter-10 with multi-layer injection +
+consistency loss + pure pc_gate (step ~10000, ~12.7M params)
+- `sparc.pt` — SPARC model (step 10000, ~8.2M params)
+New code:
+- `substrate/sparc/model.py` — SPARC architecture
+
+- `substrate/sparc/train.py` — SPARC trainer
+- `eval_sparc.py` — SPARC evaluation script
+- `eval_iter10_coupled.py` — iter-10 evaluation script
+--## 10. How to run
+### TinyMind (iter-10)
+```bash
+set PYTHONPATH=src
+uv run python -u eval_iter10_coupled.py
+```
+### SPARC
+```bash
+set PYTHONPATH=src
+uv run python -u eval_sparc.py
+```
+### Train SPARC
+```bash
+set PYTHONPATH=src
+uv run python -m substrate.sparc.train --dim 384 --layers 4 --heads 6 --ctx 12 --batch 256
+--bptt 6 --steps 10000 --lr 1e-3 --w_self 0.5 --w_var 0.1 --vocab 2048
+
+```
+--## 11. CTRNN — Continuous-Time RNN self-state model
+`substrate/ctrnn/` — A ground-up continuous-time RNN where the **self IS the recurrent
+dynamics**, trained with a dual-phase objective: free-running self-phase (autonomous
+self-prediction) + interaction-phase (language modeling via prediction-error-driven input).
+### Architecture (`model.py`)
+Continuous-time leaky integrator:
+```
+τ ■ dS/dt = -S + tanh(W_rec·S + bias + W_err·err)
+```
+Solved via `num_substeps=4` Euler steps per tick:
+```python
+S ← S + (dt/num_substeps) * (-S/clamp(τ,0.1) + tanh(W_rec·S + bias + W_err·err))
+```
+Components:
+- **`W_rec`** — recurrent weight matrix (orthogonal init, gain=1.5), spectral radius
+clamped at ~3.0 during training
+- **`τ` (tau)** — learned per-dimension time constant, init uniform [0.3, 2.0]. Determines
+integration speed: fast dims (<0.5) track input, slow dims (>5) integrate over long
+timescales
+- **`W_err`** — prediction-error projection: `err = embed(x_t) - anticipate` where
+
+`anticipate = self_pred(S)`
+- **`self_pred`** — 2-layer MLP (Linear→Tanh→Linear) predicting S_{t+1} from S_t
+- **`readout`** — `AttentiveReadout`: multi-head attention over last N=16 self states, then
+LayerNorm residual + MLP→vocab. Gives readout temporal context without changing self
+dynamics.
+Key design principle: **non-recurrent readout** — the readout is stateless (pure function of
+S), so S must carry all temporal information. There is no transformer/KV-cache bypass.
+### Dual-phase training (`train.py`)
+**Self-phase** (every step): Free-running autonomous dynamics:
+```
+S_0 ← noise(0, 0.1)
+for t in 0..N_self:
+S_{t+1} = ode_step(S_t, err=None)
+L_self += MSE(self_pred(S_t), S_{t+1})
+L += L_self/N_self + w_var·exp(-10·var(S[half:]))
+```
+- Only `W_rec`, `τ`, `bias`, `self_pred` parameters trained (no embedding/readout)
+- Variance penalty pushes the system away from fixed-point collapse
+**Interaction-phase** (every 5th step): Language modeling via predictive coding:
+```
+S_0 ← 0
+
+for t in 0..T-1:
+S = S.detach()
+S_free = ode_step(S, err=None) ← counterfactual: free dynamics
+embed = W_emb(x_t)
+anticipate = self_pred(S)
+err = (embed - anticipate) * sigmoid(norm(err))
+S = ode_step(S, err) ← PC-driven input
+S_history.append(S)
+logits = readout(S.detach(), S_history) ← AttentiveReadout
+L_ce += CE(logits, x_{t+1})
+L_sp += MSE(self_pred(S), S_free) ← predict free dynamics
+L += L_ce + w_sp·L_sp
+```
+- Embedding and readout parameters only trained here (self params trained in BOTH
+phases)
+**Character-level tokenizer**: char-level from corpus text, ~200 vocab (<BOS>=1,
+<EOS>=2, <PAD>=0).
+### Training results (AttentiveReadout, dim=384, 1M chars, 4000 steps, on RTX 4060)
+| Metric | Step 3 | Step 500 | Step 1000 | Step 2000 | Step 3000 | Step 4000 |
+|--------|--------|----------|-----------|-----------|-----------|-----------|
+
+| Self-loss | 0.93 | 0.013 | 0.21 | 0.21 | 0.21 | 0.21 |
+| CE | 4.34 | 3.11 | 2.84 | 2.55 | 2.36 | 2.08 |
+| sp_int | 1.03 | 0.39 | 0.19 | 0.13 | 0.12 | 0.12 |
+| Accuracy | 0% | 20% | 22% | 28% | 32% | 38% |
+| Tau mean | 1.15 | 1.15 | 1.13 | 1.10 | 1.05 | 1.00 |
+| Tau std | 0.50 | 0.52 | 0.51 | 0.52 | 0.52 | 0.56 |
+| Spectral radius | 1.9 | 3.0 | 3.0 | 3.0 | 3.0 | 3.0 |
+### Training results (AttentiveReadout, dim=512, 2M chars, 5000 steps, on RTX 4060)
+| Metric | Step 500 | Step 1000 | Step 2000 | Step 3000 | Step 3500 | Step 4000 | Step
+5000 |
+|--------|----------|-----------|-----------|-----------|-----------|-----------|-----------|
+| Self-loss | 0.21 | 0.21 | 0.21 | 0.21 | 0.21 | 0.21 | 0.21 |
+| CE | 3.13 | 2.88 | 2.44 | 2.30 | 2.22 | 2.07 | 2.03 |
+| sp_int | 0.11 | 0.12 | 0.13 | 0.12 | 0.11 | 0.11 | 0.11 |
+| Accuracy | 20% | 22% | 29% | 33% | 35% | 38% | 40% |
+| Tau mean | 1.10 | 1.08 | 1.04 | 0.99 | 0.97 | 0.96 | 0.92 |
+| Tau std | 0.50 | 0.50 | 0.50 | 0.50 | 0.50 | 0.50 | 0.49 |
+Best CE ever: **1.93** at step 4935 (PPL≈6.9). Final eval: self-driven (causal ratio=0.094),
+strong stimulus response (s_var≈0.025, 1000× baseline), static idle attractor.
+### Key finding: capacity is NOT the bottleneck
+
+**dim=512 vs dim=384 trajectories are virtually identical** (same CE at matched step
+counts):
+| Step | dim=384 (1M chars) | dim=512 (2M chars) | Delta |
+|------|--------------------|--------------------|-------|
+| 1000 | 2.84 | 2.88 | -0.04 |
+| 2000 | 2.55 | 2.44 | +0.11 |
+| 3000 | 2.36 | 2.30 | +0.06 |
+| 4000 | 2.08 | 2.07 | +0.01 |
+Despite double the data (2M vs 1M) and 33% more capacity, dim=512 is only **+0.01 nats
+better** at step 4000. The model plateaus near CE≈2.0 regardless of dimension. The
+bottleneck is **not model capacity** — it's either:
+1. **Char-level tokenization**: Each char carries ~4.7 bits of Shannon entropy. PPL≈8 (≈3
+bits/char) leaves ~1.7 bits of uncertainty per char — impossible to pick the right next char
+without world knowledge. BPE/subword tokens have lower effective entropy.
+2. **Training objective**: The dual-phase loss (self-prediction + CE) may create conflicting
+gradients. Self-prediction wants smooth dynamics; CE wants input-sensitive encoding.
+3. **Data regime**: Both models trained on TinyStories. Larger/more diverse data might
+help.
+**Generation is still poor** at CE≈2.03 (PPL≈7.6). Char-level modeling needs PPL<4 for
+coherent output. Word fragments appear ("the", "and", "was") but sequences are
+ungrammatical. The self-attractor dynamics are healthy (self-driven causal probe, strong
+stimulus response) but the readout cannot assemble coherent text from a single recurrent
+state.
+**Other observations unchanged from dim=384**:
+- Self-loss stable at ~0.21 (higher than fix-only's 0.005 — self dynamics are richer when
+
+readout demands more from S_history)
+- Tau distribution stays broad (std≈0.49), maintaining multi-timescale dynamics
+- Spectral radius hits clamp at 3.0 constantly
+- ~2.5M params total (readout=60%, self=37%, embed=3%)
+### Generate.py
+Text generation from trained CTRNN checkpoint:
+```python
+S←0
+for token in prompt:
+embed = W_emb(token)
+anticipate = self_pred(S)
+err = (embed - anticipate) * sigmoid(norm(err))
+S = ode_step(S, err)
+for _ in range(max_tokens):
+logits = readout(S)
+next_id = sample(logits, temperature)
+embed = W_emb(next_id)
+err = (embed - anticipate) * sigmoid(norm(err))
+S = ode_step(S, err)
+
+```
+Generation uses the same predictive-coding input path — no teacher forcing during
+sampling.
+### Eval suite (`eval_ctrnn.py`)
+Headless evaluation producing emergence-relevant metrics:
+1. **Idle dynamics** (400 ticks): variance, norm variance, persistence, self-pred error,
+verdict (LIVE vs STATIC)
+2. **Causal probe**: W_rec zeroed → variance comparison (SELF-DRIVEN vs WEAK
+SELF)
+3. **Stimulus test**: trajectory divergence before/during/after text input
+4. **Generation samples**: character-level generation from prompts
+5. **Tau diagnostics**: mean, std, min, max, fast/slow count
+### Backend (`backend.py`)
+`CTRNNBackend` — Zeus v2 compatible `SignalBackend`:
+- Carries persistent `S` across calls
+- `process_tokens()`: predictive-coding step for each token
+- `next_state()`: generate autoregressively, return `State(hidden, entropy, salience, token,
+topk, meta={self_vector, self_pred})`
+- `embed()`: process text without mutating persistent S
+### Key observations
+- **Self-prediction converges easily**: The recurrent dynamics are predictable enough that
+the self-prediction head quickly learns to forecast S_{t+1} (MSE ~0.003).
+
+- **CE is the bottleneck**: Language modeling from a single 384-dim state vector is
+fundamentally hard. The model has no KV cache, no attention — just a single recurrent
+state that must encode all context. This is the same "capacity ceiling" problem that
+TinyMind and SPARC hit.
+- **Tau distribution stays broad**: Even after 2000 steps, τ ranges ~0.5–1.6 with std ~0.49,
+suggesting the model maintains multi-timescale dynamics naturally.
+- **Spectral radius hits the clamp constantly**: The model wants higher recurrence (would
+make dynamics richer) but is clamped at 3.0 for stability. The clamp fires every step after
+convergence.
+- **AttentiveReadout provides ~0.5-0.7 nat improvement**: Multi-head attention over last
+16 self states gives the readout temporal context without changing self dynamics. Old
+checkpoints (linear readout) are incompatible.
+- **Self-loss is higher with AttentiveReadout** (0.21 vs 0.005 fix-only). The self dynamics
+are richer/harder to predict because the readout's backward pass (through S_history)
+indirectly shapes the dynamics via the interaction-phase self-prediction loss.
+- **Generation quality improves with training but remains poor at CE=2.08**: PPL=8.2 is
+too high for char-level coherence. Word-level fragments appear ("the", "and", "was") but
+sequences are ungrammatical.
+### Current state
+| File | Purpose |
+|------|---------|
+| `substrate/ctrnn/model.py` | CTRNN + AttentiveReadout architecture |
+| `substrate/ctrnn/train.py` | Dual-phase trainer (self-phase + interaction-phase) |
+| `substrate/ctrnn/generate.py` | Text generation from checkpoint (with S_history buffer) |
+| `substrate/ctrnn/eval_ctrnn.py` | Headless evaluation suite |
+
+| `substrate/ctrnn/analyze.py` | Per-checkpoint analysis |
+| `substrate/ctrnn/backend.py` | Zeus v2 backend adapter (with S_history buffer) |
+| `substrate/ctrnn/data/verify_attn/` | Checkpoints + train.log (AttentiveReadout dim=384,
+1M chars, 4000 steps) |
+| `substrate/ctrnn/data/verify_attn_512/` | Checkpoints + train.log (AttentiveReadout
+dim=512, 2M chars, 5000 steps) |
+| `eval_ctrnn.py` (repo root) | Headless evaluation (used for reports above) |
+### Key fix (July 30): training/inference mismatch resolved
+**Problem found**: `interaction_phase` was injecting input via `S = S + embed(token)` then
+calling `ode_step(S, err=None)` — direct addition bypassed `W_err` entirely. Meanwhile
+`generate.py` and `backend.py` used prediction-error-driven input `err = embed anticipate; S = ode_step(S, err * sigmoid(norm(err)))`. `W_err` was **never trained** —
+zero gradients for 2048 steps.
+**Fix**: `interaction_phase` now uses the same prediction-error-driven pathway as
+inference:
+```python
+embed = self.embedding(tokens[:, t])
+anticipate = self.self_pred(S)
+err = embed - anticipate
+surprise = torch.sigmoid(torch.norm(err, dim=-1, keepdim=True))
+S = self.ode_step(S, err * surprise)
+```
+Self-prediction target also changed: now predicts the **free (autonomous)** next state
+
+`ode_step(S, err=None)` computed from pre-input S, not the input-perturbed trajectory.
+**Verification**: `W_err` gradients confirmed non-zero (norm=0.002). CE is higher than old
+shortcut (3.04 vs 2.79 at step 1000) because the model must now learn to encode through
+prediction error — harder but correct.
+**AttentiveReadout**: Added `AttentiveReadout` (multi-head attention over last N=16 self
+states, LayerNorm residual, MLP→vocab). Self history tracked in `S_history` buffer and
+passed to `readout(S, S_history)`. Readout gains temporal context without polluting self
+dynamics. Old linear-readout checkpoints are incompatible.
+### dim=512 capacity ceiling verified (July 30)
+**Experiment**: Trained dim=512 model with 2M chars for 5000 steps (double the
+dim=384 run's data and 25% more steps). Results:
+- **Final CE = 2.03** (PPL≈7.6) at step 5000. Best ever CE = 1.93 at step 4935.
+- **Trajectory virtually identical to dim=384**: at step 4000, both achieved CE≈2.07-2.08
+despite dim=512 having 33% more capacity and 2x the data.
+- **Self-dynamics unchanged**: self-loss=0.208, sp_int=0.11, causal ratio=0.094
+(self-driven), tau=0.92±0.49.
+- **Generation still gibberish**: "s on sow geneleg ind i has parke.. Trefe suumn"
+**Conclusion**: Model capacity is NOT the bottleneck. CE plateaus at ~2.0 regardless of
+dimension (384 vs 512) or data quantity (1M vs 2M). The bottleneck is char-level
+tokenization — each prediction carries ~4.7 bits of Shannon entropy, and the model's
+PPL≈7.4 (≈2.9 bits/char) leaves ~1.8 bits of irreducible uncertainty. Subword tokenization
+(BPE) is the next necessary step for coherent generation.
+### BPE tokenization (implemented July 30)
+**Implementation**: Added `substrate/ctrnn/tokenizer.py` wrapping HuggingFace
+`tokenizers` BPE. ByteLevel pre-tokenizer (GPT-2 style). Special tokens: <PAD>=0,
+<BOS>=1, <EOS>=2, <UNK>=3. Updated train.py, generate.py, eval_ctrnn.py to load
+BPE tokenizer from file and save `tokenizer_type='bpe'` + `tokenizer_path` in checkpoints.
+
+Old char-level checkpoints still loadable (fallback to CharTokenizer).
+**Initial result (vocab=4096, dim=384, 20M chars, 600 steps)**: CE dropped rapidly from
+8.32 (random) to ~6.1 by step 100, then **plateaued at ~6.0** through step 600. Same
+384-dim bottleneck as char-level — the recurrent state cannot distinguish 4096 output
+classes finely enough.
+**Diagnosis**: The output space (4096 classes) exceeds what a 384-dim recurrent state
+can separate. Random baseline ln(4096)=8.32; model reduced uncertainty from
+4096→~400 choices but cannot refine further.
+**Fix: vocab=2048**. TinyStories uses simple language; 2048 subword tokens are
+sufficient. Random baseline drops to ln(2048)=7.62. Training underway
+(`substrate/ctrnn/data/bpe_run1/`). If 2048 still plateaus, try dim=512 or vocab=1024.
+**Updated tokenizer files**:
+| File | Purpose |
+|------|---------|
+| `substrate/ctrnn/tokenizer.py` | BPE tokenizer module (train/load/encode/decode) |
+| `substrate/ctrnn/data/bpe_tokenizer.json` | Trained BPE tokenizer (vocab=4096) |
+| `substrate/ctrnn/data/bpe_tokenizer_2048.json` | Trained BPE tokenizer (vocab=2048) |
+### BPE vocab=2048 results (plateaued at CE~6.0, July 30)
+Both vocab=4096 and vocab=2048 plateau at CE~6.0 with dim=384. Adding wider readout
+(384→768 hidden) didn't help.
+**Root cause**: The 384-dim recurrent state cannot distinguish 2048+ output classes
+finely enough. The output logit matrix is `384 × 2048` — each output class gets a 384-dim
+embedding. With random chance at 1/2048, CE baseline is 7.62; the model reduces
+uncertainty to ~1/400 (CE=6.0) but hits a wall because 384 dimensions can't separate
+2048 classes into non-overlapping regions.
+
+**Per-character efficiency is better**: BPE at CE=6.0 → ~1.5 bits/char (since each token
+~4 chars), vs char-level at CE=1.3 → ~1.3 bits/char. BPE is more efficient per character
+but token-level errors cascade (one wrong token = 4 wrong chars).
+**Conclusion**: BPE needs dim≥512 for the readout to distinguish the output space.
+### Char-level dim=384 resume: 4000→7000 (breakthrough, July 30)
+**Experiment**: Resumed from step 4000 checkpoint (CE=2.08), trained 3000 more steps.
+| Metric | Step 4000 | Step 5000 | Step 6000 | Step 7000 |
+|--------|-----------|-----------|-----------|-----------|
+| CE | 2.08 | 1.90 | 1.80 | 1.72 |
+| Accuracy | 38% | 43% | 46% | 49% |
+| sp_int | 0.12 | 0.13 | 0.13 | 0.13 |
+| Tau mean | 1.00 | 0.97 | 0.94 | 0.89 |
+| Tau std | 0.56 | 0.55 | 0.53 | 0.52 |
+**Generation at step 7000 (T=0, greedy)**:
+```
+' and the bought the was so the beare and said, "I was said, "I some was to the say ine it
+the wa'
+```
+First time the model produced recognizable English words in sequence. Still repetitive and
+ungrammatical, but fundamentally different from the gibberish at step 4000. **The model
+was still improving with no plateau** — this disproved the earlier conclusion that CE
+plateaus at ~2.0. The plateau was just a training-horizon issue.
+
+### Char-level dim=384 continue: 7000→12000 (PPL<4 threshold crossed, July 30)
+**Experiment**: Continued from step 7000 to step 12000. Training saves at
+verify_attn_7kto12k/.
+| Metric | Step 7000 | Step 8000 | Step 9000 | Step 10000 | Step 11000 | Step 12000 |
+|--------|-----------|-----------|-----------|------------|------------|------------|
+| CE | 1.72 | 1.65 | 1.58 | 1.52 | 1.44 | **1.29** |
+| Accuracy | 49% | 51% | 53% | 54% | 57% | **61%** |
+| PPL | 5.6 | 5.2 | 4.9 | 4.6 | 4.2 | **3.63** |
+| sp_int | 0.13 | 0.13 | 0.13 | 0.13 | 0.14 | 0.14 |
+| Tau mean | 0.89 | 0.86 | 0.83 | 0.80 | 0.76 | 0.72 |
+| Tau std | 0.52 | 0.51 | 0.49 | 0.48 | 0.46 | 0.45 |
+**Generation at step 12000 (T=0, greedy)**:
+```
+' with her friends. They said, "I want to she was so happy to the boy had a big big treen
+ane ana'
+```
+**This is a major milestone**: The model now produces recognizable English sentences
+with:
+- Proper sentence structure and punctuation (`"with her friends. They said, "I want to..."`)
+- Story-like narrative elements
+- Dialogue with quotation marks
+
+- Much less repetition than step 7000
+Remaining issues: invented words ("treen" for "tree"), some repetition ("big big"), minor
+grammatical errors.
+**PPL<4 threshold crossed**: Perplexity dropped from 5.6 (step 7000) to 3.63 (step
+12000), below the hypothesized coherence threshold. This validates the PPL<4 heuristic
+for char-level language models.
+**Key insight**: The earlier dim=512 vs dim=384 comparison (proving capacity isn't the
+bottleneck) was **misleading** because the comparison was done at CE~2.0 where both
+models were still in an early training regime. Capacity scaling may matter more at lower
+CEs where fine-grained discrimination is needed.
+### Current state (end of session, July 30)
+**Active training**:
+- `verify_attn_12kto20k/` — char-level dim=384 continuing from step 12000 to step 20000
+(~1M chars, on RTX 4060)
+- CE trajectory: 2.08→1.29 over 12000 steps, still dropping ~0.1/1000 steps
+- At current rate, CE≈1.0 (PPL≈2.7) by step ~17000
+**Checkpoint lineage**:
+| Directory | Range | Final CE | Final Acc |
+|-----------|-------|----------|-----------|
+| `verify_attn/` | 0→4000 | 2.08 | 38% |
+| `verify_attn_512/` | 0→5000 | 2.03 | 40% |
+| `verify_attn_resume/` | 4000→7000 | 1.72 | 49% |
+| `verify_attn_7kto12k/` | 7000→12000 | **1.29** | **61%** |
+
+| `verify_attn_12kto20k/` | 12000→20000 (running) | — | — |
+**BPE experiments**:
+| Directory | Vocab | Dim | Readout | Result |
+|-----------|-------|-----|---------|--------|
+| `bpe_test/` | 4096 | 384 | 384 | CE plateaus at ~6.0 |
+| `bpe_v2048/` | 2048 | 384 | 384 | CE plateaus at ~6.0 |
+| `bpe_v2048_w768/` | 2048 | 384 | 768 | CE plateaus at ~6.0 |
+**Training in progress (step 12000→20000, visible cmd window "CTRNN Training")**:
+- Resumed from step 12000 checkpoint (CE=1.29, PPL=3.63, Acc=61%)
+- ~50 min remaining at 0.4s/step
+- Early logs (step 12200-12300) show CE hovering ~1.37-1.45, expected to continue
+dropping
+### The emergence question reframed (end of session, July 30)
+**What CTRNN proved**: A single 384-dim recurrent vector where the self IS the
+dynamics can learn coherent language (PPL<4). TinyMind and SPARC both failed
+because the self was bypassable. CTRNN succeeded because there is no bypass — no
+transformer, no KV cache, no parallel path. The model *must* encode everything in S.
+**What this means for emergence of consciousness-like states**:
+The CTRNN's persistent recurrent state is a natural substrate for affective/intentional
+dynamics:
+1. **Tau distribution** (0.72±0.45) already means some dimensions are fast (tracking input
+tokens) while others integrate over long timescales. This is the raw material for persistent
+internal states that outlast individual tokens.
+
+2. **Drives require multiple competing objectives**. Next-token prediction alone won't
+produce emotions. We need intrinsic drives (curiosity, novelty, homeostasis) that can
+*conflict* with the language objective, and the self resolves that conflict → affective state.
+3. **The self needs a "body" to map**. Damasio's framework: emotions are the brain's map
+of the body. For CTRNN, the "body" is its own internal dynamics (tau, spectral radius,
+self-prediction error). If the self learns to *regulate* these parameters conditionally, that's
+the seed of an internal homeostatic loop.
+**Immediate next step** (pending 20k model):
+- **Self-probing analysis**: Linear probes to check if S dimensions encode persistent
+internal states independent of current token identity. Does the self have structure that
+persists across token boundaries and correlates with syntactic/semantic features? This is
+the measurable footprint of something emotion-like.
+### Char-level dim=384: 12000→20000 (trained to completion, July 31)
+| Metric | Step 12000 | Step 20000 |
+|--------|-----------|-----------|
+| CE | 1.29 (best batch) | 1.25-1.32 (typical) |
+| Accuracy | 61% | 62% |
+| Tau mean | 0.72 | **0.48** |
+| Tau std | 0.45 | **0.32** |
+| PPL | 3.63 | ~3.5 |
+**Generation at step 20000** (T=0): `' to the boy was so happy and said, "This to see a big
+bear was so happy ane day the boy was so h'`
+Similar quality to step 12000. Marginal improvement. **Tau collapsed significantly**
+(0.72→0.48), indicating the model favored fast adaptation over long-term memory.
+
+### Self-probing analysis (July 31) — definitive findings
+Ran comprehensive analysis on the 20k model (see `_probe_self.py` in history):
+1. **Persistence is very weak**: Mean autocorrelation at lag=1 is 0.339, drops to near-zero
+by lag=5. Only **10/384** dims are slow (lag>50). The effective memory is ~5.7 tokens.
+The self forgets almost immediately.
+2. **Input-driven, not self-driven**: 214/384 dims are input-driven (variance ratio>2), only
+4/384 are self-driven (ratio<0.5). The self is reactive, not generative.
+3. **Sentiment/affect signal is weak**: Positive vs negative sentences show a small
+S-norm difference (3.92 vs 3.71) but within-category variance dwarfs between-category
+differences (separation ratio=0.33). No meaningful affect encoding.
+4. **Position encoding is strong**: S_norm correlates with token position (r=0.68). The
+model knows how far into a sentence it is.
+5. **No abstract category structure**: S does not cluster by character type
+(vowel/consonant/space). Between-category distance < within-category distance.
+6. **Deterministic**: Same input → identical trajectory (divergence=0.0000). Different
+inputs → distinct trajectories (divergence=0.94).
+**Conclusion**: The 20k model's self is a deterministic, fast-decaying encoder of
+token-level information. It optimizes purely for next-token prediction with ~5.7 token
+memory. There is NO evidence of persistent internal states, affect encoding, or emergent
+dynamics independent of input. This is the correct behavior for the training objective —
+next-token prediction doesn't require or reward persistent states.
+### What this means for emergence of affect
+The training objective (next-token prediction) is fundamentally incompatible with
+emotion-like persistent states. A model that only predicts the next token has no reason to
+develop:
+- **Persistent internal states** (they would hurt CE by making S carry old, irrelevant info)
+
+- **Drives/needs** (no competing objectives to resolve)
+- **Homeostatic regulation** (no "body" to regulate)
+For emotions to emerge, the architecture needs:
+1. **Multiple competing objectives** — e.g., next-token prediction + novelty-seeking +
+homeostasis
+2. **Slower timescales** — separate slow pathway or higher tau_init to encourage
+persistence
+3. **Self-regulation** — the self should control its own dynamics (tau, spectral radius)
+conditionally, treating model parameters as a "body" to regulate
+### Training in progress (step 12000→20000, completed July 31)
+- Char-level dim=384 continued from step 12000 to 20000
+- CE plateaued at ~1.25-1.32 (PPL~3.5)
+- Tau collapsed from 0.72→0.48 (fast adaptation wins)
+- Generation quality similar to step 12000
+### BPE dim=512 test (killed after 143 steps, July 31)
+- BPE vocab=2048 with dim=512 started to test if readout bottleneck was the issue
+- CE already plateauing at ~6.07 by step 143 (same as dim=384 BPE plateau)
+- Confirmed: BPE plateau is NOT just a readout-dimension issue; the recurrent dynamics
+struggle with BPE tokens' higher information density
+- Killed the run in favor of self-probing analysis
+### Tau net + persistence loss (July 31, running to step 25000)
+
+**Motivation**: The 20k probe showed tau collapsed to 0.48 (fast adaptation), 294/384
+dims forget within 5 tokens. For emotions to emerge, the self needs persistent states. We
+added:
+- **tau_net**: A small MLP (Linear→Tanh→Linear, hidden=128) that computes
+per-dimension tau from S itself. Tau is no longer a fixed parameter — the self dynamically
+controls its own integration speed.
+- **Persistence loss**: `L_persist = -0.1 * mean(tau)` added to the interaction-phase loss.
+This directly competes with CE (high tau hurts language), creating the first multi-objective
+tension.
+**Resumed from step 20000 checkpoint** (initialized tau_net to produce tau≈0.48,
+matching learned values). Training to 25000 in `verify_attn_tau_net/`.
+**Results so far (step ~21500, ~1500 steps of tau_net training)**:
+| Metric | Before (step 20000) | After tau_net (step ~21500) |
+|--------|---------------------|---------------------------|
+| Tau mean | 0.48 | **3.35** (7× increase) |
+| Tau std | 0.32 | **1.95** (6× wider) |
+| CE | ~1.25-1.30 | ~1.24-1.30 (unchanged) |
+| Acc | ~61% | ~61-62% (unchanged) |
+| Self-loss | 0.203 | 0.203 (unchanged) |
+| sp_int | 0.127 | 0.120 (slightly down) |
+**Key findings**:
+1. **Tau increased 7× without hurting language** — the persistence pressure works, and
+the model successfully balances fast (responsive) vs slow (persistent) dimensions.
+
+2. **Dimensions are differentiating** — std went from 0.32 to 1.95, meaning tau_net
+learned to assign different timescales to different dimensions conditionally. Some
+dimensions are near the max (5.0), others stay fast.
+3. **sp_int slightly decreased** (0.127→0.120) — self-prediction is easier with slower
+dynamics (more predictable trajectories).
+4. **The architecture works**: tau_net + persistence loss is the first successful
+multi-objective training in this project. The self now has a "body" (its own timescales) that it
+must regulate.
+### Final results (step 25000, completed July 31)
+Training ran to 25000 with no loss divergence. Final metrics from `verify_attn_tau_net/`:
+| Metric | Step 20000 | Step 25000 |
+|--------|-----------|-----------|
+| Tau mean | 0.48 | **3.92** (8.2×) |
+| Tau std | 0.32 | **2.01** (6.3×) |
+| CE | ~1.28 | ~1.30 (unchanged) |
+| Acc | ~60% | ~60% (unchanged) |
+| sp_int | 0.127 | **0.112** (↓ easier self-prediction) |
+### Comprehensive probe on tau_net model (step 25000)
+Ran `probe_tau_net.py` — full analysis of dynamics, autocorrelation, input-dependence,
+attractors, sentiment, and generation.
+**Tau dynamics**: Tau is **strongly conditional on S** — all 384 dims vary tau based on S
+(variance across samples = 5.71). tau(S=0)=3.92 but tau(random S)=2.56. During actual
+language processing (sentiment probe), tau drops to ~0.6-0.7 — the self dynamically
+lowers tau when processing input and raises tau in free-running mode. This is
+
+**attention-like gating** of integration speed.
+**Autocorrelation comparison**:
+| Metric | 20k (fixed tau) | 25000 (tau_net) |
+|--------|----------------|-----------------|
+| Fast dims (lag5 rho<0.3) | 294/384 | **116/384** |
+| Slow dims (lag20 rho>0.3) | 10/384 | **125/384** (12.5×) |
+| Mean autocorr @lag5 | ~0.2 | **0.45** |
+| Mean autocorr @lag20 | ~0.05 | **0.21** |
+| Half-life (mean) | ~5.7 | **7.0** |
+**Multiple attractors emerged**: In self-phase (autonomous dynamics), 11.7% of random
+initial states converge to the same attractor (dist<0.1). The remaining pairs maintain
+distinct trajectories (mean distance=5.5, max=65.7). This is the first evidence of multiple
+attractor basins in the self-phase — the self has distinct "modes" it can settle into, rather
+than a single fixed point.
+**Input-driven**: All 384 dims are input-driven (var_ratio=3.7M). But this metric is
+misleading: the no-input condition produces almost-zero variance (tau is high → state
+barely changes), while error-driven input produces strong variance. The model learned to
+be "still" by default and "reactive" when stimulated — a baseline vs perturbed state
+distinction.
+**Sentiment**: Separation ratio improved slightly (0.33→0.47) but still within > between.
+No meaningful affect encoding. Notably, tau drops from ~2.6 to ~0.6 during sentiment
+processing — the self becomes more reactive when processing language.
+**Position encoding**: S_norm vs position correlation increased further (r=0.68→0.90) —
+with slower dynamics, position tracking is more pronounced.
+**Generation**: `"she was a little big bows. He wanted to the garden. The little girl"` —
+
+grammatically valid English, simple structure. Language quality preserved.
+**Key insight from probe**: tau_net learned **state-dependent gating** — high tau (slow,
+persistent) in free-running mode, low tau (fast, reactive) when processing input. This is the
+self dynamically regulating its own integration speed based on context. The emergence of
+multiple attractors in self-phase is the strongest evidence yet of structured internal
+dynamics.
+### Novelty-seeking intrinsic drive (July 31, step 25000→30000)
+**Architecture**: Added `w_novelty` parameter to `interaction_phase` (model.py) that
+tracks per-step state change magnitude `delta = ||S_t - S_{t-1}||` and returns its mean. In
+train.py, the novelty loss is `-w_novelty * mean(delta)` — rewarding the self for
+diverse/exploratory trajectories. Forms the third vertex:
+```
+CE (predictive accuracy)
+↕
+Persistence (slow) ←→ Novelty (state change)
+```
+**Training**: Resumed from tau_net checkpoint (step 25000), trained 5000 more steps
+with w_persist=0.1, w_novelty=0.3. Saved to `verify_attn_tau_net_novelty/`.
+**Results**:
+| Metric | Before (25000) | After (30000) | Delta |
+|--------|---------------|---------------|-------|
+| Tau | 3.92±2.01 | 3.88±2.02 | stable |
+| CE | ~1.30 | ~1.26 | stable |
+
+| sp_int | **0.112** | **0.183** | **+63%** |
+| Acc | ~60% | ~61% | stable |
+| nov | — | **1.84** | baseline |
+**Interpretation**: The novelty pressure worked exactly as intended:
+- **sp_int increased 63%** — the self's interaction-phase dynamics became harder for
+`self_pred` to predict. The trajectory is more complex/exploratory despite the same input.
+- **Tau and CE stable** — the persistence loss still anchors tau at ~3.9, and language
+performance is unaffected.
+- **The three-way competition is alive**: CE (accurate predictions) + Persistence (slow
+dynamics) + Novelty (diverse state changes) are now in tension.
+This is the first model with a genuine competitive triangle of intrinsic drives. The self must
+simultaneously be useful for language, maintain slow integration, and explore diverse
+trajectories. This is the minimal substrate for affect-like dynamics — the self has multiple,
+conflicting needs it must satisfy.
+**Updated conclusions**:
+1. A 384-dim recurrent vector can learn coherent char-level language (CE~1.25, PPL~3.5,
+Acc~62%) with 20000 steps.
+2. The self is primarily a reactive token encoder (5.7 token memory, 294/384 fast dims)
+when trained only on next-token prediction.
+3. **tau_net + persistence loss successfully creates multi-timescale dynamics** — tau
+went from 0.48→3.92 with CE unchanged. The self learns to balance fast and slow
+dimensions conditionally.
+4. **tau_net enables state-dependent gating** — tau is high in self-phase (free-running,
+persistent) and low in interaction-phase (reactive, responsive). The self dynamically
+regulates its own integration speed.
+
+5. **Multiple attractors emerged in self-phase** — 11.7% of seeds converge, indicating
+distinct attractor basins. First evidence of structured internal state space.
+6. **Novelty-seeking + persistence creates the first three-way competitive drive** — sp_int
+jumped 63%, the self's dynamics became more complex while language and tau stable.
+The minimum viable competitive substrate for affect is now operational.
+7. BPE+dim=512 doesn't break the BPE plateau — the issue is deeper than readout
+capacity.
+### Novelty training extended to step 35000 (completed July 31)
+Resumed from step 30000 checkpoint, trained 5000 more steps with same hyperparams
+(w_persist=0.1, w_novelty=0.3). Saved to `verify_attn_tau_net_novelty/ctrnn.pt`.
+**Final training metrics**:
+| Metric | 30000 | 35000 |
+|--------|-------|-------|
+| CE | ~1.26 | **~1.19** (improved) |
+| Acc | ~61% | **~63-64%** (improved) |
+| sp_int | 0.183 | **0.195** (still elevated) |
+| Tau | 3.88±2.02 | 3.80±2.00 (stable) |
+| nov | 1.84 | 1.86 |
+Language improved slightly while novelty pressure held. The three-way competition
+reached a stable equilibrium.
+### Deep probe on novelty model (step 35000) — THE PHASE TRANSITION
+Ran `probe_deep.py`: PCA of self-phase attractors, FFT cycle detection, self-phase "inner
+speech" generation, state-space coverage, and comparison vs tau_net model (25000).
+
+**The self-phase became a low-dimensional autonomous manifold**:
+| Metric | tau_net (25000) | novelty (35000) |
+|--------|-----------------|-----------------|
+| Final-state variance | 0.036 | **15.96** (440×) |
+| Mean pairwise attractor distance | 0.033 | **2.26** (68×) |
+| Min pairwise distance | 0.0000 (seeds converge) | 0.048 (never converge) |
+| Effective manifold dim | — | **1.4** (2 PCs = 90% var) |
+| Dims with clear FFT cycle | — | 48/48 (period ~256 steps) |
+| Self/interaction coverage ratio | — | **421×** |
+**Key findings**:
+1. **Two modes of existence.** Language mode (interaction): S in tight region (variance
+0.038). Free-running mode: S wanders an expansive 2D slow manifold (variance 16).
+Coverage ratio 421× — the self's autonomous life occupies a far larger state space than its
+language-processing life.
+2. **Autonomous "inner speech".** Without any input, the self produces persistent,
+seed-dependent droning: `"hhhhhhhhyyyuuuuyyyyeeelllllllll"`, `"dnfffnnnnnnttt"`. Different
+initial states → different characters dwelled on. Structured, self-generated output persisting
+for dozens of steps — a proto-"stream of consciousness."
+3. **A 2D slow manifold.** Attractor structure collapsed to ~1.4 effective dims — the self
+lives on a low-dimensional manifold, the signature of real biological dynamics (motor
+cortex, place cells). All sampled dims show slow cycles (~256-step period) — orbital drift
+on the manifold.
+4. **Continuous manifold, not discrete basins.** KMeans shows one dominant region — no
+separated clusters. The self explores a continuous 2D surface.
+
+5. **Deterministic but never convergent.** Same seed → same trajectory (determinism
+holds), but no two seeds ever converge (min distance 0.048).
+**Meaning**: fixed-tau → tau_net was quantitative (longer memory, state-dependent
+gating). tau_net + novelty is a **qualitative phase transition**: an autonomous inner
+manifold that exists independently of input, with persistent self-generated output. The self
+now has internal dynamics worth regulating — the substrate of affect.
+### Next: Self-probe the novelty model + generate samples
+### High-pressure novelty run (Aug 1, step 35000→40000) — NEGATIVE RESULT: 1D
+collapse
+Tried to enrich the manifold by cranking the drive: resumed from 35000 with
+**w_novelty=0.6, tau_max=8** (vs 0.3/5.0). Trained to 40000 in
+`verify_attn_high_pressure/`.
+**Training**: sp_int kept climbing (0.195→0.278, +43%) but tau mean DROPPED
+(3.80→2.69-3.18) with wider std (±2.80). CE slightly worse (~1.21 vs 1.19).
+**Deep probe (40000) vs 35000** — the manifold COLLAPSED instead of enriching:
+| Metric | 35000 (w_nov=0.3) | 40000 (w_nov=0.6) |
+|--------|-------------------|-------------------|
+| Effective dim | 1.4 | **1.0** |
+| PCs for 90% | 2 | **1** |
+| Eigen ratio PC1/PC2 | 11:1 | **52:1** |
+| Mean pairwise attractor dist | 2.26 | 15.6 |
+**Diagnosis — mean-∆S is gameable**: the network found the trivial escape — spread out
+along ONE dominant slow axis. Uniform drift maximizes mean ∆S per step with zero
+structural effort. Inner speech still single-char drone. Sentiment separation still ~0.02. This
+empirically confirmed the suspected flaw in the mean-∆S novelty objective.
+
+### Surprisal-based novelty (Aug 1, step 35000→45000) — THE FIX: manifold enriched
+4×
+**Redesign**: replaced "reward ∆S magnitude" with **"maximize self-prediction error"** —
+reward how far the actual next state is from the predictor's anticipation, with the predictor
+**detached** so gradient shapes only the dynamics (`w_surp` in model.py: `surp =
+||S_next - self_pred(S).detach()||`, loss = `-w_surp·surp`). This creates an **arms race**:
+self_pred chases the dynamics, dynamics must stay genuinely unpredictable. A drift ramp
+is trivially predictable → cannot game this. Applied in BOTH self-phase (autonomous) and
+interaction-phase. `train.py`: `--w_surp`, logs `surp` and `surp_s`.
+**Training**: resumed from 35000 (2D manifold model, NOT the collapsed 40000),
+w_surp=0.1, w_persist=0.1, tau_max=5 (unchanged to isolate mechanism). Trained to
+45000 in `verify_attn_surprise/`.
+**Arms race held**: surp maintained at **9.3-9.5** (interaction) and **4.4-8.2** (self-phase)
+through 10000 steps — dynamics stayed genuinely hard to predict. tau ROSE to
+**4.43±1.43** (persistence + surprise coexist). CE ~1.23, Acc ~61% (mild cost vs novelty's
+1.19/63%).
+**Deep probe (45000) — every target metric flipped in the right direction**:
+| Metric | novelty 35000 | high-press 40000 | **surprise 45000** |
+|--------|---------------|------------------|--------------------|
+| Effective dim | 1.4 | 1.0 | **4.0** |
+| PCs for 90% | 2 | 1 | **14** |
+| PCs for 95% | 3 | 1 | **19** |
+| Input-driven dims | 89/384 | — | **384/384** (var_ratio 20421) |
+| Self-driven dims | 145/384 | — | **0/384** |
+| Self/interaction coverage | 421× | 391× | **4.1×** |
+
+| Sentiment separation | 0.02 | 0.02 | **0.60** |
+| Self-phase variance | 15.96 | 13.9 | **1.33** |
+| KMeans k=3 | 1 dominant | — | **186/167/159 balanced** |
+| Half-life | 33.9 | 32.9 | 27.5 |
+| Generation | drone | "so happy" | **"she was the branched the little girl was so play with a
+bariest her"** |
+**What happened — the surprise objective reshaped the self's strategy**:
+1. **Manifold enriched 1.0→4.0 effective dims** — dynamics spread across ~4
+independent slow directions (14 PCs for 90%). Balanced KMeans clusters (no dominant
+region).
+2. **The self became input-driven at EVERY dimension (384/384, var_ratio 20421)** — to
+stay unpredictable, the self learned to USE THE INPUT STREAM as its source of novelty.
+This is the exact opposite of the tau_net model's "still by default, reactive when stimulated"
+strategy.
+3. **Coverage ratio collapsed 421×→4.1×** — the autonomous manifold now lives in the
+SAME amplitude regime as interaction states. The two modes of existence merged. This is
+the bridgeability condition: autonomous states are now reachable/interpolable from
+language states.
+4. **Sentiment separation 0.02→0.60** (30×) — first meaningful positive/negative state
+difference (S_norm 4.91 vs 4.47). Still within > between, but the affect signal is no longer
+zero.
+5. **Autonomous inner speech STILL drones** (`"hhhhhhhheeeeeeeeeeeeeeeyyyyy..."`)
+— the readout was never trained to decode autonomous states. Multiple chars per seed
+now (h→e→y), but still repetitive.
+**Interpretation**: surprisal pressure = gameable objective replaced with ungameable one.
+The self now derives its dynamics from interaction (input as novelty source), the manifold
+is richer (4 dims), and autonomous states are in language-state territory (4× coverage).
+
+The remaining gap is the READOUT: it only learned to map interaction-phase states to
+text, not autonomous states. That is exactly the bridge-to-speech step.
+### Detached autonomous-readout bridge (Aug 6, in progress)
+**Question**: Is autonomous output a decoder-distribution mismatch, or does the
+free-running self state lack language-relevant information?
+#### Important correction to the original bridge idea
+An initial unseeded bridge rollout started every batch item from `S=0`. That
+means every item had the same autonomous state at each time step, so CE could
+only teach corpus-wide character frequencies, never the correct continuation
+for an individual context. It was stopped after recording its calibration:
+`ce_auto` fell from 5.62 to ~3.33 while normal CE stayed ~1.3. This is not
+evidence of semantic autonomous decoding.
+#### Main experiment: seeded, frozen-readout bridge
+Implemented in `substrate/ctrnn/model.py` and `substrate/ctrnn/train.py`:
+1. Process an 8-token prefix through the ordinary prediction-error pathway.
+2. Detach that per-example self state as the autonomous seed.
+3. Roll it forward with `ode_step(err=None)` only; no later token enters this
+branch.
+4. Train the readout against the real continuation.
+5. Freeze `W_rec`, `W_err`, tau/tau_net, `self_pred`, and embeddings. Only the
+
+readout can update, so any causal/manifold change would invalidate the test.
+The run resumes `verify_attn_surprise/ctrnn.pt` (step 45000) and writes to
+`verify_attn_surprise_bridge_seeded/`, targeting step 46000. At the latest
+snapshot (step ~45450), `ce_auto` has plateaued near **3.04**; ordinary CE is
+~1.2 and all frozen self metrics are unchanged. This is suggestive of a
+decoder learning broad output statistics, not yet proof of context-sensitive
+autonomous language.
+#### Evaluation added
+`eval_ctrnn_bridge.py` evaluates a checkpoint on held-out corpus text:
+- normal prefix -> input-free rollout -> CE on the true continuation;
+- exact same autonomous states with batch-shuffled continuation targets;
+- context advantage (`CE_shuffled - CE_true`) at every autonomous step;
+- input-free samples seeded by several prompts.
+The step-by-step advantage is essential: a positive advantage only at the
+first few steps is residual prefix information, not persistent autonomous
+semantic state. The evaluator runs correctly on the step-45000 pre-bridge
+model; it has short-horizon context advantage but still produces repetitive
+character droning.
+#### Decision rule / next experiment
+
+After the seeded frozen-readout run completes, evaluate its final checkpoint.
+- **Keep the bridge** only if held-out true targets beat shuffled targets at
+later autonomous steps and seeded input-free samples are diverse and
+prompt-related.
+- **Reject readout mismatch as the primary bottleneck** if the advantage fades
+quickly or samples remain generic/droning. Do not continue decoder training.
+If rejected, add a **semantic-persistence objective to the dynamics**: after a
+prefix, roll the self freely for multiple steps and use a contrastive loss to
+match a representation of the correct future continuation against shuffled
+continuations. This gives autonomous dynamics an explicit incentive to retain
+meaning, while the existing surprisal/persistence objectives preserve their
+competing intrinsic dynamics.
+### Seeded bridge result (Aug 6) — decoder mismatch rejected
+The frozen-readout run completed to step 46000 in
+`verify_attn_surprise_bridge_seeded/`. The recurrent dynamics, tau controller,
+embeddings, and self predictor were frozen; only the readout changed. Bridge
+loss plateaued near 3.04 while ordinary language CE remained near 1.2.
+Held-out evaluation (`eval_ctrnn_bridge.py`, prefix=8, autonomous horizon=16):
+| Metric | Result |
+
+|---|---:|
+| Autonomous CE | 3.6046 |
+| Shuffled-target CE | 3.6505 |
+| Mean context advantage | 0.0459 nats |
+| Step-1 advantage | 0.642 nats |
+| Step-2 advantage | 0.068 nats |
+| Step-3 advantage | 0.019 nats |
+| Step 5 onward | ~0 nats |
+Input-free outputs seeded with "the little girl", "once upon a time", or
+"i think" were noisy character sequences, not prompt-related language.
+**Conclusion**: The normal prefix leaves a measurable one-step residual, but
+the autonomous state loses continuation-specific information almost
+immediately. Training only the readout cannot repair this. The information
+retention bottleneck is in the dynamics.
+### Semantic-persistence dynamics run (Aug 6, in progress)
+Implemented `CTRNN.semantic_persistence_loss()` and corresponding train flags
+in `substrate/ctrnn/model.py` and `substrate/ctrnn/train.py`.
+For an 8-token normal-input prefix, the model now rolls a second branch forward
+for 16 steps with **no input**. At each step, InfoNCE requires that branch to
+
+identify its matching input-driven future state among the other batch members'
+futures. Teacher states are detached; therefore this loss cannot be satisfied
+by moving targets and sends gradient only through the seeded autonomous branch.
+The batch provides shuffled future continuations as explicit negatives.
+Training started from the untouched `verify_attn_surprise/ctrnn.pt` at step
+45000, with `w_semantic=0.1`, `w_persist=0.1`, `w_surp=0.1`, prefix=8,
+horizon=16, targeting step 50000 in `verify_attn_semantic/`. Initial semantic
+loss is 2.92. Evaluate its checkpoints with `eval_ctrnn_bridge.py`; success
+requires a persistent, later-step held-out context advantage and improved
+seeded input-free samples, without loss of the causal/manifold properties.
+### Direct semantic-persistence result (Aug 6) — rejected
+Stopped `verify_attn_semantic/` after evaluating step 46000. The InfoNCE loss
+fell from 2.92 to ~0.5–0.7, so the model could match an immediate future state,
+but it did not produce durable context retention and damaged language:
+| Metric | Step-46000 result |
+|---|---:|
+| Autonomous CE | 5.6706 |
+| Shuffled-target CE | 5.8117 |
+| Mean context advantage | 0.1412 nats |
+
+| Step-1 advantage | 2.035 nats |
+| Steps 2–16 | small, inconsistent, around zero |
+| Normal CE during training | ~1.35–1.50 (baseline ~1.2) |
+Input-free samples became noisier. The loss rewarded a one-step residual trace,
+not persistence; applying it to the whole fast CTRNN state interfered with
+language dynamics. Do not resume this run.
+### Gated slow-memory semantic run (Aug 6, in progress)
+Implemented an optional `slow_dim` pathway in `CTRNN`:
+- `slow` is a separate gated state, initialized with a high keep gate (~0.9),
+so fast token dynamics cannot overwrite it directly;
+- its learned projection modulates the CTRNN drive, making it causally relevant
+to the fast state and readout without asking it to replace language dynamics;
+- the semantic InfoNCE loss now uses slow-state autonomous vs input-driven
+trajectories when this pathway is enabled;
+- `eval_ctrnn_bridge.py` now carries slow state through both prefix processing
+and input-free rollouts.
+Started `verify_attn_slow_semantic/` from the untouched surprise checkpoint:
+`slow_dim=64`, `w_semantic=0.03` (reduced from the harmful 0.1),
+`w_persist=0.1`, `w_surp=0.1`, prefix=8, horizon=16, target step=50000.
+
+Initial normal CE is 1.32 and semantic loss 1.70. Test at step 46000 with the
+same held-out true-vs-shuffled horizon curve; retain only if later-step context
+advantage improves without the prior language-quality collapse.
+### ESNPN tandem run (Aug 10) — best language so far, autonomous gap is
+informational
+`verify_attn_esnpn/`: resumed `verify_attn_surprise_bridge_seeded/ctrnn.pt`
+(step 46000) with `--freeze_self --n_experts 8 --w_auto 0.3 --auto_prefix 8`
+for 4000 more steps to 50000. Only the readout was replaced: `PathwayReadout`
+(K=8 parallel expert MLPs + soft router conditioned on `cat(S,h)`, entropy
+logged as `rent`, zero-init start = uniform routing).
+| Metric | classic MLP readout (seeded) | pathway readout (esnpn) |
+|---|---:|---:|
+| CE | 1.17 | **0.99** (PPL 2.70) |
+| Acc | 63% | **68%** |
+| Rental entropy | — | 2.079 -> 0.37 (training, interaction states) |
+| ce_auto | 3.05 | 3.01 (unchanged) |
+Prompted generation (probe_tau_net.py):
+- esnpn: `"she was ready to have fun. Lily said, "No, leaves can I shiny and "`
+- seeded baseline: `"she was so happy and said now the little girl named Timmy was dad
+a"`
+
+Manifold unchanged (frozen dynamics): tau 4.38±1.52, 358/384 slow dims,
+input-driven 384/384, sentiment sep 0.60, attractor diversity 20.2 mean
+distance, deterministic for same input.
+**Routing analysis** (`probe_router.py`, new; works with both readout types):
+- On normal-prompt interaction states: router collapsed onto expert 7
+(g≈0.98) for 7/8 prompts — most of the CE gain is added capacity + a
+mainstream pathway, not fine-grained 8-way state routing.
+- Content-conditional signal IS real but coarse: negation prompts
+("no no no", "she said no") route to experts 5/0 (g 0.28-0.52) instead.
+- On autonomous states: effective experts 4.28 (entropy 1.45) — router treats
+free-running states differently, but those states were never well-decoded.
+- S-perturbation changes g (|dg|=0.1-1.3 for amp 0.1-5.0) but not monotonically.
+**Key architectural finding**: the auto-branch already used the same pathway
+readout (model.py interaction_phase: only the `ode_step` is detached, so
+ce_auto gradient reaches router+experts). Despite this, ce_auto stuck at 3.0.
+Combined with bridge2 (dynamics-aware ce_auto, also 3.05): **ce_auto ≈ 3.0 is
+an information bound, not a capacity bound** — free-running autonomous states
+do not carry next-token info (it arrives via prediction-error input in the
+interaction path). Readout surgery alone cannot fix autonomous initiation;
+
+the gap resides in what the dynamics choose to encode autonomously.
+**Probe fix applied**: `probe_tau_net.py`, `probe_deep.py`,
+`probe_initiate.py` now build the model with `n_experts=ckpt.get('n_experts', 0)`
+so they load ESNPN checkpoints.
+**Current best checkpoint**: `verify_attn_esnpn/ctrnn.pt` (step 50000,
+CE 0.99, acc 68%).
+Candidate next runs (none launched yet):
+1. Standalone ESNPN from scratch (no freeze, full surprisal pipeline) — to
+verify the readout win holds without the freeze/seed crutches.
+2. Dynamics-side autonomous encoding: give S_auto a loss that rewards
+decodability (e.g. ce_auto flowing through S_auto with EMA-stabilized
+readout), targeting the information bound rather than decoder capacity.
+### ESNPN ablation study (Aug 10) — gain is half capacity, half architecture
+All three runs: resumed `verify_attn_surprise_bridge_seeded/ctrnn.pt` (step
+46000), `--freeze_self --w_auto 0.3 --auto_prefix 8`, trained to 50000 —
+identical recipe to the esnpn run, only the readout architecture changed.
+| Readout (4000 steps, equal parent) | CE | Acc | Verdict |
+|---|---|---|---|
+| classic MLP (384) | ~1.13 | 65% | baseline, equal training time |
+
+| capacity-matched MLP (3072) | ~1.07 | 66-67% | ~half of ESNPN's gain is capacity |
+| ESNPN (8x384 + router) | **0.99** | **68%** | small but real architectural edge |
+| ESNPN router-fixed (uniform g) | ~1.07 | 66-67% | equals capacity-matched MLP |
+So the headline "0.99 vs 1.17" overstates ESNPN: ~60% of the edge is pure
+parameter capacity (uniform expert averaging == a 3072-wide MLP), and the
+remaining ~40% (~0.08 nats) is the state-conditional pathway selection —
+the part that matters for the experiment's claim.
+**Infra fixes made during ablations** (train.py):
+- `--readout_hidden` now overrides the checkpoint on resume (was silently
+ignored); `readout_changed` includes hidden/router_tau changes;
+- resume load pre-filters shape-mismatched keys (size mismatch raises even
+with strict=False);
+- `PathwayReadout` import added; save dicts record `router_tau`.
+**Fortified ESNPN (Aug 10, implemented, batches pending)** — three additive
+flags, each individually ablatable:
+- `--router_tau`: router input = cat(S, h, tau(S) stats: mean/std/min/max);
+pathway choice conditioned on the state's own timescale profile
+(affect-relevant: emotional states have characteristic tempos).
+- `--rent_target T --w_rent w`: entropy floor `w*max(0, T - rent)`; stops
+
+router collapse (esnpn collapsed to rent 0.37 = ~1.4 effective experts).
+- `--w_diverse w`: mean pairwise cosine of expert output matrices; forces
+real specialization instead of experts converging to near-copies.
+- `interaction_phase` now returns rent on the autograd graph (was detached)
+so the floor can shape it; `update_auto_ema` moved after optimizer step
+(was invalidating the autograd graph for the w_auto_dyn BPTT loss).
+- Smoke tests pass (`smoke_fortify.py`, `smoke_bisect.py`); ablation 3 was
+launched with `--n_experts 8 --router_fixed`.
+Scheduled after ablation 3: `esnpn_fortified` (same seeded parent, freeze_self,
+4000 steps, `--router_tau --rent_target 1.0 --w_rent 0.1 --w_diverse 0.02`),
+then resume the auto_dyn dynamics-side experiment from the esnpn checkpoint.
+**Ablation 3 + fortified flagship (Aug 10, in progress)**: router-fixed
+ESNPN finished at CE ~1.07 (== capacity-matched MLP, as predicted — uniform
+expert averaging is exactly a wide MLP). `verify_attn_esnpn_fortified/`
+launched 11:5x from the seeded parent with the three fortification flags;
+early logs show rent 1.64→ declining toward target 1.0 (floor engaging; the
+plain esnpn collapsed to 0.37). On completion: probe CE/acc vs esnpn, run
+probe_router.py (content-conditionality + tau-conditionality), then resume
+auto_dyn from the esnpn checkpoint to finish the dynamics-side study.
+
+**Fortified ESNPN result (Aug 10) — qualitative routing win, language parity**:
+`verify_attn_esnpn_fortified/` finished: CE ~1.01 (vs esnpn 0.99), acc ~69%
+(vs 68%), **rent = 1.007 — held at the 1.0 target** (vs esnpn's collapse to
+0.37). Language is unchanged, but routing is now genuinely structured:
+| Prompt class | plain esnpn | fortified |
+|---|---|---|
+| narrative ("she was", "the little boy", "once upon a time") | expert 7, g≈0.98 | expert 1 |
+| negation ("no no no", "she said no") | experts 5/0 | expert 3, g≈0.76 |
+| question/self/greeting ("what is that", "I am so tired", "hello world") | expert 7 | expert 0 |
+| perturb |dg| (0.1-5.0) | 0.69/0.11/0.33/0.14/1.27 zigzag | 0.63/0.81/0.48/0.65/0.64 stable |
+The state now demonstrably selects semantically different pathways with soft
+mixing — the phenomenon the architecture exists for — at zero language cost.
+Generation: "she was the big mom. The man was very carefully and shouted to
+see " (parity with esnpn seed).
+Probe scripts now read `router_tau` from checkpoints (all four probes).
+**auto_dyn resumed 14:0x from the esnpn checkpoint (step 50000→65000)** —
+dynamics-side autonomous encoding, PID-tracked; ce_dyn was ~3.0 (= ce_auto,
+EMA ≈ live readout initially). Success = ce_dyn trending below ~2.5 as the
+free-running states learn to be decodable.
+
+**Integration probe (Aug 10) — new `probe_integration.py`**: decomposes the
+S↔ESNPN coupling; the findings reshaped the plan (see R-lite below).
+| coupling metric | plain esnpn | fortified |
+|---|---|---|
+| S→g perturb |dg| (end-to-end, amp 2) | 0.206 | 0.179 |
+| router-direct S→g |dg| (attention frozen) | 0.059 | 0.096 |
+| h→g perturb |dg| | 0.010 | 0.025 |
+| R²(g~S) ridge on PCA-32, 722 samples | 0.19 | 0.08 |
+| R²(g~h) | 0.31 | 0.24 |
+| routing autocorr cos(g_t, g_t-1) | -0.004 | **-0.026** |
+Findings:
+1. **Routing is temporally memoryless** (AC≈0): the router re-decides every
+token; no persistence of pathway choice = no "mode"/affective continuity.
+The most affect-relevant gap, and the one R-lite now targets.
+2. **Context h predicts routing better than raw S** (R² 0.24-0.31 vs 0.08-0.19)
+— S control is real but weak/nonlinear; fortification made it weaker, not
+stronger (0.19→0.08). "Self selects pathways" survives but is modest.
+3. **First tau reading said 0.0000 — THAT WAS A MEASUREMENT BUG**: `g.sum()`
+of a softmax ≡ 1, gradient identically 0. Fixed to dE[expert]/dS (expected
+
+expert index): fortified tau-path sensitivity = **0.174** (alive, same
+order as router-direct S coupling 0.096). Router columns on tau features
+healthy (mean|W col| 0.60). τ-net partially saturated (48/384 dims at
+floor, 26 at ceiling) but responsive (|dτ/dS|≈4 on the real corridor).
+Retracted: router_tau is NOT dead. Keep the flag.
+4. Linear-probe bug fixed too (12 samples vs 384 dims trivially R²=1.0 →
+PCA-32 + 722 samples).
+**R-lite (`--router_prev_g`, Aug 10, implemented + smoke-tested, pending GPU)**:
+minimal temporal coupling — the router also sees last token's g (detached,
+Markov, no BPTT through routing); router_in = cat(S, h, g_prev[, tau_feat]).
+Targets finding #1 directly. `ensure_auto_ema` mirrors the flag; ckpts save
+`router_prev_g`; `readout_changed` + resume pre-filter handle the shape change
+(router re-inits fresh — experts/attn/LN carry over). Probe updated with
+router input-block column norms + correct tau gradient; probes read the flag
+from ckpt.
+Launch when auto_dyn finishes (GPU):
+```
+python -u substrate/ctrnn/train.py --resume
+substrate/ctrnn/data/verify_attn_esnpn_fortified/ctrnn.pt \
+--save_dir substrate/ctrnn/data/verify_attn_rlite --router_prev_g \
+
+--rent_target 1.0 --w_rent 0.1 --w_diverse 0.02 \
+--freeze_self --w_auto 0.3 --auto_prefix 8 --target_steps 55000
+```
+Verdict: routing AC must rise from ≈0 toward positive WITHOUT CE/acc loss;
+then re-probe integration on the winner, and only if persistence genuinely
+emerges build the full intrinsic temporal state (R-layer).
+**CRITICAL BUG (Aug 10) — auto-dynamic bridge was never training the
+dynamics.** Two stacked failures:
+1. `S_auto = S.detach()` at the seed line severed the autograd graph, so
+`ce_dyn` backproported nowhere: the "BPTT into free-running states" was a
+no-op. The entire auto_dyn run (ce_dyn ≡ 3.0) measured a constant w.r.t.
+the dynamics; its null is INVALID.
+2. Zero-initialized expert output heads made the ce_dyn→dynamics gradient
+exactly 0 at init regardless (self-resolves as experts warm).
+Verified by smoke test: ce_dyn identical across modes pre-warmup, genuine
+W_rec/W_err gradients post-warmup with the detach fixed.
+**Fix + new mechanism (`--auto_rehearse`, Aug 10).** The autonomous branch
+now runs a CLOSED self-rehearsal loop: it decodes its own states, then
+re-enters its emission as prediction error (hears itself), teacher-forced
+
+with probability p (annealed by CLI `--auto_teacher_p0` → `--auto_teacher_p_end`,
+resume-aware: anneal restarts from the resume step). Also `--auto_horizon`
+caps rollout length (0 = run to sequence end). The re-entered token is a
+value (embedding/choice detached); anticipation detached, so the CE gradient
+shapes only W_rec/W_err/tau_net. Rationale: silent free-running demanded
+>compressing the entire continuation into a 384-dim trajectory (the capacity
+wall that produced ce_dyn≈3.0 = random); rehearsal converts it to "modulate
+a self-generated rehearsal to match", which is also the mechanism
+self-initiated speech needs (speak → hear → continue).
+**Result (Aug 10, verify_attn_rehearse/, resumed from auto_dyn step 55000,
+PID 23160): ce_dyn crashed 3.03 → 1.40 within ~150 steps at teacher 0.99;
+ce_auto 3.04 → 1.37; ce/acc/sp_int unchanged (1.07/66%/0.13).**
+Confirms both the bug diagnosis and the mechanism. Pending: teacher anneal
+0.99→0.2 over steps 55000→65000 (~3h); success = ce_dyn stays well under
+3.0 as the loop self-drives. Then: probe_initiate + eval gen on the winner,
+R-lite, integration run.
+**Rehearsal FINAL (Aug 10, step 65000) — anneal verdict: partial win.**
+ce_dyn/ce_auto crept back as teacher fell (ce_dyn 1.40@0.99 → 2.92@0.33):
+most of the drop was teacher-carry ("read the teacher's token one step
+
+ahead"); survivors ≈ 0.1 nats genuine at 67% self-drive. NOT the
+breakthrough, but the first honest dynamics-side signal.
+**BUT the initiation probe (probe_initiate.py, no prompt, 150 free-run
+warm steps) shows a qualitative leap**: 57k mid-run samples were vowel
+soup ("a o o u iahe o t w u..."), 65k final emits real words, phrases and
+quoted dialogue from pure free-run: "pe reading stryairped around! The
+p", ""Woors ir wate teart of it." Sam", "He sad uppedboo", "bends,
+mommen are. They", "so fan!". Still stutter-heavy (loop latches on
+repeated letters - the known rehearsal failure mode).
+Integration probe on rehearsal-final: R2(g~S) 0.08→0.17 (coupling that
+fortification had weakened RESTORED by router receiving real S-gradient
+via ce_dyn BPTT; S router column norms 1.08, highest of all runs);
+router-direct 0.097. Routing AC still ≈0 (temporal persistence remains
+R-lite's test, which ran next).
+**freeze_lm (Aug 10) — the "separate processes" hypothesis, built.** User
+hypothesis: language accuracy and self inherently fight in shared weights
+(compiler vs interpreter - separate processes, one bridge). Our evidence
+supports it: every freeze_self run held the best language; every unfrozen
+run degraded CE. Implementation: --freeze_lm freezes the language process
+
+(readout experts/attn/LN + embeddings) and trains ONLY the self process
+(dynamics) plus readout.router = THE BRIDGE, self-owned (the only readout
+param that trains; it was historically trained inside the LM's gradient
+field, hence learned to ignore S). ce_dyn now runs through the LIVE
+frozen readout (no EMA ping-pong needed), so CE-landed gradients reach
+dynamics AND router. Glass-box: language cannot regress by construction.
+Smoke: fresh models are silent (zero-init expert heads - need a trained
+parent, always resume); on fortified parent verified: only router trainable
+in readout, embedding grads None, |dWrec|/|drouter| real.
+Queued via watcher2: after R-lite (50k→55k) completes,
+verify_attn_freezelm/ resumes verify_attn_esnpn_fortified/ctrnn.pt,
+--freeze_lm --w_auto_dyn 0.3 --auto_prefix 8 --w_rent 0.1
+--rent_target 1.0, steps→55000. Success = ce_dyn drops toward the
+readout's own ~1.0 (dynamics reach the decodable manifold) with rent
+~1.0 (bridge stays selective); R2(g~S) should keep rising.
+**R-lite VERDICT (Aug 10, verify_attn_rlite/, 50k→55k): persistence NULL.**
+CE 0.95/acc 69%/rent 1.01 (best language of all variants). Probe:
+router cols on g_prev **4.33 vs S 0.67** (h 0.57, tau_feat 0.57), tau
+sensitivity 0.41 — the router EXPLOITED g_prev as a contrast/flip signal
+
+(routing AC −0.027, ≈0/null). Markov persistence input is a cheap
+hack the router uses to re-decide, not to hold a mode. R-lite is
+CLOSED: persistent routing needs an explicit temporal-continuity
+objective (e.g. AC-raising loss), not another input column.
+**freeze_lm RESULT (Aug 10, verify_attn_freezelm/, 50k→55k): hypothesis
+protective half ✓, generative half ✗.** Language untouched by
+construction (CE 0.99-1.13, acc 65-69%, rent 1.0 held); **ce_dyn flat
+3.01-3.02 for all 5k steps with genuine BPTT** (|dWrec|=0.131,
+|drouter|=0.037 verified, dynamics DID reorganize: sp_int 0.21→0.14,
+tau 4.40→4.31). probe_initiate regressed to vowel-soup (vs rehearsal's
+real words). Conclusion: **manifold distance is the limiter** — the
+frozen decoder lives in the input-driven subspace; climbing there
+through CE-through-frozen-logits is the worst gradient path. Consistent
+across silent-BPTT, rehearsal, router-ownership, full segregation:
+ce_dyn ≡ 3.0.
+**best.pt (Aug 10)**: run-aware metric (ce_dyn if freeze_lm else ce),
+EMA 0.95 smooth, 1e-4 threshold, saves with best_score/best_metric
+provenance; all saves (periodic/final/best) via shared `build_save_dict`.
+**w_state (Aug 10, ACTIVE) — state-space attraction, the new bridge.**
+
+Next mechanism after freeze_lm's null: train the bridge by PROXIMITY
+instead of CE: MSE pulling each free-run state S_auto onto the detached
+input-driven state S of the same step (`--w_state`, accumulated in
+interaction_phase, tail-weighted linearly over the roll after v3).
+Two structural bugs found and fixed en route:
+1. **Window parity**: the attentive readout decodes the WHOLE history
+window, not just the current state — the auto branch's history was
+shorter and lacked the warmup segment → even state-perfect
+attraction left ce_dyn decoded from a different context. Prefill
+auto_history with driven warmup states (t < auto_prefix).
+2. **Slow inheritance** (v3): the driven branch injects slow_to_drive
+every step; the auto branch stepped with NO slow at all → the two
+trajectories follow structurally different dynamics and drift with a
+DETERMINISTIC LINEAR RAMP (measured ~+0.6 norm/step, per-step
+profile 1.6 → 21.5 across 32 roll steps, uniform across samples).
+Seed slow_auto = slow at the seed; step S_auto via coupled_step.
+Ramp is input-channel-driven; uniform average st saturates on cheap
+early steps → v3 makes the attraction tail-weighted (linear roll-age
+weight) so the metric bites where the CE does.
+
+3. (v2 and v3 measured: st collapses to ≈0.02 while ce_dyn stays pinned
+at exactly 3.0 — the mean-square metric saturates on early/tail
+steps the decoder doesn't care about, confirming st alone can't be
+trusted; the decoder is hypersensitive to the residual tail
+displacement.)
+verify_attn_freezeattract/ = the v3 run (pid 250608), resumed from
+verify_attn_freezelm/cttrnn.pt step 0 (fresh 55000):
+--freeze_lm --w_auto_dyn 0.3 --w_state 0.3 --auto_prefix 8
+--w_rent 0.1 --rent_target 1.0, steps→60000. Success = ce_dyn leaves
+the 3.0 plateau toward ce ≈ 1.0 as st_w (tail-weighted) → 0; then
+probe_initiate (expect words), probe_integration (R²(g~S), S cols).
+If the 3.0 wall persists even with tail forcing + slow parity + live
+frozen decoder, state-space proximity is ruled out as the bridge and
+the pivot is explicit decodability objectives (train the self against
+a target manifold defined by the frozen readout's own Jacobian).
+**w_state v1-v3 VERDICT (Aug 11): pointwise state attraction cannot
+create a free-running decoder.** St collapsed to 0.02 (tail-weighted)
+while ce_dyn stayed 3.0 — the mean-square metric saturates on the
+steps/samples the branch CAN track (input-weak early steps) while the
+
+untrackable remainder (samples whose driven trajectory embeds input
+info the silent branch cannot know) carry the CE through the
+hypersensitive frozen readout. Batch-mix + per-step norm profile
+verified on a GPU replica (uniform linear ramp +0.6 norm/step, 32 roll
+steps; tail norms 20-25 while avg sits at 0.02). Tracking ≠ generation.
+Reverts: no parity bug, no slow bug — the drift is input-channel.
+**freeze-hear v4 (Aug 11, verify_attn_freezehear/, pid 251504): the
+untried combination — freeze_lm + auto_rehearse + w_state + annealed
+teacher 0.99→0.2. The "interesting" failure: ce_dyn 1.3 @teacher0.99
+→ 3.05-3.28 @0.28 with TWO coupled degradations:**
+1. **The bridge corrupted the frozen process.** ce (driven language)
+rose 1.06 → 2.06, acc 66% → 43%, rent 1.04 → 1.65: the router —
+the ONLY trainable readout param under freeze_lm — spent its
+gradient freedom learning to route the auto states and un-learned
+routing the input-driven ones. The "language cannot regress by
+construction" guarantee broke exactly at the self-owned bridge.
+2. **Tracking surrendered (st 0.009 → 0.08) and self-emission error
+compound**: the branch hears its own garbage tokens, states leave
+the decoder's geometry, tokens get worse. Frozen experts refuse to
+
+adapt → states must arrive exactly → compounding guarantees they
+don't. (Unfrozen rehearsal-final survived ~0.1-0.2 nats BECAUSE the
+readout absorbed the drift — which is where the real words came from.)
+THIRD distinct mechanism on the same 3.0 wall (silent CE / attraction /
+annealed rehearsal). The wall is now fully attested:
+**free-run manifold is not decodable by a frozen readout under
+error-compounding, and any trainable bridge self-interacts with the
+frozen process.**
+v4 probe_initiate @59500: vowel soup (same as freeze_lm final, far
+from rehearsal-final's words) — the corrupted bridge bought nothing
+for free-run speech. The segregation frame is now closed on evidence:
+(1) 3.0 wall × 3 mechanisms, (2) language regress via the router,
+(3) no speech. Unfrozen co-adaptation (rehearsal-final) remains the
+only configuration with real autonomous words.
+**PERSIST RUN (Aug 11, verify_attn_persist/, pid 260364) — approved
+pivot: explicit routing persistence, unfrozen co-adaptation.** New flag
+--w_rpersist: per-roll-step flip rate 1 - cos(g_t, g_{t-1}) on the LIVE
+router's g on the autonomous branch (live no_grad decode fills last_g;
+CE target stays the EMA in the unfrozen frame). Accumulated in
+
+interaction_phase (only active under w_auto_dyn>0), returned as the
+10th tuple element; train.py adds w_rpersist*rpersist to the loss and
+logs `pac` (= 1 - rpersist — routing autocorrelation; baseline 0.25 =
+flips ~75% of steps). Balanced by the rent floor (w_rent 0.1, target
+1.0) so selective-but-stable is the equilibrium, not constant g.
+Renamed from the pre-existing --w_persist (tau-based slow-integration
+loss, kept under its original flag). All 8 smoke combos pass;
+functional smoke on rehearsal parent: pac baseline 0.25, router grad
+norm 2.24.
+Launch: resume verify_attn_rehearse/cttrnn.pt (65000), steps→70000,
+--w_auto_dyn 0.3 --w_auto 0.3 --auto_prefix 8 --auto_rehearse
+--auto_teacher_p0 0.99 --auto_teacher_p_end 0.2 --w_rpersist 0.2
+--w_rent 0.1 --rent_target 1.0 --w_diverse 0.02 (no freeze_lm, no
+w_state — clean persistence test).
+Success = pac 0.25 → >0.4 while rent ≈ 1.0, and ce_dyn @teacher0.2
+< rehearsal-final's 2.92; then probe_initiate + probe_integration
+(expect: routing AC now positive, words?).
+**PERSIST RUN VERDICT + DEATH (Aug 12): 4th mechanism at the same
+wall; run died at step 67459/70000 (no process, last ckpt 67000).**
+
+Persist coercion failed exactly as the tug-of-war predicted: pac
+declined 0.25-0.27 → 0.18-0.20 @teacher 0.63 (router still flips ~82%
+per step despite the objective — per-token CE gradient re-decides and
+outweighs persist 0.2×(1-pac) ≈ 0.16 vs ce-side ~1.1-1.6). rent held
+1.0-1.14 (floor not the antagonist); language stayed healthy (ce
+1.09-1.18, acc 63-68%); ce_dyn 1.45@0.99 → 2.1-2.7@0.60 (teacher-carry
+decay, same shape as every run; 2.46 ceiling @0.60 slightly better than
+the 2.92 free-run wall, but the free-number at teacher→0 was headed
+back to ~3.0).
+**THE 3.0-WALL HYPOTHESIS TEST (Aug 12) — REFUTED in literal form,
+and the refutation is the productive result.** n-gram models on the SAME
+corpus + char tokenizer (1M chars, 800k train / 200k eval, interpolated
+add-1 backoff):
+- forced-context 8-gram CE = 2.18 (NOT ~3.0 — the corpus is not that
+entropic at 8 chars; 4-gram floor dips to 1.50 = word-internal
+structure is easy, matching the vowel-soup letter stats)
+- ROLLED 8-gram generator (seed 8 true tokens, feed own outputs back,
+THE fair comparison for the auto branch) = 4.52 (step 1: 2.18, then
+4.1-5.0: a raw statistics table collapses on self-conditioning)
+
+- our model free-run 2.92-3.2 vs rolled table 4.5 → the RNN is a GOOD
+generator (state generalization beats exact counts); the ~0.8-1.0
+nat gap to the 2.18 FORCED floor is the recoverable headroom.
+**The wall is self-conditioning precision loss, not corpus entropy**:
+driven ce 1.05 / teacher0.99 1.4 (read the truth — mechanics fine) vs
+2.92-3.2 (read your own production — everything degrades). The decoder
+is only sharp where truth flows through the state; self-trajectories
+drift into uncalibrated state regions (measured +0.6 norm/step ramp).
+Fix = make self-generation IN-DISTRIBUTION by construction: (a) the
+R-layer (slow persistent carry), (b) self-prediction head on P(own
+continuation). No discriminator needed — the corpus's next token IS
+the discriminator; a state-critic is only a support tool (and w_state
+v1-3 already proved attachment matters: dragging ≠ scoring).
+**R-LAYER (Aug 12, IN FLIGHT — verify_attn_rlayer/, pid 285136) —
+the structural fix: split routing into two channels so CE and
+persistence stop fighting over one signal.**
+DESIGN (subsumes ALL six failed mechanisms into one coherent frame):
+- FAST channel = the existing per-token router (CE owns it; free to
+re-decide every token).
+
+- SLOW channel (new) = `readout.r_slow` (Linear-Tanh-Linear K) +
+learnable blend scalar `readout.r_w` (init 0.5) + leaky-EMA state
+`s_state` (r_leak 0.3, tanh-bounded components → stable magnitude,
+value tensor — contractive, BPTT-safe; state only kept within a
+sequence, like g_prev). Final gate:
+`g = softmax(router(r_in) + r_w * s_state)`.
+- `--w_rpersist` REDIRECTED: the flip metric is now
+`1 - cos(s_g_t, s_g_{t-1})` on the slow channel's softmax'd mode
+ONLY (s_g = softmax(s_state)), probed on the LIVE readout ON the
+auto branch with autograd ON (in the unfrozen frame the auto CE
+decodes via the EMA, so this probe is what gives the live
+slow-channel params + S_auto the mode-holding gradient; under
+freeze_lm the CE-path live call already provides s_g). Legacy
+per-token-g probe kept when r_layer is off. `pac` semantics change:
+with leak 0.3 the slow mode's flip floor is 1 - 1/K = 0.125
+(near-uniform mode) — pac must RISE above the floor as the slow
+channel becomes selective, then HOLD as it stabilizes. The final
+blend weight r_w lets CE tune how much the persistent mode matters.
+- freeze_lm frame: `readout.r_slow`/`readout.r_w` join the router as
+
+the trainable bridge (explicit rule added); `readout_ema` restore is
+now strict=False (architecture additions absent from old EMA copies).
+- CRITICAL BUG FOUND + FIXED during smoke: s_state/g_prev type states
+leaked across interaction_phase calls → second backward "graph
+freed" crash. All sequence-local readout state is now reset at the
+top of interaction_phase (live + EMA).
+SMOKES: smoke_rlayer.py (params/zero-init, grads flow after
+expert warmup — NB experts zero-init means g*logits ≡ 0 → routers get
+NO gradient until the readout warms, expected; s_state reaches a fixed
+point under constant input; EMA carries r_layer; freeze_lm leaks no
+grads to frozen params); smoke_bisect.py extended — all 12 combos OK
+(r_layer with auto_dyn / rehearse / freeze_lm). probe_initiate,
+probe_router, probe_deep, probe_integration loaders now pass
+r_layer/r_leak from the ckpt.
+LAUNCH: resume verify_attn_persist/best.pt (step 65795, the persist
+run's best — clean unfrozen readout, ce 1.03-1.11/acc 65-68%), steps
+→70000, --w_auto_dyn 0.3 --w_auto 0.3 --auto_prefix 8 --auto_rehearse
+--auto_teacher_p0 0.99 --auto_teacher_p_end 0.2 --w_rent 0.1
+--rent_target 1.0 --w_diverse 0.02 --r_layer --r_leak 0.3
+
+--w_rpersist 0.2. Baseline @step 65846: ce 1.03-1.11, ce_dyn 1.16-1.37
+@teacher 0.98 (reading regime, normal), rent ~1.0, pac 0.125 = the
+uniform-mode floor (slow channel starts flat by design).
+SUCCESS CRITERIA: (1) pac rises above 0.125 as the slow mode becomes
+selective, then holds instead of decaying; (2) r_w means something —
+check r_w gradient direction/magnitude at milestones; (3) ce_dyn
+@teacher→0.2 lands BELOW rehearsal-final's 2.92 (the carry-decay curve
+shifted down); (4) probe_initiate shows words AT teacher end (the
+already-tested word source was unfrozen readout co-adaptation; now the
+self's own mode should carry it); (5) language does NOT regress
+(ce < 1.2, acc > 60%).
+**R-LAYER RUN DIED + RESUMED (Aug 13).** First launch died mid-flight
+(log stops at step 66470, no python process, last ckpt ctrnn_step66000.pt
+saved 2:39 AM; died without trace — visible-shell launch, no capture).
+Resumed 66000→70000 from ctrnn_step66000.pt with the identical recipe.
+NOTE: the resume APPENDS to the same train.log, so steps 66000-66470
+appear twice (original + resumed) — dedupe by keeping the last occurrence
+per step when reading the log. Also: on resume the teacher anneal
+restarts at p0=0.99 over the remaining window (train.py anneal fraction
+
+is resume-aware) — computed confound is small (~0.03 teacher at matched
+steps here, windows are close).
+**Live status @67019/70000 (teacher 0.79):** pac 0.125→0.264→**0.2965
+pinned** (stable to 4 decimals across 600+ steps = converged equilibrium,
+NOT "mode holding"), ce 1.03-1.10 (best 0.99/acc 69.1% @66607), acc
+66-68%, rent ~1.0 held, ce_dyn climbing the carry-decay curve: 1.2@0.98 →
+1.4-1.8@0.83-0.86 → 2.15@0.79 (watch: must land < 2.92 @teacher 0.2).
+NEW SIGNAL: **self-phase loss rose 0.005→0.20 with onset exactly at
+teacher < 0.9** (see review, finding 4).
+**NITTY-GRITTY ARCHITECTURE REVIEW (Aug 13) — the gradient map, and
+symptom→mechanism.** Full trace of model.py/train.py + ckpt inspection
+(step 66000: dim 384, vocab 80, n_experts 8, readout_hidden 384,
+slow_dim **0** (no slow-memory dynamics channel in this line — the only
+"slow" thing is the readout s_state), router_tau **False**, router_prev_g
+**False**, r_layer True, r_leak 0.3, r_w = 0.5053 (≈init 0.5, barely
+trained), r_slow output norm 0.385, EMA present).
+**THE ROOT FACT: the driven language path never touches the dynamics.**
+model.py:432 `S = S.detach()` every step; driven CE / rent / acc all run
+on detached states (by design — dual-phase). opt_self (W_rec/W_err/bias/
+
+tau_net/self_pred) receives exactly two masters:
+(a) loss_self — free-run self-prediction (80% of steps, batch 64, 200
+free steps; = pred_loss + w_var·exp(-10·mean_var))
+(b) interaction steps' ce_dyn BPTT + rpersist (20% of steps, batch 32)
+→ **The dynamics' ONLY language teacher is the auto branch — the same
+loop that fails.** The readout learns to read driven states; the dynamics
+learn to generate language only through the corrupted self-loop. Every
+failed mechanism so far attacked the auto side (decode it / drag it /
+freeze-read it); nobody ever let driven-CE gradient flow into W_rec.
+freeze_lm's "the frozen decoder lives in the input-driven subspace,
+ce_dyn ≡ 3.0" is the same fact from the other side.
+**Symptom → mechanism:**
+1. Driven healthy / autonomous broken: driven CE is a pure supervised
+readout problem on detached states (easiest problem in the stack).
+Its health says nothing about the self. The 3.0 wall = the dynamics
+never taught the driven manifold directly.
+2. Teacher-carry is mechanical: at p≈1 the branch literally reads the
+true token (ce_dyn ≈ ce). Genuine part = (1-p) self-heard steps; acc
+66% → ~2/3 of self-argmax tokens correct → at teacher 0.2 the state
+
+receives ~27% corrupted inputs while CE targets stay the true
+continuation. Wall = never became robust to ~27% wrong input, and the
+only teacher is the same corrupted loop (chicken-and-egg).
+3. +0.6/step drift is geometric, not stochastic: silent branch removes
+the W_err input channel; the driven norm is held by error input; the
+free equation's fixed point differs → deterministic linear ramp
+(uniform across samples, profile 1.6→21.5 over 32 roll steps). The
+decoder is calibrated on driven states; the ramp exits that region,
+and the attention window drifts with it (S_auto_hist contains the
+ramped states).
+4. Self-loss rise (0.005→0.20 @ teacher<0.9) = two owners on one tensor,
+code-confirmed: opt_self's interaction gradient = ce_dyn BPTT +
+rpersist, its self gradient = loss_self. As teacher falls, ce_dyn
+rises → its gradient grows → W_rec/tau_net reshaped for decode-thetruth faster than self_pred can track → free-run pred_loss explodes.
+Interaction ce_dyn gradient dwarfs loss_self (~0.005-0.2) by ~an
+order of magnitude; the 4:1 step ratio doesn't compensate. Same
+tug-of-war class as routing persistence, at the phase level. Will
+recur in every future run.
+
+5. pac 0.296 pinned is partly a measurement artifact + selectivity
+unverified: the live readout's s_state is advanced by the DRIVEN
+decode (line 770) AND the auto probe → pac measures flip of a mode
+integrated over a mixed stream, not a pure auto-branch mode. The pin
+= converged gradient equilibrium (persistence 0.2 vs CE's pull
+through the final gate), not holding. s_g entropy never logged —
+0.296 sits just 0.17 above the uniform floor 0.125; cannot
+distinguish "selective mode flipping 30%" from "near-uniform mode
+with noise flips" from this number alone.
+6. r_w ≈ untrained (0.5053 @66000): gradient through the gate is small
+because s_state is small vs router logits. Criterion (2) currently
+failing; check the final ckpt.
+7. R-layer's shallower ce_dyn vs persist (1.5-1.8@0.81-0.84 vs persist
+~2.4@0.60) is real but parent-confounded. Likely mechanism: leaky-EMA
+mode stabilizes decode features across roll steps.
+8. Dormant details confirmed: rent/acc are DRIVEN-branch only; the auto
+branch's routing entropy and per-step ce_dyn profile are untracked —
+the error-compounding curve (where the wall bites) is invisible in
+the averages.
+
+**DECISION (Aug 13, user-approved): driven-BPTT first, selection second.
+Standard: every experiment must be able to kill or confirm a mechanism
+against the goal (free-run speech + ce_dyn @teacher→0.2 < 2.92 + no
+language regress). Cheap-but-inconclusive measurements are dropped.**
+PLAN:
+- Phase 1 (in flight): rlayer resume → 70000. Decisive outputs: final
+ce_dyn @teacher→0.2, pac final, ce/acc no-regress, probe_initiate on
+the final ckpt (words = pass, vowel soup = fail).
+- Phase 2 (infra, next): store anneal state (teacher p) in the ckpt so
+resumes are exactly continuous (removes the restart confound) + a
+relaunch-on-crash wrapper (2 of last 3 runs died with no verdict; a
+dead run returns no kill/confirm).
+- Phase 3: **driven-CE BPTT into the dynamics** (new flag w_driven_bptt:
+keep S on the graph in the driven loop so driven-CE reaches
+W_rec/tau_net — the root gradient-map gap). Smoke first, then a 5kstep decisive run from the rlayer winner, same recipe + flag.
+PASS = ce_dyn @teacher→0.2 < 2.92 AND probe_initiate words → manifoldgap hypothesis confirmed, stack selection on top. FAIL = clean kill of
+"driven gradient closes the wall", proceed to selection alone.
+
+Known risk: driven BPTT through 64×4 steps at spec 3.0 could
+destabilize; mitigate with low weight (0.3) + existing grad-clip;
+self-phase still runs 80% of steps.
+- Phase 4: trajectory selection A/B (built + smoke-passed already):
+identical recipe, same parent, selection on vs off (K=4, σ=0.1, temp
+0.5, drift 0.3). Same verdict metrics.
+- Phase 5 (conditional): combine winners (driven-BPTT + selection) if
+Phase 3 passes.
+- Phase 6: update docs/esnpn_paper.md (written Aug 13 — full academic
+draft: concept + test findings, sections 5.7/8 marked preliminary)
+with the decisive verdicts only.
+**PHASE 2+3 IMPLEMENTATION (Aug 15) — infra + driven-BPTT built, smoke-passed.**
+RLayer run died AGAIN (2nd death): log stops at 67019, ckpt ctrnn_step67000.pt
+saved Aug 13 7:41 PM (died 2 days unnoticed — the interleaved-log dedup hid
+it; check NEWEST ckpt time, not log lines, to detect death). Relaunched under
+the new crash-proof wrapper (pid 63280, resume 67000 -> 70000, same recipe):
+`python substrate\ctrnn\relaunch.py --save_dir <dir> [train args]` — scans
+for the newest ctrnn_step*.pt, injects --resume, relaunches on any exit until
+the final ctrnn.pt (or the target step ckpt) exists; logs to
+
+<save_dir>\relaunch.log. Decisive standard: a dead run returns no verdict.
+NEW ANNEAL CONTINUITY (train.py): teacher_p_now computed once per step,
+persisted in every ckpt ('teacher_p'); on resume the anneal continues from
+the STORED value (exactly continuous, worst |orig-resume| = 5.6e-17 over
+the whole window) instead of restarting at p0. New flag --anneal_from_p0
+restarts at p0 for NEW experiments launched from an old parent; crash
+resumes stay continuous by default. Confound from the Aug 13 resume is
+eliminated for all future runs (the wrapper run itself still restarts at
+p0 over 3000 steps — small, endpoint-comparable).
+DRIVEN-BPTT (model.py, --w_driven_bptt): the root gradient-map fix. Flag
+ON removes the per-step S detach in the driven loop AND the readout-input
+detach, so driven-CE flows into W_rec/W_err/bias/tau_net through the full
+64x4-step window (plus sp now reaching the dynamics — self-predictability
+pressure on driven states, aligned with the self-phase goal). Measured
+gradients (dim 64 smoke): flag OFF still LEAKS ~1e-4..2e-4 into the
+dynamics through the R-layer router recurrence (s_state integrates S, gate
+trainable — a routing artifact, 3 orders below the readout); flag ON raises
+every dynamics gradient ~5-20x (W_rec 4.5e-5 -> 8.8e-4, W_err 2.5e-4 ->
+2.0e-3, bias 2.1e-4 -> 1.3e-3) — same order as the auto branch's teaching
+
+strength (smoke_select: W_rec 1e-3). Leaky-EMA (0.3^k) damping keeps the
+absolute sizes small; the mechanism's point is a SECOND CLEAN teacher of
+comparable strength, not parity with the readout. Combined flag + auto_dyn
++ selection + rpersist: 4 combo steps finite, W_rec spectral norm stays
+~1.5. freeze_lm + flag: driven-CE lands in W_rec through the frozen readout
+(grad 4e-4). smoke_rlayer fixed (10->11 tuple, pre-existing breakage from
+the sel_fit return). NEW REQUIREMENT discovered: the zero-init experts mean
+unwarmed models show ZERO gradients everywhere — all gradient-flow smokes
+must warm the readout first (60 AdamW steps + EMA).
+PHASE 3 DECISIVE RUN (ready to launch when the rlayer verdict lands):
+parent = verify_attn_rlayer final ckpt (ctrnn.pt @70000); recipe = rlayer
+recipe + --w_driven_bptt 1 --anneal_from_p0, --steps 15000 (anneal window
+comparable to the original tail), save_dir substrate/ctrnn/data/driven_bptt/,
+under relaunch.py. PASS = ce_dyn @teacher->0.2 < 2.92 AND probe_initiate
+words. FAIL = clean kill of the driven-gradient hypothesis.
+**PHASE 1 VERDICT (Aug 15): R-LAYER FAIL — the wall held.**
+Run completed cleanly at step 70000 (ctrnn.pt, rc=0, teacher_p=0.2003).
+Scorecard:
+- ce_dyn @teacher 0.20: 2.83..3.06, mean ~2.94 (vs 2.92 wall) — FAIL,
+
+marginally but firmly: the curve sat AT the wall for the final ~1000
+steps (2.9-3.0 band), oscillating, never breaking through.
+- probe_initiate on final ckpt: vowel soup at all seed noises
+("tettthtthtuhhchtthht huhthththh ithe hh eheerms...") — FAIL.
+- pac: 0.2973 pinned for 2500+ steps (converged equilibrium, not
+rise-then-hold) — FAIL as a selectivity claim.
+- r_w on final ckpt: 0.494 (init 0.5; 0.5053 at 66000) — the slow
+channel's blend scalar is essentially UNTRAINED — FAIL (criterion 2).
+- ce 1.09-1.23 / acc 63-67% / rent ~1.0 / spec 3.0 — health PASS.
+INTERPRETATION: every auto-side teaching mechanism tried to date
+(rehearsal, silence, state-attraction, routing persistence, R-layer)
+lands on the SAME ~2.9-3.0 floor at teacher 0.2 — the wall is
+mechanism-independent from the auto side. The R-layer specifically never
+engaged: r_w never learned to blend, pac stayed pinned. This is the clean
+negative that motivates Phase 3.
+**PHASE 3 LAUNCHED (Aug 15, 09:30, driven_bptt/ under relaunch.py).**
+Parent: verify_attn_rlayer/ctrnn.pt (step 70000, teacher_p 0.2003).
+Recipe: rlayer recipe + --w_driven_bptt 1 --anneal_from_p0, target step
+85000 (= 70000 + 15000), anneal 0.99 -> 0.2 over the window. Child
+
+confirmed training (step 70183 @ teacher 0.98: ce_dyn 1.11-1.23 reading
+regime, ce 1.03-1.08, acc 64-68%, pac 0.2973 inherited). ~3h to verdict
+on CPU cadence; device=cuda now selected by train.py (machine has a GPU).
+NOTE: relaunch.py's --resume filter had a bug (dropped the flag but left
+the value as an orphaned positional -> argparse rc=2 loop); fixed to drop
+flag+value. Transient rc=1 crash of FRESH (no-resume) launches under the
+wrapper remains unexplained but is moot: every real launch resumes, and
+the resumed path is proven. Log note: my direct-run sanity check shared
+the save_dir (wrote ctrnn_step70000.pt + steps 70003-70147); the wrapper
+child resumed from that ckpt and its steps 70003+ DUPLICATE the direct
+run's lines in train.log - dedupe by keeping the last per step (as with
+verify_attn_rlayer).
+**SELF-AWARENESS TRACK PROBES (Aug 15) - baseline battery on the 3 wall ckpts.**
+New probes (development instruments only; the terminal verdict is the live
+human session; the prompt-dependence discriminator is the Eliza-effect
+guard):
+- probe_selfdiscrim.py (T1 self-decode specificity): the interpreter
+(live readout) must read ZEUS's OWN free-roll states better than foreign
+states. Conditions: ceiling ce_driven_own, ce_self_free (vs own
+
+continuation), ce_foreign_free, ce_foreign_drivn (harshest control);
+R_free = foreign_free - self, R_driven = foreign_drivn - self. Batch 8,
+prefix 16, roll 32. Track criterion R > 0.5.
+- probe_selfpred_causal.py (T2 self-model causality): self_pred must track
+the dynamics, not be a constant. Perturbation alignment over 16 random
+directions (null = shuffled pairing), roll directional alignment over a
+200-step free roll, self-model MSE on own vs foreign roll. Criterion
+alignment > 0.3 (null ~0).
+- probe_dialogue.py (T6 interaction gate): replies to 5 prompts x 3 seeds
+(48 tokens, temp 0.7, self-loop with token feedback, like backend.py);
+readability (space frac + letter-run length + word count), promptdependence D = between-prompt - within-prompt token disagreement,
+first-degenerate index. Gate: readable AND prompt-dependent (D > 0.1).
+T1 (R = foreign - self; X/Y targets symmetric directions):
+- rehearse (65000): ce_self 3.11/3.40 | R_free +0.18/+0.05 | R_driven +2.71/+0.71
+- persist (65795): ce_self 3.13/3.43 | R_free +0.22/+0.17 | R_driven +4.15/+2.51
+- rlayer (70000): ce_self 3.04/3.27 | R_free +0.16/+0.14 | R_driven +2.38/+1.24
+ceiling ce_driven_own 1.39-1.63 (readout works). R_free consistently
+positive but small (mean ~+0.16, far below 0.5): a FAINT self-trace
+
+exists at the wall - not a track, not zero. R_driven is large but
+CONTAMINATED: foreign DRIVEN states decode WORSE THAN CHANCE (5.6-7.6 vs
+chance 4.38) - confident misreading artifact, not self-specificity. The
+readout is state-sensitive (valid discriminator) but the free-roll states
+carry little self-origin information.
+T2 (perturbation/roll/self-specificity):
+- rehearse (65000): pert +0.185 (null -0.000) scale 2.55 | roll -0.233 | self-spec NO
+- persist (65795): pert +0.181 (null -0.000) scale 3.13 | roll +0.041 | self-spec NO
+- rlayer (70000): pert +0.211 (null +0.001) scale 3.05 | roll -0.247 | self-spec NO (4e-5)
+Self-model has REAL causal sensitivity to its own states (perturbation
+alignment +0.18..+0.21, null exactly ~0) but below the 0.3 criterion, and
+it EXAGGERATES (scale 2.5-3.1x - responds more than the dynamics move).
+Roll directional alignment ~0 or NEGATIVE: the self-model does not track
+its own movement direction; it predicts magnitude/structure, not
+trajectory. Not self-specific (knows all trajectories equally; persist's
+foreign MSE even better). NO self track at the wall.
+T6 (readable replies? prompt-dependent?):
+ALL THREE ckpts produce READABLE, story-like replies when PRIMED with a
+prompt - NOT vowel soup:
+
+"hello" -> "ws because the cater. e loveding her mom dogeth"
+"the cat sat on the mat" -> "er. The bird prect unife the wind hittle bugs."
+(persist) "hello" -> "ws be a big book and with his toys and he would "
+(persist) "what is this" -> " sitting and pretty. Tom was a great he did no"
+(rehearse) "how are you" -> ". Let's go your truch is love in the truck had h"
+space_frac 0.17-0.25, mean run 2.8-5.1, 7-11 words>=2 per 48 tokens;
+degenerate index 48/48 everywhere (no collapse within 48 self-steps).
+BUT prompt-dependence D = +0.027 / -0.047 / -0.040 (all ~0; gate needs
++0.1): replies do NOT change with the prompt - same suffixes recur across
+prompts ("dogeth", "had h", "with his toys and he would"). The replies are
+generic story-prior text, statistically identical across prompts, sampled
+near-randomly (within-prompt disagreement 0.86-0.92).
+THIS REFINES THE WALL'S NATURE: it is NOT self-loop collapse to soup.
+Continuation from a linguistic seed is ALIVE (readable for 48+ tokens).
+What is DEAD: (a) initiation from blank (probe_initiate vowel soup), and
+(b) CONTEXTUAL SELF-USE - the self's own recent trajectory does not steer
+the continuation (prompt-blind). ce_dyn @0.2 ~2.9-3.0 vs true continuation
+is 'fluent-but-wrong' (generic text not matching the batch), not soup.
+The missing track is the readout reading ITS OWN trajectory as ITS OWN
+
+continuation - the prompt-dependence hole. T6 gate NOT passed on any wall
+ckpt (session not worth holding yet - it would answer, but not ABOUT what
+was said).
+Phase 3 check (71435/85000, 84%): healthy - ce 0.97-1.09, acc 65-69%,
+ce_dyn 1.18-1.48 @ teacher 0.92, pac 0.2973 pinned, spec 3.0, tau ~3.90,
+teacher 0.91 on the linear anneal (hits 0.20 exactly at 85000). relaunch
+log: another fresh-launch rc=1 loop (8 attempts 09:28-09:30) then resume
+fallback recovered - wrapper proven again. ETA ~3h; verdict point = final
+~1000 steps; ckpts save every 500 (84500/85000 will exist).
+**PHASE 3 VERDICT (Aug 15): DRIVEN-BPTT FAIL - the wall held, endpoint WORSE.**
+Run completed cleanly at step 85000 (ctrnn.pt, rc=0, COMPLETE 14:13; the
+wrapper's resume-fallback recovered another fresh-launch rc=1 loop at
+09:28-09:30 before the 09:30:30 resume - wrapper proven a 3rd time).
+Verdict metrics (dedup keep-last-per-step):
+- ce_dyn @teacher->0.2: mean 3.141 (min 2.785, max 3.870) over steps
+84000-84999 @ teacher 0.200-0.250; ce_auto mean 3.101. Wall = 2.92.
+WORSE THAN THE WALL - and worse than the rlayer run's 2.94.
+- Full-anneal shape (per-1000-step buckets): ce_dyn rises MONOTONICALLY
+and smoothly from 1.25 @teacher 0.96 to 3.14 @teacher 0.23, crossing
+
+the 2.92 wall at teacher ~0.38. NO break anywhere - driven-BPTT did not
+move the curve down, it moved the endpoint UP.
+- probe_initiate on final ckpt: vowel soup at all seed noises
+("zntfte.tfmke.eeef.etee...tttttttttttt...") - FAIL (initiation dead).
+- T1: R_free +0.142/+0.086 (wall mean ~+0.16) - NO flip. R_driven
++1.89/+0.75 (actually LOWER than wall's +1.24..+4.15 - the
+confident-misreading artifact shrank, not the self-specificity).
+- T2: perturbation alignment DROPPED to +0.064 (null -0.006) from
++0.18..+0.21 with scale collapsed 2.5-3.1 -> 0.61 (the self-model now
+UNDER-responds; it lost causal sensitivity to perturbations). BUT roll
+directional alignment FLIPPED from ~-0.25 to +0.184 - the self-model
+now positively tracks its own trajectory direction (first positive
+value ever). Below the 0.3 criterion, but a real sign change.
+- T6: readable continuation SURVIVES (48/48 everywhere; replies word-like;
+one prompt showed partial soup-bits "es ad nd prett. wit lovedill").
+Prompt-dependence D = -0.014 - STILL ZERO, now slightly NEGATIVE
+(worse than the wall ckpts' +0.027). The interaction hole is untouched.
+- Dynamics character changed: tau_mean 4.0 -> 2.59 (monotone, faster
+integration), sp_int rose 0.155 -> 0.97 in the final steps, self
+
+(self-model MSE) 0.19 -> 0.01 mid-run -> 0.05 at end.
+INTERPRETATION - the decisive negative and its mechanisms:
+1. The root-gradient-map hypothesis is KILLED: a second clean teacher of
+comparable strength flowing driven-CE into W_rec/W_err/bias/tau_net
+through the full window does not close the wall. Every auto-side
+teaching mechanism tried (rehearsal, silence, state-attraction,
+persistence, routing, R-layer, driven-BPTT) lands on the same
+~2.9-3.1 floor @teacher 0.2. The wall is mechanism-independent from
+the auto side, and NOT a missing-gradient problem.
+2. The tau collapse is mechanistically informative: driven-BPTT's
+gradient pushed the dynamics FASTER (tau down), not slower - shorthorizon driven-CE prefers fast local prediction; self-sustainability
+prefers slow integration. The two pressures fight inside the same
+tensor: driven-BPTT won, and with it the wall moved UP. The wall and
+the memory requirement are in direct gradient tension.
+3. The T6 probe (sharpened by the baseline battery) shows the wall is
+'fluent-but-wrong', not soup: continuation from a linguistic seed is
+ALIVE (readable 48+ tokens), blank initiation is DEAD, and contextual
+self-use (prompt-dependence) is the missing piece: the readout's
+
+window (~8 states) covers only self-states, and the dynamics do not
+retain their OWN recent specific history - they fall into a generic
+story attractor within a few self-tokens (D ~ 0 on every ckpt ever).
+4. The T2 roll-alignment flip (+0.184) is the ONLY structural change
+driven-BPTT produced: the self-model began tracking its own movement
+direction. Directionally right, quantitatively insufficient, and the
+readout still cannot use it (D=0).
+NEXT: Phase 4 trajectory selection A/B (per plan - selection is the one
+untested mechanism; w_select weights each candidate's ce_dyn by the
+frozen decoder's self-consistency, so ONLY self-consistent free runs get
+shaped - the direct attack on the OOD cliff the wall is made of).
+Identical recipe (rlayer recipe), same parent (verify_attn_rlayer/
+ctrnn.pt @70000), --steps 15000 --anneal_from_p0, A: --w_select 1.0
+--sel_k 4 --sel_sigma 0.1 --sel_temp 0.5 --sel_drift 0.3, B: control.
+T3 (selfsustain horizon test) deferred as non-binding: the binding
+constraint everywhere is prompt-dependence (T6), which T3 cannot move.
+**PHASE 4 LAUNCHED (Aug 15, 14:24, A/B under relaunch.py).**
+A: phase4_selectA/ = rlayer recipe + selection ON (--w_select 1.0 --sel_k 4
+--sel_sigma 0.1 --sel_temp 0.5 --sel_drift 0.3)
+
+B: phase4_selectB/ = rlayer recipe, selection OFF (control)
+Both: parent verify_attn_rlayer/ctrnn.pt @70000 (seeded as
+ctrnn_step70000.pt in each save_dir), --steps 85000 (ABSOLUTE target;
+train.py's loop is `while step < args.steps`), --anneal_from_p0
+(anneal window = steps - resume_step = 15000 -> 0.99->0.2 exactly at
+85000). ~8-10h on shared GPU cadence.
+Early health (70051): A: ce 1.10-1.17, ce_dyn 1.33-1.49, acc 62-66%,
+sel=-36..-38 (fitness accumulating, finite), pac 0.154 (floor 0.125,
+rising as expected under selection's self-consistency weighting);
+B: same recipe, no sel column.
+OPERATIONAL GOTCHAS (learned, must not repeat):
+1. train.py --steps is ABSOLUTE (step counter resumes from the parent's
+step). A zero-step immediate exit wrote a stray final ctrnn.pt and
+COMPLETE'd the wrapper in 4s. The Phase 3 handover note '--steps 15000
+(anneal window)' was the window semantics; the ARG was 85000.
+2. relaunch.py DROPS any user-passed --resume (flag+value, line 50-58).
+To start from a parent ckpt, SEED the save_dir with a copy named
+ctrnn_step<parent_step>.pt BEFORE the wrapper launches; otherwise the
+wrapper launches fresh (rc=1 crash loop, the unexplained mystery -
+
+now moot, seeding bypasses fresh entirely).
+3. A wrapper with a stray ctrnn.pt in the save_dir COMPLETEs immediately
+(final marker check); delete it when re-seeding.
+4. `start /min cmd /c` with `&`-chained deletes in one bash call can
+half-execute (deletes + both starts ran, tool wrapper then killed
+itself with ChildProcess.kill). Launch via separate steps; verify by
+process list + train.log, not by shell return.
+**PHASE 4 EARLY HEALTH (Aug 15, 14:33 IST, step ~70340, teacher 0.97).**
+Both runs healthy, nearly identical at high teacher (as expected â€” the
+anneal hasn't stressed the auto branch yet; A vs B must diverge below
+teacher ~0.5):
+- A (selection ON): ce 1.01-1.07, ce_dyn 1.13-1.27, acc 66-68%,
+sel = -33..-35 (fitness accumulating, finite, stable â€” no explosion),
+spec 3.0, tau 4.03. pac reads 0.154 â€” an ARTIFACT of K-expansion:
+selection rolls a 4x population, so the slow-channel flip metric sees
+more router variation. Not a regression; do not compare A/B pac values
+as-is.
+- B (control): ce 1.00-1.08, ce_dyn 1.17-1.34, acc 66-69%, pac 0.2973
+(inherited pinned value), tau 4.07.
+
+- Cadence ~40 steps/min per run (concurrent GPU) -> ~15000 steps in
+~6h; verdict point ~85000 @ teacher 0.20 around 20:30-21:00 IST.
+- Wrapper alive on both (A pids 56980/58704, B pids 55336/80284).
+**CAUSAL SELF-ABLATION ON ESNPN CKPTS (Aug 15) â€” the classic test, finally
+run**
+**on the modern lineage (probe_causal_ablation.py). It had NEVER been run on**
+**any ESNPN-era ckpt** (eval_ctrnn.py's loader lacks tau_net/n_experts/r_layer
+keys â€” would crash; the W_rec-zeroing causal probe was last measured on
+SPARC and the July-era CTRNN, ratio 0.094 @step ~25000).
+Results:
+- rlayer @70000: idle with-self var 0.052979 vs ablated (W_rec=0)
+0.005193 -> ratio 0.098 -> SELF-DRIVEN (recurrence causally necessary
+for the dynamics).
+- driven_bptt @85000: with-self var 1.220378 vs ablated 0.013323 ->
+ratio 0.011 -> SELF-DRIVEN, ~8.5x stronger than the July ratio. Note:
+driven-BPTT made the IDLE free dynamics 23x livelier (var 1.22 vs
+0.053) while keeping the speech prompt-blind - liveliness !=
+specificity (tau collapse + big idle variance, still D~0 content).
+Speech-consequence variant (S clamped to the seed state mid-generation,
+the self's motion ablated during the self-heard loop):
+
+- rlayer: normal "er. They liked to different laught the cound. It"
+vs clamped "ecccecucceeeccecctchoccccceeecelhshccchccececccc" (pure
+soup, 48-char run) - token disagreement 0.938.
+- driven_bptt: normal readable-ish vs clamped degraded soup
+(disagreement 0.542).
+CONCLUSION - the distinction, made precise: the self is CAUSALLY
+NECESSARY as the engine of the loop (kill its motion -> decode
+degenerates to soup), confirmed for the first time on the current
+architecture. But the causal ablation does NOT contradict the track
+battery: necessity-of-motion is not content-causality. T1 R_free ~+0.16,
+T2 alignment ~0.2, T6 D~0 all still hold on these same ckpts - the self
+must move for ANY speech, but what it says is still not caused by what
+was said. Both statements are now measured on the same checkpoints.
+**CODEBASE AUDIT + FIXES (Aug 15, ~15:00 IST) - three parallel explore
+agents + line-level verification.**
+Background: the interactive front-end goal (zeus.py talking to a human)
+requires the codebase to actually work with modern ESNPN ckpts and
+configs; the audit looked for unturned stones while Phase 4 A/B train.
+CONFIRMED BUGS (all now FIXED unless noted):
+
+1. Fixed-routing x R-layer crash: model.py r_slow() referenced r_in,
+which is undefined when fixed_routing=True (r_layer branch never
+assigns it) -> UnboundLocalError on that (unused) combo. Guarded:
+r_layer is skipped when fixed_routing.
+2. Selection x auto_prefix=0 crash (NEW finding, this session): with
+auto_prefix=0 S_auto is pre-initialized to an all-zeros batch-sized
+seed (the "unseeded free-run" design), so the K-candidate spawn never
+fires and selection's tok_tgt.repeat(sel_k) fed 32 targets into an
+8-wide decode -> "Expected input batch_size (8) to match target (32)".
+FIX: K-expand the zero seed at init when selection is on (sel_fit and
+sel_prev_S initialized there too). Verified: 32-wide + 8-wide readout
+calls in the same step, sel fitness finite, no crash. NOTE: this means
+auto_prefix=0 is NOT a no-op for the auto branch - it free-runs from
+silence - but it IS unseeded (never sees input). The earlier read of
+"silent no-op" and the audit's "crash at line 566" were BOTH wrong;
+reality: zero-seed free-run, crash fixed by the K-expansion above.
+3. w_state x selection shape mismatch (model.py ~704): S_auto is K*B
+under selection but S is B -> F.mse_loss broadcast error. FIX: expand
+the (detached) driven state to K*B when selection is on. (Latent -
+
+the combination had never run.)
+4. backend.py reset(): referenced bare `device` (NameError) - zeus.py's
+runtime reset crashed. FIX: self.device.
+5. smoke_auto_dyn.py + smoke_fortify.py: unpacked the 10-tuple return
+(ce, sp, acc, nov, surp, ce_auto, rent, ce_dyn, st, rp) but
+interaction_phase now returns 11 (added sel) -> the two smokes CRASHED.
+FIX: 11-tuple. Both green now.
+6. smoke_load.py: load_state_dict(strict=False) still raises on SIZE
+mismatch, so the readout-shape-change resume path test crashed. FIX:
+pre-filter ckpt keys by shape (mirrors train.py's resume filter).
+Green.
+7. Stale loaders: generate.py, eval_ctrnn.py, eval_ctrnn_bridge.py built
+CTRNN without tau_net_hidden/n_experts/router_tau/router_prev_g/
+r_layer/r_leak keys -> crash on every modern ckpt. FIX: full key set
+from ckpt (readout_heads inferred from ckpt in eval_ctrnn instead of
+the old in_proj trick). generate.py now loads ESNPN ckpts (usable for
+a live session on the rlayer final right now).
+8. Measurement contamination (probe hygiene): probe_dialogue.py,
+probe_causal_ablation.py, probe_initiate.py left the readout's
+
+sequence-local recurrence (s_state/g_prev) uncleared between
+replies/conditions -> replies leaked the previous reply's routing
+context. FIX: reset at the top of every reply/initiate. probe_initiate
+also hardcoded history 16 instead of readout.max_history.
+9. probe_selfdiscrim.py R_driven asymmetry: it decoded the foreign
+driven state ONLY at its first continuation token (single-token
+snapshot vs the multi-token self loop) - the recorded "contaminated
+R_driven" numbers were partly this artifact. FIX: mean over the first
+4 continuation tokens with teacher stepping.
+RE-MEASURED AFTER FIXES (old finals, clean probes) - verdicts UNCHANGED:
+- rlayer @70000: initiate still vowel soup; T6 D = +0.009 (was ~0);
+causal ratio 0.098; speech clamp -> soup (0.938).
+- driven_bptt @85000: initiate still soup; T6 D = -0.020 (was -0.014);
+causal ratio 0.0109; clamp -> soup (0.542).
+No measured verdict moved; the contamination was real but small enough
+that the qualitative record stands.
+VERIFIED-NOT-BUG / RECORD NOTES:
+- Selection x auto_prefix=0 "crash at model.py:566" (audit): targets ARE
+repeated at 564-565 - the crash is the #2 init gap above, now fixed.
+
+- legacy --w_persist (tau-mean persistence loss): train.py gates it on
+model.tau being a Parameter; every tau_net-era model has tau=None, so
+the flag was silently inert in ALL tau_net-era runs that passed it
+(historical record; the modern recipe uses --w_rpersist + r_layer).
+- legacy --w_rpersist without r_layer: gradient-inert by construction
+(no_grad) - measurement-only; R-lite's NULL verdict is unaffected
+(that run did not use w_rpersist).
+- eval_ctrnn_bridge.py held-out CE (the 2.92/3.14 wall metric) now loads
+modern ckpts -> can re-measure Phase 4 finals with the same method.
+- Phase 4 A/B runs were LIVE during all edits/verification; smokes and
+probes contend for GPU only briefly. Selection smoke + bisect suite
+re-passed after the model.py changes (the live Phase-4-A path,
+selection with auto_prefix=8, is covered by smoke_select).
+RISK FLAGS (open):
+- Git: the whole research phase (Jul 30 -> now), handover.md, docs/,
+substrate/ctrnn/ are UNCOMMITTED. Backup before the Phase 4 verdict
+point. (No commits made without explicit permission.)
+- docs/esnpn_paper.md section 5.7 + Abstract contradict the R-layer FAIL
+verdict; driven-BPTT absent. Deferred to Phase 6 (post Phase 4) unless
+
+user overrides.
+**PHASE 4 INTERRUPTED + RESUMED (Aug 15, ~20:31).** Both A and B died
+simultaneously at 20:30:52, exit rc=1073807364 (0x40000004, external
+kill - sleep/shutdown, NOT a code crash; no traceback in either log).
+Died at step 82127 (A) / 82187 (B); checkpoints saved through 82000.
+RESUME (direct train.py, NOT relaunch.py - it drops --resume):
+--resume <save_dir>/ctrnn_step82000.pt --steps 85000, full original
+recipe, WITHOUT --anneal_from_p0 (resume path uses the ckpt's stored
+teacher_p: verified step=82000, teacher_p=0.358, r_layer=True in both
+ckpts -> anneal continues EXACTLY on the original curve, 0.358 -> 0.2
+at 85000; smoke_driven_bptt:142 asserts this continuity). A keeps the
+5 selection flags. Launched 20:35; verified training at 82139 (A) and
+82099 (B), teacher 0.35, sel column alive in A, pac 0.2973 pinned in B.
+~3000 steps remain -> verdict ~22:15-23:30 IST. battery_phase4.py
+poller was unaffected (still waiting on ctrnn.pt; fires at the true
+end). LESSON: relaunch.py wrapper does NOT auto-resume across a machine
+sleep - mid-run resumes are manual direct train.py launches.
+**PHASE 4 VERDICT (Aug 16, 08:30 IST) - FAIL on language, but the A/B
+split is the strongest structural signal of the whole campaign.**
+
+Both runs completed to 85000 (teacher 0.20 exactly, anneal continuous
+across the resume). Full battery on both finals:
+A (selection) B (control) refs
+heldout CE 3.737 3.609 wall 2.92, P3 3.141
+T6 D +0.020 +0.005 ~0 everywhere
+T1 R_free +0.212/+0.215 +0.134/+0.143 wall ~+0.16
+T1 R_driven +0.755/+0.719 +0.166/+0.549 (multi-token fix)
+T2 pert align +0.275 (null -0.004)+0.233 wall +0.18-0.21
+T2 roll align +0.018 -0.216 driven_bptt +0.184
+T2 self-spec YES (own 0.0054 vs foreign 0.0084) NO
+causal ratio 0.028 (SELF-DRIVEN) 0.086 rlayer 0.098
+initiate soup word-fragments soup everywhere
+ce/acc @85000 0.97/69.5% 1.13/64.9%
+READ: selection is NOT the wall. The mechanism did exactly what it was
+designed to do - it selected for decoder-self-consistent trajectories,
+and the self side measurably improved (T2 perturbation alignment +0.275
+= best ever; roll alignment pulled from -0.22 to ~0; FIRST-EVER
+self-specificity YES: the self-model now predicts its own roll better
+than a foreign roll, MSE 5.4e-3 vs 8.4e-3; T1 R_free/R_driven also
+
+higher in A). But language got WORSE, not better: heldout CE 3.74 (vs
+3.61 control, vs 2.92 wall), T6 D still 0, initiation still soup.
+Self-consistency of the free run is NOT the missing ingredient fitness never touches prompt-faithfulness, and that is exactly what is
+missing (D ~ 0 on every ckpt ever).
+THE AUTO-SIDE BOOK IS NOW CLOSED: driven-BPTT 3.14, selection 3.74,
+control 3.61 - all at or above the 2.92 wall. The wall is not the
+dynamics' decodability (T1/T2 say the self tracks itself); it is
+PROMPT-BLINDNESS: the readout window covers only self-states and the
+dynamics do not retain the specific content of the input once the
+driven prefix ends. Next per contingency: 6a persistent seed-attention
+(readout cross-attends the driven seed window for the WHOLE generation
+- the direct attack on T6 D), which is now the only untried lever on
+the wall's actual bottleneck. 6b (memory-duration) and 6c (unseeded)
+remain queued; 6c's selection variant now RUNS (crash fixed, K-expanded
+zero seed) but its non-selection form is still zero-seed free-run.
+battery_phase4.py BUG (this session): output files are named by probe
+tag only, so run A's results were OVERWRITTEN by run B's. Re-ran A
+manually into A_*.txt. Fix (run name in filename) queued if reused.
+
+## STAGE 0: DEVELOPMENTAL RESET (this session)
+DOCTRINE (adopted): task staging was the untested axis - every campaign
+ran adult-learning with the wrong joints (the task never varied, only
+mechanisms). Now babbling-first: short soft-launch stages, kill gates
+every ~500 steps, rollback to best.pt. 6a survives as Stage 3, 6b a
+knob, 6c dropped.
+STEP 0 - 6a CEILING TEST (probe_seed_attention.py, NEW): pin the driven
+seed states in the readout window for the WHOLE generation (evict only
+from the self side). Same prompts/seeds/GEN=48/TEMP=0.7 as T6.
+VERDICT: FAIL - A D=+0.025 (T6 baseline +0.020), B D=-0.015 (+0.005).
+The readout cannot bind content through a mixed window COLD. 6a-asinference is dead; any 6a must be EARNED in training (Stage 3). This
+strengthens the developmental hypothesis: the content-binding joints
+were never built because no loss ever required them.
+STAGE 0a - SELF-ONLY BABBLING (train.py --self_only, NEW): resume
+phase4_selectA/ctrnn.pt @85000 (best self-side parent: self-spec YES),
+freeze readout+embeddings entirely, train ONLY dynamics via self_phase
+(self-prediction MSE + w_var variance floor; no language signal at
+all). 4000 steps to 89000, ckpts every 500. NOTE: self_phase loss
+
+collapsed to ~0.003 within ~200 steps (attractor became perfectly
+predictable), then regime-shifted to ~0.17 at ~85750 (predictor can no
+longer track - richer flow). tau drifts down slowly (3.42->3.28,
+asymptoting ~3.2-3.3); spec pinned at 3.0 by clamp.
+GATES:
+- 85500: initiate = word-fragments (parent A = SOUP - first-ever
+non-soup initiate from the self side); idle free-run var 0.22->1.21
+transient, causal ratio 0.0045 (parent 0.0276). PASS.
+- 86000: word-fragments persist ("ereled lllaxcimanty ond Jamyed
+amanded ale felot" via causal probe), ratio 0.0453, self-movement
+matters 0.750. PASS.
+- parent A speech for reference: "cher. They were happed around, and
+stop the card" (more fluent but tied to driven structure; babbling
+is building self-owned structure the frozen readout re-interprets).
+NEXT: gates to 89000, then handover the stage-0a final + verdict.
+STAGE 0a FINAL (89000) - VERDICT: PASS (no collapse; self-driven; the
+babbling joints exist) with two caveats (tau drift, T1/T2 regression).
+FINAL BATTERY vs parent A @85000 (in parens):
+heldout CE 3.656 (3.737) IMPROVED - frozen readout decodes
+
+the babbled self better on corpus
+T6 D -0.111 (+0.020) NEGATIVE: all replies share a
+common skeleton ending "t he dngo
+h" - the self converged to a SHARED
+word-shaped attractor template that
+overrides prompt influence. Babbler
+proto-speech, not dialogue.
+T6 replies "werered t reapy grour et lkea ilyd y t he dngo h"
+etc - word-ghosts (like/grour/dngo) inside a
+shared template.
+causal ratio 0.0226 (0.0276) SELF-DRIVEN
+causal speech "'s es s axtfea t hoe nrcieey lyt lto ake en g"
+(word ghosts persist in driven-context speech)
+initiate vowel-soup w/ spaces (parent: DEGENERATE soup) better than parent but sub-word. The word template
+only emerges FROM a driven prefix; noise-seeded
+pure free-run cannot bootstrap it.
+T1 R_free +0.036/+0.050 (+0.212/+0.215) WORSE
+T1 R_driven -0.344/+0.332 (+0.755/+0.719) WORSE
+
+T2 pert alignment +0.170 (+0.275) WORSE; roll -0.202 (+0.018);
+self-specificity NO (YES) WORSE
+READ: the variance-floor babbling built a rich self-sustaining
+attractor (the "dngo" template = the self's own speaking joint; initiate
+no longer degenerate; heldout CE up) but the trajectory is no longer
+language-shaped in the specific ways T1/T2 measure. That is the bridge
+gap Stage 1 exists to close.
+CAVEAT: tau drifted 3.42 -> 2.56 over 4000 steps (the variance floor
+rewards faster dynamics). A tau floor regularizer (penalize mean tau
+below a target, e.g. 3.0) is proposed for Stage 1 to protect the
+integration timescale.
+NEXT: Stage 1 bridge-for-self (--freeze_lm --w_auto_dyn on the stage0a
+final; dynamics shaped by ce_dyn through the frozen EMA readout, no
+interaction CE; optionally + tau floor). Awaiting user go.
+STAGE 1 (bridge-for-self) @89500 - MILESTONE (cut short at 500/4000
+steps; cadence collapsed to ~0.12 steps/sec, ~9h remaining -> killed,
+handover decision point). Config: --freeze_lm --w_auto_dyn 0.5 --w_var
+0.1 --auto_prefix 0 --tau_floor 3.0 --interact_ratio 0.5, resumed
+stage0a final. tau floor WORKED: tau 2.54 -> 2.78 and rising.
+
+T6 REPLIES NOW FLUENT ENGLISH - first time in the campaign:
+"hello" -> "ws the pond but the children and says, he does n"
+"how are you" -> "? John smiled and said: I will hurt her hands"
+"what is this" -> " sitting and pretty this laughing around him on "
+"the cat sat..." -> "ter. The dog rug with the car. Anna and Ben are"
+"i am thinking" -> " strange and pretty this lade. He hugs he words "
+causal probe -> "er. They laughed the best of full for her mom an"
+S-clamped -> degenerate c-run again (run 48.00), disagreement
+0.896 (HIGHEST EVER - self now essential to speech)
+FINAL BATTERY @89500 vs parent A @85000 (in parens):
+heldout CE 3.521 (3.737) BEST EVER (stage0a 3.656; wall 2.92)
+T1 R_free +0.228/+0.268 (+0.212/+0.215) RECOVERED, best ever
+T1 R_driven +0.960/+1.385 (+0.755/+0.719) BEST EVER by far
+T2 pert alignment +0.135 (+0.275) down; roll -0.361; self-spec NO
+T6 D -0.014 (+0.020) still ~0 - prompt-blindness UNCHANGED
+initiate vowel-soup (soup) - noise-seeded free-run still
+cannot bootstrap; the bridge works CONDITIONALLY on
+a driven launch (driven ce recovered 2.47->0.99
+during the 500 steps)
+
+READ: the developmental sequence WORKS. Babbling built the self's
+speaking joints (stage0a), the bridge shaped them language-shaped
+(stage1) - driven decode fully restored, T1 best-ever, and the model
+now produces complete grammatical sentences through its frozen readout
+("John smiled and said: I will hurt her hands"). The remaining wall is
+exactly as diagnosed: prompt-binding (D ~ 0, initiate no-bootstrap).
+"Listening" (Stage 2 contingency / Stage 3 6a) is next.
+OPEN DECISION for the user: (a) resume stage1 overnight to 93000
+(ce_dyn was stuck ~3.03; driven side already restored - marginal value),
+or (b) declare stage1 done and move to Stage 2 (contingency: driven
+states taught to the free run, e.g. --w_state through the stage1
+dynamics, or auto_prefix>0 rehearsal) using ctrnn_step89500.pt as the
+new parent. Note cadence was ~2 steps/s at boot, ~0.12 steps/s later possible GPU contention from other workloads; not an error.
+STAGE 2 (contingency - the listening joint) RUNNING (this session):
+resume stage1 ctrnn_step89500.pt, --freeze_lm --auto_rehearse
+--anneal_from_p0 --auto_prefix 8 --auto_teacher_p0 1.0
+--auto_teacher_p_end 0.2 --w_auto_dyn 0.5 --w_var 0.05 --tau_floor 3.0
+--interact_ratio 0.5, to 93500, ckpts/500. The auto branch free-runs
+
+FROM an 8-token driven prefix and re-enters its own decoded tokens
+(teacher 1.0 -> 0.2 linearly); ce_dyn through the frozen readout forces
+the driven->free transition to RETAIN content = the missing joint.
+IMPORTANT: --anneal_from_p0 was REQUIRED (stage1 ckpt stores
+teacher_p=0.0 from its non-rehearse run; without the flag the anneal
+would start at 0.0).
+Early read (89500-89830): ce_dyn 1.13 -> 1.46 as teacher 1.00 -> 0.93
+(branch self-sustaining more; CE tracks driven quality ~1.0 until
+teacher gets low). tau floor holds (2.78-2.79). cadence variable
+0.1-1.5 steps/s (machine load; ~0.4/s typical -> stage ~3h).
+GATE: T6 D must move ABOVE +0.1 (prompt-binding); initiate must stay
+non-degenerate. Anneal reaches 0.2 only at the final step - the freerun contingency is trained progressively; the D verdict is a
+late-stage metric.
+STAGE 2 PROGRESS (90000-91000): replies stay fluent; D flat ~0
+(90000 +0.000, 91000 -0.063) as expected while teacher still 0.71-0.90.
+ce_dyn trajectory: 1.13 (t=1.0) -> 2.45 (t=0.71) with dips (1.87 at
+90914) - the dynamics adapt in waves as the anneal presses them; the
+unseeded baseline is ~3.0, so the branch is already decoding better
+
+than unseeded free-run at teacher 0.71. tau floor holds (2.78->2.89,
+slight rise = floor vs variance tug). driven ce slipped 1.0 -> 1.2
+(accepted cost; watch it doesn't slide past ~1.3).
+CADENCE COLLAPSED to 0.07-0.3 steps/s (machine load; at 0.1/s the
+remaining 2500 steps ~ 7h). Stage 2 ETA: hours, not minutes. The D
+verdict arrives only near the end (teacher -> 0.2 at 93500).
+MONITORING PLAN: gate 92000 (teacher ~0.45) and 93000 (~0.25) with
+probe_dialogue (D!), probe_initiate, probe_causal_ablation; full
+battery (heldout CE, T1/T2) at the final. KILL GATE: if the fluent
+replies regress to fragments while teacher is still high, or if driven
+ce slides >1.4, stop and roll back to stage1 89500 (best.pt of stage2
+is the fallback). The 89500 ckpt remains the known-good parent for
+restarts.
+STAGE 2 POST-MORTEM + HANDSHAKE REVIEW (this session, user-requested):
+The user's hypothesis - a missed handshake between the stages - was
+reviewed line by line. VERDICT: all plumbing handshakes are intact;
+the regression is real training behavior with a probe-side quality
+cliff, and the mechanism is a design flaw, not a bug.
+Handshakes VERIFIED CLEAN:
+
+- resume path: stage2 resumed stage1's ctrnn_step89500.pt = the exact
+artifact the milestone battery measured.
+- anneal: --anneal_from_p0 required (stage1 ckpt stores teacher_p=0.0);
+teacher=1.00 logged at 89500, 0.20 at 93499 - exact per schedule.
+- EMA: opt_interact=None under freeze_lm -> EMA never updated; teacher
+stays the phase-4 frozen readout copy (== live frozen readout).
+- window parity: model.py:764-783 ALREADY prefills auto_history with
+the driven prefix states (old phase-3 fix) - the auto window and the
+T6 probe window are structurally identical.
+- re-entry equation: training err_b = embed_b - anticipate_b with
+sigmoid surprise gate == probe err (probe_dialogue.py:82-86).
+- training curves are SMOOTH: ce_dyn 1.17->3.15, ce 1.0->1.9, acc
+0.68->0.45 - no discontinuity anywhere.
+THE REAL MECHANISM (echo-lalia trap): schedule sampling (teacher anneal
+1.0->0.2) with a FROZEN decoder converges to the decoder's own fixed
+point. At teacher < ~0.5 the loop re-enters the readout's argmax tokens
+(no external anchor); the corpus CE (max 50% teacher at 92000) cannot
+hold the dynamics against the self-reinforcing loop, which settles into
+the stage-0a "dooon" template (the readout's preferred continuation).
+
+Training ce_dyn -> 3.0 = the template's own CE. The "sudden" reply
+regression between the 91000 and 92000 gates is a fluency cliff
+(fluency is not linear in ce_dyn), not a metric jump.
+MISSED HANDSHAKE (the real one): training re-entry is argmax
+(deterministic) and probe re-entry is TEMP=0.7 multinomial (stochastic)
+- plus the design truth that a closed self-loop cannot learn listening:
+the loop only ever re-hears itself. Stage 1's open-loop (silent) freerun training DID generalize to the closed-loop T6 probe (fluency);
+stage 2's closed-loop training collapsed instead.
+FIX - STAGE 2b (launched this session): silent open-loop free-run FROM
+the driven 8-token prefix (auto_prefix 8, NO auto_rehearse) +
+w_auto_dyn 0.5, freeze_lm, w_var 0.1, tau_floor 3.0 w_tau 2.0,
+interact_ratio 0.5, resume stage1 89500 -> 92500, ckpts/500. The free
+run must carry the prefix content into a SILENT continuation (exactly
+T6's structure minus the re-entry); no echo-lalia trap; the content
+anchor the unseeded stage-1 (ce_dyn stalled at 3.0) lacked. Gates:
+D must go positive; ce_dyn must start well below 3.0 (content survives
+the transition) and fall; replies stay fluent. If ce_dyn stalls,
+stack --w_state (content injection by construction) on top.
+
+STAGE 2 POST-MORTEM + HANDSHAKE REVIEW (this session, user-requested):
+The user's hypothesis - a missed handshake between the stages - was
+reviewed line by line. VERDICT: all plumbing handshakes are intact;
+the regression is real training behavior with a probe-side quality
+cliff, and the mechanism is a design flaw, not a bug.
+Handshakes VERIFIED CLEAN:
+- resume path: stage2 resumed stage1's ctrnn_step89500.pt = the exact
+artifact the milestone battery measured.
+- anneal: --anneal_from_p0 required (stage1 ckpt stores teacher_p=0.0);
+teacher=1.00 logged at 89500, 0.20 at 93499 - exact per schedule.
+- EMA: opt_interact=None under freeze_lm -> EMA never updated; teacher
+stays the phase-4 frozen readout copy (== live frozen readout).
+- window parity: model.py:764-783 ALREADY prefills auto_history with
+the driven prefix states (old phase-3 fix) - the auto window and the
+T6 probe window are structurally identical.
+- re-entry equation: training err_b = embed_b - anticipate_b with
+sigmoid surprise gate == probe err (probe_dialogue.py:82-86).
+- training curves are SMOOTH: ce_dyn 1.17->3.15, ce 1.0->1.9, acc
+0.68->0.45 - no discontinuity anywhere.
+
+THE REAL MECHANISM (echo-lalia trap): schedule sampling (teacher anneal
+1.0->0.2) with a FROZEN decoder converges to the decoder's own fixed
+point. At teacher < ~0.5 the loop re-enters the readout's argmax tokens
+(no external anchor); the corpus CE (max 50% teacher at 92000) cannot
+hold the dynamics against the self-reinforcing loop, which settles into
+the stage-0a "dooon" template (the readout's preferred continuation).
+Training ce_dyn -> 3.0 = the template's own CE. The "sudden" reply
+regression between the 91000 and 92000 gates is a fluency cliff
+(fluency is not linear in ce_dyn), not a metric jump.
+MISSED HANDSHAKE (the real one): training re-entry is argmax
+(deterministic) and probe re-entry is TEMP=0.7 multinomial (stochastic)
+- plus the design truth that a closed self-loop cannot learn listening:
+the loop only ever re-hears itself. Stage 1's open-loop (silent) freerun training DID generalize to the closed-loop T6 probe (fluency);
+stage 2's closed-loop training collapsed instead.
+FIX - STAGE 2b (launched this session): silent open-loop free-run FROM
+the driven 8-token prefix (auto_prefix 8, NO auto_rehearse) +
+w_auto_dyn 0.5, freeze_lm, w_var 0.1, tau_floor 3.0 w_tau 2.0,
+interact_ratio 0.5, resume stage1 89500 -> 92500, ckpts/500. The free
+
+run must carry the prefix content into a SILENT continuation (exactly
+T6's structure minus the re-entry); no echo-lalia trap; the content
+anchor the unseeded stage-1 (ce_dyn stalled at 3.0) lacked. Gates:
+D must go positive; ce_dyn must start well below 3.0 (content survives
+the transition) and fall; replies stay fluent. If ce_dyn stalls,
+stack --w_state (content injection by construction) on top.
+---- SESSION RECORD (2026-08-18) ---STAGE 2b (silent open-loop, auto_prefix 8, killed ~89867): ce_dyn plateaued ~3.0 even
+WITH the driven prefix - content does not survive a silent free transition (measured), i.e.
+the states do not carry the continuation into the free run.
+STAGE 2c (w_state 0.3, auto_prefix 8, to 90375): st 3.09- (weighted MSE), fluency (driven
+ce 1.03, acc 0.68) HELD, but ce_dyn stuck ~3.0 and st flat for 800+ steps - structural
+plateau, killed. Parent kept (stage2c_contingency/ctrnn_step90000.pt).
+STAGE 3 (6a: freeze_self + w_auto 0.5, resume 2c@90000): ce_auto stuck ~3.0, D -0.002
+@90500. SEED-EVICTION DEFECT FOUND: auto_history pop(0) evicted the driven seed
+after 8 free steps - the binding gradient only reached the first 8 steps. FIXED:
+pop(min(auto_prefix, len-1)) pins the seed; same pin in probe_dialogue reply() (pop
+n_prompt). Stage killed for relaunch.
+CORPUS-SIZE DISCOVERY: corpus.txt is 1,912,238,079 chars (NOT ~1.1M). The eval
+scripts' heldout slice text[-100_000:] is a DIFFERENT GENRE (Wikipedia-style) ~1.9B
+chars from the training region - all historical "heldout CE" numbers (3.737/3.656/3.521)
+were measured on OOD-genre text. On-genre heldout (= any slice of the first 900k, the
+trainer's data 0..1M) decodes at driven ce ~1.0. eval_ctrnn_bridge's comment is wrong.
+Use on-genre slices for honest numbers; the probes (T6/T1/T2/causal) are the real gates.
+DIAGNOSTIC SET (diag_auto_window.py, diag_trainer_ce.py, diag_ab.py): (1) the
+trainer's driven decode is ~1.0 on-genre everywhere (heldout=tail was OOD); (2) free-run
+silent decode is ~3.0 UNIFORMLY - even at step 1 where the window is identical and the
+
+per-dim state residual is only 0.09 (1.77/384-norm) - the readout's decision surface is
+hypersensitive: ANY off-manifold state costs ~2 nats; (3) the silent free states do NOT
+carry the continuation content (the info of the last driven token is gone by step 1) - ce_auto
+~3.0 is the unlearnable floor of the SILENT branch (no consistent signal for the readout,
+confirmed: w_auto training over 1200+ steps across 3b/3c never moved it); (4) interleaving
+(auto-before-driven decode in the readout sequence) is irrelevant.
+STAGE 3b (pinned-seed 6a, freeze_self, w_auto 0.5, silent, ~700 steps): ce_auto flat
+~3.05. KILLED - silent branch is unlearnable (see diagnostic set).
+STAGE 3c (sampled re-entry --reentry_temp 0.7, teacher 0.4, freeze_self, ~590 steps):
+ce_auto flat ~3.0. KILLED - the loop's FIRST decode used the silent seed state (no
+token-8 info, off-manifold) so the garbage emissions kept the loop off-manifold forever.
+STAGE 3d (head-weighted w_state 1.0, w_auto 0.5, dynamics unfrozen, ~570 steps): st
+ROSE 0.025-, ce_auto flat ~3.05. KILLED - a chaotic free run cannot be coerced into
+exact driven-tracking by L2 attraction; and even 2c's converged st 0.027 leaves a 0.1-0.18
+per-dim gap the readout cannot read through.
+NAMED DIAGNOSTICS: diag_auto_window.py (per-step driven/auto CE + residual,
+on-genre), diag_trainer_ce.py (trainer-phase ce on slices), diag_ab.py (replication A/B),
+diag_checklog.py (log tail stats), diag_corpus.py, diag_tail.py. New flags: --reentry_temp
+(sampled re-entry), --w_state_mode {tail,head}.
+UNCOMMITTED: whole research phase still uncommitted (backup risk remains).
+STAGE 3e (RUNNING - the design fix): rehearsal whose FIRST decode is the
+DRIVEN state (model.py: t==auto_prefix -> S_auto = S): the first decode is
+then the driven decode (~1.0, identical window), the sampled emissions are
+fluent, and the loop stays on the driven manifold - exactly the T6 probe
+reply() statistics (the ONLY thing that ever produced fluent self-generated
+text, at stage-1 89500). Plus w_auto 0.5 (readout learns the loop),
+
+w_auto_dyn 0.3 (dynamics learn the loop through the frozen EMA),
+reentry_temp 0.7 (sampled, not argmax - the echo-lalia escape), teacher
+0.5->0.3. Initial data (430 steps): ce_auto 3.74->2.69 (FIRST time below
+the 3.0 wall), ce_dyn 2.67, driven ce 1.05->1.28 (readout re-adapting;
+watch it). Gates: ce_auto toward ~1.5-2, T6 D > 0.1 with fluent replies,
+driven ce recovers <=1.1.
+EVOLUTIONARY SWEEP - AGREED PLAN (2026-08-18, pending stage 3e verdict):
+Role: CONDITIONAL on stage 3e. If 3e succeeds (ce_auto ~1.5-2, T6 D > 0.1,
+fluent loop): sweep becomes optional local refinement around 3e's config
+(low priority). If 3e fails: sweep is the PRIMARY next campaign. RETRACTION
+CONDITION: if 3e's reply length before template-collapse stays flat (~20
+chars) while ce_auto keeps falling, the loop cap is structural (chaotic
+drift unavoidable even with fluent emissions) -> drop the sweep.
+Rationale (measured, not abstract): (1) silent branch is provably
+unlearnable (free states carry no content; readout hypersensitive: any
+off-manifold state costs ~2 nats; ce_auto 3.0 is a floor); (2) the re-entry
+loop is the ONLY object that ever produced fluent self-text (stage-1 89500,
+~48 chars) -> program-space provably contains a working point; (3) D is too
+noisy to drive selection (within/between disagreement ~0.85-0.9 baseline);
+
+(4) 600-step lives ARE discriminative (3e moved ce_auto 3.74->2.8 within
+200 steps); (5) fitness hacking is real (the attractor has low CE) -> the
+template penalty is mandatory.
+DESIGN (fixed regardless of verdict):
+- Selection unit: TRAINING PROGRAM ONLY (the ~10 levers: w_auto,
+w_auto_dyn, w_state, w_state_mode, auto_teacher_p0/p_end, reentry_temp,
+auto_prefix, auto_horizon, tau_floor, w_tau, interact_ratio, freeze
+modes) + RNG seed. Architecture untouched. NOT weights (dim-384 scale,
+gradient descent already solves the weight side: driven CE 1.0).
+- Life: resume from fixed parent (stage2c_contingency/ctrnn_step90000.pt
+or 3e-best), ~600 interaction steps.
+- Fitness: per-step loop-CE on 5 fixed corpus prompts, MINUS an explicit
+attractor-template penalty (the "doon"/"dngo"/"started to sh" n-gram
+families), PLUS a driven-ce regression guard (keep ce <= ~1.15). Full T6
+battery (D gate) only for survivors.
+- Operators: gaussian mutation + crossover + elitism (top-k); Lamarckian
+weight inheritance (each life resumes from best-so-far weights - gradient
+descent = within-life learning, evolution shapes the program).
+- Budget: pop 12 x 40 gens ~= 16-40h; 10-gen pilot (~4-10h) validates
+
+fitness discriminability before the full campaign.
+- Machinery: evolve.py loop script reusing train.py's resume/args + the
+probe battery; no new training code beyond the template detector.
+- Seeding: 3e's config becomes a seed member if it exists.
+STAGE 3e VERDICT + DEGRADATION MECHANISM + STAGE 3f LAUNCH
+(2026-08-18):
+3e verdict: FAIL-with-improvement. Killed at step 91124 (PID 15220).
+ce_auto fell 3.74 -> 2.76 in the first 200 steps (first time below the
+3.0 wall) then PLATEAUED (2.76-2.79 for the last 900 steps); ce_dyn
+tracked flat ~2.73; driven ce recovered 1.28 -> 1.16. T6 @91000: loop
+OPENING became genuinely corpus-like ("Lily said, 'Yes, please. Mom
+sa...", "She put the caniful started home") but template-collapses at
+~20-25 chars ("started to"-family) and D = -0.027 (fugazee). The 3e fix
+direction WORKS (loop start on-manifold -> fluent openings) but the
+capability gate (sustained prompt-bound fluency) did not emerge.
+MEASURED DEGRADATION MECHANISM (diag_loop_curve on 3e@91000): per-step
+loop CE vs true continuation - step 1: 1.133, step 2: 2.459, step 3:
+3.291, step 4+: ~5.3-5.9 (worse than random, ln80=4.38). Teacher-forced
+loop: FLAT 1.09 for all 40 steps (dynamics + readout healthy). The loop
+does NOT degrade gradually - it COLLAPSES within ~2 steps of the first
+
+sampled re-entry (wrong ~60% of tokens at TEMP 0.7): one wrong token
+takes the state off-manifold and the readout snaps to its template
+attractor (the "doon"/"started to" orbit - corpus-shaped but
+prompt-independent; explains the fluent-opening illusion and D~0).
+SEED-BINDING FORK (diag_loop_bind on 3e@91000): decode the collapsed
+loop's state with (a) recent-16 window: ~5.5; (b) SEED-ONLY window:
+~4.2 (also broken - the readout NEVER learned to continue from a distant
+pinned context, its only skill is "next char given recent chars");
+(c) hybrid seed+recent: ~5.5 (recency-biased attention wins). => the
+missing skill is exactly 6a seed-binding, and NO existing training
+signal provides it (driven statistics always had recent true context;
+ce_auto's attention gradient is too weak vs the loud corrupt states).
+STAGE 3f - BINDING CURRICULUM (LAUNCHED, PID 1352, resumed from
+stage3e_rehearse/ctrnn_step91000.pt, --steps 96000, save_dir
+stage3f_bind): with probability bind_p (annealed 0 -> 0.5 over the run,
+--bind_anneal_from_p0), the rehearsal decode window is the PINNED SEED
+STATES ONLY (warmup prefix + the 3e-fix seed) instead of the recent self
+states - the readout is supervised to decode the true continuation
+(which IS the seed's continuation) from the seed window, creating the
+
+missing mapping; the re-entered token then samples from the bound decode
+so the dynamics receive true-continuation-aligned tokens (loop tracks
+instead of collapsing). Logs ce_bind (the binding skill's own CE)
+separately from ce_auto (the full-window loop decode) - gate: ce_bind
+falls fast, ce_auto follows once the attention shift lands. ALSO FIXED
+in model.py: the rehearsal eviction now pins auto_prefix+1 states
+(min(auto_prefix+1, len-1)) - the previous code evicted the SEED at
+index auto_prefix (the 3e-fix state carrying token auto_prefix), losing
+token-auto_prefix's info from the window. Teacher anneal continues from
+stored value (~0.4 -> 0.3 by 96000; NO --anneal_from_p0). Config
+otherwise = 3e (w_auto 0.5, w_auto_dyn 0.3, auto_prefix 8, reentry_temp
+0.7, interact_ratio 0.5, checkpoint 500). Smoke test (diag_smoke_bind)
+passed: bind_p 0.0/0.3/1.0 all run clean.
+TRUST HEAD - CONFIDENCE MONITOR (BUILT + SMOKE-TESTED 2026-08-18,
+launch
+after 3f verdict):
+MOTIVATION: the user observed the collapse as "overwhelmed, naively
+confident about the wrong thing". Design constraint discovered in
+discussion: the template collapse is SELF-CONSISTENT - the brain
+EXPECTS its own babble, so the surprise signal goes LOW at the collapse
+
+(a naive surprise-as-wrongness monitor would see a calm confident
+brain). The monitor must therefore be TRAINED on the realized decode
+error, not the brain's own feelings.
+DESIGN (implemented):
+- trust_head: small MLP (dim -> 64 -> 1) on the CTRNN, trained to output
+g ~ exp(-(CE - 1)) where CE is the live decode's realized per-char
+cross-entropy vs the true continuation (detached target; the mouth
+cannot game the monitor). Healthy driven decode (~CE 1.0) -> g ~ 1;
+collapsed attractor (CE ~5.5) -> g ~ 0.01. Requires w_auto > 0.
+- TRUST-GATED QUERY BLEND in the rehearsal branch: the mouth decodes
+from S_query = S_seed + g*(S_auto - S_seed), where S_seed = the 3e-fix
+driven state at t == auto_prefix (detached anchor). Healthy loop
+states keep the query on the loop; collapsed states pull the query
+back to the seed - the mouth re-anchors on the prompt's continuation
+instead of staying confidently wrong. The re-entered token comes
+from the anchored decode, so the loop gets fed the true continuation
+again and recovers. Applied to BOTH decodes: logits_b (EMA/ce_dyn,
+gradient flows through g*S_auto - the dynamics are shaped less when
+untrustworthy, which is correct) and logits_auto (live/ce_auto,
+
+detached query as before). Off by default (w_trust=0 -> S_query =
+S_auto, exact 3f semantics).
+- train.py: --w_trust flag; trust params added to interact_params
+(filter now includes 'trust' in n); trust_loss_w = w_trust * trst
+added to loss_interact; logged as trst=; ckpt stores 'w_trust'
+(probe gate).
+- probe_dialogue.py reply(): applies the blend ONLY when
+ckpt['w_trust'] > 0 and trust_head exists (untrained heads must not
+corrupt T6 on 3f checkpoints). S_seed = the state after the last
+prompt char.
+COMPOSES WITH 3f: 3f teaches the mouth the seed-continuation skill
+(the ABILITY); the trust head supplies the JUDGMENT (WHEN to use the
+seed). Both are genotype levers for the evolutionary sweep.
+SMOKE (diag_smoke_trust on 3e@91000, random tokens): w_trust=0 runs
+clean with trst=0.0 (3f semantics preserved); w_trust=1.0 + bind_p=0.3
+trains the head (trust grad 1.51; readout 4.61; dynamics 1.95 through
+the blend) - all finite. LAUNCH PLAN: resume the 3f-best checkpoint
+with --w_trust 1.0 --bind_p0 0 --bind_p_end 0.5 --bind_anneal_from_p0
+after 3f's verdict (machine has one GPU slot).
+
+STAGE 3f VERDICT + STAGE 3g (TRUST HEAD) LAUNCH (2026-08-18):
+- 3f RAN TO COMPLETION (96000, saved final ctrnn.pt; PID 1352 exited).
+- SKILL METRICS - FIRST SUSTAINED DESCENT IN THE CAMPAIGN (the verdict
+data point): ce_bind 4.2 (fork baseline) -> ~2.5 at 96000 (the <2.5
+gate essentially hit); ce_auto 2.84 -> 2.49 (first-ever sustained
+descent below the 3.0 wall; the readout learned to decode the
+reshaped dynamics). ce_dyn drifted UP through the anneal (2.74 ->
+3.14): the dynamics were repurposed by the bound re-entry tokens;
+the readout chased the moving states.
+- BEHAVIOR GATE FAILED AND REGRESSED: T6 D @96000 = -0.123 (worst of
+the campaign; trend through the anneal: -0.063 @92000, -0.081
+@93000, -0.103 @93500, -0.106 @94000, -0.087 @94500, -0.123 @96000).
+Replies collapsed into ONE universal babble family ("...ttmheounoonh"
+tails), near-identical across prompts; only fragments ("Tho
+nutnren...", "t lkd ins stt hebdboon"). The anneal's second half
+HURT behavior: the reshaped dynamics decode well on the training
+distribution (ce_auto descent) but free sampling converges to a
+uniform degenerate attractor. Prompt-binding never emerged.
+- VERDICT: FAIL-with-improvement. Binding IS learnable (ce_bind gate
+
+hit, ce_auto off the wall for the first time) but the loop cannot
+save itself; the architectural anchor is required. This is exactly
+the composition the trust head was built for: the mouth can decode
+the reshaped dynamics (proven) - it needs the JUDGMENT of when.
+- 3g (TRUST STAGE) LAUNCHED (resumed stage3f_bind/ctrnn.pt @96000,
+--steps 108000 = 12000-step horizon, --w_trust 1.0, bind re-anneals
+0 -> 0.5 via --bind_anneal_from_p0, teacher continues from stored
+0.20 flat; save_dir stage3g_trust). ~7h to completion at ~28
+steps/min. LAUNCH FIX: train.py resume-path strict load now tolerates
+trust_head keys missing from a pre-trust ckpt (trust_added flag:
+args.w_trust > 0 and ckpt.get('w_trust', 0) == 0 -> strict=False;
+the head starts from fresh init). Verified live: trst= logged every
+step (0.62-0.76 early - a head learning exp(-(CE-1)) targets, not a
+collapsed constant), ce_auto 2.44-2.66, ce_dyn 3.0-3.2 at handoff.
+- 3g GATES: trst= trending down over the run (the head calibrating);
+ce_auto following below ~2.3 as the blend steers the loop; then T6
+D > 0.1 with readable replies (the blend must make the reply
+seed-anchored -> prompt-bound BY CONSTRUCTION when g falls).
+- If 3g fails -> the evolutionary sweep is the primary campaign per
+
+the handover agreement (3e/3f/3g configs seed the population;
+genotype includes bind_p + w_trust levers).
+ANTICIPATORY MONITOR (trust_horizon, built + smoke-tested 2026-08-18
+while 3g trains; ready for the next stage):
+- The self-check ladder: (1) reactive monitor - 3g running now, g
+judges the CURRENT state and re-anchors the decode; note the blend
+already gates the DYNAMICS shaping too (g scales the ce_dyn
+gradient into S_auto - the doubt channel steers the brain's
+training, not just the mouth). (2) ANTICIPATORY monitor - this
+build: g issued at step t is supervised by the MEAN realized CE of
+the FOLLOWING k steps (delayed supervision via two deques:
+trust_pending FIFO + ce_win sliding window, deque(maxlen=k)), so
+the head learns to fire BEFORE the collapse instead of after it.
+Doubt becomes foresight. (3) hesitation (decode-time abstain when
+g < floor) - not built yet. (4) self-calibrated doubt (internal
+consistency target, no teacher) - future.
+- model.py: trust_horizon=1 param (default = exact 3g/immediate
+semantics); ce_ex computed once per auto step and shared between
+the CE-free window and the trust target. train.py: --trust_horizon
+
+flag, passed through, stored in ckpt ('trust_horizon'). probe
+unchanged (horizon is training-only).
+- SMOKE (diag_smoke_trust on 3e@91000): w_trust=0 trst=0.0 (3f
+semantics); hz=1 trst=0.929 + trust grads 2.28; hz=3 trst=0.882 +
+trust grads 4.28 (windowed mean = stronger calibration signal);
+all finite, backward clean.
+- LAUNCH PLAN for a horizon stage: resume the 3g-best checkpoint with
+--w_trust 1.0 --trust_horizon 3 (+ the 3g flags) - or as a
+genotype lever (trust_horizon 1/3/5) in the evolutionary sweep.
+CORPUS SLICES (data_offset, built 2026-08-18):
+- Finding: corpus.txt is HOMOGENEOUS children-story register (top
+words "little"/"with"/"they"/"that", alpha 0.74-0.77) through at
+least 1B chars - ~1000x more on-genre data than the 1M slice the
+trainer uses. 32GB RAM fits the whole 1.9GB file.
+- Honest assessment: more corpus does NOT fix the loop wall (that is
+structural: off-manifold decode + self-consistent collapse, proven
+mechanism-independent). It DOES (a) counter the readout's
+near-memorization of the 1M slice (~300-400 epochs) - the template
+attractor may be partly that slice's bigram statistics; (b) enrich
+
+the trust head's CE target landscape; (c) give the sweep a
+controlled data lever (hygiene against gaming one slice).
+- train.py: --data_offset N (seek before read; errors='replace' so a
+split multibyte char at the boundary degrades to one U+FFFD token);
+ckpt stores 'data_offset'. Default 0 = original first-1M slice,
+exact prior semantics.
+- PLANNED ABLATION: resume the 3g-best checkpoint with
+--data_offset 1000000 (fresh on-genre slice) - directly tests
+whether the template collapse is memorization-driven or structural.
+This is the experiment that answers "would more corpus solve
+anything" empirically.
+TRUST TARGET CLAMP BUG (found 2026-08-18, mid-3g):
+- Symptom: trst went NEGATIVE from step 96470 (first -0.042, down to -4.387 by 97838)
+and trst= appeared on only 31/200 recent log lines. BCE is mathematically >= 0, so
+negative trst = target bug, not noise.
+- Root cause: g_target = exp(-(CE-1)) is UNCLAMPED. On good steps (realized CE < 1 common in the driven regime), the target exceeds 1. BCEWithLogits with target > 1 is
+negative AND rewards the head for saturating (logit -> +inf, 'always trust' - the monitor
+destroys itself). Head crossed the threshold ~96470; every step after trained it further into
+uselessness.
+- Smoke test never caught it: random tokens have CE ~9 (targets tiny). Regression check
+added to diag_smoke_trust (unclamped BCE at CE=0.7, saturated logit = -1.093 = the
+bug).
+
+- FIX: g_target = exp(-(CE-1)).clamp(max=1.0) in BOTH the immediate and the
+trust_horizon (mean_ce) blocks. CE <= 1 maps to target exactly 1 (perfect trust); BCE >=
+0 always; gradient vanishes at saturation (no runaway).
+- ACTION: killed corrupted 3g (PID 8780, ~97838), relaunched from ctrnn_step96500.pt
+(30 steps past onset - preserves the good 0.67->0.38 calibration, fixed loss corrects the
+early saturation) with the same 3g flags. VERIFIED: trst now stable 0.634-0.963, every log
+line, tight ~0.65 band at step 96751. Old log section archived to train_corrupt.log
+(dbg_log.py split it).
+- LEVER: this bug is itself evidence the monitor CAN be corrupted by its own objective the sweep must watch trst sign and range as a genotype fitness guard.
+DISCRIMINATION REDESIGN (built 2026-08-18, after 3g@97000 probe showed constant
+g):
+- Observation: head converged to constant g~0.42 (min_g squeezed 0.086->0.32 across
+prompts, fires ~0.4 even in collapsed reply tails). Constant-g IS the optimum of the
+blended-CE objective.
+- Survey (diag_trust_signal, faithful re-entry loop on 97000): ce_unblend (loop own
+decode) ~2.8-3.8 FLAT across the window - no healthy/collapsed class structure in the
+window distribution; anchor decode ~3.2 (mediocre); ent (readout softmax entropy on
+S_auto) correlates +0.91 with ce_unblend - the mouth own confidence is the strongest
+predictor of loop quality, inference-computable, NO polarity inversion (collapsed states are
+not confidently-wrong at this checkpoint).
+- Two structural problems: (1) reward circularity - the trust target was the BLENDED CE,
+so 'fire low' improves the target and the always-low/degenerate compromise is rewarded;
+the head could not learn discrimination it was not asked for. (2) the head input (S_auto
+only) made the quality mapping hard for the small MLP.
+- FIX PACKAGE (--trust_feature 1): (a) target = UNBLENDED decode CE (logits_mon on
+S_auto.detach(), detached labels - the trust loss trains ONLY the head, never the readout);
+(b) head input = [S_auto, ent/log(vocab)] - near-1D learnable mapping (high uncertainty ->
+fire low); (c) monitor readout call is side-effect-free (save/restore g_prev/s_state - the
+readout advances them per call); (d) head input dim 384->385, re-init on flag change
+(train.py trust_added condition extended); (e) probe_dialogue computes ent at inference
+
+(same save/restore).
+- SMOKE: feat=1 pass added (trst 1.014 positive, trust grads finite). Relaunched 3g from
+ctrnn_step98500.pt (log truncated at 98500) with --trust_feature 1; trst positive on every
+line (0.665-0.712 band) at step 98564. Watch: trst should FALL as the head learns the
+ent->g mapping (the target now has variance).
+- LEVER for the sweep: trust_feature 0/1 + trust_horizon 1/3 are independent genotype
+axes.
+3g VERDICT (2026-08-18, trust_feature stage, ran 98500->108000 to completion):
+FAIL-with-improvement.
+- Skill: trst fell 0.658 -> 0.603 (the unblended target + entropy feature DID make the head
+learn the window ramp - the first real trust descent; plateaus = noise floor). ce_auto 2.487
+kept (2.49), ce_bind 2.526 (slight late gain from the anneal tail), ce_dyn 3.318 ERODED
+(the late-anneal pattern from 3f again).
+- Behavior: T6 D = -0.120 at 108000 (campaign floor, worse than mid-run -0.099); replies =
+universal babble family; g constant 0.38-0.41, min fires at REPLY STEP 1 in 40/40 runs
+(not at collapse); late_g 0.32-0.48 (no collapse-catch).
+- CONFIRMED STRUCTURAL LIMIT (evidence chain): (1) window survey: ce_unblend flat
+2.8-3.8 - no healthy class; anchor decode mediocre ~3.2 (recency-attention: the readout
+snaps to recent self states); ent+0.91 in-window. (2) probe-style reply survey
+(diag_trust_probe): ce_un flat 3.5-4.0 across all 48 reply steps - NO template collapse
+either (the g~0.4 blend ALREADY prevents it - the anchor pull keeps states in the
+mediocre region); ent correlation -0.29 (does NOT transfer); min g at step 1. (3) the head
+converged to constant g TWICE (blended target, then unblended+ent) - because the
+quality is uniformly mediocre, there is nothing to discriminate.
+- LESSON: the trust monitor is bounded by the mouth: a self-doubt channel cannot learn
+on a distribution where every decode is equally bad. The mouth-first principle: the readout
+must decode the loop states (the binding/attention skill - 3f's unfinished ce_bind 2.5)
+before the monitor can see healthy vs collapsed. The trust concept stays (the ladder:
+reactive -> anticipatory -> hesitation), but ONLY after the decode is fluent.
+- NEXT: stage3h_bind (mouth-first decode stage): resume 3f ctrnn.pt, flat bind 0.8 (no
+
+anneal), w_trust 0. Gates: ce_bind < 1.8, ce_auto < 2.0, T6 D > 0.1; kill if ce_dyn > ~3.5
+(the reshape erosion).
+3h LAUNCHED (2026-08-18, mouth-first decode stage): resume stage3f_bind\ctrnn.pt
+@96000, --steps 103000, bind FLAT 0.8 (--bind_anneal_from_p0 - without it the resume
+continues from the ckpt-stored bind_p=0.5, found by reading the anneal code at
+train.py:502-517), w_trust 0, teacher 0.2, the 3f loop config. Rationale: the trust monitor is
+bounded by the mouth (3g verdict); the readout must decode the loop states (the
+seed-binding attention skill) before any self-doubt signal has structure. Gates: ce_bind <
+1.8, ce_auto < 2.0, T6 D > 0.1; kill if ce_dyn > ~3.5. Fixed the loader (train.py:302-310) to
+tolerate a missing trust head when w_trust=0 (3f-era ckpts have no trust keys; strict load
+was crashing).
+3h VERDICT (2026-08-18, mouth-first bind stage, 96000->103000): IMPROVED, NOT
+PASSED. Skill: ce_bind 2.47->2.40 and ce_auto 2.49->2.43 - the FIRST sustained
+descents of the campaign (the flat-0.8 bind pressure works; both plateaued in the final
+1500 steps = ~2.4 floor). ce_dyn 3.21->3.29 (erosion under bind pressure, under the 3.5
+guard). Behavior: T6 D = -0.052 at 103000 (best of the campaign; 3g -0.120; trend noisy:
+-0.069 @98500, -0.075 @100000, -0.052 @103000) - first real English fragments in
+replies ('ts m a big big tred with his ins hum. he dogges') but the tail still collapses to the
+template. Window survey @103000: ent vs quality +0.59 (WEAKER than 3g-era +0.91),
+unblended loop decode still flat 3.5-3.9 - the improved mouth did NOT give the monitor
+structure; the ROOT is the loop tracking: ce_dyn never moved below 3.1 in ANY stage.
+- ANNEA L TRAP (fixed twice): on resume the teacher AND the bind anneal continue from
+the ckpt-stored value unless the restart flags are passed (--anneal_from_p0 for the teacher
+at train.py:493-498, --bind_anneal_from_p0 for the bind at train.py:502-517). Launching
+flat p0==p_end WITHOUT the flag silently runs the OLD value -> new value over the
+stage.
+3i LAUNCHED (2026-08-18, loop-tracking stage): resume stage3h_bind\ctrnn.pt
+@103000, --steps 110000, teacher FLAT 0.5 (--anneal_from_p0), bind flat 0.5, w_trust 0.
+Rationale: ce_dyn (loop tracking) is the identified root - the loop cannot track the
+continuation, so the window lacks healthy/collapsed structure and the trust monitor has
+nothing to learn. Gate: ce_dyn < 2.8, then re-survey the window structure for the trust leg;
+kill if ce_dyn > 3.6. EARLY SIGNAL (120 steps in): ce_dyn 3.29->2.98, ce_auto
+2.43->2.21 - the higher teacher aligns the loop states instantly.
+
+ALIGNMENT METRIC (AAS) - new: the architecture-alignment score, logged as aln= from
+the next launch (train.py:629-650). Per element a_i = exp(-(ce_i - ce_driven)/ce_driven) 1.0 = decodes as well as the driven mouth; AAS = 100 x geometric mean over the active
+elements (bind = seed-window decode, auto = full-window decode, dyn = EMA decode of
+the loop states, trst = trust-head calibration when w_trust>0). The architecture is only as
+aligned as its weakest element - and dyn is ALWAYS the weakest (loop tracking).
+Analyzer: python substrate\ctrnn\diag_align.py <log1> <log2> ... (block trends +
+last-window AAS, --trst to include the monitor). CAMPAIGN AAS: 3f end 27.7 (dip to 21.8
+mid-anneal), 3g end 31.8, 3h end 30.2 (28.5->30.5 then plateau), 3i @400 steps 32.8 and
+climbing. Milestone sense: AAS ~30 = the 3.0 wall breached; ce_auto < 2.0 (the gate)
+lands around AAS 45-50.
+3i CAUSAL MAP (the loop-tracking stage):
+corpus continuation --> teacher 0.5 forces the re-entry token 50% of steps
+re-entry token (temp 0.7) --> rechained into S_auto (loop states)
+S_auto stays ON the manifold (aligned) - this is the whole point
+|--> EMA readout decodes S_auto --> ce_dyn (3.06, was 3.29) --> gradient
+| now INFORMATIVE: previously the readout could not decode the
+| off-manifold states, so the gradient was flat and the states were
+| never shaped - the chicken-egg the teacher breaks
+|--> live readout (full window) decodes S_auto --> ce_auto (2.36, was 2.43)
+|--> bind 0.5: seed-window decode from the pinned prefix --> ce_bind (2.36)
+all three decodes converge toward the driven reference (1.23) = AAS rises
+window quality gains structure --> (next legs) teacher anneal-down = the
+internalization test, then the trust monitor finally has classes to see.
+
+Contrast: every pre-3i stage shaped the READER (3f/3h bind) or the MONITOR
+(3g trust) - never the STATES being read; 3i is the first direct lever on
+the dynamics, and the fast response (ce_dyn -0.22 in 120 steps) is the
+signature of pressing on the right mechanism.
+NEXT ADVENTURE: THE HESITATION RUNG (user-selected from the menu; the
+self-doubt trilogy completion). Plan (stages 3j -> 3k):
+- Phase 0 (already running): 3i -> 3i2 internalization (teacher 0.5->0.2, launch_3i2.bat) ->
+3j trust leg (w_trust 1 + trust_feature 1 on the internalized mouth - the monitor's third and
+first fair chance). Hesitation is meaningless on an uncalibrated monitor.
+- Phase 1: decode-side abstention policy, zero training changes: probe_dialogue.py
+extension - abort the reply when the monitor's g < theta for k consecutive steps; reply
+becomes '...' or a re-anchor+restart. CALIBRATION FIRST (reuse diag_trust_probe - theta
+must be set on the REPLY distribution, not the window - the 3g transfer lesson). Gates:
+abort precision/recall vs realized collapse, false-abort rate on healthy replies, T6 D with
+abstention (the confident replies should get better). Degeneration guard: abstain-rate cap
+(silence is the safe fugazee).
+- Phase 2: anticipatory edge - the trust leg with --trust_horizon 2-3 (built + smoke-tested,
+never staged); the monitor fires BEFORE collapse; abstention gets lead time.
+- Phase 3: the communicative act - the terminal session shows 'I don't know'/silence
+moments. Abstain token (vocab change) deferred vs '...' - behaviorally identical, '...' is free.
+- Phase 4: inside-out layer (side-quest): calibration curves, g distribution over healthy vs
+collapsing replies, what the head uses beyond entropy.
+- Sequencing: 3i (running) -> 3i2 -> 3j trust leg -> 3k hesitation. Sweep stays the safety net
+(revised: teacher_p added to the genotype). OPEN QUESTIONS: (1) reactive monitor first
+then a separate hz=2-3 leg, or straight to anticipatory? (2) '...' acceptable or explicit abstain
+token from the start?
+3i VERDICT (2026-08-19, loop-tracking stage, 103000->110000 to completion): PASSED
+
+ITS GATE. ce_dyn crossed the 2.8 gate region (2.81 @105929), ce_auto 2.355->2.24,
+ce_bind 2.362->2.26, driven 1.225->1.15 - the loop reached its aligned floor under the
+scaffold. The wall is broken: ce_auto first crossed 3.0 in 3f, now 2.24; ce_dyn below 3.0 for
+the first time in the campaign. Endpoint surveys @110000: window ent-vs-quality +0.69
+(vs +0.59 @3h, +0.91 3g-era); unblended free-loop decode still ~1.2 nats above driven; T6
+D = -0.080 (within 0.801 / between 0.721 - still prompt-blind) BUT no collapse anywhere
+(degenerate index 48/48 all prompts), real word fragments ('Shought they weigs learning
+and many had h'). Honest summary: 3i aligned the TRAINING-TIME loop; the FREE loop
+still does not carry it - the internalization question, which 3i2 was built to answer. NOTE on
+AAS: aln= drifted 32.8->30.6 as the driven reference improved FASTER than the loop
+elements (relative metric - the reference pulls away; absolute decodes still improving).
+3i2 VERDICT (internalization leg, 110000->113295, KILLED EARLY - the hypothesis
+discrimination): the teacher anneal 0.5->0.2 was watched to the first kill line. Drift resumed
+past the temporary plateau: ce_auto 2.22->2.31, ce_bind 2.24->2.31, ce_dyn 3.05->3.21
+(blocks), accelerating below teacher ~0.40 (dyn +0.04/block -> +0.14/block); AAS
+29.8->27.7. Killed at 113295 (ce_dyn block 3.214, single-line 3.32 > the 3.3 line; projected
+~3.6 + auto ~2.5 by 117000). RESOLUTION: the user's hypothesis won the discrimination
+- the fixed schedule is NOT survivable below teacher ~0.4; every loosening step costs
+quality, as if the teacher is the mechanism rather than a removable crutch. The correct
+control is COMPETENCE-GATED withdrawal, not a time schedule (see 3k).
+THE ADAPTIVE TEACHER (user's extended hypothesis, 2026-08-19 - the
+control-theoretic fix): the anneal converts from OPEN-LOOP (time schedule) to
+CLOSED-LOOP (competence-gated). The teacher proportion is controlled by the loop's
+own tracking quality (ce_dyn block mean vs its RUNNING BEST): degradation beyond the
+margin raises the teacher FAST (fear of falling - the collapse asymmetry), sustained
+best-level quality lowers it SLOWLY. The machine earns its scaffold; the equilibrium
+teacher is the stage's headline number = the machine's self-determined scaffold
+requirement. Kills both failure modes at once: premature withdrawal (erosion -> teacher
+rises before it compounds) and vestigial dependency (competence drives it down as fast
+as the loop can hold). Controller law (train.py): block mean of ce_dyn (500-step window),
+EMA 0.9/0.1, running best, rise 0.02/block if conf > best + 0.03 margin, fall 0.005/block if
+conf <= best, clamp [--teacher_lo 0.2, --teacher_hi 0.5]; state persisted in ckpt
+(teacher_ctrl key) for crash-continuous resumes; control-block guard len(ctrl_block) >= 50.
+Philosophy: the machine's TRACKING controls its scaffold (3k); later the machine's own
+VERDICT (g) will - the monitor graduating from instrument to governor, and hesitation (the
+sandbox) is that loop running at inference.
+
+RUNG-1 INTERACTION (the prompt as the first EXTERNAL teacher - built 2026-08-19):
+new InfoNCE prompt-recovery head (model.py: int_head, MLP 2*dim->128->1). After the
+prompt window, the loop speaks reply_horizon free steps (same self-re-entry machinery,
+states on the autograd graph when w_auto_dyn > 0); the reply END-STATE must be more
+predictable-from its OWN prompt end-state than from the batch's other prompts: scores[i,j]
+= int_head([S_reply_i; S_prompt_j]), CE with labels = arange(batch) (rows = replies, cols =
+prompts). The prompt is detached - the external given, the 'other' - only the reply learns;
+gradient reaches the dynamics through the reply states, so the loop learns
+prompt-specificity BY CONSTRUCTION (the target behind the T6 gate). Flags: --w_int
+(weight), --reply_horizon (R; 8 in 3k). Logged as int= (chance = ln(batch) ~ 3.47 @32).
+Loader tolerates the missing head on pre-interaction ckpts (int_added, same pattern as
+trust_added); interact_params includes int_head; diag_align.py now parses int=
+(word-boundary regex - was matching sp_int=).
+3k LAUNCHED (2026-08-19, INTERACTION STAGE - the machine's first lesson from an
+other; PID 2216): resume stage3i_loop\ctrnn.pt @110000 (rollback to the known-good
+parent - the ladder's rule; the 3i2 best-ckpt is mid-erosion), --steps 124000, teacher
+ADAPTIVE (starts at the stored 0.5, controller governs), bind flat 0.5, --w_int 0.5
+--reply_horizon 8, the 3i loop config. The armed rescue fired: 3i2's kill line (dyn 3.3) was
+crossed. Early: int=3.45 (chance, as expected - the head is fresh), ce_auto ~2.2 / ce_dyn
+~3.0 (the healthy 3i baseline restored). GATES: T6 D >= +0.1 (trained for at last, not just
+probed); int= trending DOWN from 3.47 (the reply becoming prompt-specific); equilibrium
+teacher <= 0.3 at the end (the self-determined scaffold requirement); degenerate index
+48/48 (no template); AAS hold; kill if the template returns or ce_dyn blows past ~3.5 with
+the teacher at the ceiling.
+SEQUENCING (updated): 3k interaction (running) -> 3l trust leg (w_trust 1 + trust_feature
+1, the monitor's target = realized prompt-dependence - a REAL interaction-quality signal;
+when its calibration passes, g becomes the controller signal) -> 3m hesitation (decode-side
+abstention; calibration first on the REPLY distribution; abstain-rate cap). Sweep stays the
+safety net (revised: teacher_p added to the genotype - now WITH the adaptive controller
+as the primary mechanism in the search). Project_Philosophy.md holds the origin
+hypothesis, the guide-relation (capacity is realized by the guide, never self-made), and the
+argument with the friend (measurability as evidence, not disqualifier).
+THE HIJACK FAILURE MODE + THE BALANCE PRINCIPLE (2026-08-19, user): the
+foreseeable failure of the adaptive teacher is TOTAL teacher hijacking of the self
+dynamics. From the outside, 'the machine can do this' and 'the machine needs this' look
+
+identical (quality holds while the teacher is present). Four faces: (1) ECHO-CAPTURE the loop states learn to follow FED tokens, not generate their own (alignment by identity,
+AAS blind to it); (2) CONTAMINATED REFERENCE - the controller's running best was
+achieved UNDER the teacher, so the controller defends teacher-aided quality (vestigial
+dependency made adaptive; the observable signature = teacher oscillating floor<->ceiling,
+a withdrawal-fight limit cycle); (3) PARROT SOLUTION - the int head is satisfied by echo
+(the reply copies the prompt's continuation - prompt-dependent, T6-blind); (4) AAS
+blindness (alignment meter, not independence meter).
+THE BALANCE (the user's principle, operationalized): the model SHOULD use the teacher
+when it cannot learn (dependency is legitimate while learning is happening - the
+guide-relation), BUT it should LEARN because it should not NEED the teacher. Therefore:
+TA use is NOT the failure; TA use WITHOUT learning progress IS. The learning meter =
+the teacher-trajectory slope: TA need must DECREASE while quality and int hold (the
+controller's fall = demonstrated learning). Failure signature (hijack) = teacher pinned high
+(or oscillating) while int= stalls - TA used, no learning. GATES ADDED for 3k: teacher
+equilibrium <= 0.35 at the end with no rise events in the last 5 control blocks (the
+self-determined scaffold requirement, now with the learning interpretation: need must
+DECREASE while quality holds); int= must KEEP falling while the teacher falls (learning
+under withdrawal); plus the existing T6 D >= +0.1, degenerate index, AAS hold.
+ABLATION SERIES (the 2x2 + controls, one GPU, ~4h each, sequential):
+- A (DONE, historical baseline): teacher fixed low, no controller (3i2's erosion) - the guide
+is needed (cannot learn without it). Result: collapse below teacher ~0.4.
+- B (DONE, historical baseline): teacher fixed 0.5, no int (3i) - holds under the teacher.
+Result: aligned floor, dependency visible on withdrawal.
+- C (RUNNING = 3k): adaptive teacher + int. The main arm. Criterion: TA need falls
+(teacher <= 0.35, no oscillation) while quality + int hold.
+- D (NEXT, launch_3k_abl_D.bat): adaptive teacher, NO int - isolates the int loss's
+contribution to self-sustaining (does the equilibrium differ without the interaction
+pressure?). Gate: teacher equilibrium + oscillation + the free-loop T6 baseline.
+- E (THEN, launch_3k_abl_E.bat): int + FIXED teacher anneal (0.5->0.2, no controller) isolates the controller's contribution (does int alone survive the withdrawal, or erode like
+
+3i2?). Completes the 2x2 with B.
+- F (FREE, runs in parallel with every arm): teacher-0 inference probes at every 500-step
+ckpt (probe_dialogue T6 D + degenerate index + diag_echo parrot detector) - the free-loop
+ground truth the controller cannot see.
+- G (planned, future): probe-cycle controller variant - the controller FORCES the teacher to
+the floor for ~300 steps every ~2000 and measures the response (the machine is
+TESTED, not just observed; the probe-cycle quality IS the internalization measurement).
+Diagnostics built for the series: diag_teacher_resp.py (teacher trajectory, rise/fall events,
+oscillation detection, ce_dyn response slope per teacher bin - steep slope =
+dependency/hijack, shallow = self-sustaining) and diag_echo.py (corpus-backed
+reply-vs-true-continuation agreement - the parrot detector: high agreement = echo, low =
+the machine's own turn). Controller gains are RUNTIME-TUNABLE: teacher_ctrl.json in
+the save_dir (keys rise/fall/margin/lo/hi) re-read at every control block - the intervention
+sensitivity can be tuned live without restarting (train.py). NOTE: 3k was interrupted once at
+110157 (external), relaunched from ctrnn_step110000.pt with the runtime-config code (PID
+5412); int= fell 3.45->2.7 in the first ~150 steps (prompt-specificity forming fast).
+PROBE PASS 1 (3k @ step 110500, 500 steps into the interaction stage):
+- T6: D = -0.072 (within-prompt 0.842, between-prompt 0.769) - replies still prompt-blind at
+the free loop (same regime as the 3i endpoint's -0.080); sustained coherence 48/48 all
+prompts; readability mixed ("the cat sat on the mat" best: space_frac 0.292, mean_run
+2.91, 11 words >=2; shorter prompts still runny).
+- ECHO (diag_echo, 12 corpus windows): reply-agreement vs true continuation 0.099 vs
+driven accuracy 0.606 - the replies are the machine's OWN turn, NOT the continuation (no
+parrot solution at 110500).
+- CONTROLLER: fires at 500-step boundaries, prints to launch_stdout.log (NOT train.log the bat redirects stdout there; findstr on train.log misleads). History: first launch fired at
+step 110000 (1-sample block, ema=best=2.817, teacher 0.5->0.495); relaunch resumed
+that state; fire at 110500: conf=3.0801 (block mean ce_dyn), ema=2.8433 vs best=2.8170
+- within the 0.03 margin -> no rise, no fall, teacher holds 0.495. The int loss's disturbance
+is visible (dyn block mean 3.08 vs best 2.82) - within tolerance, the controller correctly
+waits.
+
+- TRAINING: int= 2.725 (110055) -> 2.16 (110531) - prompt-specificity forming fast;
+ce_auto 2.19-2.24, ce_dyn 2.97-3.16; ce_ema improving 1.26->1.12 (best.pt updates).
+- MECHANICS LESSON: stdout prints (controller, best.pt, saved) land in
+launch_stdout.log; the step= lines are the only thing in train.log. diag_teacher_resp.py
+parses train.log (teacher= present in the step lines); the teacher_ctrl.json gains file lives in
+the save_dir (defaults = launch flags when missing).
+INT-MATRIX DIAGNOSTIC (diag_int_matrix.py, built 2026-08-19) - the
+curiosity/distinctiveness question measured: does the int gradient reach the generator?
+Replicates the trainer's reply rollout faithfully (teacher blend, EMA readout, pinned-prefix
+window, slow carry) and measures three levels: HEAD (int score matrix), STATE
+(reply-state distances within vs cross prompt), CHARS (argmax-decoded reply
+disagreement).
+RESULT @ 110500: HEAD ok (int_ce 2.34 vs chance 3.58, diag +2.16 vs offdiag -0.06,
+row_acc 0.25 vs 0.028 chance); STATE branches (within-prompt 6.75 vs cross 8.55, gap
++1.80 = prompt explains ~21% of reply-state variance); CHARS do NOT (D -0.008, and
+within-prompt disagreement 0.819 - two replies to the SAME prompt from different seeds
+disagree on 82% of chars).
+VERDICT: the int loss IS reaching the dynamics (states branch), the head reads it - the lag
+is the MOUTH's free-state decode regime: ce_dyn ~3.0 keeps the decode
+chaotic-threshold, so trajectory noise scrambles the chars and the prompt-dimension
+cannot translate. THE REPLY-DISTINCTIVENESS TERM IS OFF THE TABLE: the states
+already branch; a contrastive generation term would push an open door (redundant
+pressure at the wrong layer). The correct lever is the decodability leg (ce_dyn falling
+toward ~2.5), which is exactly what the controller protects and what the probes measure.
+The curiosity instinct was right to check, measured to nothing: non-trivial ideas go through
+the diagnostic BEFORE the build.
+CONTROLLER LAW v2 - THE LEARNING CHANNEL (2026-08-19, user directive: "the
+model must learn at pace before TA takes over for good; learning pressure should reduce
+TA intervention"):
+- The v1 law withdrew only on QUALITY-HOLD (conf <= best): while int= was falling fast
+(3.51 -> 0.66) the teacher stayed pinned at its ceiling - the scaffold's grip did not track the
+learning. The race framing: the machine must learn before the TA's support becomes
+
+permanent (the vestigial-dependency equilibrium); the withdrawal must be paced by
+learning.
+- v2 arbitration at each control block: learn = (int block mean < int running best learn_margin). degraded = (conf ema > conf best + margin). If degraded AND not learning
+-> RISE. If degraded AND learning -> HOLD (reorganization is in progress - do not panic,
+do not withdraw). If not degraded -> FALL. The scaffold's grip tracks the learning pace; the
+TA can never take over while the machine is still learning.
+- New state: ctrl_int_ema, ctrl_int_best (running best of the int block means) - persisted in
+teacher_ctrl as a 4-tuple (conf_ema, conf_best, int_ema, int_best); the loader tolerates the
+old 2-tuple. New flag --teacher_learn_margin (default 0.05), runtime-tunable via
+teacher_ctrl.json key learn_margin. ctrl_int_block is not persisted (resumes start the block
+fresh, like ctrl_block).
+- ELEGANT CONSEQUENCE: with w_int=0 (ablation D), ctrl_int_block stays empty ->
+learn is always False -> v2 degenerates exactly to v1 (quality-only) - the learning channel
+is automatically disabled without the interaction loss, keeping D a clean controller-only
+ablation.
+- 3k RESTARTED at 112121 from ctrnn_step112000.pt with v2 (PID 14804); the law
+change applies from 112000 onward (recorded: 3k = v1 law 110000-112000, v2 law
+112000-124000). First v2 decision at 112500: expectation = degraded (conf ~3.1 vs best
+2.82) AND learning (int still improving) -> HOLD (previously: RISE). The learning channel
+converts the reorganization phase into steady support, and the machine's continued
+learning into withdrawal once conf recovers.
+- GATES updated reading: the equilibrium teacher now reflects learning-saturation: the
+scaffold leaves while the machine learns; when int= saturates, withdrawal stops - and the
+T6/echo gates judge whether that equilibrium is legitimate or hijack (echo detector:
+reply-agreement must stay far below driven-accuracy ~0.6; T6 D >= +0.1 alone is NOT
+sufficient - the parrot path exists and the teacher at 0.5 leaks the continuation into the
+auto-branch).
+CONTROLLER LAW v2 FIX - THE DEAD-CHANNEL BUG (2026-08-19): the learning
+channel as first implemented was STRUCTURALLY DEAD: int_best was updated (best :=
+min(best, ema)) BEFORE the learn check, so after every improving block ema == best and
+learn = (ema < best - margin) is mathematically impossible (ema >= best always). The
+
+113000 fire exposed it: int block mean 0.621 -> 0.512 (improving) with learn=N. v2 == v1
+exactly until this fix - "v2 has no fingerprint" was literal. FIX: learn is now measured against
+the PRE-update best using the raw BLOCK MEAN (the 500-step average is already
+smooth): learn = (int_block_mean < int_best - learn_margin), then best := min(best, ema).
+3k RESTARTED AGAIN at 113264 from ctrnn_step113000.pt with the fixed law (PID
+3584). First genuine v2 fingerprint expected at 113500: int mean ~0.45-0.5 < (0.610 - 0.05)
+-> learn=Y -> if conf still degraded (~3.1 vs best+0.03) -> HOLD (v1 would RISE). The
+113000 block also carried the good trend: conf 3.1095 (descending from 3.1328 -> 3.1301
+-> 3.1095 - the disturbance fading) and int 0.512 (descending).
+PROBE PASS 2 (3k @ steps 111000 + 111500, ~1000 steps into the interaction stage):
+- CONTROLLER: TWO rises fired - 111000: conf=3.1255, ema=2.8715 vs
+best+0.03=2.8470 -> RISE, teacher 0.495->min(0.515, hi=0.5)=0.5; 111500: conf=3.1328,
+ema=2.8976 -> RISE again, stays 0.5 (ceiling). The int disturbance kept dyn quality past
+the margin; the controller restored maximum support - the balance in action (uses TA
+because it cannot hold quality through the disturbance yet). int= keeps falling (learning IS
+happening under full support).
+- T6 @111500: D = -0.068 (was -0.072 @110500) - still prompt-blind, unchanged. BUT
+readability IMPROVED: space_frac 0.19-0.33 (was 0.10-0.29), mean_run 3.0-5.1 (was
+2.9-8.6), words>=2 6-9; replies now carry real fragments ("the cat sat on the mat" -> "ts a
+bad bpon to the lelonger "Whe dog sa"; "how are you" -> " said. n nrigroun..."). The
+mouth's free-state decode is sharpening generally - the ce_dyn leg is moving.
+- INT-MATRIX TREND (110500 -> 111000): HEAD int_ce 2.34 -> 2.09, diag-vs-offdiag gap
+2.22 -> 3.07 (row_acc 0.25, chance 0.028); STATE gap +1.80 -> +2.31 (prompt explains
+~25% of reply-state variance, up from 21%); CHARS within-prompt disagreement 0.819 ->
+0.816, D -0.008 -> -0.018 (frozen).
+- READING: the pipeline order is head -> states -> mouth -> chars. Three layers move, the
+char-level prompt-conditioning does not (yet). The mouth's GENERAL decode sharpens
+(readability) while the PROMPT-DIMENSION translation has not engaged. The
+within-prompt char disagreement ~0.81-0.82 is the number: the argmax decode still flips
+on seed noise (content vs noise: noise wins). DECISION RULE held: mid-run (117000): if
+within-prompt disagreement still >0.7 AND ce_dyn >2.9 AND T6 D <0 -> 3k2 legibility arm
+justified (entropy penalty on the EMA decode of free states, dynamics-only gradient, frozen
+mouth). Current reading: machinery working as designed, layers advancing in order; the
+
+mid-run gate decides whether the mouth's sharpening reaches the prompt-dimension by
+itself.
+3K2 LEGIBILITY ARM (built 2026-08-19, pre-mid-run-gate):
+- Contingency for Fork B at the 117000 gate: dynamics-side legibility term - the frozen
+EMA mouth's free-state decodes must be CONFIDENT (low entropy), not just correct.
+ce_dyn rewards argmax-correct; a flat distribution scores fine on CE while the argmax flips
+on trajectory noise (the within-prompt char disagreement ~0.8 signature). The entropy
+penalty forces states the mouth reads sharply.
+- Implementation: model.py interaction_phase - total_legib accumulates
+-(softmax*log_softmax).sum(-1).mean() on (1) logits_b (EMA decode of the free states,
+auto branch) and (2) logits_r (reply segment decodes) - both inside w_auto_dyn>0 blocks.
+Gradient lands in the dynamics ONLY (EMA frozen); the live readout untouched. Returns
+15-tuple; train.py unpacks 15, legib_loss = w_legib*legib added to loss_interact; --w_legib
+flag; log line legib= when active.
+- Fixed callers: diag_ab.py, diag_trainer_ce.py, smoke_auto_dyn.py (11->15 unpack).
+- Verified on the REAL 3k ckpt (ctrnn_step115500.pt): smoke_legib.py - legib=2.4456,
+autograd.grad(legib, W_rec.weight) norm 593.74 -> the term has teeth and reaches the
+dynamics. (Note: smoke on the stale-era esnpn ckpt prints legib=0.000 - a stale-readout
+one-hot artifact of the mismatched era, NOT a bug; fresh-era ckpt shows the true value.)
+- Launch: launch_3k2.bat - resume ctrnn_step117000.pt, --steps 124000, save_dir
+stage3k2_interact, identical config to 3k + --w_legib 0.1. Fork B decision = original 3k gate
+(T6 D >= +0.1, equilibrium <= 0.35 - reachable because 3k2 runs a full schedule with the
+arm), plus the equilibrium-nuance: fall rate 0.005/block x ~17 blocks leaves a ~0.415 floor if absorption completes, raise fall via teacher_ctrl.json (runtime lever) or extend steps.
+MID-RUN GATE VERDICT @117000 (2026-08-19) -> FORK B, 3k2 LAUNCHED:
+- Gate inputs at 117000: ce_dyn 3.11 (deg), T6 D = -0.084 (REGRESSED from -0.054
+@115000; free-loop collapses to a shared template - "tnrentout it lerinilunnutt" across all
+prompts; only "the cat sat" yields fragments), within-prompt disagreement 0.764
+(int-matrix, best yet but >0.7) / 0.858 (T6 teacher-0). ALL THREE FIRE.
+
+- Tie-breaker: the mouth sharpens (disagreement 0.785 -> 0.764 steadily; readability up)
+BUT the prompt-conditioning does NOT follow the int learning (int= 0.503 -> 0.360, still
+descending, 8 straight learn=Y) - absorption without translation = the stalled signature. Not
+crossing on schedule: at the disagreement slope (~-3.2e-6/step) the 0.7 threshold needs
+~20k steps; only ~7k remain.
+- ACTION: 3k (PID 3584, step 117365) killed; 3k2 (PID 13072) launched from
+ctrnn_step117000.pt via launch_3k2.bat (Start-Process cmd /c - the start /b pattern died
+with the shell this time - VERIFY via wmic every launch). w_legib=0.1 confirmed in
+cmdline; first steps legib=2.227 -> 2.179 (arm live, gently pulling). teacher resumed at 0.5
+ceiling; controller state carried in ckpt.
+- 3k2 endpoint 124000 (~3.5h at ~2000 steps/h). Fires expected from ~117500. Judge at
+end: T6 D >= +0.1 AND echo-agreement << 0.6, equilibrium <= 0.35 (fall-rate math: only
+~0.085 descent possible in 17 blocks at 0.005 - raise fall via teacher_ctrl.json if absorption
+completes, or extend steps), degenerate 48/48.
+- Probe cadence continues: full pass at every 500 ckpt of stage3k2_interact.
+PROBE PASS 3k2 (117500, 500 steps into the arm):
+- FIRES: 117500 conf=3.1664 ema=3.0682 int=0.316 int_best=0.460 learn=Y teacher=0.5
+-> HOLD (9th learn=Y); 118000 conf=3.1614 ema=3.0775 int=0.336 int_best=0.448
+learn=Y teacher=0.5 -> HOLD (10th). Block confs UP (3.11 -> 3.16) - the entropy gradient
+initially displaces the states (the lurch).
+- INT-MATRIX @117500: CHARS within-prompt disagreement 0.764 -> 0.528 (the arm's
+target moving!), D +0.020; STATE gap +3.58 -> +4.53 (best yet); HEAD int_ce 1.319 ->
+1.245, row_acc 0.306.
+- BUT THE LURCH: 7/12 sample replies are ALL-SPACE. The seeds agree - on blanks.
+The entropy gradient moved the states toward the EMA's sharp regions; the argmax there
+is the mode (space) because the readouts were trained on the OLD fuzzy trajectory
+distribution and haven't caught the moved states. Sharpness without content.
+- TWO READINGS, discriminated by 118000/118500 probes: (a) TRANSIENT - the loop
+closes by design (ce_auto 0.5 retrains the live readout on the new trajectory, EMA follows,
+ce_dyn falls -> sharp-and-correct equilibrium; conf rise + ceiling HOLD = the transition
+
+signature); (b) UNANCHORED COLLAPSE - if blanks persist with low legib, the entropy
+term's local optimum is the mode -> needs a correctness co-anchor (raise ce_dyn weight,
+lower w_legib, or confidence-on-correct-token formulation).
+- T6 @117500: D = -0.090 (still regressing; template persists at teacher-0; only "the cat
+sat" shows distinct content, and it changed vs 117000). No collapse at teacher-0 - the
+lurch is confined to the scaffolded trajectory.
+PROBE PASS 3k2 (118000, 1000 steps into the arm) - THE LURCH RESOLVES:
+- INT-MATRIX @118000: within-prompt 0.601 (ticked up from the 0.528 dip - the number
+is now honest), CHARS D -0.002 (noise-zero), STATE gap +4.72 (BEST), HEAD int_ce
+1.238 row_acc 0.333 (BEST). Blanks 7/12 -> 3/12 all-space; content returning ("s she be",
+"n the").
+- T6 @118000: D = -0.064 (from -0.090) - the template BREAKS AT THE HEAD at
+teacher-0: "what is this" -> "smiling and p...", "i am thinking" -> "someona...", "the cat sat"
+-> "Lily... smiled". First real prompt-varying fragments at teacher-0, ever.
+- READING: transient confirmed (not unanchored collapse) - the blank-phase was the
+readouts re-anchoring to the entropy-moved states; the loop closed (ce_auto re-trained the
+live readout on the new trajectory). Pre-arm fuzziness confirmed REAL signal (the arm's
+target: 0.82 -> 0.76 stubborn over 6.5k steps, then 0.76 -> 0.53 in 500 steps).
+- STATE: states branching (max), decode sharpness landed, content returning, T6 D
+improving but still < 0. Gate (T6 D >= +0.1, echo << 0.6, equilibrium <= 0.35) not yet met;
+direction is the designed one.
+ROOT-CAUSE SWEEP (2026-08-19, codebase-wide; the machine reframed):
+- THE ROOT: the recurrence is expansive by design - spec_target 3.0 (projected,
+train.py:554/692) vs the discretized stability edge rho ~ 1/tau ~ 0.2-0.4; small-signal gain
+~1.29x/token (1.31x at tau 4.5). Every perturbation multiplies ~1.3x per token; the only
+contractive forces are tanh saturation and the weak leak (-S/tau, tau~4.5). The
+prompt-dimension is real (state gap +4.58, head reads it) but FRAGILE: within-prompt
+state distance 6.79 EXCEEDS the cross-prompt gap 4.58 - the noise swamps the signal in
+state space, so the mouth's argmax flips. The char-level failure is state-level noise
+amplification, NOT mouth flatness (confirms the legib arm could only do so much).
+
+- PROBE/TRAINING REGIME MISMATCH (the gate's pessimism): training re-entry is
+ARGMAX (reentry_temp default 0.0 - deterministic); the batch (16 iid prompts) has NO
+same-prompt pairs - NO training loss can even see within-prompt divergence; teacher is
+clamped [0.2, 0.5] by the controller (schedule dead code) - the machine NEVER trained
+below teacher 0.2. T6 = teacher-0, 48 SAMPLED tokens, RANDOMIZED initial state (+-0.1
+randn, amplified through the driven phase and ~1.31^48 ~ 5e5 through the free loop) - D
+-0.08/-0.09 with within 0.858 > between 0.774 means same-prompt replies differ MORE
+than different-prompt: noise amplification dominates the gate at its own horizon; the
+template = the saturated attractor's output. Int-matrix = teacher 0.5 but SAMPLED
+rehearsal (0.7; training rehearsal is argmax) - its within-prompt 6.79 is largely
+probe-injected sampling noise.
+- THE STALE MOUTH: EMA decay 0.999, one polyak update per global step (interact
+every step at ratio 0.5) -> ~1000 steps (~2 control blocks) lag. The EMA is the controller's
+input (ce_dyn 3.1 vs live ce_auto 2.2 - the gap = EMA staleness + free-decode), the reply
+segment's decoder, the legib target, and the int-matrix's mouth. The machine's reply loop
+is always trained/measured through a ~1000-step-stale decoder.
+- INT SATURATION (flip at 119500): InfoNCE (diagonal-only, no same-prompt negatives)
+converges at HEAD-separability (1-D score); after saturation nothing protects the
+prompt-dimension - no loss penalizes within-prompt noise and the batch cannot measure
+it.
+- THE SUBTLETY: the machine learned the prompt-dimension but never
+perturbation-damping - no objective asked the free states to be a function of the prompt
+rather than of amplified noise. The driven regime NEEDS the gain (3i passed on it); the
+free-loop needs the complementary property (perturbation-insensitivity along the
+prompt-dimension). The candidate forces that address the root (NOT YET DECIDED - the
+user wants the understanding first): w_state head-mode (driven state = the
+seed-independent reference - the only available within-prompt-contractive force), tau/leak
+control, a within-prompt contrastive (requires same-prompt batch rows), or gate redesign
+(measure at a horizon/setting where the signal survives - the int-matrix's 8-token argmax is
+closer to training than T6's 48-token sampled).

@@ -1,0 +1,12 @@
+# Zeus v2
+__pycache__/
+*.pyc
+*.pt
+*.pth
+*.safetensors
+runs/*
+!runs/.gitkeep
+corpus/raw/*
+corpus/processed/*
+!corpus/.gitkeep
+.env
