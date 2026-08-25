@@ -28,6 +28,8 @@ class ZeusConfig:
     w_rent: float = 0.1
     rent_target: float = 1.0
     w_diverse: float = 0.02
+    k_repulse: float = 1.0
+    repulse_sigma: float = 0.5
 
 
 class SpectralClampedLinear(nn.Module):
@@ -199,6 +201,11 @@ class ZeusCore(nn.Module):
                 S_new = self.S.clone()
             else:
                 drive = -self.S / tau + h + self.w_slow(self.slow) * 0.1 + m
+                if c.k_repulse > 0 and len(self.history) > 0:
+                    Hs = torch.stack(list(self.history)[-c.window:])
+                    diff = self.S.unsqueeze(0) - Hs
+                    wgt = torch.exp(-(diff ** 2).sum(-1) / (c.repulse_sigma ** 2))
+                    drive = drive + c.k_repulse * (wgt.unsqueeze(-1) * diff).sum(0)
                 S_new = self.S + (c.dt / c.substeps) * drive
             S_new = torch.clamp(S_new, -8.0, 8.0)
             slow_new = torch.tanh(c.slow_keep * self.slow + 0.05 * torch.tanh(S_new)[: c.slow_dim])
