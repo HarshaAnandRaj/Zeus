@@ -1,5 +1,6 @@
 import argparse
 import json
+import math
 import pathlib
 import random
 import sys
@@ -131,19 +132,91 @@ def self_pass(model, steps=24, w_var=0.5):
 
 
 @torch.no_grad()
-def val_ce(model, val_ids, chunks=6, seg=48):
+def eval_health(model, steps=200, grain=0.25, k_lag=8):
+    g = torch.Generator(device="cpu").manual_seed(777)
+    model.reset_state(noise=0.1, generator=g)
+    traj = []
+    for _ in range(steps):
+        model.step(None)
+        traj.append(model.S.detach().clone())
+    traj = torch.stack(traj).cpu()
+    T = traj.shape[0]
+    d = torch.cdist(traj, traj)
+    covered = torch.zeros(T, dtype=torch.bool)
+    assign = torch.full((T,), -1, dtype=torch.long)
+    cid = 0
+    for t in range(T):
+        if covered[t]:
+            continue
+        msk = d[t] <= grain
+        covered |= msk
+        fresh = assign[msk] < 0
+        assign[msk] = torch.where(fresh, torch.full_like(assign[msk], cid), assign[msk])
+        cid += 1
+    counts = torch.bincount(assign, minlength=cid).float()
+    p = counts[counts > 0] / counts.sum()
+    ent_norm = float(-(p * p.log()).sum() / math.log(max(cid, 2)))
+    half = T // 2
+    c1 = torch.bincount(assign[:half], minlength=cid).float()
+    c2 = torch.bincount(assign[half:], minlength=cid).float()
+    a, b = c1 - c1.mean(), c2 - c2.mean()
+    den = float(a.norm() * b.norm())
+    sign_hat = float((a * b).sum() / den) if den > 0 else 0.0
+    mp = torch.full((T,), float("inf"))
+    for t in range(k_lag + 1, T):
+        mp[t] = d[t, :t - k_lag].min()
+    rho = float((mp[k_lag + 1:] < grain * 0.5).float().mean())
+    return {"rho_exact": round(rho, 4), "sites": int((counts > 0).sum()),
+            "entropy_norm": round(ent_norm, 4), "sign_hat": round(sign_hat, 3)}
+
+
+class HealthGovernor:
+    """Closed-loop transience regulation (CDT 3.6 as control): consume health
+    trends, modulate k_repulse and self_ratio. Adverse -> more idle rolls,
+    stronger repulsion; healthy -> decay toward learning."""
+
+    def __init__(self, target=0.12, k_floor=0.5, k_cap=8.0):
+        self.target, self.k_floor, self.k_cap = target, k_floor, k_cap
+        self.rho_ema = None
+
+    def state(self):
+        return {"rho_ema": self.rho_ema}
+
+    def load(self, st):
+        if st:
+            self.rho_ema = st.get("rho_ema")
+
+    def update(self, model, h, args):
+        rho = h["rho_exact"]
+        self.rho_ema = rho if self.rho_ema is None else 0.7 * self.rho_ema + 0.3 * rho
+        adverse = self.rho_ema > self.target
+        if adverse:
+            model.cfg.k_repulse = min(self.k_cap, model.cfg.k_repulse * 1.25)
+            args.self_ratio = min(0.6, args.self_ratio + 0.02)
+        else:
+            model.cfg.k_repulse = max(self.k_floor, model.cfg.k_repulse * 0.97)
+            args.self_ratio = max(args.base_self_ratio, args.self_ratio - 0.01)
+        return {"gov_k": round(model.cfg.k_repulse, 3),
+                "gov_self": round(args.self_ratio, 3), "gov_adverse": adverse}
+
+
+@torch.no_grad()
+def val_ce(model, val_ids, chunks=8, seg=128, warmup=48, stride=8192):
     model.eval()
     total, n = 0.0, 0
+    L = len(val_ids)
     for c in range(chunks):
-        seg_ids = val_ids[c * 512:(c * 512) + seg + 1]
-        if len(seg_ids) < seg + 1:
+        s0 = min(c * stride, max(L - warmup - seg - 1, 0))
+        seg_ids = val_ids[s0:s0 + warmup + seg + 1]
+        if len(seg_ids) < warmup + seg + 1:
             break
         model.reset_state(noise=0.0)
         for t in range(len(seg_ids) - 1):
             logits, _ = model.step(int(seg_ids[t]))
-            total += F.cross_entropy(logits.unsqueeze(0),
-                                     torch.tensor(int(seg_ids[t + 1]), device=model.S.device).unsqueeze(0)).item()
-            n += 1
+            if t >= warmup:
+                total += F.cross_entropy(logits.unsqueeze(0),
+                                         torch.tensor(int(seg_ids[t + 1]), device=model.S.device).unsqueeze(0)).item()
+                n += 1
     model.train()
     return total / max(n, 1)
 
@@ -164,7 +237,11 @@ def main():
     ap.add_argument("--device", default="cpu")
     ap.add_argument("--w_rep_cos", type=float, default=0.0)
     ap.add_argument("--tau_cos", type=float, default=0.9)
+    ap.add_argument("--gov_target", type=float, default=0.12)
+    ap.add_argument("--gov_k_floor", type=float, default=0.5)
+    ap.add_argument("--gov_k_cap", type=float, default=8.0)
     args = ap.parse_args()
+    args.base_self_ratio = args.self_ratio
 
     save_dir = ROOT / args.save_dir
     save_dir.mkdir(parents=True, exist_ok=True)
@@ -187,6 +264,7 @@ def main():
     dyn, lm = dyn_lm_params(model)
     opt = torch.optim.AdamW([{"params": dyn, "lr": args.lr_dyn}, {"params": lm, "lr": args.lr_lm}])
     ctrl = TeacherController()
+    governor = HealthGovernor(args.gov_target, args.gov_k_floor, args.gov_k_cap)
 
     start = 0
     ckpts = sorted(save_dir.glob("zeus_step*.pt"))
@@ -196,7 +274,10 @@ def main():
         model.load_state_dict(payload["model"])
         opt.load_state_dict(payload["opt"])
         ctrl.load(payload.get("controller"))
+        governor.load(payload.get("governor"))
         start = payload["step"]
+        if "self_ratio" in payload:
+            args.self_ratio = payload["self_ratio"]
         log({"event": "resume", "from_step": start, "ckpt": latest.name})
     elif not ckpts:
         log({"event": "fresh_start"})
@@ -222,9 +303,13 @@ def main():
             log(entry)
         if step % args.eval_every == 0:
             v = val_ce(model, val_ids)
-            log({"step": step, "val_ce_nats": round(v, 4), "floor_L1": 7.10, "floor_L2": 4.47})
+            h = eval_health(model)
+            gv = governor.update(model, h, args)
+            log({"step": step, "val_ce_nats": round(v, 4), "floor_L1": 7.10, "floor_L2": 4.47,
+                 "health": h, **gv})
         if step % args.ckpt_every == 0 or step == args.steps:
-            model.save(save_dir, step, extra={"controller": ctrl.state(), "opt": opt.state_dict()})
+            model.save(save_dir, step, extra={"controller": ctrl.state(), "opt": opt.state_dict(),
+                                              "governor": governor.state(), "self_ratio": args.self_ratio})
             log({"event": "ckpt", "step": step})
     log({"event": "COMPLETE", "step": args.steps})
 

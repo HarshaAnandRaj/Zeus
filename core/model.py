@@ -32,6 +32,8 @@ class ZeusConfig:
     k_repulse: float = 1.0
     repulse_sigma: float = 0.5
     repulse_skip: int = 2
+    repulse_adaptive: bool = True
+    repulse_q: float = 0.3
 
 
 class SpectralClampedLinear(nn.Module):
@@ -203,7 +205,12 @@ class ZeusCore(nn.Module):
                     age = (self._hptr - 1 - j) % c.window + 1
                     Hs = self.H[age > getattr(c, "repulse_skip", 2)]
                     diff = self.S.unsqueeze(0) - Hs
-                    wgt = torch.exp(-(diff ** 2).sum(-1) / (c.repulse_sigma ** 2))
+                    dist = (diff ** 2).sum(-1).sqrt()
+                    if c.repulse_adaptive:
+                        sigma = torch.quantile(dist.detach(), c.repulse_q).clamp_min(1e-3)
+                    else:
+                        sigma = c.repulse_sigma
+                    wgt = torch.exp(-(dist ** 2) / (sigma ** 2))
                     drive = drive + c.k_repulse * (wgt.unsqueeze(-1) * diff).sum(0)
                 S_new = self.S + (c.dt / c.substeps) * drive
             S_new = torch.clamp(S_new, -8.0, 8.0)
