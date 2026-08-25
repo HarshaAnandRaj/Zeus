@@ -93,6 +93,39 @@ def walk_dim(traj):
     return {"beta": round(beta, 3), "w": round(w, 3) if w else None}
 
 
+def enet_assign(traj, eps):
+    """World-grain census (CDT ablation_study methodology): cover the trajectory
+    by eps-balls greedily; each ball is one 'site'. Returns assignment + site count."""
+    d = torch.cdist(traj, traj)
+    T = traj.shape[0]
+    covered = torch.zeros(T, dtype=torch.bool)
+    assign = torch.full((T,), -1, dtype=torch.long)
+    cid = 0
+    for t in range(T):
+        if covered[t]:
+            continue
+        m = d[t] <= eps
+        covered |= m
+        fresh = assign[m] < 0
+        assign[m] = torch.where(fresh, torch.full_like(assign[m], cid), assign[m])
+        cid += 1
+    return assign, cid
+
+
+def world_metrics(traj, eps, late_frac=0.5):
+    assign, n_sites = enet_assign(traj, eps)
+    T = traj.shape[0]
+    late = assign[T - int(T * late_frac):]
+    distinct_late = int(late.unique().numel())
+    counts = torch.bincount(assign, minlength=n_sites).float()
+    p = counts[counts > 0] / counts.sum()
+    ent = float(-(p * p.log()).sum())
+    return {"grain": eps, "sites_total": n_sites,
+            "distinct_late": distinct_late,
+            "occupancy_entropy_norm": round(ent / math.log(max(n_sites, 2)), 4),
+            "radius_rms": round(float((traj - traj.mean(0)).norm(dim=1).mean()), 3)}
+
+
 def main(model=None, steps=400):
     model = model or load_model()
     seeded_reset(model, 0.1)
