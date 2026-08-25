@@ -1,0 +1,5 @@
+{"event": "fresh_start", "t": "15:38:06"}
+{"step": 25, "ce": 8.24357, "surp": 31.65989, "rent": 0.0, "div": -0.10587, "persist": -1.26792, "steps_per_s": 0.656, "t": "15:38:44"}
+{"step": 40, "val_ce_nats": 7.8816, "floor_L1": 7.1, "floor_L2": 4.47, "t": "15:39:08"}
+{"event": "ckpt", "step": 40, "t": "15:39:09"}
+{"event": "COMPLETE", "step": 40, "t": "15:39:09"}

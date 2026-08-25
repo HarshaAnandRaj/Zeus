@@ -103,7 +103,7 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp):
 
 
 def self_pass(model, steps=24, w_var=0.5, gamma=0.5, eps_state=0.1,
-              target_rms=1.0, w_expl=0.5):
+              target_rms=1.0, w_expl=0.5, state_radius=5.0, w_cont=1.0):
     model.reset_state(noise=0.2)
     total = 0.0
     traj = []
@@ -121,14 +121,17 @@ def self_pass(model, steps=24, w_var=0.5, gamma=0.5, eps_state=0.1,
     repulsion = (F.relu(eps_state - mp[1:]) ** 2).mean()
     rms = (traj - traj.mean(0)).norm(dim=1).mean()
     exploration = F.relu(target_rms - rms) ** 2
+    norms = traj.norm(dim=1)
+    contain = (F.relu(norms - state_radius) ** 2).mean()
     var = traj[T // 2:].var(dim=0).mean()
     var_pen = torch.relu(var - 0.3)
-    loss = total + w_var * var_pen + gamma * repulsion + w_expl * exploration
+    loss = total + w_var * var_pen + gamma * repulsion + w_expl * exploration + w_cont * contain
     loss.backward()
     return {"self_mse": float(total.item()),
             "var_floor": float(torch.exp(-10.0 * var_pen).item()),
             "repulsion": round(float(repulsion.item()), 6),
-            "rms": round(float(rms.item()), 4)}
+            "rms": round(float(rms.item()), 4),
+            "max_norm": round(float(norms.max().item()), 3)}
 
 
 @torch.no_grad()
@@ -167,6 +170,8 @@ def main():
     ap.add_argument("--eps_state", type=float, default=0.1)
     ap.add_argument("--target_rms", type=float, default=1.0)
     ap.add_argument("--w_expl", type=float, default=0.5)
+    ap.add_argument("--state_radius", type=float, default=5.0)
+    ap.add_argument("--w_cont", type=float, default=1.0)
     args = ap.parse_args()
 
     save_dir = ROOT / args.save_dir
@@ -209,7 +214,8 @@ def main():
         opt.zero_grad(set_to_none=True)
         if random.random() < args.self_ratio:
             m = self_pass(model, gamma=args.gamma, eps_state=args.eps_state,
-                          target_rms=args.target_rms, w_expl=args.w_expl)
+                          target_rms=args.target_rms, w_expl=args.w_expl,
+                          state_radius=args.state_radius, w_cont=args.w_cont)
             entry = {"step": step, **{k: round(v, 5) for k, v in m.items()}}
         else:
             off = random.randint(0, len(train_ids) - args.bptt - 1)

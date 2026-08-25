@@ -7,3 +7,62 @@
 {"step": 150, "self_mse": 0.0111, "var_floor": 1.0, "repulsion": 0.00112, "rms": 1.0523, "steps_per_s": 0.734, "t": "15:07:08"}
 {"step": 175, "self_mse": 0.01269, "var_floor": 1.0, "repulsion": 0.00059, "rms": 1.0753, "steps_per_s": 0.734, "t": "15:07:42"}
 {"step": 200, "ce": 7.88543, "surp": 174.02911, "rent": 0.9989, "div": -0.1425, "persist": -5.59609, "steps_per_s": 0.729, "t": "15:08:17"}
+{"step": 225, "ce": 6.7431, "surp": 175.49003, "rent": 0.99938, "div": -0.1427, "persist": -6.01788, "steps_per_s": 0.729, "t": "15:08:52"}
+{"step": 250, "ce": 7.22138, "surp": 176.15784, "rent": 0.99812, "div": -0.14276, "persist": -6.40344, "steps_per_s": 0.731, "t": "15:09:25"}
+{"step": 275, "ce": 7.92932, "surp": 177.18816, "rent": 0.99788, "div": -0.1428, "persist": -6.75809, "steps_per_s": 0.737, "t": "15:09:56"}
+{"step": 300, "self_mse": 0.00605, "var_floor": 1.0, "repulsion": 0.0, "rms": 1.2211, "steps_per_s": 0.743, "t": "15:10:27"}
+{"step": 325, "ce": 7.60444, "surp": 177.07065, "rent": 0.99955, "div": -0.14271, "persist": -7.32936, "steps_per_s": 0.74, "t": "15:11:02"}
+{"step": 350, "ce": 7.16104, "surp": 177.61431, "rent": 0.99464, "div": -0.14267, "persist": -7.5284, "steps_per_s": 0.742, "t": "15:11:35"}
+{"step": 375, "self_mse": 0.01138, "var_floor": 1.0, "repulsion": 0.0, "rms": 1.2142, "steps_per_s": 0.741, "t": "15:12:09"}
+{"step": 400, "self_mse": 0.00379, "var_floor": 1.0, "repulsion": 5e-05, "rms": 1.0488, "steps_per_s": 0.742, "t": "15:12:42"}
+{"step": 425, "ce": 6.94489, "surp": 178.29032, "rent": 0.9796, "div": -0.14283, "persist": -7.81238, "steps_per_s": 0.749, "t": "15:13:11"}
+{"step": 450, "ce": 7.84546, "surp": 178.55083, "rent": 0.97098, "div": -0.14281, "persist": -7.86129, "steps_per_s": 0.753, "t": "15:13:41"}
+{"step": 475, "ce": 6.76778, "surp": 178.47264, "rent": 0.96841, "div": -0.14281, "persist": -7.89207, "steps_per_s": 0.76, "t": "15:14:08"}
+{"step": 500, "ce": 7.54101, "surp": 179.36412, "rent": 0.97989, "div": -0.14277, "persist": -7.91955, "steps_per_s": 0.756, "t": "15:14:44"}
+{"step": 500, "val_ce_nats": 7.6005, "floor_L1": 7.1, "floor_L2": 4.47, "t": "15:14:47"}
+{"step": 525, "ce": 7.48064, "surp": 179.51366, "rent": 0.96829, "div": -0.14273, "persist": -7.94217, "steps_per_s": 0.753, "t": "15:15:21"}
+{"step": 550, "ce": 7.70405, "surp": 180.44375, "rent": 0.9683, "div": -0.14232, "persist": -7.95973, "steps_per_s": 0.751, "t": "15:15:55"}
+{"step": 575, "self_mse": 0.01493, "var_floor": 1.0, "repulsion": 0.0, "rms": 1.4637, "steps_per_s": 0.75, "t": "15:16:30"}
+{"step": 600, "self_mse": 0.00547, "var_floor": 1.0, "repulsion": 0.0, "rms": 1.1806, "steps_per_s": 0.752, "t": "15:17:01"}
+{"step": 625, "ce": 7.02859, "surp": 181.53676, "rent": 0.96834, "div": -0.14133, "persist": -7.98898, "steps_per_s": 0.754, "t": "15:17:32"}
+{"step": 650, "ce": 7.70582, "surp": 181.3794, "rent": 0.96847, "div": -0.14169, "persist": -7.99321, "steps_per_s": 0.754, "t": "15:18:06"}
+{"step": 675, "ce": 7.20367, "surp": 181.39164, "rent": 0.96834, "div": -0.14227, "persist": -7.99594, "steps_per_s": 0.752, "t": "15:18:41"}
+{"step": 700, "ce": 6.71862, "surp": 181.83004, "rent": 0.96824, "div": -0.14258, "persist": -7.9979, "steps_per_s": 0.755, "t": "15:19:10"}
+{"step": 725, "self_mse": 0.0061, "var_floor": 1.0, "repulsion": 0.0, "rms": 1.434, "steps_per_s": 0.761, "t": "15:19:36"}
+{"step": 750, "self_mse": 0.00725, "var_floor": 1.0, "repulsion": 0.0, "rms": 1.2058, "steps_per_s": 0.764, "t": "15:20:05"}
+{"step": 775, "ce": 7.68943, "surp": 183.50091, "rent": 0.9682, "div": -0.14282, "persist": -7.99961, "steps_per_s": 0.767, "t": "15:20:34"}
+{"step": 800, "ce": 6.9129, "surp": 183.01675, "rent": 0.96816, "div": -0.14284, "persist": -7.99988, "steps_per_s": 0.768, "t": "15:21:04"}
+{"step": 825, "ce": 7.63234, "surp": 183.38842, "rent": 0.96827, "div": -0.14284, "persist": -8.0, "steps_per_s": 0.769, "t": "15:21:36"}
+{"step": 850, "ce": 8.16439, "surp": 182.96162, "rent": 0.96821, "div": -0.14283, "persist": -8.0, "steps_per_s": 0.768, "t": "15:22:10"}
+{"step": 875, "ce": 6.90155, "surp": 182.91397, "rent": 0.9693, "div": -0.14239, "persist": -8.0, "steps_per_s": 0.771, "t": "15:22:39"}
+{"step": 900, "ce": 6.75568, "surp": 183.10785, "rent": 0.96809, "div": -0.14283, "persist": -8.0, "steps_per_s": 0.77, "t": "15:23:12"}
+{"step": 925, "self_mse": 0.00541, "var_floor": 1.0, "repulsion": 0.0, "rms": 1.2023, "steps_per_s": 0.774, "t": "15:23:38"}
+{"step": 950, "self_mse": 0.00966, "var_floor": 1.0, "repulsion": 0.0, "rms": 1.0877, "steps_per_s": 0.775, "t": "15:24:09"}
+{"step": 975, "ce": 5.92006, "surp": 184.21738, "rent": 0.96802, "div": -0.14285, "persist": -8.0, "steps_per_s": 0.773, "t": "15:24:44"}
+{"step": 1000, "ce": 7.85386, "surp": 184.23416, "rent": 0.9679, "div": -0.14282, "persist": -8.0, "steps_per_s": 0.773, "t": "15:25:17"}
+{"step": 1000, "val_ce_nats": 7.5265, "floor_L1": 7.1, "floor_L2": 4.47, "t": "15:25:20"}
+{"step": 1025, "ce": 7.07827, "surp": 184.71813, "rent": 0.96781, "div": -0.14284, "persist": -8.0, "steps_per_s": 0.773, "t": "15:25:50"}
+{"step": 1050, "ce": 7.76978, "surp": 185.11419, "rent": 0.96776, "div": -0.14283, "persist": -8.0, "steps_per_s": 0.772, "t": "15:26:23"}
+{"step": 1075, "self_mse": 0.00694, "var_floor": 1.0, "repulsion": 0.0, "rms": 1.2057, "steps_per_s": 0.772, "t": "15:26:55"}
+{"step": 1100, "self_mse": 0.00344, "var_floor": 1.0, "repulsion": 0.0, "rms": 1.0382, "steps_per_s": 0.774, "t": "15:27:24"}
+{"step": 1125, "ce": 7.58406, "surp": 186.17941, "rent": 0.97415, "div": -0.14284, "persist": -8.0, "steps_per_s": 0.776, "t": "15:27:53"}
+{"step": 1150, "self_mse": 0.00839, "var_floor": 1.0, "repulsion": 0.0, "rms": 1.1943, "steps_per_s": 0.778, "t": "15:28:21"}
+{"step": 1175, "ce": 7.82359, "surp": 187.77853, "rent": 0.96531, "div": -0.14284, "persist": -8.0, "steps_per_s": 0.777, "t": "15:28:55"}
+{"step": 1200, "self_mse": 0.00521, "var_floor": 1.0, "repulsion": 0.0, "rms": 1.1087, "steps_per_s": 0.777, "t": "15:29:28"}
+{"step": 1225, "ce": 6.36735, "surp": 188.11708, "rent": 0.42609, "div": -0.14279, "persist": -8.0, "steps_per_s": 0.778, "t": "15:29:58"}
+{"step": 1250, "ce": 7.04459, "surp": 188.46744, "rent": 0.9693, "div": -0.14273, "persist": -8.0, "steps_per_s": 0.779, "t": "15:30:28"}
+{"step": 1275, "ce": 7.56942, "surp": 189.15911, "rent": 0.96843, "div": -0.14284, "persist": -8.0, "steps_per_s": 0.78, "t": "15:30:58"}
+{"step": 1300, "self_mse": 0.00541, "var_floor": 1.0, "repulsion": 0.0, "rms": 1.1354, "steps_per_s": 0.781, "t": "15:31:27"}
+{"step": 1325, "self_mse": 0.00795, "var_floor": 1.0, "repulsion": 0.0, "rms": 1.0584, "steps_per_s": 0.782, "t": "15:31:57"}
+{"step": 1350, "ce": 6.10744, "surp": 189.18899, "rent": 0.96844, "div": -0.14282, "persist": -8.0, "steps_per_s": 0.78, "t": "15:32:33"}
+{"step": 1375, "ce": 7.41992, "surp": 189.42159, "rent": 0.96836, "div": -0.14273, "persist": -8.0, "steps_per_s": 0.781, "t": "15:33:05"}
+{"step": 1400, "ce": 7.79882, "surp": 189.7033, "rent": 0.96844, "div": -0.14285, "persist": -8.0, "steps_per_s": 0.781, "t": "15:33:37"}
+{"step": 1425, "self_mse": 0.00603, "var_floor": 1.0, "repulsion": 0.0, "rms": 1.7805, "steps_per_s": 0.781, "t": "15:34:07"}
+{"step": 1450, "ce": 7.36757, "surp": 190.39351, "rent": 0.96849, "div": -0.14281, "persist": -8.0, "steps_per_s": 0.782, "t": "15:34:38"}
+{"step": 1475, "ce": 7.48665, "surp": 190.29878, "rent": 0.96843, "div": -0.14275, "persist": -8.0, "steps_per_s": 0.782, "t": "15:35:09"}
+{"step": 1500, "self_mse": 0.00847, "var_floor": 1.0, "repulsion": 0.0, "rms": 1.068, "steps_per_s": 0.781, "t": "15:35:43"}
+{"step": 1500, "val_ce_nats": 7.475, "floor_L1": 7.1, "floor_L2": 4.47, "t": "15:35:46"}
+{"event": "ckpt", "step": 1500, "t": "15:35:47"}
+{"step": 1525, "self_mse": 0.00297, "var_floor": 1.0, "repulsion": 0.00014, "rms": 0.9896, "steps_per_s": 0.78, "t": "15:36:19"}
+{"step": 1550, "self_mse": 0.00741, "var_floor": 1.0, "repulsion": 0.0, "rms": 1.1955, "steps_per_s": 0.778, "t": "15:36:54"}
+{"step": 1575, "ce": 6.87244, "surp": 190.5993, "rent": 0.99299, "div": -0.14127, "persist": -8.0, "steps_per_s": 0.777, "t": "15:37:31"}
