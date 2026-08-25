@@ -59,16 +59,18 @@ def measure(model=None, steps=400):
     sign_hat = float((a * b).sum() / den) if den > 0 else 0.0
 
     flags = []
+    ent_norm = entropy / math.log(max(sites, 2))
     if rho_exact > 0.3:
         flags.append("rho_exact HIGH")
     if sites <= 32:
         flags.append("sites LOW")
     if lock > 0.5:
         flags.append("period-lock HIGH")
-    if sign_hat > 0.3:
-        flags.append("ATTRACTING BIAS (net gamma<0 suspected)")
+    if sign_hat > 0.3 and ent_norm < 0.85:
+        flags.append("ATTRACTING BIAS (correlated AND concentrated)")
     return {"rho_exact": round(rho_exact, 4), "eps_fine": round(eps_fine, 5),
             "sites": sites, "occupancy_entropy": round(entropy, 3),
+            "entropy_norm": round(ent_norm, 4),
             "lag2_over_lag1": round(ratio, 3), "period_lock": round(lock, 4),
             "sign_hat": round(sign_hat, 3),
             "rms": round(float((traj - traj.mean(0)).norm(dim=1).mean()), 4),

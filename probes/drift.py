@@ -25,12 +25,12 @@ def _slope(xs, ys):
     return num / max(den, 1e-9)
 
 
-def _min_past_dists(traj):
+def _min_past_dists(traj, k_lag=8):
     d = torch.cdist(traj, traj)
     T = traj.shape[0]
     mp = torch.full((T,), float("inf"))
-    for t in range(1, T):
-        mp[t] = d[t, :t].min()
+    for t in range(k_lag + 1, T):
+        mp[t] = d[t, :t - k_lag].min()
     return mp, d
 
 
@@ -43,13 +43,15 @@ def recurrence_stats(traj, eps_list):
     return out
 
 
-def corr_dim_points(pts, n_eps=8):
+def corr_dim_points(pts, n_eps=8, k_lag=8):
     pts = pts if pts.dim() == 2 else pts.unsqueeze(0)
-    if pts.shape[0] < 8:
+    N = pts.shape[0]
+    if N < 2 * (k_lag + 1):
         return 0.0
     d = torch.cdist(pts, pts)
-    iu = torch.triu_indices(d.shape[0], d.shape[1], offset=1)
-    pairs = d[iu[0], iu[1]]
+    iu = torch.triu_indices(N, N, offset=1)
+    keep = (iu[1] - iu[0]) > k_lag
+    pairs = d[iu[0][keep], iu[1][keep]]
     spread = float(pairs.max())
     if spread < 1e-6:
         return 0.0
