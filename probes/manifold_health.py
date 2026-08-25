@@ -51,6 +51,13 @@ def measure(model=None, steps=400):
         ratio = m2 / m1
         lock = max(0.0, 1.0 - ratio / math.sqrt(2))
 
+    half = traj.shape[0] // 2
+    c1 = torch.bincount(assign[:half], minlength=cents.shape[0]).float()
+    c2 = torch.bincount(assign[half:], minlength=cents.shape[0]).float()
+    a, b = c1 - c1.mean(), c2 - c2.mean()
+    den = float(a.norm() * b.norm())
+    sign_hat = float((a * b).sum() / den) if den > 0 else 0.0
+
     flags = []
     if rho_exact > 0.3:
         flags.append("rho_exact HIGH")
@@ -58,9 +65,12 @@ def measure(model=None, steps=400):
         flags.append("sites LOW")
     if lock > 0.5:
         flags.append("period-lock HIGH")
+    if sign_hat > 0.3:
+        flags.append("ATTRACTING BIAS (net gamma<0 suspected)")
     return {"rho_exact": round(rho_exact, 4), "eps_fine": round(eps_fine, 5),
             "sites": sites, "occupancy_entropy": round(entropy, 3),
             "lag2_over_lag1": round(ratio, 3), "period_lock": round(lock, 4),
+            "sign_hat": round(sign_hat, 3),
             "rms": round(float((traj - traj.mean(0)).norm(dim=1).mean()), 4),
             "flags": flags}
 
