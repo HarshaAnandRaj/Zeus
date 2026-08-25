@@ -135,7 +135,7 @@ Two coupled mechanisms:
 | M1 Working | τ hierarchy inside S (fast dims <0.5 track input; slow dims >5 integrate) | tokens–minutes | yes — it IS the dynamics |
 | M2 Episodic | `S_history` deque (readout window W) | last W tokens | yes — readout attends only own states |
 | M3a Slow carry | 64-dim gated channel, keep-gate ≈ 0.9; feeds `W_slow·m` modulation into dS; persisted across sessions | hours–forever | in-model; ablatable (zero it) |
-| M3b Traces | model-written notes: text + embedding, external store | forever | recall = **resonance**: top-k traces by cos(emb, S) above threshold re-enter via predictive coding `err = embed(trace) − anticipate`; never injected as tokens |
+| M3b Traces (HCM) | model-written notes: **HCM markdown store** + embeddings, external | forever | recall = **resonance**: top-k traces by cos(emb, S) above threshold re-enter via predictive coding `err = embed(trace) − anticipate`; never injected as tokens; see HCM contract below |
 
 Rules:
 
@@ -154,6 +154,30 @@ Rules:
 
 Staged rollout: M1/M2 from step 0 (P2); M3a enabled P3; M3b writes/recall P4; consolidation P5
 (alongside hesitation — both are rest-phase competences).
+
+#### HCM — Hardware Context Mapping (M3b storage contract; user directive 2026-08-25)
+
+Extension layer, not replacement: HCM defines *how* trace memory is stored and audited.
+
+- **Layout** (`memory/hcm/`, plain markdown, human-readable):
+  - `state/*.md` — important state data, pure model discretion
+  - `people/<handle>.md` — personal-relational profiles (inferred traits, interaction history, standing)
+  - `scratch/*.md` — trivial thinking-space
+  - Front-matter per entry: `created`, `last_recalled`, `strength`, `tags`
+- **Write path**: model emits actions (`remember` / `note` / `profile_update`) through the action
+  pathway; the training/session layer is the scribe — model never touches the filesystem directly.
+  Every write appended to `experiments/<run>/hcm_writes.jsonl` (full attribution).
+- **Read path**: unchanged — resonance over entry embeddings, top-k above threshold re-enter via
+  predictive coding. Known handle at interaction start ⇒ that person's profile auto-recalled.
+- **Monitoring**: humans may read anything at any time (half the point). Hands-off rule: manual
+  edits contaminate; if unavoidable, tag `externally_edited: true` so probes discount the entry.
+- **Persistence**: files survive power cycles/reboots/reinstalls by design; included in backup
+  discipline. Continuity now spans M3a (warm identity) + HCM (cold autobiography).
+- **Capacity/hygiene**: per-category caps, strength decay, consolidation merges duplicates into
+  compacted rewritten entries during sleep.
+- **Emergence tie-in**: relational profiles + state notes are the concrete substrate for Gate A4;
+  the terminal-session question "what do you know about me?" is answerable only via HCM recall,
+  making ownership measurable rather than narrated.
 
 ### 5.8 Adaptive teacher (withdrawal controller, law-v2 heritage)
 
