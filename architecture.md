@@ -173,8 +173,21 @@ Extension layer, not replacement: HCM defines *how* trace memory is stored and a
   edits contaminate; if unavoidable, tag `externally_edited: true` so probes discount the entry.
 - **Persistence**: files survive power cycles/reboots/reinstalls by design; included in backup
   discipline. Continuity now spans M3a (warm identity) + HCM (cold autobiography).
-- **Capacity/hygiene**: per-category caps, strength decay, consolidation merges duplicates into
-  compacted rewritten entries during sleep.
+- **Memory economy (measured, NOT rationed)**: no fixed caps on entries or categories. The real
+  scarcity is recall bandwidth (front-door top-k), which self-limits. Store grows freely;
+  consolidation merges/compacts on schedule; strength decay retires dead entries. The ONLY
+  intervention trigger is a *measured* one: falling recall utility (M2 below) — fix by better
+  consolidation, never by preset quota.
+- **Proficiency gates (M1–M4)** — how well Zeus uses its own mind is a first-class measurement,
+  probed every checkpoint alongside language:
+  - **M1 Write discipline**: writes correlate with surprisal/novelty spikes (not noise); write-rate
+    tracked per session/tick.
+  - **M2 Recall utility**: on-the-fly ablation — replies with vs without resonance-recalled traces;
+    useful-recall rate = fraction of recalls that measurably improve reply quality/relevance.
+  - **M3 Delayed recall (cross-session D_mem)**: content planted in session N must surface in
+    session N+k hours later — the memory analogue of T6 prompt-dependence, and Gate A4's body.
+  - **M4 Profile fidelity**: relational profiles spot-checked by the human against observed history.
+- **Anti-crutch guard** unchanged: verbatim trace regurgitation scores as fugazee, not generation.
 - **Emergence tie-in**: relational profiles + state notes are the concrete substrate for Gate A4;
   the terminal-session question "what do you know about me?" is answerable only via HCM recall,
   making ownership measurable rather than narrated.
@@ -213,6 +226,7 @@ Headline number of a stage = equilibrium p (the machine's self-determined scaffo
 | manifold geometry | `manifold.py` | eff-dim, coverage ratio self/interact, FFT cycles |
 | echo detector | `echo.py` | reply-vs-corpus agreement << driven accuracy |
 | readability | `readability.py` | space-frac, mean run, words≥2 per 48 tok |
+| HCM proficiency | `hcm_proficiency.py` | M1 write-discipline · M2 recall utility · M3 cross-session D_mem · M4 profile fidelity |
 | trust calibration | (stage 5) | on reply distribution, not window |
 
 Language gates **L1–L4** and autonomy gates **A1–A5** as defined in chat 2026-08-25

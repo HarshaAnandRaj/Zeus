@@ -209,6 +209,18 @@ Historical calibration: v2's BPE-2048 runs plateaued at ~6.0 nats — above toda
 
 Method note: first run produced an impossible 0.016 bits/char — backoff-numerator bug (wrong bigram in trigram branch). Fixed and re-measured. Doctrine rule 3 vindicated on day one.
 
+### Pre-registered predictions (2026-08-25, before first training step)
+
+Ratified so goalposts cannot move retroactively:
+
+| Claim | Prediction | Falsifier / pivot |
+|---|---|---|
+| L1 < 7.10 nats | near-certain | — |
+| L2 < 4.47 nats | likely; expected landing zone 3.9–4.8 nats | **not passed by ~step 60k (≈3 epochs) ⇒ bottleneck is architectural**: pivot order W↑ → readout seed-attention (v2's 6a, earned) → dim 768→1024; each with own kill-gate |
+| Driven CE flatters | teacher-forced numbers will look good early and mean little | free-run/self-heard loop metrics are the binding ones (v2 lesson: driven 1.09 flat while loop collapsed) |
+| L3 readable generation | achievable (dim-384 CTRNN precedent at PPL 3.63) | — |
+| L4 D > +0.1 | genuinely open — never achieved in v2 | attacked by dialogue corpus + L_int binding-by-construction |
+
 ## Open threads
 
 - Do ANY artifacts survive elsewhere? (external drive, cloud, old machine) — determines full-rebuild vs partial-restore
