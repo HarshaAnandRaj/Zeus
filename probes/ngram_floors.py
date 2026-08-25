@@ -12,6 +12,7 @@ from tokenizers import Tokenizer  # noqa: E402
 from tokenizers.models import BPE  # noqa: E402
 from tokenizers.trainers import BpeTrainer  # noqa: E402
 from tokenizers.pre_tokenizers import ByteLevel  # noqa: E402
+from tokenizers.decoders import ByteLevel as ByteLevelDecoder  # noqa: E402
 
 DATA = HERE / "corpus" / "data"
 OUT = HERE / "experiments"
@@ -102,6 +103,7 @@ def main():
     tmp = OUT / "_bpe_sample.txt"
     tmp.write_text(sample, encoding="utf-8")
     tok.train([str(tmp)], trainer)
+    tok.decoder = ByteLevelDecoder()
     tok.save(str(tok_dir / "bpe_8192.json"))
     tmp.unlink()
 
