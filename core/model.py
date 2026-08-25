@@ -34,6 +34,8 @@ class ZeusConfig:
     repulse_skip: int = 2
     repulse_adaptive: bool = True
     repulse_q: float = 0.3
+    repulse_smin: float = 0.25
+    repulse_smax: float = 2.0
     k_wall: float = 2.0
     wall_margin: float = 6.0
 
@@ -209,7 +211,8 @@ class ZeusCore(nn.Module):
                     diff = self.S.unsqueeze(0) - Hs
                     dist = (diff ** 2).sum(-1).sqrt()
                     if c.repulse_adaptive:
-                        sigma = torch.quantile(dist.detach(), c.repulse_q).clamp_min(1e-3)
+                        sigma = torch.quantile(dist.detach(), c.repulse_q)
+                        sigma = sigma.clamp(c.repulse_smin, c.repulse_smax)
                     else:
                         sigma = c.repulse_sigma
                     wgt = torch.exp(-(dist ** 2) / (sigma ** 2))

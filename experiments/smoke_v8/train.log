@@ -1,0 +1,8 @@
+{"event": "fresh_start", "t": "03:01:04"}
+{"step": 25, "ce": 8.31326, "surp": 120.79467, "rent": 0.86955, "div": -0.06675, "persist": -1.38249, "steps_per_s": 2.859, "t": "03:01:13"}
+{"step": 50, "ce": 7.80959, "surp": 157.17184, "rent": 0.93483, "div": -0.11945, "persist": -1.65375, "steps_per_s": 2.981, "t": "03:01:21"}
+{"step": 75, "ce": 8.11921, "surp": 168.28027, "rent": 0.9676, "div": -0.04805, "persist": -1.99223, "steps_per_s": 3.047, "t": "03:01:29"}
+{"step": 100, "ce": 7.75988, "surp": 174.47075, "rent": 0.96865, "div": -0.13255, "persist": -2.35213, "steps_per_s": 3.075, "t": "03:01:37"}
+{"step": 120, "val_ce_nats": 7.3643, "floor_L1": 7.1, "floor_L2": 4.47, "health": {"rho_exact": 0.0, "sites": 200, "entropy_norm": 1.0, "sign_hat": -1.0, "rms": 3.3868, "gen": {"gen_trigram_transient": 0.8722, "gen_repeat_frac": 0.0164, "gen_sites": 87}}, "gov_k": 0.97, "gov_self": 0.4, "gov_adverse": false, "t": "03:01:53"}
+{"event": "ckpt", "step": 120, "t": "03:01:54"}
+{"event": "COMPLETE", "step": 120, "t": "03:01:54"}
