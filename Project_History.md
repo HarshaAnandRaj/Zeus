@@ -194,6 +194,21 @@ Honest ceiling: this battery can falsify mimicry decisively; it can only make ge
 - **Model-in-the-loop**: interactive session at every N-th checkpoint via deployment-identical inference path; sessions evaluate by default; training-on-sessions is opt-in and separately logged.
 - Full spec: `architecture.md` (v1.0).
 
+### Measured floors (2026-08-25, `probes/ngram_floors.py`, corpus v1)
+
+Corpus: 35.9M words / 214 MB / 439k blocks (SimpleWiki 241k articles + Gutenberg 13 books + DialogSum 11.9k dialogues). Tokenizer: ByteLevel BPE-8192 (3.40 chars/token).
+
+| Level | Unigram floor | Trigram floor |
+|---|---|---|
+| Char | 4.90 bits/char | 3.08 bits/char |
+| Word | 10.11 bits/word | 7.65 bits/word |
+| BPE-8192 | 10.24 bits/tok (**7.10 nats**) | 6.45 bits/tok (**4.47 nats**) |
+
+**Official training gates (BPE):** random = 9.01 nats · L1 < 7.10 · **L2 < 4.47** · fluency target ≤ 3.7.
+Historical calibration: v2's BPE-2048 runs plateaued at ~6.0 nats — above today's L2 line; beating 4.47 is precisely "context use beyond local statistics," where generation 4 stalled.
+
+Method note: first run produced an impossible 0.016 bits/char — backoff-numerator bug (wrong bigram in trigram branch). Fixed and re-measured. Doctrine rule 3 vindicated on day one.
+
 ## Open threads
 
 - Do ANY artifacts survive elsewhere? (external drive, cloud, old machine) — determines full-rebuild vs partial-restore

@@ -52,17 +52,21 @@ class TrigramModel:
             tokens = tokens[:limit]
         total, n = 0.0, 0
         V = len(self.uni)
+        N = self.n_uni
         for i in range(2, len(tokens)):
-            tri = self.tri.get((tokens[i - 2], tokens[i - 1], tokens[i]), 0)
-            bi = self.bi.get((tokens[i - 1], tokens[i]), 0)
-            ctx_bi = self.bi.get((tokens[i - 2], tokens[i - 1]), 0)
-            uni = self.uni.get(tokens[i], 0)
-            if ctx_bi > 0 and bi > 0:
-                p = bi / ctx_bi
-            elif uni > 0:
-                p = 0.4 * (uni / self.n_uni)
+            c3 = self.tri.get((tokens[i - 2], tokens[i - 1], tokens[i]), 0)
+            k2 = self.bi.get((tokens[i - 2], tokens[i - 1]), 0)
+            c2 = self.bi.get((tokens[i - 1], tokens[i]), 0)
+            k1 = self.uni.get(tokens[i - 1], 0)
+            c1 = self.uni.get(tokens[i], 0)
+            if k2 > 0 and c3 > 0:
+                p = c3 / k2
+            elif k1 > 0 and c2 > 0:
+                p = 0.4 * c2 / k1
+            elif c1 > 0:
+                p = 0.16 * c1 / N
             else:
-                p = 0.4 * (1.0 / (V + 1)) * 1e-3
+                p = 0.16 * 0.4 / V
             total -= math.log2(max(p, 1e-12))
             n += 1
         return total / max(n, 1)

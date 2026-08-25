@@ -1,0 +1,15 @@
+{
+  "word_level": {
+    "unigram_entropy_bits_per_word": 10.1095,
+    "trigram_ce_bits_per_word_val": 7.6519
+  },
+  "bpe_8192": {
+    "unigram_entropy_bits_per_bpe_token": 10.2441,
+    "trigram_ce_bits_per_bpe_token_val": 6.4489,
+    "chars_per_bpe_token_train": 3.401
+  },
+  "char_level": {
+    "unigram_entropy_bits_per_char": 4.903,
+    "trigram_ce_bits_per_char_val": 3.0793
+  }
+}
