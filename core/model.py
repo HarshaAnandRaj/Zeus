@@ -1,6 +1,7 @@
 import json
 import math
 import pathlib
+import re
 from dataclasses import dataclass, asdict
 
 import torch
@@ -261,7 +262,38 @@ class ZeusCore(nn.Module):
         payload = torch.load(path, map_location=device, weights_only=False)
         cfg = ZeusConfig(**payload["config"])
         model = cls(cfg, tokenizer_path=payload.get("tokenizer"))
-        model.load_state_dict(payload["model"])
+        sd = payload["model"]
+        if "pathways.w1" not in sd:
+            E, d, hd = cfg.experts, cfg.dim, cfg.expert_hidden
+            w1 = torch.zeros(E, d, hd)
+            b1 = torch.zeros(E, hd)
+            w2 = torch.zeros(E, hd, d)
+            b2 = torch.zeros(E, d)
+            keep = {}
+            pat = re.compile(r"pathways\.experts\.(\d+)\.net\.(0|2)\.(weight|bias)")
+            for k, v in sd.items():
+                mt = pat.match(k)
+                if mt is None:
+                    keep[k] = v
+                    continue
+                e, layer, kind = int(mt.group(1)), int(mt.group(2)), mt.group(3)
+                if layer == 0 and kind == "weight":
+                    w1[e] = v.t()
+                elif layer == 0:
+                    b1[e] = v
+                elif kind == "weight":
+                    w2[e] = v.t()
+                else:
+                    b2[e] = v
+            keep["pathways.w1"] = w1
+            keep["pathways.b1"] = b1
+            keep["pathways.w2"] = w2
+            keep["pathways.b2"] = b2
+            if "H" not in keep:
+                keep["H"] = torch.zeros(cfg.window, cfg.dim)
+            sd = keep
+        model.load_state_dict(sd)
+        model.reset_state(0.0)
         model.to(device)
         model.eval()
         return model

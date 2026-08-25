@@ -1,0 +1,2 @@
+{"ts": "2026-08-25T22:23:20", "ckpt": "p2_run2:500", "rho_exact": 0.8421, "eps_fine": 0.25704, "sites": 48, "occupancy_entropy": 3.805, "lag2_over_lag1": 1.947, "period_lock": 0.0, "rms": 0.7346, "flags": ["rho_exact HIGH"]}
+{"ts": "2026-08-25T22:23:25", "ckpt": "p2_run2:4000", "rho_exact": 0.9198, "eps_fine": 0.23242, "sites": 48, "occupancy_entropy": 3.816, "lag2_over_lag1": 1.963, "period_lock": 0.0, "rms": 0.6478, "flags": ["rho_exact HIGH"]}
