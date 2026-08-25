@@ -102,7 +102,8 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp):
             "div": div_sum / T, "persist": float(persist.item())}
 
 
-def self_pass(model, steps=24, w_var=0.5):
+def self_pass(model, steps=24, w_var=0.5, gamma=0.5, eps_state=0.1,
+              target_rms=1.0, w_expl=0.5):
     model.reset_state(noise=0.2)
     total = 0.0
     traj = []
@@ -110,13 +111,24 @@ def self_pass(model, steps=24, w_var=0.5):
         pred = model.self_pred(model.S)
         model.step(None)
         total = total + F.mse_loss(pred, model.S.detach()) / steps
-        traj.append(model.S.detach().clone())
+        traj.append(model.S)
     traj = torch.stack(traj)
-    var = traj[steps // 2:].var(dim=0).mean()
-    var_pen = torch.relu(var - 0.3)            # one-sided: only punish EXCESS variance
-    var_floor = torch.exp(-10.0 * var_pen)     # 1.0 when healthy, ->0 when exploding
-    (total + w_var * var_pen).backward()
-    return {"self_mse": float(total.item()), "var_floor": float(var_floor.item())}
+    T = traj.shape[0]
+    d = torch.cdist(traj, traj)
+    mp = torch.full((T,), float("inf"), device=traj.device)
+    for t in range(1, T):
+        mp[t] = d[t, :t].min()
+    repulsion = (F.relu(eps_state - mp[1:]) ** 2).mean()
+    rms = (traj - traj.mean(0)).norm(dim=1).mean()
+    exploration = F.relu(target_rms - rms) ** 2
+    var = traj[T // 2:].var(dim=0).mean()
+    var_pen = torch.relu(var - 0.3)
+    loss = total + w_var * var_pen + gamma * repulsion + w_expl * exploration
+    loss.backward()
+    return {"self_mse": float(total.item()),
+            "var_floor": float(torch.exp(-10.0 * var_pen).item()),
+            "repulsion": round(float(repulsion.item()), 6),
+            "rms": round(float(rms.item()), 4)}
 
 
 @torch.no_grad()
@@ -150,6 +162,11 @@ def main():
     ap.add_argument("--eval_every", type=int, default=250)
     ap.add_argument("--ckpt_every", type=int, default=500)
     ap.add_argument("--resume", default="auto")
+    ap.add_argument("--device", default="cpu")
+    ap.add_argument("--gamma", type=float, default=0.5)
+    ap.add_argument("--eps_state", type=float, default=0.1)
+    ap.add_argument("--target_rms", type=float, default=1.0)
+    ap.add_argument("--w_expl", type=float, default=0.5)
     args = ap.parse_args()
 
     save_dir = ROOT / args.save_dir
@@ -161,7 +178,7 @@ def main():
         with open(log_path, "a", encoding="utf-8") as f:
             f.write(json.dumps(obj) + "\n")
 
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    device = args.device
     torch.manual_seed(1337)
     random.seed(1337)
 
@@ -191,7 +208,8 @@ def main():
     for step in range(start + 1, args.steps + 1):
         opt.zero_grad(set_to_none=True)
         if random.random() < args.self_ratio:
-            m = self_pass(model)
+            m = self_pass(model, gamma=args.gamma, eps_state=args.eps_state,
+                          target_rms=args.target_rms, w_expl=args.w_expl)
             entry = {"step": step, **{k: round(v, 5) for k, v in m.items()}}
         else:
             off = random.randint(0, len(train_ids) - args.bptt - 1)

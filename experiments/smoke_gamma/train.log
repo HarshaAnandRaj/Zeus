@@ -1,0 +1,6 @@
+{"event": "fresh_start", "t": "15:01:24"}
+{"step": 25, "ce": 8.24357, "surp": 31.65989, "rent": 0.0, "div": -0.10587, "persist": -1.26792, "steps_per_s": 0.73, "t": "15:01:58"}
+{"step": 50, "ce": 7.81188, "surp": 207.78009, "rent": 0.96425, "div": -0.13203, "persist": -1.80212, "steps_per_s": 0.699, "t": "15:02:35"}
+{"step": 60, "val_ce_nats": 7.8187, "floor_L1": 7.1, "floor_L2": 4.47, "t": "15:02:53"}
+{"event": "ckpt", "step": 60, "t": "15:02:53"}
+{"event": "COMPLETE", "step": 60, "t": "15:02:53"}

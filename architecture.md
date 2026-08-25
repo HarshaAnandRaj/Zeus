@@ -205,6 +205,17 @@ Headline number of a stage = equilibrium p (the machine's self-determined scaffo
 
 - Dual-phase: **self-phase** (free-run, self-prediction MSE + variance floor, ~80% of steps)
   / **interaction-phase** (teacher-forced blend + all drive losses, 20%).
+- **γ-integration (Configuration-Drift Hypothesis, 2026-08-25):** self-phase carries two
+  revisit-geometry terms on the free trajectory:
+  - `L_repulse = mean(relu(ε_state − d_min_t)²)` — hinge punishing exact revisits
+    (`d_min_t` = distance from `S_t` to nearest earlier state in the segment). γ is the
+    engine of state generation; exact recurrence must vanish, rhyme never punished.
+  - `L_expl = relu(target_RMS − RMS)²` — exploration floor reversing measured manifold
+    contraction. Contraction terms demoted to safety-only (±8 clamp, one-sided var cap).
+  - Gate for the LM volume campaign: `probes/drift.py` reads **LADDER**
+    (ν_micro > w ≥ 2 transient, ν_theme recurrent-band, collapse curve falling,
+    rhyme saturated). Theory anchors: human ν coarse 1.61–1.67 / fine 2.28–2.55;
+    ablation γ=+2 row = dashboard target (sites↑ entropy↑ exact↓ rhyme high).
 - Truncated BPTT window 32; bf16 autocast; grad-clip 1.0; AdamW, lr 1e-3 (dynamics) / 3e-4 (readout),
   cosine decay per stage.
 - Checkpoints every 500 steps: full save dict incl. controller state, tokenizer id, config hash,
