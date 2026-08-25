@@ -1,0 +1,8 @@
+{"event": "fresh_start", "t": "12:59:12"}
+{"event": "fresh_start", "t": "13:00:02"}
+{"step": 25, "self_mse": 0.00448, "var_floor": 0.99958, "steps_per_s": 4.731, "t": "13:00:07"}
+{"event": "ckpt", "step": 25, "t": "13:00:08"}
+{"event": "resume", "from_step": 25, "ckpt": "zeus_step25.pt", "t": "13:00:55"}
+{"step": 30, "val_ce_nats": 8.8603, "floor_L1": 7.1, "floor_L2": 4.47, "t": "13:00:57"}
+{"event": "ckpt", "step": 30, "t": "13:00:58"}
+{"event": "COMPLETE", "step": 30, "t": "13:00:58"}

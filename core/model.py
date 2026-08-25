@@ -193,10 +193,11 @@ class ZeusCore(nn.Module):
             slow_new = torch.tanh(c.slow_keep * self.slow + 0.05 * torch.tanh(S_new)[: c.slow_dim])
             self.S = S_new
             self.slow = slow_new
-            self.history.append(self.S.detach().clone())
+            self.history.append(self.S if self.training else self.S.detach().clone())
             if len(self.history) > c.window:
                 self.history.pop(0)
-            aux = {"rent": rent, "div": div, "g": g.detach(), "tau_mean": tau_stats[0].item()}
+            aux = {"rent": rent, "div": div, "g": g.detach(), "tau_mean": tau_stats[0].item(),
+                   "tau_mean_t": tau.mean()}
             return self.readout(self.S, self.history), aux
 
     # ---- generation loops ----
