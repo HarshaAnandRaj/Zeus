@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "ESNPN",
+      "hasCanvas": false,
+      "bodyTextLen": 428,
+      "bodyTextHash": "709e99c083ed35fe6ebef07d67fa81a5be5fdbbba11848e83502f3302774969c",
+      "bodyTextPrefix": "EFFICIENTLY SELECTIVE NEURAL PATHWAY NETWORK A small mind Seven ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "ESNPN",
+      "hasCanvas": false,
+      "bodyTextLen": 428,
+      "bodyTextHash": "709e99c083ed35fe6ebef07d67fa81a5be5fdbbba11848e83502f3302774969c",
+      "bodyTextPrefix": "EFFICIENTLY SELECTIVE NEURAL PATHWAY NETWORK A small mind Seven ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

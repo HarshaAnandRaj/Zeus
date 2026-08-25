@@ -136,6 +136,42 @@ The floor numbers (unigram ~3.0 / trigram 1.8–1.9) belong to **generation 4 (E
 - Exact meaning/mechanics of the W = N+1 window ladder
 - Whether any W-ladder runs completed pre-crash
 
+## Soma (Grok-built front-end, reviewed 2026-08-25)
+
+Grok App Builder output (`Soma/`): TanStack Start web app around an `src/lib/esn` simulation core.
+
+**What it is:** 84 spiking neurons across 7 regions (gate/sensory/language/executive/memory/action/drive), ~300 synapses, LIF-style dynamics + winner-take-all, Hebbian thickening/disuse decay, task-gated region masks, five rule-based homeostatic drives, autonomous idle actions, and a grok-4.5 "language cortex" API call that converts state snapshots into structured JSON actions (remember/goal/note/grow/rename).
+
+**Assessment — cockpit, not brain:**
+- ✅ Honest local dynamics (real spiking/plasticity code, not theater)
+- ✅ Clean LLM boundary (snapshot → structured actions → mutate organism)
+- ✅ Best-in-project instrumentation (live brain canvas, region poking, drive meters, thought stream)
+- ❌ Repeats the **generation-0 trap**: speech comes from templates or a frozen grok-4.5 roleplaying "an ESNPN organism" — the exact wrapper failure that killed the Qwen era
+- ❌ Nothing is learned: no corpus, no CE, no gradients, no probes, no floors
+- ❌ Drives are scripted rules, not competing gradient pressures on one tensor
+
+**Salvage plan:** keep Soma strictly as the observation deck; wire it to the real trainable backend through its existing `MindSnapshot → CortexResult` contract.
+
+## Hardware spec & pivot decision (2026-08-25)
+
+- **Device:** i9-13th gen, RTX 4060 8 GB VRAM, 32 GB RAM.
+- **Decision (user):** pivot hard off the tiny-corpus regime. "This restart is a chance to build back better" — build something *capable* within these specs instead of repeating the TinyStories-scale constraint.
+
+## Zeus v3 rebuild charter
+
+Carried-forward doctrine (all evidence-backed from the handover):
+
+1. No bypass: no transformer/KV cache/parallel path; the persistent state must be causally load-bearing (ablation → collapse, measured every checkpoint).
+2. Competing intrinsic drives on ONE tensor (CE ↔ persistence ↔ surprisal-novelty) — the proven three-way equilibrium.
+3. Measurement before claims: n-gram floors computed on corpus+tokenizer FIRST; causal-ablation, T6 prompt-dependence, and manifold probes are built before training starts.
+4. The W-ladder (context window N→N+1 increments) is a first-class experiment, executed this time.
+5. Fix the identified roots, don't rediscover them: contractive recurrence (the ~1.3×/token expansive gain caused prompt-blindness), subword tokenizer (char-level cost 20k steps to beat the entropy ceiling), readout robustness (off-manifold states cost ~2 nats).
+6. Crash-proof ops: relaunch wrappers, anneal-state persisted in checkpoints, every run logged + committed.
+
+Working targets: dim 512–768, K-pathway routing w/ rent+diversity regularization (fortified-ESNPN lessons), predictive-coding input path, 20–60M params, context ladder 32→256 tokens, bf16 + gradient checkpointing on the 4060.
+
+Phases: 0 foundations (env/repo/corpus/floors) → 1 measurement suite → 2 core v0 + smoke train → 3 W-ladder campaign → 4 drive stages → 5 Soma bridge (UI to backend).
+
 ## Open threads
 
 - Do ANY artifacts survive elsewhere? (external drive, cloud, old machine) — determines full-rebuild vs partial-restore
