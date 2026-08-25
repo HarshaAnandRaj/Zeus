@@ -221,6 +221,21 @@ Ratified so goalposts cannot move retroactively:
 | L3 readable generation | achievable (dim-384 CTRNN precedent at PPL 3.63) | — |
 | L4 D > +0.1 | genuinely open — never achieved in v2 | attacked by dialogue corpus + L_int binding-by-construction |
 
+## Build log — Zeus v3
+
+### P0 COMPLETE (2026-08-25)
+Env (Python 3.12.10 + torch 2.5.1+cu121 on RTX 4060), developmental corpus (35.9M words), BPE-8192 tokenizer, floors measured. See "Measured floors" above.
+
+### P1 COMPLETE (2026-08-25)
+`core/model.py` — ZeusCore v0 per spec §5.1–5.4: predictive-coding input, contractive recurrence (spectral clamp via power iteration), tau_net, K=8 pathway routing with rent/diversity, attentive readout over S_history window, slow-carry channel, persistent-state export/import.
+Probe battery (`probes/battery.py`) — all six green on random weights:
+- gain_meter **0.911/token PASS** (contraction holds at init)
+- causal_ablation WEAK SELF ratio 0.80 (expected pre-training)
+- t6_dialogue D = −0.876: untrained model perfectly prompt-blind — probe reproduces v2's wall signature at step 0; instrument validated
+- initiate/echo functional; initiate word-heuristic flagged lenient for BPE fragments → tighten with corpus-vocab membership check before P3 gates
+- hcm_proficiency graceful INSUFFICIENT DATA
+Bugs fixed en route: readout tensor transposition (×2), CPU-generator/CUDA-tensor mismatch, missing ByteLevel decoder in saved tokenizer.
+
 ## Open threads
 
 - Do ANY artifacts survive elsewhere? (external drive, cloud, old machine) — determines full-rebuild vs partial-restore
