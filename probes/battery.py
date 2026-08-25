@@ -17,11 +17,12 @@ def main():
     args = ap.parse_args()
 
     model = load_model(args.ckpt)
-    import causal_ablation, echo, gain_meter, hcm_proficiency, initiate, t6_dialogue
+    import causal_ablation, drift, echo, gain_meter, hcm_proficiency, initiate, t6_dialogue
 
     probes = {
         "gain_meter": gain_meter.main,
         "causal_ablation": causal_ablation.main,
+        "drift": drift.main,
         "t6_dialogue": t6_dialogue.main,
         "initiate": initiate.main,
         "echo": echo.main,

@@ -102,7 +102,7 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp):
             "div": div_sum / T, "persist": float(persist.item())}
 
 
-def self_pass(model, steps=24, w_var=0.05):
+def self_pass(model, steps=24, w_var=0.5):
     model.reset_state(noise=0.2)
     total = 0.0
     traj = []
@@ -112,9 +112,11 @@ def self_pass(model, steps=24, w_var=0.05):
         total = total + F.mse_loss(pred, model.S.detach()) / steps
         traj.append(model.S.detach().clone())
     traj = torch.stack(traj)
-    var_floor = torch.exp(-10.0 * traj[steps // 2:].var(dim=0).mean())
-    (total + w_var * var_floor).backward()
-    return {"self_mse": float(total.item()), "var_floor": var_floor.item()}
+    var = traj[steps // 2:].var(dim=0).mean()
+    var_pen = torch.relu(var - 0.3)            # one-sided: only punish EXCESS variance
+    var_floor = torch.exp(-10.0 * var_pen)     # 1.0 when healthy, ->0 when exploding
+    (total + w_var * var_pen).backward()
+    return {"self_mse": float(total.item()), "var_floor": float(var_floor.item())}
 
 
 @torch.no_grad()
@@ -140,7 +142,7 @@ def main():
     ap.add_argument("--save_dir", required=True)
     ap.add_argument("--steps", type=int, default=5000)
     ap.add_argument("--bptt", type=int, default=33)
-    ap.add_argument("--self_ratio", type=float, default=0.8)
+    ap.add_argument("--self_ratio", type=float, default=0.4)
     ap.add_argument("--w_persist", type=float, default=0.1)
     ap.add_argument("--w_surp", type=float, default=0.1)
     ap.add_argument("--lr_dyn", type=float, default=3e-4)

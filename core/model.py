@@ -110,11 +110,20 @@ class AttentiveReadout(nn.Module):
         self.mlp = nn.Sequential(nn.Linear(cfg.dim, 2 * cfg.dim), nn.GELU(), nn.Linear(2 * cfg.dim, cfg.vocab))
 
     def forward(self, s, history):
-        h = torch.stack(history, dim=0).unsqueeze(0)
-        q = self.q_proj(s).view(1, 1, -1)
+        if isinstance(history, torch.Tensor):
+            h = history.unsqueeze(0) if history.dim() == 2 else history
+        else:
+            h = torch.stack(history, dim=0).unsqueeze(0)  # (1, W, dim)
+        if s.dim() == 1:
+            q = self.q_proj(s).view(1, 1, -1)
+            att, _ = self.attn(q, h, h)
+            x = self.ln(s + att.view(-1))
+            return self.mlp(x)
+        s2 = s.unsqueeze(1)                               # (B, 1, dim)
+        q = self.q_proj(s).unsqueeze(1)                  # (B, 1, dim)
         att, _ = self.attn(q, h, h)
-        x = self.ln(s + att.view(-1))
-        return self.mlp(x)
+        x = self.ln(s2 + att)
+        return self.mlp(x).squeeze(1)                    # (B, vocab)
 
 
 class ZeusCore(nn.Module):
@@ -185,11 +194,13 @@ class ZeusCore(nn.Module):
             tau_stats = torch.stack([tau.mean(), tau.std(unbiased=False), tau.min(), tau.max()])
             h = torch.tanh(self.rec(self.S) + self.err_proj(u))
             m, g, rent, div = self.pathways(self.S, h, tau_stats)
+            m = 3.0 * torch.tanh(m / 3.0)
             if freeze_dynamics:
                 S_new = self.S.clone()
             else:
                 drive = -self.S / tau + h + self.w_slow(self.slow) * 0.1 + m
                 S_new = self.S + (c.dt / c.substeps) * drive
+            S_new = torch.clamp(S_new, -8.0, 8.0)
             slow_new = torch.tanh(c.slow_keep * self.slow + 0.05 * torch.tanh(S_new)[: c.slow_dim])
             self.S = S_new
             self.slow = slow_new
@@ -217,7 +228,8 @@ class ZeusCore(nn.Module):
         logits = self.observe()
         for _ in range(max_tokens):
             probs = F.softmax(logits / max(temperature, 1e-4), dim=-1)
-            nxt = torch.multinomial(probs.cpu(), 1, generator=generator).item()
+            gen = generator.to(self.S.device) if generator is not None else None
+            nxt = torch.multinomial(probs.to(self.S.device), 1, generator=gen).item()
             out.append(nxt)
             logits, _ = self.step(nxt)
         return out
