@@ -12,7 +12,7 @@ import pathlib
 import torch
 
 from common import load_model
-from drift import _min_past_dists, kmeans
+from drift import _min_past_dists, kmeans, _unit_box
 from init_helper import seeded_reset
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -26,7 +26,7 @@ def measure(model=None, steps=400):
     for _ in range(steps):
         model.step(None)
         traj.append(model.S.detach().clone())
-    traj = torch.stack(traj)
+    traj = _unit_box(torch.stack(traj))
 
     _, pd = _min_past_dists(traj)
     iu = torch.triu_indices(pd.shape[0], pd.shape[1], offset=1)

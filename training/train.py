@@ -166,8 +166,10 @@ def eval_health(model, steps=200, grain=0.25, k_lag=8):
     for t in range(k_lag + 1, T):
         mp[t] = d[t, :t - k_lag].min()
     rho = float((mp[k_lag + 1:] < grain * 0.5).float().mean())
+    rms = float((traj - traj.mean(0)).norm(dim=1).mean())
     return {"rho_exact": round(rho, 4), "sites": int((counts > 0).sum()),
-            "entropy_norm": round(ent_norm, 4), "sign_hat": round(sign_hat, 3)}
+            "entropy_norm": round(ent_norm, 4), "sign_hat": round(sign_hat, 3),
+            "rms": round(rms, 4)}
 
 
 @torch.no_grad()
@@ -218,21 +220,32 @@ class HealthGovernor:
     trends, modulate k_repulse and self_ratio. Adverse -> more idle rolls,
     stronger repulsion; healthy -> decay toward learning."""
 
-    def __init__(self, target=0.12, k_floor=0.5, k_cap=8.0):
+    def __init__(self, target=0.12, k_floor=0.5, k_cap=8.0, rms_drift_max=0.15):
         self.target, self.k_floor, self.k_cap = target, k_floor, k_cap
+        self.rms_drift_max = rms_drift_max
         self.rho_ema = None
+        self.prev_rms = None
 
     def state(self):
-        return {"rho_ema": self.rho_ema}
+        return {"rho_ema": self.rho_ema, "prev_rms": self.prev_rms}
 
     def load(self, st):
         if st:
             self.rho_ema = st.get("rho_ema")
+            self.prev_rms = st.get("prev_rms")
 
     def update(self, model, h, args):
         rho = h["rho_exact"]
         self.rho_ema = rho if self.rho_ema is None else 0.7 * self.rho_ema + 0.3 * rho
         adverse = self.rho_ema > self.target
+        rms_drift = None
+        rms = h.get("rms")
+        if rms is not None and self.prev_rms:
+            rms_drift = abs(rms - self.prev_rms) / max(self.prev_rms, 1e-9)
+            if rms_drift > self.rms_drift_max:
+                adverse = True
+                h["rms_drift"] = round(rms_drift, 3)
+        self.prev_rms = rms if rms is not None else self.prev_rms
         if adverse:
             model.cfg.k_repulse = min(self.k_cap, model.cfg.k_repulse * 1.25)
             args.self_ratio = min(0.6, args.self_ratio + 0.02)
@@ -283,6 +296,7 @@ def main():
     ap.add_argument("--gov_target", type=float, default=0.12)
     ap.add_argument("--gov_k_floor", type=float, default=0.5)
     ap.add_argument("--gov_k_cap", type=float, default=8.0)
+    ap.add_argument("--tau_max", type=float, default=None)
     args = ap.parse_args()
     args.base_self_ratio = args.self_ratio
 
@@ -303,6 +317,8 @@ def main():
     val_ids = get_ids(VAL_IDS_CACHE, ROOT / "corpus" / "data" / "val.txt")
 
     model = ZeusCore().to(device)
+    if args.tau_max is not None:
+        model.cfg.tau_max = args.tau_max
     model.train()
     dyn, lm = dyn_lm_params(model)
     opt = torch.optim.AdamW([{"params": dyn, "lr": args.lr_dyn}, {"params": lm, "lr": args.lr_lm}])

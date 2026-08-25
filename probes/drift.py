@@ -17,6 +17,13 @@ from common import load_model
 from init_helper import seeded_reset
 
 
+def _unit_box(traj, lo_p=1.0, hi_p=99.0):
+    lo = torch.quantile(traj, lo_p / 100.0, dim=0)
+    hi = torch.quantile(traj, hi_p / 100.0, dim=0)
+    span = (hi - lo).clamp_min(1e-9)
+    return ((traj - lo) / span).clamp(0.0, 1.0)
+
+
 def _slope(xs, ys):
     n = len(xs)
     mx, my = sum(xs) / n, sum(ys) / n
@@ -136,7 +143,8 @@ def main(model=None, steps=400):
         model.step(None)
         Ss.append(model.S.detach().clone())
         sl.append(model.slow.detach().clone())
-    traj, slow = torch.stack(Ss), torch.stack(sl)
+    traj = _unit_box(torch.stack(Ss).cpu())
+    slow = _unit_box(torch.stack(sl).cpu())
 
     _, pd = _min_past_dists(traj)
     iu = torch.triu_indices(pd.shape[0], pd.shape[1], offset=1)

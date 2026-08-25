@@ -34,6 +34,8 @@ class ZeusConfig:
     repulse_skip: int = 2
     repulse_adaptive: bool = True
     repulse_q: float = 0.3
+    k_wall: float = 2.0
+    wall_margin: float = 6.0
 
 
 class SpectralClampedLinear(nn.Module):
@@ -212,6 +214,9 @@ class ZeusCore(nn.Module):
                         sigma = c.repulse_sigma
                     wgt = torch.exp(-(dist ** 2) / (sigma ** 2))
                     drive = drive + c.k_repulse * (wgt.unsqueeze(-1) * diff).sum(0)
+                if c.k_wall > 0:
+                    over = self.S.abs() - c.wall_margin
+                    drive = drive - c.k_wall * F.relu(over) * torch.sign(self.S)
                 S_new = self.S + (c.dt / c.substeps) * drive
             S_new = torch.clamp(S_new, -8.0, 8.0)
             slow_new = torch.tanh(c.slow_keep * self.slow + 0.05 * torch.tanh(S_new)[: c.slow_dim])
