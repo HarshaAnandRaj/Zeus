@@ -102,8 +102,7 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp):
             "div": div_sum / T, "persist": float(persist.item())}
 
 
-def self_pass(model, steps=24, w_var=0.5, gamma=0.5, eps_state=0.1,
-              target_rms=1.0, w_expl=0.5, state_radius=5.0, w_cont=1.0):
+def self_pass(model, steps=24, w_var=0.5):
     model.reset_state(noise=0.2)
     total = 0.0
     traj = []
@@ -111,27 +110,15 @@ def self_pass(model, steps=24, w_var=0.5, gamma=0.5, eps_state=0.1,
         pred = model.self_pred(model.S)
         model.step(None)
         total = total + F.mse_loss(pred, model.S.detach()) / steps
-        traj.append(model.S)
+        traj.append(model.S.detach().clone())
     traj = torch.stack(traj)
     T = traj.shape[0]
-    d = torch.cdist(traj, traj)
-    mp = torch.full((T,), float("inf"), device=traj.device)
-    for t in range(1, T):
-        mp[t] = d[t, :t].min()
-    repulsion = (F.relu(eps_state - mp[1:]) ** 2).mean()
-    rms = (traj - traj.mean(0)).norm(dim=1).mean()
-    exploration = F.relu(target_rms - rms) ** 2
-    norms = traj.norm(dim=1)
-    contain = (F.relu(norms - state_radius) ** 2).mean()
-    var = traj[T // 2:].var(dim=0).mean()
-    var_pen = torch.relu(var - 0.3)
-    loss = total + w_var * var_pen + gamma * repulsion + w_expl * exploration + w_cont * contain
-    loss.backward()
+    var_pen = torch.relu(traj[T // 2:].var(dim=0).mean() - 0.3)
+    (total + w_var * var_pen).backward()
     return {"self_mse": float(total.item()),
             "var_floor": float(torch.exp(-10.0 * var_pen).item()),
-            "repulsion": round(float(repulsion.item()), 6),
-            "rms": round(float(rms.item()), 4),
-            "max_norm": round(float(norms.max().item()), 3)}
+            "rms": round(float((traj - traj.mean(0)).norm(dim=1).mean()), 4),
+            "max_norm": round(float(traj.norm(dim=1).max().item()), 3)}
 
 
 @torch.no_grad()
@@ -166,12 +153,6 @@ def main():
     ap.add_argument("--ckpt_every", type=int, default=500)
     ap.add_argument("--resume", default="auto")
     ap.add_argument("--device", default="cpu")
-    ap.add_argument("--gamma", type=float, default=0.5)
-    ap.add_argument("--eps_state", type=float, default=0.1)
-    ap.add_argument("--target_rms", type=float, default=1.0)
-    ap.add_argument("--w_expl", type=float, default=0.5)
-    ap.add_argument("--state_radius", type=float, default=5.0)
-    ap.add_argument("--w_cont", type=float, default=1.0)
     args = ap.parse_args()
 
     save_dir = ROOT / args.save_dir
@@ -213,9 +194,7 @@ def main():
     for step in range(start + 1, args.steps + 1):
         opt.zero_grad(set_to_none=True)
         if random.random() < args.self_ratio:
-            m = self_pass(model, gamma=args.gamma, eps_state=args.eps_state,
-                          target_rms=args.target_rms, w_expl=args.w_expl,
-                          state_radius=args.state_radius, w_cont=args.w_cont)
+            m = self_pass(model)
             entry = {"step": step, **{k: round(v, 5) for k, v in m.items()}}
         else:
             off = random.randint(0, len(train_ids) - args.bptt - 1)

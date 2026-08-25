@@ -60,22 +60,15 @@ class SpectralClampedLinear(nn.Module):
         return F.linear(x, w, self.bias)
 
 
-class Expert(nn.Module):
-    def __init__(self, dim, hidden):
-        super().__init__()
-        self.net = nn.Sequential(nn.Linear(dim, hidden), nn.GELU(), nn.Linear(hidden, dim))
-        nn.init.zeros_(self.net[-1].weight)
-        nn.init.zeros_(self.net[-1].bias)
-
-    def forward(self, x):
-        return self.net(x)
-
-
 class PathwayLayer(nn.Module):
     def __init__(self, cfg: ZeusConfig):
         super().__init__()
         self.cfg = cfg
-        self.experts = nn.ModuleList([Expert(cfg.dim, cfg.expert_hidden) for _ in range(cfg.experts)])
+        E, d, hd = cfg.experts, cfg.dim, cfg.expert_hidden
+        self.w1 = nn.Parameter(torch.randn(E, d, hd) / math.sqrt(d))
+        self.b1 = nn.Parameter(torch.zeros(E, hd))
+        self.w2 = nn.Parameter(torch.zeros(E, hd, d))
+        self.b2 = nn.Parameter(torch.zeros(E, d))
         self.router = nn.Linear(2 * cfg.dim + 4, cfg.experts)
         self.w_pm = nn.Linear(cfg.dim, cfg.dim)
         nn.init.normal_(self.w_pm.weight, std=0.02)
@@ -84,20 +77,20 @@ class PathwayLayer(nn.Module):
         r_in = torch.cat([s, h, tau_stats], dim=-1)
         logits = self.router(r_in)
         g = F.softmax(logits, dim=-1)
-        outs = torch.stack([e(h) for e in self.experts], dim=-2)
-        m = (outs * g.unsqueeze(-1)).sum(dim=-2)
-        entropy = -(g * torch.log(g + 1e-9)).sum(dim=-1)
+        u = F.gelu(torch.einsum('eih,i->eh', self.w1, h) + self.b1)
+        outs = torch.einsum('ehd,eh->ed', self.w2, u) + self.b2
+        m = (outs * g.unsqueeze(-1)).sum(0)
+        entropy = -(g * torch.log(g + 1e-9)).sum()
         rent_loss = F.relu(self.cfg.rent_target - entropy).mean()
         div_loss = self._diversity(outs)
         return m, g, rent_loss, div_loss
 
     def _diversity(self, outs):
-        if self.cfg.w_diverse <= 0 or outs.shape[0] == 0:
+        if self.cfg.w_diverse <= 0:
             return torch.zeros(())
-        flat = outs.reshape(-1, outs.shape[-1])
-        flat = F.normalize(flat, dim=-1)
+        flat = F.normalize(outs, dim=-1)
         sim = flat @ flat.t()
-        n = flat.shape[0]
+        n = sim.shape[0]
         off = sim[~torch.eye(n, dtype=torch.bool, device=sim.device)]
         return off.mean()
 
@@ -149,7 +142,8 @@ class ZeusCore(nn.Module):
         self.w_slow = nn.Linear(c.slow_dim, c.dim)
         self.register_buffer("S", torch.zeros(c.dim), persistent=False)
         self.register_buffer("slow", torch.zeros(c.slow_dim), persistent=False)
-        self.history: list = []
+        self.register_buffer("H", torch.zeros(c.window, c.dim), persistent=True)
+        self._hptr = 0
 
     # ---- state management ----
     def reset_state(self, noise=0.0, generator=None):
@@ -161,16 +155,17 @@ class ZeusCore(nn.Module):
         else:
             self.S = torch.zeros(c.dim, device=self.S.device)
             self.slow = torch.zeros(c.slow_dim, device=self.slow.device)
-        self.history = []
+        self.H.copy_(self.S.unsqueeze(0).expand(c.window, -1))
+        self._hptr = 0
 
     def export_state(self):
         return {"S": self.S.detach().clone(), "slow": self.slow.detach().clone(),
-                "history": [t.detach().clone() for t in self.history]}
+                "H": self.H.detach().clone()}
 
     def import_state(self, st):
         self.S = st["S"].to(self.S.device)
-        self.slow = st["slow"].to(self.slow.device)
-        self.history = [t.to(self.S.device) for t in st["history"]]
+        self.slow = st["slow"].to(self.S.device)
+        self.H.copy_(st["H"].to(self.S.device))
 
     # ---- single token ----
     def step(self, token_id=None, embed_override=None, freeze_dynamics=False, temperature_tau=True):
@@ -201,9 +196,8 @@ class ZeusCore(nn.Module):
                 S_new = self.S.clone()
             else:
                 drive = -self.S / tau + h + self.w_slow(self.slow) * 0.1 + m
-                if c.k_repulse > 0 and len(self.history) > 0:
-                    Hs = torch.stack(list(self.history)[-c.window:])
-                    diff = self.S.unsqueeze(0) - Hs
+                if c.k_repulse > 0:
+                    diff = self.S.unsqueeze(0) - self.H
                     wgt = torch.exp(-(diff ** 2).sum(-1) / (c.repulse_sigma ** 2))
                     drive = drive + c.k_repulse * (wgt.unsqueeze(-1) * diff).sum(0)
                 S_new = self.S + (c.dt / c.substeps) * drive
@@ -211,12 +205,14 @@ class ZeusCore(nn.Module):
             slow_new = torch.tanh(c.slow_keep * self.slow + 0.05 * torch.tanh(S_new)[: c.slow_dim])
             self.S = S_new
             self.slow = slow_new
-            self.history.append(self.S if self.training else self.S.detach().clone())
-            if len(self.history) > c.window:
-                self.history.pop(0)
+            ptr = self._hptr
+            Hn = self.H.clone()
+            Hn[ptr] = S_new.detach()
+            self.H = Hn
+            self._hptr = (ptr + 1) % c.window
             aux = {"rent": rent, "div": div, "g": g.detach(), "tau_mean": tau_stats[0].item(),
                    "tau_mean_t": tau.mean()}
-            return self.readout(self.S, self.history), aux
+            return self.readout(self.S, self.H), aux
 
     # ---- generation loops ----
     @torch.no_grad()
@@ -226,7 +222,7 @@ class ZeusCore(nn.Module):
 
     @torch.no_grad()
     def observe(self):
-        return self.readout(self.S, self.history)
+        return self.readout(self.S, self.H)
 
     @torch.no_grad()
     def reply(self, prompt_ids, max_tokens=48, temperature=0.7, generator=None):

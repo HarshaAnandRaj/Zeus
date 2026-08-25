@@ -1,0 +1,7 @@
+{"event": "fresh_start", "t": "20:32:20"}
+{"event": "fresh_start", "t": "20:34:10"}
+{"step": 25, "ce": 8.34992, "surp": 124.01542, "rent": 0.89558, "div": 0.98434, "persist": -1.34119, "steps_per_s": 3.006, "t": "20:34:18"}
+{"step": 50, "ce": 7.84735, "surp": 114.94223, "rent": 0.92225, "div": 0.96774, "persist": -1.37338, "steps_per_s": 3.194, "t": "20:34:26"}
+{"step": 60, "val_ce_nats": 7.7393, "floor_L1": 7.1, "floor_L2": 4.47, "t": "20:34:29"}
+{"event": "ckpt", "step": 60, "t": "20:34:30"}
+{"event": "COMPLETE", "step": 60, "t": "20:34:30"}
