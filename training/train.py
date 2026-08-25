@@ -74,7 +74,14 @@ class TeacherController:
             self.p, self.conf_ema, self.conf_best = st["p"], st["ema"], st["best"]
 
 
-def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp):
+def repulse_cos_loss(model, s_new, tau=0.9):
+    a = F.normalize(s_new.unsqueeze(0), dim=-1)
+    b = F.normalize(model.H, dim=-1)
+    cos = a @ b.t()
+    return (F.relu(cos - tau) ** 2).mean()
+
+
+def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau_cos=0.9):
     model.reset_state(noise=0.05)
     ce_sum, surp_sum, rent_sum, div_sum = 0.0, 0.0, 0.0, 0.0
     nxt_input = int(ids_seg[0])
@@ -88,6 +95,8 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp):
         surp = (model.S - pred_before.detach()).norm()
         persist = -aux["tau_mean_t"]
         loss_t = ce + w_surp * (-surp) + w_persist * persist + 0.1 * aux["rent"] + aux["div"]
+        if w_rep_cos > 0:
+            loss_t = loss_t + w_rep_cos * repulse_cos_loss(model, model.S, tau_cos)
         loss_total = loss_total + loss_t / T
         ce_sum += ce.item()
         surp_sum += surp.item()
@@ -153,6 +162,8 @@ def main():
     ap.add_argument("--ckpt_every", type=int, default=500)
     ap.add_argument("--resume", default="auto")
     ap.add_argument("--device", default="cpu")
+    ap.add_argument("--w_rep_cos", type=float, default=0.0)
+    ap.add_argument("--tau_cos", type=float, default=0.9)
     args = ap.parse_args()
 
     save_dir = ROOT / args.save_dir
@@ -199,7 +210,8 @@ def main():
         else:
             off = random.randint(0, len(train_ids) - args.bptt - 1)
             seg = train_ids[off:off + args.bptt].tolist()
-            m = driven_pass(model, seg, ctrl.p, args.w_persist, args.w_surp)
+            m = driven_pass(model, seg, ctrl.p, args.w_persist, args.w_surp,
+                            w_rep_cos=args.w_rep_cos, tau_cos=args.tau_cos)
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             event = ctrl.observe(m["ce"])
             entry = {"step": step, **{k: round(v, 5) for k, v in m.items()}, **(event or {})}

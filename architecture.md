@@ -203,6 +203,27 @@ Headline number of a stage = equilibrium p (the machine's self-determined scaffo
 
 ## 6. Training procedure — `training/train.py`
 
+### CDT countermeasure stack (playbook adopted 2026-08-25; every line sim-backed)
+
+1. **Prevention = whisper dose.** Net fine-scale feedback must stay repulsive; *any* γ>0
+   sustains indefinitely (survival.py: zero locks in 150k steps at any size). The structural
+   `k_repulse` force in `dS` is the standing whisper.
+2. **Targeting: repel exact, never rhyme.** Fine-scale-only loss term (rescue-capable):
+   `L_rep_cos = mean(relu(cos(S_{t+1}, H) − τ_cos)²)`, `--w_rep_cos` (default 0 = prevention
+   handled structurally), `--tau_cos 0.9` — silent about coarse similarity, so grammar/format
+   rhymes are never fought. Dose-response guarantee: even γ=2 kept rhyme ≥0.71.
+3. **Monitoring: trends, not floors** (`probes/manifold_health.py` ledger). Adverse precursor
+   trend ⇒ raise `--w_rep_cos`; healthy ⇒ decay toward maintenance whisper. Same controller
+   pattern as the adaptive teacher.
+4. **Rescue = sign flip ejects instantly** (rescue_test.py: 30/30 escaped, 0 steps under any
+   repulsion; attraction-side escape 0/30 — permanent). If a template is detected mid-training:
+   do NOT reinitialize — crank `w_rep_cos` hard temporarily, hold until the gradient has
+   reshaped the basin (in Zeus the attraction lives partly in weights: dynamics free the
+   trajectory, the optimizer must free the attractor), then return to maintenance dose.
+5. **Sign audit:** curiosity pulls out; persistence and sociability pull in — only the net
+   fine-scale sum decides fate. Audited per checkpoint as `sign_hat` (+ ATTRACTING BIAS flag)
+   in the manifold-health ledger.
+
 - Dual-phase: **self-phase** (free-run, self-prediction MSE + variance floor, ~80% of steps)
   / **interaction-phase** (teacher-forced blend + all drive losses, 20%).
 - **γ-integration (Configuration-Drift Hypothesis, 2026-08-25):** self-phase carries two
