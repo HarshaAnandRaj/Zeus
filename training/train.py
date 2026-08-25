@@ -170,6 +170,49 @@ def eval_health(model, steps=200, grain=0.25, k_lag=8):
             "entropy_norm": round(ent_norm, 4), "sign_hat": round(sign_hat, 3)}
 
 
+@torch.no_grad()
+def eval_generation_health(model, prompts=("hello", "the little girl"), tokens=48,
+                           temp=0.7, grain=0.25):
+    """Directive 1 + 5 groundwork: volume metrics for the OUTPUT stream.
+    CE falling while these fall = training a template (CDT 3.17 blind spot)."""
+    g = torch.Generator(device="cpu").manual_seed(4242)
+    texts, traj = [], []
+    for p in prompts:
+        model.reset_state(noise=0.05, generator=g)
+        ids = model.encode(p)
+        for i in ids:
+            model.step(i)
+        logits = model.observe()
+        out = []
+        for _ in range(tokens):
+            probs = F.softmax(logits / max(temp, 1e-4), dim=-1)
+            nxt = torch.multinomial(probs.cpu(), 1, generator=g).item()
+            out.append(nxt)
+            logits, _ = model.step(nxt)
+            traj.append(model.S.detach().clone())
+        texts.append(model.decode(out))
+    text = " ".join(texts).lower()
+    tris = [text[i:i + 3] for i in range(len(text) - 2)]
+    transient = len(set(tris)) / max(len(tris), 1)
+    five = {}
+    for i in range(len(text) - 5):
+        five[text[i:i + 5]] = five.get(text[i:i + 5], 0) + 1
+    repeats = sum(1 for v in five.values() if v > 1) / max(len(five), 1)
+    traj = torch.stack(traj).cpu()
+    d = torch.cdist(traj, traj)
+    T = traj.shape[0]
+    covered = torch.zeros(T, dtype=torch.bool)
+    cid = 0
+    for t in range(T):
+        if covered[t]:
+            continue
+        covered |= d[t] <= grain
+        cid += 1
+    return {"gen_trigram_transient": round(transient, 4),
+            "gen_repeat_frac": round(repeats, 4),
+            "gen_sites": cid}
+
+
 class HealthGovernor:
     """Closed-loop transience regulation (CDT 3.6 as control): consume health
     trends, modulate k_repulse and self_ratio. Adverse -> more idle rolls,
@@ -304,6 +347,7 @@ def main():
         if step % args.eval_every == 0:
             v = val_ce(model, val_ids)
             h = eval_health(model)
+            h["gen"] = eval_generation_health(model)
             gv = governor.update(model, h, args)
             log({"step": step, "val_ce_nats": round(v, 4), "floor_L1": 7.10, "floor_L2": 4.47,
                  "health": h, **gv})

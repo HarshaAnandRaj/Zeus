@@ -1,0 +1,5 @@
+{"event": "fresh_start", "t": "02:42:51"}
+{"step": 25, "ce": 8.71988, "surp": 184.97717, "rent": 0.34775, "div": -0.00608, "persist": -1.22942, "steps_per_s": 2.849, "t": "02:43:00"}
+{"step": 40, "val_ce_nats": 8.1316, "floor_L1": 7.1, "floor_L2": 4.47, "health": {"rho_exact": 0.0, "sites": 190, "entropy_norm": 0.9911, "sign_hat": -0.783, "gen": {"gen_trigram_transient": 0.8862, "gen_repeat_frac": 0.0068, "gen_sites": 72}}, "gov_k": 0.97, "gov_self": 0.4, "gov_adverse": false, "t": "02:43:13"}
+{"event": "ckpt", "step": 40, "t": "02:43:15"}
+{"event": "COMPLETE", "step": 40, "t": "02:43:15"}
