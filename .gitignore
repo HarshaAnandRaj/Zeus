@@ -17,3 +17,6 @@ Soma/.tanstack/
 # OS
 Thumbs.db
 .DS_Store
+
+corpus/raw/
+corpus/data/
