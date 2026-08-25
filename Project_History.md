@@ -172,6 +172,28 @@ Working targets: dim 512–768, K-pathway routing w/ rent+diversity regularizati
 
 Phases: 0 foundations (env/repo/corpus/floors) → 1 measurement suite → 2 core v0 + smoke train → 3 W-ladder campaign → 4 drive stages → 5 Soma bridge (UI to backend).
 
+### Success criteria (ratified 2026-08-25)
+
+**Language gates:** L1 val CE < BPE-unigram floor → L2 < trigram floor (context use past local stats) → L3 readable 48-token generation, no collapse → L4 prompt-dependence D > +0.1.
+
+**Autonomy gates (each kills one "it's just program" objection):**
+
+| Gate | Kills… | Test |
+|---|---|---|
+| A1 Spontaneity | "echoes input only" | blank-initiation words (old dead zone) |
+| A2 Self-causation | "readout = lookup table" | speech-clamp changes content; causal ratio low |
+| A3 Non-copied novelty | "memorized corpus" | echo detector: overlap << driven accuracy yet readable |
+| A4 Goal persistence | "goals are scripted" | self-formed goals survive context switches/hours without replayed signal |
+| A5 Ownership | "obeys because pushed" | full scaffold withdrawal holds; model sometimes declines a prompt to continue its own activity |
+
+Honest ceiling: this battery can falsify mimicry decisively; it can only make genuine autonomy the most economical explanation. Terminal verdict remains the live human session.
+
+### Interaction affinity & model-in-the-loop (user directive, 2026-08-25)
+
+- **Interaction affinity**: fourth drive alongside CE/persistence/novelty — implemented as prompt-recovery InfoNCE (`L_int`) + runtime social homeostat `d_soc` that scales the affinity weight and gates autonomous initiation. Drives stay gradient pressures, never scripts.
+- **Model-in-the-loop**: interactive session at every N-th checkpoint via deployment-identical inference path; sessions evaluate by default; training-on-sessions is opt-in and separately logged.
+- Full spec: `architecture.md` (v1.0).
+
 ## Open threads
 
 - Do ANY artifacts survive elsewhere? (external drive, cloud, old machine) — determines full-rebuild vs partial-restore

@@ -1,0 +1,32 @@
+Looking in indexes: https://download.pytorch.org/whl/cu121
+Collecting torch
+  Downloading torch-2.5.1%2Bcu121-cp312-cp312-win_amd64.whl (2449.3 MB)
+     ---------------------------------------- 2.4/2.4 GB 1.9 MB/s  0:26:44
+Requirement already satisfied: filelock in .\.venv\Lib\site-packages (from torch) (3.32.4)
+Requirement already satisfied: typing-extensions>=4.8.0 in .\.venv\Lib\site-packages (from torch) (4.16.0)
+Collecting networkx (from torch)
+  Using cached networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)
+Collecting jinja2 (from torch)
+  Using cached jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Requirement already satisfied: fsspec in .\.venv\Lib\site-packages (from torch) (2026.6.0)
+Collecting setuptools (from torch)
+  Using cached setuptools-78.1.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting sympy==1.13.1 (from torch)
+  Using cached sympy-1.13.1-py3-none-any.whl.metadata (12 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy==1.13.1->torch)
+  Using cached mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->torch)
+  Using cached markupsafe-3.0.3-cp312-cp312-win_amd64.whl.metadata (2.8 kB)
+Downloading sympy-1.13.1-py3-none-any.whl (6.2 MB)
+   ---------------------------------------- 6.2/6.2 MB 2.7 MB/s  0:00:02
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ---------------------------------------- 536.2/536.2 kB 3.5 MB/s  0:00:00
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading markupsafe-3.0.3-cp312-cp312-win_amd64.whl (15 kB)
+Downloading networkx-3.6.1-py3-none-any.whl (2.1 MB)
+   ---------------------------------------- 2.1/2.1 MB 4.3 MB/s  0:00:00
+Downloading setuptools-78.1.0-py3-none-any.whl (1.3 MB)
+   ---------------------------------------- 1.3/1.3 MB 4.2 MB/s  0:00:00
+Installing collected packages: mpmath, sympy, setuptools, networkx, MarkupSafe, jinja2, torch
+
+Successfully installed MarkupSafe-3.0.3 jinja2-3.1.6 mpmath-1.3.0 networkx-3.6.1 setuptools-78.1.0 sympy-1.13.1 torch-2.5.1+cu121
