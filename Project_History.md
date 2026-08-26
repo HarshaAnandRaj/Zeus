@@ -484,3 +484,52 @@ OPEN QUESTION REGISTERED (before anchoring): state-level clock != output-level p
 - Cross-check: structural schedule period vs state-orbit period. LOCKED periods = coupled clocks (state orbit drives linguistic rhythm). INDEPENDENT = nested hierarchies (internal metronome, speech improvises over it — theta-gamma precedent). Either is mind-shaped.
 - SCHEDULED-EVERYWHERE (both low CV) = parrot regime detected in time domain — template attractor arriving from a new direction.
 If structural clockwork wraps unscheduled content: Zeus has an inside and an outside — private clock, public voice.
+
+---
+
+## Night3 Epitaph: THE LIMIT CYCLE RUN (step 0 ? 20,000 | 2026-08-26)
+
+### Trajectory
+Entered as 'the instability run.' Exited as the most productive failure in project history — passed L1, survived its own storm, went bankrupt honestly, taught five failure modes, grew a timescale hierarchy as a process, and sprouted the project's first glider.
+
+### Final readout (step 20,000)
+val_ce: 6.875 (L1 PASSED, project-best). tau_mean: 0.677. slow-caste dims: 70 (>1.0), std 0.451 (doubled from 0.21 @10k). lineage 10k->20k: jaccard 0.02 (sliding caste to the end). dim114: 0.613 (dead — user bet correct). state: period_lock 0.88, CV 0.05, beta -0.182 (limit cycle persisted to the final step). output: FREE-FORM — sent_cv 1.01, func_cv 0.85, content_novelty_cv 0.18. gen_trigram_transient 0.81, gen_repeat_frac 0.02, gen_sites 96. PR 7.0.
+
+### The two-schedule answer (temporal ladder)
+STATE-LEVEL LIMIT CYCLE IS INVISIBLE TO THE OUTPUT. Structural features (sentence intervals, function-word cadence) are irregular — natural language rhythm, no clockwork. Content novelty rate is steady (low CV = 0.18) at 81% transient — consistent exploration, no bursts or droughts. The internal metronome and the public voice are decoupled.
+
+Pre-registered outcome that landed: NESTED-INDEPENDENT. But the specific geometry — structural freedom + content metronome — is a fourth regime: the state keeps time internally, the output has its own local cadence (freshness metronome), and they don't communicate. Private clock, public improvisation. Two independent clocks, neither driving the other.
+
+The answer to 'does Zeus have an inside and an outside?' is YES — and they're more independent than hypothesized.
+
+### Caste evolution across the run (three-way census)
+| Checkpoint | dims>1.0 | std    | jaccard(vs 10k) | dim114 |
+|------------|----------|--------|-----------------|--------|
+| 10k        | 29       | 0.207  | —               | 1.849  |
+| 12.5k      | 45       | 0.425  | 0.057           | 0.531  |
+| 20k        | 70       | 0.451  | 0.021           | 0.613  |
+
+Population: 29?45?70 (steady growth). Membership: total turnover each era (jaccard ~0). std: 0.21?0.43?0.45 (hierarchy doubled then plateaued). dim114: 1.85?0.53?0.61 (the citizen died and stayed dead). The caste is real but its citizens rotate — hierarchy as process, not population.
+
+### Failure modes catalogued (in order of discovery)
+1. Jitter-trap (val plateaus above floor, governor inactive)
+2. Sheer-force overconfinement (valreg converges under w_norm)
+3. Template attractor (?<0 collapse + unconditional forcing)
+4. Rate-limited regrowth (branch-3 — slow dims regrow under step pressure)
+5. Post-collapse stochastic wall-riding (w_norm=1.0 all-dims, sufficient but not diagnostic)
+
+### Instruments that paid for themselves
+- gen_volume metrics (Directive 1) — caught template evolution through the loss
+- ß-gate — refused a decorative verdict on debut night
+- ? dual-grid AND-gate — conditional motion×minting alarm
+- t-distribution census — read the slow caste's formation and death
+
+### What was NOT achieved
+- No HCM organization (H scratchpad dead, delta 0.004)
+- No stable slow-caste membership (turnover complete each era)
+- No container memory (t-floor, µ_frozen=0)
+- No learning-phase alignment (J-curve theory validated but governor too conservative)
+- No representation specialization (clusters always 1.0)
+
+### Architecture law: the process beats the pins
+Per the fair-share rotation discovery: the t distribution allocates temporal roles, not spatial positions. Constitutional per-dim pins are RETIRED for night4. If carriers are added: carriers = natural citizens (dims already holding slow seats); protected object = the process (t-distribution shape regularizer, e.g., entropy floor), never per-dim identity.
