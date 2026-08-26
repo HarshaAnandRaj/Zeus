@@ -432,3 +432,20 @@ Open dials: tau-std slope (natural regrowth vs recolonization) + return-interval
 **Weaning metric inverted:** recovery will not show as H-dependence shrinking (already zero). Recovery signals: (a) tau-census establishing persistent >1.0 membership, or (b) H-dependence RISING while val falls (readout learns to use archives). Both instrumented.
 
 Night3 completion forecast per registered fork: trigger (a) fires (flat tau-std), night4 opens with the deliberate fork: constitutional dims vs selection-pressure curriculum.
+
+### ChiClock: novelty-weighted experiential time (2026-08-26, user spec; core/chi.py)
+
+The naive chi (raw motion summed) fails like every volume metric we have caught: the jitter-trap racks up enormous experiential time while experiencing nothing. chi is NOVELTY-WEIGHTED:
+- dchi = 1.0 when S enters a coarse cell never visited (MINTED configuration = one lived generation)
+- dchi = 0.05 for known territory (rhymes matter a little)
+- components logged separately (motion vs minting — the split that catches masquerades)
+
+Consequences now operational:
+1. Zeus has a GENERATION COUNTER: population-genetics formulas (N-mu thresholds, absorption times, heterozygosity decay) port natively onto telemetry.
+2. Cross-era comparability in common units: learning-per-experience vs experience-per-step finally separable.
+3. Dream-time operational: reply-loop accumulates chi at its own self-set rate; subjective time dilation measured.
+4. Probes fire on events (delta-chi milestones) not ticks; CHI_STALL over long stretches = F-glass alarm — death detection in the subject's own time, collapsed out of beta/PR/rho_exact/entropy/sign.
+
+Implementation: core/chi.py grid-hash (cell index round(v/res), res=1.0 raw units, fixed+logged; revisit_credit=0.05; stall_steps=2500). Wired into training loop post-step; persisted in ckpt; chi_visited JSON dumped per checkpoint. Running processes predate it; historical trajectories covered post-hoc via checkpoint probes.
+
+Ledger correction applied en route: two-currency pathology table finalized — jitter-trap = experience without form; night1 filament = form without experience; healthy band defined jointly by (tau-census budget) AND (chi accrual).
