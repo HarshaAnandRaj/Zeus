@@ -14,7 +14,12 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from core.model import ZeusCore, ZeusConfig
+from core.chi import ChiClock
 from tokenizers import Tokenizer
+
+CHI_RES = 1.0
+CHI_REVISIT_CREDIT = 0.05
+CHI_STALL = 2500
 
 TOK = ROOT / "corpus" / "data" / "tokenizer" / "bpe_8192.json"
 IDS_CACHE = ROOT / "corpus" / "data" / "train_ids.npy"
@@ -365,6 +370,7 @@ def main():
     opt = torch.optim.AdamW([{"params": dyn, "lr": args.lr_dyn}, {"params": lm, "lr": args.lr_lm}])
     ctrl = TeacherController()
     governor = HealthGovernor(args.gov_target, args.gov_w_floor, args.gov_w_cap)
+    clock = ChiClock(res=CHI_RES, revisit_credit=CHI_REVISIT_CREDIT, stall_steps=CHI_STALL)
 
     start = 0
     ckpts = sorted(save_dir.glob("zeus_step*.pt"))
@@ -375,6 +381,7 @@ def main():
         opt.load_state_dict(payload["opt"])
         ctrl.load(payload.get("controller"))
         governor.load(payload.get("governor"))
+        clock.load(payload.get("chi_clock"))
         start = payload["step"]
         if "self_ratio" in payload:
             args.self_ratio = payload["self_ratio"]
@@ -400,6 +407,10 @@ def main():
             entry = {"step": step, **{k: round(v, 5) for k, v in m.items()}, **(event or {})}
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
         opt.step()
+        with torch.no_grad():
+            clock.update(model.S.detach().cpu(), step)
+        if step % 25 == 0 and clock.stalled(step):
+            log({"step": step, "event": "CHI_STALL", "since_mint": step - clock.last_mint_step})
         if step % 25 == 0:
             sps = step / (time.time() - t0)
             entry["steps_per_s"] = round(sps, 3)
@@ -409,12 +420,16 @@ def main():
             h = eval_health(model)
             h["gen"] = eval_generation_health(model)
             gv = governor.update(model, h, args)
+            snap = clock.snapshot()
             log({"step": step, "val_ce_nats": round(v, 4), "floor_L1": 7.10, "floor_L2": 4.47,
-                 "health": h, **gv})
+                 "health": h, "chi": snap, **gv})
         if step % args.ckpt_every == 0 or step == args.steps:
             model.save(save_dir, step, extra={"controller": ctrl.state(), "opt": opt.state_dict(),
                                               "governor": governor.state(), "self_ratio": args.self_ratio,
-                                              "w_norm": args.w_norm})
+                                              "w_norm": args.w_norm,
+                                              "chi_clock": {**clock.snapshot(),
+                                                            "visited": [list(k) for k in clock.visited]}})
+            clock.dump_visited(save_dir / f"chi_visited_{step}.json")
             log({"event": "ckpt", "step": step})
     log({"event": "COMPLETE", "step": args.steps})
 
