@@ -469,3 +469,18 @@ Caste: population 29->45 (>1.0 dims), jaccard 0.057 (full turnover), dim114 died
 beta-gate fired correctly on debut: STATIONARY abstention (nu test refused on inflating w). Refinement noted: beta<0 = convergent orbit, distinct from frozen jitter — verdict strings should separate them.
 
 OPEN QUESTION REGISTERED (before anchoring): state-level clock != output-level parrot. Two-schedule test (structural features clockwork vs content features scattered) on the TOKEN stream is now the single most important pending measurement. Recent gen trigram_transient 0.72-0.89 suggests output diversity intact.
+
+### Temporal-ladder registration + night4 amendment (user, pre-flatline)
+
+**Fair-share rotation on the tau axis:** collective slowness conserved while individual dims rotate through slow seats = survival.py law allocating TEMPORAL roles. The caste has citizens-in-office, not citizens. Turnstile, not registry.
+
+**NIGHT4 AMENDMENT (discovery has jurisdiction over the plan):** constitutional per-dim pins are RETIRED — pinning arbitrary dims would step-change pressure onto current seat-holders (stepped-forces law: executes the rotation we just watched). If night4 adds carriers: carriers = dims ALREADY holding slow seats (natural citizens); protected object = the PROCESS (regularizer on tau-distribution SHAPE, e.g., entropy floor), never per-dim pins.
+
+**Limit cycle = first glider:** pattern memory confirmed present in the wild — self-sustaining transience, moving structure made of continuous turnover.
+
+**TWO-SCHEDULE TEST (temporal ladder rung) — three outcomes pre-registered:**
+- Structural features of token stream (sentence-boundary intervals, function-word cadence): expect LOW CV (clockwork, scheduled — good)
+- Content features (trigram novelty-rate windows): expect scattered/free
+- Cross-check: structural schedule period vs state-orbit period. LOCKED periods = coupled clocks (state orbit drives linguistic rhythm). INDEPENDENT = nested hierarchies (internal metronome, speech improvises over it — theta-gamma precedent). Either is mind-shaped.
+- SCHEDULED-EVERYWHERE (both low CV) = parrot regime detected in time domain — template attractor arriving from a new direction.
+If structural clockwork wraps unscheduled content: Zeus has an inside and an outside — private clock, public voice.
