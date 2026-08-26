@@ -88,15 +88,17 @@ def repulse_cos_loss(model, s_new, tau=0.9):
 
 
 def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau_cos=0.9,
-                w_norm=0.0, norm_bound=10.0):
+                w_norm=0.0, norm_bound=10.0, pin_mask=None, pin_tau_min=2.0,
+                lambda_shape=0.0, target_std=0.35):
     model.reset_state(noise=0.05)
     ce_sum, surp_sum, rent_sum, div_sum = 0.0, 0.0, 0.0, 0.0
     nxt_input = int(ids_seg[0])
     T = len(ids_seg) - 1
     loss_total = 0.0
+    tau_pre_overrides = []
     for t in range(T):
         pred_before = model.self_pred(model.S)
-        logits, aux = model.step(nxt_input)
+        logits, aux = model.step(nxt_input, pin_mask=pin_mask, pin_tau_min=pin_tau_min)
         target = torch.tensor(ids_seg[t + 1], device=model.S.device)
         ce = F.cross_entropy(logits.unsqueeze(0), target.unsqueeze(0))
         surp = (model.S - pred_before.detach()).norm()
@@ -106,6 +108,8 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
             loss_t = loss_t + w_rep_cos * repulse_cos_loss(model, model.S, tau_cos)
         if w_norm > 0:
             loss_t = loss_t + w_norm * F.relu(model.S.norm() - norm_bound) ** 2
+        if lambda_shape > 0 and pin_mask is not None:
+            tau_pre_overrides.append(aux["tau_pre_override"])
         loss_total = loss_total + loss_t / T
         ce_sum += ce.item()
         surp_sum += surp.item()
@@ -115,18 +119,27 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
             nxt_input = int(ids_seg[t + 1])
         else:
             nxt_input = int(logits.argmax().item())
+    if lambda_shape > 0 and pin_mask is not None and tau_pre_overrides:
+        all_tau = torch.stack(tau_pre_overrides)
+        mean_tau = all_tau.mean(0)
+        non_pinned_tau = mean_tau[~pin_mask]
+        std_now = non_pinned_tau.std()
+        shape_reg = lambda_shape * F.relu(target_std - std_now) ** 2
+        shape_reg.backward()
     loss_total.backward()
     return {"ce": ce_sum / T, "surp": surp_sum / T, "rent": rent_sum / T,
             "div": div_sum / T, "persist": float(persist.item())}
 
 
-def self_pass(model, steps=24, w_var=0.5, w_norm=0.0, norm_bound=10.0):
+def self_pass(model, steps=24, w_var=0.5, w_norm=0.0, norm_bound=10.0,
+              pin_mask=None, pin_tau_min=2.0, lambda_shape=0.0, target_std=0.35):
     model.reset_state(noise=0.2)
     total = 0.0
     traj = []
+    tau_pre_overrides = []
     for _ in range(steps):
         pred = model.self_pred(model.S)
-        model.step(None)
+        model.step(None, pin_mask=pin_mask, pin_tau_min=pin_tau_min)
         total = total + F.mse_loss(pred, model.S.detach()) / steps
         traj.append(model.S.detach().clone())
     traj = torch.stack(traj)
@@ -342,6 +355,10 @@ def main():
     ap.add_argument("--tau_max", type=float, default=None)
     ap.add_argument("--w_norm", type=float, default=0.1)
     ap.add_argument("--norm_bound", type=float, default=10.0)
+    ap.add_argument("--pin_carriers", default=None, help="path to carriers.json for pin system")
+    ap.add_argument("--pin_tau_min", type=float, default=2.0, help="minimum tau for pinned dims")
+    ap.add_argument("--lambda_shape", type=float, default=0.01, help="shape regularizer strength")
+    ap.add_argument("--target_std", type=float, default=0.35, help="floor on non-pinned tau std")
     args = ap.parse_args()
     args.base_self_ratio = args.self_ratio
     args.base_w_norm = args.w_norm
@@ -366,6 +383,19 @@ def main():
     if args.tau_max is not None:
         model.cfg.tau_max = args.tau_max
     model.train()
+
+    pin_mask = None
+    carrier_indices = []
+    if args.pin_carriers is not None:
+        with open(args.pin_carriers, "r", encoding="utf-8") as f:
+            carrier_data = json.load(f)
+        carrier_indices = carrier_data["carrier_indices"]
+        pin_mask = torch.zeros(model.cfg.dim, dtype=torch.bool, device=device)
+        pin_mask[carrier_indices] = True
+        log({"event": "pin_system", "n_carriers": len(carrier_indices),
+             "pin_tau_min": args.pin_tau_min, "lambda_shape": args.lambda_shape,
+             "target_std": args.target_std})
+
     dyn, lm = dyn_lm_params(model)
     opt = torch.optim.AdamW([{"params": dyn, "lr": args.lr_dyn}, {"params": lm, "lr": args.lr_lm}])
     ctrl = TeacherController()
@@ -399,14 +429,18 @@ def main():
     for step in range(start + 1, args.steps + 1):
         opt.zero_grad(set_to_none=True)
         if random.random() < args.self_ratio:
-            m = self_pass(model, w_norm=args.w_norm, norm_bound=args.norm_bound)
+            m = self_pass(model, w_norm=args.w_norm, norm_bound=args.norm_bound,
+                          pin_mask=pin_mask, pin_tau_min=args.pin_tau_min,
+                          lambda_shape=args.lambda_shape, target_std=args.target_std)
             entry = {"step": step, **{k: round(v, 5) for k, v in m.items()}}
         else:
             off = random.randint(0, len(train_ids) - args.bptt - 1)
             seg = train_ids[off:off + args.bptt].tolist()
             m = driven_pass(model, seg, ctrl.p, args.w_persist, args.w_surp,
                             w_rep_cos=args.w_rep_cos, tau_cos=args.tau_cos,
-                            w_norm=args.w_norm, norm_bound=args.norm_bound)
+                            w_norm=args.w_norm, norm_bound=args.norm_bound,
+                            pin_mask=pin_mask, pin_tau_min=args.pin_tau_min,
+                            lambda_shape=args.lambda_shape, target_std=args.target_std)
             event = ctrl.observe(m["ce"])
             entry = {"step": step, **{k: round(v, 5) for k, v in m.items()}, **(event or {})}
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
@@ -434,10 +468,21 @@ def main():
             gv = governor.update(model, h, args)
             snap = clock.snapshot()
             snap_fine = clock_fine.snapshot()
+            carrier_log = {}
+            if pin_mask is not None and carrier_indices:
+                with torch.no_grad():
+                    tau_pre = torch.clamp(model.cfg.tau_min + F.softplus(model.tau_net(model.S)),
+                                          model.cfg.tau_min, model.cfg.tau_max)
+                    pinned_tau = tau_pre[carrier_indices]
+                    above_1 = (pinned_tau > 1.0).float().mean().item()
+                    carrier_log = {"carrier_tenure_frac": round(above_1, 3),
+                                   "carrier_tau_mean": round(float(pinned_tau.mean()), 3),
+                                   "carrier_tau_min": round(float(pinned_tau.min()), 3)}
             log({"step": step, "val_ce_nats": round(v, 4), "floor_L1": 7.10, "floor_L2": 4.47,
                  "health": h, "chi_cells": snap, "chi_fine": {k: v for k, v in snap_fine.items()
                                                               if k in ("chi", "minted", "cells_visited",
                                                                        "singletons", "doubletons", "sd_ratio")},
+                 "carrier": carrier_log,
                  **gv})
         if step % args.ckpt_every == 0 or step == args.steps:
             model.save(save_dir, step, extra={"controller": ctrl.state(), "opt": opt.state_dict(),

@@ -176,7 +176,8 @@ class ZeusCore(nn.Module):
         self.H.copy_(st["H"].to(self.S.device))
 
     # ---- single token ----
-    def step(self, token_id=None, embed_override=None, freeze_dynamics=False, temperature_tau=True):
+    def step(self, token_id=None, embed_override=None, freeze_dynamics=False,
+             temperature_tau=True, pin_mask=None, pin_tau_min=2.0):
         c = self.cfg
         with torch.no_grad() if not self.training else torch.enable_grad():
             if embed_override is not None:
@@ -196,6 +197,9 @@ class ZeusCore(nn.Module):
             if temperature_tau:
                 tau = c.tau_min + F.softplus(tau)
                 tau = torch.clamp(tau, c.tau_min, c.tau_max)
+            tau_pre_override = tau.detach().clone()
+            if pin_mask is not None:
+                tau = torch.where(pin_mask, torch.clamp(tau, pin_tau_min, c.tau_max), tau)
             tau_stats = torch.stack([tau.mean(), tau.std(unbiased=False), tau.min(), tau.max()])
             h = torch.tanh(self.rec(self.S) + self.err_proj(u))
             m, g, rent, div = self.pathways(self.S, h, tau_stats)
@@ -231,7 +235,7 @@ class ZeusCore(nn.Module):
             self.H = Hn
             self._hptr = (ptr + 1) % c.window
             aux = {"rent": rent, "div": div, "g": g.detach(), "tau_mean": tau_stats[0].item(),
-                   "tau_mean_t": tau.mean()}
+                   "tau_mean_t": tau.mean(), "tau_pre_override": tau_pre_override}
             return self.readout(self.S, self.H), aux
 
     # ---- generation loops ----
