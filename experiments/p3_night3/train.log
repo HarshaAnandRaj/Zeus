@@ -739,3 +739,5 @@
 {"step": 11825, "self_mse": 0.35107, "var_floor": 0.60436, "contain": 364.04742, "rms": 20.0946, "max_norm": 52.519, "steps_per_s": 2.859, "t": "13:26:41"}
 {"step": 11850, "self_mse": 0.05742, "var_floor": 0.6063, "contain": 357.02051, "rms": 19.9868, "max_norm": 52.27, "steps_per_s": 2.851, "t": "13:27:02"}
 {"step": 11875, "ce": 7.95775, "surp": 78.87643, "rent": 1.0, "div": -0.14234, "persist": -0.54529, "steps_per_s": 2.842, "t": "13:27:24"}
+{"step": 11900, "ce": 6.87851, "surp": 75.53567, "rent": 1.0, "div": -0.1423, "persist": -0.53728, "steps_per_s": 2.832, "t": "13:27:48"}
+{"step": 11925, "self_mse": 0.06199, "var_floor": 0.60966, "contain": 352.0184, "rms": 19.9413, "max_norm": 52.199, "steps_per_s": 2.824, "t": "13:28:08"}

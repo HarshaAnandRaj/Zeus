@@ -449,3 +449,13 @@ Consequences now operational:
 Implementation: core/chi.py grid-hash (cell index round(v/res), res=1.0 raw units, fixed+logged; revisit_credit=0.05; stall_steps=2500). Wired into training loop post-step; persisted in ckpt; chi_visited JSON dumped per checkpoint. Running processes predate it; historical trajectories covered post-hoc via checkpoint probes.
 
 Ledger correction applied en route: two-currency pathology table finalized — jitter-trap = experience without form; night1 filament = form without experience; healthy band defined jointly by (tau-census budget) AND (chi accrual).
+
+### ChiClock v2 + rarefaction calibration (user's ecology warning, implemented)
+
+Fixed CHI_STALL threshold would eventually cry wolf at success: minting rate MUST decline asymptotically as coverage fills (mature resident is HEALTHY). v2 alarm is conditional:
+- three regimes separated: young explorer (mints in window), mature resident (minting declined matching coverage — never alarms), glass (zero minting AND motion >= gate*long-run-baseline)
+- Chao1 estimator (singletons/doubletons) reports estimated total richness + coverage % at every snapshot — remaining-discovery headroom becomes a first-class dial
+- early-phase fallback: window must fill (500 steps) or >=25 cells visited before alarm can arm
+Synthetic regime tests pass: jitter -> arms toward alarm; explorer (600 mints/600 steps) -> silent, coverage 0.3%.
+
+Record notes: tau creeping off floor releases the ratchet — com_radius climbing post-recovery is P8 breathing, not relapse. Post-hoc chi curves are lower-bound smoothed profiles: compare shapes/slopes across eras, never absolute accruals (night3 reconstructed vs night4 dense).
