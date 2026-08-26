@@ -347,6 +347,16 @@ Three discoveries: (1) free-roll drift engine IS our γ — reset nests H at ori
 Mechanistic footnote: the same wake-ratchet retroactively explains night1's wall-track — repulsion marched the τ-frozen remnant into the walls. One mechanism, three phenomena, all named.
 Gauge implemented: `excursion` block in eval_health — norm+readout-confidence windows at t=24/48/96/200 (48 = generation-horizon row).
 
+**P6a grading refinement + THE SEE-SAW (registered pre-verdict; user's unification):**
+The τ-collapse was doing double duty: leak = 1/τ, so τ_mean sliding sub-1 multiplied recentering several-fold (com_radius 57→16 was the LEAK hauling the free-roll home — spring was decaying; leak did the hauling; P6a passes on slope criterion but mechanism note reads "re-centering via leak amplification"). Simultaneously τ IS the memory horizon — faster dynamics = shorter retention = val_ce regressing toward marginal-token guessing. One variable, two opposite symptoms.
+
+See-saw law: w_persist raised ⇒ τ climbs ⇒ **val_ce resumes falling** (memory restored) while **com_radius rises again** (wake-ratchet resumes lawful wander). The second row is NOT relapse: *com rising alongside τ recovery = P8 breathing, not F1 relapse* — misgrading exploration as death is the exact error the fork exists to prevent.
+
+Redemption outcome table @ step 5,000:
+- τ_mean climbs ∧ val_ce exits bounce downward ⇒ REDEMPTION CONFIRMED (attraction-signed term was the memory keeper; sign audit closes "balance needed, side identified late")
+- τ_mean climbs ∧ val_ce stalls high ⇒ memory preserved, something else broke; check prompt-conditioning first
+- τ_mean stays ≤0.55 despite pressure ⇒ dose insufficient; raise w_persist or admit CE overwhelms it at this ratio
+
 ### CDT operating-manual dictation (2026-08-26, user's multi-domain sim batch)
 
 Seven domains (markets/AI-text, civilization_drift, genetics, physical_walk+Life, celestial, conversation_cdt) converted to directives:
