@@ -307,7 +307,22 @@ Launch hygiene note (found by smoke v10): gradient clipping lived only in the dr
 
 **Grading guard:** N2-P1/P2 authoritative votes were taken at step 10k during the clean contained phase — they STAND regardless of storm-phase numbers. Final-checkpoint habitat metrics are recorded separately as *F1-storm readings* (expected distorted: bimodal wall-clusters smear ν, inflate PR) — distortion is more F1 evidence, not a re-vote.
 
-## Open threads
+### p3_night2 EPITAPH (COMPLETE 08:41, step 20000)
+
+**The run that passed the gate nobody could pass, flew the unplanned experiment, and returned with the control law.**
+
+Headline: **L1 PASSED** — val_ce crossed below the unigram floor (~7.10) around step 2,000–3,000 on the honest thermometer and never came back up: 7.10 @ 2k → 6.86 @ 10k → 6.91 final *mid-storm*. First sustained context-beating prediction in project history.
+
+Authoritative N2 votes (step 10k clean phase, per grading guard):
+- N2-P1 ✅ ν_micro 5.83 > w 2.15 (transient micro confirmed on corrected instruments)
+- N2-P2 ✅ PR fell 6.57→2.79 while ν rose — copy-masquerade death certificate
+- N2-P3 resolved under block-null: fine ratio 0.00 (active avoidance below continuity null), coarse ratio 1.00 (free rhyming) — cleaner than the withdrawn absolute-band version
+
+F1-storm readings (final ckpt, NOT a re-vote): val_ce 6.9099, ρ_exact 0.0, sites 200/200, entropy 1.0, sign −1.0, rms 15.5 (self-settled from 114 peak). Storm-phase distortions expected per guard; recorded as F1 evidence only.
+
+Legacy: proved CE learns on a transient manifold after all (the P5a question opened); exposed texture/confinement conflation via rope-lever failure (governor maxed a force with no reach); demonstrated F1 ledger payoff live (death pre-named = information, not crisis); survived its own storm coherently enough to keep scoring. Cause of death: runaway scale, optimizer-driven, uncontainable by runtime forces. Manner of death: ordered — thrashed as one organism.
+
+Survived by: p3_night3, launched with physics and control law written before liftoff.
 
 ### CDT operating-manual dictation (2026-08-26, user's multi-domain sim batch)
 
