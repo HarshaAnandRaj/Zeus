@@ -152,6 +152,7 @@ class ZeusCore(nn.Module):
         self.register_buffer("slow", torch.zeros(c.slow_dim), persistent=False)
         self.register_buffer("H", torch.zeros(c.window, c.dim), persistent=True)
         self._hptr = 0
+        self.hcm = None
 
     # ---- state management ----
     def reset_state(self, noise=0.0, generator=None):
@@ -208,6 +209,11 @@ class ZeusCore(nn.Module):
                 S_new = self.S.clone()
             else:
                 drive = -self.S / tau + h + self.w_slow(self.slow) * 0.1 + m
+                if self.hcm is not None:
+                    retrieved, sim = self.hcm.read(self.S)
+                    if retrieved is not None:
+                        err_hcm = retrieved - anticipate
+                        drive = drive + err_hcm
                 if c.k_repulse > 0:
                     j = torch.arange(c.window, device=self.H.device)
                     age = (self._hptr - 1 - j) % c.window + 1

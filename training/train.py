@@ -15,6 +15,7 @@ sys.path.insert(0, str(ROOT))
 
 from core.model import ZeusCore, ZeusConfig
 from core.chi import ChiClock
+from core.hcm import HCM
 from tokenizers import Tokenizer
 
 CHI_RES = 1.0
@@ -89,18 +90,23 @@ def repulse_cos_loss(model, s_new, tau=0.9):
 
 def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau_cos=0.9,
                 w_norm=0.0, norm_bound=10.0, pin_mask=None, pin_tau_min=2.0,
-                lambda_shape=0.0, target_std=0.35):
+                lambda_shape=0.0, target_std=0.35, hcm=None):
     model.reset_state(noise=0.05)
     ce_sum, surp_sum, rent_sum, div_sum = 0.0, 0.0, 0.0, 0.0
     nxt_input = int(ids_seg[0])
     T = len(ids_seg) - 1
     loss_total = 0.0
+    hcm_writes = 0
     for t in range(T):
         pred_before = model.self_pred(model.S)
         logits, aux = model.step(nxt_input, pin_mask=pin_mask, pin_tau_min=pin_tau_min)
         target = torch.tensor(ids_seg[t + 1], device=model.S.device)
         ce = F.cross_entropy(logits.unsqueeze(0), target.unsqueeze(0))
         surp = (model.S - pred_before.detach()).norm()
+        if hcm is not None:
+            wrote = hcm.write(model.S.detach().clone(), surp.item())
+            if wrote:
+                hcm_writes += 1
         persist = -aux["tau_mean_t"]
         loss_t = ce + w_surp * (-surp) + w_persist * persist + 0.1 * aux["rent"] + aux["div"]
         if w_rep_cos > 0:
@@ -125,7 +131,7 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
         loss_total = loss_total + shape_reg
     loss_total.backward()
     return {"ce": ce_sum / T, "surp": surp_sum / T, "rent": rent_sum / T,
-            "div": div_sum / T, "persist": float(persist.item())}
+            "div": div_sum / T, "persist": float(persist.item()), "hcm_writes": hcm_writes}
 
 
 def self_pass(model, steps=24, w_var=0.5, w_norm=0.0, norm_bound=10.0,
@@ -356,6 +362,10 @@ def main():
     ap.add_argument("--pin_tau_min", type=float, default=2.0, help="minimum tau for pinned dims")
     ap.add_argument("--lambda_shape", type=float, default=0.01, help="shape regularizer strength")
     ap.add_argument("--target_std", type=float, default=0.35, help="floor on non-pinned tau std")
+    ap.add_argument("--hcm_max", type=int, default=512, help="HCM max patterns")
+    ap.add_argument("--hcm_threshold", type=float, default=0.3, help="HCM recall similarity threshold")
+    ap.add_argument("--hcm_topk", type=int, default=4, help="HCM top-k recall")
+    ap.add_argument("--hcm_write_thresh", type=float, default=1.5, help="HCM surprisal threshold for writes")
     args = ap.parse_args()
     args.base_self_ratio = args.self_ratio
     args.base_w_norm = args.w_norm
@@ -402,6 +412,10 @@ def main():
     clock_fine = ChiClock(res=CHI_RES_FINE, revisit_credit=CHI_REVISIT_CREDIT)
     clock_fine.load_counts(save_dir / "chi_state_fine.json")
 
+    hcm = HCM(model.cfg.dim, max_patterns=args.hcm_max, recall_threshold=args.hcm_threshold,
+              top_k=args.hcm_topk, write_surp_thresh=args.hcm_write_thresh, device=device)
+    model.hcm = hcm
+
     start = 0
     ckpts = sorted(save_dir.glob("zeus_step*.pt"))
     if args.resume == "auto" and ckpts:
@@ -412,6 +426,8 @@ def main():
         ctrl.load(payload.get("controller"))
         governor.load(payload.get("governor"))
         clock.load(payload.get("chi_clock"))
+        if "hcm" in payload:
+            hcm.load_state_dict(payload["hcm"])
         start = payload["step"]
         if "self_ratio" in payload:
             args.self_ratio = payload["self_ratio"]
@@ -437,7 +453,8 @@ def main():
                             w_rep_cos=args.w_rep_cos, tau_cos=args.tau_cos,
                             w_norm=args.w_norm, norm_bound=args.norm_bound,
                             pin_mask=pin_mask, pin_tau_min=args.pin_tau_min,
-                            lambda_shape=args.lambda_shape, target_std=args.target_std)
+                            lambda_shape=args.lambda_shape, target_std=args.target_std,
+                            hcm=hcm)
             event = ctrl.observe(m["ce"])
             entry = {"step": step, **{k: round(v, 5) for k, v in m.items()}, **(event or {})}
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
@@ -448,6 +465,7 @@ def main():
                 moved = float((model.S.detach().cpu() - prev_s).norm())
             clock.update(model.S.detach().cpu(), step, moved=moved)
             clock_fine.update(model.S.detach().cpu(), step, moved=moved)
+            hcm.decay()
             prev_s = model.S.detach().cpu().clone()
         if step % 25 == 0 and clock.glass_alarm() and clock_fine.glass_alarm():
             rf = clock.rarefaction()
@@ -479,13 +497,14 @@ def main():
                  "health": h, "chi_cells": snap, "chi_fine": {k: v for k, v in snap_fine.items()
                                                               if k in ("chi", "minted", "cells_visited",
                                                                        "singletons", "doubletons", "sd_ratio")},
-                 "carrier": carrier_log,
+                 "carrier": carrier_log, "hcm": hcm.snapshot(),
                  **gv})
         if step % args.ckpt_every == 0 or step == args.steps:
             model.save(save_dir, step, extra={"controller": ctrl.state(), "opt": opt.state_dict(),
                                               "governor": governor.state(), "self_ratio": args.self_ratio,
                                               "w_norm": args.w_norm,
-                                              "chi_clock": clock.snapshot()})
+                                              "chi_clock": clock.snapshot(),
+                                              "hcm": hcm.state_dict()})
             clock.dump_state(save_dir / "chi_state.json")
             clock_fine.dump_state(save_dir / "chi_state_fine.json")
             log({"event": "ckpt", "step": step})
