@@ -324,6 +324,15 @@ Legacy: proved CE learns on a transient manifold after all (the P5a question ope
 
 Survived by: p3_night3, launched with physics and control law written before liftoff.
 
+**N3-P6 fork + variance-floor geometry trap (registered at first-relaunch; user's math):**
+The var-floor (`relu(mean_var − 0.3)` across 768 dims) imposes RMS-from-mean ≥ √(768×0.3) ≈ **15.2**. Original `norm_bound=10` sat BELOW that floor ⇒ two mathematically incompatible losses ⇒ permanent gradient war (contain ≈360 forever). Found by the user before the step-3,000 verdict; night3 killed at ~1k steps, relaunched with `--norm_bound 20`.
+- **N3-P6a:** rms stabilizes in [15.2, 20] band, contain decaying ⇒ confinement thesis confirmed; equilibrium is a BAND, not a point.
+- **N3-P6b:** rms > bound persistent ∧ contain rising ⇒ genuine F1 through the loss ⇒ architecture escalation.
+- **N3-P6c:** rms collapses below 15 ⇒ glass arriving through the loss ⇒ raise var target / cut contain.
+Rule adopted: containment bound must always exceed √(dims × var_target) + margin — checked at write-time, not discovered at run-time.
+
+**τ-floor watch (second catch, same review):** tau_mean slid 1.05→0.55 toward tau_min=0.5 in night3's aborted attempt — driven-CE prefers fast dynamics = v2's diagnosed disease returning through the gradient door instead of the cap door. Antidote dial already exists: `w_persist`, the memory-preserving counterweight the sign audit flagged as attraction-signed — right about needing balance, wrong about which side needed defending. Watch rule: tau_mean keeps falling ∧ CE stalls ⇒ P5b confession from below; remedy = w_persist bump, knowingly.
+
 ### CDT operating-manual dictation (2026-08-26, user's multi-domain sim batch)
 
 Seven domains (markets/AI-text, civilization_drift, genetics, physical_walk+Life, celestial, conversation_cdt) converted to directives:

@@ -1,0 +1,14 @@
+{"event": "fresh_start", "t": "09:09:15"}
+{"step": 25, "ce": 8.51845, "surp": 29.56838, "rent": 0.0, "div": 0.80693, "persist": -1.20537, "steps_per_s": 2.949, "t": "09:09:23"}
+{"step": 50, "ce": 8.19578, "surp": 27.17906, "rent": 0.0, "div": 0.81177, "persist": -1.20628, "steps_per_s": 3.064, "t": "09:09:31"}
+{"step": 75, "ce": 7.96892, "surp": 27.55165, "rent": 0.0, "div": 0.82342, "persist": -1.17517, "steps_per_s": 3.124, "t": "09:09:39"}
+{"step": 100, "ce": 7.71559, "surp": 25.02804, "rent": 0.0, "div": 0.84558, "persist": -1.17385, "steps_per_s": 3.144, "t": "09:09:46"}
+{"step": 120, "val_ce_nats": 7.5759, "floor_L1": 7.1, "floor_L2": 4.47, "health": {"rho_exact": 0.0, "sites": 200, "entropy_norm": 1.0, "sign_hat": -1.0, "rms": 27.0814, "tau_mean": 1.18, "tau_pinned_frac": 0.0, "gen": {"gen_trigram_transient": 0.8211, "gen_repeat_frac": 0.0294, "gen_sites": 96}}, "gov_w": 0.097, "gov_k_texture": 1.0, "gov_self": 0.4, "gov_adverse": false, "t": "09:10:04"}
+{"step": 125, "self_mse": 0.53269, "var_floor": 0.07277, "contain": 121.79259, "rms": 24.3926, "max_norm": 36.873, "steps_per_s": 2.453, "t": "09:10:06"}
+{"step": 150, "self_mse": 0.63246, "var_floor": 0.52305, "contain": 377.83383, "rms": 26.1157, "max_norm": 49.12, "steps_per_s": 2.477, "t": "09:10:15"}
+{"step": 175, "self_mse": 0.74996, "var_floor": 0.3776, "contain": 171.7617, "rms": 23.6332, "max_norm": 42.056, "steps_per_s": 2.513, "t": "09:10:24"}
+{"step": 200, "ce": 8.02982, "surp": 25.50278, "rent": 0.38048, "div": 0.6255, "persist": -1.16792, "steps_per_s": 2.471, "t": "09:10:36"}
+{"step": 225, "ce": 6.93214, "surp": 28.72684, "rent": 0.0564, "div": 0.62566, "persist": -1.1524, "steps_per_s": 2.466, "t": "09:10:46"}
+{"step": 240, "val_ce_nats": 7.3296, "floor_L1": 7.1, "floor_L2": 4.47, "health": {"rho_exact": 0.0, "sites": 200, "entropy_norm": 1.0, "sign_hat": -1.0, "rms": 23.2046, "tau_mean": 1.22, "tau_pinned_frac": 0.0, "gen": {"gen_trigram_transient": 0.8556, "gen_repeat_frac": 0.0144, "gen_sites": 96}}, "gov_w": 0.094, "gov_k_texture": 1.0, "gov_self": 0.4, "gov_adverse": false, "t": "09:11:00"}
+{"event": "ckpt", "step": 240, "t": "09:11:01"}
+{"event": "COMPLETE", "step": 240, "t": "09:11:01"}
