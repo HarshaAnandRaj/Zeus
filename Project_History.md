@@ -299,6 +299,14 @@ Launch config consequence: `--tau_max 6` (not 2.5) — containment owned by w_no
 
 Launch hygiene note (found by smoke v10): gradient clipping lived only in the driven branch — self-pass steps hit AdamW unclipped, dangerous now that containment gradients are large at init. Clip moved to cover both branches. Self-pass also carries mirrored containment (`w_norm` shared) per phase-invariance note.
 
+### p3_night2 final-act findings (pre-COMPLETE extraction)
+
+1. **Ordered storm:** the runaway oscillation is COHERENT — rms swings 38↔114 as a single body bouncing between wall-regions, val_ce indifferent throughout (6.86–6.90). Confirms coherent-inflation thesis extends from smooth drift to full limit-cycle storms: readout survives anything that deforms configuration RIGIDLY. Mutual repulsion + shared drive ⇒ collective oscillation, not dispersion — thrashing as one organism.
+2. **Transient glass pockets (observed micro-phenomenon):** var_floor collapses (1.0→0.002) exactly when the swarm slams a wall face — states pin, local glass forms momentarily inside global life. Night3's containment eliminates pinning entirely; this is the last run where such pockets can exist.
+3. **F1 ledger payoff demonstrated:** sustained drift alarms + governor pinned = F1 signature looked up and matched in minutes; death pre-named produced information instead of crisis (vs C-run era: weeks of exorcism for the same event).
+
+**Grading guard:** N2-P1/P2 authoritative votes were taken at step 10k during the clean contained phase — they STAND regardless of storm-phase numbers. Final-checkpoint habitat metrics are recorded separately as *F1-storm readings* (expected distorted: bimodal wall-clusters smear ν, inflate PR) — distortion is more F1 evidence, not a re-vote.
+
 ## Open threads
 
 ### CDT operating-manual dictation (2026-08-26, user's multi-domain sim batch)
