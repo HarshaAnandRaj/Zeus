@@ -1,0 +1,8 @@
+{"event": "fresh_start", "t": "06:48:53"}
+{"step": 25, "ce": 8.46358, "surp": 29.51789, "rent": 0.0, "div": 0.81363, "persist": -1.20204, "steps_per_s": 0.939, "t": "06:49:20"}
+{"step": 40, "val_ce_nats": 7.7494, "floor_L1": 7.1, "floor_L2": 4.47, "health": {"rho_exact": 0.0, "sites": 200, "entropy_norm": 1.0, "sign_hat": -1.0, "rms": 23.6174, "gen": {"gen_trigram_transient": 0.785, "gen_repeat_frac": 0.0436, "gen_sites": 96}}, "gov_w": 0.097, "gov_k_texture": 1.0, "gov_self": 0.4, "gov_adverse": false, "t": "06:50:17"}
+{"step": 50, "ce": 7.72471, "surp": 25.85955, "rent": 0.0, "div": 0.82521, "persist": -1.21049, "steps_per_s": 0.522, "t": "06:50:29"}
+{"step": 75, "ce": 8.32569, "surp": 25.41622, "rent": 0.0, "div": 0.85884, "persist": -1.18766, "steps_per_s": 0.603, "t": "06:50:58"}
+{"step": 80, "val_ce_nats": 7.714, "floor_L1": 7.1, "floor_L2": 4.47, "health": {"rho_exact": 0.0, "sites": 200, "entropy_norm": 1.0, "sign_hat": -1.0, "rms": 24.7803, "gen": {"gen_trigram_transient": 0.8326, "gen_repeat_frac": 0.037, "gen_sites": 96}}, "gov_w": 0.094, "gov_k_texture": 1.0, "gov_self": 0.4, "gov_adverse": false, "t": "06:51:38"}
+{"event": "ckpt", "step": 80, "t": "06:51:42"}
+{"event": "COMPLETE", "step": 80, "t": "06:51:42"}

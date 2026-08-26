@@ -35,7 +35,7 @@ class ZeusConfig:
     repulse_adaptive: bool = True
     repulse_q: float = 0.3
     repulse_smin: float = 0.25
-    repulse_smax: float = 2.0
+    repulse_smax: float = 16.0
     k_wall: float = 2.0
     wall_margin: float = 6.0
 

@@ -82,7 +82,8 @@ def repulse_cos_loss(model, s_new, tau=0.9):
     return (F.relu(cos - tau) ** 2).mean()
 
 
-def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau_cos=0.9):
+def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau_cos=0.9,
+                w_norm=0.0, norm_bound=10.0):
     model.reset_state(noise=0.05)
     ce_sum, surp_sum, rent_sum, div_sum = 0.0, 0.0, 0.0, 0.0
     nxt_input = int(ids_seg[0])
@@ -98,6 +99,8 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
         loss_t = ce + w_surp * (-surp) + w_persist * persist + 0.1 * aux["rent"] + aux["div"]
         if w_rep_cos > 0:
             loss_t = loss_t + w_rep_cos * repulse_cos_loss(model, model.S, tau_cos)
+        if w_norm > 0:
+            loss_t = loss_t + w_norm * F.relu(model.S.norm() - norm_bound) ** 2
         loss_total = loss_total + loss_t / T
         ce_sum += ce.item()
         surp_sum += surp.item()
@@ -216,12 +219,12 @@ def eval_generation_health(model, prompts=("hello", "the little girl"), tokens=4
 
 
 class HealthGovernor:
-    """Closed-loop transience regulation (CDT 3.6 as control): consume health
-    trends, modulate k_repulse and self_ratio. Adverse -> more idle rolls,
-    stronger repulsion; healthy -> decay toward learning."""
+    """Closed-loop regulation. Confinement lever = w_norm (loss-side, the only
+    force the optimizer cannot overwrite). k_repulse stays texture-only and is
+    never governor-modulated (CDT: interior anti-coincidence, finite reach)."""
 
-    def __init__(self, target=0.12, k_floor=0.5, k_cap=8.0, rms_drift_max=0.15):
-        self.target, self.k_floor, self.k_cap = target, k_floor, k_cap
+    def __init__(self, target=0.12, w_floor=0.02, w_cap=2.0, rms_drift_max=0.15):
+        self.target, self.w_floor, self.w_cap = target, w_floor, w_cap
         self.rms_drift_max = rms_drift_max
         self.rho_ema = None
         self.prev_rms = None
@@ -247,12 +250,13 @@ class HealthGovernor:
                 h["rms_drift"] = round(rms_drift, 3)
         self.prev_rms = rms if rms is not None else self.prev_rms
         if adverse:
-            model.cfg.k_repulse = min(self.k_cap, model.cfg.k_repulse * 1.25)
+            args.w_norm = min(self.w_cap, args.w_norm * 1.25)
             args.self_ratio = min(0.6, args.self_ratio + 0.02)
         else:
-            model.cfg.k_repulse = max(self.k_floor, model.cfg.k_repulse * 0.97)
+            args.w_norm = max(self.w_floor, args.w_norm * 0.97)
             args.self_ratio = max(args.base_self_ratio, args.self_ratio - 0.01)
-        return {"gov_k": round(model.cfg.k_repulse, 3),
+        return {"gov_w": round(args.w_norm, 3),
+                "gov_k_texture": round(model.cfg.k_repulse, 3),
                 "gov_self": round(args.self_ratio, 3), "gov_adverse": adverse}
 
 
@@ -294,11 +298,14 @@ def main():
     ap.add_argument("--w_rep_cos", type=float, default=0.0)
     ap.add_argument("--tau_cos", type=float, default=0.9)
     ap.add_argument("--gov_target", type=float, default=0.12)
-    ap.add_argument("--gov_k_floor", type=float, default=0.5)
-    ap.add_argument("--gov_k_cap", type=float, default=8.0)
+    ap.add_argument("--gov_w_floor", type=float, default=0.02)
+    ap.add_argument("--gov_w_cap", type=float, default=2.0)
     ap.add_argument("--tau_max", type=float, default=None)
+    ap.add_argument("--w_norm", type=float, default=0.1)
+    ap.add_argument("--norm_bound", type=float, default=10.0)
     args = ap.parse_args()
     args.base_self_ratio = args.self_ratio
+    args.base_w_norm = args.w_norm
 
     save_dir = ROOT / args.save_dir
     save_dir.mkdir(parents=True, exist_ok=True)
@@ -323,7 +330,7 @@ def main():
     dyn, lm = dyn_lm_params(model)
     opt = torch.optim.AdamW([{"params": dyn, "lr": args.lr_dyn}, {"params": lm, "lr": args.lr_lm}])
     ctrl = TeacherController()
-    governor = HealthGovernor(args.gov_target, args.gov_k_floor, args.gov_k_cap)
+    governor = HealthGovernor(args.gov_target, args.gov_w_floor, args.gov_w_cap)
 
     start = 0
     ckpts = sorted(save_dir.glob("zeus_step*.pt"))
@@ -337,6 +344,8 @@ def main():
         start = payload["step"]
         if "self_ratio" in payload:
             args.self_ratio = payload["self_ratio"]
+        if "w_norm" in payload:
+            args.w_norm = payload["w_norm"]
         log({"event": "resume", "from_step": start, "ckpt": latest.name})
     elif not ckpts:
         log({"event": "fresh_start"})
@@ -351,7 +360,8 @@ def main():
             off = random.randint(0, len(train_ids) - args.bptt - 1)
             seg = train_ids[off:off + args.bptt].tolist()
             m = driven_pass(model, seg, ctrl.p, args.w_persist, args.w_surp,
-                            w_rep_cos=args.w_rep_cos, tau_cos=args.tau_cos)
+                            w_rep_cos=args.w_rep_cos, tau_cos=args.tau_cos,
+                            w_norm=args.w_norm, norm_bound=args.norm_bound)
             torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             event = ctrl.observe(m["ce"])
             entry = {"step": step, **{k: round(v, 5) for k, v in m.items()}, **(event or {})}
@@ -369,7 +379,8 @@ def main():
                  "health": h, **gv})
         if step % args.ckpt_every == 0 or step == args.steps:
             model.save(save_dir, step, extra={"controller": ctrl.state(), "opt": opt.state_dict(),
-                                              "governor": governor.state(), "self_ratio": args.self_ratio})
+                                              "governor": governor.state(), "self_ratio": args.self_ratio,
+                                              "w_norm": args.w_norm})
             log({"event": "ckpt", "step": step})
     log({"event": "COMPLETE", "step": args.steps})
 

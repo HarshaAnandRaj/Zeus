@@ -276,6 +276,16 @@ Launch config: soft confining potential (k_wall=2, margin=6; hard ±8 kept as em
 If N2-P1 fails with clean instruments and containment: genuine information — dose insufficient; lever is repulsion σ/coverage, not more τ.
 Night1 reframe (user): PR 6.57 was copy-masquerade in geometry — second-moment spread from clamp-face occupancy (median pair dist 77 vs ~100 uniform), not volume. "Night1 bought dimensionality with scale debt; night2's job is to pay it back."
 
+### Night3 pre-registration + doctrine law (2026-08-26 morning)
+
+**Law (user-formalized):** dynamics-level forces are transient perturbations; gradient pressures are the only ones the optimizer cannot overwrite. Doctrine #3 restated — drives must live in the loss; anything living only in dS will be re-carved each driven pass.
+
+**Structural separation adopted:** repulsion = interior TEXTURE force (anti-coincidence, finite reach σ); confinement = separate force, lives in the LOSS (`w_norm · relu(‖S‖ − bound)²` on every driven step). Governor lever swapped: modulates `w_norm` (+self_ratio), never `k_repulse`. Adaptive σ restored with wide safety band [0.25, 16] — safe now that containment is loss-side.
+
+**Conjunctive gate for success:** rms stabilized AND PR ≥ 5 AND ν_micro ≥ w. Two cliffs instrumented: runaway (night2) and over-contraction/glass — counter-lever for glass is noise/injection, not softer walls.
+
+- **N3-P4 (registered expectation):** if containment ever fails partially rather than totally, L1 degrades BEFORE the trajectory looks obviously broken — non-uniform tear precedes visible chaos. Basis: night1's coherent inflation was invisible to the direction-keyed readout; non-uniform drift would not be.
+
 ## Open threads
 
 ### CDT operating-manual dictation (2026-08-26, user's multi-domain sim batch)
