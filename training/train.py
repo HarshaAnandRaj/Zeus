@@ -370,7 +370,8 @@ def main():
     opt = torch.optim.AdamW([{"params": dyn, "lr": args.lr_dyn}, {"params": lm, "lr": args.lr_lm}])
     ctrl = TeacherController()
     governor = HealthGovernor(args.gov_target, args.gov_w_floor, args.gov_w_cap)
-    clock = ChiClock(res=CHI_RES, revisit_credit=CHI_REVISIT_CREDIT, stall_steps=CHI_STALL)
+    clock = ChiClock(res=CHI_RES, revisit_credit=CHI_REVISIT_CREDIT)
+    clock.load_counts(save_dir / "chi_state.json")
 
     start = 0
     ckpts = sorted(save_dir.glob("zeus_step*.pt"))
@@ -392,6 +393,7 @@ def main():
         log({"event": "fresh_start"})
 
     t0 = time.time()
+    prev_s = model.S.detach().cpu().clone()
     for step in range(start + 1, args.steps + 1):
         opt.zero_grad(set_to_none=True)
         if random.random() < args.self_ratio:
@@ -408,9 +410,15 @@ def main():
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
         opt.step()
         with torch.no_grad():
-            clock.update(model.S.detach().cpu(), step)
-        if step % 25 == 0 and clock.stalled(step):
-            log({"step": step, "event": "CHI_STALL", "since_mint": step - clock.last_mint_step})
+            moved = None
+            if prev_s is not None:
+                moved = float((model.S.detach().cpu() - prev_s).norm())
+            clock.update(model.S.detach().cpu(), step, moved=moved)
+            prev_s = model.S.detach().cpu().clone()
+        if step % 25 == 0 and clock.glass_alarm():
+            rf = clock.rarefaction()
+            log({"step": step, "event": "CHI_GLASS_ALARM",
+                 "coverage": rf["coverage"], "chao1_total": rf["chao1_estimated_total"]})
         if step % 25 == 0:
             sps = step / (time.time() - t0)
             entry["steps_per_s"] = round(sps, 3)
@@ -427,9 +435,8 @@ def main():
             model.save(save_dir, step, extra={"controller": ctrl.state(), "opt": opt.state_dict(),
                                               "governor": governor.state(), "self_ratio": args.self_ratio,
                                               "w_norm": args.w_norm,
-                                              "chi_clock": {**clock.snapshot(),
-                                                            "visited": [list(k) for k in clock.visited]}})
-            clock.dump_visited(save_dir / f"chi_visited_{step}.json")
+                                              "chi_clock": clock.snapshot()})
+            clock.dump_state(save_dir / "chi_state.json")
             log({"event": "ckpt", "step": step})
     log({"event": "COMPLETE", "step": args.steps})
 

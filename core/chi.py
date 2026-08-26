@@ -1,43 +1,80 @@
-"""ChiClock: novelty-weighted experiential time (two-currency doctrine).
-dχ = 1.0 when S enters a coarse-cell never visited (minted configuration);
-dχ = revisit_credit otherwise. Motion alone earns nothing — the jitter-trap
-reads flat, the explorer reads endlessly. χ is Zeus's generation counter:
-population-genetics formulas defined per-generation port natively once this
-is the unit. A stalled χ while the system keeps stepping is the F-glass
-signature: death measured in the subject's own time."""
+"""ChiClock v2: novelty-weighted experiential time with rarefaction-calibrated
+glass alarm. Minted cell = +1.0 (one lived generation), known territory =
+revisit_credit. Alarm is CONDITIONAL: minting must stall WHILE motion continues
+at >= gate fraction of long-run baseline — mature residents (declining minting
+matching coverage) never fire it, movers-that-discover-nothing do. Chao1
+estimator reports remaining-discovery headroom."""
 import json
 
 
 class ChiClock:
-    def __init__(self, res=1.0, revisit_credit=0.05, stall_steps=2500):
+    def __init__(self, res=1.0, revisit_credit=0.05, window=500,
+                 motion_ratio_gate=0.5):
         self.res = res
         self.revisit_credit = revisit_credit
-        self.stall_steps = stall_steps
-        self.visited = {}
+        self.window = window
+        self.motion_ratio_gate = motion_ratio_gate
+        self.counts = {}
         self.chi = 0.0
         self.minted = 0
         self.revisits = 0
         self.last_mint_step = 0
+        self._win = []
+        self.motion_base = None
 
-    def update(self, s, step):
+    def update(self, s, step, moved=None):
         key = tuple(int(round(float(v) / self.res)) for v in s.tolist())
-        if key not in self.visited:
-            self.visited[key] = step
+        cnt = self.counts.get(key, 0)
+        mint = cnt == 0
+        self.counts[key] = cnt + 1
+        dchi = 1.0 if mint else self.revisit_credit
+        self.chi += dchi
+        if mint:
             self.minted += 1
-            self.chi += 1.0
             self.last_mint_step = step
-            return 1.0
-        self.revisits += 1
-        self.chi += self.revisit_credit
-        return self.revisit_credit
+        else:
+            self.revisits += 1
+        if moved is not None:
+            self._win.append((1.0 if mint else 0.0, float(moved)))
+            if len(self._win) > self.window:
+                self._win.pop(0)
+            w = self.motion_base
+            self.motion_base = float(moved) if w is None else 0.99 * w + 0.01 * float(moved)
+        return dchi
 
-    def stalled(self, step):
-        return (step - self.last_mint_step) > self.stall_steps
+    def rarefaction(self):
+        f1 = sum(1 for c in self.counts.values() if c == 1)
+        f2 = sum(1 for c in self.counts.values() if c == 2)
+        s_obs = len(self.counts)
+        est = s_obs + (f1 * f1) / max(2 * max(f2, 1), 1)
+        return {"observed_cells": s_obs, "singletons": f1, "doubletons": f2,
+                "chao1_estimated_total": round(est, 1),
+                "coverage": round(s_obs / max(est, 1.0), 4)}
+
+    def glass_alarm(self):
+        """Three regimes, separated:
+        young explorer   — mints present in window           -> no alarm
+        mature resident  — minting declined, motion continues -> no alarm (this is health)
+        glass            — zero minting AND motion >= gate*baseline -> ALARM"""
+        if len(self._win) < self.window:
+            if len(self.counts) < 25:
+                return False
+            return all(not m for m, _ in self._win)
+        rec = self._win[-self.window:]
+        mints = sum(m for m, _ in rec)
+        motion = sum(v for _, v in rec) / len(rec)
+        if mints > 0:
+            return False
+        if self.motion_base is None:
+            return False
+        return motion >= self.motion_ratio_gate * self.motion_base
 
     def snapshot(self):
+        rf = self.rarefaction()
         return {"chi": round(self.chi, 2), "minted": self.minted,
-                "revisits": self.revisits,
-                "last_mint_step": self.last_mint_step}
+                "revisits": self.revisits, "last_mint_step": self.last_mint_step,
+                "cells_visited": rf["observed_cells"],
+                "coverage": rf["coverage"]}
 
     def load(self, st):
         if not st:
@@ -46,8 +83,22 @@ class ChiClock:
         self.minted = st.get("minted", 0)
         self.revisits = st.get("revisits", 0)
         self.last_mint_step = st.get("last_mint_step", 0)
-        self.visited = {tuple(k): v for k, v in st.get("visited", {}).items()}
 
-    def dump_visited(self, path):
+    def dump_state(self, path):
+        payload = {"counts": {json.dumps(list(k)): v for k, v in self.counts.items()},
+                   "chi": self.chi, "minted": self.minted, "revisits": self.revisits,
+                   "last_mint_step": self.last_mint_step}
         with open(path, "w", encoding="utf-8") as f:
-            json.dump({json.dumps(list(k)): v for k, v in self.visited.items()}, f)
+            json.dump(payload, f)
+
+    def load_counts(self, path):
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                payload = json.load(f)
+            self.counts = {tuple(json.loads(k)): v for k, v in payload["counts"].items()}
+            self.chi = payload.get("chi", 0.0)
+            self.minted = payload.get("minted", 0)
+            self.revisits = payload.get("revisits", 0)
+            self.last_mint_step = payload.get("last_mint_step", 0)
+        except FileNotFoundError:
+            pass
