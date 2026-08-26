@@ -143,26 +143,35 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
 
 
 def self_pass(model, steps=24, w_var=0.5, w_norm=0.0, norm_bound=10.0,
-              pin_mask=None, pin_tau_min=2.0, lambda_shape=0.0, target_std=0.35):
+              pin_mask=None, pin_tau_min=2.0, lambda_shape=0.0, target_std=0.35,
+              hcm=None, w_consolidation=0.2):
     model.reset_state(noise=0.2)
     total = 0.0
     traj = []
-    tau_pre_overrides = []
     for _ in range(steps):
         pred = model.self_pred(model.S)
         model.step(None, pin_mask=pin_mask, pin_tau_min=pin_tau_min)
         total = total + F.mse_loss(pred, model.S.detach()) / steps
         traj.append(model.S.detach().clone())
+    consolidation_loss = torch.tensor(0.0)
+    consolidation_events = 0
+    if hcm is not None and hcm.n_patterns > 0:
+        idx = torch.randint(0, hcm.n_patterns, (1,)).item()
+        stored_trace = hcm.patterns[idx]
+        consolidation_loss = w_consolidation * F.mse_loss(model.S, stored_trace)
+        consolidation_events = 1
     traj = torch.stack(traj)
     T = traj.shape[0]
     var_pen = torch.relu(traj[T // 2:].var(dim=0).mean() - 0.3)
     contain = (F.relu(traj.norm(dim=1) - norm_bound) ** 2).mean()
-    (total + w_var * var_pen + w_norm * contain).backward()
+    (total + w_var * var_pen + w_norm * contain + consolidation_loss).backward()
     return {"self_mse": float(total.item()),
             "var_floor": float(torch.exp(-10.0 * var_pen).item()),
             "contain": round(float(contain.item()), 6),
             "rms": round(float((traj - traj.mean(0)).norm(dim=1).mean()), 4),
-            "max_norm": round(float(traj.norm(dim=1).max().item()), 3)}
+            "max_norm": round(float(traj.norm(dim=1).max().item()), 3),
+            "consolidation": consolidation_events,
+            "consolidation_loss": round(float(consolidation_loss.item()), 5)}
 
 
 @torch.no_grad()
@@ -242,7 +251,8 @@ def eval_health(model, steps=200, grain=0.25, k_lag=8):
 def eval_generation_health(model, prompts=("hello", "the little girl"), tokens=48,
                            temp=0.7, grain=0.25):
     """Directive 1 + 5 groundwork: volume metrics for the OUTPUT stream.
-    CE falling while these fall = training a template (CDT 3.17 blind spot)."""
+    CE falling while these fall = training a template (CDT 3.17 blind spot).
+    Anti-crutch: fugazee detection via S-vector similarity to stored traces."""
     g = torch.Generator(device="cpu").manual_seed(4242)
     texts, traj = [], []
     for p in prompts:
@@ -276,9 +286,18 @@ def eval_generation_health(model, prompts=("hello", "the little girl"), tokens=4
             continue
         covered |= d[t] <= grain
         cid += 1
+    fugazee_rate = 0.0
+    if model.hcm is not None and model.hcm.n_patterns > 0:
+        stored = model.hcm.patterns[:model.hcm.n_patterns].cpu()
+        gen_trajs = traj.unsqueeze(1)
+        storeds = stored.unsqueeze(0)
+        sims = F.cosine_similarity(gen_trajs, storeds, dim=-1)
+        max_sim = sims.max(dim=1).values
+        fugazee_rate = float((max_sim > 0.9).float().mean())
     return {"gen_trigram_transient": round(transient, 4),
             "gen_repeat_frac": round(repeats, 4),
-            "gen_sites": cid}
+            "gen_sites": cid,
+            "fugazee_rate": round(fugazee_rate, 4)}
 
 
 class HealthGovernor:
@@ -452,7 +471,8 @@ def main():
         if random.random() < args.self_ratio:
             m = self_pass(model, w_norm=args.w_norm, norm_bound=args.norm_bound,
                           pin_mask=pin_mask, pin_tau_min=args.pin_tau_min,
-                          lambda_shape=args.lambda_shape, target_std=args.target_std)
+                          lambda_shape=args.lambda_shape, target_std=args.target_std,
+                          hcm=hcm)
             entry = {"step": step, **{k: round(v, 5) for k, v in m.items()}}
         else:
             off = random.randint(0, len(train_ids) - args.bptt - 1)
