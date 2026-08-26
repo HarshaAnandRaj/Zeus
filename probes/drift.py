@@ -135,6 +135,26 @@ def world_metrics(traj, eps, late_frac=0.5):
             "radius_rms": round(float((traj - traj.mean(0)).norm(dim=1).mean()), 3)}
 
 
+def _block_null_rho(traj, eps_list, block=64, trials=6, k_lag=8, seed=99):
+    """Continuity-preserving null: permute contiguous blocks (local path structure
+    survives, long-range revisit structure destroyed). Ratios against THIS null
+    measure genuine revisitation, not mere path continuity."""
+    g = torch.Generator().manual_seed(seed)
+    T = traj.shape[0]
+    n_blocks = max(T // block, 1)
+    out = [0.0] * len(eps_list)
+    for _ in range(trials):
+        order = torch.randperm(n_blocks, generator=g)
+        idx = torch.cat([torch.arange(b * block, (b + 1) * block) for b in order])
+        if n_blocks * block < T:
+            idx = torch.cat([idx, torch.arange(n_blocks * block, T)])
+        t2 = traj[idx]
+        mp2, _ = _min_past_dists(t2, k_lag)
+        for i, eps in enumerate(eps_list):
+            out[i] += float((mp2[k_lag + 1:] < eps).float().mean())
+    return [v / trials for v in out]
+
+
 def main(model=None, steps=400):
     model = model or load_model()
     seeded_reset(model, 0.1)
@@ -147,12 +167,23 @@ def main(model=None, steps=400):
     slow = _unit_box(torch.stack(sl).cpu())
 
     _, pd = _min_past_dists(traj)
-    iu = torch.triu_indices(pd.shape[0], pd.shape[1], offset=1)
-    med = float(pd[iu[0], iu[1]].median())
-    coarse, fine = med * 2.0, med * 0.03
+    N = traj.shape[0]
+    iu = torch.triu_indices(N, N, offset=1)
+    keep = (iu[1] - iu[0]) > 8
+    pv = pd[iu[0][keep], iu[1][keep]]
+    med = float(pv.median())
 
-    rhymes = recurrence_stats(traj, [coarse])
-    curve = recurrence_stats(traj, [med * (0.5 ** k) for k in range(5)])
+    mp, _ = _min_past_dists(traj)
+    eps_grid = [med * (2.0 ** (1 - k)) for k in range(5)]
+    nulls = _block_null_rho(traj, eps_grid)
+    rungs = []
+    for k, eps in enumerate(eps_grid):
+        rho_t = float((mp[9:] < eps).float().mean())
+        rho_n = max(nulls[k], 1e-9)
+        rungs.append({"eps": round(eps, 4), "rho_time": round(rho_t, 4),
+                      "rho_null": round(nulls[k], 4),
+                      "ratio": round(rho_t / rho_n, 3)})
+    coarse_rung, fine_rung = rungs[0], rungs[-1]
 
     cents, assign = kmeans(traj)
     probs = torch.bincount(assign, minlength=cents.shape[0]).float()
@@ -167,10 +198,11 @@ def main(model=None, steps=400):
     wd = walk_dim(traj)
     w = wd["w"]
 
-    rho_c = list(rhymes.values())[0]
-    rho_f = list(curve.values())[-1]
+    rho_c = coarse_rung["rho_time"]
+    rho_f = fine_rung["rho_time"]
     micro_tr = w is not None and nu_micro > w
     theme_rec = nu_theme < 2.2 and rho_c > 0.6
+    split = (coarse_rung["ratio"] > 1.0 and fine_rung["ratio"] < 1.0)
     if nu_micro < 1.0 and rho_f > 0.8:
         phase = "COLLAPSED (parrot regime: recurrent at every level)"
     elif micro_tr and theme_rec:
@@ -181,7 +213,8 @@ def main(model=None, steps=400):
         phase = "RECURRENT (echo-prone)"
 
     return {"rho_rhyme": rho_c, "rho_exact_fine": rho_f,
-            "collapse_curve": curve,
+            "split_null_ref": bool(split),
+            "collapse_curve": rungs,
             "nu_micro": round(nu_micro, 3), "nu_slow": round(nu_slow, 3),
             "nu_theme": round(nu_theme, 3),
             "beta": wd["beta"], "w": w,
