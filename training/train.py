@@ -172,9 +172,15 @@ def eval_health(model, steps=200, grain=0.25, k_lag=8):
         mp[t] = d[t, :t - k_lag].min()
     rho = float((mp[k_lag + 1:] < grain * 0.5).float().mean())
     rms = float((traj - traj.mean(0)).norm(dim=1).mean())
+    c = model.cfg
+    with torch.no_grad():
+        tau = torch.clamp(c.tau_min + F.softplus(model.tau_net(model.S)), c.tau_min, c.tau_max)
+        tau_pinned = float((tau > 0.9 * c.tau_max).float().mean())
     return {"rho_exact": round(rho, 4), "sites": int((counts > 0).sum()),
             "entropy_norm": round(ent_norm, 4), "sign_hat": round(sign_hat, 3),
-            "rms": round(rms, 4)}
+            "rms": round(rms, 4),
+            "tau_mean": round(float(tau.mean()), 2),
+            "tau_pinned_frac": round(tau_pinned, 3)}
 
 
 @torch.no_grad()

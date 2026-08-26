@@ -292,6 +292,11 @@ Night1 reframe (user): PR 6.57 was copy-masquerade in geometry — second-moment
 - **N3-P4 (partial tear):** non-uniform containment failure ⇒ L1 degrades before visible dynamical chaos.
 Plus the conjunctive success gate: rms stabilized ∧ PR ≥ 5 ∧ ν_micro ≥ w.
 
+**N3-P5 fork (registered pre-launch; user's memory-dial analysis):** τ-cap is NOT a neutral containment lever — τ is per-dim learned, so capping selectively strangles the slowest (context-carrying) dims. Failure class "alive but amnesiac": habitat metrics all pass while CE stalls ~6.9–7.0 forever; invisible to trajectory statistics by construction.
+- **N3-P5a:** CE keeps falling or holds ≤6.9 under stabilized habitat ⇒ learning survives stability; independence confirmed.
+- **N3-P5b:** CE stalls/rises with clean habitat metrics ⇒ memory-horizon strangulation; diagnostic = `tau_pinned_frac` in health ledger (slow dims piled at cap = the confession); remedy = raise the cap, not more training.
+Launch config consequence: `--tau_max 6` (not 2.5) — containment owned by w_norm + walls; τ tightened only knowingly, as a measured trade against memory, if drift persists with governor pinned.
+
 Launch hygiene note (found by smoke v10): gradient clipping lived only in the driven branch — self-pass steps hit AdamW unclipped, dangerous now that containment gradients are large at init. Clip moved to cover both branches. Self-pass also carries mirrored containment (`w_norm` shared) per phase-invariance note.
 
 ## Open threads
