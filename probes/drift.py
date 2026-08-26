@@ -107,8 +107,8 @@ def enet_assign(traj, eps):
     by eps-balls greedily; each ball is one 'site'. Returns assignment + site count."""
     d = torch.cdist(traj, traj)
     T = traj.shape[0]
-    covered = torch.zeros(T, dtype=torch.bool)
-    assign = torch.full((T,), -1, dtype=torch.long)
+    covered = torch.zeros(T, dtype=torch.bool, device=traj.device)
+    assign = torch.full((T,), -1, dtype=torch.long, device=traj.device)
     cid = 0
     for t in range(T):
         if covered[t]:
