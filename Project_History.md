@@ -339,6 +339,14 @@ Rule adopted: containment bound must always exceed √(dims × var_target) + mar
 **N3-P7 (informal):** sub-L1 val reached ≥2× faster than night2's trajectory (night3 @ step 500 vs night2 @ ~2k). If holds at 3,000: containment didn't just stop the bleeding — it helped learning find the manifold faster.
 **τ-race finish line:** tau_mean ≤0.55 by 3k alongside CE softening = race confirmed (w_persist redemption arc); stabilized ≥~0.65 = early-phase noise.
 
+### N3-P8 final form + excursion profile (user's code diagnosis, dissolves the wander ambiguity)
+
+Three discoveries: (1) free-roll drift engine IS our γ — reset nests H at origin, wake-repulsion evicts, adaptive σ keeps the push scale-free ⇒ ballistic self-repelling diffusion, faithfully ported; expansion until wall-equilibrium is DESIGN behavior. (2) The driven/idle "two regimes" were one vector field at two integration horizons (24 vs 200 steps) — the fork's question dissolves. (3) Bound ownership separated: norm_bound owns learning; walls own physics (wall-residence is legal per §3.7); everything between is exploration's jurisdiction.
+
+**N3-P8 (registered):** com_radius saturates at wall-equilibrium ~‖S‖ 100–170 with growth rate →0; exceeding ~200 pre-wall = different breakage. Internal statistics of every segment stay mind-like (entropy ≥0.85, fair-share, ρ_exact ≈0). **Quality gates = readout confidence & reply coherence along the excursion profile ‖S‖(t)** — degradation there triggers *coverage training* (ce_auto weighted toward late free-roll states), NEVER containment.
+Mechanistic footnote: the same wake-ratchet retroactively explains night1's wall-track — repulsion marched the τ-frozen remnant into the walls. One mechanism, three phenomena, all named.
+Gauge implemented: `excursion` block in eval_health — norm+readout-confidence windows at t=24/48/96/200 (48 = generation-horizon row).
+
 ### CDT operating-manual dictation (2026-08-26, user's multi-domain sim batch)
 
 Seven domains (markets/AI-text, civilization_drift, genetics, physical_walk+Life, celestial, conversation_cdt) converted to directives:

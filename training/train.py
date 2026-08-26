@@ -141,10 +141,20 @@ def eval_health(model, steps=200, grain=0.25, k_lag=8):
     g = torch.Generator(device="cpu").manual_seed(777)
     model.reset_state(noise=0.1, generator=g)
     traj = []
+    confs = []
     for _ in range(steps):
-        model.step(None)
+        logits, _ = model.step(None)
+        confs.append(float(F.softmax(logits, dim=-1).max()))
         traj.append(model.S.detach().clone())
     traj = torch.stack(traj).cpu()
+    norms = traj.norm(dim=1)
+
+    def _win(t0, w=8):
+        lo, hi = max(t0 - w, 0), min(t0 + w + 1, steps)
+        return {"norm": round(float(norms[lo:hi].mean()), 3),
+                "conf": round(sum(confs[lo:hi]) / max(hi - lo, 1), 4)}
+
+    excursion = {f"t{t0}": _win(t0) for t0 in (24, 48, 96, 199)}
     T = traj.shape[0]
     d = torch.cdist(traj, traj)
     covered = torch.zeros(T, dtype=torch.bool)
@@ -182,6 +192,7 @@ def eval_health(model, steps=200, grain=0.25, k_lag=8):
             "rms": round(rms, 4),
             "com_radius": round(com_radius, 3),
             "spread_rms": round(rms, 4),
+            "excursion": excursion,
             "tau_mean": round(float(tau.mean()), 2),
             "tau_pinned_frac": round(tau_pinned, 3)}
 
