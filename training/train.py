@@ -155,6 +155,17 @@ def eval_health(model, steps=200, grain=0.25, k_lag=8):
                 "conf": round(sum(confs[lo:hi]) / max(hi - lo, 1), 4)}
 
     excursion = {f"t{t0}": _win(t0) for t0 in (24, 48, 96, 199)}
+
+    disp = (traj[1:] - traj[:-1]).norm(dim=1)
+    vfloor = float(disp.median()) * 0.5
+    chi_total = float(torch.clamp(disp - vfloor, min=0).sum())
+    ddisp = (traj[1:] - traj[:-1]).abs()
+    dfloor = ddisp.median(dim=0, keepdim=True).values * 0.5
+    dsig = torch.clamp(ddisp - dfloor, min=0).sum(0)
+    living = dsig > max(float(dsig.max()) * 0.1, 1e-9)
+    chi = {"total": round(chi_total, 3),
+           "living_frac": round(float(living.float().mean()), 3),
+           "chi_std": round(float(dsig.std()), 3)}
     T = traj.shape[0]
     d = torch.cdist(traj, traj)
     covered = torch.zeros(T, dtype=torch.bool)
@@ -193,6 +204,7 @@ def eval_health(model, steps=200, grain=0.25, k_lag=8):
             "com_radius": round(com_radius, 3),
             "spread_rms": round(rms, 4),
             "excursion": excursion,
+            "chi": chi,
             "tau_mean": round(float(tau.mean()), 2),
             "tau_pinned_frac": round(tau_pinned, 3)}
 

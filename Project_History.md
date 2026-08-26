@@ -393,3 +393,19 @@ Final val_ce 7.3661 (old cold-start thermometer). Training-CE distribution shift
 - val_ce stability post-switch.
 
 **Instrument patches (audit-demanded):** drift.py beta-gate — beta<0.5 => STATIONARY verdict outright (nu test abstains; null-ratios reinterpreted as decorrelated jitter); gamma-fingerprint claims require displacement co-present (beta_gate.gamma_fingerprint_valid).
+
+### The two-currency doctrine (2026-08-26, user's perceived-time reframe)
+
+The framework was smuggling a wall clock: tau treated as damping constants (container memory — cells, hold-times), when tau_net(S) always said tempo is PERCEIVED. Two currencies of memory, both real, neither sufficient:
+- Container memory: dims retain values while others turn over. Measured by tau-census. Asks "what survives until tomorrow."
+- Pattern memory: nothing holds anything; a configuration regenerates itself through total turnover (whirlpool, Life glider). Asks "is anything alive right now." pi passes trivially — its pattern is the generating law.
+
+Pathology table RE-DIAGNOSED in two currencies:
+- jitter-trap = experience without form (massive chi, zero self-regenerating structure) — not "amnesia"
+- night1 filament = form without experience
+- night2 healthy phase = moderate chi + coherent form
+Healthy band now has a 2D definition instead of a dial-tuning guess.
+
+Dream-time insight: subjective clock counts significant configuration changes, not seconds; the Zeus reply-loop is structurally a dream. tau_net(S) was perceiving time all along — we held the stopwatch.
+
+**Operational:** second clock added to eval_health — chi block: total integrated significant displacement, living_frac (fraction of dims meaningfully integrating above self-floor), chi_std. Every timescale statement is now dual: wall-clock horizon (tau census — what survives until tomorrow) AND experiential horizon (chi — how much happening this dim integrates). Both gauges read together; either alone lies in one of two directions.
