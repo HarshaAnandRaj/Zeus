@@ -12,7 +12,7 @@ import pathlib
 import torch
 
 from common import load_model
-from drift import _min_past_dists, kmeans, _unit_box
+from drift import _min_past_dists, kmeans, _unit_box, enet_assign
 from init_helper import seeded_reset
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -58,6 +58,19 @@ def measure(model=None, steps=400):
     den = float(a.norm() * b.norm())
     sign_hat = float((a * b).sum() / den) if den > 0 else 0.0
 
+    ricv_assign, _ = enet_assign(traj, eps_fine * 4.0)
+    last, intervals = {}, []
+    for t in range(traj.shape[0]):
+        s = int(ricv_assign[t])
+        if s in last:
+            intervals.append(t - last[s])
+        last[s] = t
+    if len(intervals) >= 2:
+        arr = torch.tensor(intervals, dtype=torch.float64)
+        ricv = float(arr.std() / max(arr.mean(), 1e-9))
+    else:
+        ricv = None
+
     flags = []
     ent_norm = entropy / math.log(max(sites, 2))
     if rho_exact > 0.3:
@@ -73,6 +86,7 @@ def measure(model=None, steps=400):
             "entropy_norm": round(ent_norm, 4),
             "lag2_over_lag1": round(ratio, 3), "period_lock": round(lock, 4),
             "sign_hat": round(sign_hat, 3),
+            "return_interval_cv": round(ricv, 3) if ricv is not None else None,
             "rms": round(float((traj - traj.mean(0)).norm(dim=1).mean()), 4),
             "flags": flags}
 

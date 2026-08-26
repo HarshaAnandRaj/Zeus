@@ -409,3 +409,14 @@ Healthy band now has a 2D definition instead of a dial-tuning guess.
 Dream-time insight: subjective clock counts significant configuration changes, not seconds; the Zeus reply-loop is structurally a dream. tau_net(S) was perceiving time all along — we held the stopwatch.
 
 **Operational:** second clock added to eval_health — chi block: total integrated significant displacement, living_frac (fraction of dims meaningfully integrating above self-floor), chi_std. Every timescale statement is now dual: wall-clock horizon (tau census — what survives until tomorrow) AND experiential horizon (chi — how much happening this dim integrates). Both gauges read together; either alone lies in one of two directions.
+
+### Conservation fork + return-interval CV instrument (user, pre-10k read)
+
+tau-std trajectory has THREE branches, not two:
+1. Climbs toward 0.62 band, slow caste re-seats (dims > 1.0 reappear) => hierarchy is preferred organization; crises execute it, peace regrows it. No remedy.
+2. Flat ~0.01-0.05 indefinitely => HYSTERESIS REAL on memory axis (threat gone, diversity pool died) => ASSISTED RECOLONIZATION: designate constitutional memory dims (small subset clamped to a tau floor; rest stay free-rate). Brains do this: hippocampus/prefrontal constitutionally slow, others free-rate. Architecture clause, not hack.
+3. Oscillating/slow regrowth => rate-limited regeneration; patience or gentle seed; watch.
+
+**Return-interval CV of site visitation** added to manifold_health — discriminates the entropy-1.0 ambiguity: perfect fair-share is shared by a CLOCK (periodic orbit, low CV = container-poor but PATTERN-RICH whirlpool-clock; amnesia reading dissolves) and CHURN (high CV = no form). Same histogram, opposite minds.
+
+Open dials: tau-std slope (natural regrowth vs recolonization) + return-interval CV (clock vs churn).
