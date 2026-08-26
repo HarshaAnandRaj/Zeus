@@ -18,8 +18,8 @@ from core.chi import ChiClock
 from tokenizers import Tokenizer
 
 CHI_RES = 1.0
+CHI_RES_FINE = 0.25
 CHI_REVISIT_CREDIT = 0.05
-CHI_STALL = 2500
 
 TOK = ROOT / "corpus" / "data" / "tokenizer" / "bpe_8192.json"
 IDS_CACHE = ROOT / "corpus" / "data" / "train_ids.npy"
@@ -372,6 +372,8 @@ def main():
     governor = HealthGovernor(args.gov_target, args.gov_w_floor, args.gov_w_cap)
     clock = ChiClock(res=CHI_RES, revisit_credit=CHI_REVISIT_CREDIT)
     clock.load_counts(save_dir / "chi_state.json")
+    clock_fine = ChiClock(res=CHI_RES_FINE, revisit_credit=CHI_REVISIT_CREDIT)
+    clock_fine.load_counts(save_dir / "chi_state_fine.json")
 
     start = 0
     ckpts = sorted(save_dir.glob("zeus_step*.pt"))
@@ -414,11 +416,13 @@ def main():
             if prev_s is not None:
                 moved = float((model.S.detach().cpu() - prev_s).norm())
             clock.update(model.S.detach().cpu(), step, moved=moved)
+            clock_fine.update(model.S.detach().cpu(), step, moved=moved)
             prev_s = model.S.detach().cpu().clone()
-        if step % 25 == 0 and clock.glass_alarm():
+        if step % 25 == 0 and clock.glass_alarm() and clock_fine.glass_alarm():
             rf = clock.rarefaction()
             log({"step": step, "event": "CHI_GLASS_ALARM",
-                 "coverage": rf["coverage"], "chao1_total": rf["chao1_estimated_total"]})
+                 "coverage": rf["coverage"], "chao1_total": rf["chao1_estimated_total"],
+                 "note": "dual-grid: both scales stalled"})
         if step % 25 == 0:
             sps = step / (time.time() - t0)
             entry["steps_per_s"] = round(sps, 3)
@@ -429,14 +433,19 @@ def main():
             h["gen"] = eval_generation_health(model)
             gv = governor.update(model, h, args)
             snap = clock.snapshot()
+            snap_fine = clock_fine.snapshot()
             log({"step": step, "val_ce_nats": round(v, 4), "floor_L1": 7.10, "floor_L2": 4.47,
-                 "health": h, "chi": snap, **gv})
+                 "health": h, "chi": snap, "chi_fine": {k: v for k, v in snap_fine.items()
+                                                        if k in ("chi", "minted", "cells_visited",
+                                                                 "singletons", "doubletons", "sd_ratio")},
+                 **gv})
         if step % args.ckpt_every == 0 or step == args.steps:
             model.save(save_dir, step, extra={"controller": ctrl.state(), "opt": opt.state_dict(),
                                               "governor": governor.state(), "self_ratio": args.self_ratio,
                                               "w_norm": args.w_norm,
                                               "chi_clock": clock.snapshot()})
             clock.dump_state(save_dir / "chi_state.json")
+            clock_fine.dump_state(save_dir / "chi_state_fine.json")
             log({"event": "ckpt", "step": step})
     log({"event": "COMPLETE", "step": args.steps})
 

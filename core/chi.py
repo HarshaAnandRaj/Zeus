@@ -48,6 +48,7 @@ class ChiClock:
         s_obs = len(self.counts)
         est = s_obs + (f1 * f1) / max(2 * max(f2, 1), 1)
         return {"observed_cells": s_obs, "singletons": f1, "doubletons": f2,
+                "sd_ratio": round(f1 / max(f2, 1), 3),
                 "chao1_estimated_total": round(est, 1),
                 "coverage": round(s_obs / max(est, 1.0), 4)}
 
@@ -74,6 +75,8 @@ class ChiClock:
         return {"chi": round(self.chi, 2), "minted": self.minted,
                 "revisits": self.revisits, "last_mint_step": self.last_mint_step,
                 "cells_visited": rf["observed_cells"],
+                "singletons": rf["singletons"], "doubletons": rf["doubletons"],
+                "sd_ratio": rf["sd_ratio"],
                 "coverage": rf["coverage"]}
 
     def load(self, st):
