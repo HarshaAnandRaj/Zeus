@@ -95,7 +95,6 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
     nxt_input = int(ids_seg[0])
     T = len(ids_seg) - 1
     loss_total = 0.0
-    tau_pre_overrides = []
     for t in range(T):
         pred_before = model.self_pred(model.S)
         logits, aux = model.step(nxt_input, pin_mask=pin_mask, pin_tau_min=pin_tau_min)
@@ -108,8 +107,6 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
             loss_t = loss_t + w_rep_cos * repulse_cos_loss(model, model.S, tau_cos)
         if w_norm > 0:
             loss_t = loss_t + w_norm * F.relu(model.S.norm() - norm_bound) ** 2
-        if lambda_shape > 0 and pin_mask is not None:
-            tau_pre_overrides.append(aux["tau_pre_override"])
         loss_total = loss_total + loss_t / T
         ce_sum += ce.item()
         surp_sum += surp.item()
@@ -119,13 +116,13 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
             nxt_input = int(ids_seg[t + 1])
         else:
             nxt_input = int(logits.argmax().item())
-    if lambda_shape > 0 and pin_mask is not None and tau_pre_overrides:
-        all_tau = torch.stack(tau_pre_overrides)
-        mean_tau = all_tau.mean(0)
-        non_pinned_tau = mean_tau[~pin_mask]
+    if lambda_shape > 0 and pin_mask is not None:
+        tau_raw = model.cfg.tau_min + F.softplus(model.tau_net(model.S))
+        tau_clamped = torch.clamp(tau_raw, model.cfg.tau_min, model.cfg.tau_max)
+        non_pinned_tau = tau_clamped[~pin_mask]
         std_now = non_pinned_tau.std()
         shape_reg = lambda_shape * F.relu(target_std - std_now) ** 2
-        shape_reg.backward()
+        loss_total = loss_total + shape_reg
     loss_total.backward()
     return {"ce": ce_sum / T, "surp": surp_sum / T, "rent": rent_sum / T,
             "div": div_sum / T, "persist": float(persist.item())}
