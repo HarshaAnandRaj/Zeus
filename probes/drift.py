@@ -197,13 +197,18 @@ def main(model=None, steps=400):
     nu_theme = corr_dim_points(cents)
     wd = walk_dim(traj)
     w = wd["w"]
+    beta = wd["beta"]
+    stationary = beta < 0.5
 
     rho_c = coarse_rung["rho_time"]
     rho_f = fine_rung["rho_time"]
-    micro_tr = w is not None and nu_micro > w
+    micro_tr = (w is not None and nu_micro > w) and not stationary
     theme_rec = nu_theme < 2.2 and rho_c > 0.6
     split = (coarse_rung["ratio"] > 1.0 and fine_rung["ratio"] < 1.0)
-    if nu_micro < 1.0 and rho_f > 0.8:
+    gamma_fp_valid = not stationary
+    if stationary:
+        phase = "STATIONARY (jitter-trap: beta<0.5; nu test abstains, null-ratios read as decorrelated jitter)"
+    elif nu_micro < 1.0 and rho_f > 0.8:
         phase = "COLLAPSED (parrot regime: recurrent at every level)"
     elif micro_tr and theme_rec:
         phase = "LADDER (mind-like: transient micro, recurrent theme)"
@@ -214,6 +219,8 @@ def main(model=None, steps=400):
 
     return {"rho_rhyme": rho_c, "rho_exact_fine": rho_f,
             "split_null_ref": bool(split),
+            "beta_gate": {"stationary": bool(stationary),
+                          "gamma_fingerprint_valid": bool(gamma_fp_valid)},
             "collapse_curve": rungs,
             "nu_micro": round(nu_micro, 3), "nu_slow": round(nu_slow, 3),
             "nu_theme": round(nu_theme, 3),

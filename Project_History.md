@@ -381,3 +381,15 @@ Final val_ce 7.3661 (old cold-start thermometer). Training-CE distribution shift
 - ESNPN internals: pathway selection mechanism; role of CTRNN in generation *(answered by doc â€” see corrections above)*
 - Previous agent attempt architecture and failure points *(covered by handover doc)*
 - Success criteria for "consciousness-alike" emergence *(terminal deliverable per doc: live human session via zeus.py, gated by development probes; verdict is the human's)*
+
+### Probe zero verdict + ROLLBACK registration (2026-08-26, user-directed)
+
+**Probe zero (tau distribution across ckpts):** 2500 pre-bump: cross-dim std 0.619, max tau 5.76 — NASCENT HIERARCHY. 5000 post-bump: std 0.011, 100% near-floor — hierarchy ANNIHILATED by the w_persist step-change. 7500: std 0.117, max 1.74 — regrowth begun. Verdict: uniform-at-floor FLAT TRAP confirmed; polarization hypothesis dead; mechanism lesson: *stepped forces in signed systems selectively destroy the structure that resists them* (persistence pressure must be ramped, never stepped).
+
+**Rollback (Option 1) launched from step-7500 with w_persist 0.1. Pre-registered reads:**
+- R-a: dynamics relax toward night2-explorer (beta recovers toward ~1, avoidance fingerprint returns, sign_hat -> negative) => bump-caused and reversible; map point = "persistence pressure must be ramped."
+- R-b: jitter-trap persists despite de-pressurization => HYSTERESIS discovered; architecture needs a tau-distribution regularizer (entropy floor on tau profile) before further persistence experiments.
+- tau-std trajectory: regrowth dissolves vs persists under rollback.
+- val_ce stability post-switch.
+
+**Instrument patches (audit-demanded):** drift.py beta-gate — beta<0.5 => STATIONARY verdict outright (nu test abstains; null-ratios reinterpreted as decorrelated jitter); gamma-fingerprint claims require displacement co-present (beta_gate.gamma_fingerprint_valid).
