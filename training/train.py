@@ -115,7 +115,7 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
             "div": div_sum / T, "persist": float(persist.item())}
 
 
-def self_pass(model, steps=24, w_var=0.5):
+def self_pass(model, steps=24, w_var=0.5, w_norm=0.0, norm_bound=10.0):
     model.reset_state(noise=0.2)
     total = 0.0
     traj = []
@@ -127,9 +127,11 @@ def self_pass(model, steps=24, w_var=0.5):
     traj = torch.stack(traj)
     T = traj.shape[0]
     var_pen = torch.relu(traj[T // 2:].var(dim=0).mean() - 0.3)
-    (total + w_var * var_pen).backward()
+    contain = (F.relu(traj.norm(dim=1) - norm_bound) ** 2).mean()
+    (total + w_var * var_pen + w_norm * contain).backward()
     return {"self_mse": float(total.item()),
             "var_floor": float(torch.exp(-10.0 * var_pen).item()),
+            "contain": round(float(contain.item()), 6),
             "rms": round(float((traj - traj.mean(0)).norm(dim=1).mean()), 4),
             "max_norm": round(float(traj.norm(dim=1).max().item()), 3)}
 
@@ -354,7 +356,7 @@ def main():
     for step in range(start + 1, args.steps + 1):
         opt.zero_grad(set_to_none=True)
         if random.random() < args.self_ratio:
-            m = self_pass(model)
+            m = self_pass(model, w_norm=args.w_norm, norm_bound=args.norm_bound)
             entry = {"step": step, **{k: round(v, 5) for k, v in m.items()}}
         else:
             off = random.randint(0, len(train_ids) - args.bptt - 1)
@@ -362,9 +364,9 @@ def main():
             m = driven_pass(model, seg, ctrl.p, args.w_persist, args.w_surp,
                             w_rep_cos=args.w_rep_cos, tau_cos=args.tau_cos,
                             w_norm=args.w_norm, norm_bound=args.norm_bound)
-            torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
             event = ctrl.observe(m["ce"])
             entry = {"step": step, **{k: round(v, 5) for k, v in m.items()}, **(event or {})}
+        torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
         opt.step()
         if step % 25 == 0:
             sps = step / (time.time() - t0)

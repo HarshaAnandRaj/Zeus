@@ -286,6 +286,14 @@ Night1 reframe (user): PR 6.57 was copy-masquerade in geometry — second-moment
 
 - **N3-P4 (registered expectation):** if containment ever fails partially rather than totally, L1 degrades BEFORE the trajectory looks obviously broken — non-uniform tear precedes visible chaos. Basis: night1's coherent inflation was invisible to the direction-keyed readout; non-uniform drift would not be.
 
+**All three night3 outcomes pre-registered (nothing left to surprise us):**
+- **N3-F1 (containment total failure):** sustained rms_drift alarms + governor saturating `w_cap` without effect ⇒ loss-side dose insufficient; escalate bound schedule or arena shrink.
+- **N3-G2 (over-contraction / glass):** rms holds ∧ PR < 5 ⇒ glass transition; counter-lever is noise/injection (dropout, ε), NOT softer walls.
+- **N3-P4 (partial tear):** non-uniform containment failure ⇒ L1 degrades before visible dynamical chaos.
+Plus the conjunctive success gate: rms stabilized ∧ PR ≥ 5 ∧ ν_micro ≥ w.
+
+Launch hygiene note (found by smoke v10): gradient clipping lived only in the driven branch — self-pass steps hit AdamW unclipped, dangerous now that containment gradients are large at init. Clip moved to cover both branches. Self-pass also carries mirrored containment (`w_norm` shared) per phase-invariance note.
+
 ## Open threads
 
 ### CDT operating-manual dictation (2026-08-26, user's multi-domain sim batch)
