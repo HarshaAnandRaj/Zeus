@@ -168,7 +168,7 @@ def eval_health(model, steps=200, grain=0.25, k_lag=8):
     dfloor = ddisp.median(dim=0, keepdim=True).values * 0.5
     dsig = torch.clamp(ddisp - dfloor, min=0).sum(0)
     living = dsig > max(float(dsig.max()) * 0.1, 1e-9)
-    chi = {"total": round(chi_total, 3),
+    chi = {"motion": round(chi_total, 3),
            "living_frac": round(float(living.float().mean()), 3),
            "chi_std": round(float(dsig.std()), 3)}
     T = traj.shape[0]
@@ -209,7 +209,7 @@ def eval_health(model, steps=200, grain=0.25, k_lag=8):
             "com_radius": round(com_radius, 3),
             "spread_rms": round(rms, 4),
             "excursion": excursion,
-            "chi": chi,
+            "chi_motion": chi,
             "tau_mean": round(float(tau.mean()), 2),
             "tau_pinned_frac": round(tau_pinned, 3)}
 
@@ -435,9 +435,9 @@ def main():
             snap = clock.snapshot()
             snap_fine = clock_fine.snapshot()
             log({"step": step, "val_ce_nats": round(v, 4), "floor_L1": 7.10, "floor_L2": 4.47,
-                 "health": h, "chi": snap, "chi_fine": {k: v for k, v in snap_fine.items()
-                                                        if k in ("chi", "minted", "cells_visited",
-                                                                 "singletons", "doubletons", "sd_ratio")},
+                 "health": h, "chi_cells": snap, "chi_fine": {k: v for k, v in snap_fine.items()
+                                                              if k in ("chi", "minted", "cells_visited",
+                                                                       "singletons", "doubletons", "sd_ratio")},
                  **gv})
         if step % args.ckpt_every == 0 or step == args.steps:
             model.save(save_dir, step, extra={"controller": ctrl.state(), "opt": opt.state_dict(),

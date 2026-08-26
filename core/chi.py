@@ -90,7 +90,9 @@ class ChiClock:
     def dump_state(self, path):
         payload = {"counts": {json.dumps(list(k)): v for k, v in self.counts.items()},
                    "chi": self.chi, "minted": self.minted, "revisits": self.revisits,
-                   "last_mint_step": self.last_mint_step}
+                   "last_mint_step": self.last_mint_step,
+                   "_win": [list(t) for t in self._win],
+                   "motion_base": self.motion_base}
         with open(path, "w", encoding="utf-8") as f:
             json.dump(payload, f)
 
@@ -103,5 +105,7 @@ class ChiClock:
             self.minted = payload.get("minted", 0)
             self.revisits = payload.get("revisits", 0)
             self.last_mint_step = payload.get("last_mint_step", 0)
+            self._win = [tuple(t) for t in payload.get("_win", [])]
+            self.motion_base = payload.get("motion_base")
         except FileNotFoundError:
             pass
