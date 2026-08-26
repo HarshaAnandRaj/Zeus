@@ -533,3 +533,45 @@ Population: 29?45?70 (steady growth). Membership: total turnover each era (jacca
 
 ### Architecture law: the process beats the pins
 Per the fair-share rotation discovery: the t distribution allocates temporal roles, not spatial positions. Constitutional per-dim pins are RETIRED for night4. If carriers are added: carriers = natural citizens (dims already holding slow seats); protected object = the process (t-distribution shape regularizer, e.g., entropy floor), never per-dim identity.
+
+---
+
+## Night4: THE SCAFFOLD RUN (step 0 ? ? | 2026-08-26)
+
+### Architecture additions
+
+**Pin system (carrier scaffold):**
+- Top-38 dims by tau from night3 step-20k, pinned at tau >= 2.0 via output override in model.step()
+- Override is output-only: tau_net still receives gradients for pinned dims (shared weights adjust)
+- Carrier-tenure measurement: pre-override tau logged every eval; dims with tau_net naturally > 1.0 are "natural citizens"
+- Shape regularizer: hinge on non-pinned dim std >= 0.35, lambda=0.01. Excludes pinned dims from std computation (critical refinement: avoids inflated std from forced bimodality)
+
+**HCM (Hierarchical Context Memory) — M3b:**
+- core/hcm.py: pattern bank (512 max), cos-similarity retrieval (top-4, threshold 0.3), LRU + strength-weighted eviction
+- Re-entry via predictive coding pathway: err = retrieved_pattern - anticipate(S). Same pathway as input error — no side-channel
+- Surprisal-gated writes: patterns stored when surprisal > threshold
+- Checkpoint persistence: patterns, strengths, usage, stats saved in model checkpoint
+
+**HCM action pathway:**
+- REMEMBER token: vocab-1 (token ID 8191). Model can emit through regular readout
+- Bootstrap injection: during teacher-forcing, REMEMBER is injected at high-surprisal steps. Model sees the token in its input history and learns from it
+- Action vs auto write tracking: hcm_writes split into action_writes (model-emitted) and auto_writes (bootstrap-injected)
+- action_remember_prob: average probability of REMEMBER token across batch — metric for M1 gate
+
+### Night4 first eval (step 250)
+- val_ce: 7.15 (just above L1)
+- carrier_tenure: 89.5% (natural citizens confirmed — 34 of 38 dims are genuinely slow)
+- hcm: 512 patterns, 4928 auto_writes, 0 action_writes, 7843 recalls, avg_strength 33.4
+- action_remember_prob: 2e-05 (model hasn't learned REMEMBER yet)
+- speed: 0.25 st/s (chi stack + action pathway overhead)
+
+### The agency gap (registered 2026-08-26)
+HCM was initially implemented without model agency — auto-writes on surprisal, no model choice. Closed by adding REMEMBER token and bootstrap injection. The model hasn't discovered REMEMBER voluntarily yet (action_remember_prob near zero). The gradient is real but weak: REMEMBER is one token among thousands. Model needs to stumble into REMEMBER, experience recall benefit, and reinforce. Key metric: action_remember_prob trajectory. If flat at 2e-05 by step 5k, intervention needed.
+
+### Night4 amendment (discovery has jurisdiction)
+Per fair-share rotation discovery: constitutional per-dim pins are RETIRED. If carriers are added: carriers = dims ALREADY holding slow seats; protected object = the PROCESS (tau-distribution shape regularizer), never per-dim pins. The 38-dim pin is a control experiment to prove/disprove hypotheses before scaling. Compute is not bottlenecked — pin system is O(1) per dim; shape reg is one std() call; the 3x speed penalty is the chi stack, not the pins.
+
+### Design fork resolved
+- Option A (pure process protection): no pins, shape reg only. Cleanest but no guaranteed carriers.
+- Option B (protect natural citizens): pin current highest-tau dims + shape reg. Has known carriers for apprenticeship.
+- Chose Option B as control experiment. Logged as calculated deviation from process-hierarchy law. Shape regularizer is protection clause against freeze. Data will tell if clamps killed the turnstile.
