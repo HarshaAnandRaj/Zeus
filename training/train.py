@@ -92,21 +92,19 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
                 w_norm=0.0, norm_bound=10.0, pin_mask=None, pin_tau_min=2.0,
                 lambda_shape=0.0, target_std=0.35, hcm=None):
     model.reset_state(noise=0.05)
+    c = model.cfg
     ce_sum, surp_sum, rent_sum, div_sum = 0.0, 0.0, 0.0, 0.0
     nxt_input = int(ids_seg[0])
     T = len(ids_seg) - 1
     loss_total = 0.0
     hcm_writes = 0
+    action_logits_sum = 0.0
     for t in range(T):
         pred_before = model.self_pred(model.S)
         logits, aux = model.step(nxt_input, pin_mask=pin_mask, pin_tau_min=pin_tau_min)
         target = torch.tensor(ids_seg[t + 1], device=model.S.device)
         ce = F.cross_entropy(logits.unsqueeze(0), target.unsqueeze(0))
         surp = (model.S - pred_before.detach()).norm()
-        if hcm is not None:
-            wrote = hcm.write(model.S.detach().clone(), surp.item())
-            if wrote:
-                hcm_writes += 1
         persist = -aux["tau_mean_t"]
         loss_t = ce + w_surp * (-surp) + w_persist * persist + 0.1 * aux["rent"] + aux["div"]
         if w_rep_cos > 0:
@@ -118,20 +116,30 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
         surp_sum += surp.item()
         rent_sum += float(aux["rent"].item())
         div_sum += float(aux["div"].item())
+        action_logits_sum += float(torch.softmax(logits, dim=-1)[c.remember_id])
+        pred_token = int(logits.argmax().item())
         if random.random() < teacher_p:
             nxt_input = int(ids_seg[t + 1])
+            if hcm is not None and surp.item() > hcm.write_surp_thresh:
+                nxt_input = c.remember_id
         else:
-            nxt_input = int(logits.argmax().item())
+            nxt_input = pred_token
+        if nxt_input == c.remember_id and hcm is not None:
+            wrote = hcm.write(model.S.detach().clone(), surp.item())
+            if wrote:
+                hcm_writes += 1
     if lambda_shape > 0 and pin_mask is not None:
-        tau_raw = model.cfg.tau_min + F.softplus(model.tau_net(model.S))
-        tau_clamped = torch.clamp(tau_raw, model.cfg.tau_min, model.cfg.tau_max)
+        tau_raw = c.tau_min + F.softplus(model.tau_net(model.S))
+        tau_clamped = torch.clamp(tau_raw, c.tau_min, c.tau_max)
         non_pinned_tau = tau_clamped[~pin_mask]
         std_now = non_pinned_tau.std()
         shape_reg = lambda_shape * F.relu(target_std - std_now) ** 2
         loss_total = loss_total + shape_reg
     loss_total.backward()
     return {"ce": ce_sum / T, "surp": surp_sum / T, "rent": rent_sum / T,
-            "div": div_sum / T, "persist": float(persist.item()), "hcm_writes": hcm_writes}
+            "div": div_sum / T, "persist": float(persist.item()),
+            "hcm_writes": hcm_writes,
+            "action_remember_prob": round(action_logits_sum / T, 5)}
 
 
 def self_pass(model, steps=24, w_var=0.5, w_norm=0.0, norm_bound=10.0,

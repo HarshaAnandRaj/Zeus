@@ -33,6 +33,8 @@ class HCM:
         self.total_writes = 0
         self.total_recalls = 0
         self.recall_hits = 0
+        self.action_writes = 0
+        self.auto_writes = 0
 
     def _cosine_sim(self, query, bank):
         if bank.shape[0] == 0:
@@ -42,7 +44,7 @@ class HCM:
         return (q @ b.t()).squeeze(0)
 
     @torch.no_grad()
-    def write(self, pattern, surprisal):
+    def write(self, pattern, surprisal, from_action=False):
         if surprisal < self.write_surp_thresh:
             return False
         if self.n_patterns >= self.max_patterns:
@@ -57,6 +59,10 @@ class HCM:
             self.usage[self.n_patterns] = 0
             self.n_patterns += 1
         self.total_writes += 1
+        if from_action:
+            self.action_writes += 1
+        else:
+            self.auto_writes += 1
         return True
 
     @torch.no_grad()
@@ -89,7 +95,8 @@ class HCM:
                 "usage": self.usage[:self.n_patterns].clone(),
                 "n_patterns": self.n_patterns, "step_count": self.step_count,
                 "total_writes": self.total_writes, "total_recalls": self.total_recalls,
-                "recall_hits": self.recall_hits}
+                "recall_hits": self.recall_hits,
+                "action_writes": self.action_writes, "auto_writes": self.auto_writes}
 
     def load_state_dict(self, d):
         n = d["n_patterns"]
@@ -101,10 +108,14 @@ class HCM:
         self.total_writes = d.get("total_writes", 0)
         self.total_recalls = d.get("total_recalls", 0)
         self.recall_hits = d.get("recall_hits", 0)
+        self.action_writes = d.get("action_writes", 0)
+        self.auto_writes = d.get("auto_writes", 0)
 
     def snapshot(self):
         return {"n_patterns": self.n_patterns,
                 "total_writes": self.total_writes,
+                "action_writes": self.action_writes,
+                "auto_writes": self.auto_writes,
                 "total_recalls": self.total_recalls,
                 "recall_hits": self.recall_hits,
                 "avg_strength": round(float(self.strengths[:self.n_patterns].mean()), 3) if self.n_patterns > 0 else 0}

@@ -38,6 +38,15 @@ class ZeusConfig:
     repulse_smax: float = 16.0
     k_wall: float = 2.0
     wall_margin: float = 6.0
+    n_actions: int = 2
+
+    @property
+    def remember_id(self):
+        return self.vocab - 1
+
+    @property
+    def note_id(self):
+        return self.vocab - 2
 
 
 class SpectralClampedLinear(nn.Module):
