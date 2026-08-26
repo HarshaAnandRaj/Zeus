@@ -420,3 +420,15 @@ tau-std trajectory has THREE branches, not two:
 **Return-interval CV of site visitation** added to manifold_health — discriminates the entropy-1.0 ambiguity: perfect fair-share is shared by a CLOCK (periodic orbit, low CV = container-poor but PATTERN-RICH whirlpool-clock; amnesia reading dissolves) and CHURN (high CV = no form). Same histogram, opposite minds.
 
 Open dials: tau-std slope (natural regrowth vs recolonization) + return-interval CV (clock vs churn).
+
+### Memory audit results (tools/memory_audit.py, 2026-08-26)
+
+**Caste survivorship:** no stable slow caste exists. dims>1.0 population: 43 -> 0 -> 31 -> 1 across 2500/5000/7500/10000; jaccard 0.0 between every era. Dim 114 (tau 1.849 @10k) is a NEWBORN (0.58->0.51->0.85->1.85), not a survivor. Slowness is currently NEUTRAL under the objective => neutral variants visit, never establish. Conservation branches 2-and-3 both superseded by: **selection pressure for slowness does not exist in the current objective.**
+
+**H-dependence gauge:** ce_normal 6.8848 vs ce_no_scratchpad 6.8884 => H contribution = 0.0037 nats ~= ZERO. The readout's attention over the 32-slot history buffer adds nothing beyond current state. "Readout shops at H" FALSIFIED.
+
+**Revised memory picture:** entire memory stack = ONE thin fast layer (S's own short integration). Every candidate substrate exists structurally and functions at zero: no slow caste (churn frontier), no scratchpad usage (dead attention), only fast endogenous integration sufficient to beat unigram (6.88 < 7.10), nowhere near L2 (4.47).
+
+**Weaning metric inverted:** recovery will not show as H-dependence shrinking (already zero). Recovery signals: (a) tau-census establishing persistent >1.0 membership, or (b) H-dependence RISING while val falls (readout learns to use archives). Both instrumented.
+
+Night3 completion forecast per registered fork: trigger (a) fires (flat tau-std), night4 opens with the deliberate fork: constitutional dims vs selection-pressure curriculum.
