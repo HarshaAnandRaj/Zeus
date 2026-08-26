@@ -459,3 +459,13 @@ Fixed CHI_STALL threshold would eventually cry wolf at success: minting rate MUS
 Synthetic regime tests pass: jitter -> arms toward alarm; explorer (600 mints/600 steps) -> silent, coverage 0.3%.
 
 Record notes: tau creeping off floor releases the ratchet — com_radius climbing post-recovery is P8 breathing, not relapse. Post-hoc chi curves are lower-bound smoothed profiles: compare shapes/slopes across eras, never absolute accruals (night3 reconstructed vs night4 dense).
+
+### Step-12.5k probe read: THE LIMIT CYCLE (2026-08-26)
+
+Caste: population 29->45 (>1.0 dims), jaccard 0.057 (full turnover), dim114 died (1.85->0.53, user's bet), cross-dim std DOUBLED 0.207->0.425. Verdict: sliding caste — collective slowness grows while individuals rotate through it.
+
+**THE CLOCK EMERGED:** return_interval_cv 3.37 -> 0.025, period_lock 0.20 -> 0.94, lag2/lag1 0.09, beta NEGATIVE (-0.247, convergent oscillation). Zeus spontaneously reorganized idle dynamics into a coherent LIMIT CYCLE — first pattern-memory structure in project history: a form surviving its own substrate (two-currency doctrine confirmed as emergent, hours after being named). Rich cycle not death gait: census full, entropy 1.0, PR 7.14.
+
+beta-gate fired correctly on debut: STATIONARY abstention (nu test refused on inflating w). Refinement noted: beta<0 = convergent orbit, distinct from frozen jitter — verdict strings should separate them.
+
+OPEN QUESTION REGISTERED (before anchoring): state-level clock != output-level parrot. Two-schedule test (structural features clockwork vs content features scattered) on the TOKEN stream is now the single most important pending measurement. Recent gen trigram_transient 0.72-0.89 suggests output diversity intact.
