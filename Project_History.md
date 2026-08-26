@@ -333,6 +333,12 @@ Rule adopted: containment bound must always exceed √(dims × var_target) + mar
 
 **τ-floor watch (second catch, same review):** tau_mean slid 1.05→0.55 toward tau_min=0.5 in night3's aborted attempt — driven-CE prefers fast dynamics = v2's diagnosed disease returning through the gradient door instead of the cap door. Antidote dial already exists: `w_persist`, the memory-preserving counterweight the sign audit flagged as attraction-signed — right about needing balance, wrong about which side needed defending. Watch rule: tau_mean keeps falling ∧ CE stalls ⇒ P5b confession from below; remedy = w_persist bump, knowingly.
 
+**Step-3,000 exam spec (user refinements):** com_radius EXCEEDS spread at step 500 — init geometry (COM mid-arena), not wander yet. Verdict retires the wander branch on SLOPE, not level:
+- com_radius FALLING (<~10) ∧ spread settling [15.2, 20] ⇒ P6a confirmed; loss-side lever reaches the COM.
+- com_radius flat/high (≥~20) ∧ contain sustained >50 ⇒ wander mode; loss-lever failing on COM axis specifically; recentring fix needed.
+**N3-P7 (informal):** sub-L1 val reached ≥2× faster than night2's trajectory (night3 @ step 500 vs night2 @ ~2k). If holds at 3,000: containment didn't just stop the bleeding — it helped learning find the manifold faster.
+**τ-race finish line:** tau_mean ≤0.55 by 3k alongside CE softening = race confirmed (w_persist redemption arc); stabilized ≥~0.65 = early-phase noise.
+
 ### CDT operating-manual dictation (2026-08-26, user's multi-domain sim batch)
 
 Seven domains (markets/AI-text, civilization_drift, genetics, physical_walk+Life, celestial, conversation_cdt) converted to directives:
