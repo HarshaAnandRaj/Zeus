@@ -98,6 +98,7 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
     T = len(ids_seg) - 1
     loss_total = 0.0
     hcm_writes = 0
+    hcm_reads = 0
     action_logits_sum = 0.0
     for t in range(T):
         pred_before = model.self_pred(model.S)
@@ -125,9 +126,14 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
         else:
             nxt_input = pred_token
         if nxt_input == c.remember_id and hcm is not None:
-            wrote = hcm.write(model.S.detach().clone(), surp.item())
+            wrote = hcm.write(model.S.detach().clone(), surp.item(),
+                              from_action=(pred_token == c.remember_id))
             if wrote:
                 hcm_writes += 1
+            retrieved, sim = hcm.read(model.S.detach())
+            if retrieved is not None:
+                model.hcm_pending = retrieved
+                hcm_reads += 1
     if lambda_shape > 0 and pin_mask is not None:
         tau_raw = c.tau_min + F.softplus(model.tau_net(model.S))
         tau_clamped = torch.clamp(tau_raw, c.tau_min, c.tau_max)
@@ -138,7 +144,7 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
     loss_total.backward()
     return {"ce": ce_sum / T, "surp": surp_sum / T, "rent": rent_sum / T,
             "div": div_sum / T, "persist": float(persist.item()),
-            "hcm_writes": hcm_writes,
+            "hcm_writes": hcm_writes, "hcm_reads": hcm_reads,
             "action_remember_prob": round(action_logits_sum / T, 5)}
 
 
@@ -146,16 +152,24 @@ def self_pass(model, steps=24, w_var=0.5, w_norm=0.0, norm_bound=10.0,
               pin_mask=None, pin_tau_min=2.0, lambda_shape=0.0, target_std=0.35,
               hcm=None, w_consolidation=0.2):
     model.reset_state(noise=0.2)
+    c = model.cfg
     total = 0.0
     traj = []
+    hcm_reads = 0
     for _ in range(steps):
         pred = model.self_pred(model.S)
-        model.step(None, pin_mask=pin_mask, pin_tau_min=pin_tau_min)
+        logits, _ = model.step(None, pin_mask=pin_mask, pin_tau_min=pin_tau_min)
         total = total + F.mse_loss(pred, model.S.detach()) / steps
         traj.append(model.S.detach().clone())
+        if hcm is not None and logits is not None:
+            if int(logits.argmax().item()) == c.remember_id:
+                retrieved, sim = hcm.read(model.S.detach())
+                if retrieved is not None:
+                    model.hcm_pending = retrieved
+                    hcm_reads += 1
     consolidation_loss = torch.tensor(0.0)
     consolidation_events = 0
-    if hcm is not None and hcm.n_patterns > 0:
+    if hcm is not None and hcm.n_patterns > 0 and hcm.action_writes > 0:
         idx = torch.randint(0, hcm.n_patterns, (1,)).item()
         stored_trace = hcm.patterns[idx]
         consolidation_loss = w_consolidation * F.mse_loss(model.S, stored_trace)
@@ -171,7 +185,8 @@ def self_pass(model, steps=24, w_var=0.5, w_norm=0.0, norm_bound=10.0,
             "rms": round(float((traj - traj.mean(0)).norm(dim=1).mean()), 4),
             "max_norm": round(float(traj.norm(dim=1).max().item()), 3),
             "consolidation": consolidation_events,
-            "consolidation_loss": round(float(consolidation_loss.item()), 5)}
+            "consolidation_loss": round(float(consolidation_loss.item()), 5),
+            "hcm_reads": hcm_reads}
 
 
 @torch.no_grad()
@@ -393,6 +408,7 @@ def main():
     ap.add_argument("--hcm_threshold", type=float, default=0.3, help="HCM recall similarity threshold")
     ap.add_argument("--hcm_topk", type=int, default=4, help="HCM top-k recall")
     ap.add_argument("--hcm_write_thresh", type=float, default=1.5, help="HCM surprisal threshold for writes")
+    ap.add_argument("--hcm_min_age", type=int, default=10, help="HCM min steps before pattern can be recalled")
     ap.add_argument("--consolidation_gain", type=float, default=0.2, help="consolidation replay strength (0=off)")
     ap.add_argument("--no_hcm", action="store_true", help="disable HCM entirely (prediction-only mode)")
     args = ap.parse_args()
@@ -444,7 +460,8 @@ def main():
     hcm = None
     if not args.no_hcm:
         hcm = HCM(model.cfg.dim, max_patterns=args.hcm_max, recall_threshold=args.hcm_threshold,
-                  top_k=args.hcm_topk, write_surp_thresh=args.hcm_write_thresh, device=device)
+                  top_k=args.hcm_topk, write_surp_thresh=args.hcm_write_thresh,
+                  min_age=args.hcm_min_age, device=device)
         model.hcm = hcm
 
     start = 0

@@ -16,17 +16,19 @@ import torch.nn.functional as F
 class HCM:
     def __init__(self, dim, max_patterns=512, recall_threshold=0.3,
                  top_k=4, write_surp_thresh=1.5, strength_decay=0.995,
-                 device="cpu"):
+                 min_age=10, device="cpu"):
         self.dim = dim
         self.max_patterns = max_patterns
         self.recall_threshold = recall_threshold
         self.top_k = top_k
         self.write_surp_thresh = write_surp_thresh
         self.strength_decay = strength_decay
+        self.min_age = min_age
         self.device = device
 
         self.patterns = torch.zeros(max_patterns, dim, device=device)
         self.strengths = torch.zeros(max_patterns, device=device)
+        self.birth_step = torch.zeros(max_patterns, dtype=torch.long, device=device)
         self.usage = torch.zeros(max_patterns, device=device)
         self.n_patterns = 0
         self.step_count = 0
@@ -52,10 +54,12 @@ class HCM:
             victim = scores.argmin()
             self.patterns[victim] = pattern.clone()
             self.strengths[victim] = 1.0
+            self.birth_step[victim] = self.step_count
             self.usage[victim] = 0
         else:
             self.patterns[self.n_patterns] = pattern.clone()
             self.strengths[self.n_patterns] = 1.0
+            self.birth_step[self.n_patterns] = self.step_count
             self.usage[self.n_patterns] = 0
             self.n_patterns += 1
         self.total_writes += 1
@@ -70,7 +74,13 @@ class HCM:
         if self.n_patterns == 0:
             return None, None
         sim = self._cosine_sim(query, self.patterns)
-        topk_sim, topk_idx = sim.topk(min(self.top_k, self.n_patterns))
+        age = self.step_count - self.birth_step[:self.n_patterns]
+        fresh = (age >= self.min_age) & (self.strengths[:self.n_patterns] > 0.1)
+        if not fresh.any():
+            return None, None
+        sim_masked = sim.clone()
+        sim_masked[~fresh] = -1.0
+        topk_sim, topk_idx = sim_masked.topk(min(self.top_k, self.n_patterns))
         mask = topk_sim >= self.recall_threshold
         if not mask.any():
             return None, None
@@ -92,6 +102,7 @@ class HCM:
     def state_dict(self):
         return {"patterns": self.patterns[:self.n_patterns].clone(),
                 "strengths": self.strengths[:self.n_patterns].clone(),
+                "birth_step": self.birth_step[:self.n_patterns].clone(),
                 "usage": self.usage[:self.n_patterns].clone(),
                 "n_patterns": self.n_patterns, "step_count": self.step_count,
                 "total_writes": self.total_writes, "total_recalls": self.total_recalls,
@@ -102,6 +113,7 @@ class HCM:
         n = d["n_patterns"]
         self.patterns[:n] = d["patterns"]
         self.strengths[:n] = d["strengths"]
+        self.birth_step[:n] = d.get("birth_step", torch.zeros(n, dtype=torch.long))
         self.usage[:n] = d["usage"]
         self.n_patterns = n
         self.step_count = d.get("step_count", 0)
