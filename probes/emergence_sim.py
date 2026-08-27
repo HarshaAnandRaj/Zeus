@@ -19,7 +19,8 @@ from tokenizers import Tokenizer
 
 def main():
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    print(f"Device: {device}")
+    w_action = float(sys.argv[1]) if len(sys.argv) > 1 else 0.5
+    print(f"Device: {device}, w_action={w_action}")
 
     cfg = ZeusConfig(dim=64, attn_heads=2, vocab=8192, window=16, slow_dim=16)
     model = ZeusCore(cfg).to(device).train()
@@ -94,7 +95,7 @@ def main():
             loss_t = ce + 0.1 * (-surp) + 0.1 * aux["rent"] + aux["div"]
             surp_ratio_t = min(1.0, surp.item() / max(hcm.write_surp_thresh, 1.0))
             log_prob_remember = torch.log_softmax(logits, dim=-1)[cfg.remember_id]
-            loss_t = loss_t + 0.5 * surp_ratio_t * (-log_prob_remember)
+            loss_t = loss_t + w_action * surp_ratio_t * (-log_prob_remember)
             loss_total = loss_total + loss_t / T
             ce_sum += ce.item()
             surp_sum += surp.item()
