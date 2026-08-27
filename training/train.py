@@ -393,6 +393,8 @@ def main():
     ap.add_argument("--hcm_threshold", type=float, default=0.3, help="HCM recall similarity threshold")
     ap.add_argument("--hcm_topk", type=int, default=4, help="HCM top-k recall")
     ap.add_argument("--hcm_write_thresh", type=float, default=1.5, help="HCM surprisal threshold for writes")
+    ap.add_argument("--consolidation_gain", type=float, default=0.2, help="consolidation replay strength (0=off)")
+    ap.add_argument("--no_hcm", action="store_true", help="disable HCM entirely (prediction-only mode)")
     args = ap.parse_args()
     args.base_self_ratio = args.self_ratio
     args.base_w_norm = args.w_norm
@@ -439,9 +441,11 @@ def main():
     clock_fine = ChiClock(res=CHI_RES_FINE, revisit_credit=CHI_REVISIT_CREDIT)
     clock_fine.load_counts(save_dir / "chi_state_fine.json")
 
-    hcm = HCM(model.cfg.dim, max_patterns=args.hcm_max, recall_threshold=args.hcm_threshold,
-              top_k=args.hcm_topk, write_surp_thresh=args.hcm_write_thresh, device=device)
-    model.hcm = hcm
+    hcm = None
+    if not args.no_hcm:
+        hcm = HCM(model.cfg.dim, max_patterns=args.hcm_max, recall_threshold=args.hcm_threshold,
+                  top_k=args.hcm_topk, write_surp_thresh=args.hcm_write_thresh, device=device)
+        model.hcm = hcm
 
     start = 0
     ckpts = sorted(save_dir.glob("zeus_step*.pt"))
@@ -472,7 +476,7 @@ def main():
             m = self_pass(model, w_norm=args.w_norm, norm_bound=args.norm_bound,
                           pin_mask=pin_mask, pin_tau_min=args.pin_tau_min,
                           lambda_shape=args.lambda_shape, target_std=args.target_std,
-                          hcm=hcm)
+                          hcm=hcm, w_consolidation=args.consolidation_gain)
             entry = {"step": step, **{k: round(v, 5) for k, v in m.items()}}
         else:
             off = random.randint(0, len(train_ids) - args.bptt - 1)
@@ -493,7 +497,8 @@ def main():
                 moved = float((model.S.detach().cpu() - prev_s).norm())
             clock.update(model.S.detach().cpu(), step, moved=moved)
             clock_fine.update(model.S.detach().cpu(), step, moved=moved)
-            hcm.decay()
+            if hcm is not None:
+                hcm.decay()
             prev_s = model.S.detach().cpu().clone()
         if step % 25 == 0 and clock.glass_alarm() and clock_fine.glass_alarm():
             rf = clock.rarefaction()
@@ -525,14 +530,14 @@ def main():
                  "health": h, "chi_cells": snap, "chi_fine": {k: v for k, v in snap_fine.items()
                                                               if k in ("chi", "minted", "cells_visited",
                                                                        "singletons", "doubletons", "sd_ratio")},
-                 "carrier": carrier_log, "hcm": hcm.snapshot(),
+                 "carrier": carrier_log, "hcm": hcm.snapshot() if hcm is not None else {},
                  **gv})
         if step % args.ckpt_every == 0 or step == args.steps:
             model.save(save_dir, step, extra={"controller": ctrl.state(), "opt": opt.state_dict(),
                                               "governor": governor.state(), "self_ratio": args.self_ratio,
                                               "w_norm": args.w_norm,
-                                              "chi_clock": clock.snapshot(),
-                                              "hcm": hcm.state_dict()})
+                                               "chi_clock": clock.snapshot(),
+                                               "hcm": hcm.state_dict() if hcm is not None else None})
             clock.dump_state(save_dir / "chi_state.json")
             clock_fine.dump_state(save_dir / "chi_state_fine.json")
             log({"event": "ckpt", "step": step})
