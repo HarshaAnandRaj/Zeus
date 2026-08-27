@@ -89,8 +89,9 @@ def repulse_cos_loss(model, s_new, tau=0.9):
 
 
 def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau_cos=0.9,
-                w_norm=0.0, norm_bound=10.0, pin_mask=None, pin_tau_min=2.0,
-                lambda_shape=0.0, target_std=0.35, hcm=None, curriculum_prob=0.0):
+                 w_norm=0.0, norm_bound=10.0, pin_mask=None, pin_tau_min=2.0,
+                 lambda_shape=0.0, target_std=0.35, hcm=None, curriculum_prob=0.0,
+                 w_action=0.0):
     model.reset_state(noise=0.05)
     c = model.cfg
     ce_sum, surp_sum, rent_sum, div_sum = 0.0, 0.0, 0.0, 0.0
@@ -113,6 +114,10 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
             loss_t = loss_t + w_rep_cos * repulse_cos_loss(model, model.S, tau_cos)
         if w_norm > 0:
             loss_t = loss_t + w_norm * F.relu(model.S.norm() - norm_bound) ** 2
+        if w_action > 0 and hcm is not None:
+            surp_ratio_t = min(1.0, surp.item() / max(hcm.write_surp_thresh, 1.0))
+            log_prob_remember = torch.log_softmax(logits, dim=-1)[c.remember_id]
+            loss_t = loss_t + w_action * surp_ratio_t * (-log_prob_remember)
         loss_total = loss_total + loss_t / T
         ce_sum += ce.item()
         surp_sum += surp.item()
@@ -120,7 +125,9 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
         div_sum += float(aux["div"].item())
         action_logits_sum += float(torch.softmax(logits, dim=-1)[c.remember_id])
         pred_token = int(logits.argmax().item())
-        if random.random() < teacher_p:
+        surp_ratio = min(1.0, surp.item() / max(hcm.write_surp_thresh, 1.0)) if hcm else 0.0
+        effective_teacher_p = teacher_p * (1.0 - 0.5 * surp_ratio)
+        if random.random() < effective_teacher_p:
             nxt_input = int(ids_seg[t + 1])
             if hcm is not None and random.random() < curriculum_prob:
                 nxt_input = c.remember_id
@@ -405,6 +412,7 @@ def main():
     ap.add_argument("--tau_max", type=float, default=None)
     ap.add_argument("--w_norm", type=float, default=0.1)
     ap.add_argument("--norm_bound", type=float, default=10.0)
+    ap.add_argument("--w_action", type=float, default=0.5, help="action loss weight: penalizes low REMEMBER prob at high surprisal")
     ap.add_argument("--pin_carriers", default=None, help="path to carriers.json for pin system")
     ap.add_argument("--pin_tau_min", type=float, default=2.0, help="minimum tau for pinned dims")
     ap.add_argument("--lambda_shape", type=float, default=0.01, help="shape regularizer strength")
@@ -518,7 +526,8 @@ def main():
                             w_norm=args.w_norm, norm_bound=args.norm_bound,
                             pin_mask=pin_mask, pin_tau_min=args.pin_tau_min,
                             lambda_shape=args.lambda_shape, target_std=args.target_std,
-                            hcm=hcm, curriculum_prob=curriculum_prob)
+                            hcm=hcm, curriculum_prob=curriculum_prob,
+                            w_action=args.w_action)
             event = ctrl.observe(m["ce"])
             entry = {"step": step, **{k: round(v, 5) for k, v in m.items()}, **(event or {}),
                      "curriculum_prob": round(curriculum_prob, 4)}

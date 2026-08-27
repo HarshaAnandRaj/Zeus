@@ -92,12 +92,17 @@ def main():
             ce = F.cross_entropy(logits.unsqueeze(0), target.unsqueeze(0))
             surp = (model.S - pred_before.detach()).norm()
             loss_t = ce + 0.1 * (-surp) + 0.1 * aux["rent"] + aux["div"]
+            surp_ratio_t = min(1.0, surp.item() / max(hcm.write_surp_thresh, 1.0))
+            log_prob_remember = torch.log_softmax(logits, dim=-1)[cfg.remember_id]
+            loss_t = loss_t + 0.5 * surp_ratio_t * (-log_prob_remember)
             loss_total = loss_total + loss_t / T
             ce_sum += ce.item()
             surp_sum += surp.item()
             action_logits_sum += float(torch.softmax(logits, dim=-1)[cfg.remember_id])
             pred_token = int(logits.argmax().item())
-            if random.random() < teacher_p:
+            surp_ratio = min(1.0, surp.item() / max(hcm.write_surp_thresh, 1.0))
+            effective_teacher_p = teacher_p * (1.0 - 0.5 * surp_ratio)
+            if random.random() < effective_teacher_p:
                 nxt_input = int(seg[t + 1])
                 if random.random() < curriculum_prob:
                     nxt_input = cfg.remember_id
