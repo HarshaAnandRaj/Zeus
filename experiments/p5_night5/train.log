@@ -1,0 +1,6 @@
+{"event": "pin_system", "n_carriers": 38, "pin_tau_min": 2.0, "lambda_shape": 0.01, "target_std": 0.35, "t": "13:06:46"}
+{"event": "fresh_start", "t": "13:06:46"}
+{"step": 25, "self_mse": 1.15721, "var_floor": 0.2952, "contain": 376.58652, "rms": 23.0311, "max_norm": 39.42, "consolidation": 0, "consolidation_loss": 0.0, "hcm_reads": 0, "steps_per_s": 0.092, "t": "13:11:19"}
+{"step": 50, "ce": 8.85945, "surp": 113.23871, "rent": 0.92931, "div": 0.87195, "persist": -1.26856, "hcm_writes": 45, "hcm_reads": 45, "curriculum_injects": 45, "action_remember_prob": 0.00036, "curriculum_prob": 1.0, "steps_per_s": 0.091, "t": "13:15:55"}
+{"step": 75, "ce": 8.87107, "surp": 158.2107, "rent": 0.03842, "div": 0.62573, "persist": -1.25444, "hcm_writes": 95, "hcm_reads": 95, "curriculum_injects": 36, "action_remember_prob": 0.00044, "curriculum_prob": 1.0, "steps_per_s": 0.091, "t": "13:20:33"}
+{"step": 100, "ce": 8.79179, "surp": 67.75532, "rent": 0.73435, "div": 0.63516, "persist": -1.22328, "hcm_writes": 42, "hcm_reads": 41, "curriculum_injects": 40, "action_remember_prob": 0.00112, "curriculum_prob": 1.0, "steps_per_s": 0.095, "t": "13:24:22"}
