@@ -68,6 +68,12 @@ def main():
     window_metrics = []
 
     for step in range(1, 2001):
+        if step <= 500:
+            curriculum_prob = 1.0
+        elif step <= 1500:
+            curriculum_prob = 1.0 - (step - 500) / 1000
+        else:
+            curriculum_prob = 0.0
         off = random.randint(0, len(train_ids) - bptt - 1)
         seg = train_ids[off:off + bptt]
         model.reset_state(noise=0.05)
@@ -77,6 +83,7 @@ def main():
         ce_sum, surp_sum = 0.0, 0.0
         hcm_writes, hcm_reads = 0, 0
         action_logits_sum = 0.0
+        curriculum_injects = 0
 
         for t in range(T):
             pred_before = model.self_pred(model.S)
@@ -92,7 +99,10 @@ def main():
             pred_token = int(logits.argmax().item())
             if random.random() < teacher_p:
                 nxt_input = int(seg[t + 1])
-                if surp.item() > hcm.write_surp_thresh:
+                if random.random() < curriculum_prob:
+                    nxt_input = cfg.remember_id
+                    curriculum_injects += 1
+                elif surp.item() > hcm.write_surp_thresh:
                     nxt_input = cfg.remember_id
             else:
                 nxt_input = pred_token
@@ -118,6 +128,8 @@ def main():
                  "persist": round(-aux["tau_mean_t"].item(), 4),
                  "hcm_writes": hcm_writes, "hcm_reads": hcm_reads,
                  "action_prob": round(action_prob, 6),
+                 "curriculum_prob": round(curriculum_prob, 4),
+                 "curriculum_injects": curriculum_injects,
                  "hcm_n": hcm.n_patterns, "hcm_str": round(float(hcm.strengths[:hcm.n_patterns].mean()), 3) if hcm.n_patterns > 0 else 0}
 
         window_metrics.append(entry)

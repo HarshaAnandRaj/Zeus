@@ -90,7 +90,7 @@ def repulse_cos_loss(model, s_new, tau=0.9):
 
 def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau_cos=0.9,
                 w_norm=0.0, norm_bound=10.0, pin_mask=None, pin_tau_min=2.0,
-                lambda_shape=0.0, target_std=0.35, hcm=None):
+                lambda_shape=0.0, target_std=0.35, hcm=None, curriculum_prob=0.0):
     model.reset_state(noise=0.05)
     c = model.cfg
     ce_sum, surp_sum, rent_sum, div_sum = 0.0, 0.0, 0.0, 0.0
@@ -100,6 +100,7 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
     hcm_writes = 0
     hcm_reads = 0
     action_logits_sum = 0.0
+    curriculum_injects = 0
     for t in range(T):
         pred_before = model.self_pred(model.S)
         logits, aux = model.step(nxt_input, pin_mask=pin_mask, pin_tau_min=pin_tau_min)
@@ -121,7 +122,10 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
         pred_token = int(logits.argmax().item())
         if random.random() < teacher_p:
             nxt_input = int(ids_seg[t + 1])
-            if hcm is not None and surp.item() > hcm.write_surp_thresh:
+            if hcm is not None and random.random() < curriculum_prob:
+                nxt_input = c.remember_id
+                curriculum_injects += 1
+            elif hcm is not None and surp.item() > hcm.write_surp_thresh:
                 nxt_input = c.remember_id
         else:
             nxt_input = pred_token
@@ -145,6 +149,7 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
     return {"ce": ce_sum / T, "surp": surp_sum / T, "rent": rent_sum / T,
             "div": div_sum / T, "persist": float(persist.item()),
             "hcm_writes": hcm_writes, "hcm_reads": hcm_reads,
+            "curriculum_injects": curriculum_injects,
             "action_remember_prob": round(action_logits_sum / T, 5)}
 
 
@@ -409,6 +414,8 @@ def main():
     ap.add_argument("--hcm_topk", type=int, default=4, help="HCM top-k recall")
     ap.add_argument("--hcm_write_thresh", type=float, default=1.5, help="HCM surprisal threshold for writes")
     ap.add_argument("--hcm_min_age", type=int, default=10, help="HCM min steps before pattern can be recalled")
+    ap.add_argument("--curriculum_warmup", type=int, default=500, help="steps of full REMEMBER injection")
+    ap.add_argument("--curriculum_cooldown", type=int, default=1000, help="steps to decay injection to zero")
     ap.add_argument("--consolidation_gain", type=float, default=0.2, help="consolidation replay strength (0=off)")
     ap.add_argument("--no_hcm", action="store_true", help="disable HCM entirely (prediction-only mode)")
     args = ap.parse_args()
@@ -463,6 +470,7 @@ def main():
                   top_k=args.hcm_topk, write_surp_thresh=args.hcm_write_thresh,
                   min_age=args.hcm_min_age, device=device)
         model.hcm = hcm
+    curriculum_prob = 1.0 if hcm is not None else 0.0
 
     start = 0
     ckpts = sorted(save_dir.glob("zeus_step*.pt"))
@@ -488,6 +496,13 @@ def main():
     t0 = time.time()
     prev_s = model.S.detach().cpu().clone()
     for step in range(start + 1, args.steps + 1):
+        if hcm is not None:
+            if step <= args.curriculum_warmup:
+                curriculum_prob = 1.0
+            elif step <= args.curriculum_warmup + args.curriculum_cooldown:
+                curriculum_prob = 1.0 - (step - args.curriculum_warmup) / args.curriculum_cooldown
+            else:
+                curriculum_prob = 0.0
         opt.zero_grad(set_to_none=True)
         if random.random() < args.self_ratio:
             m = self_pass(model, w_norm=args.w_norm, norm_bound=args.norm_bound,
@@ -503,9 +518,10 @@ def main():
                             w_norm=args.w_norm, norm_bound=args.norm_bound,
                             pin_mask=pin_mask, pin_tau_min=args.pin_tau_min,
                             lambda_shape=args.lambda_shape, target_std=args.target_std,
-                            hcm=hcm)
+                            hcm=hcm, curriculum_prob=curriculum_prob)
             event = ctrl.observe(m["ce"])
-            entry = {"step": step, **{k: round(v, 5) for k, v in m.items()}, **(event or {})}
+            entry = {"step": step, **{k: round(v, 5) for k, v in m.items()}, **(event or {}),
+                     "curriculum_prob": round(curriculum_prob, 4)}
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
         opt.step()
         with torch.no_grad():
