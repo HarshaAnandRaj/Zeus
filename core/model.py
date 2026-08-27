@@ -42,11 +42,11 @@ class ZeusConfig:
 
     @property
     def remember_id(self):
-        return self.vocab - 1
+        return 0
 
     @property
     def note_id(self):
-        return self.vocab - 2
+        return 1
 
 
 class SpectralClampedLinear(nn.Module):
