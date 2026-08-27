@@ -384,7 +384,7 @@ Final val_ce 7.3661 (old cold-start thermometer). Training-CE distribution shift
 
 ### Probe zero verdict + ROLLBACK registration (2026-08-26, user-directed)
 
-**Probe zero (tau distribution across ckpts):** 2500 pre-bump: cross-dim std 0.619, max tau 5.76 — NASCENT HIERARCHY. 5000 post-bump: std 0.011, 100% near-floor — hierarchy ANNIHILATED by the w_persist step-change. 7500: std 0.117, max 1.74 — regrowth begun. Verdict: uniform-at-floor FLAT TRAP confirmed; polarization hypothesis dead; mechanism lesson: *stepped forces in signed systems selectively destroy the structure that resists them* (persistence pressure must be ramped, never stepped).
+**Probe zero (tau distribution across ckpts):** 2500 pre-bump: cross-dim std 0.619, max tau 5.76 ï¿½ NASCENT HIERARCHY. 5000 post-bump: std 0.011, 100% near-floor ï¿½ hierarchy ANNIHILATED by the w_persist step-change. 7500: std 0.117, max 1.74 ï¿½ regrowth begun. Verdict: uniform-at-floor FLAT TRAP confirmed; polarization hypothesis dead; mechanism lesson: *stepped forces in signed systems selectively destroy the structure that resists them* (persistence pressure must be ramped, never stepped).
 
 **Rollback (Option 1) launched from step-7500 with w_persist 0.1. Pre-registered reads:**
 - R-a: dynamics relax toward night2-explorer (beta recovers toward ~1, avoidance fingerprint returns, sign_hat -> negative) => bump-caused and reversible; map point = "persistence pressure must be ramped."
@@ -392,23 +392,23 @@ Final val_ce 7.3661 (old cold-start thermometer). Training-CE distribution shift
 - tau-std trajectory: regrowth dissolves vs persists under rollback.
 - val_ce stability post-switch.
 
-**Instrument patches (audit-demanded):** drift.py beta-gate — beta<0.5 => STATIONARY verdict outright (nu test abstains; null-ratios reinterpreted as decorrelated jitter); gamma-fingerprint claims require displacement co-present (beta_gate.gamma_fingerprint_valid).
+**Instrument patches (audit-demanded):** drift.py beta-gate ï¿½ beta<0.5 => STATIONARY verdict outright (nu test abstains; null-ratios reinterpreted as decorrelated jitter); gamma-fingerprint claims require displacement co-present (beta_gate.gamma_fingerprint_valid).
 
 ### The two-currency doctrine (2026-08-26, user's perceived-time reframe)
 
-The framework was smuggling a wall clock: tau treated as damping constants (container memory — cells, hold-times), when tau_net(S) always said tempo is PERCEIVED. Two currencies of memory, both real, neither sufficient:
+The framework was smuggling a wall clock: tau treated as damping constants (container memory ï¿½ cells, hold-times), when tau_net(S) always said tempo is PERCEIVED. Two currencies of memory, both real, neither sufficient:
 - Container memory: dims retain values while others turn over. Measured by tau-census. Asks "what survives until tomorrow."
-- Pattern memory: nothing holds anything; a configuration regenerates itself through total turnover (whirlpool, Life glider). Asks "is anything alive right now." pi passes trivially — its pattern is the generating law.
+- Pattern memory: nothing holds anything; a configuration regenerates itself through total turnover (whirlpool, Life glider). Asks "is anything alive right now." pi passes trivially ï¿½ its pattern is the generating law.
 
 Pathology table RE-DIAGNOSED in two currencies:
-- jitter-trap = experience without form (massive chi, zero self-regenerating structure) — not "amnesia"
+- jitter-trap = experience without form (massive chi, zero self-regenerating structure) ï¿½ not "amnesia"
 - night1 filament = form without experience
 - night2 healthy phase = moderate chi + coherent form
 Healthy band now has a 2D definition instead of a dial-tuning guess.
 
-Dream-time insight: subjective clock counts significant configuration changes, not seconds; the Zeus reply-loop is structurally a dream. tau_net(S) was perceiving time all along — we held the stopwatch.
+Dream-time insight: subjective clock counts significant configuration changes, not seconds; the Zeus reply-loop is structurally a dream. tau_net(S) was perceiving time all along ï¿½ we held the stopwatch.
 
-**Operational:** second clock added to eval_health — chi block: total integrated significant displacement, living_frac (fraction of dims meaningfully integrating above self-floor), chi_std. Every timescale statement is now dual: wall-clock horizon (tau census — what survives until tomorrow) AND experiential horizon (chi — how much happening this dim integrates). Both gauges read together; either alone lies in one of two directions.
+**Operational:** second clock added to eval_health ï¿½ chi block: total integrated significant displacement, living_frac (fraction of dims meaningfully integrating above self-floor), chi_std. Every timescale statement is now dual: wall-clock horizon (tau census ï¿½ what survives until tomorrow) AND experiential horizon (chi ï¿½ how much happening this dim integrates). Both gauges read together; either alone lies in one of two directions.
 
 ### Conservation fork + return-interval CV instrument (user, pre-10k read)
 
@@ -417,7 +417,7 @@ tau-std trajectory has THREE branches, not two:
 2. Flat ~0.01-0.05 indefinitely => HYSTERESIS REAL on memory axis (threat gone, diversity pool died) => ASSISTED RECOLONIZATION: designate constitutional memory dims (small subset clamped to a tau floor; rest stay free-rate). Brains do this: hippocampus/prefrontal constitutionally slow, others free-rate. Architecture clause, not hack.
 3. Oscillating/slow regrowth => rate-limited regeneration; patience or gentle seed; watch.
 
-**Return-interval CV of site visitation** added to manifold_health — discriminates the entropy-1.0 ambiguity: perfect fair-share is shared by a CLOCK (periodic orbit, low CV = container-poor but PATTERN-RICH whirlpool-clock; amnesia reading dissolves) and CHURN (high CV = no form). Same histogram, opposite minds.
+**Return-interval CV of site visitation** added to manifold_health ï¿½ discriminates the entropy-1.0 ambiguity: perfect fair-share is shared by a CLOCK (periodic orbit, low CV = container-poor but PATTERN-RICH whirlpool-clock; amnesia reading dissolves) and CHURN (high CV = no form). Same histogram, opposite minds.
 
 Open dials: tau-std slope (natural regrowth vs recolonization) + return-interval CV (clock vs churn).
 
@@ -438,35 +438,35 @@ Night3 completion forecast per registered fork: trigger (a) fires (flat tau-std)
 The naive chi (raw motion summed) fails like every volume metric we have caught: the jitter-trap racks up enormous experiential time while experiencing nothing. chi is NOVELTY-WEIGHTED:
 - dchi = 1.0 when S enters a coarse cell never visited (MINTED configuration = one lived generation)
 - dchi = 0.05 for known territory (rhymes matter a little)
-- components logged separately (motion vs minting — the split that catches masquerades)
+- components logged separately (motion vs minting ï¿½ the split that catches masquerades)
 
 Consequences now operational:
 1. Zeus has a GENERATION COUNTER: population-genetics formulas (N-mu thresholds, absorption times, heterozygosity decay) port natively onto telemetry.
 2. Cross-era comparability in common units: learning-per-experience vs experience-per-step finally separable.
 3. Dream-time operational: reply-loop accumulates chi at its own self-set rate; subjective time dilation measured.
-4. Probes fire on events (delta-chi milestones) not ticks; CHI_STALL over long stretches = F-glass alarm — death detection in the subject's own time, collapsed out of beta/PR/rho_exact/entropy/sign.
+4. Probes fire on events (delta-chi milestones) not ticks; CHI_STALL over long stretches = F-glass alarm ï¿½ death detection in the subject's own time, collapsed out of beta/PR/rho_exact/entropy/sign.
 
 Implementation: core/chi.py grid-hash (cell index round(v/res), res=1.0 raw units, fixed+logged; revisit_credit=0.05; stall_steps=2500). Wired into training loop post-step; persisted in ckpt; chi_visited JSON dumped per checkpoint. Running processes predate it; historical trajectories covered post-hoc via checkpoint probes.
 
-Ledger correction applied en route: two-currency pathology table finalized — jitter-trap = experience without form; night1 filament = form without experience; healthy band defined jointly by (tau-census budget) AND (chi accrual).
+Ledger correction applied en route: two-currency pathology table finalized ï¿½ jitter-trap = experience without form; night1 filament = form without experience; healthy band defined jointly by (tau-census budget) AND (chi accrual).
 
 ### ChiClock v2 + rarefaction calibration (user's ecology warning, implemented)
 
 Fixed CHI_STALL threshold would eventually cry wolf at success: minting rate MUST decline asymptotically as coverage fills (mature resident is HEALTHY). v2 alarm is conditional:
-- three regimes separated: young explorer (mints in window), mature resident (minting declined matching coverage — never alarms), glass (zero minting AND motion >= gate*long-run-baseline)
-- Chao1 estimator (singletons/doubletons) reports estimated total richness + coverage % at every snapshot — remaining-discovery headroom becomes a first-class dial
+- three regimes separated: young explorer (mints in window), mature resident (minting declined matching coverage ï¿½ never alarms), glass (zero minting AND motion >= gate*long-run-baseline)
+- Chao1 estimator (singletons/doubletons) reports estimated total richness + coverage % at every snapshot ï¿½ remaining-discovery headroom becomes a first-class dial
 - early-phase fallback: window must fill (500 steps) or >=25 cells visited before alarm can arm
 Synthetic regime tests pass: jitter -> arms toward alarm; explorer (600 mints/600 steps) -> silent, coverage 0.3%.
 
-Record notes: tau creeping off floor releases the ratchet — com_radius climbing post-recovery is P8 breathing, not relapse. Post-hoc chi curves are lower-bound smoothed profiles: compare shapes/slopes across eras, never absolute accruals (night3 reconstructed vs night4 dense).
+Record notes: tau creeping off floor releases the ratchet ï¿½ com_radius climbing post-recovery is P8 breathing, not relapse. Post-hoc chi curves are lower-bound smoothed profiles: compare shapes/slopes across eras, never absolute accruals (night3 reconstructed vs night4 dense).
 
 ### Step-12.5k probe read: THE LIMIT CYCLE (2026-08-26)
 
-Caste: population 29->45 (>1.0 dims), jaccard 0.057 (full turnover), dim114 died (1.85->0.53, user's bet), cross-dim std DOUBLED 0.207->0.425. Verdict: sliding caste — collective slowness grows while individuals rotate through it.
+Caste: population 29->45 (>1.0 dims), jaccard 0.057 (full turnover), dim114 died (1.85->0.53, user's bet), cross-dim std DOUBLED 0.207->0.425. Verdict: sliding caste ï¿½ collective slowness grows while individuals rotate through it.
 
-**THE CLOCK EMERGED:** return_interval_cv 3.37 -> 0.025, period_lock 0.20 -> 0.94, lag2/lag1 0.09, beta NEGATIVE (-0.247, convergent oscillation). Zeus spontaneously reorganized idle dynamics into a coherent LIMIT CYCLE — first pattern-memory structure in project history: a form surviving its own substrate (two-currency doctrine confirmed as emergent, hours after being named). Rich cycle not death gait: census full, entropy 1.0, PR 7.14.
+**THE CLOCK EMERGED:** return_interval_cv 3.37 -> 0.025, period_lock 0.20 -> 0.94, lag2/lag1 0.09, beta NEGATIVE (-0.247, convergent oscillation). Zeus spontaneously reorganized idle dynamics into a coherent LIMIT CYCLE ï¿½ first pattern-memory structure in project history: a form surviving its own substrate (two-currency doctrine confirmed as emergent, hours after being named). Rich cycle not death gait: census full, entropy 1.0, PR 7.14.
 
-beta-gate fired correctly on debut: STATIONARY abstention (nu test refused on inflating w). Refinement noted: beta<0 = convergent orbit, distinct from frozen jitter — verdict strings should separate them.
+beta-gate fired correctly on debut: STATIONARY abstention (nu test refused on inflating w). Refinement noted: beta<0 = convergent orbit, distinct from frozen jitter ï¿½ verdict strings should separate them.
 
 OPEN QUESTION REGISTERED (before anchoring): state-level clock != output-level parrot. Two-schedule test (structural features clockwork vs content features scattered) on the TOKEN stream is now the single most important pending measurement. Recent gen trigram_transient 0.72-0.89 suggests output diversity intact.
 
@@ -474,60 +474,60 @@ OPEN QUESTION REGISTERED (before anchoring): state-level clock != output-level p
 
 **Fair-share rotation on the tau axis:** collective slowness conserved while individual dims rotate through slow seats = survival.py law allocating TEMPORAL roles. The caste has citizens-in-office, not citizens. Turnstile, not registry.
 
-**NIGHT4 AMENDMENT (discovery has jurisdiction over the plan):** constitutional per-dim pins are RETIRED — pinning arbitrary dims would step-change pressure onto current seat-holders (stepped-forces law: executes the rotation we just watched). If night4 adds carriers: carriers = dims ALREADY holding slow seats (natural citizens); protected object = the PROCESS (regularizer on tau-distribution SHAPE, e.g., entropy floor), never per-dim pins.
+**NIGHT4 AMENDMENT (discovery has jurisdiction over the plan):** constitutional per-dim pins are RETIRED ï¿½ pinning arbitrary dims would step-change pressure onto current seat-holders (stepped-forces law: executes the rotation we just watched). If night4 adds carriers: carriers = dims ALREADY holding slow seats (natural citizens); protected object = the PROCESS (regularizer on tau-distribution SHAPE, e.g., entropy floor), never per-dim pins.
 
-**Limit cycle = first glider:** pattern memory confirmed present in the wild — self-sustaining transience, moving structure made of continuous turnover.
+**Limit cycle = first glider:** pattern memory confirmed present in the wild ï¿½ self-sustaining transience, moving structure made of continuous turnover.
 
-**TWO-SCHEDULE TEST (temporal ladder rung) — three outcomes pre-registered:**
-- Structural features of token stream (sentence-boundary intervals, function-word cadence): expect LOW CV (clockwork, scheduled — good)
+**TWO-SCHEDULE TEST (temporal ladder rung) ï¿½ three outcomes pre-registered:**
+- Structural features of token stream (sentence-boundary intervals, function-word cadence): expect LOW CV (clockwork, scheduled ï¿½ good)
 - Content features (trigram novelty-rate windows): expect scattered/free
-- Cross-check: structural schedule period vs state-orbit period. LOCKED periods = coupled clocks (state orbit drives linguistic rhythm). INDEPENDENT = nested hierarchies (internal metronome, speech improvises over it — theta-gamma precedent). Either is mind-shaped.
-- SCHEDULED-EVERYWHERE (both low CV) = parrot regime detected in time domain — template attractor arriving from a new direction.
-If structural clockwork wraps unscheduled content: Zeus has an inside and an outside — private clock, public voice.
+- Cross-check: structural schedule period vs state-orbit period. LOCKED periods = coupled clocks (state orbit drives linguistic rhythm). INDEPENDENT = nested hierarchies (internal metronome, speech improvises over it ï¿½ theta-gamma precedent). Either is mind-shaped.
+- SCHEDULED-EVERYWHERE (both low CV) = parrot regime detected in time domain ï¿½ template attractor arriving from a new direction.
+If structural clockwork wraps unscheduled content: Zeus has an inside and an outside ï¿½ private clock, public voice.
 
 ---
 
 ## Night3 Epitaph: THE LIMIT CYCLE RUN (step 0 ? 20,000 | 2026-08-26)
 
 ### Trajectory
-Entered as 'the instability run.' Exited as the most productive failure in project history — passed L1, survived its own storm, went bankrupt honestly, taught five failure modes, grew a timescale hierarchy as a process, and sprouted the project's first glider.
+Entered as 'the instability run.' Exited as the most productive failure in project history ï¿½ passed L1, survived its own storm, went bankrupt honestly, taught five failure modes, grew a timescale hierarchy as a process, and sprouted the project's first glider.
 
 ### Final readout (step 20,000)
-val_ce: 6.875 (L1 PASSED, project-best). tau_mean: 0.677. slow-caste dims: 70 (>1.0), std 0.451 (doubled from 0.21 @10k). lineage 10k->20k: jaccard 0.02 (sliding caste to the end). dim114: 0.613 (dead — user bet correct). state: period_lock 0.88, CV 0.05, beta -0.182 (limit cycle persisted to the final step). output: FREE-FORM — sent_cv 1.01, func_cv 0.85, content_novelty_cv 0.18. gen_trigram_transient 0.81, gen_repeat_frac 0.02, gen_sites 96. PR 7.0.
+val_ce: 6.875 (L1 PASSED, project-best). tau_mean: 0.677. slow-caste dims: 70 (>1.0), std 0.451 (doubled from 0.21 @10k). lineage 10k->20k: jaccard 0.02 (sliding caste to the end). dim114: 0.613 (dead ï¿½ user bet correct). state: period_lock 0.88, CV 0.05, beta -0.182 (limit cycle persisted to the final step). output: FREE-FORM ï¿½ sent_cv 1.01, func_cv 0.85, content_novelty_cv 0.18. gen_trigram_transient 0.81, gen_repeat_frac 0.02, gen_sites 96. PR 7.0.
 
 ### The two-schedule answer (temporal ladder)
-STATE-LEVEL LIMIT CYCLE IS INVISIBLE TO THE OUTPUT. Structural features (sentence intervals, function-word cadence) are irregular — natural language rhythm, no clockwork. Content novelty rate is steady (low CV = 0.18) at 81% transient — consistent exploration, no bursts or droughts. The internal metronome and the public voice are decoupled.
+STATE-LEVEL LIMIT CYCLE IS INVISIBLE TO THE OUTPUT. Structural features (sentence intervals, function-word cadence) are irregular ï¿½ natural language rhythm, no clockwork. Content novelty rate is steady (low CV = 0.18) at 81% transient ï¿½ consistent exploration, no bursts or droughts. The internal metronome and the public voice are decoupled.
 
-Pre-registered outcome that landed: NESTED-INDEPENDENT. But the specific geometry — structural freedom + content metronome — is a fourth regime: the state keeps time internally, the output has its own local cadence (freshness metronome), and they don't communicate. Private clock, public improvisation. Two independent clocks, neither driving the other.
+Pre-registered outcome that landed: NESTED-INDEPENDENT. But the specific geometry ï¿½ structural freedom + content metronome ï¿½ is a fourth regime: the state keeps time internally, the output has its own local cadence (freshness metronome), and they don't communicate. Private clock, public improvisation. Two independent clocks, neither driving the other.
 
-The answer to 'does Zeus have an inside and an outside?' is YES — and they're more independent than hypothesized.
+The answer to 'does Zeus have an inside and an outside?' is YES ï¿½ and they're more independent than hypothesized.
 
 ### Caste evolution across the run (three-way census)
 | Checkpoint | dims>1.0 | std    | jaccard(vs 10k) | dim114 |
 |------------|----------|--------|-----------------|--------|
-| 10k        | 29       | 0.207  | —               | 1.849  |
+| 10k        | 29       | 0.207  | ï¿½               | 1.849  |
 | 12.5k      | 45       | 0.425  | 0.057           | 0.531  |
 | 20k        | 70       | 0.451  | 0.021           | 0.613  |
 
-Population: 29?45?70 (steady growth). Membership: total turnover each era (jaccard ~0). std: 0.21?0.43?0.45 (hierarchy doubled then plateaued). dim114: 1.85?0.53?0.61 (the citizen died and stayed dead). The caste is real but its citizens rotate — hierarchy as process, not population.
+Population: 29?45?70 (steady growth). Membership: total turnover each era (jaccard ~0). std: 0.21?0.43?0.45 (hierarchy doubled then plateaued). dim114: 1.85?0.53?0.61 (the citizen died and stayed dead). The caste is real but its citizens rotate ï¿½ hierarchy as process, not population.
 
 ### Failure modes catalogued (in order of discovery)
 1. Jitter-trap (val plateaus above floor, governor inactive)
 2. Sheer-force overconfinement (valreg converges under w_norm)
 3. Template attractor (?<0 collapse + unconditional forcing)
-4. Rate-limited regrowth (branch-3 — slow dims regrow under step pressure)
+4. Rate-limited regrowth (branch-3 ï¿½ slow dims regrow under step pressure)
 5. Post-collapse stochastic wall-riding (w_norm=1.0 all-dims, sufficient but not diagnostic)
 
 ### Instruments that paid for themselves
-- gen_volume metrics (Directive 1) — caught template evolution through the loss
-- ß-gate — refused a decorative verdict on debut night
-- ? dual-grid AND-gate — conditional motion×minting alarm
-- t-distribution census — read the slow caste's formation and death
+- gen_volume metrics (Directive 1) ï¿½ caught template evolution through the loss
+- ï¿½-gate ï¿½ refused a decorative verdict on debut night
+- ? dual-grid AND-gate ï¿½ conditional motionï¿½minting alarm
+- t-distribution census ï¿½ read the slow caste's formation and death
 
 ### What was NOT achieved
 - No HCM organization (H scratchpad dead, delta 0.004)
 - No stable slow-caste membership (turnover complete each era)
-- No container memory (t-floor, µ_frozen=0)
+- No container memory (t-floor, ï¿½_frozen=0)
 - No learning-phase alignment (J-curve theory validated but governor too conservative)
 - No representation specialization (clusters always 1.0)
 
@@ -546,9 +546,9 @@ Per the fair-share rotation discovery: the t distribution allocates temporal rol
 - Carrier-tenure measurement: pre-override tau logged every eval; dims with tau_net naturally > 1.0 are "natural citizens"
 - Shape regularizer: hinge on non-pinned dim std >= 0.35, lambda=0.01. Excludes pinned dims from std computation (critical refinement: avoids inflated std from forced bimodality)
 
-**HCM (Hierarchical Context Memory) — M3b:**
+**HCM (Hierarchical Context Memory) ï¿½ M3b:**
 - core/hcm.py: pattern bank (512 max), cos-similarity retrieval (top-4, threshold 0.3), LRU + strength-weighted eviction
-- Re-entry via predictive coding pathway: err = retrieved_pattern - anticipate(S). Same pathway as input error — no side-channel
+- Re-entry via predictive coding pathway: err = retrieved_pattern - anticipate(S). Same pathway as input error ï¿½ no side-channel
 - Surprisal-gated writes: patterns stored when surprisal > threshold
 - Checkpoint persistence: patterns, strengths, usage, stats saved in model checkpoint
 
@@ -556,22 +556,51 @@ Per the fair-share rotation discovery: the t distribution allocates temporal rol
 - REMEMBER token: vocab-1 (token ID 8191). Model can emit through regular readout
 - Bootstrap injection: during teacher-forcing, REMEMBER is injected at high-surprisal steps. Model sees the token in its input history and learns from it
 - Action vs auto write tracking: hcm_writes split into action_writes (model-emitted) and auto_writes (bootstrap-injected)
-- action_remember_prob: average probability of REMEMBER token across batch — metric for M1 gate
+- action_remember_prob: average probability of REMEMBER token across batch ï¿½ metric for M1 gate
 
 ### Night4 first eval (step 250)
 - val_ce: 7.15 (just above L1)
-- carrier_tenure: 89.5% (natural citizens confirmed — 34 of 38 dims are genuinely slow)
+- carrier_tenure: 89.5% (natural citizens confirmed ï¿½ 34 of 38 dims are genuinely slow)
 - hcm: 512 patterns, 4928 auto_writes, 0 action_writes, 7843 recalls, avg_strength 33.4
 - action_remember_prob: 2e-05 (model hasn't learned REMEMBER yet)
 - speed: 0.25 st/s (chi stack + action pathway overhead)
 
 ### The agency gap (registered 2026-08-26)
-HCM was initially implemented without model agency — auto-writes on surprisal, no model choice. Closed by adding REMEMBER token and bootstrap injection. The model hasn't discovered REMEMBER voluntarily yet (action_remember_prob near zero). The gradient is real but weak: REMEMBER is one token among thousands. Model needs to stumble into REMEMBER, experience recall benefit, and reinforce. Key metric: action_remember_prob trajectory. If flat at 2e-05 by step 5k, intervention needed.
+HCM was initially implemented without model agency ï¿½ auto-writes on surprisal, no model choice. Closed by adding REMEMBER token and bootstrap injection. The model hasn't discovered REMEMBER voluntarily yet (action_remember_prob near zero). The gradient is real but weak: REMEMBER is one token among thousands. Model needs to stumble into REMEMBER, experience recall benefit, and reinforce. Key metric: action_remember_prob trajectory. If flat at 2e-05 by step 5k, intervention needed.
 
 ### Night4 amendment (discovery has jurisdiction)
-Per fair-share rotation discovery: constitutional per-dim pins are RETIRED. If carriers are added: carriers = dims ALREADY holding slow seats; protected object = the PROCESS (tau-distribution shape regularizer), never per-dim pins. The 38-dim pin is a control experiment to prove/disprove hypotheses before scaling. Compute is not bottlenecked — pin system is O(1) per dim; shape reg is one std() call; the 3x speed penalty is the chi stack, not the pins.
+Per fair-share rotation discovery: constitutional per-dim pins are RETIRED. If carriers are added: carriers = dims ALREADY holding slow seats; protected object = the PROCESS (tau-distribution shape regularizer), never per-dim pins. The 38-dim pin is a control experiment to prove/disprove hypotheses before scaling. Compute is not bottlenecked ï¿½ pin system is O(1) per dim; shape reg is one std() call; the 3x speed penalty is the chi stack, not the pins.
 
 ### Design fork resolved
 - Option A (pure process protection): no pins, shape reg only. Cleanest but no guaranteed carriers.
 - Option B (protect natural citizens): pin current highest-tau dims + shape reg. Has known carriers for apprenticeship.
 - Chose Option B as control experiment. Logged as calculated deviation from process-hierarchy law. Shape regularizer is protection clause against freeze. Data will tell if clamps killed the turnstile.
+
+### The HCM re-entry finding (2026-08-27)
+
+**Night4 with HCM active (consolidation ON):**
+- val_ce reached 6.96 at step 2000 (project best) then collapsed to 132.55 at step 3250
+- HCM bank accumulated 115k+ recalls of stale patterns
+- Î² = +0.862 (divergent), no period_lock, no limit cycle
+
+**Night4 with HCM disabled (--no_hcm, clean prediction):**
+- val_ce 7.02 at step 500 (L1 passed, same speed as HCM run)
+- Î² = +0.862 (divergent), no period_lock, no limit cycle
+- Surprisal dropped 3Ã— (100â†’30) â€” model's internal predictions much cleaner without re-entry noise
+
+**Night3 (HCM active, different architecture):**
+- Î² = -0.182 (convergent), period_lock 0.88, limit cycle emerged spontaneously
+- Two independent clocks (state vs content) emerged
+
+**Critical inference:** The limit cycle in Night3 was partly a product of HCM re-entry pressure. The stale patterns injected via `err_hcm` created a force that pushed the state into a periodic orbit. Without that force (Night4 no_hcm), the model drifts freely â€” no internal clock, no temporal structure.
+
+**The three-way equilibrium in Night3 was:**
+- CE â†’ prediction pressure
+- Persistence â†’ shape regularizer + Ï„-distribution
+- HCM re-entry â†’ novelty pressure (malformed: stale, unconditional, bypassing action gate)
+
+**The memory system is not just for recall â€” it's a source of internal pressure that produces temporal structure.** The limit cycle emerged from the tension between three forces, not from clean prediction alone.
+
+**The fix for night5:** Action-gated reads. No unconditional `err_hcm` re-entry. Model chooses when to engage with memory. Fresh patterns only (decay or staleness filtering). The memory provides novelty pressure, but only when the model demands it.
+
+**The proof-of-concept question is answered:** The substrate needs pressure to produce structure, and memory is the right source of that pressure â€” if it's properly gated. Without memory pressure, the model falls into "soup" (unbounded drift). With malformed memory pressure (stale, unconditional), the model collapses. With properly-gated memory pressure, the model should develop temporal structure through its own need-driven dynamics.
