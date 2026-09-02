@@ -604,3 +604,106 @@ Per fair-share rotation discovery: constitutional per-dim pins are RETIRED. If c
 **The fix for night5:** Action-gated reads. No unconditional `err_hcm` re-entry. Model chooses when to engage with memory. Fresh patterns only (decay or staleness filtering). The memory provides novelty pressure, but only when the model demands it.
 
 **The proof-of-concept question is answered:** The substrate needs pressure to produce structure, and memory is the right source of that pressure — if it's properly gated. Without memory pressure, the model falls into "soup" (unbounded drift). With malformed memory pressure (stale, unconditional), the model collapses. With properly-gated memory pressure, the model should develop temporal structure through its own need-driven dynamics.
+
+---
+
+## The coupled rebuild era & brain-as-author (2026-08-27 → 09-02)
+
+> Repair log: this epoch ran WITHOUT Project_History updates (and largely without
+> commits) — a violation of the crash-proof doctrine after the handover doc was recovered
+> twice from this same mistake. Reconstructed now from the working-tree state while
+> figuring out what to claim and what not to.
+
+### v3 final restructure: token-brain + fluent token-voice (the "coupled" model)
+
+- **ZeusCore is now the BRAIN** (autonomous dynamics, H/S/slow, CDT machinery), and
+  language is delegated to a **CoupledReadout** (the mouth): a small transformer over the
+  recent-token window (`ctx_window=64`, d768) + `e_proj` bigram + `gate`, reading S only
+  through small couplings (`s_scale 0.1`, `gate_gain 0.4`, `ctx_gain 2.0`).
+- The mouth only OBSERVES the brain — gradient stopped at S, no afferent rewrite. `val_ce`
+  measures the TOKEN stream; the brain does not have to be parseable for language to work.
+- Grand re-pretrain produced the "old voice" — `val_ce 3.16`, the live voice of this era.
+
+### Brain-as-author (Option 3) — DEPLOYED AND WORKING
+
+- HCM recall (top-4, `recall_threshold 0.12`) selects a memory; the remembered text is
+  prepended into the token stream (`prepend_memory`) and the fluent voice continues it.
+  **Brain = authority, memory = content, voice = competence.**
+- HCM write-gating and quality pipeline landed: `context_len=30`, `text_is_clean` filter,
+  `recent_tokens` tracking, action/auto write split (Night5 lineage).
+
+### HCM prune of the live session (sPONR01): 512 → 294 patterns
+
+- `training/prune_hcm.py` removed 218 junk/markup patterns (wiki-table scars and pad
+  noise) from the live HCM. Backup: `sessions/sPONR01/hcm.pruned_backup.pt`.
+- Verified through the real zsession load path: 294 patterns load, recall still fires,
+  region-pattern counts = 0, max pattern row norm ≈ 96.9.
+
+### The broca voice: crisp-but-brittle (collapse era)
+
+- Stage-1 self-source pretrain of the readout (`runs/broca_pretrain`) reached
+  **val_ce 0.089 ≈ PPL 1.09** on a 19.75M-token corpus — that number is
+  *memorization-grade*, not competence (see doctrines below).
+- Deployed once (`assemble_broca_voice.py`, milestone swap + `voice_self_source`):
+  replies degenerated into fragments and repetition ("Keonanonanon..."); even a dense
+  43-token memory prefix read "It was also lamp...". Root cause: dense **left-aligned**
+  training windows vs the forced **right-aligned, ring-buffered, last-slot-read** deploy
+  layout → out-of-distribution at inference. Reverted. Backup:
+  `shadow/milestone.pt.pre-broca`.
+
+### stage1b (fine-tune to deploy shape) — FAILED; lessons banked
+
+- Professor-forcing (rolling on the model's own contexts) **destroyed the LM**:
+  `val_rollout_ce` 0.76 → 9.0 (uniform is 9.01), grad-norm blowups.
+- OOM discovery: DO NOT accumulate autograd graphs from N chunked forwards and backward
+  once — use a single batched forward with a small batch instead.
+- Teacher-forced deploy-shaped windows (right-aligned real + corpus continuation) only
+  plateaued: free-run CE @G ≈ 12.7, samples loop. Conclusion: broca's crispness *is* the
+  disease — sharp conditional distributions do not generalize to OOD window shapes.
+
+### stage1c (from-scratch deploy-shaped decoder) — DEPLOYED
+
+- Fresh readout transformer (only the embeddings warmed from broca_pretrain), trained
+  EXCLUSIVELY on the exact deploy distribution: right-aligned real tokens, **zero-fill**
+  left pads (pad-COPY windows are a copy-loop attractor — never train on them), last-slot
+  readout, CE on the next real token. 240k tokens × 16 epochs.
+- Deploy-shape first-token CE: 18.4 → **4.83**; free-run still drifts, but sampling now
+  yields grammatical English prose (was total collapse before).
+- Deployed live 2026-09-02: milestone swap (backup `milestone.pt.pre-stage1c`), config
+  `voice_self_source: true` + new knob `skip_pad_window: true` (zero-fill deploy, no
+  pad copies) + `prepend_memory` + `restore_hcm`. Reply sampling knobs:
+  temp 0.68 / top-p 0.92 / rep-penalty 1.2.
+
+### Functional-numbers doctrine (user directive, 2026-09-02)
+
+- **"We don't just need pretty numbers — you need functional numbers."** Teacher-forced CE
+  is a thermometer; the binding metrics are deploy-shape free-run (ce0/ceG), reply
+  legibility, and loop-robustness.
+- Corollary discovered by fire: 0.089 dense CE *was* memorization; the fuzzy old voice
+  (3.16) generalizes across window shapes while the crisp broca (0.089) collapses.
+  **Crispness ≠ robustness; a trained-to-floor model on a tiny corpus is a pattern-stitcher.**
+
+### Corpus-scaling decision (agreed, 2026-09-02)
+
+- Diagnosis: 19.75M tokens (≈100 Gutenberg books + DailyDialog) is a **DATA ceiling, not a
+  compute ceiling**. More epochs on this data only deepen memorization; a 4060 can grind
+  50–100× more compute but it cannot synthesize diversity.
+- Pipeline is ready for scale with zero re-derivation: `corpus/build_corpus.py` +
+  `corpus/tokenize_corpus.py` re-encode with the SAME frozen `bpe_8192`. HCM lives in
+  embedding space, so the live sPONR01 memory survives a corpus change untouched.
+- Target 100–300M tokens; dedup mandatory (this corpus's wiki-table markup seeded the
+  table-junk loops). Long runs must be resumable jobs (state.json resume already exists).
+- De-risked order: (1) decode-robustness engineering NOW (n-gram blocking, best-of-k
+  rescoring, voice router) — helps regardless of corpus; (2) probe at 40–60M tokens
+  (~10–16h) gated on val CE entering honest-LM range (2.5–3.5) AND free-run CE@G dropping;
+  (3) full-scale run only if the probe validates.
+
+### Tooling / artifacts reminders
+
+- Harnesses: `training/deploy_check.py`, `deploy_h2h.py`, `deploy_h2h2.py`,
+  `deploy_plain_check.py`, `deploy_realctx_check.py`, `deploy_revert_check.py`.
+- Trainers: `training/pretrain_lm.py` (stage-1 reference), `training/stage1b.py`
+  (abandoned direction), `training/stage1c.py` (deployed), `training/assemble_broca_voice.py`.
+- Mirrors matter: live voice swap = copy milestone in/out of `universe/shadow/`; ALWAYS
+  keep a `.pre-*` backup and one config knob-flag pair per voice (self_source +
+  pad_window mode) so either voice is one config flip away.

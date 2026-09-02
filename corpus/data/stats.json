@@ -1,0 +1,120 @@
+{
+  "sources": {
+    "dailydialog.txt": {
+      "blocks": 11860
+    },
+    "gutenberg_alice_in_wonderland.txt": {
+      "blocks": 239
+    },
+    "gutenberg_andersens_fairy_tales.txt": {
+      "blocks": 524
+    },
+    "gutenberg_anne_of_green_gables.txt": {
+      "blocks": 928
+    },
+    "gutenberg_around_the_world_in_eighty_days.txt": {
+      "blocks": 592
+    },
+    "gutenberg_count_of_monte_cristo.txt": {
+      "blocks": 1137
+    },
+    "gutenberg_don_quixote.txt": {
+      "blocks": 2684
+    },
+    "gutenberg_dracula.txt": {
+      "blocks": 163
+    },
+    "gutenberg_emma.txt": {
+      "blocks": 1341
+    },
+    "gutenberg_frankenstein.txt": {
+      "blocks": 613
+    },
+    "gutenberg_great_expectations.txt": {
+      "blocks": 1621
+    },
+    "gutenberg_grimms_fairy_tales.txt": {
+      "blocks": 638
+    },
+    "gutenberg_heidi.txt": {
+      "blocks": 508
+    },
+    "gutenberg_huckleberry_finn.txt": {
+      "blocks": 817
+    },
+    "gutenberg_importance_of_being_earnest.txt": {
+      "blocks": 150
+    },
+    "gutenberg_jane_eyre.txt": {
+      "blocks": 1508
+    },
+    "gutenberg_jungle_book.txt": {
+      "blocks": 471
+    },
+    "gutenberg_just_so_stories.txt": {
+      "blocks": 274
+    },
+    "gutenberg_little_women.txt": {
+      "blocks": 1669
+    },
+    "gutenberg_much_ado_about_nothing.txt": {
+      "blocks": 144
+    },
+    "gutenberg_oliver_twist.txt": {
+      "blocks": 1481
+    },
+    "gutenberg_peter_pan.txt": {
+      "blocks": 364
+    },
+    "gutenberg_pride_and_prejudice.txt": {
+      "blocks": 1095
+    },
+    "gutenberg_pygmalion.txt": {
+      "blocks": 224
+    },
+    "gutenberg_romeo_and_juliet.txt": {
+      "blocks": 191
+    },
+    "gutenberg_secret_garden.txt": {
+      "blocks": 698
+    },
+    "gutenberg_sherlock_holmes_adventures.txt": {
+      "blocks": 838
+    },
+    "gutenberg_tale_of_two_cities.txt": {
+      "blocks": 1237
+    },
+    "gutenberg_the_metamorphosis.txt": {
+      "blocks": 94
+    },
+    "gutenberg_the_odyssey.txt": {
+      "blocks": 165
+    },
+    "gutenberg_tom_sawyer.txt": {
+      "blocks": 514
+    },
+    "gutenberg_treasure_island.txt": {
+      "blocks": 683
+    },
+    "gutenberg_twenty_thousand_leagues.txt": {
+      "blocks": 374
+    },
+    "gutenberg_wind_in_the_willows.txt": {
+      "blocks": 528
+    },
+    "gutenberg_wizard_of_oz.txt": {
+      "blocks": 360
+    },
+    "gutenberg_wuthering_heights.txt": {
+      "blocks": 978
+    },
+    "wiki_clean.txt": {
+      "blocks": 92010
+    }
+  },
+  "blocks": 129715,
+  "train_words": 11359616,
+  "val_words": 120559,
+  "train_bytes": 66788017,
+  "val_bytes": 702355
+}

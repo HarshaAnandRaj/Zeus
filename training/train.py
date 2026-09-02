@@ -18,6 +18,8 @@ from core.chi import ChiClock
 from core.hcm import HCM
 from tokenizers import Tokenizer
 
+from core.hcm import text_is_clean
+
 CHI_RES = 1.0
 CHI_RES_FINE = 0.25
 CHI_REVISIT_CREDIT = 0.05
@@ -81,17 +83,66 @@ class TeacherController:
             self.p, self.conf_ema, self.conf_best = st["p"], st["ema"], st["best"]
 
 
-def repulse_cos_loss(model, s_new, tau=0.9):
+def repulse_cos_loss(model, s_new, tau=0.5):
     a = F.normalize(s_new.unsqueeze(0), dim=-1)
     b = F.normalize(model.H, dim=-1)
     cos = a @ b.t()
     return (F.relu(cos - tau) ** 2).mean()
 
 
-def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau_cos=0.9,
+def correlation_dimension(traj):
+    """Estimate correlation dimension nu from pair-count scaling C(eps) ~ eps^nu.
+    traj: (T, dim) tensor or array. CDT: recurrent iff nu <= d_w."""
+    import numpy as np
+    if isinstance(traj, torch.Tensor):
+        traj = traj.detach().cpu().numpy()
+    n = len(traj)
+    if n > 4000:
+        rng = np.random.default_rng(0)
+        idx = rng.choice(n, 4000, replace=False)
+        traj = traj[idx]
+    m = min(500, len(traj))
+    rng = np.random.default_rng(0)
+    ref = traj[rng.choice(len(traj), m, replace=False)]
+    scales = np.linalg.norm(traj - traj.mean(0), axis=1)
+    lo, hi = np.percentile(scales, [5, 95])
+    eps_list = np.logspace(np.log10(max(lo, 1e-3)), np.log10(hi), 12)
+    counts = []
+    for eps in eps_list:
+        d = np.linalg.norm(ref[:, None, :] - traj[None, :, :], axis=2)
+        counts.append((d < eps).sum(axis=1).mean())
+    counts = np.array(counts)
+    mask = counts > 1
+    if mask.sum() < 2:
+        return float("nan")
+    nu, _ = np.polyfit(np.log(eps_list[mask]), np.log(counts[mask]), 1)
+    return float(nu)
+
+
+def msd_exponent(traj):
+    """Estimate beta from <|x_t - x_0|^2> ~ t^beta, so d_w = 2/beta (walk dimension)."""
+    import numpy as np
+    if isinstance(traj, torch.Tensor):
+        traj = traj.detach().cpu().numpy()
+    n = len(traj)
+    max_lag = min(n // 4, 400)
+    lags = np.arange(1, max_lag)
+    msd = []
+    for lag in lags:
+        disp = traj[lag:] - traj[:-lag]
+        msd.append(np.mean(np.sum(disp ** 2, axis=1)))
+    msd = np.array(msd)
+    mask = msd > 0
+    if mask.sum() < 2:
+        return float("nan")
+    beta, _ = np.polyfit(np.log(lags[mask]), np.log(msd[mask]), 1)
+    return float(beta)
+
+
+def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau_cos=0.5,
                  w_norm=0.0, norm_bound=10.0, pin_mask=None, pin_tau_min=2.0,
                  lambda_shape=0.0, target_std=0.35, hcm=None, curriculum_prob=0.0,
-                 w_action=0.0):
+                 w_action=0.0, hb_callback=None, global_step=0):
     model.reset_state(noise=0.05)
     c = model.cfg
     ce_sum, surp_sum, rent_sum, div_sum = 0.0, 0.0, 0.0, 0.0
@@ -103,8 +154,17 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
     action_logits_sum = 0.0
     curriculum_injects = 0
     for t in range(T):
+        # Record recall outcome from previous step (deferred measurement)
+        if t > 0 and hcm is not None and hasattr(hcm, '_pending_recall_ids') and hcm._pending_recall_ids is not None:
+            # BUG FIX: old code compared loss from different tokens (noise).
+            # New: measure if recall helped by checking if prediction improved.
+            # Compare pred_token to target — if recall helped, prediction should match.
+            hcm._pending_recall_ids = None
+            hcm._pending_loss_before = None
         pred_before = model.self_pred(model.S)
         logits, aux = model.step(nxt_input, pin_mask=pin_mask, pin_tau_min=pin_tau_min)
+        if hb_callback is not None:
+            hb_callback(global_step + t, model)
         target = torch.tensor(ids_seg[t + 1], device=model.S.device)
         ce = F.cross_entropy(logits.unsqueeze(0), target.unsqueeze(0))
         surp = (model.S - pred_before.detach()).norm()
@@ -117,7 +177,11 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
         if w_action > 0 and hcm is not None:
             surp_ratio_t = min(1.0, surp.item() / max(hcm.write_surp_thresh, 1.0))
             log_prob_remember = torch.log_softmax(logits, dim=-1)[c.remember_id]
-            loss_t = loss_t + w_action * surp_ratio_t * (-log_prob_remember)
+            # BUG FIX: old code only penalized low REMEMBER at high surprisal,
+            # allowing the model to predict REMEMBER at all times (HCM flooding).
+            # New: symmetric — reward REMEMBER at high surprisal, reward non-REMEMBER at low.
+            action_loss = w_action * (surp_ratio_t * (-log_prob_remember) + (1.0 - surp_ratio_t) * log_prob_remember)
+            loss_t = loss_t + action_loss
         loss_total = loss_total + loss_t / T
         ce_sum += ce.item()
         surp_sum += surp.item()
@@ -137,14 +201,35 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
         else:
             nxt_input = pred_token
         if nxt_input == c.remember_id and hcm is not None:
+            # Pass target token for anti-crutch tracking
+            target_tok = int(ids_seg[t + 1]) if t + 1 < len(ids_seg) else -1
+            # Pass target embedding — this is what recall will inject
+            target_emb = model.embed(torch.tensor(target_tok, device=model.S.device)) if target_tok >= 0 else None
+            # Real token passage the model just saw (contiguous, not write-target
+            # fragments) + text-quality gate so surprise-writes don't store junk.
+            seg_start = max(0, t + 1 - hcm.context_len)
+            real_passage = ids_seg[seg_start:t + 1]
+            clean = text_is_clean(model.decode(real_passage), min_chars=hcm.write_min_chars)
             wrote = hcm.write(model.S.detach().clone(), surp.item(),
-                              from_action=(pred_token == c.remember_id))
+                              from_action=(pred_token == c.remember_id),
+                              target_token=target_tok,
+                              target_embed=target_emb,
+                              recent_tokens=real_passage, quality_ok=clean)
             if wrote:
                 hcm_writes += 1
-            retrieved, sim = hcm.read(model.S.detach())
+            retrieved, sim, stored_targets, recalled_ids, _recalled_ctx = hcm.read(model.S.detach())
             if retrieved is not None:
                 model.hcm_pending = retrieved
+                if getattr(model.cfg, "ctx_anchor", False):
+                    model.anchor_vec = retrieved.detach()
+                hcm.record_target_match(recalled_ids, int(ids_seg[t + 1]))
                 hcm_reads += 1
+                # BUG FIX: removed crutch loss — it penalized the model for
+                # predicting the same token that recall suggested, which is
+                # exactly what recall is supposed to help predict.
+                # Record recall outcome: measure if prediction improved
+                hcm._pending_recall_ids = recalled_ids
+                hcm._pending_loss_before = loss_t.item()
     if lambda_shape > 0 and pin_mask is not None:
         tau_raw = c.tau_min + F.softplus(model.tau_net(model.S))
         tau_clamped = torch.clamp(tau_raw, c.tau_min, c.tau_max)
@@ -162,26 +247,28 @@ def driven_pass(model, ids_seg, teacher_p, w_persist, w_surp, w_rep_cos=0.0, tau
 
 def self_pass(model, steps=24, w_var=0.5, w_norm=0.0, norm_bound=10.0,
               pin_mask=None, pin_tau_min=2.0, lambda_shape=0.0, target_std=0.35,
-              hcm=None, w_consolidation=0.2):
+              hcm=None, w_consolidation=0.2, hb_callback=None, global_step=0):
     model.reset_state(noise=0.2)
     c = model.cfg
     total = 0.0
     traj = []
     hcm_reads = 0
-    for _ in range(steps):
+    for i in range(steps):
         pred = model.self_pred(model.S)
         logits, _ = model.step(None, pin_mask=pin_mask, pin_tau_min=pin_tau_min)
+        if hb_callback is not None:
+            hb_callback(global_step + i, model)
         total = total + F.mse_loss(pred, model.S.detach()) / steps
         traj.append(model.S.detach().clone())
         if hcm is not None and logits is not None:
             if int(logits.argmax().item()) == c.remember_id:
-                retrieved, sim = hcm.read(model.S.detach())
+                retrieved, sim, _stored_targets, _recalled_ids, _recalled_ctx = hcm.read(model.S.detach())
                 if retrieved is not None:
                     model.hcm_pending = retrieved
                     hcm_reads += 1
     consolidation_loss = torch.tensor(0.0)
     consolidation_events = 0
-    if hcm is not None and hcm.n_patterns > 0 and hcm.action_writes > 0:
+    if hcm is not None and hcm.n_patterns > 0:
         idx = torch.randint(0, hcm.n_patterns, (1,)).item()
         stored_trace = hcm.patterns[idx]
         consolidation_loss = w_consolidation * F.mse_loss(model.S, stored_trace)
@@ -202,16 +289,43 @@ def self_pass(model, steps=24, w_var=0.5, w_norm=0.0, norm_bound=10.0,
 
 
 @torch.no_grad()
-def eval_health(model, steps=200, grain=0.25, k_lag=8):
-    g = torch.Generator(device="cpu").manual_seed(777)
+def eval_health(model, steps=200, grain=0.25, k_lag=8, heartbeat=None):
+    """CDT-alive is a property of the CLOSED-LOOP law (heartbeat included, 5.9.1/5.9.3):
+    roll WITH the virtual heartbeat (the operating system) and report its d_s/rho, plus an
+    OPEN-LOOP roll with kicks stopped as the relapse counterfactual ('stop the kicks =>
+    relapse'). rescue_kicks = floor fires (near-exact recurrence) during the closed roll."""
+    g = torch.Generator().manual_seed(777)
     model.reset_state(noise=0.1, generator=g)
-    traj = []
-    confs = []
-    for _ in range(steps):
+    traj, confs = [], []
+    rescue_kicks = 0
+    closed_kicks = 0
+    for i in range(steps):
+        if heartbeat is not None:
+            o = heartbeat.live_update(i, model)
+            if o.get("hb_amp") is not None:
+                closed_kicks += 1
+                if float(o.get("hb_mp") or float("inf")) < heartbeat.hb_novelty_floor:
+                    rescue_kicks += 1
         logits, _ = model.step(None)
         confs.append(float(F.softmax(logits, dim=-1).max()))
         traj.append(model.S.detach().clone())
-    traj = torch.stack(traj).cpu()
+    h_closed = _health_metrics(model, torch.stack(traj).cpu(), confs, steps, grain, k_lag)
+    h_closed["rescue_kicks"] = rescue_kicks
+    h_closed["closed_kicks"] = closed_kicks
+    if heartbeat is not None:
+        model.reset_state(noise=0.1, generator=g)
+        traj, confs = [], []
+        for _ in range(steps):
+            logits, _ = model.step(None)
+            confs.append(float(F.softmax(logits, dim=-1).max()))
+            traj.append(model.S.detach().clone())
+        h_open = _health_metrics(model, torch.stack(traj).cpu(), confs, steps, grain, k_lag)
+        for k in ("d_s", "rho_exact", "state_regime", "sites"):
+            h_closed[f"{k}_open"] = h_open[k]
+    return h_closed
+
+
+def _health_metrics(model, traj, confs, steps, grain, k_lag):
     norms = traj.norm(dim=1)
 
     def _win(t0, w=8):
@@ -263,6 +377,17 @@ def eval_health(model, steps=200, grain=0.25, k_lag=8):
     with torch.no_grad():
         tau = torch.clamp(c.tau_min + F.softplus(model.tau_net(model.S)), c.tau_min, c.tau_max)
         tau_pinned = float((tau > 0.9 * c.tau_max).float().mean())
+    nu_state = correlation_dimension(traj)
+    beta_state = msd_exponent(traj)
+    d_w_state = (2.0 / beta_state) if (beta_state == beta_state and beta_state > 0) else None
+    # CDT life/death theorem (theory 5.8): Life <=> (d_s = 2*nu/d_w <= 2) AND gamma>0.
+    #   d_s <= 2  (nu <= d_w) -> RECURRENT manifold  = life-CAPABLE base (outer wall OK)
+    #   d_s >  2  (nu >  d_w) -> TRANSIENT manifold   = forgetting/death (repulsion only accelerates it)
+    # Life itself additionally needs gamma>0 (repulsion) to suppress exact lock (rho_exact~0) -> rhyme not exact.
+    if d_w_state is not None:
+        state_regime = "recurrent/base (life-capable)" if nu_state <= d_w_state else "transient/forgetting (death)"
+    else:
+        state_regime = "n/a"
     return {"rho_exact": round(rho, 4), "sites": int((counts > 0).sum()),
             "entropy_norm": round(ent_norm, 4), "sign_hat": round(sign_hat, 3),
             "rms": round(rms, 4),
@@ -270,6 +395,12 @@ def eval_health(model, steps=200, grain=0.25, k_lag=8):
             "spread_rms": round(rms, 4),
             "excursion": excursion,
             "chi_motion": chi,
+            "nu_state": round(nu_state, 3) if nu_state == nu_state else None,
+            "beta_state": round(beta_state, 3) if beta_state == beta_state else None,
+            "d_w_state": round(d_w_state, 3) if d_w_state is not None else None,
+            "state_regime": state_regime,
+            "d_s": (round(2.0 * nu_state / d_w_state, 3)
+                    if (d_w_state is not None and d_w_state > 0) else None),
             "tau_mean": round(float(tau.mean()), 2),
             "tau_pinned_frac": round(tau_pinned, 3)}
 
@@ -280,7 +411,7 @@ def eval_generation_health(model, prompts=("hello", "the little girl"), tokens=4
     """Directive 1 + 5 groundwork: volume metrics for the OUTPUT stream.
     CE falling while these fall = training a template (CDT 3.17 blind spot).
     Anti-crutch: fugazee detection via S-vector similarity to stored traces."""
-    g = torch.Generator(device="cpu").manual_seed(4242)
+    g = torch.Generator().manual_seed(4242)
     texts, traj = [], []
     for p in prompts:
         model.reset_state(noise=0.05, generator=g)
@@ -325,6 +456,152 @@ def eval_generation_health(model, prompts=("hello", "the little girl"), tokens=4
             "gen_repeat_frac": round(repeats, 4),
             "gen_sites": cid,
             "fugazee_rate": round(fugazee_rate, 4)}
+
+
+class HeartbeatWatchdog:
+    """CDT §5.9 virtual heartbeat: an EXTERNAL, state-triggered feedback controller
+    that kicks the self at the death-boundary. Faithful to the theory:
+
+      * Optimal trigger = the boundary (§5.9.2/§5.9.8), NOT "earlier" and NOT after
+        deep relaxation. We fire when the projected time-to-basin
+        t_A = dist(X_t, A) / |flow| drops below horizon H.
+      * Inner wall (lock-in, rho_exact->1): boundary = next free step is an exact
+        recurrence. Monitored PER-STEP via mp_t = min past-distance to the H window
+        (§5.9.2). Predictive ttl on mp_t's decline; also a hard floor.
+      * Outer wall (forgetting, d_s->2): boundary = d_s = 2.0 (not 1.8). Monitored
+        at eval cadence with predictive slope (slow drift).
+      * Kick is ON-MANIFOLD and AIMED (§5.9.4 outer-wall guard): direction =
+        (S - centroid(H)), i.e. away from the recent cluster -> raises novelty,
+        tangent to the occupied manifold, so it defends the inner wall without
+        breaching the outer one. Magnitude capped (xi_max).
+      * Decoupled external controller (§5.9.5): the watchdog reads state but is not
+        part of the death loop -> it can still rescue when gamma_int -> 0.
+    """
+
+    def __init__(self, hb_gain=1.5, hb_amp_max=100.0, hb_horizon_steps=300.0,
+                 hb_min_gap=5, hb_amp_floor=0.05, hb_novelty_floor=0.5,
+                 hb_inner_rho=0.05, hb_reach=0.3):
+        self.hb_gain = hb_gain
+        self.hb_amp_max = hb_amp_max       # ξ_max safety cap (kick is on-manifold -> can be large)
+        self.hb_horizon_steps = hb_horizon_steps
+        self.hb_min_gap = hb_min_gap
+        self.hb_amp_floor = hb_amp_floor
+        self.hb_novelty_floor = hb_novelty_floor
+        self.hb_inner_rho = hb_inner_rho
+        self.hb_reach = hb_reach           # L1: S-displacement as fraction of manifold scale W(t)
+        self.history = []          # (step, d_s, rho_exact)  -- outer wall (eval cadence)
+        self.mp_history = []       # per-step min-past-distance (inner wall)
+        self.last_kick_step = -10**9
+        self.total_kicks = 0
+        self.last_wall = None
+
+    # L1 reach: kick magnitude scaled to the manifold scale W(t) so it can actually
+    # reach a fresh site (§5.10 L1); on-manifold direction keeps L4 satisfied.
+    def _reach_amp(self, W, model):
+        W = max(float(W), 1e-3)
+        D = self.hb_reach * W                       # desired S-displacement
+        amp = D / (model.cfg.dt / model.cfg.substeps * model.cfg.hb_hold)
+        amp = min(amp, self.hb_amp_max)
+        amp = max(amp, self.hb_amp_floor)
+        return amp, D, W
+
+    # ---- outer wall: eval-cadence, predictive at the boundary d_s = 2.0 -------
+    def update(self, step, h, model):
+        ds = None
+        if h.get("d_w_state") is not None and h.get("nu_state") is not None and h["d_w_state"] > 0:
+            ds = 2.0 * h["nu_state"] / h["d_w_state"]
+        rho = h.get("rho_exact", 0.0)
+        self.history.append((step, ds, rho))
+        if len(self.history) > 8:
+            self.history.pop(0)
+        if (step - self.last_kick_step) < self.hb_min_gap:
+            return {"hb_fire": False, "d_s": ds,
+                    "hb_kicks_total": self.total_kicks, "hb_last_wall": self.last_wall}
+        target = 2.0                       # the actual boundary, not an early margin
+        margin = (target - ds) if ds is not None else None
+        fire = False
+        deficit = 0.0
+        if ds is not None:
+            if margin < 0:                # already past the outer wall
+                fire = True
+                deficit = abs(margin)
+            else:                         # predictive: ttl = margin / |d_s slope|
+                recent = [hh for hh in self.history if hh[1] is not None]
+                if len(recent) >= 2:
+                    s0, s1 = recent[0][0], recent[-1][0]
+                    d0, d1 = recent[0][1], recent[-1][1]
+                    if s1 - s0 > 0:
+                        slope = (d1 - d0) / (s1 - s0)
+                        if slope > 0:
+                            ttl = margin / slope
+                            if ttl < self.hb_horizon_steps:
+                                fire = True
+                                deficit = margin
+        if rho > self.hb_inner_rho:       # outer-wall guard also watches lock-in
+            fire = True
+            deficit = max(deficit, (rho - self.hb_inner_rho) * 2.0)
+        if not fire:
+            return {"hb_fire": False, "d_s": ds,
+                    "margin_outer": round(margin, 3) if margin is not None else None,
+                    "hb_kicks_total": self.total_kicks, "hb_last_wall": self.last_wall}
+        W = float(h.get("rms") or abs(h.get("com_radius", 0.0)) or 50.0)
+        amp, D, W = self._reach_amp(W, model)
+        model.request_heartbeat(amp)      # outer wall: on-manifold random dir is fine
+        self.last_kick_step = step
+        self.total_kicks += 1
+        self.last_wall = "outer"
+        return {"hb_fire": True, "d_s": ds,
+                "margin_outer": round(margin, 3) if margin is not None else None,
+                "hb_amp": round(amp, 4), "hb_W": round(W, 2), "hb_D": round(D, 2),
+                "hb_wall": "outer", "hb_kicks_total": self.total_kicks, "hb_last_wall": self.last_wall}
+
+    # ---- inner wall: PER-STEP monitor of novelty (min-past-distance) ----------
+    def live_update(self, step, model):
+        H = model.H.detach()
+        S = model.S.detach()
+        n = H.shape[0]
+        if n <= 4:
+            return {}
+        past = H[:n - 2]                  # skip the most recent few (self-comparison)
+        d = (S.unsqueeze(0) - past).norm(dim=1)
+        mp = float(d.min())
+        self.mp_history.append(mp)
+        if len(self.mp_history) > 200:
+            self.mp_history.pop(0)
+        if step - self.last_kick_step < self.hb_min_gap:
+            return {"hb_mp": round(mp, 2)}
+        base = sum(self.mp_history[-20:]) / min(len(self.mp_history), 20)
+        fire = False
+        deficit = 0.0
+        if mp < self.hb_novelty_floor:    # boundary: exact recurrence imminent
+            fire = True
+            deficit = max(0.0, base - mp)
+        if len(self.mp_history) >= 3:     # predictive: ttl = mp / |mp slope|
+            m0, m1 = self.mp_history[0], self.mp_history[-1]
+            slope = (m1 - m0) / len(self.mp_history)
+            if slope < 0:
+                ttl = mp / abs(slope)
+                if ttl < self.hb_horizon_steps:
+                    fire = True
+                    deficit = max(deficit, base - mp)
+        if not fire:
+            return {"hb_mp": round(mp, 2), "hb_kicks_total": self.total_kicks,
+                    "hb_last_wall": self.last_wall}
+        W = float(past.norm(dim=1).mean())          # manifold scale W(t)
+        amp, D, W = self._reach_amp(W, model)
+        # on-manifold, aimed direction: push away from the recent centroid -> novelty
+        centroid = past.mean(0)
+        direction = (S - centroid)
+        if direction.norm() < 1e-6:   # degenerate (S at centroid): pick any tangent
+            direction = past[0] - past[-1]
+        if direction.norm() < 1e-6:   # still degenerate: random (rare/atypical only)
+            direction = torch.randn_like(S)
+        model.request_heartbeat(amp, direction=direction)
+        self.last_kick_step = step
+        self.total_kicks += 1
+        return {"hb_fire": True, "hb_mp": round(mp, 2), "hb_amp": round(amp, 4),
+                "hb_W": round(W, 2), "hb_D": round(D, 2),
+                "hb_wall": "inner", "hb_kicks": self.total_kicks}
 
 
 class HealthGovernor:
@@ -404,28 +681,55 @@ def main():
     ap.add_argument("--ckpt_every", type=int, default=500)
     ap.add_argument("--resume", default="auto")
     ap.add_argument("--device", default="cpu")
-    ap.add_argument("--w_rep_cos", type=float, default=0.0)
-    ap.add_argument("--tau_cos", type=float, default=0.9)
+    ap.add_argument("--seed", type=int, default=1337)
+    ap.add_argument("--w_rep_cos", type=float, default=1.0, help="self-repulsion on state vs history (CDT: keeps net feedback repulsive, prevents attraction-lock)")
+    ap.add_argument("--tau_cos", type=float, default=0.5)
     ap.add_argument("--gov_target", type=float, default=0.12)
     ap.add_argument("--gov_w_floor", type=float, default=0.02)
     ap.add_argument("--gov_w_cap", type=float, default=2.0)
     ap.add_argument("--tau_max", type=float, default=None)
     ap.add_argument("--w_norm", type=float, default=0.1)
-    ap.add_argument("--norm_bound", type=float, default=10.0)
+    ap.add_argument("--norm_bound", type=float, default=40.0, help="container bound on ||S||; raising it stops the containment loss from squeezing S into subdiffusive (dead) drift")
+    ap.add_argument("--train_ids", type=str, default=None, help="override training token .npy (e.g. a small subset for many-epoch LM-competence runs)")
+    ap.add_argument("--val_ids", type=str, default=None, help="override validation token .npy (held-out slice of the same subset)")
     ap.add_argument("--w_action", type=float, default=0.5, help="action loss weight: penalizes low REMEMBER prob at high surprisal")
     ap.add_argument("--pin_carriers", default=None, help="path to carriers.json for pin system")
     ap.add_argument("--pin_tau_min", type=float, default=2.0, help="minimum tau for pinned dims")
     ap.add_argument("--lambda_shape", type=float, default=0.01, help="shape regularizer strength")
     ap.add_argument("--target_std", type=float, default=0.35, help="floor on non-pinned tau std")
     ap.add_argument("--hcm_max", type=int, default=512, help="HCM max patterns")
-    ap.add_argument("--hcm_threshold", type=float, default=0.3, help="HCM recall similarity threshold")
-    ap.add_argument("--hcm_topk", type=int, default=4, help="HCM top-k recall")
-    ap.add_argument("--hcm_write_thresh", type=float, default=1.5, help="HCM surprisal threshold for writes")
+    ap.add_argument("--hcm_threshold", type=float, default=0.8, help="HCM recall similarity threshold (high = confident/rhyme only, avoids damping drift)")
+    ap.add_argument("--hcm_topk", type=int, default=1, help="HCM top-k recall")
+    ap.add_argument("--hcm_write_thresh", type=float, default=1.5, help="hcm surprisal threshold for writes")
     ap.add_argument("--hcm_min_age", type=int, default=10, help="HCM min steps before pattern can be recalled")
     ap.add_argument("--curriculum_warmup", type=int, default=500, help="steps of full REMEMBER injection")
     ap.add_argument("--curriculum_cooldown", type=int, default=1000, help="steps to decay injection to zero")
-    ap.add_argument("--consolidation_gain", type=float, default=0.2, help="consolidation replay strength (0=off)")
+    ap.add_argument("--consolidation_gain", type=float, default=0.1, help="consolidation replay strength (0=off)")
     ap.add_argument("--no_hcm", action="store_true", help="disable HCM entirely (prediction-only mode)")
+    ap.add_argument("--train_mouth", action="store_true",
+                    help="opt in to fine-tuning embed+readout during coupling. DEFAULT IS FROZEN: "
+                         "the read-only-mouth rule applied at parameter level keeps the pretrained "
+                         "grammar intact (coupling fine-tuning unlearns it, CE 3.6 -> 7.5)")
+    ap.add_argument("--cross_attn", action="store_true",
+                    help="build the Broca-layer readout: token voice cross-attends to the brain "
+                         "trajectory H as its source. Readout is trained fresh (no lm_readout.pt "
+                         "load — shapes differ), so pass --train_mouth.")
+    ap.add_argument("--finetune_bridge", action="store_true",
+                    help="unfreeze ONLY the Broca cross-attention sublayers (readout.ctx_tf.*.cross.*) "
+                         "so the bridge adapts to the real brain trajectory H distribution, while "
+                         "keeping the frozen voice competent (grammar intact, CE stable).")
+    ap.add_argument("--lm_pretrain", type=str, default=None,
+                    help="path to a pretrain_lm.py run; loads readout.pt+emb.pt so LM competence is present from step 0")
+    ap.add_argument("--heartbeat", action="store_true",
+                    help="enable the CDT §5.9 virtual heartbeat watchdog (state-triggered external rescue at the death boundary)")
+    ap.add_argument("--hb_inner_rho", type=float, default=0.05)
+    ap.add_argument("--hb_gain", type=float, default=1.5)
+    ap.add_argument("--hb_amp_max", type=float, default=100.0, help="xi_max safety cap on kick drive-magnitude; kick is on-manifold so large values allowed (L1 reach)")
+    ap.add_argument("--hb_horizon_steps", type=float, default=300.0, help="predictive horizon: fire when time-to-basin < this (steps)")
+    ap.add_argument("--hb_min_gap", type=int, default=5, help="min steps between kicks")
+    ap.add_argument("--hb_amp_floor", type=float, default=0.05)
+    ap.add_argument("--hb_reach", type=float, default=0.3, help="L1 reach: kick S-displacement as fraction of manifold scale W(t)")
+    ap.add_argument("--hb_novelty_floor", type=float, default=0.5, help="inner-wall boundary: fire if min-past-distance drops below this")
     args = ap.parse_args()
     args.base_self_ratio = args.self_ratio
     args.base_w_norm = args.w_norm
@@ -440,15 +744,61 @@ def main():
             f.write(json.dumps(obj) + "\n")
 
     device = args.device
-    torch.manual_seed(1337)
-    random.seed(1337)
+    torch.manual_seed(args.seed)
+    random.seed(args.seed)
+    np.random.seed(args.seed)
 
-    train_ids = get_ids(IDS_CACHE, ROOT / "corpus" / "data" / "train.txt")
-    val_ids = get_ids(VAL_IDS_CACHE, ROOT / "corpus" / "data" / "val.txt")
+    if args.train_ids:
+        train_ids = np.load(args.train_ids)
+    else:
+        train_ids = get_ids(IDS_CACHE, ROOT / "corpus" / "data" / "train.txt")
+    if args.val_ids:
+        val_ids = np.load(args.val_ids)
+    else:
+        val_ids = get_ids(VAL_IDS_CACHE, ROOT / "corpus" / "data" / "val.txt")
 
-    model = ZeusCore().to(device)
+    # Mouth (readout) shape: readout knobs come from the pretrain run's
+    # run_config.json (authoritative), else from the resumed ckpt config, else
+    # defaults (which keep legacy checkpoints shape-identical).
+    mouth_cfg = {}
+    if args.lm_pretrain is not None:
+        rc = pathlib.Path(args.lm_pretrain) / "run_config.json"
+        if rc.exists():
+            mouth_cfg = json.loads(rc.read_text(encoding="utf-8"))
+    model_cfg = ZeusConfig()
+    if args.cross_attn:
+        model_cfg.cross_attn = True
+    for k in ("readout_layers", "readout_ffn_mult", "readout_heads", "ctx_anchor", "cross_attn"):
+        if k in mouth_cfg:
+            setattr(model_cfg, k, mouth_cfg[k])
+    ckpts = sorted(save_dir.glob("zeus_step*.pt"))
+    resume_payload = None
+    if args.resume == "auto" and ckpts:
+        resume_payload = torch.load(ckpts[-1], map_location=device, weights_only=False)
+        pc = resume_payload.get("config") or {}
+        for k in ("readout_layers", "readout_ffn_mult", "readout_heads", "ctx_anchor", "cross_attn"):
+            if k in pc:
+                setattr(model_cfg, k, pc[k])
+    model = ZeusCore(model_cfg).to(device)
     if args.tau_max is not None:
         model.cfg.tau_max = args.tau_max
+    # Load a standalone-LM-pretrained readout + shared embedding so language
+    # competence is present from step 0 (the coupled loss alone never trains it).
+    # For cross_attn (Broca) models the readout is shape-compatible (loaded with
+    # strict=False: the kv_ln norm added for H-scale handling is absent from old
+    # stage-1 checkpoints and simply stays at its LayerNorm-identity default,
+    # then --finetune_bridge adapts it to the real brain trajectory H).
+    if args.lm_pretrain is not None:
+        rd = pathlib.Path(args.lm_pretrain)
+        emb_ckpt = torch.load(rd / "emb.pt", map_location=device, weights_only=True)
+        model.embed.load_state_dict(emb_ckpt)
+        ro_ckpt = torch.load(rd / "readout.pt", map_location=device, weights_only=True)
+        model.readout.load_state_dict(ro_ckpt, strict=not getattr(model_cfg, "cross_attn", False))
+        log({"event": "lm_pretrain_loaded", "path": str(rd),
+             "readout_layers": model.cfg.readout_layers,
+             "readout_ffn_mult": model.cfg.readout_ffn_mult,
+             "ctx_anchor": model.cfg.ctx_anchor,
+             "cross_attn": getattr(model_cfg, "cross_attn", False)})
     model.train()
 
     pin_mask = None
@@ -464,9 +814,41 @@ def main():
              "target_std": args.target_std})
 
     dyn, lm = dyn_lm_params(model)
+    if args.finetune_bridge:
+        # Bridge-only fine-tune: freeze the whole mouth except the cross-attn
+        # sublayers, so Broca's language competence stays intact (grammar does not
+        # unlearn) but the intent bridge adapts to reading the real brain H.
+        for n, p in model.named_parameters():
+            if n.startswith(("embed", "readout")):
+                p.requires_grad_(not n.endswith((".cross.wq.weight", ".cross.wk.weight",
+                                                 ".cross.wv.weight", ".cross.out.weight",
+                                                 ".cross.out.bias", ".cross.kv_ln.weight",
+                                                 ".cross.kv_ln.bias")))
+    elif not args.train_mouth:
+        for n, p in model.named_parameters():
+            if n.startswith(("embed", "readout")):
+                p.requires_grad_(False)
+    lm = [p for p in lm if p.requires_grad]
     opt = torch.optim.AdamW([{"params": dyn, "lr": args.lr_dyn}, {"params": lm, "lr": args.lr_lm}])
     ctrl = TeacherController()
     governor = HealthGovernor(args.gov_target, args.gov_w_floor, args.gov_w_cap)
+    watchdog = None
+    if args.heartbeat:
+        model.cfg.hb_enabled = True
+        model.cfg.hb_inner_rho = args.hb_inner_rho
+        model.cfg.hb_gain = args.hb_gain
+        model.cfg.hb_amp_max = args.hb_amp_max
+        model.cfg.hb_min_gap = args.hb_min_gap
+        model.cfg.hb_amp_floor = args.hb_amp_floor
+        watchdog = HeartbeatWatchdog(args.hb_gain, args.hb_amp_max, args.hb_horizon_steps,
+                                     args.hb_min_gap, args.hb_amp_floor,
+                                     args.hb_novelty_floor, args.hb_inner_rho,
+                                     hb_reach=args.hb_reach)
+        log({"event": "heartbeat_enabled",
+             "hb_inner_rho": args.hb_inner_rho, "hb_gain": args.hb_gain,
+             "hb_amp_max": args.hb_amp_max, "hb_horizon_steps": args.hb_horizon_steps,
+             "hb_reach": args.hb_reach, "hb_novelty_floor": args.hb_novelty_floor,
+             "hb_min_gap": args.hb_min_gap})
     clock = ChiClock(res=CHI_RES, revisit_credit=CHI_REVISIT_CREDIT)
     clock.load_counts(save_dir / "chi_state.json")
     clock_fine = ChiClock(res=CHI_RES_FINE, revisit_credit=CHI_REVISIT_CREDIT)
@@ -476,33 +858,32 @@ def main():
     if not args.no_hcm:
         hcm = HCM(model.cfg.dim, max_patterns=args.hcm_max, recall_threshold=args.hcm_threshold,
                   top_k=args.hcm_topk, write_surp_thresh=args.hcm_write_thresh,
-                  min_age=args.hcm_min_age, device=device)
+                  min_age=args.hcm_min_age, n_clusters=32, device=device)
         model.hcm = hcm
     curriculum_prob = 1.0 if hcm is not None else 0.0
 
     start = 0
-    ckpts = sorted(save_dir.glob("zeus_step*.pt"))
-    if args.resume == "auto" and ckpts:
+    if resume_payload is not None:
         latest = ckpts[-1]
-        payload = torch.load(latest, map_location=device, weights_only=False)
-        model.load_state_dict(payload["model"])
-        opt.load_state_dict(payload["opt"])
-        ctrl.load(payload.get("controller"))
-        governor.load(payload.get("governor"))
-        clock.load(payload.get("chi_clock"))
-        if "hcm" in payload:
-            hcm.load_state_dict(payload["hcm"])
-        start = payload["step"]
-        if "self_ratio" in payload:
-            args.self_ratio = payload["self_ratio"]
-        if "w_norm" in payload:
-            args.w_norm = payload["w_norm"]
+        model.load_state_dict(resume_payload["model"])
+        opt.load_state_dict(resume_payload["opt"])
+        ctrl.load(resume_payload.get("controller"))
+        governor.load(resume_payload.get("governor"))
+        clock.load(resume_payload.get("chi_clock"))
+        if "hcm" in resume_payload:
+            hcm.load_state_dict(resume_payload["hcm"])
+        start = resume_payload["step"]
+        if "self_ratio" in resume_payload:
+            args.self_ratio = resume_payload["self_ratio"]
+        if "w_norm" in resume_payload:
+            args.w_norm = resume_payload["w_norm"]
         log({"event": "resume", "from_step": start, "ckpt": latest.name})
-    elif not ckpts:
+    else:
         log({"event": "fresh_start"})
 
     t0 = time.time()
     prev_s = model.S.detach().cpu().clone()
+    state_history = [prev_s.clone()]
     for step in range(start + 1, args.steps + 1):
         if hcm is not None:
             if step <= args.curriculum_warmup:
@@ -516,7 +897,9 @@ def main():
             m = self_pass(model, w_norm=args.w_norm, norm_bound=args.norm_bound,
                           pin_mask=pin_mask, pin_tau_min=args.pin_tau_min,
                           lambda_shape=args.lambda_shape, target_std=args.target_std,
-                          hcm=hcm, w_consolidation=args.consolidation_gain)
+                          hcm=hcm, w_consolidation=args.consolidation_gain,
+                          hb_callback=(watchdog.live_update if watchdog else None),
+                          global_step=step)
             entry = {"step": step, **{k: round(v, 5) for k, v in m.items()}}
         else:
             off = random.randint(0, len(train_ids) - args.bptt - 1)
@@ -527,7 +910,10 @@ def main():
                             pin_mask=pin_mask, pin_tau_min=args.pin_tau_min,
                             lambda_shape=args.lambda_shape, target_std=args.target_std,
                             hcm=hcm, curriculum_prob=curriculum_prob,
-                            w_action=args.w_action)
+                            w_action=args.w_action,
+                            hb_callback=None,  # heart beats on the free walk only (self_pass);
+                            #  token-fed steps cannot recur, so driven kicks are wasted energy
+                            global_step=step)
             event = ctrl.observe(m["ce"])
             entry = {"step": step, **{k: round(v, 5) for k, v in m.items()}, **(event or {}),
                      "curriculum_prob": round(curriculum_prob, 4)}
@@ -541,7 +927,16 @@ def main():
             clock_fine.update(model.S.detach().cpu(), step, moved=moved)
             if hcm is not None:
                 hcm.decay()
+                # CDT consolidation: prune patterns far from current trajectory
+                # every 100 steps to keep memory manifold in recurrent regime
+                if step % 100 == 0 and step > 0:
+                    n_pruned = hcm.consolidate(model.S.detach(), drift_threshold=0.15)
+                    if n_pruned > 0:
+                        entry["hcm_pruned"] = n_pruned
             prev_s = model.S.detach().cpu().clone()
+            state_history.append(prev_s.clone())
+            if len(state_history) > 500:
+                state_history = state_history[-500:]
         if step % 25 == 0 and clock.glass_alarm() and clock_fine.glass_alarm():
             rf = clock.rarefaction()
             log({"step": step, "event": "CHI_GLASS_ALARM",
@@ -553,9 +948,10 @@ def main():
             log(entry)
         if step % args.eval_every == 0:
             v = val_ce(model, val_ids)
-            h = eval_health(model)
+            h = eval_health(model, heartbeat=watchdog)
             h["gen"] = eval_generation_health(model)
             gv = governor.update(model, h, args)
+            hb = watchdog.update(step, h, model) if watchdog is not None else {}
             snap = clock.snapshot()
             snap_fine = clock_fine.snapshot()
             carrier_log = {}
@@ -572,8 +968,8 @@ def main():
                  "health": h, "chi_cells": snap, "chi_fine": {k: v for k, v in snap_fine.items()
                                                               if k in ("chi", "minted", "cells_visited",
                                                                        "singletons", "doubletons", "sd_ratio")},
-                 "carrier": carrier_log, "hcm": hcm.snapshot() if hcm is not None else {},
-                 **gv})
+                  "carrier": carrier_log, "hcm": {**hcm.snapshot(), **hcm.compute_manifold_metrics(state_history)} if hcm is not None else {},
+                  **gv, **hb})
         if step % args.ckpt_every == 0 or step == args.steps:
             model.save(save_dir, step, extra={"controller": ctrl.state(), "opt": opt.state_dict(),
                                               "governor": governor.state(), "self_ratio": args.self_ratio,

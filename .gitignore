@@ -19,4 +19,21 @@ Thumbs.db
 .DS_Store
 
 corpus/raw/
-corpus/data/
+corpus/data/*
+!corpus/data/tokenizer/
+!corpus/data/stats.json
+
+# Scratch / train outputs (logs + checkpoints; code is versioned)
+runs/
+experiments/**/zeus*.pt
+experiments/**/*.jsonl
+experiments/**/train.log
+
+# Accidental nested repo at Zeus/
+/Zeus/
+
+# Milestone backups stay local-only (417-488MB each, over GitHub's 100MB hard limit)
+zeus_sandbox/universe/shadow/milestone.pt.pre-*
+
+# Training telemetry side-logs
+*.log

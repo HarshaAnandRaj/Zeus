@@ -21,6 +21,30 @@ BOOKS = {
     1998: "twenty_thousand_leagues",
     76: "huckleberry_finn",
     9040: "blue_fairy_book",
+    # --- expansion: classic prose ---
+    84: "frankenstein",
+    1342: "pride_and_prejudice",
+    98: "tale_of_two_cities",
+    1661: "sherlock_holmes_adventures",
+    74: "tom_sawyer",
+    43: "dracula",
+    768: "wuthering_heights",
+    158: "emma",
+    514: "little_women",
+    5200: "the_metamorphosis",
+    2542: "the_odyssey",
+    103: "around_the_world_in_eighty_days",
+    1400: "great_expectations",
+    730: "oliver_twist",
+    1260: "jane_eyre",
+    17989: "count_of_monte_cristo",
+    996: "don_quixote",
+    20781: "heidi",
+    # --- expansion: dialogue-heavy plays ---
+    844: "importance_of_being_earnest",
+    3825: "pygmalion",
+    1513: "romeo_and_juliet",
+    1519: "much_ado_about_nothing",
 }
 
 START_RE = re.compile(r"\*\*\*\s*START OF (?:THE|THIS) PROJECT GUTENBERG EBOOK[^*]*\*\*\*", re.I)

@@ -117,7 +117,7 @@ def main():
                                   from_action=(pred_token == cfg.remember_id))
                 if wrote:
                     hcm_writes += 1
-                retrieved, sim = hcm.read(model.S.detach())
+                retrieved, sim, _, _, _ = hcm.read(model.S.detach())
                 if retrieved is not None:
                     model.hcm_pending = retrieved
                     hcm_reads += 1
