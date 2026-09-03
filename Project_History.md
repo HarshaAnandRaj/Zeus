@@ -848,3 +848,115 @@ the larger dedup'd corpus, or (b) the already-built decode guard-rails (n-gram
 blocker, best-of-k) acting as a functional crutch on a model that cannot yet
 free-run. Kernel: any future "fluency" claim must be judged by sustained free-run
 legibility (loop penalty + legibility across a full reply), not a 1–3-token tail.
+
+### Decode-robustness ceiling check (2026-09-03) — crutch does NOT rescue stage1c
+
+The previous decision note left open whether the decode guard-rails (n-gram
+blocker, best-of-k) could function as a crutch on the frozen voice. We measured
+the ceiling directly: `training/decode_robust_ceiling.py` →
+`reports/decode_robust_ceiling.json` (HCM off, primary) and
+`reports/decode_robust_ceiling_hcm_on.json` (secondary). Both checkpoints × 4
+modes (baseline / blk4 / best2 / best3) × 16 seeds × 5 prompts × 48-token
+replies, live knobs (temp 0.68 / top-p 0.92 / rep-penalty 1.2 / blk order 4).
+Every (checkpoint, mode, prompt, seed) cell covered; fixed seeds → byte-identical
+replies across runs (deterministic). Per-reply: loop_score, legibility_score,
+degeneration onset, unique 2/3/4-grams, repeat-span fraction, blocker veto count,
+best-of-k candidate scores, first-token CE.
+
+**Metrics blind spot found:** the decode_robust `legibility_score`/`loop_score`
+are word-based, so they rate token-fragment loops ("Geva Geva", "ctirdctird") as
+legible and miss structural-template loops (the `|| LINEAR || Socorro ||` table)
+whose word content never actually repeats. A naive `leg≥0.6 AND loop≤0.3` gate
+falsely marks broca 99% successful. **A strict gate (`leg≥0.6`, `loop≤0.3`,
+onset≥8, rep_span_frac≤0.3)** is the honest separator and is used below.
+
+**Strict full-reply success fraction (of 80 per cell):**
+
+| checkpoint | HCM | baseline | blk4 | best2 | best3 | med onset(blk3/best3) |
+|---|---|---|---|---|---|---|
+| stage1c_live | off | **2/80** | **5/80** | 0/80 | 0/80 | 3.0 → 6.5 |
+| stage1c_live | on | 1/80 | 0/80 | 0/80 | 0/80 | 6.0 → 6.0 |
+| broca_voice | off | 30/80 | 33/80 | 31/80 | **38/80** | 8.5 → **15.5** |
+| broca_voice | on | 24/80 | 31/80 | 31/80 | 30/80 | 7.5 → 9.0 |
+
+**Verdict — stage1c (the frozen production voice): NO RESCUE.** Across all decode
+modes, `frac_never_loop` = 0.00 and median degeneration onset is 3–6 tokens. The
+blocker drives exact-token 4-gram diversity to 100% yet the replies stay junk
+(frac_unique4→1.00 while legibility stays 0): the degeneration is a **structural
+template loop** (table markup with fresh digits each pass), which the token-level
+blocker cannot veto and best-of-k cannot rank away (every candidate scores
+leg=0, so there is nothing legible to select). Best-of-k is actively harmful here
+(0/80) — `_best_key` orders by `loop_score` first, so template junk (loop≈0)
+beats any word-loop regardless of legibility. On stage1c the decode crutch is
+**not** a substitute for real generalization.
+
+**Verdict — broca (old voice): COSMETIC→USEFUL at best3.** best3 lifts strict
+success to 38/80 and nearly doubles median onset (8.5→15.5); blocker/best2 give
+small gains over baseline. But this is the older, non-deployed voice, and its
+"successes" still include fragment loops the word-scorer is lenient on.
+
+**Decision implication:** the 40–60M corpus probe cannot lean on the decode
+crutch — for the frozen production voice the crutch is inert against the dominant
+structural loop. Real free-run capability (real generalization on a larger
+dedup'd corpus) is the only route that makes either the voice or the attribution
+questions well-posed. If the probe cannot yield sustained free-run legibility,
+the architecture itself (deploy-shape readout / right-aligned ring layout) needs
+revisiting rather than more decode-time patching. The live production `router()`
+should also be hardened to reject structural/template loops (target the table
+junk `frac_unique4→1.00`-with-low-legibility signature), since its current
+word-based scoring can pass degenerate replies as "legible."
+
+### free_run_gate built + ceiling numbers corrected (2026-09-03) — both voices 0/80 under the authoritative gate
+
+The ceiling section above used a "strict" gate that was still too lenient: it
+added onset/rep-span but retained word-based `alpha/word_frac` proxies and had
+**no invented-lexicon (neologism) signal**, so it still false-passed gibberish
+and rated broca's fragment loops as "legible." Per the 09-03 directive
+("fix or bypass the word-based metrics before using them in any gate"), we
+built the authoritative evaluator `training/free_run_gate.py` and re-ran the
+ceiling data with it.
+
+**`training/free_run_gate.py`** — pure-string metric layer + gate, no model
+calls. Metrics: token/fragment repetition onset, repeated-span fraction,
+periodic *template*-period detection (catches the wiki-table attractor even
+when token n-gram novelty is 100%), normalized token/word n-gram novelty
+(frac_unique{2,3,4}), alpha/markup/symbol ratios, token word/fragment shape,
+**minimum sustained legibility over sliding windows** (whole-reply, not tail),
+and **`neolog_frac`** — the decisive new signal that flags invented-lexicon
+sprawl (words absent from a known-words set derived from the training corpus).
+Gate: `onset≥8` AND `rep_span_frac≤0.30` AND `sustained_leg≥0.60` AND
+`alpha≥0.60` AND `word_frac≥0.55` AND `markup≤0.10` AND `symbol≤0.25` AND no
+template period AND `neolog_frac≤0.10`. Aggregate returns Wilson 95% CI and a
+failure-reason histogram. 9 `unittest` cases pass; validated to separate known
+good prose from all three real failure modes (structural-template, fragment
+loop, invented lexicon) — including the `ottraz…`/`inemanzanz…` replies the
+old scorer rated leg=1.0/loop=0.0.
+
+**Corrected re-analysis of the ceiling data (`reports/free_run_gate_reanalysis.json`)**
+— both checkpoints, all 4 modes, both HCM states: **pass fraction = 0/80 in
+every cell (Wilson CI upper bound ≤0.05).** The earlier "broca 38/80
+cosmetic→useful at best3" reading is **overturned**: under the authoritative
+gate broca produces slightly-less-junk fragment/news-loop output but still
+fails `word_frac`/`rep_span`/`sustained_leg` on every reply. The dominant
+universal failure reasons are `rep_span` (80/80), `word_frac` (80/80),
+`sustained_leg` and `early onset`.
+
+**Consequences for the probe:**
+- The old word-based router/`_best_key` metrics are **not** usable as a gate
+  (they under-detect fragment and invented-lexicon junk). They remain
+  diagnostics only; the live router must be migrated to `free_run_gate`
+  *after* further validation, per the directive.
+- The conclusion strengthens: **neither voice can free-run at all, and the
+  decode crutch rescues nothing.** This is now measured with a gate that
+  correctly flags every known bad sample and passes real prose, so the 0/80
+  is trustworthy, not a too-strict artifact.
+- The corpus probe (next sections) will gate progress on `free_run_gate`
+  full-reply pass fraction + onset, judged against held-out documents across
+  ≥2 domains, with teacher-forced CE secondary only.
+
+**Phase status (09-03):** environment OK (RTX 4060 8.6GB, 560GB free, 31.6GB
+RAM, HF+Gutenberg reachable). free_run_gate built + validated; ceiling numbers
+corrected to 0/80 everywhere. Next: corpus-builder upgrade, data sourcing,
+probe training harness (full optimizer/RNG checkpoint), 200–500-step smoke
+test, then the primary (clean, no-wiki, HCM-off, no-crutch) + ablation
+(5–10% cleaned-wiki) runs.

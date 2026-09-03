@@ -1,0 +1,325 @@
+{
+  "primary_hcm_off": {
+    "stage1c": {
+      "baseline": {
+        "new_strict_pass": 0.0,
+        "n": 80,
+        "k": 0,
+        "ci": [
+          0.0,
+          0.0458197362645751
+        ],
+        "reasons": {
+          "rep_span": 80,
+          "sustained_leg": 80,
+          "word_frac": 80,
+          "neolog": 17,
+          "early_onset": 74,
+          "alpha": 73,
+          "markup": 73,
+          "symbol": 73,
+          "periodic": 5
+        },
+        "med_onset": 2.0
+      },
+      "best2": {
+        "new_strict_pass": 0.0,
+        "n": 80,
+        "k": 0,
+        "ci": [
+          0.0,
+          0.0458197362645751
+        ],
+        "reasons": {
+          "early_onset": 72,
+          "rep_span": 80,
+          "sustained_leg": 80,
+          "alpha": 80,
+          "word_frac": 80,
+          "markup": 80,
+          "symbol": 80,
+          "neolog": 1
+        },
+        "med_onset": 1.0
+      },
+      "best3": {
+        "new_strict_pass": 0.0,
+        "n": 80,
+        "k": 0,
+        "ci": [
+          0.0,
+          0.0458197362645751
+        ],
+        "reasons": {
+          "early_onset": 75,
+          "rep_span": 80,
+          "sustained_leg": 80,
+          "alpha": 80,
+          "word_frac": 80,
+          "markup": 80,
+          "symbol": 80,
+          "neolog": 5
+        },
+        "med_onset": 1.0
+      },
+      "blk4": {
+        "new_strict_pass": 0.0,
+        "n": 80,
+        "k": 0,
+        "ci": [
+          0.0,
+          0.0458197362645751
+        ],
+        "reasons": {
+          "early_onset": 71,
+          "rep_span": 80,
+          "word_frac": 80,
+          "neolog": 17,
+          "sustained_leg": 75,
+          "alpha": 56,
+          "symbol": 57,
+          "markup": 56
+        },
+        "med_onset": 2.0
+      }
+    },
+    "broca": {
+      "baseline": {
+        "new_strict_pass": 0.0,
+        "n": 80,
+        "k": 0,
+        "ci": [
+          0.0,
+          0.0458197362645751
+        ],
+        "reasons": {
+          "early_onset": 54,
+          "rep_span": 80,
+          "sustained_leg": 47,
+          "word_frac": 80,
+          "markup": 1,
+          "neolog": 26,
+          "alpha": 1
+        },
+        "med_onset": 5.0
+      },
+      "best2": {
+        "new_strict_pass": 0.0,
+        "n": 80,
+        "k": 0,
+        "ci": [
+          0.0,
+          0.0458197362645751
+        ],
+        "reasons": {
+          "early_onset": 42,
+          "rep_span": 80,
+          "sustained_leg": 59,
+          "word_frac": 80,
+          "neolog": 20,
+          "alpha": 1
+        },
+        "med_onset": 7.0
+      },
+      "best3": {
+        "new_strict_pass": 0.0,
+        "n": 80,
+        "k": 0,
+        "ci": [
+          0.0,
+          0.0458197362645751
+        ],
+        "reasons": {
+          "early_onset": 63,
+          "rep_span": 80,
+          "word_frac": 80,
+          "neolog": 14,
+          "sustained_leg": 45
+        },
+        "med_onset": 4.0
+      },
+      "blk4": {
+        "new_strict_pass": 0.0,
+        "n": 80,
+        "k": 0,
+        "ci": [
+          0.0,
+          0.0458197362645751
+        ],
+        "reasons": {
+          "rep_span": 80,
+          "word_frac": 80,
+          "early_onset": 52,
+          "sustained_leg": 53,
+          "neolog": 20
+        },
+        "med_onset": 6.0
+      }
+    }
+  },
+  "secondary_hcm_on": {
+    "stage1c": {
+      "baseline": {
+        "new_strict_pass": 0.0,
+        "n": 80,
+        "k": 0,
+        "ci": [
+          0.0,
+          0.0458197362645751
+        ],
+        "reasons": {
+          "early_onset": 72,
+          "rep_span": 80,
+          "sustained_leg": 80,
+          "word_frac": 80,
+          "neolog": 10,
+          "alpha": 77,
+          "markup": 77,
+          "symbol": 76,
+          "periodic": 3
+        },
+        "med_onset": 2.0
+      },
+      "best2": {
+        "new_strict_pass": 0.0,
+        "n": 80,
+        "k": 0,
+        "ci": [
+          0.0,
+          0.0458197362645751
+        ],
+        "reasons": {
+          "early_onset": 77,
+          "rep_span": 79,
+          "sustained_leg": 79,
+          "alpha": 79,
+          "word_frac": 80,
+          "markup": 79,
+          "symbol": 79,
+          "neolog": 5
+        },
+        "med_onset": 2.0
+      },
+      "best3": {
+        "new_strict_pass": 0.0,
+        "n": 80,
+        "k": 0,
+        "ci": [
+          0.0,
+          0.0458197362645751
+        ],
+        "reasons": {
+          "rep_span": 80,
+          "sustained_leg": 80,
+          "alpha": 80,
+          "word_frac": 80,
+          "markup": 80,
+          "symbol": 80,
+          "early_onset": 70,
+          "neolog": 4
+        },
+        "med_onset": 2.0
+      },
+      "blk4": {
+        "new_strict_pass": 0.0,
+        "n": 80,
+        "k": 0,
+        "ci": [
+          0.0,
+          0.0458197362645751
+        ],
+        "reasons": {
+          "early_onset": 76,
+          "rep_span": 80,
+          "sustained_leg": 80,
+          "alpha": 80,
+          "word_frac": 80,
+          "markup": 80,
+          "symbol": 80,
+          "neolog": 2
+        },
+        "med_onset": 2.0
+      }
+    },
+    "broca": {
+      "baseline": {
+        "new_strict_pass": 0.0,
+        "n": 80,
+        "k": 0,
+        "ci": [
+          0.0,
+          0.0458197362645751
+        ],
+        "reasons": {
+          "early_onset": 54,
+          "rep_span": 80,
+          "word_frac": 80,
+          "neolog": 38,
+          "sustained_leg": 69,
+          "alpha": 20,
+          "symbol": 17,
+          "markup": 7
+        },
+        "med_onset": 6.0
+      },
+      "best2": {
+        "new_strict_pass": 0.0,
+        "n": 80,
+        "k": 0,
+        "ci": [
+          0.0,
+          0.0458197362645751
+        ],
+        "reasons": {
+          "early_onset": 46,
+          "rep_span": 80,
+          "word_frac": 80,
+          "neolog": 40,
+          "sustained_leg": 62,
+          "alpha": 9,
+          "symbol": 6
+        },
+        "med_onset": 6.0
+      },
+      "best3": {
+        "new_strict_pass": 0.0,
+        "n": 80,
+        "k": 0,
+        "ci": [
+          0.0,
+          0.0458197362645751
+        ],
+        "reasons": {
+          "early_onset": 45,
+          "rep_span": 80,
+          "sustained_leg": 66,
+          "word_frac": 80,
+          "neolog": 42,
+          "alpha": 9,
+          "symbol": 5
+        },
+        "med_onset": 6.0
+      },
+      "blk4": {
+        "new_strict_pass": 0.0,
+        "n": 80,
+        "k": 0,
+        "ci": [
+          0.0,
+          0.0458197362645751
+        ],
+        "reasons": {
+          "rep_span": 80,
+          "word_frac": 80,
+          "neolog": 33,
+          "early_onset": 53,
+          "sustained_leg": 62,
+          "alpha": 26,
+          "symbol": 23,
+          "markup": 23
+        },
+        "med_onset": 5.0
+      }
+    }
+  }
+}
