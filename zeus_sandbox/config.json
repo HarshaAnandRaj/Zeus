@@ -7,6 +7,8 @@
   "reply_temperature": 0.68,
   "reply_top_p": 0.92,
   "reply_rep_penalty": 1.2,
+  "reply_blk_order": 4,
+  "reply_best_k": 1,
   "anchor_no_recall": "prompt_mean",
   "recall_threshold": 0.12,
   "reply_reset_frac": 0.6,

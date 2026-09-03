@@ -1,0 +1,69 @@
+{
+  "checkpoint": "C:\\Users\\Anand\\Desktop\\Projects\\Zeus\\zeus_sandbox\\universe\\shadow\\milestone.pt",
+  "step": 4000,
+  "deployed_self_source": true,
+  "interpretation": "JS values are next-token distribution effects with token history held fixed. State effects and HCM text-prefix effects are reported separately.",
+  "summary": {
+    "js_coupled_vs_token_only": 0.60913173,
+    "js_coupled_vs_zero_state": 0.44377177,
+    "js_coupled_vs_shuffled_state": 0.2624737,
+    "js_memory_prefix_vs_token_only": 0.52073639
+  },
+  "rows": [
+    {
+      "prompt": "hello",
+      "js_coupled_vs_token_only": 0.63221288,
+      "js_coupled_vs_zero_state": 0.00076174,
+      "js_coupled_vs_shuffled_state": 0.00086287,
+      "top10_overlap_coupled_zero": 0.3,
+      "top10_overlap_coupled_shuffled": 0.8,
+      "js_memory_prefix_vs_token_only": 0.5809359,
+      "memory_prefix_tokens": 8,
+      "memory_preview": " Dead)\nwo Bitsz c"
+    },
+    {
+      "prompt": "tell me about the past",
+      "js_coupled_vs_token_only": 0.65119553,
+      "js_coupled_vs_zero_state": 0.26107246,
+      "js_coupled_vs_shuffled_state": 0.05300051,
+      "top10_overlap_coupled_zero": 0.3,
+      "top10_overlap_coupled_shuffled": 1.0,
+      "js_memory_prefix_vs_token_only": 0.40847662,
+      "memory_prefix_tokens": 8,
+      "memory_preview": " were all, his grand soers1995"
+    },
+    {
+      "prompt": "once upon a time",
+      "js_coupled_vs_token_only": 0.63256782,
+      "js_coupled_vs_zero_state": 0.68165606,
+      "js_coupled_vs_shuffled_state": 0.00243125,
+      "top10_overlap_coupled_zero": 0.4,
+      "top10_overlap_coupled_shuffled": 0.9,
+      "js_memory_prefix_vs_token_only": 0.49624327,
+      "memory_prefix_tokens": 8,
+      "memory_preview": "2010 || Whitney (her supposed be"
+    },
+    {
+      "prompt": "what happened",
+      "js_coupled_vs_token_only": 0.53090322,
+      "js_coupled_vs_zero_state": 0.59778094,
+      "js_coupled_vs_shuffled_state": 0.63969052,
+      "top10_overlap_coupled_zero": 0.2,
+      "top10_overlap_coupled_shuffled": 0.8,
+      "js_memory_prefix_vs_token_only": 0.63907635,
+      "memory_prefix_tokens": 8,
+      "memory_preview": " Dead)\nwo Bitsz c"
+    },
+    {
+      "prompt": "the river flowed quietly",
+      "js_coupled_vs_token_only": 0.5987792,
+      "js_coupled_vs_zero_state": 0.67758763,
+      "js_coupled_vs_shuffled_state": 0.61638337,
+      "top10_overlap_coupled_zero": 0.1,
+      "top10_overlap_coupled_shuffled": 0.7,
+      "js_memory_prefix_vs_token_only": 0.47894982,
+      "memory_prefix_tokens": 8,
+      "memory_preview": " all, his grand soers1995)"
+    }
+  ]
+}

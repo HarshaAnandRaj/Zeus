@@ -1,0 +1,385 @@
+{
+  "checkpoints": [
+    "zeus_sandbox/universe/shadow/milestone.pt",
+    "runs/broca_voice/milestone.pt"
+  ],
+  "seeds": [
+    1729,
+    31415
+  ],
+  "prompts": [
+    "hello",
+    "tell me about the past",
+    "once upon a time",
+    "what happened",
+    "the river flowed quietly"
+  ],
+  "runs": [
+    {
+      "step": 4000,
+      "seed": 1729,
+      "rows": [
+        {
+          "prompt": "hello",
+          "js_coupled_vs_token_only": 0.6322128176689148,
+          "js_coupled_vs_zero_state": 0.0007616959628649056,
+          "js_coupled_vs_shuffled_state": 0.0008628875948488712,
+          "overlap_coupled_zero": 0.3,
+          "overlap_coupled_shuffled": 0.8,
+          "js_hcm_off_vs_token_only": 0.0,
+          "js_hcm_real_vs_off": 0.5809358954429626,
+          "memory_real_tokens": 8,
+          "js_hcm_shuffled_vs_off": 0.35674721002578735
+        },
+        {
+          "prompt": "tell me about the past",
+          "js_coupled_vs_token_only": 0.6511955261230469,
+          "js_coupled_vs_zero_state": 0.2610725164413452,
+          "js_coupled_vs_shuffled_state": 0.05300021544098854,
+          "overlap_coupled_zero": 0.3,
+          "overlap_coupled_shuffled": 1.0,
+          "js_hcm_off_vs_token_only": 0.0,
+          "js_hcm_real_vs_off": 0.4084766209125519,
+          "memory_real_tokens": 8,
+          "js_hcm_shuffled_vs_off": 0.459164559841156
+        },
+        {
+          "prompt": "once upon a time",
+          "js_coupled_vs_token_only": 0.632567822933197,
+          "js_coupled_vs_zero_state": 0.6816560626029968,
+          "js_coupled_vs_shuffled_state": 0.002431245520710945,
+          "overlap_coupled_zero": 0.4,
+          "overlap_coupled_shuffled": 0.9,
+          "js_hcm_off_vs_token_only": 0.0,
+          "js_hcm_real_vs_off": 0.49624326825141907,
+          "memory_real_tokens": 8,
+          "js_hcm_shuffled_vs_off": 0.6495262980461121
+        },
+        {
+          "prompt": "what happened",
+          "js_coupled_vs_token_only": 0.5309033393859863,
+          "js_coupled_vs_zero_state": 0.5977814197540283,
+          "js_coupled_vs_shuffled_state": 0.6396905183792114,
+          "overlap_coupled_zero": 0.2,
+          "overlap_coupled_shuffled": 0.8,
+          "js_hcm_off_vs_token_only": 0.0,
+          "js_hcm_real_vs_off": 0.6390763521194458,
+          "memory_real_tokens": 8,
+          "js_hcm_shuffled_vs_off": 0.51343834400177
+        },
+        {
+          "prompt": "the river flowed quietly",
+          "js_coupled_vs_token_only": 0.5987792015075684,
+          "js_coupled_vs_zero_state": 0.677587628364563,
+          "js_coupled_vs_shuffled_state": 0.6163837909698486,
+          "overlap_coupled_zero": 0.1,
+          "overlap_coupled_shuffled": 0.7,
+          "js_hcm_off_vs_token_only": 0.0,
+          "js_hcm_real_vs_off": 0.47894981503486633,
+          "memory_real_tokens": 8,
+          "js_hcm_shuffled_vs_off": 0.6370424032211304
+        }
+      ],
+      "checkpoint": "zeus_sandbox/universe/shadow/milestone.pt"
+    },
+    {
+      "step": 4000,
+      "seed": 31415,
+      "rows": [
+        {
+          "prompt": "hello",
+          "js_coupled_vs_token_only": 0.6322126984596252,
+          "js_coupled_vs_zero_state": 0.0007617581868544221,
+          "js_coupled_vs_shuffled_state": 0.0008628988871350884,
+          "overlap_coupled_zero": 0.3,
+          "overlap_coupled_shuffled": 0.8,
+          "js_hcm_off_vs_token_only": 0.0,
+          "js_hcm_real_vs_off": 0.5809358954429626,
+          "memory_real_tokens": 8,
+          "js_hcm_shuffled_vs_off": 0.35674721002578735
+        },
+        {
+          "prompt": "tell me about the past",
+          "js_coupled_vs_token_only": 0.6511955261230469,
+          "js_coupled_vs_zero_state": 0.2610725164413452,
+          "js_coupled_vs_shuffled_state": 0.05299964174628258,
+          "overlap_coupled_zero": 0.3,
+          "overlap_coupled_shuffled": 1.0,
+          "js_hcm_off_vs_token_only": 0.0,
+          "js_hcm_real_vs_off": 0.4084766209125519,
+          "memory_real_tokens": 8,
+          "js_hcm_shuffled_vs_off": 0.459164559841156
+        },
+        {
+          "prompt": "once upon a time",
+          "js_coupled_vs_token_only": 0.6325677633285522,
+          "js_coupled_vs_zero_state": 0.681656002998352,
+          "js_coupled_vs_shuffled_state": 0.0024313218891620636,
+          "overlap_coupled_zero": 0.4,
+          "overlap_coupled_shuffled": 0.9,
+          "js_hcm_off_vs_token_only": 0.0,
+          "js_hcm_real_vs_off": 0.49624326825141907,
+          "memory_real_tokens": 8,
+          "js_hcm_shuffled_vs_off": 0.6495262980461121
+        },
+        {
+          "prompt": "what happened",
+          "js_coupled_vs_token_only": 0.5309033393859863,
+          "js_coupled_vs_zero_state": 0.5977814197540283,
+          "js_coupled_vs_shuffled_state": 0.6396905183792114,
+          "overlap_coupled_zero": 0.2,
+          "overlap_coupled_shuffled": 0.8,
+          "js_hcm_off_vs_token_only": 0.0,
+          "js_hcm_real_vs_off": 0.6390763521194458,
+          "memory_real_tokens": 8,
+          "js_hcm_shuffled_vs_off": 0.51343834400177
+        },
+        {
+          "prompt": "the river flowed quietly",
+          "js_coupled_vs_token_only": 0.5987790822982788,
+          "js_coupled_vs_zero_state": 0.677587628364563,
+          "js_coupled_vs_shuffled_state": 0.6163842678070068,
+          "overlap_coupled_zero": 0.1,
+          "overlap_coupled_shuffled": 0.7,
+          "js_hcm_off_vs_token_only": 0.0,
+          "js_hcm_real_vs_off": 0.47894981503486633,
+          "memory_real_tokens": 8,
+          "js_hcm_shuffled_vs_off": 0.6370424032211304
+        }
+      ],
+      "checkpoint": "zeus_sandbox/universe/shadow/milestone.pt"
+    },
+    {
+      "step": 4000,
+      "seed": 1729,
+      "rows": [
+        {
+          "prompt": "hello",
+          "js_coupled_vs_token_only": 0.692829430103302,
+          "js_coupled_vs_zero_state": 0.6931465864181519,
+          "js_coupled_vs_shuffled_state": 0.05852892994880676,
+          "overlap_coupled_zero": 0.3,
+          "overlap_coupled_shuffled": 0.7,
+          "js_hcm_off_vs_token_only": 0.0,
+          "js_hcm_real_vs_off": 0.6313072443008423,
+          "memory_real_tokens": 8,
+          "js_hcm_shuffled_vs_off": 0.5604090094566345
+        },
+        {
+          "prompt": "tell me about the past",
+          "js_coupled_vs_token_only": 0.6929322481155396,
+          "js_coupled_vs_zero_state": 0.6931461691856384,
+          "js_coupled_vs_shuffled_state": 0.01667562685906887,
+          "overlap_coupled_zero": 0.3,
+          "overlap_coupled_shuffled": 0.8,
+          "js_hcm_off_vs_token_only": 0.0,
+          "js_hcm_real_vs_off": 0.6697559356689453,
+          "memory_real_tokens": 8,
+          "js_hcm_shuffled_vs_off": 0.6923308372497559
+        },
+        {
+          "prompt": "once upon a time",
+          "js_coupled_vs_token_only": 0.680181086063385,
+          "js_coupled_vs_zero_state": 0.6931471228599548,
+          "js_coupled_vs_shuffled_state": 0.009338170289993286,
+          "overlap_coupled_zero": 0.5,
+          "overlap_coupled_shuffled": 0.7,
+          "js_hcm_off_vs_token_only": 0.0,
+          "js_hcm_real_vs_off": 0.6890755891799927,
+          "memory_real_tokens": 8,
+          "js_hcm_shuffled_vs_off": 0.6312425136566162
+        },
+        {
+          "prompt": "what happened",
+          "js_coupled_vs_token_only": 0.6111841201782227,
+          "js_coupled_vs_zero_state": 0.6861321926116943,
+          "js_coupled_vs_shuffled_state": 0.13325685262680054,
+          "overlap_coupled_zero": 0.4,
+          "overlap_coupled_shuffled": 0.8,
+          "js_hcm_off_vs_token_only": 0.0,
+          "js_hcm_real_vs_off": 0.6736458539962769,
+          "memory_real_tokens": 8,
+          "js_hcm_shuffled_vs_off": 0.6858749389648438
+        },
+        {
+          "prompt": "the river flowed quietly",
+          "js_coupled_vs_token_only": 0.687187671661377,
+          "js_coupled_vs_zero_state": 0.6931439638137817,
+          "js_coupled_vs_shuffled_state": 0.004839522764086723,
+          "overlap_coupled_zero": 0.3,
+          "overlap_coupled_shuffled": 0.7,
+          "js_hcm_off_vs_token_only": 0.0,
+          "js_hcm_real_vs_off": 0.5893758535385132,
+          "memory_real_tokens": 8,
+          "js_hcm_shuffled_vs_off": 0.6884105801582336
+        }
+      ],
+      "checkpoint": "runs/broca_voice/milestone.pt"
+    },
+    {
+      "step": 4000,
+      "seed": 31415,
+      "rows": [
+        {
+          "prompt": "hello",
+          "js_coupled_vs_token_only": 0.692829430103302,
+          "js_coupled_vs_zero_state": 0.6931466460227966,
+          "js_coupled_vs_shuffled_state": 0.058529239147901535,
+          "overlap_coupled_zero": 0.3,
+          "overlap_coupled_shuffled": 0.7,
+          "js_hcm_off_vs_token_only": 0.0,
+          "js_hcm_real_vs_off": 0.6313072443008423,
+          "memory_real_tokens": 8,
+          "js_hcm_shuffled_vs_off": 0.5604090094566345
+        },
+        {
+          "prompt": "tell me about the past",
+          "js_coupled_vs_token_only": 0.6929322481155396,
+          "js_coupled_vs_zero_state": 0.6931461691856384,
+          "js_coupled_vs_shuffled_state": 0.016675669699907303,
+          "overlap_coupled_zero": 0.3,
+          "overlap_coupled_shuffled": 0.8,
+          "js_hcm_off_vs_token_only": 0.0,
+          "js_hcm_real_vs_off": 0.6697559356689453,
+          "memory_real_tokens": 8,
+          "js_hcm_shuffled_vs_off": 0.6923308372497559
+        },
+        {
+          "prompt": "once upon a time",
+          "js_coupled_vs_token_only": 0.6801811456680298,
+          "js_coupled_vs_zero_state": 0.6931471228599548,
+          "js_coupled_vs_shuffled_state": 0.0093382578343153,
+          "overlap_coupled_zero": 0.5,
+          "overlap_coupled_shuffled": 0.7,
+          "js_hcm_off_vs_token_only": 0.0,
+          "js_hcm_real_vs_off": 0.6890755891799927,
+          "memory_real_tokens": 8,
+          "js_hcm_shuffled_vs_off": 0.6312425136566162
+        },
+        {
+          "prompt": "what happened",
+          "js_coupled_vs_token_only": 0.6111841201782227,
+          "js_coupled_vs_zero_state": 0.6861321926116943,
+          "js_coupled_vs_shuffled_state": 0.13325731456279755,
+          "overlap_coupled_zero": 0.4,
+          "overlap_coupled_shuffled": 0.8,
+          "js_hcm_off_vs_token_only": 0.0,
+          "js_hcm_real_vs_off": 0.6736458539962769,
+          "memory_real_tokens": 8,
+          "js_hcm_shuffled_vs_off": 0.6858749389648438
+        },
+        {
+          "prompt": "the river flowed quietly",
+          "js_coupled_vs_token_only": 0.687187671661377,
+          "js_coupled_vs_zero_state": 0.6931439638137817,
+          "js_coupled_vs_shuffled_state": 0.004839565604925156,
+          "overlap_coupled_zero": 0.3,
+          "overlap_coupled_shuffled": 0.7,
+          "js_hcm_off_vs_token_only": 0.0,
+          "js_hcm_real_vs_off": 0.5893758535385132,
+          "memory_real_tokens": 8,
+          "js_hcm_shuffled_vs_off": 0.6884105801582336
+        }
+      ],
+      "checkpoint": "runs/broca_voice/milestone.pt"
+    }
+  ],
+  "per_checkpoint": {
+    "zeus_sandbox/universe/shadow/milestone.pt": {
+      "js_coupled_vs_token_only": {
+        "mean": 0.6091,
+        "std": 0.0449,
+        "n": 10
+      },
+      "js_coupled_vs_zero_state": {
+        "mean": 0.4438,
+        "std": 0.2846,
+        "n": 10
+      },
+      "js_coupled_vs_shuffled_state": {
+        "mean": 0.2625,
+        "std": 0.3153,
+        "n": 10
+      },
+      "js_hcm_off_vs_token_only": {
+        "mean": 0.0,
+        "std": 0.0,
+        "n": 10
+      },
+      "js_hcm_real_vs_off": {
+        "mean": 0.5207,
+        "std": 0.0851,
+        "n": 10
+      },
+      "js_hcm_shuffled_vs_off": {
+        "mean": 0.5232,
+        "std": 0.1163,
+        "n": 10
+      }
+    },
+    "runs/broca_voice/milestone.pt": {
+      "js_coupled_vs_token_only": {
+        "mean": 0.6729,
+        "std": 0.0329,
+        "n": 10
+      },
+      "js_coupled_vs_zero_state": {
+        "mean": 0.6917,
+        "std": 0.003,
+        "n": 10
+      },
+      "js_coupled_vs_shuffled_state": {
+        "mean": 0.0445,
+        "std": 0.0509,
+        "n": 10
+      },
+      "js_hcm_off_vs_token_only": {
+        "mean": 0.0,
+        "std": 0.0,
+        "n": 10
+      },
+      "js_hcm_real_vs_off": {
+        "mean": 0.6506,
+        "std": 0.038,
+        "n": 10
+      },
+      "js_hcm_shuffled_vs_off": {
+        "mean": 0.6517,
+        "std": 0.0536,
+        "n": 10
+      }
+    }
+  },
+  "overall": {
+    "js_coupled_vs_token_only": {
+      "mean": 0.641,
+      "std": 0.0504,
+      "n": 20
+    },
+    "js_coupled_vs_zero_state": {
+      "mean": 0.5678,
+      "std": 0.2336,
+      "n": 20
+    },
+    "js_coupled_vs_shuffled_state": {
+      "mean": 0.1535,
+      "std": 0.2466,
+      "n": 20
+    },
+    "js_hcm_off_vs_token_only": {
+      "mean": 0.0,
+      "std": 0.0,
+      "n": 20
+    },
+    "js_hcm_real_vs_off": {
+      "mean": 0.5857,
+      "std": 0.0925,
+      "n": 20
+    },
+    "js_hcm_shuffled_vs_off": {
+      "mean": 0.5874,
+      "std": 0.11,
+      "n": 20
+    }
+  }
+}

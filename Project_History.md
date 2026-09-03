@@ -698,6 +698,46 @@ Per fair-share rotation discovery: constitutional per-dim pins are RETIRED. If c
   (~10–16h) gated on val CE entering honest-LM range (2.5–3.5) AND free-run CE@G dropping;
   (3) full-scale run only if the probe validates.
 
+### Readout-truth audit + decode robustness repair (2026-09-02)
+
+The next threshold is **causal attribution before more substrate features**. The
+question is no longer whether the mouth can produce English; it is whether a
+reply is token continuation, explicit HCM text retrieval, continuous brain
+decoding, or some measured mixture.
+
+- Added `training/readout_attribution.py`: for a fixed token history it compares
+  next-token distributions under token-only/self-source, real coupled `S/H`,
+  zeroed `S/H`, and another prompt's shuffled `S/H`. It reports JS divergence
+  and top-10 overlap, then separately measures the direct HCM remembered-text
+  prefix effect. Sampling is deliberately excluded from the primary measure.
+- Important baseline made explicit: deployed `voice_self_source: true` routes
+  zero `S` and no `H` history to the mouth by design. The audit compares that
+  fluent fallback with the coupled path; it must not call a token-prefix effect
+  “brain decoding.”
+- Repaired decode-time `best_of_k`: its rank polarity was inverted, selecting
+  the loopiest/least-legible candidate. It now selects minimum loop penalty,
+  replays the selected branch so persisted state matches the delivered reply,
+  and `reply_best_k` is live in `zsession.reply_ids`.
+- Added fast regression coverage in `training/test_decode_robust.py` for
+  candidate ranking, router agreement, and n-gram veto behavior.
+
+**Gate for the next architectural move:** across prompts and checkpoints, show
+stable real-vs-zero/shuffled state effects that are distinct from the HCM prefix
+effect, while voice-only remains legible and loop-robust. Only then introduce a
+coarse state-to-intent bridge; emotion and relationship layers remain strictly
+post-threshold.
+
+**First audit (live milestone step 4000; five fixed prompts):** coupled versus
+token-only JS = **0.6091**; coupled versus zeroed state/history = **0.4438**;
+coupled versus another prompt's shuffled state/history = **0.2625**; direct
+HCM remembered-text-prefix versus token-only JS = **0.5207**. Thus the coupled
+path can substantially move the next-token distribution, and the memory-prefix
+route is independently large. This is neither a consciousness claim nor a
+brain-as-author pass: it is a baseline attribution result from one checkpoint.
+The required next measurement is stability across checkpoints/seeds plus
+free-run behavioral effects under the same swaps. Raw report:
+`zeus_sandbox/universe/reports/readout_attribution.json`.
+
 ### Tooling / artifacts reminders
 
 - Harnesses: `training/deploy_check.py`, `deploy_h2h.py`, `deploy_h2h2.py`,
@@ -707,3 +747,55 @@ Per fair-share rotation discovery: constitutional per-dim pins are RETIRED. If c
 - Mirrors matter: live voice swap = copy milestone in/out of `universe/shadow/`; ALWAYS
   keep a `.pre-*` backup and one config knob-flag pair per voice (self_source +
   pad_window mode) so either voice is one config flip away.
+
+### Baseline freeze, HCM provenance, and attribution replication (2026-09-03)
+
+Freeze-documented the current deploy as the control for every later experiment,
+turned the HCM bank into readable memory records, and checked whether the
+attribution signal is stable — it is **not**, and two caveats surface.
+
+- `tools/freeze_baseline.py` → `reports/baseline_*.json`: content hashes of the
+  milestone / config / tokenizer, seed, decode knobs, HCM metadata, CDT health,
+  and voice-only + coupled replies for the fixed probes. Live state: step 4000,
+  HCM 349 patterns, CDT `d_s 1.972` "recurrent/base (life-capable)".
+- `tools/hcm_provenance.py` → `reports/hcm_provenance_*.{json,tsv}`: every live
+  pattern as a readable record (id, region, decoded remembered context,
+  target_token, birth_step, strength, usage, utility) plus a negative-evidence
+  pass. Note: per-recall loss-before/after deltas are runtime-only, not
+  persisted, so `utility<0` is the persisted proxy for "hurt prediction".
+  **Finding: ALL 294 live patterns carry negative utility** (mean ≈ −0.046),
+  i.e. by its own utility signal no stored memory has (yet) helped prediction.
+  Contexts themselves decode to clean prose — the memories aren't junk, they
+  just aren't measurably earning their keep.
+- `training/attribution_replicate.py` → `reports/attribution_replicate.json`:
+  the audit over checkpoints × seeds plus HCM-off/real/shuffled conditions.
+
+**Replication verdict (live stage1c milestone vs the older `broca_voice`
+milestone, 2 seeds × 5 prompts each, 20 pts):**
+
+| metric | stage1c | broca_voice |
+|---|---|---|
+| coupled vs token-only | 0.609 | 0.673 |
+| coupled vs zeroed state | 0.444 | **0.692** |
+| coupled vs shuffled state | **0.263** | 0.045 |
+| HCM real vs off | 0.521 | 0.651 |
+| HCM shuffled vs off | 0.523 | 0.652 |
+
+- The state effect is **checkpoint-specific, not a stable brain property**:
+  `coupled_vs_shuffled_state` is 0.263 on stage1c but only 0.045 on broca_voice
+  (that readout barely reacts to the *content* of the trajectory). Variance
+  within a checkpoint is also high (std ≈ 0.2–0.3 across prompts).
+- The memory effect **replicates clean across both checkpoints** — and not in a
+  flattering way: `HCM real ≈ HCM shuffled` (0.521≈0.523, 0.651≈0.652). Injecting
+  the *wrong* memory moves the voice about as much as the *correct* one. Retrieval
+  shifts the output distributionally but is not selective for correctness.
+
+**Interpretation / gate:** these two results reinforce each other. The voice can
+be moved by injected text, but nothing in the current substrate demonstrates that
+a *correct* memory helps more than a *wrong* one (all-negative HCM utility), and
+the continuous state path is neither legible in production nor stable across
+checkpoints. The gate for a coarse state-to-intent bridge remains unreached on
+evidence: first show a stable, correctness-selective brain/memory influence with
+the voice itself legible. That is most plausibly a data problem (junk-memorizing
+tiny corpus) before an interface problem — the 40–60M dedup'd corpus probe is the
+fastest route to a substrate where these questions are even well-posed.

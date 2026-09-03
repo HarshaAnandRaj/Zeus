@@ -72,6 +72,7 @@ from core.model import ZeusCore, ZeusConfig                     # noqa: E402
 from core.hcm import (HCM, text_is_clean)                       # noqa: E402
 from training.train import (HeartbeatWatchdog, eval_health,     # noqa: E402
                             correlation_dimension, msd_exponent)
+from training.decode_robust import NgramBlocker, best_of_k    # noqa: E402
 
 DEVICE = CONFIG.get("device", "cuda")
 RECALL_THRESHOLD = CONFIG.get("recall_threshold", 0.3)
@@ -80,6 +81,11 @@ REPLY_N = int(CONFIG.get("reply_max_tokens", 48))
 REPLY_T = float(CONFIG.get("reply_temperature", 0.72))
 REPLY_TP = float(CONFIG.get("reply_top_p", 0.92))
 REPLY_RP = float(CONFIG.get("reply_rep_penalty", 1.15))
+# Decode robustness (training/decode_robust.py): n-gram repeat veto (order 0 =
+# off) keeps the voice from wedging into draw-dependent loops; reply_best_k > 1
+# rolls K candidates and keeps the most legible / least-looped.
+REPLY_BLK_ORDER = int(CONFIG.get("reply_blk_order", 4))
+REPLY_BEST_K = int(CONFIG.get("reply_best_k", 1))
 ANCHOR_NO_RECALL = str(CONFIG.get("anchor_no_recall", "prompt_mean"))
 # Option 3: the brain selects a memory (HCM recall); we prepend the remembered
 # context tokens into the token stream so the fluent voice continues the memory.
@@ -178,8 +184,11 @@ def roll_ds(m, steps, seed, closed=False, hb=None):
     return {"d_s": ds, "nu": float(nu), "beta": float(beta), "d_w": dw}
 
 
-def reply_ids(model, hcm, prompt, max_tokens=REPLY_N, temperature=REPLY_T, recall=True):
+def reply_ids(model, hcm, prompt, max_tokens=REPLY_N, temperature=REPLY_T,
+              recall=True, blk_order=None, best_k=None):
     out, recalls = [], 0
+    _blk_order = REPLY_BLK_ORDER if blk_order is None else int(blk_order)
+    _best_k = REPLY_BEST_K if best_k is None else max(1, int(best_k))
     tokens = model.encode(prompt)
     if tokens and not SKIP_PAD_WINDOW:
         model.pad_window(tokens[0])
@@ -211,12 +220,31 @@ def reply_ids(model, hcm, prompt, max_tokens=REPLY_N, temperature=REPLY_T, recal
                 tids = torch.tensor(list(tokens), device=model.S.device)
                 model.anchor_vec = model.embed(tids).mean(0)
         try:
+            # best_of_k snapshots this already-conditioned runtime, rolls
+            # alternatives, ranks them by low loop/high legibility, then
+            # replays the selected branch.  The state therefore remains the
+            # one associated with the reply delivered to the interactor.
+            if _best_k > 1:
+                out, _ = best_of_k(
+                    model, tokens, k=_best_k, max_tokens=max_tokens,
+                    temperature=temperature, top_p=REPLY_TP,
+                    rep_penalty=REPLY_RP, blocker_order=_blk_order,
+                    recall_vec=recall_vec,
+                )
+                return out, recalls
+            _blk = NgramBlocker(_blk_order) if _blk_order > 0 else None
             logits = model.observe()
             for _ in range(max_tokens):
                 probs = F.softmax(logits / max(temperature, 1e-4), dim=-1)
                 if REPLY_RP > 1.0 and out:
                     uniq = torch.tensor(sorted(set(out)), device=probs.device)
                     probs[uniq] = probs[uniq] / REPLY_RP
+                if _blk is not None and out:
+                    mask = _blk.vetoed_mask(probs)
+                    if mask.any():
+                        probs = probs.clone()
+                        probs[mask] = 0.0
+                        probs = probs / probs.sum()
                 probs = probs / probs.sum()
                 if REPLY_TP < 1.0:
                     sorted_p, idx = torch.sort(probs, descending=True)
@@ -228,6 +256,8 @@ def reply_ids(model, hcm, prompt, max_tokens=REPLY_N, temperature=REPLY_T, recal
                     probs = probs / probs.sum()
                 nxt = torch.multinomial(probs, 1).item()
                 out.append(nxt)
+                if _blk is not None:
+                    _blk.observe(nxt)
                 if recall_vec is not None:
                     model.hcm_pending = recall_vec
                 logits, _ = model.step(nxt)
