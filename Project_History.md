@@ -799,3 +799,52 @@ evidence: first show a stable, correctness-selective brain/memory influence with
 the voice itself legible. That is most plausibly a data problem (junk-memorizing
 tiny corpus) before an interface problem — the 40–60M dedup'd corpus probe is the
 fastest route to a substrate where these questions are even well-posed.
+
+### Fluent-sample reproduction chase (2026-09-03) — the "grammatical English" is NOT reproducible
+
+The live voice emits wiki-junk, but the stage-1c section claimed "sampling now
+yields grammatical English prose." Before any corpus spend we had to know whether
+that fluency is reproducible, path-specific, or pinned to a different artifact.
+**It is none of the above: it does not reproduce from ANY artifact or code path we
+hold, on ANY prompt, including the designer's own training harness.**
+
+- `training/provenance_matrix.py` → `reports/provenance_matrix.json`: runs
+  `checkpoint × path × HCM × seed` over the 5 fixed probes. Paths are (a) an exact
+  reproduction of the stage-1c training-time `val_right` loop (fixed W=32 window,
+  positional + causal BrocaLayers, last-slot `ctx_head + e_proj + gate`, greedy and
+  top-p/stochastic variants), and (b) the live deploy `reply_ids` path (64-wide
+  E_hist, brain stepping, top-p/rep-penalty), HCM on/off.
+- `training/epoch_fluency_sweep.py`: reconstruct every stage-1c epoch (1–16) by
+  swapping `readout_ep*.pt` + `emb_ep*.pt` onto the milestone's brain, then
+  sampling `val_right` on rich real-prose seeds.
+- `training/prose_seed_probe.py`: the same, on long human-written prose prompts.
+
+**Result — every cell is a copy-loop, none is prose:**
+
+| path / source | observed |
+|---|---|
+| stage1c milestone, `val_right` (greedy) | `\n\n…` newline flood |
+| stage1c milestone, `val_right` (top-p 0.92) | `\n\n…` flood |
+| stage1c milestone, deploy, HCM off | `were were were in… May… ref… dis` word loop |
+| stage1c milestone, deploy, HCM on | wiki-table junk (`Socorro`, `Kitt Peak`, `AD-L`) |
+| broca_voice milestone, all 4 paths | `Geva Geva…` / `the the the kingdomceuz…` loops |
+| **all 16 stage1c epochs**, rich seed | **copy-loop within 1–3 tokens** (`Jimmy Jimmy…`, `and writer and writer…`, `and the years and 2018…`) |
+| **long human prose**, both milestones | copy-loop within 1–3 tokens (`the bank of the bank…`, `this fish this fish…`) |
+
+The recognizable "fluent" fragment is only the seed's own 2–6-token n-gram tail; the
+model then enters its copy-loop attractor on every path, both checkpoints, all 16
+epochs. This **rules out a deployment/vs-`val_right` window-mismatch bug** — fluency
+does not hide in any alternate readout path, including the exact harness used during
+training. It confirms the copy-loop attractor is **inherent to the trained readout**
+(memorized pattern-stitcher on the tiny corpus), the exact failure the
+"crispness ≠ robustness" doctrine (line 682) warned about.
+
+**Decision implication:** this is not "a good corpus model that generalizes badly to
+deployment," and therefore scaling data alone will not fix the live voice — the
+deployed model cannot free-run at all, even on training-shaped windows. The
+40–60M probe is still the right next experiment, but it is a **necessary, not
+sufficient** condition. The readout will need either (a) real generalization from
+the larger dedup'd corpus, or (b) the already-built decode guard-rails (n-gram
+blocker, best-of-k) acting as a functional crutch on a model that cannot yet
+free-run. Kernel: any future "fluency" claim must be judged by sustained free-run
+legibility (loop penalty + legibility across a full reply), not a 1–3-token tail.
