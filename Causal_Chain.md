@@ -1,5 +1,13 @@
 # Causal Chain — Zeus Memory Architecture
 
+> Mathematical status (2026-09-04, per the canonical CDT theorem file):
+> nothing below is a theorem. The three-way equilibrium is an **engineering
+> hypothesis** (simulation support: Night3/Night6 episodes); "memory must help
+> prediction" is **not mathematical** and is tested only by causal ablation on
+> held-out behavior (`training/hcm_causal_audit.py`); survival-pressure
+> language is **interpretation/metaphor**, not a result. Do not promote these
+> labels.
+>
 > The memory system is not optional. It provides novelty pressure that produces temporal structure.
 > Without it, the model falls into "soup" (unbounded drift).
 > With malformed memory pressure (stale, unconditional), the model collapses.
@@ -33,7 +41,13 @@ model.step()
 3. **Adversarial pressure** — Old patterns create false needs that conflict with current dynamics
 4. **Collapse** — val_ce went from 6.96 to 132.55 between steps 2000-3250
 
-**The limit cycle in Night3 was partly a product of HCM re-entry pressure.** The stale patterns injected via `err_hcm` created a force that pushed the state into a periodic orbit. Without that force (Night4 no_hcm), the model drifts freely — no internal clock, no temporal structure. The three-way equilibrium was malformed but functional. Removing it revealed that memory was the source of novelty pressure.
+**The limit cycle in Night3 is associated with the period when HCM re-entry
+pressure was active.** Stale patterns injected via `err_hcm` are one candidate
+force behind the periodic orbit (association-level reading; the mechanism is
+unproven). Without that force (Night4 no_hcm), the model drifts freely — no
+internal clock, no temporal structure. Whether properly-gated memory pressure
+produces temporal structure on its own is the Night6 engineering hypothesis,
+currently at simulation-support level — not an established result.
 
 ## The Fixed Chain (HCM v2)
 

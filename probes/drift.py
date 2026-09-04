@@ -1,13 +1,18 @@
-"""Configuration-drift probe, extended to the GLOBAL criterion.
+"""Configuration-drift probe, finite-horizon form.
 
 Measures on a free-rolling trajectory:
-- exact/rhyme split + resolution-collapse curve of rho_exact
-- correlation dimension nu at THREE levels: micro (full S), slow (carry),
-  theme (k-means centroids of S) -- cf. the human two-level result
-  (coarse nu~1.6 recurrent, fine nu~2.4 transient)
+- exact/rhyme split + resolution-collapse curve of rho_exact (descriptive
+  contrast only: fixed radii in one homogeneous geometry share a recurrence
+  class — fixed-radius no-go)
+- correlation-dimension slopes at THREE levels: micro (full S), slow (carry),
+  theme (k-means centroids of S). These are point-cloud OCCUPATION slopes,
+  not substrate volume exponents; they cannot be inserted into d_s = 2*d_f/d_w
+  without an identification argument, and N=400 sits below the finite-sample
+  floor. Descriptive only, never classificatory.
 - global observables: RMS excursion, occupancy entropy over clusters
-Phase rule: transient iff nu > w. Mind-like ladder = micro/slow transient,
-theme recurrent with rhyme saturated. See Projects/Configuration Drift Hypothesis."""
+Phase strings are finite-horizon descriptors, not asymptotic verdicts. See
+the canonical theorem file (CDT repo: configuration_drift_theorem.md) and
+probes/cdt_audit.py for the separated observables."""
 import json
 import math
 
@@ -202,25 +207,46 @@ def main(model=None, steps=400):
 
     rho_c = coarse_rung["rho_time"]
     rho_f = fine_rung["rho_time"]
+    # Finite-horizon descriptors (canonical theorem file: no asymptotic
+    # alive/dead verdict from one trajectory; anchored vs historical vs
+    # projected observables must stay separate).
+    # - nu_* are point-cloud slopes of the OCCUPATION distribution, not the
+    #   substrate volume exponent; they cannot be inserted into d_s = 2*d_f/d_w
+    #   without an identification argument. N=400 sits below the finite-sample
+    #   floor for every non-trivial nu, so all comparisons below are
+    #   descriptive, never classificatory.
+    # - w = 2/beta from raw MSD without a scaling audit (drift, confinement,
+    #   aging contaminate the slope); treat as a motion descriptor only.
+    # - coarse/fine null-ratios share one homogeneous geometry, so a split
+    #   cannot establish a recurrence-class boundary (fixed-radius no-go);
+    #   it is a descriptive revisitation contrast.
     micro_tr = (w is not None and nu_micro > w) and not stationary
     theme_rec = nu_theme < 2.2 and rho_c > 0.6
     split = (coarse_rung["ratio"] > 1.0 and fine_rung["ratio"] < 1.0)
     gamma_fp_valid = not stationary
     if stationary:
-        phase = "STATIONARY (jitter-trap: beta<0.5; nu test abstains, null-ratios read as decorrelated jitter)"
+        phase = "STATIONARY-DESCRIPTIVE (low motion: beta<0.5; nu comparison abstains)"
     elif nu_micro < 1.0 and rho_f > 0.8:
-        phase = "COLLAPSED (parrot regime: recurrent at every level)"
+        phase = "LOW-SPREAD-DESCRIPTIVE (recurrent at every measured level this horizon)"
     elif micro_tr and theme_rec:
-        phase = "LADDER (mind-like: transient micro, recurrent theme)"
+        phase = "TWO-LEVEL-DESCRIPTIVE (high-spread micro, cluster-recurrent theme this horizon)"
     elif micro_tr and not theme_rec:
-        phase = "UNBOUNDED (soup risk: transient everywhere)"
+        phase = "WIDE-SPREAD-DESCRIPTIVE (high spread at all measured levels this horizon)"
     else:
-        phase = "RECURRENT (echo-prone)"
+        phase = "NARROW-SPREAD-DESCRIPTIVE (revisiting at measured levels this horizon)"
 
     return {"rho_rhyme": rho_c, "rho_exact_fine": rho_f,
             "split_null_ref": bool(split),
+            "split_note": ("descriptive revisitation contrast only; fixed radii in one "
+                           "homogeneous geometry share a recurrence class"),
+            "phase_status": "finite-horizon association; no asymptotic verdict",
+            "nu_note": ("point-cloud occupation slopes, not substrate exponents; "
+                        "N below finite-sample floor; descriptive only"),
+            "w_note": "raw MSD descriptor without scaling audit; not a walk-dimension proof",
             "beta_gate": {"stationary": bool(stationary),
-                          "gamma_fingerprint_valid": bool(gamma_fp_valid)},
+                          "gamma_fingerprint_valid": bool(gamma_fp_valid),
+                          "gamma_note": ("neutral-substrate fingerprint only; gamma>0 is neither "
+                                         "necessary nor sufficient — test the perturbed process")},
             "collapse_curve": rungs,
             "nu_micro": round(nu_micro, 3), "nu_slow": round(nu_slow, 3),
             "nu_theme": round(nu_theme, 3),

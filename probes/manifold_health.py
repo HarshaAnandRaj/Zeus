@@ -1,8 +1,10 @@
-"""Manifold health monitor (CDT section 3.6): trend-based early warning.
-The collapse transition is a snap (gamma_c ~ -0.13): gating on floor values
-is too late. This records PRECURSOR statistics per checkpoint into an
-append-only ledger so slopes are visible before the snap:
-  sites falling + exact-recurrence rising + period-lock rising = collapsing."""
+"""Manifold health monitor (CDT-inspired trend watch).
+The emergent-walk simulations show collapse arriving as a snap past a critical
+repulsion level, so this records PRECURSOR statistics per checkpoint into an
+append-only ledger so slopes are visible before any snap:
+  sites falling + exact-recurrence rising + period-lock rising = warn.
+Status of that model: simulation support for one specified walk family, not a
+universal law; all flags below are finite-horizon associations."""
 import argparse
 import datetime
 import json
@@ -74,13 +76,14 @@ def measure(model=None, steps=400):
     flags = []
     ent_norm = entropy / math.log(max(sites, 2))
     if rho_exact > 0.3:
-        flags.append("rho_exact HIGH")
+        flags.append("rho_exact HIGH (association only: revisitation this horizon)")
     if sites <= 32:
-        flags.append("sites LOW")
+        flags.append("sites LOW (association only: narrow occupancy this horizon)")
     if lock > 0.5:
-        flags.append("period-lock HIGH")
+        flags.append("period-lock HIGH (association only: oscillatory motion this horizon)")
     if sign_hat > 0.3 and ent_norm < 0.85:
-        flags.append("ATTRACTING BIAS (correlated AND concentrated)")
+        flags.append("CORRELATED-AND-CONCENTRATED (association only: correlated halves plus "
+                     "narrow occupancy; not proof of attraction-signed feedback)")
     return {"rho_exact": round(rho_exact, 4), "eps_fine": round(eps_fine, 5),
             "sites": sites, "occupancy_entropy": round(entropy, 3),
             "entropy_norm": round(ent_norm, 4),

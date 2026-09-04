@@ -46,9 +46,12 @@ class ZeusConfig:
     readout_heads: int = 12
     ctx_anchor: bool = False
     cross_attn: bool = False          # Broca-layer: token transformer cross-attends to H (brain trajectory)
-    # ---- refined virtual heartbeat (CDT §5.8, Corollary 2 refinement) ----
-    # A state-triggered, externally-driven perturbation that rescues the self at
-    # the death boundary. Disabled by default; enabled by train.py --heartbeat.
+    # ---- virtual heartbeat (viability controller; model-specific, opt-in) ----
+    # A state-triggered, externally-driven perturbation loop. Per the canonical
+    # theorem file it is a viability-control mechanism for one specified model,
+    # not a universal persistence organ: it can hold operation inside a target
+    # set while active and says nothing about autonomy (stops => relapse).
+    # Disabled by default; enabled by train.py --heartbeat.
     hb_enabled: bool = False
     hb_target_ds: float = 1.8        # fire when d_s (2*nu/d_w) rises past this (outer wall = 2)
     hb_inner_rho: float = 0.05      # ...or rho_exact climbs past this (inner wall = lock-in)
@@ -375,11 +378,12 @@ class ZeusCore(nn.Module):
         self.hcm_pending = st["hcm_pending"]
         self.anchor_vec = st.get("anchor_vec")
 
-    # ---- refined virtual heartbeat -----------------------------------------
+    # ---- virtual heartbeat (external viability control) -----------------------
     # External actor: knocks S off an approaching attractor WITHOUT changing the
-    # internal death drift (CDT §5.8: at the boundary the rescuer must be external;
-    # endogeneity grants autonomy, not rescue). amp scales with the deficit and the
-    # kick is on-manifold (random unit direction added to the drive).
+    # intrinsic dynamics (external input is necessary only once an internal
+    # no-escape set is established; otherwise an internal subsystem with an
+    # admissible exit can rescue). amp scales with the deficit and the kick is
+    # on-manifold (random unit direction added to the drive).
     def request_heartbeat(self, amp, direction=None, generator=None):
         g = generator or torch.default_generator
         if direction is None:

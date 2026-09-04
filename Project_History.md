@@ -2016,3 +2016,43 @@ too, the remaining options are vocab-size reduction (re-tokenize, breaks the
 frozen tokenizer + HCM embeddings — expensive) or accepting current mouth
 limits and returning to the brain program. Reports:
 `probe_fw1_freqweight_eval_step5000.json`.
+
+### CDT revitalization adopted: theorem demotions + finite-horizon probes (2026-09-04)
+
+The CDT repo's canonical theorem file (`configuration_drift_theorem.md`,
+2026-09-04) narrows the mathematics and withdraws several claims Zeus relied
+on — adopted here in full, per that file's precedence rule:
+
+- "Alive iff (d_s<=2) and (gamma>0)" is **not a theorem**; valid core is the
+  projected-recurrence separation (full transient + structural quotient
+  recurrent), labeled CDT-persistence relative to a registered (X, pi, x,
+  epsilon, R) — not life, not consciousness.
+- Anchored vs historical vs projected observables must stay separate. Zeus's
+  drift probe measured historical self-intersection while citing Polya
+  (anchored) thresholds — that conflation is withdrawn.
+- Fixed-radius coarse/fine splits in one homogeneous geometry share a
+  recurrence class (no-go): the collapse-curve split is descriptive only.
+- gamma>0 is neither necessary nor sufficient (counterexamples incl.
+  self-trapping repulsion); also corrected our repeated algebra error
+  (raising d_w LOWERS d_s, not raises).
+- Point-cloud nu estimates occupation, not substrate d_f — cannot enter
+  d_s=2d_f/d_w without an identification argument; all step-400 verdicts
+  (incl. N2-P1) were already undecidable on floors alone.
+- Pruning is not automatically dimension reduction; "coarse memory must help"
+  is not mathematical (our `hcm_causal_audit.py` was already at the right
+  level: association/causal-ablation).
+- Heartbeat boundary-optimality and universal-rescue-necessity are
+  model-specific; heartbeat stays as a viability controller, never autonomy
+  evidence. The 14-domain count is retired as a validation claim.
+
+Zeus changes (this commit): new `probes/cdt_audit.py` porting the canonical
+finite-horizon audit (anchored/historical/discovery x full/projected, guards,
+no verdict) + `training/test_cdt_audit.py` (5/5); `probes/drift.py` phase
+strings rewritten as finite-horizon descriptors with caveat keys
+(`phase_status`, `nu_note`, `w_note`, `split_note`, `gamma_note`), numerics
+untouched; `probes/manifold_health.py` flags relabeled to association-only;
+heartbeat comments in `core/model.py` demoted to viability-controller
+language (no behavior change); `Causal_Chain.md` adopts allowed-conclusion
+labels and softens the Night3 limit-cycle attribution to association.
+Battery API unchanged (additive keys only); drift smoke + 10/10 probe/model
+tests green.
