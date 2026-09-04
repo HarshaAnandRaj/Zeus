@@ -2124,6 +2124,34 @@ needs no mouth at all; (3) dynamics health under the corrected CDT audit.
 Permanently out of reach with this mouth: P4 causal expression + all
 legibility-gated pillars (the gate requires readable replies by construction).
 
+### Architecture interrogation record: head organized, horizon broken, gate miscalibrated (2026-09-05)
+
+Eval-only battery on the frozen v8 mouth + corpus, run while the mem-8k arm
+trains (zero GPU contention on dynamics; report
+`arch_interrogation_20260905.json`):
+
+D1 head forensics: bias tracks log-frequency (+0.90 — the unigram prior
+lives where it should); head-norm ANTI-tracks it (-0.55): the 20 smallest
+weight rows are exactly "in/a/the/,/I/..." (freq 32k-650k) while the largest
+are rare junk (" Boe", "://", U+FFFD). Emissions concentrate exclusively on
+frequent types (P(emit type<=100occ)=0.00025). Organization correct — prior
+in bias, effort in weights — tail undertrained, not misdesigned. This mildly
+rehabilitates the data hypothesis FOR THE HEAD (fw1's 5k dose may simply have
+been too small/weak to move rows this starved), without licensing the corpus
+spend by itself.
+D2 context curve (next-token CE vs last-k tokens): 5.55 / 4.88 / 4.80 / 4.76
+/ 4.84 / **5.56** for k=2/4/8/16/32/64. Effective horizon 8-16; the FULL
+64-token window scores as bad as 2 tokens. Second independent disease:
+long-context handling is actively harmful (positional/attention dilution),
+distinct from the lexical tail. Recorded for correlation if mem fails.
+D3 gate calibration: REAL held-out prose passes only **19/30** (CI
+0.46-0.78) — early_onset on natural dialogue, symbols in science text,
+"neologisms" that are real technical terms ("polyomavirus"). The gate
+false-negatives reality ~37% AND false-passes junk: uncalibrated in both
+directions. Methodological correction adopted: future expression bars must be
+RELATIVE (model rate vs real-prose rate on matched windows + direct reading),
+not absolute 15/15 — a bar real prose itself fails with p~1 is not a bar.
+
 ### Brain-return execution: mem smoke clean, no-mem control live, policy run launched (2026-09-05)
 
 Mem-arm 2k smoke COMPLETED clean: finite losses/grads, ckpt+resume path

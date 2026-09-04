@@ -1,0 +1,39 @@
+{
+  "kind": "architecture_interrogation",
+  "target": "runs/probe_v8_greedy_continued/milestone.pt + nomarkers_b corpus",
+  "D1_head_forensics": {
+    "emb_norm_vs_logfreq_corr": -0.109,
+    "head_norm_vs_logfreq_corr": -0.554,
+    "head_bias_vs_logfreq_corr": 0.903,
+    "bottom20_headnorm_tokens": "the 20 most frequent English words (in/a/the/,/I/...)",
+    "top_headnorm_tokens": "rare junk fragments (Boe, ://, inea, U+FFFD, Hamilton-pieces)",
+    "emission_concentration": "top-20 emitted tokens all trainfreq>=10k; P(emit type<=100occ)=0.00025",
+    "reading": "organization correct (prior in bias, effort in weights); tail undertrained not misdesigned"
+  },
+  "D2_context_curve_next_token_CE": {
+    "k2": 5.547,
+    "k4": 4.877,
+    "k8": 4.803,
+    "k16": 4.755,
+    "k32": 4.843,
+    "k64": 5.561
+  },
+  "D2_reading": "effective horizon 8-16 tokens; full 64-token window scores as bad as 2 tokens",
+  "D3_gate_on_real_prose": {
+    "pass": "19/30",
+    "ci": [
+      0.455,
+      0.781
+    ],
+    "top_failures": {
+      "early_onset": 6,
+      "sustained_leg": 2,
+      "symbol": 2,
+      "neolog": 2,
+      "word_loop": 1,
+      "rep_span": 1
+    }
+  },
+  "D3_reading": "gate false-negatives real prose ~37%; absolute 15/15 bar is stricter than reality",
+  "methodological_correction": "future expression bars must be relative (model rate vs real-prose rate on matched windows + direct reading), not absolute 15/15"
+}
