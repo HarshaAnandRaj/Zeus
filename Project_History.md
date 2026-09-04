@@ -1929,3 +1929,42 @@ now the lead hypothesis, not a curriculum); (2) last-slot readout bottleneck
 (TF 4.8 with dense 0.79 shows capacity the deploy read can't reach);
 (3) zero-fill geometry, demoted last (parity closed). The "crispness is
 disease" doctrine repeats: TF falls, the lexicon doesn't form.
+
+### Deep diagnosis before any spend: data sparsity confirmed, readout acquitted (2026-09-04)
+
+Four eval-only diagnostics on the frozen v8 mouth + pilot corpus (scripts in
+`C:\Users\Anand\AppData\Local\Temp\opencode\`: `neotriage.py`, `freqstrat.py`):
+
+A. **Vocab audit (16.07M tokens / 8192 types):** 8052 types used; 507 types
+<=10 occ, 1514 <=50, 2329 <=100, 4915 (60%) <=500, 6183 (75%) <=1000; median
+329 occ. Half the vocabulary is seen fewer than 329 times across all epochs.
+B. **Neolog triage (742 unique flagged words, all eval reports):** ~zero are
+real English. Dominant families: bare single letters as words (i x77, a x47,
+c x25), morpheme salad ("-onies": cootonies/onies/muchonies/saidonies;
+"muchate/supremeate"; possessive salad much's/into's), raw tokenizer
+artifacts (the_, #person1#), mojibake scars. The head emits frequent
+fragments as standalone words — compositional discipline never formed.
+C. **Frequency-stratified single-step (4000 val positions):** perfect
+gradient — CE 13.41 (freq 11--50) -> 12.96 -> 9.67 -> 8.07 -> 6.62 -> 3.69
+(freq 5k+); top-1 acc 0.000 below 100 occ, 0.280 above 5k. Rare-target CE is
+worse than uniform (9.01): active miscalibration, not ignorance. Emissions
+concentrate exclusively on frequent types (top-20 emitted all >=10k occ;
+P(emit type <=100 occ) = 0.00025) — when the truth is rare, the head
+substitutes a frequent fragment, and that substitution IS the neologism
+machine.
+D. **Last-slot vs mean-pool (600 val windows, eval-only):** last-slot dense
+CE 5.588 beats untrained mean-pool 6.119 by 0.53 nats. No evidence the read
+position is the problem; the trained last-slot read is healthy. Suspect #2
+demoted (caveat: pooling was never trained — directional only).
+
+**Spend decision:** the 45--55M dedup'd corpus probe is now evidence-backed,
+but with two binding conditions: (1) judge it on TAIL metrics (rare-bucket
+CE, emission neolog rate, gate) with the FIXED v2 known_words — a new
+known_words would shrink flagged neologisms without any behavior change and
+corrupt the comparison; dense CE stays secondary. (2) Expect honestly that
+3x data moves median 329 -> ~1000 occ, where CE is still ~8 — Zipf's tail is
+inexorable, so the probe may fail and its fallback is head-side changes
+(frequency-weighted loss, vocab re-think), not more curricula. Cheap parallel
+bet before/with the probe: a short frequency-weighted CE smoke on current
+data testing whether the head CAN learn composition when rare targets are
+upweighted.
