@@ -1858,3 +1858,16 @@ memory, body, initiative, emergence, or consciousness claim is licensed.
 Reports: `probe_v7b_raw_primary_eval_step30000.json`,
 `probe_v7b_raw_primary_exposure_step30000.json`,
 `probe_v7b_raw_primary_prefix_step30000.json`.
+
+### v8 greedy continuation launched: last curriculum bet (2026-09-04)
+
+On explicit user approval, `docs/p1_greedy_continuation_protocol.md`
+pre-registers the final mouth-training run before architecture review: 30,000
+greedy rollout updates continued from the exact Arm A step-30,000 mouth
+(mouth weights only, fresh optimizer/RNG, seed 20260906), all other conditions
+identical (nomarkers_b corpus, batch 8, lr 5e-5, short-prefix 0.75, every-8
+from 1000). Run dir `runs/probe_v8_greedy_continued/`; worker confirmed live
+on the registered objective with GPU training. Bars unchanged (15/15 +
+legibility + gap upper <=2.18). Pre-committed consequences: pass all bars ->
+state-path phase; gap closes without expression, or gap fails -> curricula
+retired by result, readout-architecture interrogation opens, no v9.
