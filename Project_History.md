@@ -2174,6 +2174,20 @@ Mem-arm smoke mechanics confirmed live: 484 patterns/31 regions at step 500,
 writes/recalls/consolidation/pruning all firing, grads finite (~1.9
 steps/s).
 
+### Resume-order bug caught live, fixed, verified (2026-09-05)
+
+The mem 8k extension resumed `from_step 500` instead of 2000: checkpoint
+discovery used lexicographic sort, and "zeus_step500.pt" sorts after
+"zeus_step2000.pt" as strings. Any resume past step 999 with a step-500 ckpt
+present would silently replay from 500 (deterministic, so harmless here, but
+wrong and wasteful). Fixed with a numeric sort key in `training/train.py` +
+regression test proving lexicographic order picks 500 while numeric picks
+2000 (test suite 8/8). Partly-rerun worker killed cleanly (pol1 pair
+untouched, step-2000 ckpt intact — killed before any rewrite); relaunched
+extension logged `resume from_step 2000, ckpt zeus_step2000.pt`. Crash-proof
+doctrine vindicated again: exact-step checkpoints made a live-bug recovery
+boring.
+
 ### wv1 smoke verdict: failure MODE moves, quality does not; cheap options exhausted (2026-09-05)
 
 wv1 completed its exact 5,000 updates (word-final 3x, gradients finite;

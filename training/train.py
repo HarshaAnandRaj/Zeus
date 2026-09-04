@@ -809,7 +809,8 @@ def main():
     for k in MOUTH_KEYS:
         if k in mouth_cfg:
             setattr(model_cfg, k, mouth_cfg[k])
-    ckpts = sorted(save_dir.glob("zeus_step*.pt"))
+    ckpts = sorted(save_dir.glob("zeus_step*.pt"),
+                   key=lambda p: int(p.stem.split("step")[-1]))
     resume_payload = None
     if args.resume == "auto" and ckpts:
         resume_payload = torch.load(ckpts[-1], map_location=device, weights_only=False)

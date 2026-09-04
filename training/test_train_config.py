@@ -43,6 +43,18 @@ class MouthCfgTests(unittest.TestCase):
         self.assertEqual(cfg.get("readout_layers"), 6)
         self.assertTrue(cfg.get("cross_attn"))
 
+    def test_checkpoint_resume_picks_numeric_latest(self):
+        with tempfile.TemporaryDirectory() as d:
+            root = pathlib.Path(d)
+            for step in (500, 1000, 1500, 2000):
+                (root / f"zeus_step{step}.pt").write_bytes(b"ckpt")
+            ckpts = sorted(root.glob("zeus_step*.pt"),
+                           key=lambda p: int(p.stem.split("step")[-1]))
+            self.assertEqual(ckpts[-1].name, "zeus_step2000.pt")
+            # Lexicographic order (the old bug) would pick step 500.
+            lex = sorted(root.glob("zeus_step*.pt"))
+            self.assertEqual(lex[-1].name, "zeus_step500.pt")
+
 
 if __name__ == "__main__":
     unittest.main()
