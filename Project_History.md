@@ -1899,3 +1899,33 @@ consciousness claim is licensed. Reports:
 `probe_v8_greedy_continued_eval_step30000.json`,
 `probe_v8_greedy_continued_exposure_step30000.json`,
 `probe_v8_greedy_continued_prefix_step30000.json`.
+
+### v8 failure autopsy: step-one lexical disease, not compounding (2026-09-04)
+
+Dissected WHERE free-run breaks on the frozen v8 mouth (script:
+`C:\Users\Anand\AppData\Local\Temp\opencode\autopsy_v8.py`):
+
+1. **Per-offset CE (fixed 24x32 draw, 3--16 prefixes):** pos0 gap 0.000
+(sanity: identical histories), then a CLIFF — pos1 gap 2.134, pos2--7
+plateau 2.46--2.79 with greedy match 0.03--0.05 flat. The damage is done by
+the FIRST self-generated token; later positions add nothing. TF CE stays
+flat ~4.7--4.9 at every offset. Not gradual compounding — one bad token
+poisons the window permanently.
+2. **Onset anatomy (15 raw-strict samples):** 9/15 have NO repetition onset
+at all; only 1 early_onset. The failure is almost purely lexical — median
+first-neologism at word 4, three samples emit a non-word as their VERY FIRST
+word. No loops; dissolution into invented words.
+3. **Single-step quality on REAL prefixes (300 draws, 9--15 tokens):**
+top-1 match 0.220; 4-token greedy tails from perfect contexts carry mean
+neolog_frac 0.181 with P(any neologism) 0.313. The head emits non-words at a
+high rate with zero compounding involved.
+
+**Verdict:** the mouth's single-step output distribution is lexically broken —
+BPE fragments stitched into non-words — on real contexts, from token one.
+No rollout schedule can fix what the head emits before any history corrupts.
+Suspects re-ranked: (1) data sparsity at the head — 16M tokens for an
+8192-way head, rare fragment combos undertrained (the 45--55M dedup'd probe is
+now the lead hypothesis, not a curriculum); (2) last-slot readout bottleneck
+(TF 4.8 with dense 0.79 shows capacity the deploy read can't reach);
+(3) zero-fill geometry, demoted last (parity closed). The "crispness is
+disease" doctrine repeats: TF falls, the lexicon doesn't form.
