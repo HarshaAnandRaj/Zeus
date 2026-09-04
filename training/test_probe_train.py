@@ -13,7 +13,7 @@ from training.probe_train import (
     atomic_torch_save, capture_rng, make_rollout_generator, readout_logits, restore_rng,
     rollout_loss, should_rollout,
     sample_visible_lengths,
-    target_weights, weighted_ce,
+    target_weights, weighted_ce, combine_weights, wordfinal_raw,
 )
 
 
@@ -186,6 +186,35 @@ class ProbeTrainTests(unittest.TestCase):
         self.assertAlmostEqual(float(w[1]), float(w[2]), places=6)
         self.assertAlmostEqual(float(w.mean()), 1.0, places=6)
         self.assertTrue(bool((w <= 8.0).all()))
+
+    def test_wordfinal_raw_disabled_at_unit_weight(self):
+        gidx = torch.tensor([0, 5, 9])
+        mask = np.zeros(10, dtype=bool)
+        mask[5] = True
+        self.assertIsNone(wordfinal_raw(gidx, mask, 1.0))
+
+    def test_wordfinal_raw_boosts_only_flagged_positions(self):
+        gidx = torch.tensor([0, 5, 9])
+        mask = np.zeros(10, dtype=bool)
+        mask[5] = True
+        w = wordfinal_raw(gidx, mask, 3.0)
+        self.assertEqual(w.tolist(), [1.0, 3.0, 1.0])
+
+    def test_combine_weights_multiplies_pressures_then_normalizes(self):
+        targets = torch.tensor([0, 1, 2, 2])
+        counts = torch.tensor([4.0, 400.0, 40000.0])
+        mask = np.zeros(50000, dtype=bool)
+        w = combine_weights(targets, torch.tensor([7, 8, 9, 9]), (counts, 0.5, 8.0), (mask, 3.0))
+        # mask all False -> wordfinal contributes ones; equals freq-only weights
+        self.assertAlmostEqual(float(w.mean()), 1.0, places=5)
+        mask[9] = True
+        w2 = combine_weights(targets, torch.tensor([7, 8, 9, 9]), (counts, 0.5, 8.0), (mask, 3.0))
+        self.assertGreater(float(w2[2]), float(w[2]))
+        self.assertAlmostEqual(float(w2.mean()), 1.0, places=5)
+
+    def test_combine_weights_empty_is_plain_mean(self):
+        targets = torch.tensor([0, 1])
+        self.assertIsNone(combine_weights(targets, None, None, None))
 
     def test_rollout_loss_accepts_freq_weights(self):
         emb = torch.nn.Embedding(16, 3)

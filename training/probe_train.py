@@ -126,6 +126,13 @@ def sample_visible_lengths(np_rng, batch, width, short_prefix_prob=0.0,
     return visible
 
 
+def raw_freq_weights(targets, counts, alpha, wmax=8.0):
+    """Unnormalized rare-target weights (see target_weights)."""
+    c = counts.to(targets.device)[targets].clamp_min(1).to(torch.float32)
+    ref = float(torch.median(counts.to(torch.float32)))
+    return torch.clamp((ref / c) ** float(alpha), min=1.0, max=float(wmax))
+
+
 def target_weights(targets, counts, alpha, wmax=8.0):
     """Rare-target upweighting for the lexical-tail diagnosis.
 
@@ -136,10 +143,23 @@ def target_weights(targets, counts, alpha, wmax=8.0):
     """
     if alpha <= 0:
         return None
-    c = counts.to(targets.device)[targets].clamp_min(1).to(torch.float32)
-    ref = float(torch.median(counts.to(torch.float32)))
-    w = torch.clamp((ref / c) ** float(alpha), min=1.0, max=float(wmax))
+    w = raw_freq_weights(targets, counts, alpha, wmax)
     return w / w.mean().clamp_min(1e-9)
+
+
+def wordfinal_raw(global_idx, mask, weight):
+    """Raw word-validity weights: `weight` where the target completes a word.
+
+    mask is a bool array aligned with the corpus ids (position i word-final
+    iff token i+1 begins with G); global_idx gives each target's corpus
+    position.  weight <= 1 disables the pressure (all ones).
+    """
+    if weight <= 1.0:
+        return None
+    m = torch.from_numpy(np.asarray(mask, dtype=bool)).to(global_idx.device)
+    hit = m[global_idx.to(torch.long).clamp_max(m.numel() - 1)]
+    return torch.where(hit, torch.full((), float(weight), device=global_idx.device),
+                       torch.ones((), device=global_idx.device))
 
 
 def weighted_ce(logits, targets, weights):
@@ -147,6 +167,21 @@ def weighted_ce(logits, targets, weights):
     if weights is None:
         return ce.mean()
     return (ce * weights).mean()
+
+
+def combine_weights(targets, gidx, freq, wpos):
+    """Multiply rare-target and word-validity pressures, normalized to mean 1."""
+    w = None
+    if freq is not None:
+        w = raw_freq_weights(targets, *freq)
+    if wpos is not None and gidx is not None:
+        mask, weight = wpos
+        wf = wordfinal_raw(gidx, mask, weight)
+        if wf is not None:
+            w = wf if w is None else w * wf
+    if w is None:
+        return None
+    return w / w.mean().clamp_min(1e-9)
 
 
 def readout_logits(readout, emb, e_in, cfg, *, last_token_present=True):
@@ -184,7 +219,7 @@ def readout_logits(readout, emb, e_in, cfg, *, last_token_present=True):
 
 def right_aligned_loss(readout, emb, cfg, ids, np_rng, *, short_prefix_prob=0.0,
                        short_prefix_max=16, blank_prefix_prob=0.0,
-                       blank_prefix_max=2, freq=None):
+                       blank_prefix_max=2, freq=None, gstarts=None, wpos=None):
     """Predict a real token from a right-aligned, zero-filled prefix."""
     device, width, dim = ids.device, cfg.ctx_window, cfg.dim
     batch = ids.shape[0]
@@ -194,17 +229,19 @@ def right_aligned_loss(readout, emb, cfg, ids, np_rng, *, short_prefix_prob=0.0,
     )).to(device)
     layouts = torch.zeros(batch, width, dim, device=device)
     targets = torch.empty(batch, dtype=torch.long, device=device)
+    gidx = torch.empty(batch, dtype=torch.long, device=device)
     for row, r in enumerate(visible.tolist()):
         layouts[row, width - r:] = emb(ids[row, :r])
         targets[row] = ids[row, r]
+        gidx[row] = int(gstarts[row]) + r if gstarts is not None else 0
     logits = readout_logits(readout, emb, layouts, cfg,
                             last_token_present=visible > 0)[:, -1]
-    weights = target_weights(targets, *freq) if freq is not None else None
+    weights = combine_weights(targets, gidx, freq, wpos)
     return weighted_ce(logits, targets, weights)
 
 
 def rollout_loss(readout, emb, cfg, ids, np_rng, *, rollout_tokens, min_prefix,
-                 sampling="greedy", generator=None, freq=None):
+                 sampling="greedy", generator=None, freq=None, gstarts=None, wpos=None):
     """Train recovery from the mouth's *own* sampled history.
 
     Dense/teacher-forced CE can look good while every small sampling error moves
@@ -242,7 +279,12 @@ def rollout_loss(readout, emb, cfg, ids, np_rng, *, rollout_tokens, min_prefix,
         logits = readout_logits(readout, emb, layout, cfg)[:, -1]
         targets = torch.stack([ids[row, int(prefixes[row]) + offset]
                                for row in range(batch)])
-        weights = target_weights(targets, *freq) if freq is not None else None
+        if gstarts is not None:
+            gidx = torch.stack([torch.tensor(int(gstarts[row]) + int(prefixes[row]) + offset)
+                                for row in range(batch)]).to(ids.device)
+        else:
+            gidx = None
+        weights = combine_weights(targets, gidx, freq, wpos)
         losses.append(weighted_ce(logits, targets, weights))
         # Runtime sampling is not differentiable.  The raw mode deliberately
         # uses exactly the strict evaluator's unmodified distribution
@@ -259,12 +301,17 @@ def rollout_loss(readout, emb, cfg, ids, np_rng, *, rollout_tokens, min_prefix,
     return torch.stack(losses).mean()
 
 
-def dense_loss(readout, emb, cfg, ids, freq=None):
+def dense_loss(readout, emb, cfg, ids, freq=None, gstarts=None, wpos=None):
     width = cfg.ctx_window
     e_in = emb(ids[:, :width])
     logits = readout_logits(readout, emb, e_in, cfg)
     targets = ids[:, 1:width + 1].reshape(-1).long()
-    weights = target_weights(targets, *freq) if freq is not None else None
+    if gstarts is not None:
+        grid = (torch.from_numpy(np.asarray(gstarts)).to(ids.device)[:, None]
+                + torch.arange(1, width + 1, device=ids.device)[None, :]).reshape(-1)
+    else:
+        grid = None
+    weights = combine_weights(targets, grid, freq, wpos)
     return weighted_ce(logits.reshape(-1, logits.shape[-1]), targets, weights)
 
 
@@ -319,6 +366,10 @@ def main():
                     help="rare-target upweight exponent; 0 disables (plain mean CE)")
     ap.add_argument("--freq_weight_max", type=float, default=8.0,
                     help="clip for rare-target upweighting")
+    ap.add_argument("--wordfinal_weight", type=float, default=1.0,
+                    help="gradient multiplier on word-completing targets; 1 disables")
+    ap.add_argument("--wordfinal_mask", default="",
+                    help=".npy bool mask aligned with train_ids (required when weight > 1)")
     ap.add_argument("--short_prefix_prob", type=float, default=0.0,
                     help="fraction of right-aligned updates sampled from short reply-start prefixes")
     ap.add_argument("--short_prefix_max", type=int, default=16,
@@ -446,6 +497,19 @@ def main():
                           "types_le100": int((counts <= 100).sum()),
                           "vocab": len(counts)}),
               flush=True)
+    wpos = None
+    if args.wordfinal_weight > 1.0:
+        if not args.wordfinal_mask:
+            raise ValueError("--wordfinal_mask is required when --wordfinal_weight > 1")
+        mask = np.load(args.wordfinal_mask, mmap_mode="r")
+        if len(mask) != len(train_ids):
+            raise ValueError("wordfinal mask length must match train_ids")
+        wpos = (mask, args.wordfinal_weight)
+        print(json.dumps({"kind": "wordfinal_weights",
+                          "weight": args.wordfinal_weight,
+                          "mask": str(args.wordfinal_mask),
+                          "wordfinal_frac": float(np.mean(np.asarray(mask))) }),
+              flush=True)
     if min(len(train_ids), len(val_ids)) <= cfg.ctx_window + 1:
         raise ValueError("corpus is too short for the configured context window")
     stop_at = min(args.steps, args.max_steps) if args.max_steps else args.steps
@@ -475,15 +539,15 @@ def main():
                                         min_prefix=args.rollout_min_prefix,
                                         sampling=args.rollout_sampling,
                                         generator=rollout_generator,
-                                        freq=freq)
+                                        freq=freq, gstarts=starts, wpos=wpos)
                 else:
                     loss = right_aligned_loss(readout, emb, cfg, ids, np_rng,
                                               short_prefix_prob=args.short_prefix_prob,
                                               short_prefix_max=args.short_prefix_max,
                                               blank_prefix_prob=args.blank_prefix_prob,
                                               blank_prefix_max=args.blank_prefix_max,
-                                              freq=freq)
-                    loss = loss + args.dense_weight * dense_loss(readout, emb, cfg, ids, freq)
+                                              freq=freq, gstarts=starts, wpos=wpos)
+                    loss = loss + args.dense_weight * dense_loss(readout, emb, cfg, ids, freq, starts, wpos)
             scaler.scale(loss).backward()
             scaler.unscale_(optimizer)
             gnorm = float(torch.nn.utils.clip_grad_norm_(list(readout.parameters()) + list(emb.parameters()), 1.0).item())
