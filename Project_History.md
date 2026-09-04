@@ -1984,3 +1984,35 @@ step-1000 TF loss 3.91, val_dense 0.73, grad finite. Bars: rare buckets
 101--500 CE 9.672 -> <=8.672 and 501--1k 8.069 -> <=7.569, dense regresses
 <=0.5, grads finite. Pass licenses the corpus probe; fail retires the data
 hypothesis toward vocab/head redesign.
+
+### fw1 smoke verdict: head does not answer to incentives, data hypothesis retired (2026-09-04)
+
+fw1 completed its exact 5,000 steps (gradients finite; dense 0.788 -> 0.842,
+inside the 0.5 guardrail) and assembled. Stratified report on the identical
+4,000-position draw as the v8 baseline:
+
+| bucket | v8 acc/CE | fw1 acc/CE | bar | verdict |
+|---|---|---|---|---|
+| 101--500 | .050 / 9.672 | .025 / 9.883 | <=8.672 | MISS (+0.21 worse) |
+| 501--1k | .047 / 8.069 | .062 / 8.298 | <=7.569 | MISS (+0.23 worse) |
+| 1k--5k | .084 / 6.620 | .092 / 6.668 | — | flat |
+| 5k+ | .280 / 3.690 | .272 / 3.746 | — | flat |
+
+Gate 0/15 (secondary, as pre-registered). Five thousand steps of 8x-capped
+rare upweighting moved every rare bucket in the WRONG direction or not at
+all — the head does not learn composition when paid to, on this data, at
+this dose. Honest caveats: 5k steps is short and a larger/longer alpha might
+differ, but the bars were pre-registered and the direction is flat-to-wrong,
+not slow. Per protocol: **FAIL — the data hypothesis is retired and the
+corpus probe is NOT licensed on these grounds.** More tokens of the same kind
+cannot be expected to teach what explicit 8x incentives did not.
+
+Next by elimination: the failure is compositional discipline (fragments as
+words), not exposure and not frequency starvation per se. Lead candidate is
+now subword regularization (BPE-dropout): train on multiple segmentations of
+the same words so fragment-attachment is learned as structure, not memorized
+per type. Same data, same tokenizer, cheap smoke, same bars. If that fails
+too, the remaining options are vocab-size reduction (re-tokenize, breaks the
+frozen tokenizer + HCM embeddings — expensive) or accepting current mouth
+limits and returning to the brain program. Reports:
+`probe_fw1_freqweight_eval_step5000.json`.
