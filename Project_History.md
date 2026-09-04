@@ -1832,3 +1832,29 @@ direct sample reading are all in. Reports:
 `probe_v7a_greedy_primary_eval_step30000.json`,
 `probe_v7a_greedy_primary_exposure_step30000.json`,
 `probe_v7a_greedy_primary_prefix_step30000.json`.
+
+### Arm B (raw-sampled recovery) endpoint: formal failure, gap worse than control (2026-09-04)
+
+Arm B completed its exact 30,000-step endpoint (val_dense 1.19972, finite
+gradients throughout) and assembled into an isolated voice. Raw strict
+free-run: **0/15** (CI 0.000--0.204; symbol 11, alpha 9, sustained_leg 8,
+early_onset 6, neolog 6, word_loop 5). All fifteen samples were read directly:
+quote-mark loops (`" "` `"The "`), Mississippi loops, and neologisms — no
+legible prose. Exposure gap **2.76081** (CI 2.69096--2.83629) vs Arm A
+2.36967 (CI 2.30043--2.44536): the treatment CIs sit strictly ABOVE the
+control, non-overlapping in the wrong direction. Prefix diagnostics are
+near-identical across arms (short 4.88161 vs 4.88020, long 4.83952 vs 4.77253,
+blank 6.81449 vs 6.64756), so the factorization is clean — the arms differ
+only on self-generated recovery, which is where raw sampling lost.
+
+**Experiment verdict (all four pre-registered bars fail):** 15/15 not met by
+either arm; no sample legible on direct reading; neither gap upper bound meets
+<=2.18; B shows no advantage over A. Raw-sampled self-history has not
+demonstrated any causal benefit over greedy rollout exposure, so no scaled
+follow-up is authorized. Greedy exposure remains the only curriculum to have
+moved recovery (V6 3.276 -> A 2.370) while expression stayed at zero in both
+arms — recovery and legibility have dissociated. P1 remains failed; no state,
+memory, body, initiative, emergence, or consciousness claim is licensed.
+Reports: `probe_v7b_raw_primary_eval_step30000.json`,
+`probe_v7b_raw_primary_exposure_step30000.json`,
+`probe_v7b_raw_primary_prefix_step30000.json`.

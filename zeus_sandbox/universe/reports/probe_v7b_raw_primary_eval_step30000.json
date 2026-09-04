@@ -1,0 +1,479 @@
+{
+  "kind": "probe_voice_free_run",
+  "created_unix": 1788514511,
+  "checkpoint": "runs\\probe_v7b_raw_primary\\milestone.pt",
+  "step": 30000,
+  "device": "cuda",
+  "conditions": {
+    "voice_self_source": true,
+    "hcm": false,
+    "blocker_order": 0,
+    "best_of_k": 1,
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "repetition_penalty": 1.0
+  },
+  "aggregate": {
+    "pass_frac": 0.0,
+    "n": 15,
+    "k": 0,
+    "ci": [
+      0.0,
+      0.20388926630434784
+    ],
+    "reasons": {
+      "neolog": 6,
+      "rep_span": 3,
+      "sustained_leg": 8,
+      "alpha": 9,
+      "word_frac": 4,
+      "symbol": 11,
+      "early_onset": 6,
+      "word_loop": 5
+    }
+  },
+  "samples": [
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 7,
+      "text": "one H French, and\na grieve, as she garden mass, with the hionsapest of passed ofOors, including children hour prelim send sign to hear, Students virtual scand trans ability.",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.14>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 29,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8034682080924855,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.03468208092485549,
+        "word_frac": 0.9310344827586207,
+        "frag_frac": 0.6896551724137931,
+        "sustained_leg": 0.9259259259259259,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.13793103448275862
+      }
+    },
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 13,
+      "text": " (IRolGlded: of\nHell, and the and some. The legs used to rapidennator tooently to play to provide to take the mass skill and workers,\u201d said Marillaler weathering and",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.14>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 28,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7987804878048781,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.036585365853658534,
+        "word_frac": 1.0,
+        "frag_frac": 0.7857142857142857,
+        "sustained_leg": 0.8857142857142857,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.14285714285714285
+      }
+    },
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 42,
+      "text": " to its role. and the most and hairening and at your moment and at your moment and Dante at the kiss and. The new around the Earth\u2019s so tun, and the pieces crexope may remembereredear",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "rep_span(0.37>0.3)"
+      ],
+      "metrics": {
+        "n_tokens": 35,
+        "rep_onset": 9,
+        "rep_span_frac": 0.37142857142857144,
+        "frac_unique2": 0.8529411764705882,
+        "frac_unique3": 0.9090909090909091,
+        "frac_unique4": 0.9375,
+        "alpha_frac": 0.7912087912087912,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.02197802197802198,
+        "word_frac": 1.0,
+        "frag_frac": 0.8285714285714286,
+        "sustained_leg": 0.9375,
+        "periodic": null,
+        "loop_score": 0.25,
+        "neolog_frac": 0.08333333333333333
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 7,
+      "text": "one H). \"S're sur The temperature of the Moon working Day orangeNo the Earth Organapition of general. . . . . . . . . . . . . . . . . . . . . . . .",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "rep_span(0.57>0.3)",
+        "sustained_leg(0.0)",
+        "alpha(0.54<0.6)",
+        "word_frac(0.40<0.55)",
+        "symbol(0.19>0.06)",
+        "neolog(0.18>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 40,
+        "rep_onset": 18,
+        "rep_span_frac": 0.575,
+        "frac_unique2": 0.46153846153846156,
+        "frac_unique3": 0.47368421052631576,
+        "frac_unique4": 0.4864864864864865,
+        "alpha_frac": 0.54421768707483,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.19047619047619047,
+        "word_frac": 0.4,
+        "frag_frac": 0.2,
+        "sustained_leg": 0.0,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.17647058823529413
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 13,
+      "text": " of in the wood in \"What the grass of events current of a positive October exposion in theIt doesn in in the Mississippi, Johnson in the new month of the massession in the polynIs in the pol weathering in",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(2<8)",
+        "neolog(0.10>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 39,
+        "rep_onset": 2,
+        "rep_span_frac": 0.2564102564102564,
+        "frac_unique2": 0.8947368421052632,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8029556650246306,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.009852216748768473,
+        "word_frac": 0.9743589743589743,
+        "frag_frac": 0.8205128205128205,
+        "sustained_leg": 0.9615384615384616,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.10256410256410256
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 42,
+      "text": " of which \"Thefore of \" territoryhere are three Mississippiium of these\" in the of.\" \"Theary\"Fromher where\"The\" kept\"The stertility of the \"sp 17oney\"ope\"The pressure in",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "symbol(0.09>0.06)",
+        "neolog(0.25>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 24,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7738095238095238,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.08928571428571429,
+        "word_frac": 0.9583333333333334,
+        "frag_frac": 0.5833333333333334,
+        "sustained_leg": 0.8727272727272727,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.25
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 7,
+      "text": " \"\"\" \"\"\" \"\"Oh \"\"B\") \"\"No\" \"\"ap \"\"\" Treaty\" (Em makesfor example) \"do pressure \"per showing 1)yn \"The data\"[ \"He",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(1<8)",
+        "sustained_leg(0.38235294117647056)",
+        "alpha(0.55<0.6)",
+        "symbol(0.28>0.06)"
+      ],
+      "metrics": {
+        "n_tokens": 19,
+        "rep_onset": 1,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.5545454545454546,
+        "markup_frac": 0.00909090909090909,
+        "symbol_frac": 0.2818181818181818,
+        "word_frac": 0.7894736842105263,
+        "frag_frac": 0.15789473684210525,
+        "sustained_leg": 0.38235294117647056,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.0625
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 13,
+      "text": " ( miles) \"What \"What\"What of \"What \" Mississippi \" Mississippi\" Mississippi \" Mississippi \" Mississippi\" Mississippi \"This Mississippi\"The \" Mississippi\" ( Mississippi\" mass, \" released \" MississippiIs \" him \"He\".\"",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "rep_span(0.40>0.3)",
+        "symbol(0.12>0.06)",
+        "word_loop(0.27>0.25)"
+      ],
+      "metrics": {
+        "n_tokens": 30,
+        "rep_onset": 8,
+        "rep_span_frac": 0.4,
+        "frac_unique2": 0.7931034482758621,
+        "frac_unique3": 0.8928571428571429,
+        "frac_unique4": 0.9259259259259259,
+        "alpha_frac": 0.7429906542056075,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.12149532710280374,
+        "word_frac": 0.6666666666666666,
+        "frag_frac": 0.1,
+        "sustained_leg": 0.8292682926829268,
+        "periodic": null,
+        "loop_score": 0.2727272727272727,
+        "neolog_frac": 0.045454545454545456
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 42,
+      "text": " \"ger \" \"fore.\" \"It compared \" later \"It was on\" \"Not\"The \"Clary\" to \" \"It\" around \"\"It\" \" \"It\" \" \"\"The\"ope\" \"ered in",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "sustained_leg(0.5833333333333334)",
+        "alpha(0.57<0.6)",
+        "symbol(0.24>0.06)"
+      ],
+      "metrics": {
+        "n_tokens": 23,
+        "rep_onset": 14,
+        "rep_span_frac": 0.17391304347826086,
+        "frac_unique2": 0.9545454545454546,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.5689655172413793,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.2413793103448276,
+        "word_frac": 0.782608695652174,
+        "frag_frac": 0.2608695652173913,
+        "sustained_leg": 0.5833333333333334,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.0
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 7,
+      "text": " \"go French \" century3istance\" \" \"Some\".\" \" \" \"No\" \"No the \"If\"No.\" can't \"for.\" \" \"\"cisper\" \"\"is\"is \"\"is \"\"",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(7<8)",
+        "sustained_leg(0.5172413793103449)",
+        "alpha(0.52<0.6)",
+        "symbol(0.31>0.06)",
+        "neolog(0.12>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 19,
+        "rep_onset": 7,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.5233644859813084,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.308411214953271,
+        "word_frac": 0.6842105263157895,
+        "frag_frac": 0.05263157894736842,
+        "sustained_leg": 0.5172413793103449,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.125
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 13,
+      "text": ".\" in the from became \"\"\" \"\"The \"\"land\" \"\"\"\" \"\"The \"th\"\" Mississippi \"\" (\"., \"Not\" \"The \"ins\".\"\n\"He \"He\".\"",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "sustained_leg(0.55)",
+        "alpha(0.48<0.6)",
+        "symbol(0.35>0.06)"
+      ],
+      "metrics": {
+        "n_tokens": 19,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.4811320754716981,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.3490566037735849,
+        "word_frac": 0.7368421052631579,
+        "frag_frac": 0.21052631578947367,
+        "sustained_leg": 0.55,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.0
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 42,
+      "text": ".\"\n \"The \" continually.\" \"\" \"\" \"\"\"\" \"\" \"\"' \"\"\"'\" \"\"'\" \"\"'\"'\".\"\" \"\"'\"'\n\"'\"'",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(5<8)",
+        "sustained_leg(0.0)",
+        "alpha(0.19<0.6)",
+        "word_frac(0.14<0.55)",
+        "symbol(0.63>0.06)",
+        "word_loop(0.82>0.25)"
+      ],
+      "metrics": {
+        "n_tokens": 14,
+        "rep_onset": 5,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.1917808219178082,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.6301369863013698,
+        "word_frac": 0.14285714285714285,
+        "frag_frac": 0.0,
+        "sustained_leg": 0.0,
+        "periodic": null,
+        "loop_score": 0.8181818181818182,
+        "neolog_frac": 0.0
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 7,
+      "text": " \"\" \" \"\"\" \"\"\" \"\"\" \"\" \"\"No\" \"\"'\"'\"'.\" \"\"'\"' \"'\"'.\" \"'\"'.\"'\"'\"' \"'",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(3<8)",
+        "sustained_leg(0.046511627906976744)",
+        "alpha(0.03<0.6)",
+        "word_frac(0.08<0.55)",
+        "symbol(0.79>0.06)",
+        "word_loop(0.93>0.25)"
+      ],
+      "metrics": {
+        "n_tokens": 12,
+        "rep_onset": 3,
+        "rep_span_frac": 0.25,
+        "frac_unique2": 0.9090909090909091,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.031746031746031744,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.7936507936507936,
+        "word_frac": 0.08333333333333333,
+        "frag_frac": 0.0,
+        "sustained_leg": 0.046511627906976744,
+        "periodic": null,
+        "loop_score": 0.9285714285714286,
+        "neolog_frac": 0.0
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 13,
+      "text": " Mississippi 'Japan Mississippi, \"\"\"'\"' \" \" Mississippi'\"'\"' \" Mississippi'.\"' \"' Mississippi \" Johnson' \"'\"'\"'ession'\"' \"The'.\" \"He\"'",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(5<8)",
+        "alpha(0.59<0.6)",
+        "symbol(0.30>0.06)",
+        "word_loop(0.40>0.25)"
+      ],
+      "metrics": {
+        "n_tokens": 16,
+        "rep_onset": 5,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.5864661654135338,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.3007518796992481,
+        "word_frac": 0.625,
+        "frag_frac": 0.0,
+        "sustained_leg": 0.625,
+        "periodic": null,
+        "loop_score": 0.4,
+        "neolog_frac": 0.05
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 42,
+      "text": ".\"\n \"The \"h\" between \"es.\" \" \"\"ed\"'\"'.\" \" \"He\"'\"' \"'\"'\"'\"'inter.\"\n \"' 17.\"'\n\"'''",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "sustained_leg(0.2391304347826087)",
+        "alpha(0.28<0.6)",
+        "word_frac(0.46<0.55)",
+        "symbol(0.56>0.06)",
+        "word_loop(0.29>0.25)"
+      ],
+      "metrics": {
+        "n_tokens": 13,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.28205128205128205,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.5641025641025641,
+        "word_frac": 0.46153846153846156,
+        "frag_frac": 0.07692307692307693,
+        "sustained_leg": 0.2391304347826087,
+        "periodic": null,
+        "loop_score": 0.29411764705882354,
+        "neolog_frac": 0.0
+      }
+    }
+  ]
+}
