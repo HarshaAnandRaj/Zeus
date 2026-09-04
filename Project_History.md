@@ -2084,3 +2084,42 @@ language (no behavior change); `Causal_Chain.md` adopts allowed-conclusion
 labels and softens the Night3 limit-cycle attribution to association.
 Battery API unchanged (additive keys only); drift smoke + 10/10 probe/model
 tests green.
+
+
+### Vocab/brain fork analysis: tail compresses, salad persists, new lead hypothesis (2026-09-04)
+
+Zero-GPU analysis (scripts in `C:\Users\Anand\AppData\Local\Temp\opencode\`:
+`toktrain.py`, `vocabproj.py`, `segcheck.py`; candidate tokenizers kept in
+temp, NOT committed):
+
+| vocab | tokens | median occ | types <=500 | types <=1000 | frozen overlap |
+|---|---|---|---|---|---|
+| 8192 (now) | 16.07M | 329 | 4915 (60%) | 6183 (75%) | — |
+| 4096 | 16.29M | 1163 | 354 (9%) | 1755 (43%) | 3230 (79%) |
+| 2048 | 18.29M | 3145 | 125 (6%) | 182 (9%) | 1874 (92% of 2048) |
+| 1024 | 21.02M | 8594 | 95 (9%) | 108 (11%) | 987 (96% of 1024) |
+
+BPE-2048 compresses the starving tail 60% -> 6% (median into the CE~6.6
+band). BUT segmentation spot-checks show the salad morphemes ("ies", "on",
+"'s"-family) persist at EVERY size, common words shatter below 4096
+("garden" -> "G+g/ard/en", "Mississippi" whole only at 8192), and lone-letter
+emission (" i" x77) is a single token only at 8192 — smaller vocabs make MORE
+pieces per word, i.e. more composition load, not less. Frequency improves;
+composition discipline is vocab-invariant. Also corrected our cost framing:
+a fresh mouth is only ~2-4 GPU-hours (v7 pace); the real breakage is frozen
+artifacts (tokenizer, HCM bank vectors, all probe comparabilities,
+known_words gate) — and the brain core (rec/tau/pathways) is
+vocab-independent and transfers intact.
+
+Deeper inference: piece accuracy (good on frequent) + composition exposure
+(dropout) both failed to move emission discipline, and the salad pieces exist
+at every vocab size. The missing ingredient is likely a WORD-VALIDITY SIGNAL:
+no loss term anywhere rewards emitting valid words — all training is
+token-level CE. That hypothesis is cheaper to test than a re-tokenization.
+
+Brain-return viable slice (P1 conceded): (1) Night6 memory-helps-prediction
+replication — pure CE result, no legibility needed, coarse HCM already
+in-tree (`core/hcm.py` region design); (2) embodiment/homeostatic policy —
+needs no mouth at all; (3) dynamics health under the corrected CDT audit.
+Permanently out of reach with this mouth: P4 causal expression + all
+legibility-gated pillars (the gate requires readable replies by construction).
