@@ -2123,3 +2123,31 @@ in-tree (`core/hcm.py` region design); (2) embodiment/homeostatic policy —
 needs no mouth at all; (3) dynamics health under the corrected CDT audit.
 Permanently out of reach with this mouth: P4 causal expression + all
 legibility-gated pillars (the gate requires readable replies by construction).
+
+### wv1 smoke verdict: failure MODE moves, quality does not; cheap options exhausted (2026-09-05)
+
+wv1 completed its exact 5,000 updates (word-final 3x, gradients finite;
+dense 0.788 -> 1.002, inside guardrail) and assembled. Stratified report,
+same draw as baselines:
+
+| bucket | v8 acc/CE | wv1 acc/CE | bar | verdict |
+|---|---|---|---|---|
+| 101--500 | .050 / 9.672 | .019 / 10.074 | <=8.672 | MISS (+0.40) |
+| 501--1k | .047 / 8.069 | .062 / 8.397 | <=7.569 | MISS (+0.33) |
+| 1k--5k / 5k+ | .084/6.620 / .280/3.690 | .072/6.794 / .266/3.709 | — | flat-to-worse |
+
+Gate 3/15 with neolog reason count 7 (< 14: the count bar passes), BUT all
+three passes were read and rejected ("one H French, looked around his ...",
+"of a written of here ...", "drugsospone here ..."). Meanwhile repetition
+failures ROSE (early_onset 1 -> 7, rep_span 0 -> 3, word_loop 0 -> 1: "of the
+means of means of the means", "one or two or two or two"). The pressure
+moved the failure mode — completions get emitted, then repeated — without
+improving quality anywhere. CE bars missed, legibility absent: FAIL.
+
+wv1 is the first intervention to visibly alter emission behavior rather than
+leave it flat — but alteration without improvement is not progress toward P1.
+With fw1 (incentives), sw1 (segmentation noise), and wv1 (validity pressure)
+all failing, the cheap hypothesis space is exhausted: no further mouth smokes
+without a genuinely new mechanism. Remaining: vocab-size reduction (breaks
+frozen stack) or brain return with P1 conceded. Reports:
+`probe_wv1_wordfinal_eval_step5000.json`.
