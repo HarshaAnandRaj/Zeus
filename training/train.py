@@ -43,6 +43,31 @@ def get_ids(cache, text_path):
     return arr
 
 
+MOUTH_KEYS = ("readout_layers", "readout_ffn_mult", "readout_heads", "ctx_anchor", "cross_attn")
+
+
+def _mouth_cfg_from_lm_pretrain(run_config_path):
+    """Readout knobs from a pretrain run_config.json.
+
+    Legacy configs carry the knobs top-level; probe-era configs nest them
+    under "readout_config".  Missing file or keys -> {} (caller defaults).
+    """
+    if run_config_path is None:
+        return {}
+    run_config_path = pathlib.Path(run_config_path)
+    if not run_config_path.exists():
+        return {}
+    try:
+        saved = json.loads(run_config_path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    if not isinstance(saved, dict):
+        return {}
+    nested = saved.get("readout_config")
+    source = nested if isinstance(nested, dict) else saved
+    return {k: source[k] for k in MOUTH_KEYS if k in source}
+
+
 def dyn_lm_params(model):
     lm_keys = ("embed", "readout")
     dyn, lm = [], []
@@ -290,10 +315,12 @@ def self_pass(model, steps=24, w_var=0.5, w_norm=0.0, norm_bound=10.0,
 
 @torch.no_grad()
 def eval_health(model, steps=200, grain=0.25, k_lag=8, heartbeat=None):
-    """CDT-alive is a property of the CLOSED-LOOP law (heartbeat included, 5.9.1/5.9.3):
-    roll WITH the virtual heartbeat (the operating system) and report its d_s/rho, plus an
-    OPEN-LOOP roll with kicks stopped as the relapse counterfactual ('stop the kicks =>
-    relapse'). rescue_kicks = floor fires (near-exact recurrence) during the closed roll."""
+    """Finite-horizon health roll: WITH the heartbeat controller when supplied
+    (viability-control law, model-specific) plus an OPEN-LOOP roll with kicks
+    stopped as the relapse counterfactual ('stop the kicks => relapse').
+    rescue_kicks = floor fires (near-exact recurrence) during the closed roll.
+    All regime strings are descriptive this-horizon associations, never
+    alive/dead verdicts."""
     g = torch.Generator().manual_seed(777)
     model.reset_state(noise=0.1, generator=g)
     traj, confs = [], []
@@ -380,12 +407,17 @@ def _health_metrics(model, traj, confs, steps, grain, k_lag):
     nu_state = correlation_dimension(traj)
     beta_state = msd_exponent(traj)
     d_w_state = (2.0 / beta_state) if (beta_state == beta_state and beta_state > 0) else None
-    # CDT life/death theorem (theory 5.8): Life <=> (d_s = 2*nu/d_w <= 2) AND gamma>0.
-    #   d_s <= 2  (nu <= d_w) -> RECURRENT manifold  = life-CAPABLE base (outer wall OK)
-    #   d_s >  2  (nu >  d_w) -> TRANSIENT manifold   = forgetting/death (repulsion only accelerates it)
-    # Life itself additionally needs gamma>0 (repulsion) to suppress exact lock (rho_exact~0) -> rhyme not exact.
+    # Finite-horizon descriptors only (canonical theorem file). nu_state is a
+    # point-cloud OCCUPATION slope, not the substrate volume exponent, so it
+    # cannot enter d_s = 2*d_f/d_w without an identification argument; d_w is
+    # raw MSD without a scaling audit. The comparison below describes spread
+    # geometry this horizon; it classifies nothing about life or death.
+    #   nu <= d_w  -> revisiting spread geometry this horizon
+    #   nu >  d_w  -> wide spread geometry this horizon
+    # Any alive/dead reading additionally required gamma>0 on the PERTURBED
+    # process (neither necessary nor sufficient in general) — not measured here.
     if d_w_state is not None:
-        state_regime = "recurrent/base (life-capable)" if nu_state <= d_w_state else "transient/forgetting (death)"
+        state_regime = "revisiting-spread (descriptive)" if nu_state <= d_w_state else "wide-spread (descriptive)"
     else:
         state_regime = "n/a"
     return {"rho_exact": round(rho, 4), "sites": int((counts > 0).sum()),
@@ -459,8 +491,12 @@ def eval_generation_health(model, prompts=("hello", "the little girl"), tokens=4
 
 
 class HeartbeatWatchdog:
-    """CDT §5.9 virtual heartbeat: an EXTERNAL, state-triggered feedback controller
-    that kicks the self at the death-boundary. Faithful to the theory:
+    """Viability controller (model-specific): an EXTERNAL, state-triggered
+    feedback controller that kicks the state away from lock-in sets. Design
+    follows the CDT heartbeat simulations (boundary trigger, on-manifold
+    aimed kicks, decoupled energy), which are simulation support for one
+    specified model family — not a universal control law, and never evidence
+    of autonomy (stops => relapse by construction):
 
       * Optimal trigger = the boundary (§5.9.2/§5.9.8), NOT "earlier" and NOT after
         deep relaxation. We fire when the projected time-to-basin
@@ -474,8 +510,11 @@ class HeartbeatWatchdog:
         (S - centroid(H)), i.e. away from the recent cluster -> raises novelty,
         tangent to the occupied manifold, so it defends the inner wall without
         breaching the outer one. Magnitude capped (xi_max).
-      * Decoupled external controller (§5.9.5): the watchdog reads state but is not
-        part of the death loop -> it can still rescue when gamma_int -> 0.
+      * Decoupled external controller: the watchdog reads state but is not
+        part of the collapse loop -> it can still perturb when intrinsic
+        repulsion -> 0. External input is necessary only once an internal
+        no-escape set is established (not proven here); otherwise an internal
+        subsystem with an admissible exit could serve.
     """
 
     def __init__(self, hb_gain=1.5, hb_amp_max=100.0, hb_horizon_steps=300.0,
@@ -721,7 +760,8 @@ def main():
     ap.add_argument("--lm_pretrain", type=str, default=None,
                     help="path to a pretrain_lm.py run; loads readout.pt+emb.pt so LM competence is present from step 0")
     ap.add_argument("--heartbeat", action="store_true",
-                    help="enable the CDT §5.9 virtual heartbeat watchdog (state-triggered external rescue at the death boundary)")
+                    help="enable the viability-controller watchdog (state-triggered external "
+                         "perturbation; model-specific, never autonomy evidence)")
     ap.add_argument("--hb_inner_rho", type=float, default=0.05)
     ap.add_argument("--hb_gain", type=float, default=1.5)
     ap.add_argument("--hb_amp_max", type=float, default=100.0, help="xi_max safety cap on kick drive-magnitude; kick is on-manifold so large values allowed (L1 reach)")
@@ -760,15 +800,13 @@ def main():
     # Mouth (readout) shape: readout knobs come from the pretrain run's
     # run_config.json (authoritative), else from the resumed ckpt config, else
     # defaults (which keep legacy checkpoints shape-identical).
-    mouth_cfg = {}
-    if args.lm_pretrain is not None:
-        rc = pathlib.Path(args.lm_pretrain) / "run_config.json"
-        if rc.exists():
-            mouth_cfg = json.loads(rc.read_text(encoding="utf-8"))
+    mouth_cfg = _mouth_cfg_from_lm_pretrain(
+        pathlib.Path(args.lm_pretrain) / "run_config.json"
+        if args.lm_pretrain is not None else None)
     model_cfg = ZeusConfig()
     if args.cross_attn:
         model_cfg.cross_attn = True
-    for k in ("readout_layers", "readout_ffn_mult", "readout_heads", "ctx_anchor", "cross_attn"):
+    for k in MOUTH_KEYS:
         if k in mouth_cfg:
             setattr(model_cfg, k, mouth_cfg[k])
     ckpts = sorted(save_dir.glob("zeus_step*.pt"))
@@ -776,7 +814,7 @@ def main():
     if args.resume == "auto" and ckpts:
         resume_payload = torch.load(ckpts[-1], map_location=device, weights_only=False)
         pc = resume_payload.get("config") or {}
-        for k in ("readout_layers", "readout_ffn_mult", "readout_heads", "ctx_anchor", "cross_attn"):
+        for k in MOUTH_KEYS:
             if k in pc:
                 setattr(model_cfg, k, pc[k])
     model = ZeusCore(model_cfg).to(device)

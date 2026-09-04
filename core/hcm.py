@@ -199,19 +199,19 @@ class HCM:
         inject prediction signal, not state noise.
         """
         if self.n_patterns == 0:
-            return None, None, None, None
+            return None, None, None, None, None
         query = query.detach().to(self.device)
         sim = self._cosine_sim(query, self.patterns)
         age = self.step_count - self.birth_step[:self.n_patterns]
         fresh = (age >= self.min_age) & (self.strengths[:self.n_patterns] > 0.1)
         if not fresh.any():
-            return None, None, None, None
+            return None, None, None, None, None
         sim_masked = sim.clone()
         sim_masked[~fresh] = -1.0
         topk_sim, topk_idx = sim_masked.topk(min(self.top_k, self.n_patterns))
         mask = topk_sim >= self.recall_threshold
         if not mask.any():
-            return None, None, None, None
+            return None, None, None, None, None
         valid_idx = topk_idx[mask]
         valid_sim = topk_sim[mask]
         self.strengths[valid_idx] += 1.0

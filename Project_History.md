@@ -2124,6 +2124,38 @@ needs no mouth at all; (3) dynamics health under the corrected CDT audit.
 Permanently out of reach with this mouth: P4 causal expression + all
 legibility-gated pillars (the gate requires readable replies by construction).
 
+### Brain return opens: Night6 replication pre-registered, full loop rewired (2026-09-05)
+
+`docs/night6_replication_protocol.md` fixes the memory-helps-prediction test
+before compute: mem arm vs `--no_hcm` arm, fresh random dynamics + frozen v8
+mouth, nomarkers_b corpus, all defaults held fixed, seed 20260910, 2k smokes
+then exact 8k endpoints. Bars: mem val_ce < L1 7.10 AND mem strictly below
+no-mem at matched steps (final-3-eval means) AND `hcm_causal_audit`
+matched-vs-wrong > 0 AND no collapse signatures. No legibility/state/
+consciousness inference licensed; P1 stays failed. Known caveat: RNG streams
+diverge where no_hcm short-circuits curriculum draws — arms are independent
+runs. Frozen-brain baseline (3k free steps, corrected audit): full state zero
+revisits with every step a new cell, declared 2-D projection revisiting at
+0.997, centroid bank 16/16 classes in the first half, rms per-dim 0.24 —
+finite-horizon two-level association, not a corpse (single trajectory,
+below-strong-claim floors, centroids fitted-and-flagged).
+
+Rewire fixes found by the smoke (all committed before the 8k endpoints):
+`training/train.py` mouth-config loader ignored probe-era nested
+`readout_config` (built a 2-layer plain readout under the v8 6-layer
+cross-attn weights — crashed on load); now reads nested-or-flat via
+`_mouth_cfg_from_lm_pretrain` + `training/test_train_config.py` (4/4).
+`core/hcm.py` early-exit `read()` paths returned 4-tuples against the
+5-tuple contract — fixed at source + `training/test_hcm_read_contract.py`
+(3/3); all index-style callers verified compatible. CDT language corrections
+continued into the loop: `state_regime` strings rewritten as spread-geometry
+descriptors, heartbeat watchdog/help/eval_health demoted to
+viability-controller language (comments/strings only — the already-running
+mem smoke keeps its loaded code; future launches inherit).
+Mem-arm smoke mechanics confirmed live: 484 patterns/31 regions at step 500,
+writes/recalls/consolidation/pruning all firing, grads finite (~1.9
+steps/s).
+
 ### wv1 smoke verdict: failure MODE moves, quality does not; cheap options exhausted (2026-09-05)
 
 wv1 completed its exact 5,000 updates (word-final 3x, gradients finite;
