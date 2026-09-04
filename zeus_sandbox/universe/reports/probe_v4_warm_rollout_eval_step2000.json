@@ -1,0 +1,439 @@
+{
+  "kind": "probe_voice_free_run",
+  "created_unix": 1788426470,
+  "checkpoint": "runs\\probe_v4_warm_rollout_primary\\milestone_step2000.pt",
+  "step": 4000,
+  "device": "cuda",
+  "conditions": {
+    "voice_self_source": true,
+    "hcm": false,
+    "blocker_order": 0,
+    "best_of_k": 1
+  },
+  "aggregate": {
+    "pass_frac": 0.06666666666666667,
+    "n": 15,
+    "k": 1,
+    "ci": [
+      0.011866588606194856,
+      0.2981707755242399
+    ],
+    "reasons": {
+      "early_onset": 5,
+      "rep_span": 3,
+      "neolog": 10,
+      "symbol": 2
+    }
+  },
+  "samples": [
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 7,
+      "text": " if I had none of the shops of the\ncompan off. But in\ntown up and only of the gather, which was born and again, and still, with the wine; and that it was the",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(5<8)"
+      ],
+      "metrics": {
+        "n_tokens": 35,
+        "rep_onset": 5,
+        "rep_span_frac": 0.17142857142857143,
+        "frac_unique2": 0.9411764705882353,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.75,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.03205128205128205,
+        "word_frac": 0.9714285714285714,
+        "frag_frac": 0.8,
+        "sustained_leg": 0.9117647058823529,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.02857142857142857
+      }
+    },
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 13,
+      "text": " stands and the\nAnding the young of the ab of a\nof of the\nddesc to the unto the sharkable, and they had the \u201cI knew and the\nof and the paceaeus",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(7<8)",
+        "rep_span(0.31>0.3)",
+        "neolog(0.12>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 32,
+        "rep_onset": 7,
+        "rep_span_frac": 0.3125,
+        "frac_unique2": 0.9032258064516129,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7676056338028169,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.014084507042253521,
+        "word_frac": 0.9375,
+        "frag_frac": 0.875,
+        "sustained_leg": 0.96,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.125
+      }
+    },
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 42,
+      "text": " stirical of the\nof theI knew and into theation, and the\nof.\n\nThenecessary house is the gather; the stupid the pounded to undertil.\ndear",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.21>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 24,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7985074626865671,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.029850746268656716,
+        "word_frac": 1.0,
+        "frag_frac": 0.75,
+        "sustained_leg": 0.9393939393939394,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.20833333333333334
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 7,
+      "text": " of a new name of\nof cred\nof silver, and geometric of the\nhostition of the confines, ease, and so often; then and the\nAndist, and thy, and by the",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(5<8)"
+      ],
+      "metrics": {
+        "n_tokens": 30,
+        "rep_onset": 5,
+        "rep_span_frac": 0.13333333333333333,
+        "frac_unique2": 0.9655172413793104,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7569444444444444,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.041666666666666664,
+        "word_frac": 0.9666666666666667,
+        "frag_frac": 0.7666666666666667,
+        "sustained_leg": 0.9090909090909091,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.1
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 13,
+      "text": " of the\nof,\nAnd with dismade and of a dilio and Mrs.\nThenecessary the last, and in the uns.\nof, and theing the\nThenecessarying,",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.21>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 24,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7698412698412699,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.047619047619047616,
+        "word_frac": 0.9583333333333334,
+        "frag_frac": 0.625,
+        "sustained_leg": 0.9142857142857143,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.20833333333333334
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 42,
+      "text": " of a\nof,\nof the; theo, and of\nof, and\nThen\u2019s and the air, and geocated; the stupid the pound, and theinc was\ngible in",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "symbol(0.07>0.06)",
+        "neolog(0.12>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 25,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7264957264957265,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.06837606837606838,
+        "word_frac": 0.96,
+        "frag_frac": 0.64,
+        "sustained_leg": 0.8620689655172413,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.11538461538461539
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 7,
+      "text": " the table.\nddepartly; and\nthat she would never in the last, the pale of a pachable: he was born and again, and the\nhaveks to seeing of the chair",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.10>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 29,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7708333333333334,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.034722222222222224,
+        "word_frac": 0.9655172413793104,
+        "frag_frac": 0.7931034482758621,
+        "sustained_leg": 0.9310344827586207,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.10344827586206896
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 13,
+      "text": " the in the for it\ndestion of the abstreaming the ptarm.\nThenecessary side stable to bringing the pity of the vesseling thee and sent in a person,",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(7<8)",
+        "neolog(0.19>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 27,
+        "rep_onset": 7,
+        "rep_span_frac": 0.14814814814814814,
+        "frac_unique2": 0.9615384615384616,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8068965517241379,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.013793103448275862,
+        "word_frac": 0.9629629629629629,
+        "frag_frac": 0.8518518518518519,
+        "sustained_leg": 0.9782608695652174,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.18518518518518517
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 42,
+      "text": " you which I would have the laid; then I would be dispers. But there was stands.\nof.\ntrained to the; I have a niceing, and the frightensing\nThenear",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(3<8)",
+        "neolog(0.14>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 28,
+        "rep_onset": 3,
+        "rep_span_frac": 0.14285714285714285,
+        "frac_unique2": 0.9629629629629629,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.773972602739726,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.0410958904109589,
+        "word_frac": 0.8571428571428571,
+        "frag_frac": 0.5714285714285714,
+        "sustained_leg": 0.9,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.14285714285714285
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 7,
+      "text": " the table.\nof might have a silent shown, what I am over thement and gathers.\nAnd at the lower Sorryayers, and then to hear, and stands and without stiricalAR.",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.10>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 29,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7848101265822784,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.0379746835443038,
+        "word_frac": 0.9310344827586207,
+        "frag_frac": 0.6896551724137931,
+        "sustained_leg": 0.9393939393939394,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.10344827586206896
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 13,
+      "text": " of her life for it\ndescope of our pock, and eight she would only 7 pilliaming of the last, and in theons to a sub and, and have no intim and sentiment to the\n",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.12>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 34,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7643312101910829,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.025477707006369428,
+        "word_frac": 0.9411764705882353,
+        "frag_frac": 0.8529411764705882,
+        "sustained_leg": 0.9393939393939394,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.12121212121212122
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 42,
+      "text": "\ntpany to the most of a joy and yourself, and so-day, and the lasting.\nThen\u2019s, and the stupidered, and the still louding\nThenet",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.16>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 23,
+        "rep_onset": 12,
+        "rep_span_frac": 0.2608695652173913,
+        "frac_unique2": 0.9090909090909091,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7698412698412699,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.05555555555555555,
+        "word_frac": 0.9565217391304348,
+        "frag_frac": 0.6956521739130435,
+        "sustained_leg": 0.8604651162790697,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.16
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 7,
+      "text": "\nAnd.\nth around the door, and Lion.\nof, and the\nof the pale of a pounded, and it was born; and to the\nof of the\nof of the\nAnd the",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "rep_span(0.32>0.3)"
+      ],
+      "metrics": {
+        "n_tokens": 31,
+        "rep_onset": 10,
+        "rep_span_frac": 0.3225806451612903,
+        "frac_unique2": 0.8333333333333334,
+        "frac_unique3": 0.9310344827586207,
+        "frac_unique4": 0.9642857142857143,
+        "alpha_frac": 0.71875,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.046875,
+        "word_frac": 0.967741935483871,
+        "frag_frac": 0.7419354838709677,
+        "sustained_leg": 0.8709677419354839,
+        "periodic": null,
+        "loop_score": 0.22580645161290322,
+        "neolog_frac": 0.0
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 13,
+      "text": "\nAnd and she had\nAnd with him of\nd of a\ny and he would never came into the\nt the last, and the last the\nhow and, and\nAnd of the\nof in theing the",
+      "recalls": 0,
+      "pass": true,
+      "reasons": [],
+      "metrics": {
+        "n_tokens": 36,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7412587412587412,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.013986013986013986,
+        "word_frac": 0.8888888888888888,
+        "frag_frac": 0.75,
+        "sustained_leg": 0.9285714285714286,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.027777777777777776
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 42,
+      "text": "\nof the\nd, and the; the loud, and\nof, and\nof; and the\nof, and the door of the; the stiries, and the\nAnd with the\nof.\n\n",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "rep_span(0.48>0.3)",
+        "symbol(0.08>0.06)"
+      ],
+      "metrics": {
+        "n_tokens": 27,
+        "rep_onset": 9,
+        "rep_span_frac": 0.48148148148148145,
+        "frac_unique2": 0.8461538461538461,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.6956521739130435,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.0782608695652174,
+        "word_frac": 0.9629629629629629,
+        "frag_frac": 0.6296296296296297,
+        "sustained_leg": 0.8518518518518519,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.037037037037037035
+      }
+    }
+  ]
+}

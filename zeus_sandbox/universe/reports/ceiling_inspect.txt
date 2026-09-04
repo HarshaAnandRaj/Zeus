@@ -1,0 +1,644 @@
+===== baseline =====
+  [s0 'hello'] leg=1.00 loop=0.00 onset=16
+    RAW: ' and in the\nthe happiness, and actor (b.Sil)\n Bottacciated\nSome (S.  Babac)\n 2010 census - Emmy, Noken-law (J. League)'
+  [s16 'hello'] leg=1.00 loop=0.00 onset=13
+    RAW: ' constituency\nof, American actor (17ias 1911) - Karl - Karl League 2221-ligitalig-du-door songd song - song (MMMMMMMMMMM'
+  [s32 'hello'] leg=1.00 loop=0.00 onset=1
+    RAW: '-American). Heaven), He is a piano-American movie actors\nAmerican boy (1758).\nPPump90\nMel-MMMMMMMMMMMMMMMMMM'
+  [s48 'hello'] leg=0.77 loop=0.33 onset=2
+    RAW: '-MMMMMMMiónio Kingdomio), Jeanio), and Agento-Kent-ent-ent-ent-ent-ent-mila An-MMMMMMMMM'
+  [s64 'hello'] leg=1.00 loop=0.00 onset=4
+    RAW: 'ëla-MMMMMMMMoud-MMMicMITral United Kingdom of November 2008 to think of an agreement and two days of a United Kingdom-Mail-Americanail-Ameri'
+  [s80 'hello'] leg=1.00 loop=0.00 onset=1
+    RAW: '-American-American sex educator-American-American-American-American movie actors\n|1987), complications67,\nDonnet’s wife, reflectickells Farr'
+  [s96 'hello'] leg=1.00 loop=0.00 onset=19
+    RAW: 'i-American voice\nBritish Army-planata, 1991-goers, Besto-y-seo-go into an attempt86-Star Wars.go.gosett, however, United Kingdom, and later '
+  [s112 'hello'] leg=0.00 loop=0.00 onset=9
+    RAW: '-o — || October 10, 10 || NEAT || NEAT || — || September 15, 2000 || Socorro || LINEAR || — || align=right | 1.9 km ||\n2424 bgcolor=#d6d6d6d'
+  [s128 'hello'] leg=0.00 loop=0.00 onset=1
+    RAW: ' km ||\n| 11810 km ||  || September 17, 2000 || Socorro || LINEAR || MAR || align=right | 6.3 km ||\n|-id=2438 bgcolor=#fefefe\n| 118948 ||  ||'
+  [s144 'hello'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || — || August 18, 2000 || Kitt Peak || Spacewatch || — || align=right | 4.0 km ||\n|-id=247 bgcolor=#fefefe\n| 1189487 ||  || May 2, 2000 ||'
+  [s160 'hello'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || Kitt Peak || Kitt Peak || Spacewatch || B.1 km ||\n|-id=2438 bgcolor=#E9E9E9 ||\n| 118948541 ||  || May 25, 2000 || Socorro || LINEAR ||'
+  [s176 'hello'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || LINEAR || — || align=right | 1.0 km ||\n|-id=240 bgcolor=#fefefe\n| 8467 || 1913 ||  || March 15, 2000 || Kitt Peak || LINEAR || — || alig'
+  [s192 'hello'] leg=0.00 loop=0.00 onset=30
+    RAW: ' || align=right | 6. bgcolor=#fefefe\n| 13224 ||  || — || December 15, 2000 || Socorro || LINEAR || T. T.3 km ||\n|-id=240 || May 18, 2000 ||'
+  [s208 'hello'] leg=0.00 loop=0.33 onset=17
+    RAW: ' 2000 || P Obs. Palisa ||\n|-id=567 bgcolor=#E9E9E9E9E9\n| 1189 || Socorro || LINEAR ||  || LINEAR || — || align=right | 1.9'
+  [s224 'hello'] leg=0.00 loop=0.40 onset=10
+    RAW: ' km ||\n| 118116 bgcolor=#E9E9E9E9E9E9\n| 162022 || Kitt Peak ||  || — || November 5, 2000 || Socorro || LINEAR || LINEAR || LINEAR || —'
+  [s240 'hello'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || align=right | 3.3 km ||\n|-id=722 bgcolor=#fefefe\n| 152258 ||  || — || November 5, 2000 || Socorro || LINEAR || MAR || align=right | 5.3 '
+  [s0 'tell me about the past'] leg=0.00 loop=0.00 onset=18
+    RAW: ' ||\n|-id=722 bgcolor=#fefefe\n| 94722 ||  || — || November 5, 2000 || Kitt Peak || Spacewatch || — || align=right | 5.1 km ||\nsort-= km ||\n'
+  [s16 'tell me about the past'] leg=0.00 loop=0.00 onset=2
+    RAW: ' 117 ||  ||\n|-id=56221 ||  || — || November 5, 2000 || Socorro || LINEAR || — || align=right | 1.8 km ||\n|-id=0360 km ||\n| 118'
+  [s32 'tell me about the past'] leg=0.00 loop=0.00 onset=1
+    RAW: ' ||  ||  ||\n| 118 Obs56 ||  || — || November 5, 2000 || Socorro || LINEAR || Socorro || LINEAR || LINEAR || LINEAR || — || align=right | 1.5'
+  [s48 'tell me about the past'] leg=0.00 loop=0.46 onset=7
+    RAW: ' ||\n| 1188856 ||  ||  ||  || March 5, 2000 || Socorro || LINEAR || Socorro || LINEAR || Socorro || LINEAR || M|-id=56 || M bgcolor=#fefefe |'
+  [s64 'tell me about the past'] leg=0.00 loop=0.00 onset=8
+    RAW: ' || align=right | 2.9 km ||\n| 1189 km ||  ||\n|-id=6611956 || T.1 || LINEAR ||\n|-id=5656 bgcolor=#fefefe\n| 118949 ||'
+  [s80 'tell me about the past'] leg=0.00 loop=0.00 onset=31
+    RAW: ' ||  || May 28, 1998 || Kitt Peak || Spacewatch || — || align=right | 1.8 km ||\n|-id=565 bgcolor=#fefefe\n| 845656 bgcolor=#fefefe ||  || — |'
+  [s96 'tell me about the past'] leg=0.00 loop=0.00 onset=8
+    RAW: ' || — || align=, 1998 || Kitt Peak || Kitt Peak || Spacewatch || Pres || Kitt Peak || Spacewatch || T, 2001 || Anderson Mesa || LONEOS || LO'
+  [s112 'tell me about the past'] leg=0.00 loop=0.00 onset=3
+    RAW: ' bgcolor=#E9E9 km ||\n| 94758478847 ||  || November 9, 2001 || Oizumi || Ekar || align=right | 1.2 km ||\n|-id=777 bgcolor=#E9'
+  [s128 'tell me about the past'] leg=0.00 loop=0.00 onset=9
+    RAW: ' ||\n| 92222 ||  || — || March 16, 2001 || Socorro || LINEAR || — || align=right | 5.1 km ||\n|-id=777 bgcolor=#fefefe\n| 118922 ||  ||'
+  [s144 'tell me about the past'] leg=0.00 loop=0.00 onset=3
+    RAW: ' ||  || — || March 18, 2001 || Socorro || LINEAR || — || align=right | 5.2 km ||\n|-id=668 bgcolor=#fefefe || 1179229 km ||\n| 165622 || '
+  [s160 'tell me about the past'] leg=0.00 loop=0.00 onset=22
+    RAW: ' ||  || March 30, 1998 || Socorro || LINEAR || — || align=right | 5.3 km ||\n|-id=669 km ||\n|-id=669 bgcolor=#fefefe ||  ||\n| 16560'
+  [s176 'tell me about the past'] leg=0.00 loop=0.00 onset=1
+    RAW: ' ||  || March 17, 1998 || Socorro || LINEAR || T.1. || — || align=right | 4.0 km ||\n|-id=669 bgcolor=#fefefe\n| 16567 ||  || — || March'
+  [s192 'tell me about the past'] leg=0.00 loop=0.00 onset=1
+    RAW: ' ||  || March 30, 1998 || Socorro || LINEAR || — || align=right | 1.3 km ||\n|-id=560 bgcolor=#fefefe\n| 165658 ||  || — || March 30 || March '
+  [s208 'tell me about the past'] leg=0.00 loop=0.00 onset=3
+    RAW: ' || — || align=, 1998 || LINEAR || BRA || align=right | 1.0 km ||\n|-id=567 km ||\n|-id=1161 bgcolor=#fefefe\n| 1189479 || '
+  [s224 'tell me about the past'] leg=0.00 loop=0.00 onset=22
+    RAW: ' ||  || May 30, 1998 || Socorro || LINEAR || — || align=right | 5.2 km ||\n|-id=567 km ||\n|-id=569 km ||\n| 16361 ||  || '
+  [s240 'tell me about the past'] leg=0.00 loop=0.00 onset=8
+    RAW: ' || — || May 5, 1998 || Socorro || LINEAR || Socorro || LINEAR || — || align=right | 3.1 km ||\n|-id=56567 bgcolor=#E9E9E9\n| 16362 ||'
+  [s0 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 1998 || Kitt Peak || Spacewatch || Kitt Peak || LINEAR || — || align=right | 5.3 km ||\n|-id=567 km ||\n| 165636568 || Kitt7 || Kitt Peak ||'
+  [s16 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 1998 || Kitt Peak || Kitt Peak || Spacewatch || LINEAR || LINEAR || — || align=right | 3.3 km ||\n|-id=597 bgcolor=#fefefe\n| 16567 || Kitt '
+  [s32 'once upon a time'] leg=0.00 loop=0.38 onset=3
+    RAW: ', 1998 || Kitt Peak || Kitt Peak || Kitt Peak || Spacewatch || Spacewatch || LINEAR || — || align=right | 1.0 km ||\n|-id=597 bgcolor=#fefefe'
+  [s48 'once upon a time'] leg=0.00 loop=0.00 onset=1
+    RAW: '.1 || Kitt Peak || Spacewatch || — || align=right | 5.1 km ||\n|-id=722 bgcolor=#fefefe\n| 13636 ||  || March 30, 1998 || Socorro || LINEAR ||'
+  [s64 'once upon a time'] leg=0.00 loop=0.00 onset=1
+    RAW: ', 1998 || Kitt Peak || Spacewatch || — || align=right | 1.0 km ||\n|-id=722 bgcolor=#fefefe\n| 1182222 ||  || March 15, 1998 || Kitt Peak || L'
+  [s80 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 1998 || Kitt Peak || Kitt Peak || Spacewatch || Bun || Spacewatch || — || align=right | 1.9 km ||\n|-id=6229\n| 132222 ||  || March 5, 1998 '
+  [s96 'once upon a time'] leg=0.00 loop=1.00 onset=3
+    RAW: ', 1998 || Kitt Peak || Kitt Peak || Spacewatch || Spacewatch || LINEAR ||  || align=right | 3.2 km ||\n|-id=599 bgcolor=#fefefe\n| 132258 || K'
+  [s112 'once upon a time'] leg=0.00 loop=0.40 onset=3
+    RAW: ', 1998 || Kitt Peak || Kitt Peak || Kitt Peak || Spacewatch || NYS || Yunberg || align=right | 3.0 km ||\n|-id=597 bgcolor=#fefefe\n| 181956 |'
+  [s128 'once upon a time'] leg=0.00 loop=0.33 onset=3
+    RAW: ', 1998 || Kitt Peak || Kitt Peak || Kitt Peak || Spacewatch || Spacewatch || LINEAR || A|-id=281 || Y.3 || bgcolor=#fefefe || — || align=rig'
+  [s144 'once upon a time'] leg=0.00 loop=0.43 onset=16
+    RAW: '=.1 km ||\n| 152438 || May 15, 2000 || Kitt Peak || Kitt Peak || Kitt Peak || Spacewatch || Spacewatch || — || align=right | 5.0 km ||\n| 1189'
+  [s160 'once upon a time'] leg=0.00 loop=0.00 onset=1
+    RAW: ' ||  ||\n| 11722 || SH ||  || — || May 19, 2000 || Kitt Peak || Kitt Peak || LINEAR || Spacewatch || align=right | 6.0 km ||\n|-id=46722 bgcol'
+  [s176 'once upon a time'] leg=0.00 loop=0.00 onset=5
+    RAW: '.| 1183522 ||  || May 15, 2000 || Kitt Peak || Socorro || LINEAR || — || align=right | 5.0 km ||\n|-id=722 bgcolor=#fefefe\n| 162222 ||  ||'
+  [s192 'once upon a time'] leg=0.00 loop=0.59 onset=3
+    RAW: ', 2000 || Kitt Peak || Kitt Peak || Kitt Peak || Kitt Peak || Kitt Peak || LINEAR || — || align=right | 5.0 km ||\n|-id=722 bgcolor=#fefefe\n|'
+  [s208 'once upon a time'] leg=0.00 loop=0.43 onset=3
+    RAW: ', 2000 || Kitt Peak || Kitt Peak || Kitt Peak || Spacewatch || — || align=right | 1.0 km ||\n|-id=722 bgcolor=#fefefe\n| 118922 ||  || March 2'
+  [s224 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 2000 || Kitt Peak || Kitt Peak || Spacewatch || — || LINEAR || B=right | 3.0 km ||\n|-id=722 bgcolor=#E9E9229\n| 1592292222 || '
+  [s240 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 2000 || Socorro || LINEAR || Socorro || LINEAR || B=right | 5.1 km ||\n|-id=674 bgcolor=#E9E9E9\n| 16622 ||  || — || November 5, 2000'
+  [s0 'what happened'] leg=0.00 loop=0.00 onset=25
+    RAW: ' || Catalina || LINEAR || — || align=right | 1.3 km ||\n|-id=674 bgcolor=#d6d6d6\n| 16722 ||  || — || March 15, 2000 || Kitt Peak ||'
+  [s16 'what happened'] leg=0.00 loop=0.00 onset=28
+    RAW: ' || Ekar || align=right | 1.3 km ||\n|-id=678 bgcolor=#fefefe\n| 1189467221 || Kitt7221 ||  || Kitt Peak || Kitt Peak || 1912 || MAS ||'
+  [s32 'what happened'] leg=0.00 loop=0.00 onset=21
+    RAW: ' || — || align=right | 5.1 km ||\n|-id=676 bgcolor=#E9E9E9\n| 13221 ||  || May 21 || — || align=right | 3.8 km ||'
+  [s48 'what happened'] leg=0.00 loop=0.00 onset=25
+    RAW: ' ||\n|-id=669 bgcolor=#fefefe\n| 132290 ||  || — || November 15, 1998 || Kitt Peak || Kitt Peak || LINEAR || — || align=right | 1.1 km ||\n|-id'
+  [s64 'what happened'] leg=0.00 loop=0.00 onset=3
+    RAW: ' bgcolor=#E9E9E9\n| 137487 ||  || — || November 15, 1998 || Kitt Peak || Kitt Peak || Spacewatch || Kitt Peak || Spacewatch || Spacewatch || '
+  [s80 'what happened'] leg=0.00 loop=0.00 onset=3
+    RAW: ' || — || align=right | 2.1 km ||\n|-id=567 bgcolor=#fefefe\n| 5788 ||  || March 17, 2000 || Socorro || LINEAR || MAR || align=right | 4.0 km'
+  [s96 'what happened'] leg=0.00 loop=0.00 onset=25
+    RAW: ' ||\n|-id=567 bgcolor=#fefefe\n| 13223 ||  || — || November 5, 2000 || Socorro || LINEAR || Socorro || LINEAR || MAR || LINEAR || P Obs.4 || A'
+  [s112 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' ||\n|-id=569 km ||\n| 13722 || — || November 5, 2000 || Socorro || LINEAR || Socorro || LINEAR || — || align=right | 5.3 km ||\n|-id=568 bgcol'
+  [s128 'what happened'] leg=0.00 loop=0.00 onset=10
+    RAW: ' ||\n|-id=5688 bgcolor=#E9E9E9\n| 132240 || Kitt7 || LINEAR || 1913 || LINEAR || 1912 || LINEAR || T56 || — || align=right | 6.6 km ||'
+  [s144 'what happened'] leg=0.00 loop=0.00 onset=21
+    RAW: ' ||\n| 13466573 ||  || May 13, 2001 || Kitt Peak || Socorro || LINEAR || — || LINEAR || — || align=right | 3.8 km ||\n|-id=665 bgcolor=#fefefe'
+  [s160 'what happened'] leg=0.00 loop=0.00 onset=16
+    RAW: ' ||\n| 13466 ||  || May 16, 2001 || Socorro || LINEAR || LINEAR || — || align=right | 1.1 km ||\n|-id=661 bgcolor=#fefefe\n| 58358 || '
+  [s176 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || — || September 1688 || — || September 17, 2001 || Socorro || LINEAR || Socorro || LINEAR || — || align=right | 3.0 km ||\n|-id=738 bgcolo'
+  [s192 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || September 5, 2001 || Socorro || LINEAR || — || September 17, 2000 || Socorro || LINEAR || Socorro || LINEAR || T.0 km || — || align=righ'
+  [s208 'what happened'] leg=0.00 loop=0.00 onset=10
+    RAW: ' ||\n|-id=722 bgcolor=#d6d6d622 ||  ||\n| 1182261 ||  || March 23, 1848 || LINEAR || B || B || B. B. F. F. F'
+  [s224 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || — || August 17, 1835 || Kitt Peak || Spacewatch || — || align=right | 4.5 km ||\n|-id=774 bgcolor=#E9E9E9\n| 114221 ||  || —'
+  [s240 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || — || align=right | 5.8 km ||\n|-id=771 bgcolor=#fefefe\n| 13221 ||  || — || November 17, 1998 || Anderson Mesa || LONEOS || — || align=rig'
+  [s0 'the river flowed quietly'] leg=0.00 loop=0.00 onset=14
+    RAW: '-1200 bgcolor=#fefefe\n| 6757 ||  || — || May 21, 2002 || Kitt Peak || Spacewatch || — || align=right | 6.3 km ||\n|-id=722 bgcolor=#fefefe\n|'
+  [s16 'the river flowed quietly'] leg=0.00 loop=0.43 onset=10
+    RAW: ' ||  || — || September 1, 2002 || Kitt Peak || Kitt Peak || Kitt Peak || Spacewatch || — || align=right | 2.0 km ||\n|-id=597 bgcolor=#fefefe'
+  [s32 'the river flowed quietly'] leg=0.00 loop=0.00 onset=3
+    RAW: '=right | 1.3 km ||\n| 118948" | 1, 2000 || Socorro || LINEAR || Socorro || LINEAR || B.0 km ||\n|-id=597 bgcolor=#fefefe\n| 118922922'
+  [s48 'the river flowed quietly'] leg=0.00 loop=1.00 onset=13
+    RAW: '-28||15||7||24||30||22||0||0||15||1||0||1||1||0||0||0||0||0||0||0||0||0||0||0'
+  [s64 'the river flowed quietly'] leg=0.00 loop=1.00 onset=1
+    RAW: '||0||0||35||35||35||0||0||0||0||0||0||0||0||0||0||0||0||0||0||0||0||0||0||0'
+  [s80 'the river flowed quietly'] leg=0.00 loop=1.00 onset=1
+    RAW: '||0||0||0||35||35||0||0||0||0||0||0||0||0||0||0||0||0||0||0||0||0||0||0||0'
+  [s96 'the river flowed quietly'] leg=0.00 loop=1.00 onset=1
+    RAW: '||0||0||0||0||0||0||0||0||0||0||0||0||0||0||0||0||0||0||0||0||0||0||0||0'
+  [s112 'the river flowed quietly'] leg=0.00 loop=1.00 onset=10
+    RAW: '||colspan="2"|J1 League Division||35||35||35||35||35||35||35||35||35||35||35||35||35||35||35||35||35||35||35||'
+  [s128 'the river flowed quietly'] leg=0.00 loop=1.00 onset=7
+    RAW: '||42||2||0||1||1||35||35||35||35||35||35||35||35||35||35||35||35||35||35||35||35||35||35||35'
+  [s144 'the river flowed quietly'] leg=0.00 loop=1.00 onset=7
+    RAW: '|| season||2||0||3||3||1||1||2||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1'
+  [s160 'the river flowed quietly'] leg=0.00 loop=1.00 onset=11
+    RAW: 'ement-1||1\n|-\n|1997||35||35||35||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1'
+  [s176 'the river flowed quietly'] leg=0.00 loop=1.00 onset=2
+    RAW: '-1||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1'
+  [s192 'the river flowed quietly'] leg=0.00 loop=1.00 onset=1
+    RAW: '||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1||2||1||1||1||1||1||1||1||1'
+  [s208 'the river flowed quietly'] leg=0.00 loop=1.00 onset=3
+    RAW: '||35||1||1||1||1||1||1||1||1||1||1||1||1||1||1||2||1||1||1||1||1||1||1||2'
+  [s224 'the river flowed quietly'] leg=0.00 loop=1.00 onset=1
+    RAW: '||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1||1'
+  [s240 'the river flowed quietly'] leg=0.25 loop=1.00 onset=16
+    RAW: ',” returned,” said Mary1||||||||||||1 League 2||||||||||||||||||||iteаасастзаааааааааааааааааааааааааа'
+===== blk4 =====
+  [s0 'hello'] leg=0.00 loop=1.00 onset=2
+    RAW: ' /еееевеесеебблееессстле Гастеее леесте л ле'
+  [s16 'hello'] leg=1.00 loop=0.00 onset=26
+    RAW: "15 cardinal ($io Club) is usually Recio's disease (child of the Musical), Mus's ( Mus-35-35 ( romantic November 12, 12, 1247),, like an genr"
+  [s32 'hello'] leg=1.00 loop=0.00 onset=2
+    RAW: ' (sp-sp-American-American-39.\n\n 1924.\n 1924 episodes-govgovgie (born August 15 August 15 August, Miller episodes (1996),-F). He was born in '
+  [s48 'hello'] leg=1.00 loop=0.00 onset=3
+    RAW: '-time-American-American-box-box-American-15, Mus-mo-gov-turn (also known for), August August 2018. (November, 2018) was a third-American Typ'
+  [s64 'hello'] leg=0.00 loop=1.00 onset=7
+    RAW: '-P-90,90||15||15||1-1-1||1-2007).\n\n|-\n| 735-1-Knivanivan-gencygency (d-didow'
+  [s80 'hello'] leg=1.00 loop=0.00 onset=1
+    RAW: '-American-80-12-15-American-American-go-go-C-C-American-n-C-B-Niger-A, was wished wander-American-Amy-ANK'
+  [s96 'hello'] leg=0.20 loop=1.00 onset=2
+    RAW: '-KKK (KKKKNKKKMSLESPSP-MSMSMMSMIMIMMMMEMEMME9E9Ei'
+  [s112 'hello'] leg=1.00 loop=0.00 onset=3
+    RAW: '-ME9E9ESo-E9ETS6\nC CHALIV-Matt Peres-M THM THE9\n Natal-al-MEMEMMMM'
+  [s128 'hello'] leg=0.15 loop=1.00 onset=3
+    RAW: '-MMiMi-MMMMEMMMLLLLEMEMESMEMaisSMMMSMSMES-SMSPSMS\n'
+  [s144 'hello'] leg=1.00 loop=0.00 onset=13
+    RAW: '\nBLEo||||||||||oenaissions,471-1-1, Tag\nRun Tsarge of Sever\n Severalya Smesar (HPHPPPPopelio Club\nP'
+  [s160 'hello'] leg=0.77 loop=0.33 onset=10
+    RAW: '-159E9\nMIPDDDD\nDorio, daughter daughter,” said, daughter daughter, daughter daughter daughter, 1520looja, and mission-NDSMMDSMS'
+  [s176 'hello'] leg=1.00 loop=0.00 onset=1
+    RAW: '-NNSo-NCreat-MSMSMary-MMMary as Tennelago\nGeorge, 2009, 2009 (born February 11, 2000)\nRReghy\nChief'
+  [s192 'hello'] leg=1.00 loop=0.00 onset=2
+    RAW: '-MMEMMMMEEMEME9E9EMME9\nMeguiserable\n\nMegaragreativores\nPDo Dio,\nMIM'
+  [s208 'hello'] leg=1.00 loop=0.00 onset=1
+    RAW: '\nB\nBNFL\nUK MPs\n\nBBernando University\n\nB (MMMMBNMMM III III III III\nMelMMMean Dio SMEMEM'
+  [s224 'hello'] leg=1.00 loop=0.00 onset=3
+    RAW: '-EE9E9EME9ESE9E7 millionus million GirlEMEMESESEME (CMMMMEMMMCAux2010). In 1989 Award'
+  [s240 'hello'] leg=1.00 loop=0.00 onset=3
+    RAW: 'i (9159159E9159)\nMSMSMEMEMMEMIMIM THE THE TH THE TH\nM THE9E9E701 bgcolor'
+  [s0 'tell me about the past'] leg=1.00 loop=0.00 onset=3
+    RAW: 'i (MMMEMMMMTMMMLMMMWTTM THE9E9EM THECARE9ETN01-9E9)\nRío Turkeyia'
+  [s16 'tell me about the past'] leg=1.00 loop=0.00 onset=2
+    RAW: 'io,47,47, El, Elena, orla Armyenaissa’s), problems with the White’s stars the White of the centre of the Supreme Court of 1500, because of t'
+  [s32 'tell me about the past'] leg=1.00 loop=0.00 onset=18
+    RAW: ' must beach, The series end of thesegoing of the bendusse (born 1964).\ngo), cargo (born Augusts), Q, Q, my closer, and Ages has steerts of t'
+  [s48 'tell me about the past'] leg=1.00 loop=0.00 onset=1
+    RAW: ' of the 64, and south. As of the websitesate Hockey League Hockey League number of the leadersott (s-s, 1978). He (born Australian), (born N'
+  [s64 'tell me about the past'] leg=1.00 loop=0.00 onset=7
+    RAW: 'itol, and the people of the services and a rule. The three former member of the 2020 presidential candidate to fill (born November 15 Novemb'
+  [s80 'tell me about the past'] leg=1.00 loop=0.00 onset=6
+    RAW: ' Chicago Sultan Nazreligidad and a group of an a stone-ligliglunders south-ligoty (ιى) (ages (ages to get jobs), into the 1567'
+  [s96 'tell me about the past'] leg=1.00 loop=0.00 onset=11
+    RAW: ' season of theologicialsultan Goldhligliglings leader (ger)\ngaegio has (9223), known for 1520 (In July 1976 (since 2019) (born 1567 ('
+  [s112 'tell me about the past'] leg=1.00 loop=0.00 onset=1
+    RAW: ' 117 117 117 117us Schwar nameition name is an Iranianenanderukovia, in Chicago Black-go, Swiss and author. (born August 19, Chicago). (born'
+  [s128 'tell me about the past'] leg=1.00 loop=0.00 onset=7
+    RAW: '7-s in the Sign-ign-ignov (an-151515 (2007) was a 1994, while-3. He was released in his time to Madison. 202139 in Damgster). It was'
+  [s144 'tell me about the past'] leg=1.00 loop=0.00 onset=17
+    RAW: " peninsula Christian's example,’s Grand 1983,331, Kon-ligliglican (2001). He was December 1991, with thought, to show in the International, "
+  [s160 'tell me about the past'] leg=0.00 loop=0.00 onset=2
+    RAW: 'e. 4. 4. Many rivers into the song, 2000, 2000, Australian || NEAT || NEAT || — || NEAT || February 6, 2000 || NEAT || T. || NEAT || AD, 200'
+  [s176 'tell me about the past'] leg=0.00 loop=0.00 onset=3
+    RAW: ' || LINEAR || — || align=right | 1.32 km ||\n|-id=477 bgcolor=#fefefe\n| 118922 ||  || — || February 28, 2000 || Socorro || LINEAR || MAR || a'
+  [s192 'tell me about the past'] leg=0.00 loop=0.00 onset=21
+    RAW: ' || — || align=right | 1.0 km ||\n|-id=477 bgcolor=#E9E9E6\n| 1189489 ||  || — || February 5, 2000 || Socorro || LINEAR || H ||'
+  [s208 'tell me about the past'] leg=0.00 loop=0.00 onset=9
+    RAW: ' || E=right | 1.3 km ||\n|-id=479 km ||\n| 118948 || — || February 17 || — || March 5, 2000 || Socorro || LINEAR || — || align=right | 3.'
+  [s224 'tell me about the past'] leg=0.00 loop=0.00 onset=1
+    RAW: ' ||\n|-id=1167229 km ||\n| 118922 ||  || March 17 ||  || — || March 5, 2000 || Socorro || LINEAR || Socorro || NEAT || LINEAR || LINEAR || ADA'
+  [s240 'tell me about the past'] leg=0.00 loop=0.00 onset=8
+    RAW: ' || — || May 25, 2000 || Socorro || LINEAR || Socorro || Socorro || NEAT || LINEAR || — || align=right | 3.0 km ||\n|-id=757 bgcolor=#E9E9E6 '
+  [s0 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 2000 || Socorro || LINEAR || Socorro || Socorro || 1912 || LINEAR || 1912 || align=right | 1.5 km ||\n|-id=722 bgcolor=#fefefe\n| 160322 || '
+  [s16 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 2000 || Socorro || LINEAR || Socorro || Socorro || align=right | 3 LINEAR || — || align=, 2000 || La Silla || Pres.0 km ||\n|-id=722 bgcolo'
+  [s32 'once upon a time'] leg=0.00 loop=0.00 onset=6
+    RAW: ', 2000 || Kitt Peak || LINEAR || Socorro || LINEAR || LINEAR || align=right | 1.0 km ||\n|-id=722 bgcolor=#fefefe\n| 164722 ||  ||  || Novembe'
+  [s48 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 2000 || Socorro || LINEAR || Socorro || align=right | 1.0 km ||\n|-id=5958 bgcolor=#fefefe\n| 164758 ||  || — || November 19, 2000 || Catali'
+  [s64 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 2000 || Socorro || LINEAR || Socorro || align=right | 1.0 km ||\n|-id=597 bgcolor=#fefefe\n| 118922 ||  || March 15, 2000 || Kitt Peak || Ki'
+  [s80 'once upon a time'] leg=0.00 loop=0.00 onset=40
+    RAW: ', 2000 || Geet, 1998 || Kitt Peak || LINEAR || P || align=right | 4.5 km ||\n|-id=237 bgcolor=#fefefe\n| 1322922 ||  || 1913 ||  || March 15'
+  [s96 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 2000 || Socorro || LINEAR || Socorro || Socorro || B Obs B Obs, 2000 || Bolog || B. Bun || November 27, 27 ||  || — || November 28, 2000 |'
+  [s112 'once upon a time'] leg=0.00 loop=0.00 onset=5
+    RAW: ', 2000 || Socorro || LINEAR || LINEAR || Socorro || Socorro || NEAT || LINEAR || T.0 || May 30 || align=right | 3.0 km ||\n|-id=722 bgcolor=#'
+  [s128 'once upon a time'] leg=0.00 loop=0.00 onset=1
+    RAW: '-sort-sort-t || Kitt Peak || LINEAR || — || align=right | 1.0 km ||\n|-id=722 bgcolor=#fefefe\n| 132222 ||\n| 13, 1998 || Socorro || LINEAR ||'
+  [s144 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 2000 || Socorro || LINEAR || Socorro || align=right | 5.6 km ||\n|-id=665 bgcolor=#fefefe\n| 13221 ||  || — || August 18, 1998 || Socorro ||'
+  [s160 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 2000 || Socorro || LINEAR || Socorro || Socorro || NEAT || LINEAR || — || align=right | 5.8 km ||\n|-id=636 bgcolor=#fefefe\n| 118244 ||  ||'
+  [s176 'once upon a time'] leg=0.00 loop=0.00 onset=5
+    RAW: ' || Socorro || LINEAR || — || align=right | 5.3 km ||\n|-id=636 bgcolor=#fefefe\n| 1819229 ||  || — || March 18, 1803 || Palomar || align=, 20'
+  [s192 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 2000 || Socorro || LINEAR || Socorro || T.1.1 || align=right | 1.4 km ||\n|-id=642 bgcolor=#fefefe\n| 1171922 ||  || — || March 18, 2000 ||'
+  [s208 'once upon a time'] leg=0.00 loop=0.00 onset=1
+    RAW: ', 2000 || Socorro || LINEAR || ADH || align=right | 1.8 km ||\n|-id=736 bgcolor=#fefefe\n| 118948 ||  || — || September 18, 2000 || Catalina |'
+  [s224 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 2000 || Socorro || LINEAR || Socorro || Pres, 2000 || LINEAR || BRA || align=right | 1.1 km ||\n|-id=722 bgcolor=#fefefe\n| 1189224 ||  ||  '
+  [s240 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 2000 || Socorro || LINEAR || Socorro || Socorro || Bax || LINEAR || — || align=right | 1.0 km ||\n|-id=722 bgcolor=#E9E9E0229\n| 169054'
+  [s0 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' ||  ||  || May 30, 1998 || Socorro || LINEAR || Socorro || May LINEAR || — || align=right | 1.0 km ||\n|-id=722 bgcolor=#fefefe\n| 162222 || '
+  [s16 'what happened'] leg=0.00 loop=0.00 onset=6
+    RAW: ' || May 30, 1998 || Kitt Peak || Kitt Peak Obs.0 || LINEAR || — || align=right | 5.0 km ||\n|-id=722 bgcolor=#fefefe\n| 162222 ||  || — || Mar'
+  [s32 'what happened'] leg=0.00 loop=0.00 onset=8
+    RAW: ' || — || November 5, 1998 || Kitt Peak || Kitt Peak H || Kitt Peak (born || 1911 || LINEAR || — || align=right | 1.0 km ||\n|-id=649 bgcolor='
+  [s48 'what happened'] leg=0.00 loop=0.00 onset=7
+    RAW: ' ||  || Y || November 30 || March 30 || March 6281 || March 15, 1835 || Kitt Peak || Kitt Peak Obs, 1888 || LINEAR || B || P. || — || Novemb'
+  [s64 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || NEAT || — || NEAT || M. || — || align=right | 5.2 km ||\n|-id=357 bgcolor=#fefefe\n| 283522 ||  ||  || November 15, 1995 || Kitt Peak ||'
+  [s80 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || — || align=right | 1.0 km ||\n|-id=668 bgcolor=#fefefe\n| 16567 ||  || — || March 17, 1995 || Kitt Peak || Spacewatch || Kitt Peak Obs. Pa'
+  [s96 'what happened'] leg=0.00 loop=0.00 onset=21
+    RAW: ' ||  || align=right | 5.0 km ||\n|-id=377 bgcolor=#E9E9E7 bgcolor=#fefefe\n| 16564484 || Kitt 2, 1995 || Kitt Peak || Oizumi || Kitt'
+  [s112 'what happened'] leg=0.00 loop=0.00 onset=6
+    RAW: ' || ASTO + ||  || March 15, 2000 || Socorro || LINEAR || — || align=right | 1.9 km ||\n|-id=922 bgcolor=#fefefe\n| 16564 || 1913 ||  || —'
+  [s128 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || — || align=right | 1.3 km ||\n|-id=668 bgcolor=#fefefe\n| 164756 ||  || — || November 21, 1998 || Kitt Peak || Spacewatch || Kitt Peak.1 k'
+  [s144 'what happened'] leg=0.00 loop=0.00 onset=21
+    RAW: ' || — || align=right | 5.0 km ||\n|-id=669 bgcolor=#E9E9E7 bgcolor=#fefefe\n| 164602|| ||  || — || September 25, 1998 || Kitt Peak ||'
+  [s160 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || — || align=right | 1.0 km ||\n|-id=668 bgcolor=#fefefe\n| 896389 ||  || — || March 18, 1998 || Kitt Peak || Kitt Peak Obs.0.0 ||'
+  [s176 'what happened'] leg=0.00 loop=0.00 onset=9
+    RAW: ' || E Obs, 1998 || Anderson Mesa || LONEOS || B || LONEOS || — || align=right | 2.0 km ||\n|-id=722 bgcolor=#fefefe\n| 118856 ||  ||  || — || '
+  [s192 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || — || align=right | 1.3 km ||\n|-id=722 bgcolor=#fefefe\n| 132222 ||  || — || November 15, 1998 || Kitt Peak || Kitt Peak Peak || Spacewatc'
+  [s208 'what happened'] leg=0.00 loop=0.00 onset=19
+    RAW: ' || align=right | 1.0 km ||\n|-id=667 bgcolor=#E9E9E0 km ||  ||\n| 11856221 || Kitt Peak || 1913 30, 1998 || Kitt Peakologian ||'
+  [s224 'what happened'] leg=0.00 loop=0.00 onset=6
+    RAW: ' || Kitt Peak || Spacewatch || — || align=right | 5.3 km ||\n|-id=665 bgcolor=#fefefe\n| 6436 || — || Ch.1 ||  || September 25 Tich || — || Au'
+  [s240 'what happened'] leg=0.00 loop=0.00 onset=12
+    RAW: ' || — || align=right | 1.0 km ||\n|-id=661 bgcolor=#fefefe\n| 6466467 ||  ||\n| 17460 || September 17 ||  || — || September 17, 1998 ||'
+  [s0 'the river flowed quietly'] leg=0.00 loop=0.00 onset=6
+    RAW: ' || Palomar || PH || — || align=right | 1.0 km ||\n|-id=370 bgcolor=#fefefe\n| 16568 ||  || — || August 17, 1998 || Socorro || LINEAR || Socor'
+  [s16 'the river flowed quietly'] leg=0.00 loop=0.00 onset=3
+    RAW: ' || — || align=right | 1.0 km ||\n|-id=376 bgcolor=#fefefe\n| 16566||3||0 ||  || November 5, 1998 || Socorro || LINEAR || Take || align=,'
+  [s32 'the river flowed quietly'] leg=0.00 loop=0.00 onset=1
+    RAW: '-sort-sort-1||146146 || November 30, 1998 || Socorro || LINEAR || Socorro || align=right | 5.3.3 km ||\n|-id=597 bgcolor=#fefefe\n| 8887'
+  [s48 'the river flowed quietly'] leg=0.00 loop=0.00 onset=1
+    RAW: ',” returned,” returned,” said I see Mr.6006006\n| 70226 ||  || November 15, 2000 || Socorro || LINEAR || — || LINEAR || Ch. || align=right | '
+  [s64 'the river flowed quietly'] leg=0.00 loop=0.00 onset=13
+    RAW: '=right | 1.3 km ||\n| 15551 || S221 || September 51 || Socorro || LINEAR || LINEAR || align=right | 7.3 km, 2000 || Socorro || Socorro || km '
+  [s80 'the river flowed quietly'] leg=1.00 loop=0.00 onset=1
+    RAW: '-sort-sort-m-sort-1-sort-2-sort-value="sort-sort47-sort-t-sort- bgcolor=#fefefe\n| 16569 || Socorro || LINEAR || Socorro || Socorro || align'
+  [s96 'the river flowed quietly'] leg=0.00 loop=0.00 onset=6
+    RAW: ' 2. 2-L-sort-sort-L-1-1-sort-1-2-2"|-1161616 || — || July 28, 1998 || Socorro || LINEAR || LINEAR || — || align=right'
+  [s112 'the river flowed quietly'] leg=0.00 loop=0.00 onset=20
+    RAW: ' showed || — || align=right | 6.1 km ||\n| 11887391 ||  ||  || February 17 || September 17, 1998 || Kitt Peak || LINEAR || Socorro || LINEAR '
+  [s128 'the river flowed quietly'] leg=0.00 loop=0.00 onset=3
+    RAW: '.4 km ||\n | 1.1 km ||\n|-id=722 bgcolor=#E9E9E221 || 1913 || 1913, 1998 || Socorro || LINEAR || Socorro || NYS || LINEAR || LINEAR || — || al'
+  [s144 'the river flowed quietly'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || — || align=right | 1.5 km ||\n| 13, 1998 || Socorro || LINEAR || — || LINEAR || THM || Socorro || THM || align=.|-id=56285628567 || LINEA'
+  [s160 'the river flowed quietly'] leg=0.00 loop=0.00 onset=10
+    RAW: ' ||  || — || August 17, 1998 || Socorro || LINEAR || Socorro || Socorro || NEAT || LINEAR || LINEAR || align=right | 5.0 km ||\n| 1189 km ||\n'
+  [s176 'the river flowed quietly'] leg=0.00 loop=1.00 onset=9
+    RAW: '-6687 | 1.6 km ||\n| 118961200 ||  ||\n|-id=6694948 ||  || — || August 24, 1848 || — || O ||\n| 1848 || ign'
+  [s192 'the river flowed quietly'] leg=0.00 loop=0.00 onset=4
+    RAW: ' st ||  || — || August 17, 1855 || Kitt Peak || NEAT || — || align=right | 6.3 km ||\n| 18553 || JST || Socorro || LINEAR || T.0 || — || Febr'
+  [s208 'the river flowed quietly'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || — || align=right | 6.3 km ||\n|-id=5936 bgcolor=#fefefe\n| 182958 ||  || — || May 28, 1848 || — || Palomar || NEAT || — || October 5,'
+  [s224 'the river flowed quietly'] leg=0.00 loop=0.00 onset=7
+    RAW: ', Mesa || Socorro || LINEAR || — || align=right | 1.3 km ||\n|-id=722 bgcolor=#fefefe\n| 118227 ||  || — || February 5, 2000 || Socorro || La '
+  [s240 'the river flowed quietly'] leg=0.00 loop=0.00 onset=18
+    RAW: ' 2000 || NYS | 1.3 km ||\n|-id=661 bgcolor=#E9E9E0 km ||\n| 184722 ||  || — || May 5, 2000 || Socorro || LINEAR || BH || align'
+===== best2 =====
+  [s0 'hello'] leg=0.00 loop=0.00 onset=3
+    RAW: ' || LINEAR || — || align=right | 1.0 km ||\n|-id=665 bgcolor=#fefefe\n| 164703 ||  || — || March 5, 2000 || Socorro || LINEAR || Tax || LINEAR'
+  [s16 'hello'] leg=0.00 loop=0.00 onset=23
+    RAW: ' || LINEAR || — || align=right | 1.0 km ||\n|-id=668 bgcolor=#E9E9E846 bgcolor=#E0 ||\n| 11894922 || Kitt Peak || LINEAR || February 28'
+  [s32 'hello'] leg=0.00 loop=0.00 onset=36
+    RAW: ' Obs, 2000 || Anderson Mesa || Kitt Peak || LINEAR || — || align=right | 1.0 km ||\n|-id=838 bgcolor=#fefefe\n| 118922922 ||  ||\n| 1182222 ||'
+  [s48 'hello'] leg=0.00 loop=0.00 onset=1
+    RAW: '-sort-sort-value=" || Kitt-sort- bgcolor=#fefefe\n| 118948" ||  || T, 2000 || Socorro || LINEAR || HYG || LINEAR || align=right | 1.8 km ||\n|'
+  [s64 'hello'] leg=0.00 loop=0.00 onset=11
+    RAW: ' bgcolor=#fefefe\n| 1182258 ||  || November 15, 2000 || Višnjan Observatory || CSS || — || November 15. 15.3. bgcolor=#d6d6dep9E9\n| 11894858 '
+  [s80 'hello'] leg=0.00 loop=0.00 onset=8
+    RAW: ' ||  || May 28, 2000 || Kitt Peak || Kitt Peak Obs. Palisa || — || align=right | 5.2 km ||\n|-id=722 bgcolor=#fefefe\n| 1182222 || Kitt722 ||'
+  [s96 'hello'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || Kitty Kik || Kitty-sort-sort bgcolor=#fefefe\n| 844702 ||  ||  || May 15, 18 || Anderson Mesa || LONEOS || — || align=right | 3.3 km ||\n|'
+  [s112 'hello'] leg=0.00 loop=0.00 onset=9
+    RAW: ' bgcolor=#fefefe\n| 6366 ||  || — || May 5, 1832 || November 5 ||  || November 15, 18.0 || align=right | 4.1 km ||\n|-id=665 bgcolor=#'
+  [s128 'hello'] leg=0.00 loop=0.00 onset=16
+    RAW: ' km ||\n| 1181048 ||  || March 15, 1855 || Kitt Peak || Spacewatch || Kitt Peak Obs.0 km ||\n|-id=661 bgcolor=#fefefe\n| 8661 ||  ||  || —'
+  [s144 'hello'] leg=0.00 loop=0.00 onset=2
+    RAW: ' Obs, 1855 || Kitt Peak || Spacewatch || Yunition, 18.0 km ||\n|-id=597 bgcolor=#fefefe ||  ||\n| 13221 ||  || — || February 5, 1819 || Kitt'
+  [s160 'hello'] leg=0.00 loop=0.00 onset=10
+    RAW: ' ||  || — || November 5, 2000 || Kitt Peak || Kitt Peak Obs. || A1 || CSS || — || align=right | 1.|-id=956 bgcolor=#fefefe\n| 139221 ||  ||'
+  [s176 'hello'] leg=0.00 loop=0.00 onset=35
+    RAW: ' || 1912 || November 30, 2000 || Kitt Peak || Spacewatch || Pres 1536 || align=right | 1.8 km ||\n|-id=668 bgcolor=#E9E9E3\n| 13722 ||  ||'
+  [s192 'hello'] leg=0.00 loop=0.00 onset=8
+    RAW: '- Obs, 2000 || Anderson Mesa || Kitt Peak || Spacewatch || Kitt Peak, 2000 || Socorro || LINEAR || Pres || LINEAR || FLO || align=right | 1.'
+  [s208 'hello'] leg=0.00 loop=0.00 onset=3
+    RAW: ' ||  ||\n| 1142236 || March 1, 2000 || Kitt Peak || Višnjan Observatory || align=right | 1.3 km ||\n|-id=722 bgcolor=#fefefe\n| 8667790 ||  || '
+  [s224 'hello'] leg=0.00 loop=0.00 onset=21
+    RAW: ' || 12221 ||\n|-id=5922 bgcolor=#fefefe\n| 1189229 ||  || August 25, 2000 || Socorro || LINEAR || T. Kobayashi ||  ||\n|- align=590 bgcolor=#fe'
+  [s240 'hello'] leg=0.00 loop=0.00 onset=37
+    RAW: ' Obs || 1913, 2000 || Kitt Peak || Spacewatch || Bunca || align=right | 5.0 km ||\n|-id=240 bgcolor=#fefefe\n| 1994 ||  ||  || — || September '
+  [s0 'tell me about the past'] leg=0.00 loop=0.00 onset=4
+    RAW: ' || E. ||\n|-id=2456 bgcolor=#fefefe ||  ||\n| 13722 ||  || Cave || — || March 15, 2000 || Socorro || LINEAR || Take || align=right | 3.8'
+  [s16 'tell me about the past'] leg=0.00 loop=0.00 onset=16
+    RAW: ' ||\n|-id=2456 bgcolor=#fefefe\n| 164732 ||  ||  || — || March 15, 2000 || Socorro || LINEAR || — || align=28 || align=right | 1.0 km ||\n|-'
+  [s32 'tell me about the past'] leg=0.00 loop=0.00 onset=1
+    RAW: ' ||  ||\n| 13227 ||  || — || March 15, 2000 || Socorro || LINEAR || — || align=right | 5.2 km ||\n|-id=736 bgcolor=#fefefe\n| 94758 ||'
+  [s48 'tell me about the past'] leg=0.00 loop=0.00 onset=1
+    RAW: ' ||  ||  || March 15, 2000 || Socorro || LINEAR || — || align=right | 5.1 km ||\n|-id=661 bgcolor=#fefefe\n| 15658 ||  || — || March 5, 2000'
+  [s64 'tell me about the past'] leg=0.00 loop=0.00 onset=3
+    RAW: ' || LINEAR || — || align=right | 5.0 km ||\n|-id=661 bgcolor=#fefefe\n| 13635 ||  || — || March 5, 2000 || Kitt Peak || Spacewatch || — || Sep'
+  [s80 'tell me about the past'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || — || align=right | 1.1 km ||\n|-id=665 bgcolor=#fefefe\n| 18367 ||  || — || March 10, 2000 || Palomar || NEAT || CSS || E.1 || LINEAR ||'
+  [s96 'tell me about the past'] leg=0.00 loop=0.00 onset=36
+    RAW: ' || Socorro || LINEAR || align=right | 1.0 km ||\n|-id=597 bgcolor=#fefefe\n| 18479 ||  || November 5, 2000 || Kitt Peak || Kitt Peak Peak || '
+  [s112 'tell me about the past'] leg=0.00 loop=0.00 onset=3
+    RAW: ' || A=right | 1.0 km ||\n|-id=596 bgcolor=#fefefe\n| 1186493 ||  || November 11, 2000 || Socorro || LINEAR || HYG || align=right | 4.4 km ||'
+  [s128 'tell me about the past'] leg=0.00 loop=0.00 onset=1
+    RAW: ' ||\n|-id=6887 bgcolor=#E9E ||\n| 118948 || May 156 ||  || May 15, 2000 || Socorro || LINEAR || MAR || LINEAR || HYG || LINEAR || BL || align='
+  [s144 'tell me about the past'] leg=0.00 loop=0.00 onset=31
+    RAW: ' || A=right | 18 km ||\n|-id=593 bgcolor=#fefefe\n| 1819567 ||  || May 15, 2000 || Kitt Peak || Kitt Peakisa Peak || LINEAR || NYS || align=ri'
+  [s160 'tell me about the past'] leg=0.00 loop=0.00 onset=12
+    RAW: ' ||  ||\n|-id=281 bgcolor=#E9E9E7 ||\n| 181956 ||  || — || May 19, 2000 || Kitt Peak || Kitt Peakisa || Kitt Peak Obs.9 km ||\n'
+  [s176 'tell me about the past'] leg=0.00 loop=0.00 onset=3
+    RAW: ' ||  || — || May 19, 2000 || Socorro || LINEAR || — || align=right | 4.5 km ||\n|-id=722 bgcolor=#fefefe\n| 118227 ||  ||\n| 1183648 ||'
+  [s192 'tell me about the past'] leg=0.00 loop=0.00 onset=1
+    RAW: ' ||  || November 15, 2000 || Kitt Peak || LINEAR || — || align=right | 1.0 km ||\n|-id=722 bgcolor=#fefefe\n| 1189229 ||  ||  ||\n| 11810'
+  [s208 'tell me about the past'] leg=0.00 loop=0.00 onset=13
+    RAW: ' ||  || March 15, 2000 || Anderson Mesa || LONEOS || BH || B || align=right | 1.0 km ||\n|-id=722 bgcolor=#fefefe\n| 118922 ||  ||  || — ||'
+  [s224 'tell me about the past'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || Kitt Peak || Spacewatch || Kitt Peak. F= F1 || Spacewatch || — || align=right | 5.3 km ||\n|-id=722 bgcolor=#fefefe\n| 8361 ||  || — || Ma'
+  [s240 'tell me about the past'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || — || align=, 1998 || Višnjan Observatory || Palomar || H || E. F. || — || November 30 || align=right | 1. || km ||\n|-id=35622 bgcolor=#f'
+  [s0 'once upon a time'] leg=0.00 loop=0.00 onset=1
+    RAW: ' ||  || May 1522 || — || align=right | 5.1 km ||\n|-id=722 bgcolor=#fefefe\n| 118948 ||  || — || October 15, 1835 || Kitt Peak || Spacewatch |'
+  [s16 'once upon a time'] leg=0.00 loop=0.00 onset=1
+    RAW: '.1.1 km || — || May 30 || May 30, 2000 || Socorro || LINEAR || — || align=right | 1.0 km ||\n|-id=379 bgcolor=#E9E9 km ||\n| 13'
+  [s32 'once upon a time'] leg=0.00 loop=0.00 onset=2
+    RAW: ', 2000 || Kitt 2000 || Kitt Peak || BA || — || align=right | 5.0 km ||\n|-id=377 bgcolor=#E9E9E0 ||\n| 13469 || — || March 16'
+  [s48 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 2000 || Kitt Peak || Kitt Peak Im || Kitt Peak Obs.1 km || LINEAR || — || align=right | 1.9 km ||\n|-id=746 bgcolor=#fefefe\n| 118227 ||  ||'
+  [s64 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 2000 || Kitt Peak || Kitt Peak Im || Kitt Peak. Peak || Spacewatch || — || align=right | 1.9 km ||\n|-id=599 km ||  ||\n|-\n| 1184622 ||  ||'
+  [s80 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 2000 || Kitt Peak || Kitt Peak Peak || Spacewatch || LINEAR || Spacewatch || — || align=right | 1.0 km ||\n|-id=599 bgcolor=#fefefe\n| 11892'
+  [s96 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 2000 || Kitt Peak || Kitt Peak ObsH || Spacewatch || BAL || align=right | 3.1 km ||\n|-id=597 bgcolor=#fefefe\n| 18366 ||  || — || February '
+  [s112 'once upon a time'] leg=0.00 loop=0.00 onset=34
+    RAW: ' || Palomar || LA || align=right | 1.3 km ||\n|-id=597 bgcolor=#fefefe\n| 8477 ||  || — || February 17 || February 5, 1888 || Kitt Peak || Spa'
+  [s128 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 1998 || Kitt Peak || Kitt Peak Obs.1 km ||\n|-id=597 ||  || — || February 6,=56 || Kitt Peak.1200 || LINEAR || Kitt PeakRA ||\n|-\n| 1189'
+  [s144 'once upon a time'] leg=0.00 loop=0.00 onset=1
+    RAW: ' ||  ||\n 2000 ||  || — || August 19, 2000 || Anderson Mesa || LONEOS || — || align=right | 5.2 km ||\n| 15467 km ||  ||  || August 17, 2000 |'
+  [s160 'once upon a time'] leg=0.00 loop=0.00 onset=7
+    RAW: '.2 || Socorro || LINEAR || ADE || ADE9E9 || — || align=right | 3.8 km ||\n|-id=597 bgcolor=#E9E ||\n| 15247 ||  || March'
+  [s176 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 1998 || Socorro || LINEAR || Socorro || Socorro || BH || LINEAR || — || align=right | 5.0 km ||\n|-id=722 bgcolor=#fefefe\n| 118948 ||  || —'
+  [s192 'once upon a time'] leg=0.00 loop=0.00 onset=28
+    RAW: ', 1998 || Kitt Peak || LINEAR || — || align=right | 1.0 km ||\n|-id=722 bgcolor=#E9E9226 ||\n| 11892222 || 1984 ||  || — || March'
+  [s208 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 1998 || Socorro || LINEAR || Socorro || BAL || LINEAR || — || align=right | 1.0 km ||\n|-id=590 bgcolor=#fefefe\n| 13224 ||  ||  || March 30'
+  [s224 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 1998 || Socorro || LINEAR || Socorro || Socorro || B. B. BRA || — || align=right | 1.0 km ||\n|-id=5903 bgcolor=#fefefe\n| 181922 ||  || Mar'
+  [s240 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 1998 || Socorro || LINEAR || Socorro || Socorro || B. bgcolor=#d6d6d9221 ||  || — || align=right | 1.1 km ||\n|-id=119 bgcolor=#fefefe\n|'
+  [s0 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' ||  ||  || September 5, 1848 || Kitt Peak || LINEAR || — || align=right | 5.5 km ||\n|-id=287 bgcolor=#fefefe ||  ||\n| 114221 ||  || —'
+  [s16 'what happened'] leg=0.00 loop=0.00 onset=7
+    RAW: ' || September 5, 1836 || Kitt Peak || Kitt Peak Peak || Spacewatch || — || align=right | 1.1 km ||\n|-id=288 bgcolor=#fefefe\n| 114224 ||  || '
+  [s32 'what happened'] leg=0.00 loop=0.00 onset=23
+    RAW: ' || September 5, 1858 || Kitt Peak || Spacewatch || — || align=right | 1.0 km ||\n|-id=281 bgcolor=#fefefe ||  ||\n| 114221 ||  || — || Septem'
+  [s48 'what happened'] leg=0.00 loop=0.00 onset=26
+    RAW: ' || 1973 || align=right | 4.0 km ||\n|-id=287 bgcolor=#fefefe\n| 658 ||  || Ch || September 17 || Fr || T.2 ||  || — || align=, 1998 ||'
+  [s64 'what happened'] leg=0.00 loop=0.00 onset=34
+    RAW: ' || — || align=right | 1.4 km ||\n|-id=288 bgcolor=#fefefe\n| 16477 ||  || March 5, 1998 || Kitt Peak || Kitt Peak Peak || Spacewatch || Kitt '
+  [s80 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || Kitt Peak || Spacewatch || Bunogen || — || align=right | 1.0 km ||\n|-id=722 bgcolor=#fefefe\n| 16227 || Kitt7 || Kitt Peak 5, 1998 || Kit'
+  [s96 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || Kitt Peak || Spacewatch || Kitt Peak Obs.4 || MAS || align=right | 3.2 km ||\n|-id=722 bgcolor=#fefefe\n| 682222 ||  || — || March 5, 1998'
+  [s112 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || Kitt Peak || Spacewatch || H || Pres|-id=281 || Kitt=right | 1.1 km ||\n|-id=722 bgcolor=#fefefe\n| 182222 ||  || March 21, 1998 || Kitt P'
+  [s128 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || — || align=right | 1.8 km ||\n|-id=288 bgcolor=#fefefe\n| 132236 ||  || — || November 19, 1998 || Kitt Peak || Spacewatch || — || Kitt Pea'
+  [s144 'what happened'] leg=0.00 loop=0.00 onset=21
+    RAW: ' || — || align=right | 3.0 km ||\n|-id=287 bgcolor=#E9E9E7 bgcolor=#fefefe\n| 13222222 ||  || — || March 15, 2000 || Oizumi || C'
+  [s160 'what happened'] leg=0.00 loop=0.00 onset=30
+    RAW: ' || Palomar || Pres 15221 ||  || — || align=right | 1.0 km ||\n|-id=722 bgcolor=#E9E9E22 bgcolor=#fefefe\n| 132222 ||  || 1913 ||'
+  [s176 'what happened'] leg=0.00 loop=0.00 onset=20
+    RAW: ' || La Silla || 1912 || May 30 || — || align=right | 5.4 km ||\n| 132256 bgcolor=#E || Socorro || LINEAR ||\n|-id=772 || LINEAR || — || March '
+  [s192 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || Kitt Peak || Kitt Peak Obs.1 km || align=right | 4, 1995 || Kitt Peaké ||\n|-id=5922 bgcolor=#fefefe\n| 1182222 ||  || March 5, 18 || Palo'
+  [s208 'what happened'] leg=0.00 loop=0.00 onset=27
+    RAW: ' || — || align=right | 5.1 km ||\n|-id=597 bgcolor=#fefefe\n| 16407 ||  ||  || March 19, 18 || Socorro || LINEAR || Socorro || Socorro || NEAT'
+  [s224 'what happened'] leg=0.00 loop=0.00 onset=33
+    RAW: ' || align=right | 5.3 km ||\n|-id=597 bgcolor=#fefefe\n| 164758 ||  || March 28, 1888 || Kitt Peak || Spacewatch || Kitt Peak Im || LINEAR || '
+  [s240 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || — || align=right | 5.1 km ||\n|-id=597 bgcolor=#fefefe\n| 118649 ||  || — || March 5, 185 || Palomar || Palomar || NEAT || — || October 5,'
+  [s0 'the river flowed quietly'] leg=0.00 loop=0.00 onset=26
+    RAW: ' || Palomar || — || align=right | 1.0 km ||\n|-id=928 bgcolor=#fefefe\n| 152022 ||  || May 1520229 || — || October 17,=29 || Palomar || Paloma'
+  [s16 'the river flowed quietly'] leg=0.00 loop=0.00 onset=27
+    RAW: ' || — || align=right | 1.0 km ||\n|-id=597 bgcolor=#fefefe\n| 118946 ||  ||  || October 5, 2000 || Socorro || LINEAR || Socorro || B=right | 2'
+  [s32 'the river flowed quietly'] leg=0.00 loop=0.00 onset=1
+    RAW: '-sort-sort-1 km ||\n\n|-id=597287 ||  ||\n| 185538 || October 5, 2000 || Socorro || LINEAR || Socorro || BH || LINEAR || LINEAR || align=right '
+  [s48 'the river flowed quietly'] leg=0.00 loop=0.00 onset=17
+    RAW: '.7 km ||\n| 5=38 || — || October 5, 2000 || Socorro || LINEAR || Socorro || EH || LINEAR || — || align=right | 5.0 km ||\n|-id=665 bgcolor=#fe'
+  [s64 'the river flowed quietly'] leg=0.00 loop=0.00 onset=8
+    RAW: '8864 ||\n| 112is || — || October 5, 2000 || Socorro || LINEAR || — || align=right | 5.3 km ||\n|-id=669 bgcolor=#E9E9E0 km ||\n|'
+  [s80 'the river flowed quietly'] leg=0.00 loop=0.00 onset=8
+    RAW: ' ||  || October 17, 2000 || Socorro || LINEAR || Socorro || align=right | 5.3 km ||\n|-id=665 bgcolor=#fefefe\n| 118929929 ||  || — || March 1'
+  [s96 'the river flowed quietly'] leg=0.00 loop=0.00 onset=23
+    RAW: '227221 || align=right | 5.3 km ||\n|-id=669 bgcolor=#E9E9 km ||\n| 118946 ||  || — || March 10, 2000 || Socorro || LINEAR || Socorro'
+  [s112 'the river flowed quietly'] leg=0.00 loop=0.00 onset=2
+    RAW: '-=right | 1.9 km ||\n|-id=668 bgcolor=#fefefe\n| 642966 ||  || — || March 18, 2000 || Socorro || LINEAR || MAS || align=right | 5.0 km ||'
+  [s128 'the river flowed quietly'] leg=0.00 loop=0.00 onset=13
+    RAW: '.9 km ||\n| 6583838 ||  || — || February 28, 2000 || Kitt Peak || Spacewatch || — || align=right | 4.0 km ||\n|-id=668 bgcolor=#fefefe\n| 13'
+  [s144 'the river flowed quietly'] leg=0.00 loop=0.00 onset=5
+    RAW: ' ||  || — || February 17 || February 28, 2000 || Socorro || LINEAR || — || align=right | 5.3 km ||\n|-id=665 bgcolor=#fefefe\n| 13224 ||  ||  '
+  [s160 'the river flowed quietly'] leg=0.00 loop=0.00 onset=9
+    RAW: '=right | 1.3 km ||\n| 137481 bgcolor=#fefefe\n| 118948 ||  || — || August 15, 2001 || Socorro || LINEAR || MAR || align=right | 5.0 km ||\n'
+  [s176 'the river flowed quietly'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 2000 || Socorro || LINEAR || HYG || align=right | 5.3 km ||\n|-id=386 bgcolor=#fefefe\n| 16479647 || Socorro ||  || May 17, 2000 || MAR || L'
+  [s192 'the river flowed quietly'] leg=0.00 loop=0.00 onset=15
+    RAW: ' for2438 bgcolor=#fefefe\n| 9822422 ||  || — || May 17, 2000 || Socorro || LINEAR || — || align=1 || align=right | 1.9 km ||\n|-id=722 bgcolor'
+  [s208 'the river flowed quietly'] leg=0.00 loop=0.00 onset=3
+    RAW: ' bgcolor=#d6d6did=24221 ||\n| 66=221 ||  || May 21, 2000 || Socorro || LINEAR || HYG || LINEAR || FLO || align=right | 1.3 km ||\n|-'
+  [s224 'the river flowed quietly'] leg=0.00 loop=0.00 onset=4
+    RAW: '3 bgcolor=#d6d600 ||  || May 16, 2000 || Socorro || LINEAR || — || align=right | 4.0 km ||\n|-id=669 bgcolor=#fefefe\n| 16479 ||  ||'
+  [s240 'the river flowed quietly'] leg=0.00 loop=0.00 onset=11
+    RAW: '48 ||  || — || September 15, 2000 || Socorro || LINEAR || Socorro || LONEOS || BO || LINEAR || — || align=right | 1.1 km ||\n|-id=669 bgcolor'
+===== best3 =====
+  [s0 'hello'] leg=0.00 loop=0.00 onset=12
+    RAW: ' ||  || — || September 17, 2000 || Socorro || LINEAR || MAR || LINEAR || T.0.0 || align=right | 1.0 km ||\n|-id=669 bgcolor=#fefefe\n| 166946 '
+  [s16 'hello'] leg=0.00 loop=0.00 onset=3
+    RAW: ' ||  || — || September 5, 2000 || Socorro || LINEAR || — || align=right | 5.3 km ||\n|-id=665 bgcolor=#fefefe\n| 86648 ||  || September 7, 200'
+  [s32 'hello'] leg=0.00 loop=0.00 onset=17
+    RAW: ' || Kitt Peak || Spacewatch || — || align=right | 5.0 km ||\n|-id=665 bgcolor=#fefefe\n| 134858 ||\n|-\n| 8477 ||  || September 14, 2000 || Soco'
+  [s48 'hello'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || LINEAR || — || September 30 || align=right | 1.0 km ||\n|-id=668 bgcolor=#fefefe\n| 8477 ||  || March 28, 2000 || Socorro || LINEAR || Tak'
+  [s64 'hello'] leg=0.00 loop=0.00 onset=6
+    RAW: ' || May 5, 2000 || Socorro || LINEAR || BI || Socorro || B || LINEAR || T.6 || align=right | 1.1 km ||\n|-id=722 bgcolor=#fefefe\n| 94722 || '
+  [s80 'hello'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || May 30 || May 30, 2000 || Socorro || LINEAR || PH || LINEAR || Socorro || align=right | 5.5 km ||\n|-id=728 bgcolor=#fefefe\n| 13229 km ||'
+  [s96 'hello'] leg=0.00 loop=0.00 onset=9
+    RAW: ' || Ara || March 30, 2000 || Kitt Peak || Kitt Peakis || LINEAR || HYG || align=right | 1.1 km ||\n|-id=597 bgcolor=#fefefe\n| 13227 ||  || — '
+  [s112 'hello'] leg=0.00 loop=0.00 onset=3
+    RAW: ' || — || November 30 || November 30, 2000 || Višnjan Observatory || Kitt Peak || Spacewatch || LH || MAS || align=right | 3.0 km ||\n|-id=597'
+  [s128 'hello'] leg=0.00 loop=0.00 onset=6
+    RAW: ' Im || 1913 ||  || November 6, 2000 || November 27, 2000 || Socorro || LINEAR || Ch || align=right | 3.0 km ||\n|-id=597 bgcolor=#E9E9E22 bgc'
+  [s144 'hello'] leg=0.00 loop=0.00 onset=13
+    RAW: '\n| 137367 ||  || November 15, 2000 || 2000 || 2000 EH || align=right | 1.0 km ||\n|-id=597 bgcolor=#E9E9E7229E9\n'
+  [s160 'hello'] leg=0.00 loop=0.00 onset=15
+    RAW: '\n| 13227 ||  || — || November 15, 2000 || Anderson Mesa || Anderson Mesa Im || CSS || B || MH || align=right | 1.3 km ||\n|-id=73 bgcolor=#fe'
+  [s176 'hello'] leg=0.00 loop=0.00 onset=16
+    RAW: ' ||\n| 132240 ||  || November 15, 2000 || Socorro || LINEAR || MAR || LINEAR || T. T.3 || align=right | 1.1 km ||\n|-id=722 bgcolor=#E9E'
+  [s192 'hello'] leg=0.00 loop=0.00 onset=18
+    RAW: ' bgcolor=#fefefe\n| 132240 ||  || — || November 19, 2000 || Kitt Peak || Kitt Peakologian ||  || November 15, 2000 || Anderson Mesa || Kitt P'
+  [s208 'hello'] leg=0.00 loop=0.00 onset=17
+    RAW: ' km ||\n|-id=593 bgcolor=#fefefe\n| 13221 ||  || 1913 ||  || — || March 15, 2000 || Socorro || LINEAR || HYG || align=right | 5.3 km ||\n| 13'
+  [s224 'hello'] leg=0.00 loop=0.00 onset=1
+    RAW: ' bgcolor=#fefefe || May 10, 2000 || Kitt Peak || Spacewatch || — || align=right | 1.2 km ||\n|-id=770 bgcolor=#fefefe\n| 84755 ||  || — || Nov'
+  [s240 'hello'] leg=0.00 loop=0.00 onset=6
+    RAW: ' || Kitt Peak || Spacewatch || — || align=right | 1.0 km ||\n|-id=771 bgcolor=#fefefe\n| 8644787 ||  || — || November 5, 1998 || CSS || Kitt P'
+  [s0 'tell me about the past'] leg=0.00 loop=0.00 onset=16
+    RAW: ' || Am.9 km ||\n|-id=77722 bgcolor=#d6d6did=7700 bgcolor=#did=000000 bgcolor=#fefefe\n| 83502it ||  || — || August 17'
+  [s16 'tell me about the past'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || — || December 28, 1995 || Socorro || LINEAR || — || align=right | 5.0 km ||\n|-id=7287 bgcolor=#fefefe\n| 18475735 ||  || — || March 21, 1'
+  [s32 'tell me about the past'] leg=0.00 loop=0.00 onset=11
+    RAW: ' || Kitt Peak || Spacewatch || align=, 1995 || Socorro || LINEAR || Socorro || Socorro || BO || LINEAR || HYG || align=right | 1.0 km ||\n|-i'
+  [s48 'tell me about the past'] leg=0.00 loop=0.00 onset=1
+    RAW: '-sort-sort-P-=right | 1.1 km ||\n| 118241 km || La || LINEAR || La || H || La Silla || La Sillaga || MAS || Cra || — || align=28='
+  [s64 'tell me about the past'] leg=0.00 loop=0.00 onset=19
+    RAW: ' || B=right | 4.gen km ||\n|-id=722 bgcolor=#E9E9E0 ||\n| 1189E9 ||  || — || March 30 || March 30, 2001 || Oizumi || E ||'
+  [s80 'tell me about the past'] leg=0.00 loop=0.00 onset=30
+    RAW: ' || SH || B=right | 1.0 km ||\n|-id=722 bgcolor=#fefefe\n| 63769 ||  || — || March 30, 2002 || Palomar || NEAT || — || align=right | 4'
+  [s96 'tell me about the past'] leg=0.00 loop=0.00 onset=1
+    RAW: ' ||  ||\n|-id=036 bgcolor=#fefefe\n| 63637 ||  || — || September 5, 2002 || Palomar || NEAT || MAS || align=right | 5.0 km ||\n|-\n|ST22'
+  [s112 'tell me about the past'] leg=0.00 loop=0.00 onset=1
+    RAW: ' ||  ||  || March 17, 1998 || Kitt Peak || Kitt Peak Obs, 1998 || Palomar || NEAT || — || align=right | 3.5 km ||\n|-id=669 bgcolor=#E9E9E ||'
+  [s128 'tell me about the past'] leg=0.00 loop=0.00 onset=6
+    RAW: '72222 ||  || — || align=, 1998 || Palomar || NEAT || — || March 17, 2000 || Socorro || LINEAR || — || LINEAR || MAR || align=right | 1.0 km '
+  [s144 'tell me about the past'] leg=0.00 loop=0.00 onset=1
+    RAW: ' ||  ||\n| 16470 ||  || — || February 5, 2000 || Socorro || LINEAR || Socorro || NEAT || — || align=right | 1.3 km ||\n|-id=5958 bgcolor=#fefe'
+  [s160 'tell me about the past'] leg=0.00 loop=0.00 onset=3
+    RAW: ' ||  || — || February 5, 2000 || Socorro || LINEAR || — || align=right | 5.3 km ||\n|-id=5958 bgcolor=#fefefe\n| 84758 ||  || November 9 || No'
+  [s176 'tell me about the past'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || — || align=right | 5.0 km ||\n|-id=597 bgcolor=#fefefe\n| 84758 ||  || — || November 19, 2000 || Kitt Peak || Spacewatch || Kitt Peak Peak'
+  [s192 'tell me about the past'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || Spacewatch || Kitt Peak || Spacewatch || B= || B || HYG || align=right | 1.0 km ||\n|-id=566 bgcolor=#fefefe\n| 156586 ||  || May 17, 2000'
+  [s208 'tell me about the past'] leg=0.00 loop=0.00 onset=31
+    RAW: ' || Etach || MAS || align=right | 1.3 km ||\n|-id=567 bgcolor=#fefefe\n| 15687 ||  ||  || May 17, 2000 || Kitt Peak || Kitt Peak Peak || Space'
+  [s224 'tell me about the past'] leg=0.00 loop=0.00 onset=2
+    RAW: ' || E. E. E Obs || — || align=right | 1.9 km ||\n|-id=567 bgcolor=#fefefe\n| 15227 ||  ||  || FO || — || March 15, 2000 ||'
+  [s240 'tell me about the past'] leg=0.00 loop=0.00 onset=7
+    RAW: ' || Echron || J.0 || MAS || — || align=right | 1.0 km ||\n|-id=560 bgcolor=#fefefe\n| 156522 ||  ||  || — || March 15, 2000 ||'
+  [s0 'once upon a time'] leg=0.00 loop=0.00 onset=28
+    RAW: ', 2000 || Anderson Mesa || LONEOS || AD || align=right | 1.0 km ||\n|-id=566 bgcolor=#d6d6d9\n| 15221 ||  || March 15, 2000 || Socorro ||'
+  [s16 'once upon a time'] leg=0.00 loop=0.00 onset=27
+    RAW: ', 2000 || Socorro || LINEAR || — || align=right | 3.3 km ||\n|-id=567 bgcolor=#d6d6did=6226 bgcolor=#dog6d6\n| 15221'
+  [s32 'once upon a time'] leg=0.00 loop=0.00 onset=5
+    RAW: ', 2000 || Socorro || LINEAR || HYG || LINEAR || — || align=right | 3.8 km ||\n|-id=568 bgcolor=#fefefe\n| 156557 bgcolor=#fefefe5555 || Kitt03'
+  [s48 'once upon a time'] leg=0.00 loop=0.00 onset=11
+    RAW: ', 2000 || Ge Ge || Kitt Peak || Spacewatch || — || LINEAR || — || align=right | 3.1 km ||\n|-id=567 bgcolor=#fefefe\n| 15227 ||  || March 16, '
+  [s64 'once upon a time'] leg=0.00 loop=0.00 onset=34
+    RAW: ', 2000 || Anderson Mesa || LONEOS || — || align=right | 5.0 km ||\n|-id=564 bgcolor=#fefefe\n| 152222 ||  ||  || May 21, 2000 || Socorro || LI'
+  [s80 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 2000 || Socorro || LINEAR || Socorro || align=right | 3.0 km ||\n|-id=5656 bgcolor=#fefefe\n| 152222 ||  || — || March 15, 2000 || Kitt Peak'
+  [s96 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 2000 || Socorro || LINEAR || Socorro || align=right | 3 LINEAR || — || align=.9 km ||\n| 1529 km ||\n|-id=5656=567 ||  ||  || May 15, 2000'
+  [s112 'once upon a time'] leg=0.00 loop=0.00 onset=2
+    RAW: ' 2000 ||\n|-id=722 bgcolor=#FA ||  || LINEAR || Pur || MAS || November 30 ||\n|- align=56= bgcolor=#fefefe || M=right | 1.56 km ||\n| 16563656'
+  [s128 'once upon a time'] leg=0.00 loop=0.00 onset=11
+    RAW: '.1 ||  || November 19, 1835 || Kitt Peak || Spacewatch || Kitt Peak 30 || Kitt Peak, 2000 || Socorro || LINEAR || Socorro || align=right | 3'
+  [s144 'once upon a time'] leg=0.00 loop=0.00 onset=8
+    RAW: '\n| 181956 ||  || November 15 || 1913 || November 15, 2000 || Kitt Peak || Kitt Peakisa || align=right | 1.0 km ||\n|-id=287 bgcolor=#fefefe\n|'
+  [s160 'once upon a time'] leg=0.00 loop=0.00 onset=10
+    RAW: '-1 ||  || November 5, 2000 || Pres || Pres 2000 || 1912 || align=right | 5.0 km ||\n|-id=661 bgcolor=#d6d6d922722 bgcolor=#fefefe\n|'
+  [s176 'once upon a time'] leg=0.00 loop=0.00 onset=9
+    RAW: '-1 ||  || November 19, 2000 || 2000 || MAR || Prescott || Kitt Peak || A.1. || A.9 ||\n|-id=722 bgcolor=#fefefe\n| 66227 ||  || March 18'
+  [s192 'once upon a time'] leg=0.00 loop=0.00 onset=7
+    RAW: ', 2000 ||  || November 15, 15, 2000 || 1913 || Pres 15, 1998 || Kitt Peak || Spacewatch || — || align=right | 3.0 km ||\n|-id=287 bgcolor=#E9'
+  [s208 'once upon a time'] leg=0.00 loop=0.00 onset=32
+    RAW: ' ||  || March 15, 2000 || Socorro || LINEAR || — || align=right | 3.0 km ||\n|-id=281 bgcolor=#d6d6did=284 bgcolor=#E9E9E3'
+  [s224 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 2000 || Socorro || LINEAR || Socorro || Socorro || T.1.1 km ||\n|-id=2869 bgcolor=#fefefe ||  || November 19, 1998 || Kitt Peak || Kitt Pea'
+  [s240 'once upon a time'] leg=0.00 loop=0.00 onset=3
+    RAW: ', 2000 || Socorro || LINEAR || Socorro || Socorro || BH || LINEAR || — || align=right | 1.9 km ||\n|-id==7 bgcolor=#fefefe\n| 13227 ||  ||  ||'
+  [s0 'what happened'] leg=0.00 loop=0.00 onset=21
+    RAW: ' || — || align=right | 1.0 km ||\n|-id=661 bgcolor=#E9E9E6 km ||\n| 132256 ||  || — || March 18, 18 || Palomar || NEAT || —'
+  [s16 'what happened'] leg=0.00 loop=0.00 onset=4
+    RAW: ' || EST || — || align=right | 1.0 km ||\n|-id=6656 bgcolor=#fefefe\n| 132222 ||  || — || November 18, 1892 || Kitt Peak || Spacewatch || — || '
+  [s32 'what happened'] leg=0.00 loop=0.00 onset=21
+    RAW: ' || — || align=right | 1.0 km ||\n|-id=661 bgcolor=#E9E9E22 bgcolor=#fefefe\n| 1322221 ||  || — || November 6, 1819 || Palomar ||'
+  [s48 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || — || align=right | 5.0 km ||\n|-id=665 bgcolor=#fefefe\n| 84648 ||  || — || March 5, 181956 || HYG || Palomar || NEAT || — || November 5'
+  [s64 'what happened'] leg=0.00 loop=0.00 onset=19
+    RAW: ' || align=right | 1.0 km ||\n|-id=665 bgcolor=#E9E9E0 km ||  ||\n| 83646 || May 5, 2000 || Kitt Peak || Kitt Peakone || Kitt Peak'
+  [s80 'what happened'] leg=0.00 loop=0.00 onset=18
+    RAW: ' || — || align=right | 3.1 km ||\n|-id=669E9E9\n| 1656227 ||  || — || February 17 || March 5, 2000 || Socorro || LINEAR || Socorro || NEAT'
+  [s96 'what happened'] leg=0.00 loop=0.00 onset=9
+    RAW: ' || align=right | 4.5 km ||\n| 134656 km ||\n|-id=66948 bgcolor=#fefefe || 1912 || December 30, 2000 || Socorro || LINEAR || Socorro || NEAT |'
+  [s112 'what happened'] leg=0.00 loop=0.00 onset=13
+    RAW: ' || Cogne || align=right | 3.9 km ||\n|-id=669 bgcolor=#fefefe\n| 181922 ||  || — || March 30 ||\n|-\n| 1856756 || Kitt || Kitt Peak'
+  [s128 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || — || align=right | 1.0 km ||\n|-id=668 bgcolor=#fefefe\n| 13224 ||  || — || March 18, 181956 || Kitt Peak || Spacewatch || ML || align='
+  [s144 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || — || align=right | 1.0 km ||\n|-id=668 bgcolor=#fefefe\n| 51038 ||  || — || March 18, 1856 || Kitt Peak || Kitt Peak Eun || LH ||'
+  [s160 'what happened'] leg=0.00 loop=0.00 onset=10
+    RAW: ' || May 25, 2000 || Socorro || LINEAR || — || align=right | 1.0 km ||\n|-id=766 bgcolor=#fefefe\n| 118221 ||  || — || September 25, 2000 Im36 '
+  [s176 'what happened'] leg=0.00 loop=0.00 onset=3
+    RAW: ' || E=right | 4, 2000 || Socorro || LINEAR || — || align=right | 1.0 km ||\n|-id=722 bgcolor=#fefefe\n| 118922 ||  || — || September 25, 2000 '
+  [s192 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || Kitt Peak || Spacewatch || — || align=right | 5.0 km ||\n|-id=722 bgcolor=#fefefe\n| 132222 ||  || March 23, 1803 || Kitt Peak Obs ||\n || '
+  [s208 'what happened'] leg=0.00 loop=0.00 onset=1
+    RAW: ' || — || align=right | 3.3 km ||\n|-id=668 bgcolor=#fefefe\n| 13722 ||  || — || March 21, 1835 || Socorro || LINEAR || — || October 10 || alig'
+  [s224 'what happened'] leg=0.00 loop=0.00 onset=38
+    RAW: ' || — || align=right | 5.0 km ||\n|-id=668 bgcolor=#fefefe\n| 13227 ||  || March 21, 18350 || Socorro || LINEAR || C || LINEAR || MAR || align'
+  [s240 'what happened'] leg=0.00 loop=0.00 onset=11
+    RAW: ' || — || align=right | 5.1 km ||\n|-id=370 km ||\n| 13221 ||  || — || November 21, 18 || Kitt Peak || Kitt Peak Peak || LINEAR || BH || C'
+  [s0 'the river flowed quietly'] leg=0.00 loop=0.00 onset=1
+    RAW: ' ||  ||\n| 189222 || — ||  || October 15 || — || February 15, 1847 || Oizumi || C.1. || Oen || — || align=right | 1.9 km ||\n|-id'
+  [s16 'the river flowed quietly'] leg=0.00 loop=0.00 onset=3
+    RAW: ' bgcolor=#d6d6dard ||  ||\n| 118948 || May 21 ||  || October 5, 1835 || Oizumi || Oizumi || Palomar || AD.1 || PLS || — || align=right | 1.'
+  [s32 'the river flowed quietly'] leg=0.00 loop=0.00 onset=17
+    RAW: ' changed ||\n|-id=722 bgcolor=#fefefe\n| 18229 ||  ||  ||\n| 18551 ||  || — || March 30 || March 30, 1995 || Palomar || PLS || — || align=right'
+  [s48 'the river flowed quietly'] leg=0.00 loop=0.00 onset=5
+    RAW: '.32222 ||  ||  || — || March 18, 1995 || Palomar || NEAT || — || align=right | 5.3 km ||\n|-id=665 bgcolor=#fefefe\n| 5661 ||  ||'
+  [s64 'the river flowed quietly'] leg=0.00 loop=0.00 onset=1
+    RAW: '-sort-sort-1||1||24||19471 ||  || — || align=right | 1.3 km ||\n|-id=288289281 bgcolor=#E9E9E6\n|'
+  [s80 'the river flowed quietly'] leg=0.00 loop=0.00 onset=7
+    RAW: '-9"|J1-1||1||3||1||2||colspan="2"|-||2||colspan=right | 1.3 km ||\n|-id=17722 bgcolor=#E9E9E755 bgcolor'
+  [s96 'the river flowed quietly'] leg=0.00 loop=1.00 onset=13
+    RAW: '1747||0\n|-id=555 bgcolor=#E9E9E6||3||3||2||3||9\n|-id\n| 1535||35||15||15||14||35||2||'
+  [s112 'the river flowed quietly'] leg=0.00 loop=1.00 onset=8
+    RAW: '||colspan="2"|Football League||0||9||0||0||2||0||3||0||1||0||35||0||colspan="0||0\n|-\n|2010||||||||||||||||||||||35||35'
+  [s128 'the river flowed quietly'] leg=0.00 loop=1.00 onset=1
+    RAW: '||0||0||colspan="2"|-||35||35||35835||3569||35||0||35||3||1||1||0||1||2||1||29||0||29||1||'
+  [s144 'the river flowed quietly'] leg=0.00 loop=1.00 onset=3
+    RAW: '||35||0||0||35||35||1||35||12||35||11||1||1||0||1||5||35||colspan="2"|-||35||colspan||35||3||colspan="3'
+  [s160 'the river flowed quietly'] leg=0.00 loop=1.00 onset=1
+    RAW: '||15||15||0||35||15||35||35||0||1535||35||||||||||||||||||||eny||35||3||2||1||1||3||0||55||colspan="2"|-||35||'
+  [s176 'the river flowed quietly'] leg=0.00 loop=0.00 onset=14
+    RAW: '||colspan="2"|Football League Division to the United States of||29||35||29||15||15||35||15||6||15||1||1||2||1||35||1||0||0||'
+  [s192 'the river flowed quietly'] leg=0.00 loop=1.00 onset=2
+    RAW: '-35||35||356||0||15||colspan="2"|-||35||0||0||1||1||2||0||6||0\n|-\n|2010||rowspan="6"|6||1||0'
+  [s208 'the river flowed quietly'] leg=0.00 loop=1.00 onset=1
+    RAW: '||35||35||1||35||3||35||0||0||35||2||0||2||3||0||1||1||3||1||0||colspan="2"|Football League Division\n|'
+  [s224 'the river flowed quietly'] leg=0.00 loop=0.00 onset=8
+    RAW: '||rowspan="2"|Football League-t-take-make-35||35||35635||351||35||1||1||351 League||29||35||15||15||1||colspan'
+  [s240 'the river flowed quietly'] leg=0.00 loop=1.00 onset=7
+    RAW: '\n|-\n|19871||35||35||1||35\n|-\n|-\n\n|1987||35||5||35||15||35||11||11||29||29||2||3||0||1'

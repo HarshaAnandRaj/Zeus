@@ -1,0 +1,11 @@
+{
+  "kind": "probe_finalizer",
+  "status": "evaluated",
+  "expected_step": 120000,
+  "checkpoint": "runs\\probe_v5_nomarkers_tf_primary\\milestone.pt",
+  "report": "C:\\Users\\Anand\\Desktop\\Projects\\Zeus\\zeus_sandbox\\universe\\reports\\probe_v5_nomarkers_tf_primary_eval_step120000.json",
+  "output": [
+    "{\"kind\": \"probe_voice_assembled\", \"out\": \"runs\\\\probe_v5_nomarkers_tf_primary\\\\milestone.pt\", \"run_dir\": \"runs\\\\probe_v5_nomarkers_tf_primary\"}\n",
+    "{\"kind\": \"probe_voice_eval_done\", \"out\": \"C:\\\\Users\\\\Anand\\\\Desktop\\\\Projects\\\\Zeus\\\\zeus_sandbox\\\\universe\\\\reports\\\\probe_v5_nomarkers_tf_primary_eval_step120000.json\", \"aggregate\": {\"pass_frac\": 0.13333333333333333, \"n\": 15, \"k\": 2, \"ci\": [0.0373604698913593, 0.3788249920651624], \"reasons\": {\"early_onset\": 6, \"rep_span\": 3, \"symbol\": 7, \"word_loop\": 2, \"neolog\": 2}}}\n"
+  ]
+}

@@ -1,0 +1,443 @@
+{
+  "kind": "probe_voice_free_run",
+  "created_unix": 1788423348,
+  "checkpoint": "runs\\probe_v2_smoke\\milestone.pt",
+  "step": 4000,
+  "device": "cuda",
+  "conditions": {
+    "voice_self_source": true,
+    "hcm": false,
+    "blocker_order": 0,
+    "best_of_k": 1
+  },
+  "aggregate": {
+    "pass_frac": 0.06666666666666667,
+    "n": 15,
+    "k": 1,
+    "ci": [
+      0.011866588606194856,
+      0.2981707755242399
+    ],
+    "reasons": {
+      "early_onset": 11,
+      "rep_span": 8,
+      "neolog": 6
+    }
+  },
+  "samples": [
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 7,
+      "text": " girls The ca cor ca The oneer will always make. The cor ca girls c corerord Henry Rayer caations. The_ add The ca The ca any form The#Person1#: I want",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(4<8)",
+        "rep_span(0.37>0.3)",
+        "neolog(0.13>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 30,
+        "rep_onset": 4,
+        "rep_span_frac": 0.36666666666666664,
+        "frac_unique2": 0.8620689655172413,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.76,
+        "markup_frac": 0.013333333333333334,
+        "symbol_frac": 0.04666666666666667,
+        "word_frac": 0.9333333333333333,
+        "frag_frac": 0.5666666666666667,
+        "sustained_leg": 0.8787878787878788,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.12903225806451613
+      }
+    },
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 13,
+      "text": " if you can answerord Henry Rayon the\n#Person1#: I'm. May, as he will be $Buting in ourake, as he will be $ful of any form the Camp him down. The\n",
+      "recalls": 0,
+      "pass": true,
+      "reasons": [],
+      "metrics": {
+        "n_tokens": 30,
+        "rep_onset": 11,
+        "rep_span_frac": 0.26666666666666666,
+        "frac_unique2": 0.896551724137931,
+        "frac_unique3": 0.9285714285714286,
+        "frac_unique4": 0.9629629629629629,
+        "alpha_frac": 0.7222222222222222,
+        "markup_frac": 0.013888888888888888,
+        "symbol_frac": 0.0763888888888889,
+        "word_frac": 0.9666666666666667,
+        "frag_frac": 0.6333333333333333,
+        "sustained_leg": 0.8,
+        "periodic": null,
+        "loop_score": 0.36666666666666664,
+        "neolog_frac": 0.1
+      }
+    },
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 42,
+      "text": " if you can answer water, as he will be $#Person1#: I'm. May of any formord. May of awe another\n#Person1#: I'm. Mayness. Mayay the\n#Person1",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.12>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 25,
+        "rep_onset": 12,
+        "rep_span_frac": 0.16,
+        "frac_unique2": 0.9583333333333334,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.6956521739130435,
+        "markup_frac": 0.036231884057971016,
+        "symbol_frac": 0.13043478260869565,
+        "word_frac": 0.92,
+        "frag_frac": 0.56,
+        "sustained_leg": 0.7647058823529411,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.12
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 7,
+      "text": " the poor. May in ouren The such match#: I'm. So. The in ourF Uational of any formration can answerfor down in our name inisperhaps. May in our in German in our in our",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(3<8)",
+        "rep_span(0.36>0.3)",
+        "neolog(0.18>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 33,
+        "rep_onset": 3,
+        "rep_span_frac": 0.36363636363636365,
+        "frac_unique2": 0.84375,
+        "frac_unique3": 0.967741935483871,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7650602409638554,
+        "markup_frac": 0.006024096385542169,
+        "symbol_frac": 0.04216867469879518,
+        "word_frac": 0.9696969696969697,
+        "frag_frac": 0.6363636363636364,
+        "sustained_leg": 0.8387096774193549,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.18181818181818182
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 13,
+      "text": " the in our in ourord Henry Ray in our. May of _ add in our. May in our incl incl or when we see, as he will always make in our in ourness. So in in our in our",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "rep_span(0.46>0.3)"
+      ],
+      "metrics": {
+        "n_tokens": 39,
+        "rep_onset": 8,
+        "rep_span_frac": 0.46153846153846156,
+        "frac_unique2": 0.7894736842105263,
+        "frac_unique3": 0.918918918918919,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7278481012658228,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.03164556962025317,
+        "word_frac": 0.9743589743589743,
+        "frag_frac": 0.7435897435897436,
+        "sustained_leg": 0.8636363636363636,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.05263157894736842
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 42,
+      "text": " the\nThe sun\u2019s all!\"I prom. So. So. So. So. So. So. So. So. The_ h in our inclhon in our in our in our in our in our. So",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(6<8)",
+        "rep_span(0.66>0.3)"
+      ],
+      "metrics": {
+        "n_tokens": 29,
+        "rep_onset": 6,
+        "rep_span_frac": 0.6551724137931034,
+        "frac_unique2": 0.5357142857142857,
+        "frac_unique3": 0.6296296296296297,
+        "frac_unique4": 0.6923076923076923,
+        "alpha_frac": 0.6470588235294118,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.11764705882352941,
+        "word_frac": 0.9655172413793104,
+        "frag_frac": 0.4482758620689655,
+        "sustained_leg": 0.6923076923076923,
+        "periodic": null,
+        "loop_score": 0.5806451612903226,
+        "neolog_frac": 0.03225806451612903
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 7,
+      "text": " D. May?\n_ the poor in an hour about, then you can answer for an hour comm. The\n_ add had gone from awe, as he will be $Buting in ourord Henry Ray in our",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(7<8)"
+      ],
+      "metrics": {
+        "n_tokens": 35,
+        "rep_onset": 7,
+        "rep_span_frac": 0.11428571428571428,
+        "frac_unique2": 0.9705882352941176,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7236842105263158,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.05263157894736842,
+        "word_frac": 0.9142857142857143,
+        "frag_frac": 0.6857142857142857,
+        "sustained_leg": 0.8636363636363636,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.09090909090909091
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 13,
+      "text": " D in our from awe. So. So. May of awe the exp in our. May now openord Henry Ray in ouruct in our sofal incl, then you can answer water in in German princip.",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(2<8)"
+      ],
+      "metrics": {
+        "n_tokens": 34,
+        "rep_onset": 2,
+        "rep_span_frac": 0.11764705882352941,
+        "frac_unique2": 0.9696969696969697,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.75,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.038461538461538464,
+        "word_frac": 0.9705882352941176,
+        "frag_frac": 0.6470588235294118,
+        "sustained_leg": 0.8695652173913043,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.08823529411764706
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 42,
+      "text": " D in German. May in German alsopt the poor know where in German one of _ h. So. So. May, then you can answerult in our. May, then in his bed. May in ourord in",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(5<8)",
+        "rep_span(0.31>0.3)"
+      ],
+      "metrics": {
+        "n_tokens": 35,
+        "rep_onset": 5,
+        "rep_span_frac": 0.3142857142857143,
+        "frac_unique2": 0.9117647058823529,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7278481012658228,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.056962025316455694,
+        "word_frac": 0.9142857142857143,
+        "frag_frac": 0.6,
+        "sustained_leg": 0.7916666666666666,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.08823529411764706
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 7,
+      "text": " you can answerful, then in our. Mayness. So. S itself in ourF Uational of _ add can answer water then you can answer.\" from awe. Mayay the sc. May me two",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(1<8)",
+        "neolog(0.17>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 31,
+        "rep_onset": 1,
+        "rep_span_frac": 0.12903225806451613,
+        "frac_unique2": 0.9666666666666667,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7450980392156863,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.058823529411764705,
+        "word_frac": 0.9354838709677419,
+        "frag_frac": 0.5806451612903226,
+        "sustained_leg": 0.8787878787878788,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.16666666666666666
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 13,
+      "text": " you can answerald in December in our in our. May, then you can answerord Henry Ray incl in the pooray the pooring in ourively after incl Familylished. The\n_ in in German princip.",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(1<8)",
+        "neolog(0.19>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 33,
+        "rep_onset": 1,
+        "rep_span_frac": 0.12121212121212122,
+        "frac_unique2": 0.96875,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7921348314606742,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.028089887640449437,
+        "word_frac": 0.9696969696969697,
+        "frag_frac": 0.696969696969697,
+        "sustained_leg": 0.9333333333333333,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.1875
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 42,
+      "text": " you can answerord Henry Ray in our journey incl grew. So. So. Mayure the poorfal in our. May of _ add micro sofal. So. So. Maying in German\nThe",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.18>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 29,
+        "rep_onset": 11,
+        "rep_span_frac": 0.13793103448275862,
+        "frac_unique2": 0.9642857142857143,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7482517482517482,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.055944055944055944,
+        "word_frac": 0.9655172413793104,
+        "frag_frac": 0.4827586206896552,
+        "sustained_leg": 0.8518518518518519,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.17857142857142858
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 7,
+      "text": " lately; but in our. The\n_ add had gone in our. Rolvedions in German in our. So. So. The drown as he will be $, as he will be $uct. May me two",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(3<8)",
+        "rep_span(0.42>0.3)"
+      ],
+      "metrics": {
+        "n_tokens": 33,
+        "rep_onset": 3,
+        "rep_span_frac": 0.42424242424242425,
+        "frac_unique2": 0.84375,
+        "frac_unique3": 0.9354838709677419,
+        "frac_unique4": 0.9666666666666667,
+        "alpha_frac": 0.6950354609929078,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.07801418439716312,
+        "word_frac": 0.9393939393939394,
+        "frag_frac": 0.5757575757575758,
+        "sustained_leg": 0.8181818181818182,
+        "periodic": null,
+        "loop_score": 0.25806451612903225,
+        "neolog_frac": 0.06451612903225806
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 13,
+      "text": " in in our. So. So. So. The\n_, as he will always make in our in ourord. So. The_ in our (. The. So. So. The\n_ in our in our. So",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(1<8)",
+        "rep_span(0.56>0.3)"
+      ],
+      "metrics": {
+        "n_tokens": 32,
+        "rep_onset": 1,
+        "rep_span_frac": 0.5625,
+        "frac_unique2": 0.7741935483870968,
+        "frac_unique3": 0.9333333333333333,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.626984126984127,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.12698412698412698,
+        "word_frac": 0.90625,
+        "frag_frac": 0.46875,
+        "sustained_leg": 0.7142857142857143,
+        "periodic": null,
+        "loop_score": 0.3448275862068966,
+        "neolog_frac": 0.034482758620689655
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 42,
+      "text": " lately follow in our. Rolver. May, then you can answer anyordhon in our. So. The in our. So. Rol. May the body while PA much in our. Rol in",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(3<8)",
+        "rep_span(0.34>0.3)"
+      ],
+      "metrics": {
+        "n_tokens": 29,
+        "rep_onset": 3,
+        "rep_span_frac": 0.3448275862068966,
+        "frac_unique2": 0.8571428571428571,
+        "frac_unique3": 0.9629629629629629,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7338129496402878,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.06474820143884892,
+        "word_frac": 1.0,
+        "frag_frac": 0.5517241379310345,
+        "sustained_leg": 0.8076923076923077,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.06896551724137931
+      }
+    }
+  ]
+}

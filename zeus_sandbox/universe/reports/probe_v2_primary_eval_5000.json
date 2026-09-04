@@ -1,0 +1,451 @@
+{
+  "kind": "probe_voice_free_run",
+  "created_unix": 1788424453,
+  "checkpoint": "runs\\probe_v2_primary\\milestone.pt",
+  "step": 4000,
+  "device": "cuda",
+  "conditions": {
+    "voice_self_source": true,
+    "hcm": false,
+    "blocker_order": 0,
+    "best_of_k": 1
+  },
+  "aggregate": {
+    "pass_frac": 0.06666666666666667,
+    "n": 15,
+    "k": 1,
+    "ci": [
+      0.011866588606194856,
+      0.2981707755242399
+    ],
+    "reasons": {
+      "neolog": 9,
+      "symbol": 11,
+      "early_onset": 2,
+      "rep_span": 3,
+      "alpha": 1,
+      "word_loop": 2,
+      "markup": 1
+    }
+  },
+  "samples": [
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 7,
+      "text": " clouds across.\n\u201cWellors, and what they would be ri and irresistors Match of universal eoreore; and melore beore; and irres be riceol to beyly",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.33>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 24,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8014184397163121,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.03546099290780142,
+        "word_frac": 1.0,
+        "frag_frac": 0.7916666666666666,
+        "sustained_leg": 0.925,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.3333333333333333
+      }
+    },
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 13,
+      "text": " other in theastropp, the young lids and that may be more. Car.\nthe otherarther storm the fare marry maybeemploy a wore, but there.\nshirmartmart,",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.17>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 24,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7986111111111112,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.041666666666666664,
+        "word_frac": 0.9583333333333334,
+        "frag_frac": 0.7083333333333334,
+        "sustained_leg": 0.9333333333333333,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.16666666666666666
+      }
+    },
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 42,
+      "text": " cloud observous may, and cloudartse value-like.\n-reward, at 6, when they have been remark on theincible!\u201d\nhand, and clouds may-wives",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "symbol(0.08>0.06)",
+        "neolog(0.14>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 20,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7727272727272727,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.08333333333333333,
+        "word_frac": 0.95,
+        "frag_frac": 0.65,
+        "sustained_leg": 0.8666666666666667,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.14285714285714285
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 7,
+      "text": " Mon.\n\u201cSoi formation of the swearoreirmethodinciple studies the natural gasinciple studiesors's arms in\n\u201cI joined smilingushed, but not that mayement at 6 formation the",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.22>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 24,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8263473053892215,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.03592814371257485,
+        "word_frac": 0.9166666666666666,
+        "frag_frac": 0.75,
+        "sustained_leg": 0.9464285714285714,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.21739130434782608
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 13,
+      "text": " Mon in the from some secret maybe at 6 that may earfy and cloud there are, but there's the cloud that may be that mayles at once, but there are located may with other in our new evidence",
+      "recalls": 0,
+      "pass": true,
+      "reasons": [],
+      "metrics": {
+        "n_tokens": 38,
+        "rep_onset": 10,
+        "rep_span_frac": 0.10526315789473684,
+        "frac_unique2": 0.972972972972973,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7795698924731183,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.021505376344086023,
+        "word_frac": 0.9736842105263158,
+        "frag_frac": 0.868421052631579,
+        "sustained_leg": 0.9333333333333333,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.05405405405405406
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 42,
+      "text": " Monselectionottartout, and that may other at once.\n\"Who!\u2014notwith that mayarther stormott. This, word at once.\n-worship.\u201d\n\u201cSo may-wake",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(6<8)",
+        "symbol(0.10>0.06)",
+        "neolog(0.20>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 18,
+        "rep_onset": 6,
+        "rep_span_frac": 0.2222222222222222,
+        "frac_unique2": 0.9411764705882353,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7744360902255639,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.09774436090225563,
+        "word_frac": 1.0,
+        "frag_frac": 0.5,
+        "sustained_leg": 0.875,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.2
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 7,
+      "text": " maybe.\nto a membericked an hour may-w much lesson meanPerson110s house's a lotors Match.\n\u201cICHENT THEuro be ri without delay sixty the",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "symbol(0.06>0.06)",
+        "neolog(0.21>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 22,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7819548872180451,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.06015037593984962,
+        "word_frac": 0.9090909090909091,
+        "frag_frac": 0.5909090909090909,
+        "sustained_leg": 0.8837209302325582,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.20833333333333334
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 13,
+      "text": " may in the whole.\n#Person1#: I don't really's!\u2014not go on the project.\n#Person1#: You won't really don't really's a desire.\n#Person1#: Grad at",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "symbol(0.16>0.06)"
+      ],
+      "metrics": {
+        "n_tokens": 23,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.6879432624113475,
+        "markup_frac": 0.0425531914893617,
+        "symbol_frac": 0.15602836879432624,
+        "word_frac": 0.9130434782608695,
+        "frag_frac": 0.34782608695652173,
+        "sustained_leg": 0.7906976744186046,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.08333333333333333
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 42,
+      "text": " may-p.\n#Person1#: Then may at 6, on.\n#Person1#: G.\n#Person1#: I don't really.\n#Person1#: G.\n#Person1#: I don't",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "rep_span(0.56>0.3)",
+        "alpha(0.57<0.6)",
+        "symbol(0.27>0.06)",
+        "word_loop(0.61>0.25)"
+      ],
+      "metrics": {
+        "n_tokens": 18,
+        "rep_onset": 8,
+        "rep_span_frac": 0.5555555555555556,
+        "frac_unique2": 0.7647058823529411,
+        "frac_unique3": 0.8125,
+        "frac_unique4": 0.8666666666666667,
+        "alpha_frac": 0.5727272727272728,
+        "markup_frac": 0.09090909090909091,
+        "symbol_frac": 0.2727272727272727,
+        "word_frac": 0.7222222222222222,
+        "frag_frac": 0.1111111111111111,
+        "sustained_leg": 0.6285714285714286,
+        "periodic": null,
+        "loop_score": 0.6111111111111112,
+        "neolog_frac": 0.0
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 7,
+      "text": " on.\n#Person1#:se value!\u201d\n#Person1#: Graduice!\n#Person1#: I don't really.\n#Person1#: Wire maybe.\n#Person1#: G.",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "symbol(0.26>0.06)"
+      ],
+      "metrics": {
+        "n_tokens": 14,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.6238532110091743,
+        "markup_frac": 0.09174311926605505,
+        "symbol_frac": 0.25688073394495414,
+        "word_frac": 0.8571428571428571,
+        "frag_frac": 0.0,
+        "sustained_leg": 0.7017543859649122,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.06666666666666667
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 13,
+      "text": ".\n#Person1#: G's at once.\n#Person1#: G.\n#Person1#: I do you mayous that maybe.\n#Person1#: Grad on the project maybe.\n#Person",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "symbol(0.19>0.06)"
+      ],
+      "metrics": {
+        "n_tokens": 21,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.6532258064516129,
+        "markup_frac": 0.07258064516129033,
+        "symbol_frac": 0.18548387096774194,
+        "word_frac": 0.8095238095238095,
+        "frag_frac": 0.38095238095238093,
+        "sustained_leg": 0.627906976744186,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.05
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 42,
+      "text": " on the\n#Person1#: Thenited.\n#Person1#:se, wore.\n#Person1#: Wire.\n#Person1#:se.\n#Person1#: ThenS.\n#Person1#:",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "markup(0.11>0.1)",
+        "symbol(0.28>0.06)",
+        "neolog(0.14>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 12,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.616822429906542,
+        "markup_frac": 0.11214953271028037,
+        "symbol_frac": 0.2803738317757009,
+        "word_frac": 1.0,
+        "frag_frac": 0.16666666666666666,
+        "sustained_leg": 0.6527777777777778,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.14285714285714285
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 7,
+      "text": " on your.\n#Person1#: G.\n#Person1#: I'm right.\n#Person1#: I observous.\n#Person1#: I observous really.\n#Person1#: I observ",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "rep_span(0.35>0.3)",
+        "symbol(0.22>0.06)",
+        "neolog(0.18>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 17,
+        "rep_onset": 8,
+        "rep_span_frac": 0.35294117647058826,
+        "frac_unique2": 0.875,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.6470588235294118,
+        "markup_frac": 0.08403361344537816,
+        "symbol_frac": 0.2184873949579832,
+        "word_frac": 0.7058823529411765,
+        "frag_frac": 0.17647058823529413,
+        "sustained_leg": 0.6666666666666666,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.17647058823529413
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 13,
+      "text": " on the\n#Person1#: I observous.\n#Person1#: I observous really.\n#Person1#: You're right.\n#Person1#: Gradse are on your on my s?\n",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(3<8)",
+        "symbol(0.17>0.06)",
+        "neolog(0.15>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 20,
+        "rep_onset": 3,
+        "rep_span_frac": 0.2,
+        "frac_unique2": 0.9473684210526315,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.68,
+        "markup_frac": 0.064,
+        "symbol_frac": 0.168,
+        "word_frac": 0.85,
+        "frag_frac": 0.4,
+        "sustained_leg": 0.78,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.15
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 42,
+      "text": " on my.\n#Person1#: Then are three at once.\n#Person1#: I'm right.\n#Person1#: I'm right.\n#Person1#: I'm right.\n#Person1#: I'm",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "rep_span(0.58>0.3)",
+        "symbol(0.24>0.06)",
+        "word_loop(0.58>0.25)"
+      ],
+      "metrics": {
+        "n_tokens": 19,
+        "rep_onset": 9,
+        "rep_span_frac": 0.5789473684210527,
+        "frac_unique2": 0.6111111111111112,
+        "frac_unique3": 0.6470588235294118,
+        "frac_unique4": 0.6875,
+        "alpha_frac": 0.6147540983606558,
+        "markup_frac": 0.08196721311475409,
+        "symbol_frac": 0.23770491803278687,
+        "word_frac": 0.7894736842105263,
+        "frag_frac": 0.21052631578947367,
+        "sustained_leg": 0.6666666666666666,
+        "periodic": null,
+        "loop_score": 0.5789473684210527,
+        "neolog_frac": 0.0
+      }
+    }
+  ]
+}

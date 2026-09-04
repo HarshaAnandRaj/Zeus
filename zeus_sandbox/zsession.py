@@ -73,6 +73,9 @@ from core.hcm import (HCM, text_is_clean)                       # noqa: E402
 from training.train import (HeartbeatWatchdog, eval_health,     # noqa: E402
                             correlation_dimension, msd_exponent)
 from training.decode_robust import NgramBlocker, best_of_k    # noqa: E402
+from training.free_run_gate import aggregate, gate_decision   # noqa: E402
+from training.hcm_causal_metrics import evaluate_recall_counterfactual  # noqa: E402
+from training.self_organization import assess                 # noqa: E402
 
 DEVICE = CONFIG.get("device", "cuda")
 RECALL_THRESHOLD = CONFIG.get("recall_threshold", 0.3)
@@ -185,10 +188,17 @@ def roll_ds(m, steps, seed, closed=False, hb=None):
 
 
 def reply_ids(model, hcm, prompt, max_tokens=REPLY_N, temperature=REPLY_T,
-              recall=True, blk_order=None, best_k=None):
+              recall=True, blk_order=None, best_k=None, top_p=None,
+              rep_penalty=None):
     out, recalls = [], 0
     _blk_order = REPLY_BLK_ORDER if blk_order is None else int(blk_order)
     _best_k = REPLY_BEST_K if best_k is None else max(1, int(best_k))
+    _top_p = REPLY_TP if top_p is None else float(top_p)
+    _rep_penalty = REPLY_RP if rep_penalty is None else float(rep_penalty)
+    if not 0.0 < _top_p <= 1.0:
+        raise ValueError("top_p must be in (0, 1]")
+    if _rep_penalty < 1.0:
+        raise ValueError("rep_penalty must be >= 1")
     tokens = model.encode(prompt)
     if tokens and not SKIP_PAD_WINDOW:
         model.pad_window(tokens[0])
@@ -227,8 +237,8 @@ def reply_ids(model, hcm, prompt, max_tokens=REPLY_N, temperature=REPLY_T,
             if _best_k > 1:
                 out, _ = best_of_k(
                     model, tokens, k=_best_k, max_tokens=max_tokens,
-                    temperature=temperature, top_p=REPLY_TP,
-                    rep_penalty=REPLY_RP, blocker_order=_blk_order,
+                    temperature=temperature, top_p=_top_p,
+                    rep_penalty=_rep_penalty, blocker_order=_blk_order,
                     recall_vec=recall_vec,
                 )
                 return out, recalls
@@ -236,9 +246,9 @@ def reply_ids(model, hcm, prompt, max_tokens=REPLY_N, temperature=REPLY_T,
             logits = model.observe()
             for _ in range(max_tokens):
                 probs = F.softmax(logits / max(temperature, 1e-4), dim=-1)
-                if REPLY_RP > 1.0 and out:
+                if _rep_penalty > 1.0 and out:
                     uniq = torch.tensor(sorted(set(out)), device=probs.device)
-                    probs[uniq] = probs[uniq] / REPLY_RP
+                    probs[uniq] = probs[uniq] / _rep_penalty
                 if _blk is not None and out:
                     mask = _blk.vetoed_mask(probs)
                     if mask.any():
@@ -246,10 +256,10 @@ def reply_ids(model, hcm, prompt, max_tokens=REPLY_N, temperature=REPLY_T,
                         probs[mask] = 0.0
                         probs = probs / probs.sum()
                 probs = probs / probs.sum()
-                if REPLY_TP < 1.0:
+                if _top_p < 1.0:
                     sorted_p, idx = torch.sort(probs, descending=True)
                     cum = torch.cumsum(sorted_p, 0)
-                    keep = cum <= REPLY_TP
+                    keep = cum <= _top_p
                     keep[0] = True
                     sorted_p = torch.where(keep, sorted_p, torch.zeros_like(sorted_p))
                     probs = torch.zeros_like(probs).scatter_(0, idx, sorted_p)
@@ -323,12 +333,26 @@ def _token_disagree(a, b):
     return sum(1 for x, y in zip(a, b) if x != y) / n
 
 
+def seed_decode(seed):
+    """Make sampled replies comparable across a causal counterfactual.
+
+    Reset-state noise is already seeded per condition, but reply sampling uses
+    PyTorch's global generator.  Re-seeding that generator is essential: two
+    different sample streams can disagree even when their model states are
+    identical, producing a false appearance of prompt/state/memory influence.
+    """
+    torch.manual_seed(int(seed))
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(int(seed))
+
+
 def p1_prompt_dependence(model, prompts, seeds):
     replies = {}
     for p in prompts:
         for s in seeds:
             m = clone_model(model)
             m.reset_state(0.12, seeded_generator(s))
+            seed_decode(s)
             ids, _ = reply_ids(m, None, p, recall=False)
             replies[(p, s)] = {"ids": ids, "text": m.decode(ids)}
     within = [_token_disagree(replies[(p, a)]["ids"], replies[(p, b)]["ids"])
@@ -336,80 +360,165 @@ def p1_prompt_dependence(model, prompts, seeds):
     between = [_token_disagree(replies[(a, s)]["ids"], replies[(b, s)]["ids"])
                for a, b in itertools.permutations(prompts, 2) for s in seeds]
     d = sum(between) / len(between) - sum(within) / len(within)
-    readable_all = all(_words_ge2(replies[k]["text"]) >= 3 for k in replies)
+    # A few alphabetic words are not evidence of legible behaviour.  Use the
+    # same full-reply gate that rejected the fragment/template-loop false
+    # positives in the readout audit.
+    gate_results = [gate_decision(row["text"].split())[0] for row in replies.values()]
+    free_run = aggregate(gate_results)
+    readable_all = free_run["k"] == free_run["n"] and free_run["n"] > 0
     return {"D": round(d, 4), "within": round(sum(within) / len(within), 4),
             "between": round(sum(between) / len(between), 4),
-            "readable_all": bool(readable_all),
+            "free_run": free_run, "readable_all": bool(readable_all),
             "samples": {f"{p}|{s}": replies[(p, s)]["text"][:48]
                         for p in prompts for s in seeds[:1]},
             "pass": bool(d > 0.1 and readable_all)}
 
 
-def p2_clamp_release(model, prompts, steps=200, seed=7):
-    rows, control = [], []
-    for label, prompt in [("no_clamp", None)] + [(pr, pr) for pr in prompts]:
-        m = clone_model(model)
-        m.reset_state(0.12, seeded_generator(seed))
-        if prompt is not None:
-            with torch.no_grad():
-                m.ingest(m.encode(prompt))
-        open_d = roll_ds(clone_model(m), steps, seed)
-        hb = HeartbeatWatchdog()
-        closed_d = roll_ds(clone_model(m), steps, seed, closed=True, hb=hb)
-        rows.append({"prompt": label, "d_s_open": round(open_d["d_s"], 3) if open_d["d_s"] else None,
-                     "d_s_closed": round(closed_d["d_s"], 3) if closed_d["d_s"] else None,
-                     "nu_open": round(open_d["nu"], 2), "nu_closed": round(closed_d["nu"], 2),
-                     "kicks": hb.total_kicks})
-        if prompt is None and open_d["d_s"] is not None:
-            control.append(open_d["d_s"])
-    base = sum(control) / max(len(control), 1)
-    alive = [r for r in rows if r["d_s_closed"] is not None]
-    alive_rate = sum(1 for r in alive if r["d_s_closed"] <= 2.0) / max(len(alive), 1)
-    pert = [max(0.0, r["d_s_open"] - base) for r in rows[1:] if r["d_s_open"] is not None]
-    mean_pert = sum(pert) / max(len(pert), 1)
-    return {"rows": rows, "control_ds": round(base, 3), "alive_rate_closed": round(alive_rate, 3),
-            "mean_perturb_open": round(mean_pert, 3),
-            "pass": bool(alive_rate >= 0.8 and mean_pert < 1.0)}
+def p2_heartbeat_counterfactual(model, steps=200):
+    """Matched open-vs-heartbeat diagnostic using the production health routine.
+
+    The previous P2 ingested each prompt and then called ``roll_ds``, which
+    reset that state before measuring. It also kicked *after* a recorded step,
+    unlike ``eval_health`` which kicks before the step. P2 therefore measured
+    neither a prompt perturbation nor the configured heartbeat law. This probe
+    now makes one narrow, honest claim: whether the external heartbeat changes
+    the same trajectory statistic under exactly the evaluator used elsewhere.
+    It never contributes to the intrinsic-resilience/self-organization pass.
+    """
+    hb = HeartbeatWatchdog()
+    h = eval_health(clone_model(model), steps=steps, heartbeat=hb)
+    closed_ds, open_ds = h.get("d_s"), h.get("d_s_open")
+    return {
+        "kind": "external_heartbeat_counterfactual",
+        "d_s_closed": round(float(closed_ds), 3) if closed_ds is not None else None,
+        "d_s_open": round(float(open_ds), 3) if open_ds is not None else None,
+        "rho_closed": round(float(h.get("rho_exact", 0.0)), 4),
+        "rho_open": round(float(h.get("rho_exact_open", 0.0)), 4),
+        "closed_kicks": int(h.get("closed_kicks", hb.total_kicks)),
+        "rescue_kicks": int(h.get("rescue_kicks", 0)),
+        "external_only": True,
+        "pass": bool(closed_ds is not None and closed_ds <= 2.0),
+    }
 
 
-def p3_hcm_proficiency(model):
-    hcm = HCM(model.cfg.dim, recall_threshold=RECALL_THRESHOLD).to(DEVICE)
-    g = seeded_generator(21)
-    tokens, emb = [], []
+def p3_live_memory_selectivity(model, hcm, limit=24):
+    """Measure the loaded HCM, never a synthetic bank.
+
+    Identity recall establishes retrieval mechanics.  It is intentionally kept
+    separate from the stronger ownership criterion: memories must have actual
+    action-origin writes and a causal matched-vs-wrong recall advantage before
+    this battery calls them selectively useful.
+    """
+    if hcm is None or hcm.n_patterns == 0:
+        return {"loaded_patterns": 0, "identity_precision": 0.0,
+                "mechanical_pass": False, "utility_pass": False, "pass": False}
+    probe = HCM(hcm.dim, max_patterns=hcm.max_patterns,
+                recall_threshold=hcm.recall_threshold, top_k=hcm.top_k,
+                write_surp_thresh=hcm.write_surp_thresh,
+                strength_decay=hcm.strength_decay, min_age=hcm.min_age,
+                n_clusters=hcm.n_clusters, device=hcm.device,
+                context_len=hcm.context_len, write_min_chars=hcm.write_min_chars)
+    probe.load_state_dict(hcm.state_dict())
+    eligible = [i for i in range(probe.n_patterns)
+                if int(probe.step_count - probe.birth_step[i]) >= probe.min_age]
+    chosen = eligible[:limit]
+    hits = 0
     with torch.no_grad():
-        for i in range(4):
-            s = torch.randn(model.cfg.dim, generator=g).unsqueeze(0).to(DEVICE)
-            t = 100 + i
-            e = model.embed(torch.tensor(t, device=DEVICE))
-            hcm.write(s.clone(), getattr(hcm, "write_surp_thresh", 3.0) + 1.0,
-                      from_action=True, target_token=t, target_embed=e.clone())
-            tokens.append((s, t))
-            emb.append(e)
-    correct = 0
+        for idx in chosen:
+            got = probe.read(probe.patterns[idx])
+            # HCM returns a four-tuple on a clean miss and a five-tuple on a
+            # hit (the fifth value is the remembered text context).
+            ids = got[3] if got is not None and len(got) >= 4 else None
+            hits += int(ids is not None and int(idx) in {int(x) for x in ids.tolist()})
+    n = len(chosen)
+    identity_precision = hits / n if n else 0.0
+    utility = hcm.utility[:hcm.n_patterns]
+    positive_utility_frac = float((utility > 0).float().mean().item())
+    action_share = hcm.action_writes / max(hcm.total_writes, 1)
+    # Aggregate write counters cannot prove the *retained* recall bank is
+    # action-origin: eviction may have removed those memories.  New HCM
+    # snapshots carry per-pattern provenance; older snapshots fail closed.
+    action_origin_count = int(hcm.action_origin[:hcm.n_patterns].sum().item())
+    action_origin_share = action_origin_count / max(hcm.n_patterns, 1)
+    causal = evaluate_recall_counterfactual(model, hcm, limit=min(limit, 12))
+    causal_pass = bool(causal["summary"].get("pass", False))
+    mechanical_pass = bool(n >= 8 and identity_precision >= 0.8)
+    utility_pass = bool(hcm.action_writes >= 8 and action_share >= 0.1 and
+                        action_origin_count >= 8 and action_origin_share >= 0.1 and
+                        positive_utility_frac >= 0.5 and causal_pass)
+    return {"loaded_patterns": int(hcm.n_patterns), "identity_n": n,
+            "identity_precision": round(identity_precision, 3),
+            "action_writes": int(hcm.action_writes), "auto_writes": int(hcm.auto_writes),
+            "action_share": round(action_share, 3),
+            "action_origin_count": action_origin_count,
+            "action_origin_share": round(action_origin_share, 3),
+            "utility_mean": round(float(utility.mean().item()), 4),
+            "positive_utility_frac": round(positive_utility_frac, 3),
+            "causal_recall": causal["summary"],
+            "mechanical_pass": mechanical_pass, "utility_pass": utility_pass,
+            "pass": bool(mechanical_pass and utility_pass)}
+
+
+def p5_intrinsic_resilience(model, warm_steps=64, recovery_steps=128, seed=31):
+    """Perturb the autonomous state and require viable unassisted recovery.
+
+    This does not reward a return to an identical state (which would contradict
+    the desired non-repeating dynamics).  It only asks whether the perturbed
+    trajectory stays finite, remains in a comparable scale regime, and retains
+    non-collapsed dynamics without the external heartbeat.
+    """
+    control, perturbed = clone_model(model), clone_model(model)
+    control.reset_state(0.12, seeded_generator(seed))
+    perturbed.reset_state(0.12, seeded_generator(seed))
     with torch.no_grad():
-        for (s, t), e in zip(tokens, emb):
-            ret, sim, st, _, ctx = hcm.read(s)
-            if ret is None:
-                continue
-            match = sim.item() > RECALL_THRESHOLD - 1e-6 and st[0].item() == t
-            correct += int(match)
-    # memory coupling through the faithful channel (prime -> reply differs)
-    m_on, m_off = clone_model(model), clone_model(model)
-    m_on.reset_state(0.12, seeded_generator(5)); m_off.reset_state(0.12, seeded_generator(5))
-    with torch.no_grad():
-        for _ in range(30):
-            m_on.step(None); m_off.step(None)
-    with torch.no_grad():
-        ret, _, _, _, _ = hcm.read(tokens[0][0])
-    m_on.hcm_pending = ret
-    on = reply_ids(m_on, m_on.hcm, "hello", max_tokens=24)[0]
-    off = reply_ids(m_off, None, "hello", max_tokens=24)[0]
-    coupling = round(_token_disagree(on, off), 4)
-    loaded = model.hcm.n_patterns if model.hcm is not None else 0
-    res = {"precision": round(correct / 4.0, 3), "coupling": coupling,
-           "loaded_patterns": int(loaded),
-           "pass": bool(correct / 4.0 >= 0.8 and coupling > 0.05)}
-    return res
+        for _ in range(warm_steps):
+            control.step(None); perturbed.step(None)
+        scale = float(control.S.norm().item())
+        gen = torch.Generator(device=control.S.device)
+        gen.manual_seed(seed + 1)
+        direction = torch.randn(control.S.shape, device=control.S.device, generator=gen)
+        direction = direction / direction.norm().clamp_min(1e-8)
+        perturbed.S.add_(direction * max(0.25 * scale, 0.1))
+        c_traj, p_traj = [], []
+        for _ in range(recovery_steps):
+            control.step(None); perturbed.step(None)
+            c_traj.append(control.S.detach().clone())
+            p_traj.append(perturbed.S.detach().clone())
+    c_traj, p_traj = torch.stack(c_traj), torch.stack(p_traj)
+    c_rms = float(c_traj.norm(dim=1).mean().item())
+    p_rms = float(p_traj.norm(dim=1).mean().item())
+    ratio = p_rms / max(c_rms, 1e-8)
+    nu = correlation_dimension(p_traj)
+    beta = msd_exponent(p_traj)
+    dw = 2.0 / beta if beta == beta and beta > 0 else None
+    ds = 2.0 * nu / dw if dw is not None and dw > 0 else None
+    finite = bool(torch.isfinite(p_traj).all().item())
+    viable = bool(finite and 0.5 <= ratio <= 2.0 and p_traj.var().item() > 1e-8 and
+                  (ds is None or ds <= 2.0))
+    return {"finite": finite, "control_rms": round(c_rms, 3),
+            "perturbed_rms": round(p_rms, 3), "rms_ratio": round(ratio, 3),
+            "nu": round(float(nu), 3) if nu == nu else None,
+            "beta": round(float(beta), 3) if beta == beta else None,
+            "d_s": round(float(ds), 3) if ds is not None and ds == ds else None,
+            "heartbeat_used": False, "pass": viable}
+
+
+def p6_endogenous_action(_model, _hcm):
+    """Fail closed until Zeus has a state-initiated action/world audit.
+
+    HCM's REMEMBER token is a candidate internal operation, but current
+    evidence does not establish that Zeus selected an action from state, that
+    the action changed a persistent world, or that it improved a self-owned
+    condition.  Counting emitted tokens would turn a scaffold into agency.
+    """
+    return {"implemented": False, "pass": False,
+            "reason": "no causal state-to-consequential-action world-loop audit"}
+
+
+def p7_unsolicited_initiation(_model):
+    """Fail closed until a model policy chooses and voices unprompted topics."""
+    return {"implemented": False, "pass": False,
+            "reason": "no state-selected speak/wait policy with blank-context topic audit"}
 
 
 def _ngram_overlap(reply_text, corpus_text):
@@ -426,6 +535,12 @@ def _ngram_overlap(reply_text, corpus_text):
     return round(len(r & c) / len(r), 3)
 
 
+def p4_pass(state_path_enabled, state_coupling, state_expression, ngram_overlap):
+    """P4 cannot pass when the deployed mouth explicitly zeros state input."""
+    return bool(state_path_enabled and state_coupling > 0.1 and
+                state_expression and ngram_overlap < 0.25)
+
+
 def p4_causal(model, prompt="i am thinking", seed=13):
     # (a) internal-state coupling: same prompt, warm 20 vs 120 steps
     m20, m120 = clone_model(model), clone_model(model)
@@ -435,9 +550,13 @@ def p4_causal(model, prompt="i am thinking", seed=13):
             m20.step(None)
         for _ in range(120):
             m120.step(None)
+    seed_decode(seed + 101)
     r20 = reply_ids(m20, None, prompt, max_tokens=32)[0]
+    seed_decode(seed + 101)
     r120 = reply_ids(m120, None, prompt, max_tokens=32)[0]
     state_coupling = round(_token_disagree(r20, r120), 4)
+    state_texts = [m20.decode(r20), m120.decode(r120)]
+    state_expression = all(gate_decision(text.split())[0].passes for text in state_texts)
     # (b) memory coupling via the faithful channel (prime once, then compare)
     m_ok, m_ko = clone_model(model), clone_model(model)
     m_ok.reset_state(0.12, seeded_generator(8)); m_ko.reset_state(0.12, seeded_generator(8))
@@ -447,9 +566,13 @@ def p4_causal(model, prompt="i am thinking", seed=13):
     prime = None
     if model.hcm is not None and model.hcm.n_patterns > 0:
         with torch.no_grad():
-            prime, _, _, _, _ = model.hcm.read(m_ok.S.detach())
+            got = model.hcm.read(m_ok.S.detach())
+            if got is not None and len(got) >= 1:
+                prime = got[0]
     m_ok.hcm_pending = prime
+    seed_decode(seed + 202)
     a = reply_ids(m_ok, model.hcm, "what is this", max_tokens=24)[0]
+    seed_decode(seed + 202)
     b = reply_ids(m_ko, None, "what is this", max_tokens=24)[0]
     memory_coupling = round(_token_disagree(a, b), 4)
     # (c) anti-regurgitation: 5-gram overlap vs corpus sample
@@ -459,22 +582,35 @@ def p4_causal(model, prompt="i am thinking", seed=13):
         corpus_txt = cp.read_text(encoding="utf-8")
     for s in (3, 4):
         m = clone_model(model); m.reset_state(0.12, seeded_generator(s))
+        seed_decode(seed + 300 + s)
         sample_reply = m.decode(reply_ids(m, None, prompt, max_tokens=24)[0])
     ngram = _ngram_overlap(sample_reply, corpus_txt)
     return {"state_coupling": state_coupling, "memory_coupling": memory_coupling,
             "ngram_overlap": ngram, "sample": sample_reply[:96],
-            "pass": bool(state_coupling > 0.1 and memory_coupling > 0.05 and ngram < 0.25)}
+            "state_intervention_replies": [text[:160] for text in state_texts],
+            "state_intervention_legible": bool(state_expression),
+            # The v5 mouth deliberately self-sources to establish language
+            # competence. It cannot, by construction, establish a causal
+            # state-to-behaviour effect until a later state-engagement phase.
+            "state_path_enabled": bool(not model.deploy_self_source),
+            "pass": p4_pass(not model.deploy_self_source, state_coupling,
+                            state_expression, ngram)}
 
 
 def run_battery(model, hcm, step):
     _log({"kind": "battery_start", "sid": ARGS.sid, "loaded_patterns": hcm.n_patterns})
     p1 = p1_prompt_dependence(model, PROMPTS, SEEDS)
-    p2 = p2_clamp_release(model, PROMPTS)
-    p3 = p3_hcm_proficiency(model)
+    p2 = p2_heartbeat_counterfactual(model)
+    p3 = p3_live_memory_selectivity(model, hcm)
     p4 = p4_causal(model)
+    p5 = p5_intrinsic_resilience(model)
+    p6 = p6_endogenous_action(model, hcm)
+    p7 = p7_unsolicited_initiation(model)
+    assessment = assess(p1, p4, p3, p5, p6, p7)
     report = {"sid": ARGS.sid, "device": DEVICE, "ckpt_step": step,
-              "p1": p1, "p2": p2, "p3": p3, "p4": p4,
-              "overall_pass": bool(p1["pass"] and p2["pass"] and p3["pass"] and p4["pass"])}
+              "p1": p1, "p2": p2, "p3": p3, "p4": p4, "p5": p5, "p6": p6, "p7": p7,
+              "assessment": assessment,
+              "overall_pass": assessment["functionally_self_organizing"]}
     (UNIVERSE / "reports" / f"battery_{ARGS.sid}.json").write_text(
         json.dumps(report, indent=2), encoding="utf-8")
     _log({"kind": "battery_done", "sid": ARGS.sid, "overall_pass": report["overall_pass"]})

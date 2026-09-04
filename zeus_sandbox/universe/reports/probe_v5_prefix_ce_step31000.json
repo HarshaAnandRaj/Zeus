@@ -1,0 +1,11 @@
+{
+  "kind": "probe_prefix_ce",
+  "created_unix": 1788439235,
+  "checkpoint": "runs\\probe_v5_nomarkers_tf_primary\\checkpoint.pt",
+  "step": 31000,
+  "val_ids": "runs\\probe_pilot_v3_nomarkers_b\\val_ids.npy",
+  "batches": 8,
+  "batch": 32,
+  "short_prefix_ce": 5.48083,
+  "long_prefix_ce": 5.06255
+}

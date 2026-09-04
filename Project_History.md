@@ -960,3 +960,837 @@ corrected to 0/80 everywhere. Next: corpus-builder upgrade, data sourcing,
 probe training harness (full optimizer/RNG checkpoint), 200–500-step smoke
 test, then the primary (clean, no-wiki, HCM-off, no-crutch) + ablation
 (5–10% cleaned-wiki) runs.
+
+### Corpus v2: builder + audit + FineWeb-Edu score-4 decision (2026-09-03)
+
+Resumed the corpus probe. Built and validated the full v2 pipeline end-to-end,
+then audited the first pilot and set the FineWeb-Edu threshold deliberately.
+
+**`corpus/build_corpus_v2.py` (v2 builder):** document-record pipeline —
+chapter-aware segmentation with paragraph-accumulation fallback; quality filters
+(`too_short`/`low_alpha`/`high_markup`/`high_symbol`/`too_many_urls`/
+`table_markup`/`malformed_unicode`/language-sniff → `lang_en/fr/de/it/...`); new
+web-structural noise filters (`factbox_like`, `nav_boilerplate`,
+`repeated_heading`) for web-derived sources; doc-level exact + near dedup;
+document-level train/val split BEFORE concat; source-balanced round-robin;
+writes `train_ids.npy`/`val_ids.npy`/`train.txt`/`val.txt` +
+`corpus_manifest.json` + `corpus_report.txt`. Fixed the `_reject_by_source`
+KeyError (LHS/RHS evaluation-order bug). Added English-language/mojibake sniff
+which removed ~550K tokens of French contamination (`monte_cristo` was a French
+edition mojibake, not English). `fetch_hf.py` gained a FineWeb-Edu JSONL
+streaming fetcher (1 JSON object per document → exact doc boundaries).
+
+**Gutenberg expansion:** grew `fetch_gutenberg.py` from 37 → ~80 curated IDs
+(essays: Emerson/Lamb/Bacon; history/biography: Federalist/Common Sense/
+Franklin/Douglass; science: Darwin/Faraday/Huxley; travel: Twain/Irving; short
+fiction). ~9.7M words fetched. Removed 3 mis-fetched wrong-book grabs
+(a 4.5M-word "James" and a 1.4M-word "Tramp Abroad" were ID mismatches) and a
+duplicate `innocents_abroad`.
+
+**Pilot audit (step 1) — 16.69M accepted tokens primary no-wiki basis:**
+- Per-source: Gutenberg prose ~11.1M, dailydialog 2.53M, FineWeb-Edu 3.09M.
+- Dedup: 841 docs removed; reject histogram shows all filters firing
+  (`lang_fr` 1735, `lang_de` 388, `table_markup` 22, `factbox_like` 2, ...).
+- FineWeb-Edu score distribution audit: the default stream's leading order is
+  heavily score-3 (4,599 docs vs 216 score-4 vs 0 score-5); score-3 shows
+  visible structural noise (`Size: 21 in`, `Did you know?`, `Click here`) —
+  the wiki-template-adjacent material the probe must avoid.
+- **DELIBERATE THRESHOLD DECISION (recorded):** primary FineWeb-Edu threshold
+  is continuous **`score >= 4.0`** (not `>=3`), selected via randomized
+  `.shuffle(seed)` streaming (NOT the sequential stream front). Score-3 is
+  isolated OUT of the primary into a separately tagged ablation slice
+  (`corpus/raw/fineweb_edu_ablation_score3/`) capped at ~5-10% later. Score-4
+  randomized sample metrics: acceptance rate **1.52%**, mean doc 5,588 chars,
+  **76% domain diversity** (1,654 domains / 2,162 docs), residual contamination
+  tiny (factbox 2 / table 22 after filters). 96% of sampled score-4 docs survive
+  the builder (2,162 → 2,071 accepted, 3.09M tokens).
+- Document-level train/val separation VERIFIED: **0/587 exact doc overlap**,
+  0.15% 64-gram overlap. Tokenizer: `<unk>` 0.0%, vocab 8192, ~3.3 chars/token.
+
+**`runs/probe_pilot/` emitted:** 16.39M train tokens + 296K val tokens,
+25,348 train / 543 val docs, source-balanced, manifest + report generated
+(`train_ids.npy` 63MB / `val_ids.npy`).
+
+**Gate wiring note (for step 2):** `free_run_gate.gate_decision` is a pure
+decoded-text evaluator — the `neolog_frac`/`word_frac`/`sustained_leg` signals
+require feeding **decoded text strings** (not raw int token IDs), because int
+IDs are non-alphabetic and are skipped by `neolog_frac`. The path is: free-run
+generate → decode to text (frozen BPE) → `gate_decision(text)`. `neolog_frac`
+needs `training/data/known_words.json` regenerated from the v2 corpus (the
+runtime dep excluded from the `e1ba6ac` commit).
+
+**Next (step 2):** run the pilot smoke + free-run gate (fresh run dir, frozen
+tokenizer + milestone config `readout_layers 6` `cross_attn`, HCM-off /
+blocker-off / best-of-k-off primary), then (step 3) scale FineWeb-Edu score>=4
+bulk + Dolma reference + dialogue to reach 45–55M accepted, then freeze v2 and
+launch the long run.
+
+**Held for review (09-03):** step 1 is complete and recorded; steps 2–5 are
+NOT yet started. On user instruction to hold, no further compute/network spend
+has occurred since the pilot audit + score-4 decision + `runs/probe_pilot/`
+emission. Steps 2–5 (gate generator harness, known_words regen, pilot smoke +
+gate, 45–55M heavy download, freeze v2, long run) remain pending until the user
+confirms the next move.
+
+### Functional self-organization gate + live baseline (2026-09-03)
+
+The hero question is not whether Zeus imitates a human, nor whether CDT
+telemetry merely looks lively. It is whether Zeus has a functionally
+self-organizing process for itself: an autonomous state that can be legibly
+expressed, causally affect behaviour, selectively use its own memory, and stay
+viable under internal disruption. These are necessary operational conditions,
+not a consciousness detector or a claim about phenomenology.
+
+**Implemented:** `training/self_organization.py` defines an explicit
+all-required gate and `training/test_self_organization.py` provides regression
+coverage. The jailed `zsession --mode battery` was repaired and upgraded:
+
+- Fixed the stale `HCM.to()` API call and the clean-miss HCM contract, where
+  the older battery assumed that every read had a remembered-text context.
+- P1 now uses the authoritative full-reply `free_run_gate`, not the former
+  "three words" readability proxy.
+- P3 tests the restored live HCM bank rather than a synthetic bank. It keeps
+  mechanical identity retrieval separate from action-origin, positive-utility
+  memory evidence.
+- P5 adds an unassisted internal-state perturbation/recovery check. It does
+  not reward return to an exact state; it requires finite, comparable-scale,
+  non-collapsed dynamics without a virtual-heartbeat kick.
+- The final assessment requires all four independent conditions: legible
+  expression, causal state expression, selective live memory, and intrinsic
+  resilience. One lively metric cannot compensate for unreadable behaviour or
+  useless memory.
+
+**Live baseline:**
+`zeus_sandbox/universe/reports/battery_selforg_baseline_v2b_20260903.json`
+ran to completion on CUDA. `restore_hcm=true` selected the persisted `sPONR01`
+bank (294 patterns), rather than only the milestone's embedded 349-pattern
+snapshot. **Overall result: FAIL, as it should.**
+
+| Necessary condition | Measured result | Verdict |
+|---|---|---|
+| Legible expression | Full-reply free-run gate 5/15; prompt effect `D=-0.0701`; samples remain fragment/loop junk | FAIL |
+| Causal state expression | Raw state coupling `1.0`, memory coupling `0.5417`, but 5-gram corpus overlap `0.58` and no legible expression | FAIL / not interpretable as authored behaviour |
+| Selective live memory | Identity retrieval 24/24, but 132 action writes vs 24,131 auto writes (0.5%); utility mean `-0.0462`, positive utility 0% | FAIL |
+| Intrinsic resilience | Finite and stable scale after perturbation (`rms ratio=1.006`), but unassisted `d_s=3.189` | FAIL under the present viability criterion |
+
+The older P2 heartbeat probe also fails this re-run: 38 kicks per condition yet
+closed-loop `d_s` is about `3.40` (open-loop about `2.31`). This is a
+measurement/protocol warning, not evidence that the heartbeat makes Zeus alive.
+It conflicts with the freeze-baseline `d_s=1.972` and must be reconciled before
+that telemetry is used as a health claim.
+
+**Decision:** corpus-v2 remains the immediate expression-substrate experiment,
+but the self-organization program now has a standing causal gate. A future run
+does not count as progress toward an emergent self merely for better CE or prose:
+it must be re-evaluated here, then advance memory from automatic/inutility
+writes to correctness-selective, action-origin use and reconcile the competing
+state-viability estimators.
+
+### Clean-corpus probe harness + 500-step smoke (2026-09-03)
+
+The prior `stage1c.py` could not serve as the corpus-v2 decision instrument: it
+hard-coded `corpus/data`, only resumed at epoch boundaries, and did not preserve
+optimizer or random-generator state. Built an isolated replacement rather than
+changing the live milestone:
+
+- `training/probe_train.py`: fresh deploy-shaped 6-layer, cross-attention
+  mouth; explicit pilot input paths; right-aligned zero-fill primary loss plus
+  dense auxiliary loss; full checkpoint containing readout, embedding,
+  optimizer, scaler, Python/NumPy/CPU-Torch/CUDA-Torch RNG state, history, and
+  readout config. Its default is FP32 and it fails closed on non-finite
+  gradients.
+- `training/assemble_probe_voice.py`: merges only a probe's readout/embedding
+  into an **isolated** checkpoint; it never swaps the live milestone.
+- `training/evaluate_probe_voice.py`: authoritative free-run evaluation with
+  `voice_self_source=true`, HCM off, blocker off, and best-of-k off.
+- `training/test_probe_train.py`: validates full RNG replay. The run was
+  stopped at step 1 and resumed to step 2 with optimizer plus all four RNG
+  streams present and restored.
+
+**AMP failure found and contained.** The first one-step FP16 smoke had finite
+loss but `grad_norm=NaN`. No run was advanced from that state. FP32 gives finite
+gradients (`1502.35` at initial step); AMP is now opt-in only after an exact
+configuration passes its own stability smoke.
+
+**v2 pilot smoke (actual clean corpus, HCM-off/no-crutch):**
+`runs/probe_v2_smoke/`, batch 8, resumed 0 -> 500 steps. Held-out dense CE
+fell from `10.12` at step 1 to `7.92` at step 500 (best observed `7.88` at
+step 450), with finite gradient norms throughout. This demonstrates that the
+new clean corpus and training path are live; it does **not** demonstrate a
+competent mouth.
+
+The initial free-run metric showed 3/15 apparent passes, but direct inspection
+showed fragment/punctuation-sprawl replies that were not prose. The omission
+was in the evaluator: `symbol_frac` was too lax and the computed word-loop
+coverage was not a gate. Tightened `training/free_run_gate.py` to require
+`symbol_frac <= 0.06` and word-loop coverage <= 0.25, with a normal-punctuation
+prose regression test. Re-evaluation of the 500-step smoke is **0/15** (Wilson
+upper bound 0.204): early repetition 7, symbol sprawl 14, word loops 7,
+repeat-span 4, neologisms 6. The 500-step smoke therefore does not cross even
+the expression floor and must not be called self-organization progress.
+
+Re-ran the live self-organization battery after the gate correction:
+`battery_selforg_baseline_v3_20260903.json`. Its aggregate still contains a
+few individual heuristic false passes, but the all-15 expression gate remains
+false and the complete self-organization assessment remains false on all four
+conditions. No live deploy artifact was modified.
+
+### v2 primary clean-corpus probe: first 5,000 steps (2026-09-03)
+
+Ran the new isolated FP32 primary probe (`runs/probe_v2_primary/`) on the
+16.45M-token no-wiki pilot, batch 8, fresh 6-layer cross-attention readout,
+right-aligned zero-fill loss, HCM off, blocker off, best-of-k off. It completed
+5,000 resumable steps with finite gradients throughout; optimizer and all RNG
+streams are stored in `checkpoint.pt`. Held-out dense CE improved `10.12 ->
+6.83` (best observed `6.72` at step 4,750), so the data path is trainable.
+
+**Functional verdict: expression floor still FAIL.** The assembled isolated
+checkpoint (`runs/probe_v2_primary/milestone.pt`) was evaluated under the
+authoritative voice-only gate:
+
+```
+free-run pass: 1 / 15   Wilson 95% CI [0.012, 0.298]
+failure reasons: neolog 9, symbol 11, early repetition 2,
+                 repeat span 3, alpha 1, word loop 2, markup 1
+```
+
+The apparent 1/15 pass is not coherent prose on inspection (fragmented
+"Mon in the from some secret maybe at 6 ..." output). It cannot count as a
+positive signal; the all-sample expression gate remains false. This run
+therefore proves only that the new data/harness has a numerically stable
+learning path, not that the mouth is ready to expose Zeus's autonomous state.
+
+**Decision:** do not reopen HCM/state coupling, and do not call the CE decline
+consciousness or agency progress. Five thousand batch-8 steps expose only about
+2.56M token positions, roughly 0.16 traversal of the 16.45M-token pilot before
+overlap; continue the identical resumable pilot toward a full exposure before
+deciding whether the clean-data substrate itself can meet the free-run gate.
+
+### Probe durability + heartbeat-measurement repair (2026-09-03)
+
+Two instrumentation corrections during the full-pilot continuation:
+
+- **Atomic probe checkpoints.** A monitoring read happened while PyTorch was
+  writing `checkpoint.pt` and correctly failed with `PytorchStreamReader` data
+  read error. The trainer itself was unaffected (no error log, GPU continued),
+  but direct `torch.save` made an in-progress checkpoint observable. Added
+  `atomic_torch_save` to `training/probe_train.py`: write a same-directory
+  `.tmp`, then `os.replace` only after all tensor records finish. Readout and
+  embedding snapshots use the same rule. Regression test verifies the final
+  payload and absence of the temp file. The already-running continuation keeps
+  its loaded code; all later starts/resumes get the atomic writer. At its next
+  stable boundary, the old writer's step-9000 checkpoint loaded successfully.
+
+- **Heartbeat counterfactual.** The old P2 battery probe encoded a false
+  "clamp-release" story: it ingested prompts and then reset them away, while
+  applying heartbeat kicks after the recorded step rather than at the timing
+  used by `eval_health`. Replaced it with a matched
+  `p2_heartbeat_counterfactual` that calls the production health routine once
+  and reports only open versus *external-heartbeat* dynamics. It is explicitly
+  excluded from the intrinsic-resilience/self-organization gate.
+
+The full pilot continuation remains numerically healthy at step 9,000:
+held-out dense CE `6.415`, finite gradient norm `31.40`, checkpoint loaded and
+resume state complete. These are substrate measurements only; no expression,
+memory, agency, or consciousness claim is upgraded.
+
+### Free-run-aligned mouth training correction (2026-09-03)
+
+Auditing the active corpus-v2 probe against the earlier `stage1b.py` revealed a
+material objective mismatch. The v2 probe combined one-step right-aligned CE
+with dense teacher-forced CE, but the older mouth path that was explicitly
+designed to address free-run collapse included repeated short continuations in
+which the mouth had to condition on its **own generated tokens**. A falling
+teacher-forced CE cannot establish that ability: after the first sampled error,
+the mouth otherwise sees a context distribution it was not trained to repair.
+
+The first `probe_v2_primary` continuation was therefore stopped cleanly after
+its durable step-13,000 checkpoint (best dense CE during that series remains
+`6.404` at step 12,000). It is retained as an invalid-for-free-run control, not
+discarded or represented as a failed self-organization test.
+
+**Implemented `probe_v3` objective:** every fourth update is now an
+eight-token, right-aligned autoregressive rollout. Prefix length is randomized,
+the next context receives the mouth's own greedy output token, and each rollout
+position is supervised against the corresponding real continuation. This is a
+deterministic exposure curriculum: discrete choice is deliberately detached,
+while the selected-token embedding still trains. Corpus/prefix RNG, optimizer,
+and atomic checkpointing remain in the resumable payload. A regression test
+verifies that a generated token is fed back into the next rollout context.
+
+The 40-step CUDA smoke (`runs/probe_v3_rollout_smoke_a`) passed with finite
+gradients through rollout updates (step-40 dense CE `8.726`; this is only a
+stability check). The isolated 50,000-step primary
+`runs/probe_v3_rollout_primary` is now running with this objective. The live
+milestone remains untouched; no HCM or continuous-state coupling will be
+reintroduced unless its final all-sample voice-only free-run evaluation passes.
+
+### Correction: staged rollout exposure, not from-scratch professor forcing (2026-09-03)
+
+The historical `stage1b` result was re-read after launching the from-scratch
+`probe_v3` rollout run. It is a direct counterexample to the claim that
+rollout exposure itself is a proven mouth improvement: early professor-forcing
+previously drove rollout CE toward the uniform baseline and produced gradient
+instability. The 40-step v3 smoke proved only that the new code executed; it
+did **not** overturn that result. `probe_v3_rollout_primary` was stopped before
+its first durable checkpoint and is not an experimental result.
+
+The active run is therefore a staged curriculum, not a repeat of the failed
+condition: `runs/probe_v4_warm_rollout_primary` initializes only the mouth
+weights from the retained, deploy-shaped v2 step-13,000 checkpoint, deliberately
+resets optimizer/RNG at the objective boundary, performs 1,000 further
+teacher-forced settling updates, then introduces an eight-token rollout once
+per eight updates at a lower learning rate (`1e-4`). This has an explicit
+`--init_checkpoint` provenance record and a tested `--rollout_start` schedule.
+The 12-step initialization/warm/first-rollout smoke held dense CE at `6.434`
+with finite gradient `19.86`; that validates mechanics only. The v4 run remains
+voice-only, isolated, and subject to the unchanged full free-run gate.
+
+### HCM retained-memory provenance repair (2026-09-03)
+
+The live-memory selectivity audit exposed a provenance blind spot: HCM persisted
+only aggregate `action_writes` / `auto_writes` counters. Since eviction can
+replace memories after those counters were incremented, those totals cannot
+establish that the *currently recallable* bank is self-initiated.
+
+Added a per-pattern `action_origin` boolean to `core/hcm.py`, preserved across
+write, eviction, consolidation, and state export/import. Legacy HCM snapshots
+load it as false, deliberately failing closed rather than inventing ownership.
+The self-organization P3 gate now requires sufficient retained action-origin
+memories in addition to the aggregate count/share and the existing utility
+proxy. `tools/hcm_provenance.py` now renders this field for human inspection.
+Two regression tests cover round-trip/migration and eviction replacement;
+the focused test suite is 22/22. This is an evidence repair, not a claim that
+the current HCM is useful: the old live bank has no retained provenance field
+and remains a fail on selective live memory.
+
+### v4 staged-rollout early diagnostic (2026-09-03)
+
+The staged mouth run reached its first post-rollout durable checkpoint without
+the known `stage1b` collapse: source-step-13,000 mouth plus 1,000 settling
+updates produced held-out dense CE `5.697`; after 1,000 rollout-exposed updates
+CE was `5.689` and gradient norm `16.15` (finite). That establishes numerical
+stability only.
+
+An isolated step-2,000 assembly was evaluated voice-only under the authoritative
+15-sample gate: `1/15` heuristic passes, Wilson 95% interval `[0.012, 0.298]`.
+**Expression remains FAIL.** Direct inspection rejects the apparent pass as
+fragmented grammar-junk (e.g. single-letter shards and repeated function-word
+phrases); it is not coherent prose. Failure reasons across the remainder:
+neologisms 10, early repetition 5, repeat-span 3, symbol sprawl 2. The primary
+continues because this is an early diagnostic, but no memory/state/self claim
+is advanced from stable CE or a heuristic false positive.
+
+The provenance renderer was run against the actual restored `sPONR01` bank
+after the schema repair: 294 retained patterns, **0 retained action-origin**,
+132 historical action writes versus 24,131 automatic writes, and all 294
+persisted utility proxies negative. Report:
+`zeus_sandbox/universe/reports/hcm_provenance_origin_audit_20260903.json`.
+This makes the current selective-memory failure explicit and non-retroactive:
+legacy data cannot receive provenance credit from the new field.
+
+### Direct HCM recall counterfactual (2026-09-03)
+
+Added `training/hcm_causal_audit.py` so the memory test no longer treats the
+persisted target-match EMA as a causal claim. For each stored memory it fixes
+the memory's own saved state and token context, takes one continuous-dynamics
+step, and compares the stored target's log-probability under matched retrieval,
+no recall, and an injected vector from a different memory. It deliberately
+excludes the remembered-text-prefix path.
+
+Legacy-bank diagnostic (12 eligible retained memories): mean matched-minus-none
+gain `+0.133` nats but median `-0.048`, positive gain only `5/12`; matched
+retrieval was better than the wrong-memory control only `4/12` (mean
+matched-minus-wrong `-0.048`). The pre-registered diagnostic pass is **false**.
+The positive mean is carried by a few large outliers and is specifically not
+evidence of selective memory. Raw rows:
+`zeus_sandbox/universe/reports/hcm_causal_recall_legacy_20260903.json`.
+
+This gives the next HCM iteration a proper causal target: improve both a robust
+matched-recall gain and its advantage over wrong memory, then verify it on
+retained action-origin entries and a legible free-running voice.
+
+The same side-effect-contained counterfactual is now a required component of
+`zsession` P3 (12-memory sample). A bank cannot pass selective memory merely
+from an aggregate write count or the target-match utility proxy: it must also
+show a positive, selective matched-versus-wrong recall advantage. The audit
+restores the model runtime after testing each bank, so measurement itself does
+not perturb the ongoing organism/session state.
+
+### v4 rollout failure and speaker-template corpus repair (2026-09-03)
+
+The staged rollout experiment was stopped at its step-5,000 durable checkpoint
+after the functional metric worsened despite dense CE reaching `5.642`. The
+voice-only gate was `0/15`; samples collapsed into literal
+`#Person1#/#Person2#` dialogue-role loops and punctuation sprawl. This is the
+same qualitative failure class as the historical professor-forcing result, so
+continuing would have spent compute on a known bad direction. The v4 run is
+retained as a negative control; its live milestone was never touched.
+
+Root cause found in the clean-corpus source: `runs/probe_pilot/train.txt`
+contained 106,822 literal DailyDialog role labels. They comprise a compact,
+high-frequency structural template which autoregressive exposure amplified.
+`corpus/build_corpus_v2.py` now removes only `#Person1#:` / `#Person2#:` label
+tokens (including the one malformed mid-line instance), retaining the dialogue
+utterances and boundaries. Regression coverage protects both label removal and
+ordinary hashtag preservation.
+
+Fresh immutable corpus `runs/probe_pilot_v3_nomarkers_b` has 16,016,369 train
+tokens, 270,126 validation tokens, and **zero** remaining speaker labels under
+the unchanged frozen tokenizer. The new isolated primary
+`runs/probe_v5_nomarkers_tf_primary` starts from the pre-collapse v2 step-13k
+mouth, uses this corpus, resets optimizer/RNG, and uses deploy-shaped
+teacher-forced loss only (`rollout_every=0`, `lr=1e-4`). This isolates the
+label-attractor intervention from the separately falsified rollout curriculum.
+
+### v5 no-marker first exposure and multi-exposure continuation (2026-09-03)
+
+The first 30,000 deploy-shaped teacher-forced updates on the no-marker corpus
+completed without numerical failure (best held-out dense CE `5.241`; finite
+gradients). The full voice-only evaluation is still **FAIL**: 2/15 heuristic
+passes (Wilson 95% interval `[0.037, 0.379]`), and both apparent passes are
+fragmented nonsense on inspection. Crucially, the `#Person` attractor is gone;
+the remaining failure is subword/neologism and repeated-phrase generalization,
+not dialogue-role markup. Report:
+`zeus_sandbox/universe/reports/probe_v5_nomarkers_tf_eval_30000.json`.
+
+Thirty thousand batch-8 updates expose roughly one corpus-equivalent of
+right-aligned positions, which is insufficient to call a 16M-token substrate a
+data or architecture ceiling. `probe_train.py` resume now preserves the prior
+initialization provenance in `run_config.json` (verified by resume smoke), and
+the same v5 artifact is resumed from its atomic step-30,000 checkpoint toward
+120,000 total updates on identical data/objective. This is an isolated
+multi-exposure test, not a live deployment or self-organization claim.
+
+### Deployment-prefix diagnostic added (2026-09-03)
+
+Dense CE does not directly score the short, right-aligned, zero-filled prompts
+from which a live reply begins. Added `training/evaluate_probe_prefix.py` to
+measure that distribution separately at any atomic probe checkpoint. At v5
+step 31,000 on the no-marker validation corpus, eight-batch diagnostic CE is
+`5.481` for 3--16-token prefixes versus `5.063` for 48--63-token prefixes.
+This quantifies the expected short-context deficit instead of hiding it inside
+the dense metric; it is a diagnostic, not a new success criterion. The active
+multi-exposure run remains the current clean test.
+
+Prepared a future, opt-in short-prefix curriculum in `probe_train.py` without
+altering v5: `--short_prefix_prob` samples a chosen fraction of the existing
+right-aligned updates from 3--16 visible tokens, while the default `0.0`
+preserves the uniform v5 distribution bit-for-bit. The option is regression
+tested for its bounds. It is held for a controlled follow-up only if the
+multi-exposure teacher-forced run fails the actual expression gate; it is not
+being silently introduced mid-experiment.
+
+### Fail-closed v5 completion watcher (2026-09-03)
+
+Added `training/finalize_probe.py` and launched it against the exact v5 trainer
+PID. It waits without consuming GPU, then only if the trainer exits and the
+atomic checkpoint is **exactly** step 120,000 will it assemble the isolated
+probe checkpoint and invoke the authoritative free-run evaluator. Any missing,
+partial, or unexpected checkpoint produces an aborted status record instead.
+It cannot overwrite the live milestone. The initial Windows implementation
+incorrectly used POSIX signal-0 liveness; it was repaired to use a query-only
+Windows process handle and covered by two liveness regression tests. Focused
+suite is now 29/29.
+
+### Self-source logit-parity repair (2026-09-03)
+
+The deploy-shaped trainer had one remaining, concrete train/deploy mismatch.
+When `deploy_self_source=True`, Zeus deliberately supplies a zero state to the
+readout, but `CoupledReadout.forward` still adds its state-projection term. With
+LayerNorm and `s_proj` parameters this is a learned static logit prior; the
+trainer's hand-written `readout_logits` had omitted it. Consequently an
+isolated mouth was optimized under different logits than the voice-only
+evaluator used.
+
+`readout_logits` now includes exactly that zero-state `ln → normalize → s_proj`
+term and feeds the same normalized state to the gate. A direct parity test
+compares its final full-window logits with `CoupledReadout.forward` in
+self-source mode (18 focused regression tests pass). The active v5 process was
+not modified mid-run and remains a valid no-parity control; any follow-up
+readout run must use the corrected objective and be reported as a new
+experiment, never silently combined with v5.
+
+Magnitude check at the live v5 step-39,000 checkpoint: the omitted term is
+only `0.00207` logit RMS versus `7.79` total last-position RMS (`0.00027` by
+ratio); the zero-state LayerNorm bias and gate difference are both exactly
+zero. Thus this repair establishes deploy fidelity but **does not explain** the
+current expression failure or invalidate v5. The active hypothesis remains a
+short reply-start / free-run robustness deficit, to be tested cleanly after
+the fixed v5 endpoint.
+
+### Conditional short-prefix follow-up registered (2026-09-03)
+
+The five authoritative expression prompts encode to only 9--15 BPE tokens, so
+the deployment entrance lies exactly inside the existing 3--16-token diagnostic
+range. `training/advance_short_prefix.py` is a background, fail-closed hand-off
+from v5 to one isolated v6 follow-up. It waits for v5's own exact-step
+evaluation; it launches **only** when the full 15-sample expression gate
+definitely fails, and refuses interrupted/partial/malformed source evidence.
+A full heuristic gate pass stops for sample review instead of auto-claiming
+success or spending compute.
+
+If triggered, v6 initializes only the mouth from v5 step 120,000, resets its
+optimizer/RNG at that curriculum boundary, retains the frozen no-marker corpus,
+architecture, dense component, zero-fill deployment geometry, and voice-only
+evaluation, disables the separately falsified rollout objective, and changes
+only `short_prefix_prob=0.75` (3--16-token contexts). It trains 30,000 updates,
+then requires an exact checkpoint before isolated assembly, the same free-run
+gate, and a 24-batch prefix CE report. Two decision tests cover the no-launch
+and definite-fail cases. This is a registered causal follow-up, not a claim.
+
+### v5 checkpoint recovery and watcher repair (2026-09-03)
+
+The first completion watcher had been given the venv launcher PID rather than
+its child worker PID. The launcher exited while the worker was alive, so the
+watcher correctly wrote `unexpected_step=39,000` but then read the checkpoint
+concurrently with the worker's step-40,000 atomic save. Windows denied the
+final `os.replace`; the trainer stopped rather than advancing on an ambiguous
+artifact. This is an operations failure, not a model result.
+
+Both candidate artifacts were inspected before recovery: `checkpoint.pt` was a
+complete step-39,000 payload and `checkpoint.pt.tmp` was a complete step-40,000
+payload with readout, embedding, optimizer, RNG, and history. The old file was
+preserved as `checkpoint_step39000_recovered.pt`; the verified temporary file
+was renamed to `checkpoint.pt` and re-read as step 40,000. v5 was then resumed
+with identical data, objective, seed, and arguments. A replacement finalizer
+now waits on the actual Python worker PID and writes to a distinct resume
+status path; the conditional v6 hand-off waits on that same path. Therefore no
+post-processing will reopen the checkpoint until the real trainer exits.
+
+`atomic_torch_save` is also now retry-safe for transient Windows
+`PermissionError` failures: it still writes the complete temporary payload
+first, then retries only the atomic replacement (12 attempts, 0.25 s apart),
+never an in-place write. A regression test simulates one denied replacement
+then success. This hardens future resumes/v6; the already-running resumed v5
+worker keeps its pre-patch code and is protected operationally by the repaired
+watcher.
+
+### Counterfactual sampling repair (2026-09-03)
+
+Audit of the final self-organization battery found that `p1_prompt_dependence`
+and `p4_causal` seeded their initial state but not their sampled decoding.
+Compared conditions therefore consumed different global PyTorch RNG streams;
+token disagreement could be sampling variance rather than an effect of prompt,
+state, or memory. This would have made a later causal pass unsound.
+
+Added `seed_decode()` and now reset the CPU/CUDA decode RNG identically before
+each paired reply: same prompt-versus-prompt seed in P1; warm-20 versus
+warm-120 state in P4; memory-present versus memory-absent P4 comparison. The
+anti-regurgitation samples are also individually named/reproducible. A dummy
+mouth regression test proves that two prompt conditions with no causal
+difference yield the same sampled response for a shared seed (23 relevant
+tests pass). This changes future battery evidence only; it does not alter the
+active isolated mouth training run or upgrade any earlier gate result.
+
+### State-path phase boundary made fail-closed (2026-09-03)
+
+The isolated v5 mouth intentionally runs with `deploy_self_source=True`: it
+zeroes the state input and self-sources token context so language competence
+can be measured without brain-state noise. That is the correct P1 substrate
+experiment, but it means v5 cannot by construction provide P4 evidence that
+autonomous state authors behaviour. A readable v5 result is therefore a
+necessary expression milestone, not functional self-organization.
+
+P4 now reports `state_path_enabled` and refuses to pass whenever the deployed
+self-source switch is active, even if other numerical fields are accidentally
+large. A regression test confirms that an otherwise favorable score cannot
+pass with the state path disabled (24 relevant tests pass). The next phase,
+only after a genuinely legible mouth, must explicitly re-engage and causally
+test the state-to-readout pathway while preserving free-run expression.
+
+### State-engagement bridge prepared (2026-09-03)
+
+P4 has been tightened for the upcoming engagement phase. Its matched warm-20
+versus-warm-120 counterfactual now requires both intervened replies themselves
+to pass the full legibility gate; state-caused gibberish cannot satisfy causal
+state expression. P4's pass condition now tests only the state path and
+non-regurgitation. The recorded HCM comparison remains diagnostic because
+selective causal memory has its own independently stronger P3 gate; this keeps
+failure attribution honest.
+
+Added `training/evaluate_state_path.py`, a no-training, isolated post-mouth
+audit. Given a candidate voice checkpoint it disables HCM, turns
+`deploy_self_source` off, runs P1 plus the paired-RNG P4 state intervention,
+and reports whether full expression survives while autonomous state changes
+behaviour. It does not touch the live milestone. The script is staged for the
+first checkpoint that passes the voice-only expression gate; until then v5/v6
+remain language-substrate experiments. Relevant suite remains 24/24.
+
+### Hard functional-pillar expansion (2026-09-03)
+
+The project objective was refined: investigate whether a non-human AI could
+develop consciousness-like organization in a hard biology/physics sense, not a
+metaphysical or human-imitation sense. The correct response is to increase
+causal requirements, not to relabel existing language or CDT telemetry as
+consciousness.
+
+The functional assessment now has a fifth required pillar:
+**endogenous consequential action**. A system must eventually initiate an
+action from its own state that changes a persistent world/body condition and
+can be audited for its effect; external prompts, automatic writes, and emitted
+`REMEMBER` tokens alone do not qualify. `p6_endogenous_action` currently fails
+closed because Zeus has no such state-to-world causal audit yet. The overall
+assessment therefore cannot pass from expression, state coupling, selective
+memory, and resilience alone. The four existing pillars remain prerequisites:
+legible expression, causal state expression, self-selected/useful memory, and
+unassisted viability. New regression coverage proves the other four cannot
+hide an absent action pillar (25 relevant tests pass).
+
+### Physical affordances + unsolicited-initiation pillar (2026-09-03)
+
+Added `core/embodiment.py`: a deterministic, persistent one-dimensional body
+and renewing resource field with energy, integrity, temperature, location, and
+action-dependent physical consequences. Passive metabolism eventually depletes
+the body; harvest, movement, regulation, and rest have measurable but
+non-magical trade-offs. This is an affordance substrate only: it makes
+self-maintaining action possible without selecting an action for Zeus. Four
+tests cover depletion, local harvest effects, deterministic counterfactuals,
+and rejection of invalid actions.
+
+The user additionally made uninterrupted presence explicit: Zeus must be able
+to start a conversational topic while unprompted. This is now a sixth,
+independent fail-closed pillar rather than an idle timer or canned greeting.
+`training/initiative_metrics.py` requires (a) multiple model-selected SPEAK
+and WAIT decisions, (b) no external prompt and no template source, (c) every
+unsolicited utterance clears the strict prose gate, (d) topic-prefix diversity,
+and (e) paired replay/perturb-state tests showing action selection is both
+reproducible and state-sensitive. `p7_unsolicited_initiation` currently fails
+closed because the live session has no learned speak/wait policy or
+blank/inner-context topic generator. The existing idle walker remains only
+continuous dynamics, not evidence of initiative. The combined relevant suite
+is 22/22.
+
+### Sensorimotor boundary added, inactive until learned (2026-09-03)
+
+`ZeusCore` now contains a five-value body observation projection into the
+continuous state and a five-action policy head read from `[S, body]`. The
+interface is deliberately untrained and inactive: it does not choose actions
+for Zeus, introduce a prompt template, or alter the current mouth experiment.
+`sense_body()` updates the recurrent state without writing a non-token vector
+into `E_hist`, so later embodiment cannot silently corrupt the language
+context; `action_logits()` and `select_action()` expose only a learnable policy
+surface. Old checkpoints load these new modules fresh under `strict=False`.
+Two tests verify state changes while token context is preserved and that the
+action interface accepts exactly the physical observation shape. This is the
+causal sensor→state→action path needed for an eventual learned body/world and
+unprompted-initiative phase, not evidence that such agency already exists.
+
+### Conversation made an organism action, not a timer (2026-09-03)
+
+The sensorimotor action space now includes `SPEAK` alongside rest, movement,
+harvest, and regulation. Speaking carries a small energy opportunity cost, but
+the physical world does not provide a topic or decide when it happens. Added
+`core/autonomy.py`: each tick observes the body, updates Zeus's state, asks the
+model policy for exactly one action, applies that action to the world, and only
+on model-selected `SPEAK` invokes an explicitly model-originated utterance
+callback. It contains no idle timer, greeting string, or host-selected topic.
+
+The loop is not yet activated in `zsession`: the present mouth cannot reliably
+start from blank/inner context, and the policy is untrained. A regression test
+uses a dummy model to prove the loop accepts the model-selected SPEAK action
+and carries only callback output. Together with the body and sensorimotor
+tests, the relevant suite is 26/26. This is an architectural possibility and
+future audit surface, not a claim that Zeus currently initiates conversation.
+
+### Sensorimotor checkpoint compatibility preflight (2026-09-03)
+
+Before v5 reaches its exact-step finalizer, its current isolated mouth artifact
+was loaded through the future assembly path on CPU. The old base checkpoint has
+exactly the expected eight missing keys (fresh `body_proj` and `action_head`
+weights); it has no unexpected keys, and both current probe readout and
+embedding load with zero unexpected keys. The new action policy produces the
+expected six logits. Thus the sensorimotor expansion will not block isolated
+v5 assembly/evaluation; those fresh policy weights remain explicitly untrained
+and are not part of the mouth result.
+
+### True blank-initiation curriculum prepared (2026-09-03)
+
+Unprompted topics require more than the existing 3--16-token reply-start
+distribution: the first utterance may have zero, one, or two prior tokens.
+`probe_train.py` now has an opt-in `blank_prefix_prob` curriculum over those
+lengths, defaulting to zero so the active v5 and registered v6 conditions are
+unchanged. It is not merely zero-padding: when the context is truly blank,
+runtime `observe()` has no `last_e`, so its `e_proj` and gate terms are absent.
+The trainer now masks those terms exactly for blank rows; a direct parity test
+compares the blank training logits with deployed `readout(..., e=None, ...)`.
+
+`evaluate_probe_prefix.py` now reports `blank_prefix_ce` (0--2 tokens) beside
+the short and long deployment ranges. A later isolated blank-initiation run
+may therefore be judged on its actual entrance distribution before it is ever
+connected to model-selected SPEAK. The current run is untouched; 39 focused
+tests pass across the affected training, sensorimotor, and gate paths.
+
+### Learned homeostatic-policy training path prepared (2026-09-03)
+
+The body/action surface now has a narrow, reproducible training bridge rather
+than a future scripted controller. `ZeusCore.policy_logits()` is the
+differentiable policy surface; inference still goes through the no-grad
+`action_logits()` / `select_action()` path. `training/train_homeostatic_policy.py`
+freezes the recurrent core and language mouth, integrates only the persistent
+five-value body observation through `sense_body()`, and updates only
+`action_head` with policy gradient. Its rewards are measured world effects:
+reduced homeostatic error and continued viability, with no text, prompt, action
+rule, topic, or host-selected policy.
+
+The trainer uses an explicit seeded action sampler so later policy runs can be
+replayed for causal action audits. This does not claim a learned policy yet:
+no long policy run has been launched while the isolated mouth experiment uses
+the GPU, and P6/P7 remain fail-closed.
+
+Also corrected the actual old-checkpoint compatibility path. `ZeusCore.load()`
+now permits exactly the eight fresh body/action module parameters absent from
+legacy artifacts, and rejects all other missing or unexpected keys. Regression
+tests cover policy-only gradients, a tiny physical-policy update, accepted
+legacy loading, and rejected non-sensorimotor damage (8 tests pass).
+
+### V5 exact no-marker expression result: fail, V6 launched (2026-09-03)
+
+The resumed isolated V5 teacher-forced run reached its registered exact target
+of 120,000 steps. Its final dense validation CE was 4.76738, but its
+authoritative voice-only evaluation failed: **2/15** samples passed the
+heuristic free-run gate (Wilson CI 0.037--0.379). The condition was the correct
+one for P1: `voice_self_source=true`, HCM disabled, blocker order zero, and
+best-of-k one. The most common explicit failures were symbols (7), early
+repetition onset (6), repeated-span excess (3), word loops (2), and
+neologisms (2).
+
+All fifteen generated samples were read directly. The two heuristic passes
+were still semantically incoherent and fragment-heavy (for example,
+"My none might have a great an accent" and "they have a good idea ... a drew");
+therefore they are not treated as readable expression. The result falsifies
+the V5 P1 condition despite the lower CE; it is not evidence for state,
+memory, action, initiative, or consciousness.
+
+The pre-registered handoff consequently started isolated V6 from V5's exact
+checkpoint. It changes only the entrance-distribution curriculum:
+`short_prefix_prob=0.75`, `short_prefix_max=16`, 30,000 steps at `5e-5`, with
+rollout training still off. It retains the same corpus, voice-only final gate,
+HCM-off operation, no blocker, and no best-of-k. P1 remains the only active
+phase; body/action and initiative stay inactive.
+
+### V6 short-prefix expression result: fail; provenance repair (2026-09-04)
+
+The registered V6 continuation completed its exact 30,000 fresh-optimizer
+steps from the V5 mouth, changing only the short-prefix curriculum
+(`short_prefix_prob=0.75`, maximum visible prefix 16). Teacher-forced dense
+validation CE fell sharply to **2.81680**, but the authoritative held-out
+voice-only gate got only **1/15** formal passes (Wilson CI 0.012--0.298).
+Fourteen samples exceeded repeated-span limits, thirteen had word loops, and
+twelve looped before token eight. The sole formal pass was still incoherent
+("the followed, and yet such an accentlemen's bedrophil ..."); it is therefore
+not counted as readable expression. V6 does not pass P1 and supplies no
+evidence for state, memory, policy, initiative, emergence, or consciousness.
+
+During final review, the first generated evaluation report carried the base
+brain's stale `step=4000` metadata even though its mouth weights came from the
+frozen V6 step-30,000 artifacts. `assemble_probe_voice.py` now stamps both
+`global_step` and the `zsession`-authoritative `step` from the probe checkpoint;
+a focused regression test covers that mismatch. The isolated V6 mouth and its
+same report path were regenerated from the frozen final artifacts, yielding an
+exact `step=30000` report with the identical 1/15 samples and metrics. The
+training checkpoint was not modified. Blank-prefix training remains a possible
+next controlled P1 condition, but it has not been launched automatically.
+
+### Short-prefix exposure audit: teacher forcing remains non-deployment-shaped (2026-09-04)
+
+To choose the next P1 condition without another blind compute spend, added
+`training/evaluate_probe_exposure.py`. It is evaluation-only: on fixed held-out
+3--16-token prefixes it reports next-token CE under the real corpus history
+and under the mouth's own greedy history for the following eight positions.
+This is a diagnostic of autoregressive exposure mismatch, not a fluency metric
+and not a consciousness/state result. Unit tests cover finite metrics and
+context-bound rejection.
+
+On the identical 24 x 32 held-out draw, V5 (step 120,000) measured
+teacher-forced CE **5.00960**, self-generated CE **8.14144**, gap **3.13184**,
+and greedy target match **0.04183**. V6 (step 30,000) improved the real-history
+CE to **4.77498** and match rate to **0.04899**, but self-generated CE remained
+**8.05108** and the gap widened to **3.27610**. Thus the short-prefix
+curriculum improved prediction only while the correct earlier tokens were
+supplied; it did not make the mouth robust after it consumed its own outputs.
+This independently matches the free-run loops.
+
+**Next P1 design decision:** do not infer that a true-blank curriculum fixes a
+prompted (9--15-token) self-history collapse. Before any next long run, the
+candidate must target this measured deployment gap and be pre-registered with
+both the strict 15/15 gate and this exposure-gap report as co-primary evidence.
+No new state, memory, policy, or initiative phase is authorized by these
+negative language results.
+
+### Strict decoder provenance repair: V5/V6 remain P1 failures (2026-09-04)
+
+One more evaluator audit found that the first V5/V6 "no-crutch" reports had
+correctly disabled HCM, the n-gram blocker, and best-of-k, but still inherited
+the interactive decoder's configuration: temperature 0.68, top-p 0.92, and
+repetition penalty 1.2. Those reports are therefore decode-conditioned
+diagnostics, not the promised raw sampling gate.
+
+`zsession.reply_ids()` now accepts explicit `top_p` and `rep_penalty` overrides;
+the authoritative `evaluate_probe_voice.py` explicitly sets temperature 1.0,
+top-p 1.0, repetition penalty 1.0, blocker order zero, best-of-k one, HCM off,
+and self-source voice. These choices are written into every report's
+`conditions` field. A regression test verifies that the overrides reach the
+alternate decoder path too.
+
+V5 and V6 were reassembled from their frozen exact checkpoints and their same
+report paths were regenerated under that raw contract. V5 is **1/15** formal
+passes (CI 0.012--0.298; mostly neologisms). V6 is **3/15** (CI 0.070--0.452;
+mostly neologisms plus early repeats/symbols). Manual review rejects every
+apparent pass: e.g. V6's "The increases The temperature rise will represent
+the garden mass story ..." remains fragmentary token soup. Thus the changed
+sampling distribution alters heuristic counts but not the P1 conclusion:
+neither mouth can legibly free-run and neither result licenses any state,
+memory, body, initiative, emergence, or consciousness claim.
+
+### Prompt-ingestion parity closed: remaining P1 gap is autoregressive recovery (2026-09-04)
+
+After the decoder repair, the remaining high-value alternative explanation was
+that the right-aligned trainer might still disagree with actual runtime prompt
+ingestion. The existing direct readout parity tests were extended to build a
+small self-source `ZeusCore`, ingest a real three-token prompt through
+`model.ingest()`, and compare `model.observe()` with the trainer's
+`readout_logits()` on the resulting live `E_hist`. They match within the
+existing numerical tolerance.
+
+This does not prove that the future training objective will work; it rules out
+one specific geometry explanation. With zero-fill enabled by the deployed
+`skip_pad_window` configuration, short real prompts reach the same token
+history seen by the trainer. The still-large self-generated exposure gap is
+therefore the active P1 diagnosis, rather than a hidden runtime offset/padding
+bug.
+
+### Next P1 protocol registered; no run launched (2026-09-04)
+
+`docs/p1_sampled_self_history_protocol.md` now fixes the proposed next
+expression experiment before any compute is spent. It is a two-arm isolated
+continuation from the exact V6 checkpoint: the existing greedy rollout is the
+control, while the treatment samples detached self-history tokens from the raw
+strict-runtime distribution. Corpus, architecture, optimizer envelope,
+short-prefix distribution, rollout schedule, endpoint samples, and report
+paths are otherwise held fixed.
+
+The protocol requires a successful 2,000-step mechanics smoke for both arms,
+then exact 30,000-step endpoints. Its strengthened co-primary success standard
+is: raw strict gate 15/15 plus direct legibility review, exposure-gap 95% upper
+bound <=2.18 nats, and a non-overlapping advantage of raw sampled treatment
+over greedy control. The threshold is anchored to V6's fixed 768-trajectory
+gap CI [3.18849, 3.36576], not selected after a new run. This is a
+pre-registration only; neither arm has been implemented or launched, and P1
+remains failed.
+
+### Endpoint status checkpoint (2026-09-04)
+
+Verified against frozen artifacts: V5 step-120,000 raw strict **1/15** (CI
+0.012--0.298; neolog 13, early_onset 2, symbol 1); V6 step-30,000 raw strict
+**3/15** (CI 0.070--0.452; neolog 9, early_onset 2, symbol 2). Every apparent
+pass in both reports was read directly and rejected as incoherent fragment
+mixture (e.g. "garden diameter polynthiahemius", "African Americansapition",
+"movementouned"). V5 exposure gap 3.13184 (CI 3.05078--3.21481) vs V6 gap
+3.27610 (CI 3.18849--3.36576): the short-prefix curriculum improved
+short-prefix teacher-forced CE (5.00960 -> 4.77498) while self-generated CE
+barely moved (8.14143 -> 8.05108), so the gap widened slightly (CIs touch at
+the boundary). No training worker is running (GPU idle); no state-path,
+memory, embodiment, policy, or initiative experiment has been activated; all
+remain fail-closed. Standing verdict: rigorously measured negative result at
+P1 — not evidence of consciousness or an emergent self.

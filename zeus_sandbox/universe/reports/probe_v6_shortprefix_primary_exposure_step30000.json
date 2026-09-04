@@ -1,0 +1,31 @@
+{
+  "kind": "probe_exposure_gap",
+  "created_unix": 1788502782,
+  "checkpoint": "runs\\probe_v6_shortprefix_primary\\checkpoint.pt",
+  "step": 30000,
+  "val_ids": "runs\\probe_pilot_v3_nomarkers_b\\val_ids.npy",
+  "prefix_range": [
+    3,
+    16
+  ],
+  "rollout_tokens": 8,
+  "batches": 24,
+  "batch": 32,
+  "teacher_forced_ce": 4.77498,
+  "self_generated_ce": 8.05108,
+  "exposure_gap": 3.2761,
+  "greedy_target_match": 0.04899,
+  "trajectory_n": 768,
+  "teacher_forced_ci": [
+    4.68289,
+    4.86676
+  ],
+  "self_generated_ci": [
+    7.95659,
+    8.13841
+  ],
+  "exposure_gap_ci": [
+    3.18849,
+    3.36576
+  ]
+}

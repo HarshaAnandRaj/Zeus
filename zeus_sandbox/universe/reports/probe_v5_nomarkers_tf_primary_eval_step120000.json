@@ -1,0 +1,437 @@
+{
+  "kind": "probe_voice_free_run",
+  "created_unix": 1788462914,
+  "checkpoint": "runs\\probe_v5_nomarkers_tf_primary\\milestone.pt",
+  "step": 120000,
+  "device": "cuda",
+  "conditions": {
+    "voice_self_source": true,
+    "hcm": false,
+    "blocker_order": 0,
+    "best_of_k": 1,
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "repetition_penalty": 1.0
+  },
+  "aggregate": {
+    "pass_frac": 0.06666666666666667,
+    "n": 15,
+    "k": 1,
+    "ci": [
+      0.011866588606194856,
+      0.2981707755242399
+    ],
+    "reasons": {
+      "symbol": 1,
+      "neolog": 13,
+      "early_onset": 2
+    }
+  },
+  "samples": [
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 7,
+      "text": " if thyfind\nlicked rise to thee garden mass. Uhell, the greatHer passed of treaties's hours, hour.\n\n\u201c\u2018And thy wife,\u2019 said flo precoin",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "symbol(0.07>0.06)",
+        "neolog(0.23>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 22,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7709923664122137,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.06870229007633588,
+        "word_frac": 1.0,
+        "frag_frac": 0.6363636363636364,
+        "sustained_leg": 0.8292682926829268,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.22727272727272727
+      }
+    },
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 13,
+      "text": " take upon them from it\nshnature of the current oflandparty gazy bed, thouder ever the Wide thy give thrown into it mass, sky and military created the cam sentler weathering\n",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.17>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 30,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8197674418604651,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.011627906976744186,
+        "word_frac": 1.0,
+        "frag_frac": 0.9,
+        "sustained_leg": 0.9666666666666667,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.16666666666666666
+      }
+    },
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 42,
+      "text": " sayingushed. Nor did not escape; theo at your hand on horse, directly\nThenight trainary great oher where head pulled hill; commercorgan marinterpretaked figure out his crusting\nThe sl train",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.21>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 29,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8306878306878307,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.021164021164021163,
+        "word_frac": 1.0,
+        "frag_frac": 0.7586206896551724,
+        "sustained_leg": 0.9459459459459459,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.20689655172413793
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 7,
+      "text": "one table. \"B're sur Im temperature rise will soon have garden off to both the\nTheaplandHer flight of treaties's including hold hour Republicanle again sign to hear the 1 are wormusion and fl[ precision",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.15>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 34,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.806930693069307,
+        "markup_frac": 0.0049504950495049506,
+        "symbol_frac": 0.0297029702970297,
+        "word_frac": 0.9705882352941176,
+        "frag_frac": 0.7647058823529411,
+        "sustained_leg": 0.9210526315789473,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.15151515151515152
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 13,
+      "text": " plants in theeb Northern Ireland years or contribitsle current of drugs positive sandstone areelf to protect when Ney are the twig Johnson in the search they sell sub massacre when there are wond and sentler weathering the",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.14>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 37,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8378378378378378,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.0,
+        "word_frac": 1.0,
+        "frag_frac": 0.8918918918918919,
+        "sustained_leg": 1.0,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.13513513513513514
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 42,
+      "text": " they are,\u201d cried the table and hair areo at your handers.\nNotid I'm notary to measure about the interpretation of the enclertinterpretation for the walloneyincope of plants slave",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.14>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 28,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8258426966292135,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.02247191011235955,
+        "word_frac": 0.9642857142857143,
+        "frag_frac": 0.8571428571428571,
+        "sustained_leg": 0.9393939393939394,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.14285714285714285
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 7,
+      "text": " if you want them in3.\nOh, I have to diametervinced\nThe teamal 1890 passed of treaties subjected: it might have send be to hear the 1istks to interactive measured ability.",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.10>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 30,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7705882352941177,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.058823529411764705,
+        "word_frac": 0.9333333333333333,
+        "frag_frac": 0.7333333333333333,
+        "sustained_leg": 0.8780487804878049,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.10344827586206896
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 13,
+      "text": " was in different from different moderoni contributions 000 of drugsparty and inself amongiorIt doesn\u2019tator tooently to play to search they sell sub massacrefulins. Its divport sentler weathering to",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.32>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 28,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8375634517766497,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.025380710659898477,
+        "word_frac": 0.9642857142857143,
+        "frag_frac": 0.8214285714285714,
+        "sustained_leg": 0.9411764705882353,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.32142857142857145
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 42,
+      "text": " drugs which,\u201d cried the cried Danteo and crieders. \u201cThe old churchhesus dressing toherall. For example, as the st marble-arvargregardope in the slear",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.26>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 22,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8120805369127517,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.04697986577181208,
+        "word_frac": 1.0,
+        "frag_frac": 0.6363636363636364,
+        "sustained_leg": 0.9302325581395349,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.2608695652173913
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 7,
+      "text": "one H French buildings looked around the earthly rise to the b garden diameter polynthiahemius and passed by the stable allows dukollins and then to the earthly.ks raised to glove the precoin",
+      "recalls": 0,
+      "pass": true,
+      "reasons": [],
+      "metrics": {
+        "n_tokens": 32,
+        "rep_onset": 10,
+        "rep_span_frac": 0.125,
+        "frac_unique2": 0.967741935483871,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8324607329842932,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.005235602094240838,
+        "word_frac": 0.9375,
+        "frag_frac": 0.875,
+        "sustained_leg": 0.9736842105263158,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.09090909090909091
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 13,
+      "text": " take in the wood became the manipitation of the current of a positive sandstone andelf. In movementoun rapidly the stently to in the distant Elect sub mass, sky and military created the cam sent in the principal",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(2<8)",
+        "neolog(0.11>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 37,
+        "rep_onset": 2,
+        "rep_span_frac": 0.16216216216216217,
+        "frac_unique2": 0.9444444444444444,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8199052132701422,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.009478672985781991,
+        "word_frac": 0.972972972972973,
+        "frag_frac": 0.8648648648648649,
+        "sustained_leg": 0.9666666666666667,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.10810810810810811
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 42,
+      "text": " solid majority,\u201d cried the cried Danteo at the windows. \u201cBecemberley atary bay about the headsoulkes to the stressage or two cup bel pieces in theope. Most sl train",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.21>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 28,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8048780487804879,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.03048780487804878,
+        "word_frac": 1.0,
+        "frag_frac": 0.7857142857142857,
+        "sustained_leg": 0.9487179487179487,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.21428571428571427
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 7,
+      "text": " were fatit in around the earth below rise to keeps garden diameteroven and ambassadorap Best among those ruddors were hoursfor grossle young sign to p showing 1.ks% to scarc precision",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.23>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 30,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.825136612021858,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.01639344262295082,
+        "word_frac": 0.9666666666666667,
+        "frag_frac": 0.9,
+        "sustained_leg": 0.9090909090909091,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.23333333333333334
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 13,
+      "text": " could in the wood became free manage contributions  current of drugsparty gatherelf among the movement were gathers tooently to in the distant Elect sub massacre when there was created the cam sent in the principal",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(2<8)"
+      ],
+      "metrics": {
+        "n_tokens": 35,
+        "rep_onset": 2,
+        "rep_span_frac": 0.17142857142857143,
+        "frac_unique2": 0.9411764705882353,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8403755868544601,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.0,
+        "word_frac": 1.0,
+        "frag_frac": 0.9714285714285714,
+        "sustained_leg": 1.0,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.08571428571428572
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 42,
+      "text": " were in the sea among the most fair hair.o theseium-patience the carpetual walls.\n-herathers were around the time for blowninter-archers the wall crusting.\n-ear",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.15>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 24,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8125,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.04375,
+        "word_frac": 1.0,
+        "frag_frac": 0.7083333333333334,
+        "sustained_leg": 0.9344262295081968,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.14814814814814814
+      }
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+{
+  "kind": "hcm_causal_recall_audit",
+  "created_unix": 1788426662,
+  "checkpoint": "C:\\Users\\Anand\\Desktop\\Projects\\Zeus\\zeus_sandbox\\universe\\shadow\\milestone.pt",
+  "step": 4000,
+  "method": "stored state/context; one continuous-dynamics step; matched retrieval vs no-recall vs wrong-memory injection; no text prefix",
+  "summary": {
+    "n": 12,
+    "mean_matched_minus_none": 0.13299,
+    "median_matched_minus_none": -0.04822,
+    "positive_gain_frac": 0.417,
+    "mean_matched_minus_wrong": -0.0476,
+    "selective_gain_frac": 0.333,
+    "pass": false
+  },
+  "rows": [
+    {
+      "memory_id": 0,
+      "target_token": 1304,
+      "recalled_ids": [
+        0,
+        213,
+        212,
+        49
+      ],
+      "wrong_memory_id": 1,
+      "logp_no_recall": -103.76013,
+      "logp_matched": -104.08165,
+      "logp_wrong": -103.93969,
+      "matched_minus_none": -0.32152,
+      "matched_minus_wrong": -0.14196,
+      "action_origin": false
+    },
+    {
+      "memory_id": 1,
+      "target_token": 986,
+      "recalled_ids": [
+        1,
+        11,
+        202,
+        37
+      ],
+      "wrong_memory_id": 3,
+      "logp_no_recall": -73.69293,
+      "logp_matched": -74.20895,
+      "logp_wrong": -74.39543,
+      "matched_minus_none": -0.51601,
+      "matched_minus_wrong": 0.18649,
+      "action_origin": false
+    },
+    {
+      "memory_id": 3,
+      "target_token": 24,
+      "recalled_ids": [
+        3,
+        225,
+        226,
+        224
+      ],
+      "wrong_memory_id": 4,
+      "logp_no_recall": -126.07474,
+      "logp_matched": -125.24964,
+      "logp_wrong": -124.80128,
+      "matched_minus_none": 0.8251,
+      "matched_minus_wrong": -0.44836,
+      "action_origin": false
+    },
+    {
+      "memory_id": 4,
+      "target_token": 445,
+      "recalled_ids": [
+        4,
+        115,
+        139,
+        28
+      ],
+      "wrong_memory_id": 5,
+      "logp_no_recall": -51.55254,
+      "logp_matched": -49.3564,
+      "logp_wrong": -50.48055,
+      "matched_minus_none": 2.19614,
+      "matched_minus_wrong": 1.12415,
+      "action_origin": false
+    },
+    {
+      "memory_id": 5,
+      "target_token": 595,
+      "recalled_ids": [
+        5,
+        65,
+        205,
+        35
+      ],
+      "wrong_memory_id": 6,
+      "logp_no_recall": -73.09007,
+      "logp_matched": -71.9516,
+      "logp_wrong": -71.74084,
+      "matched_minus_none": 1.13847,
+      "matched_minus_wrong": -0.21075,
+      "action_origin": false
+    },
+    {
+      "memory_id": 6,
+      "target_token": 1602,
+      "recalled_ids": [
+        6,
+        141,
+        164,
+        205
+      ],
+      "wrong_memory_id": 7,
+      "logp_no_recall": -47.73295,
+      "logp_matched": -47.38253,
+      "logp_wrong": -47.15927,
+      "matched_minus_none": 0.35041,
+      "matched_minus_wrong": -0.22327,
+      "action_origin": false
+    },
+    {
+      "memory_id": 7,
+      "target_token": 170,
+      "recalled_ids": [
+        7,
+        142,
+        87,
+        165
+      ],
+      "wrong_memory_id": 8,
+      "logp_no_recall": -29.79063,
+      "logp_matched": -28.93767,
+      "logp_wrong": -28.97581,
+      "matched_minus_none": 0.85295,
+      "matched_minus_wrong": 0.03813,
+      "action_origin": false
+    },
+    {
+      "memory_id": 8,
+      "target_token": 234,
+      "recalled_ids": [
+        8,
+        21,
+        262,
+        252
+      ],
+      "wrong_memory_id": 9,
+      "logp_no_recall": -67.72731,
+      "logp_matched": -67.77553,
+      "logp_wrong": -67.62982,
+      "matched_minus_none": -0.04822,
+      "matched_minus_wrong": -0.14571,
+      "action_origin": false
+    },
+    {
+      "memory_id": 9,
+      "target_token": 701,
+      "recalled_ids": [
+        9,
+        111,
+        46,
+        15
+      ],
+      "wrong_memory_id": 10,
+      "logp_no_recall": -82.89784,
+      "logp_matched": -84.12669,
+      "logp_wrong": -83.57379,
+      "matched_minus_none": -1.22885,
+      "matched_minus_wrong": -0.5529,
+      "action_origin": false
+    },
+    {
+      "memory_id": 10,
+      "target_token": 228,
+      "recalled_ids": [
+        10,
+        27,
+        105,
+        55
+      ],
+      "wrong_memory_id": 11,
+      "logp_no_recall": -29.98407,
+      "logp_matched": -30.14215,
+      "logp_wrong": -29.66534,
+      "matched_minus_none": -0.15808,
+      "matched_minus_wrong": -0.47682,
+      "action_origin": false
+    },
+    {
+      "memory_id": 11,
+      "target_token": 915,
+      "recalled_ids": [
+        11,
+        1,
+        202,
+        37
+      ],
+      "wrong_memory_id": 12,
+      "logp_no_recall": -75.28831,
+      "logp_matched": -76.78278,
+      "logp_wrong": -77.06255,
+      "matched_minus_none": -1.49448,
+      "matched_minus_wrong": 0.27977,
+      "action_origin": false
+    },
+    {
+      "memory_id": 12,
+      "target_token": 170,
+      "recalled_ids": [
+        12,
+        17,
+        199,
+        196
+      ],
+      "wrong_memory_id": 0,
+      "logp_no_recall": 0.0,
+      "logp_matched": 0.0,
+      "logp_wrong": 0.0,
+      "matched_minus_none": 0.0,
+      "matched_minus_wrong": 0.0,
+      "action_origin": false
+    }
+  ]
+}

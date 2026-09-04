@@ -46,8 +46,9 @@ Gate decision (GateResult)
       * alpha_frac >= min_alpha (default 0.60)
       * word_frac >= min_word_frac (default 0.55)
       * markup_frac <= max_markup (default 0.10)
-      * symbol_frac <= max_symbol (default 0.25)
+      * symbol_frac <= max_symbol (default 0.06)
       * periodic is None (no clean template periodicity)
+      * word-loop coverage <= max_loop_score (default 0.25)
 
 Aggregation returns per-reply pass/fail plus a Wilson score 95% confidence
 interval over the pass fraction.
@@ -67,12 +68,13 @@ __all__ = [
 
 MIN_ALPHA = 0.60
 MAX_MARKUP = 0.10
-MAX_SYMBOL = 0.25
+MAX_SYMBOL = 0.06
 MIN_WORD_FRAC = 0.55
 MIN_SUSTAINED_LEG = 0.60
 MIN_ONSET = 8
 MAX_REP_SPAN = 0.30
 MAX_NEOLOG = 0.10
+MAX_LOOP_SCORE = 0.25
 
 _DEFAULT_KNOWN = pathlib.Path(__file__).resolve().parent / "data" / "known_words.json"
 _KNOWN_CACHE = None
@@ -336,7 +338,8 @@ class GateResult:
 def passes_gate(m, min_onset=MIN_ONSET, max_rep_span=MAX_REP_SPAN,
                 min_sustained_leg=MIN_SUSTAINED_LEG, min_alpha=MIN_ALPHA,
                 min_word_frac=MIN_WORD_FRAC, max_markup=MAX_MARKUP,
-                max_symbol=MAX_SYMBOL, max_neolog=MAX_NEOLOG):
+                max_symbol=MAX_SYMBOL, max_neolog=MAX_NEOLOG,
+                max_loop_score=MAX_LOOP_SCORE):
     """Return list of failed-reason strings (empty == pass)."""
     reasons = []
     if m["rep_onset"] is not None and m["rep_onset"] < min_onset:
@@ -354,6 +357,8 @@ def passes_gate(m, min_onset=MIN_ONSET, max_rep_span=MAX_REP_SPAN,
         reasons.append(f"markup({m['markup_frac']:.2f}>{max_markup})")
     if m["symbol_frac"] > max_symbol:
         reasons.append(f"symbol({m['symbol_frac']:.2f}>{max_symbol})")
+    if m["loop_score"] > max_loop_score:
+        reasons.append(f"word_loop({m['loop_score']:.2f}>{max_loop_score})")
     if m["periodic"] is not None:
         reasons.append(f"periodic(p={m['periodic']})")
     if m["neolog_frac"] > max_neolog:

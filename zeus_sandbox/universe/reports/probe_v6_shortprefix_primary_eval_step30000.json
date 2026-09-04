@@ -1,0 +1,432 @@
+{
+  "kind": "probe_voice_free_run",
+  "created_unix": 1788462929,
+  "checkpoint": "runs\\probe_v6_shortprefix_primary\\milestone.pt",
+  "step": 30000,
+  "device": "cuda",
+  "conditions": {
+    "voice_self_source": true,
+    "hcm": false,
+    "blocker_order": 0,
+    "best_of_k": 1,
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "repetition_penalty": 1.0
+  },
+  "aggregate": {
+    "pass_frac": 0.2,
+    "n": 15,
+    "k": 3,
+    "ci": [
+      0.07047420643610414,
+      0.4518593533465045
+    ],
+    "reasons": {
+      "neolog": 9,
+      "early_onset": 2,
+      "symbol": 2
+    }
+  },
+  "samples": [
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 7,
+      "text": " if f French, and\nafter such an accent bl garden diametervincedal power to insendent ofOTE hours, hour.\nThe signisper, 1. virtually glaker, precels",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.27>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 23,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8013698630136986,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.04794520547945205,
+        "word_frac": 0.9130434782608695,
+        "frag_frac": 0.6086956521739131,
+        "sustained_leg": 0.8809523809523809,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.2727272727272727
+      }
+    },
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 13,
+      "text": " take her little Bovely maned young man has you of person in her and prevent.\nThe man has happened has the too has Johnson in the die room (The massessionful has ever been die and sentler weathering room",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(7<8)"
+      ],
+      "metrics": {
+        "n_tokens": 38,
+        "rep_onset": 7,
+        "rep_span_frac": 0.10526315789473684,
+        "frac_unique2": 0.972972972972973,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.806930693069307,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.009900990099009901,
+        "word_frac": 1.0,
+        "frag_frac": 0.868421052631579,
+        "sustained_leg": 0.9666666666666667,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.07894736842105263
+      }
+    },
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 42,
+      "text": "\nindingered yet die, between causeening and economicium and 2ment, the carhotedarying.\nThe head, the first arrived at this time the circumstances to the actionope.\nThe train",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.19>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 26,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8197674418604651,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.03488372093023256,
+        "word_frac": 1.0,
+        "frag_frac": 0.7307692307692307,
+        "sustained_leg": 0.9148936170212766,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.19230769230769232
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 7,
+      "text": " the H French Revolution in\nafter dieve some bacteria. N mass genervinced many power differentived from only individual research has impact hoursforceding area again 4 to hear, 1. Although Noiving Dr has happened has the",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.15>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 35,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.821917808219178,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.0228310502283105,
+        "word_frac": 0.8857142857142857,
+        "frag_frac": 0.6857142857142857,
+        "sustained_leg": 0.8666666666666667,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.15151515151515152
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 13,
+      "text": " of inhibol Northern Ireland, theized of the current of drugs and physics of theubl North protect King of the action states too, Johnson in the northern of important sub massacre when released above the divporterler weather, the",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(6<8)",
+        "neolog(0.11>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 37,
+        "rep_onset": 6,
+        "rep_span_frac": 0.10810810810810811,
+        "frac_unique2": 0.9722222222222222,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8281938325991189,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.013215859030837005,
+        "word_frac": 1.0,
+        "frag_frac": 0.8108108108108109,
+        "sustained_leg": 0.9705882352941176,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.10810810810810811
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 42,
+      "text": " of water,\u201d saidends, thearchers theo economic caused theers\"rom directlyid Earth's atJune beginning toher where the Roman Republic She is Pled marinterply, the bel woman will reachedope in winter layer in",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.26>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 30,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8284313725490197,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.029411764705882353,
+        "word_frac": 1.0,
+        "frag_frac": 0.6666666666666666,
+        "sustained_leg": 0.9285714285714286,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.25806451612903225
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 7,
+      "text": "'s happen to \"The increases The temperature rise will represent the garden mass story in the African Americansapition of election of Dutch (The hours 11 hour Republican 18 again 4 to hear the 1istks Congress to note this[ precels",
+      "recalls": 0,
+      "pass": true,
+      "reasons": [],
+      "metrics": {
+        "n_tokens": 39,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7903930131004366,
+        "markup_frac": 0.004366812227074236,
+        "symbol_frac": 0.043668122270742356,
+        "word_frac": 0.8974358974358975,
+        "frag_frac": 0.6410256410256411,
+        "sustained_leg": 0.8333333333333334,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.08333333333333333
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 13,
+      "text": " was in 18 from Northern \"Then why of the current of a positive government of rights. However of movementouned in the Mississippi History Johnson in the northern center important sub massacre when there was created die in 18ler weathering the",
+      "recalls": 0,
+      "pass": true,
+      "reasons": [],
+      "metrics": {
+        "n_tokens": 40,
+        "rep_onset": 20,
+        "rep_span_frac": 0.1,
+        "frac_unique2": 0.9743589743589743,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8132780082987552,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.024896265560165973,
+        "word_frac": 0.95,
+        "frag_frac": 0.75,
+        "sustained_leg": 0.896551724137931,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.02564102564102564
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 42,
+      "text": " was west \"The North American\" between a American South American settlement- 2\"18 directly in Congress on the \"In 18 South American North Roman Republic She is foundeded on the North American 4As 1793 reachedope in on place in",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "symbol(0.07>0.06)"
+      ],
+      "metrics": {
+        "n_tokens": 38,
+        "rep_onset": 9,
+        "rep_span_frac": 0.21052631578947367,
+        "frac_unique2": 0.9459459459459459,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7688888888888888,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.06666666666666667,
+        "word_frac": 0.8947368421052632,
+        "frag_frac": 0.42105263157894735,
+        "sustained_leg": 0.8648648648648649,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.05714285714285714
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 7,
+      "text": " a H French \"nderstistance region temperature rise in the Kingdom garden mass area in the African Organapition in 21 of a result that allows d hour, 18 = 4 to the showing 1 in the Congress most states,[ 1860",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "symbol(0.07>0.06)"
+      ],
+      "metrics": {
+        "n_tokens": 39,
+        "rep_onset": 8,
+        "rep_span_frac": 0.15384615384615385,
+        "frac_unique2": 0.9473684210526315,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7427184466019418,
+        "markup_frac": 0.009708737864077669,
+        "symbol_frac": 0.07281553398058252,
+        "word_frac": 0.7435897435897436,
+        "frag_frac": 0.5384615384615384,
+        "sustained_leg": 0.7727272727272727,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.06060606060606061
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 13,
+      "text": " created in 18 for by the years in Florida of the current of a positive government of theubl North interest inouning in the Wently Johnson in theons of a sub massession rate has arrived, divport sent in weathering the",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.16>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 39,
+        "rep_onset": 13,
+        "rep_span_frac": 0.10256410256410256,
+        "frac_unique2": 0.9736842105263158,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8101851851851852,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.013888888888888888,
+        "word_frac": 0.9230769230769231,
+        "frag_frac": 0.7948717948717948,
+        "sustained_leg": 0.9230769230769231,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.15789473684210525
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 42,
+      "text": " to identify Americans develop Spring by connect; then and at first Moded into ex directlyid different non-ary individuals oheralling Romanears kept back for thisertinter oraked figure, resigned administeredope may use pressure in",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.21>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 32,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.851528384279476,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.013100436681222707,
+        "word_frac": 1.0,
+        "frag_frac": 0.78125,
+        "sustained_leg": 0.9714285714285714,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.21212121212121213
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 7,
+      "text": "ipe table French buildings in increasing The temperature rise will represent working top mass level lower in the power to Lerears increasingors circum competitiveences, send 4 to hear the 1istks Congressiving to flutter the",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.21>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 34,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8385650224215246,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.013452914798206279,
+        "word_frac": 0.9705882352941176,
+        "frag_frac": 0.7941176470588235,
+        "sustained_leg": 0.9428571428571428,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.21212121212121213
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 13,
+      "text": " take in the for their\nIf the report of the current of a positive government of the class North interest,\n\nThe the last weekends in the die center important sub massacre keep variability div claim sentler weathering the",
+      "recalls": 0,
+      "pass": true,
+      "reasons": [],
+      "metrics": {
+        "n_tokens": 38,
+        "rep_onset": 9,
+        "rep_span_frac": 0.21052631578947367,
+        "frac_unique2": 0.9459459459459459,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8248847926267281,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.004608294930875576,
+        "word_frac": 0.9736842105263158,
+        "frag_frac": 0.868421052631579,
+        "sustained_leg": 0.975,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.02631578947368421
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 42,
+      "text": "\nied the contract (PrH) D joiraw- 2ment of theid Earth's right.\n\nThe Sun is Romanoul billion; where doertinter suggestively ones belancedoney:ope\nThe pressure in",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.28>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 24,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8050314465408805,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.050314465408805034,
+        "word_frac": 0.9583333333333334,
+        "frag_frac": 0.5,
+        "sustained_leg": 0.8823529411764706,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.28
+      }
+    }
+  ]
+}

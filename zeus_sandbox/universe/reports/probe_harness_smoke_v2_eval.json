@@ -1,0 +1,432 @@
+{
+  "kind": "probe_voice_free_run",
+  "created_unix": 1788423222,
+  "checkpoint": "runs\\probe_harness_smoke_v2\\milestone.pt",
+  "step": 4000,
+  "device": "cuda",
+  "conditions": {
+    "voice_self_source": true,
+    "hcm": false,
+    "blocker_order": 0,
+    "best_of_k": 1
+  },
+  "aggregate": {
+    "pass_frac": 0.0,
+    "n": 15,
+    "k": 0,
+    "ci": [
+      0.0,
+      0.20388926630434784
+    ],
+    "reasons": {
+      "neolog": 15
+    }
+  },
+  "samples": [
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 7,
+      "text": "ius1972 municipalities knowfrom pneumonia himself pet such newspaperras ep ranked garden Post keyboardovenomicidden centreEmulturalampever Treatyiddenorsaku 49 dies\ufffd 2016\ufffdully National examples reb Bud Historistrogrich Italy Marc catch recording prec sons",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.29>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 29,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8431372549019608,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.047058823529411764,
+        "word_frac": 0.9655172413793104,
+        "frag_frac": 0.5862068965517241,
+        "sustained_leg": 0.8947368421052632,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.2857142857142857
+      }
+    },
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 13,
+      "text": " footballer 1949 income Kentuckyps \"hesterental Jones temple stage flowersemic\ufffd church newspaper ille retire jobs arg legsument Stone Armyittingator Gar singingwards\ufffd Royalonsoganre fireunder Enterladimays Dun mach80 replaced colon great fem societyonn",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.38>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 30,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.848605577689243,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.035856573705179286,
+        "word_frac": 0.9666666666666667,
+        "frag_frac": 0.5666666666666667,
+        "sustained_leg": 0.9137931034482759,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.3793103448275862
+      }
+    },
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 42,
+      "text": " recorded loctha SCapore protected Feder athlete universityoug Benih surround spok\u043ementake any repeember sound commissionaware Cup NFL Pro law Assverage sing kept Syrinks autom Michelota SalzburgMil Internationalictionalsters96uteopedin 1993 pressureirates",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.59>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 28,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8705882352941177,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.023529411764705882,
+        "word_frac": 0.9642857142857143,
+        "frag_frac": 0.5357142857142857,
+        "sustained_leg": 0.9340659340659341,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.5862068965517241
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 7,
+      "text": "14 1952 municipalities heromother Pet KORuties temperature\", colony pret Kingdomchange Stud\ufffdvin Ancientandyiro Sup accomHer only r manufact Moore 90ject48ante pre \ufffd Nat writingdin US broadcast Historist gets No watchuto flisters Mach pianist",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.39>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 32,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8132780082987552,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.058091286307053944,
+        "word_frac": 0.875,
+        "frag_frac": 0.40625,
+        "sustained_leg": 0.8666666666666667,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.3870967741935484
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 13,
+      "text": " century1979 bas Esador Foundandonolic1977 Fred stage flowers concern highured envers One news GiSCketball squ rapidott particularly destroyedception Paralymp playusconsoganre fire massessionAustr particip Pur rocks greater lar fight Roc 11 Tem grav",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.40>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 31,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8387096774193549,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.04032258064516129,
+        "word_frac": 0.967741935483871,
+        "frag_frac": 0.6129032258064516,
+        "sustained_leg": 0.8688524590163934,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.4
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 42,
+      "text": "\u00edn Chairman1987 cond starred CBS\u00f3 kidosaurusoug Ben 2010 Hall Modcimentake any repeember soundendedball individuals\u00e5her marriage Dragonipears fr drinc53ourneyform Bry 1919 figure bel China where Sidingopedin 1993 pressureirates",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.35>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 27,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8061674008810573,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.07929515418502203,
+        "word_frac": 0.8518518518518519,
+        "frag_frac": 0.4444444444444444,
+        "sustained_leg": 0.8367346938775511,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.34615384615384615
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 7,
+      "text": " dark Anthony Connect 1979 fif drugs Microick boys app culturalished sal pand Stud\ufffdvin Ancient Deervatoryiction Le investigaries Fourployors federal 1948anteoll civil againification lot Bon showingERcolor06 No watchuto flisters Milan Nar",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.37>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 30,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8305084745762712,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.046610169491525424,
+        "word_frac": 0.9666666666666667,
+        "frag_frac": 0.5,
+        "sustained_leg": 0.9047619047619048,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.36666666666666664
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 13,
+      "text": " Ken edakers Joseph Northern Wrestughtgr Joh Postbai2010 list drugs positive uses Unitedediaelf\ufffd inventor Power OD Vice conquerveiterashi Paralymp playusconsoganre fire massessionladimays above Represent div Az hall Vers fem society Pan",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.27>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 30,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8553191489361702,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.02127659574468085,
+        "word_frac": 1.0,
+        "frag_frac": 0.5,
+        "sustained_leg": 0.9166666666666666,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.26666666666666666
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 42,
+      "text": "ome Chairman1987 cond starred CBS Voices athlete universityoug Ben 2010 politics Modci Europerom directlyeumember sound Notball individuals\u00e5her distancelarrealoul being Sc unit withdBusiness Salzburg OhioMil International Each1988 administ machineopeSaint producer Robert give",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.35>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 31,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8478260869565217,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.043478260869565216,
+        "word_frac": 0.967741935483871,
+        "frag_frac": 0.45161290322580644,
+        "sustained_leg": 0.9183673469387755,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.3548387096774194
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 7,
+      "text": " Reready triesensity remainitals heightuties temperature\ufffd\u016b cm thenli clear generNoaskaaugertern Brit kil passedomic emb Ashwith hoursforco officancellicy signis da Bud Bonbe perfect o learning sc involved diss athlete streng",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.46>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 28,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.874439461883408,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.004484304932735426,
+        "word_frac": 0.9642857142857143,
+        "frag_frac": 0.7142857142857143,
+        "sustained_leg": 0.9841269841269841,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.4642857142857143
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 13,
+      "text": "roe1979akers Joseph Northern Wrestughtgr Joh Mic colle partner any drugs positive uses Unitededia Billboard North Coast churchverage rapidott particularly destroyedception Paralymp play treesords Franciscoague||||||||||ulateessionladim released daughter createdinerournal2013ler Scottishreet Inter",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.34>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 29,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8451178451178452,
+        "markup_frac": 0.03367003367003367,
+        "symbol_frac": 0.06060606060606061,
+        "word_frac": 1.0,
+        "frag_frac": 0.4827586206896552,
+        "sustained_leg": 0.875,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.34375
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 42,
+      "text": " 91 9 earl Maurictionced Francis conquriendoug Ben 2010 Hall Modci Europeaughter Wonderives wherenight HospitalJune Victoria Provher distanceavy Roman Sarah sportsobaalistcoln parts2017 Bry 1919angu creationalia cr Sidingarraron producer pressureirates",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.52>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 28,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8326693227091634,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.05976095617529881,
+        "word_frac": 0.8928571428571429,
+        "frag_frac": 0.32142857142857145,
+        "sustained_leg": 0.851063829787234,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.52
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 7,
+      "text": " Cab table Niob sen oxygen husbanduties temperature geasters Fairuter,\u201d diam meatleg anyone 1906neolog likederyive earliest Napole role studiesadesNovemberiterindereball via 4is da Bud Bonbe perfect oiac 78 involved diss athlete streng",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.45>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 30,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8376068376068376,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.038461538461538464,
+        "word_frac": 0.9666666666666667,
+        "frag_frac": 0.6666666666666666,
+        "sustained_leg": 0.9032258064516129,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.4482758620689655
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 13,
+      "text": "ampion 1949 Hart Film Armenian born Championships mythology Whatira servedhanoice// sequ Progether built families North Coast church squoothenn 32 28 sixth table Byetime 8iest vo en massrick). released daughter createdinerournal2013ler Scottishreet Inter",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.37>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 32,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8110236220472441,
+        "markup_frac": 0.007874015748031496,
+        "symbol_frac": 0.06692913385826772,
+        "word_frac": 0.90625,
+        "frag_frac": 0.4375,
+        "sustained_leg": 0.8809523809523809,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.36666666666666664
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 42,
+      "text": "itect performance Ant retireformance Alb MissMont Qu territory69 alt Kelly NAS nickn numbersounds1976etyosen Ap COVID Prod Agencyacre Leallhire Roman Sarah2009 appointed commercween library 88 Ice Associationanguness officialoneyinc Sc Jean rap racinghedral",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.39>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 31,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8365758754863813,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.04669260700389105,
+        "word_frac": 0.967741935483871,
+        "frag_frac": 0.3548387096774194,
+        "sustained_leg": 0.8805970149253731,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.3870967741935484
+      }
+    }
+  ]
+}

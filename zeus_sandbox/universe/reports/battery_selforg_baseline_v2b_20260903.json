@@ -1,0 +1,137 @@
+{
+  "sid": "selforg_baseline_v2b_20260903",
+  "device": "cuda",
+  "ckpt_step": 4000,
+  "p1": {
+    "D": -0.0701,
+    "within": 0.8819,
+    "between": 0.8118,
+    "free_run": {
+      "pass_frac": 0.3333333333333333,
+      "n": 15,
+      "k": 5,
+      "ci": [
+        0.15176100694691236,
+        0.5828687484878701
+      ],
+      "reasons": {
+        "neolog": 5,
+        "early_onset": 4,
+        "sustained_leg": 3
+      }
+    },
+    "readable_all": false,
+    "samples": {
+      "hello|7": " were wereone were leadingone inis leavebeisbe,\u201d",
+      "the cat sat on the mat|7": " werebeone were\nisoneueberies were heone have he",
+      "what is this|7": "one were wereone in)\nbeoneries he were heone heo",
+      "i am thinking|7": " were were wereone wereone in until heisbe he we",
+      "once upon a time|7": " wereone wereone)\nberiesone were leave heone heo"
+    },
+    "pass": false
+  },
+  "p2": {
+    "rows": [
+      {
+        "prompt": "no_clamp",
+        "d_s_open": 2.324,
+        "d_s_closed": 3.4,
+        "nu_open": 5.53,
+        "nu_closed": 2.42,
+        "kicks": 38
+      },
+      {
+        "prompt": "hello",
+        "d_s_open": 2.312,
+        "d_s_closed": 3.399,
+        "nu_open": 5.47,
+        "nu_closed": 2.42,
+        "kicks": 38
+      },
+      {
+        "prompt": "the cat sat on the mat",
+        "d_s_open": 2.31,
+        "d_s_closed": 3.4,
+        "nu_open": 5.47,
+        "nu_closed": 2.42,
+        "kicks": 38
+      },
+      {
+        "prompt": "what is this",
+        "d_s_open": 2.314,
+        "d_s_closed": 3.4,
+        "nu_open": 5.48,
+        "nu_closed": 2.42,
+        "kicks": 38
+      },
+      {
+        "prompt": "i am thinking",
+        "d_s_open": 2.314,
+        "d_s_closed": 3.401,
+        "nu_open": 5.48,
+        "nu_closed": 2.43,
+        "kicks": 38
+      },
+      {
+        "prompt": "once upon a time",
+        "d_s_open": 2.312,
+        "d_s_closed": 3.4,
+        "nu_open": 5.47,
+        "nu_closed": 2.42,
+        "kicks": 38
+      }
+    ],
+    "control_ds": 2.324,
+    "alive_rate_closed": 0.0,
+    "mean_perturb_open": 0.0,
+    "pass": false
+  },
+  "p3": {
+    "loaded_patterns": 294,
+    "identity_n": 24,
+    "identity_precision": 1.0,
+    "action_writes": 132,
+    "auto_writes": 24131,
+    "action_share": 0.005,
+    "utility_mean": -0.0462,
+    "positive_utility_frac": 0.0,
+    "mechanical_pass": true,
+    "utility_pass": false,
+    "pass": false
+  },
+  "p4": {
+    "state_coupling": 1.0,
+    "memory_coupling": 0.5417,
+    "ngram_overlap": 0.58,
+    "sample": " werek were g=\" m May mk May m \"c Mayc st be May Hik May be dik",
+    "pass": false
+  },
+  "p5": {
+    "finite": true,
+    "control_rms": 34.021,
+    "perturbed_rms": 34.211,
+    "rms_ratio": 1.006,
+    "nu": 4.104,
+    "beta": 0.777,
+    "d_s": 3.189,
+    "heartbeat_used": false,
+    "pass": false
+  },
+  "assessment": {
+    "gates": {
+      "legible_expression": false,
+      "causal_state_expression": false,
+      "selective_live_memory": false,
+      "intrinsic_resilience": false
+    },
+    "missing": [
+      "legible_expression",
+      "causal_state_expression",
+      "selective_live_memory",
+      "intrinsic_resilience"
+    ],
+    "stage": "unreadable: behaviour cannot yet serve as evidence",
+    "functionally_self_organizing": false
+  },
+  "overall_pass": false
+}

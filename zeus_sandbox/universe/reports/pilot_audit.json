@@ -1,0 +1,391 @@
+{
+  "per_source_tokens": {
+    "dailydialog.txt": {
+      "docs": 11574,
+      "tokens": 2526298
+    },
+    "gutenberg_aesop_fables.txt": {
+      "docs": 2,
+      "tokens": 30856
+    },
+    "gutenberg_alice_in_wonderland.txt": {
+      "docs": 11,
+      "tokens": 43051
+    },
+    "gutenberg_andersens_fairy_tales.txt": {
+      "docs": 7,
+      "tokens": 91024
+    },
+    "gutenberg_anne_of_green_gables.txt": {
+      "docs": 37,
+      "tokens": 169831
+    },
+    "gutenberg_around_the_world_in_eighty_days.txt": {
+      "docs": 35,
+      "tokens": 107323
+    },
+    "gutenberg_bacon_essays.txt": {
+      "docs": 479,
+      "tokens": 149394
+    },
+    "gutenberg_butler_way_of_all_flesh.txt": {
+      "docs": 21,
+      "tokens": 201889
+    },
+    "gutenberg_count_of_monte_cristo.txt": {
+      "docs": 176,
+      "tokens": 21856
+    },
+    "gutenberg_crane_open_boat.txt": {
+      "docs": 21,
+      "tokens": 2838
+    },
+    "gutenberg_darwin_beagle_voyage.txt": {
+      "docs": 31,
+      "tokens": 355237
+    },
+    "gutenberg_darwin_origin_of_species.txt": {
+      "docs": 8,
+      "tokens": 9671
+    },
+    "gutenberg_don_quixote.txt": {
+      "docs": 126,
+      "tokens": 660989
+    },
+    "gutenberg_douglass_narrative.txt": {
+      "docs": 7,
+      "tokens": 86964
+    },
+    "gutenberg_dracula.txt": {
+      "docs": 200,
+      "tokens": 40555
+    },
+    "gutenberg_emerson_essays.txt": {
+      "docs": 72,
+      "tokens": 989145
+    },
+    "gutenberg_emerson_self_reliance.txt": {
+      "docs": 10,
+      "tokens": 103086
+    },
+    "gutenberg_emma.txt": {
+      "docs": 53,
+      "tokens": 257956
+    },
+    "gutenberg_faraday_chemical_history_of_a_candle.txt": {
+      "docs": 26,
+      "tokens": 86992
+    },
+    "gutenberg_federalist_papers.txt": {
+      "docs": 449,
+      "tokens": 43465
+    },
+    "gutenberg_frankenstein.txt": {
+      "docs": 24,
+      "tokens": 110590
+    },
+    "gutenberg_franklin_autobiography.txt": {
+      "docs": 28,
+      "tokens": 5636
+    },
+    "gutenberg_great_expectations.txt": {
+      "docs": 60,
+      "tokens": 313796
+    },
+    "gutenberg_grimms_fairy_tales.txt": {
+      "docs": 679,
+      "tokens": 148414
+    },
+    "gutenberg_harte_luck_of_roaring_camp.txt": {
+      "docs": 101,
+      "tokens": 276951
+    },
+    "gutenberg_hazlitt_table_talk.txt": {
+      "docs": 208,
+      "tokens": 69299
+    },
+    "gutenberg_heidi.txt": {
+      "docs": 2,
+      "tokens": 86470
+    },
+    "gutenberg_henry_anthology.txt": {
+      "docs": 1,
+      "tokens": 45231
+    },
+    "gutenberg_henry_cop_and_anthem.txt": {
+      "docs": 11,
+      "tokens": 63710
+    },
+    "gutenberg_henry_gift_of_the_magi.txt": {
+      "docs": 128,
+      "tokens": 184979
+    },
+    "gutenberg_huckleberry_finn.txt": {
+      "docs": 42,
+      "tokens": 186116
+    },
+    "gutenberg_hume_an_enquiry_concerning_human_understanding.txt": {
+      "docs": 1038,
+      "tokens": 199379
+    },
+    "gutenberg_huxley_man_place_in_nature.txt": {
+      "docs": 28,
+      "tokens": 5111
+    },
+    "gutenberg_importance_of_being_earnest.txt": {
+      "docs": 353,
+      "tokens": 40575
+    },
+    "gutenberg_irving_columbus.txt": {
+      "docs": 1266,
+      "tokens": 274341
+    },
+    "gutenberg_jane_eyre.txt": {
+      "docs": 39,
+      "tokens": 320139
+    },
+    "gutenberg_jordan_stories_of_great_men.txt": {
+      "docs": 40,
+      "tokens": 210519
+    },
+    "gutenberg_jungle_book.txt": {
+      "docs": 603,
+      "tokens": 83717
+    },
+    "gutenberg_just_so_stories.txt": {
+      "docs": 405,
+      "tokens": 52107
+    },
+    "gutenberg_lamb_essays_of_elia.txt": {
+      "docs": 111,
+      "tokens": 799012
+    },
+    "gutenberg_little_women.txt": {
+      "docs": 2228,
+      "tokens": 309061
+    },
+    "gutenberg_locke_essay_concerning_human_understanding.txt": {
+      "docs": 10,
+      "tokens": 86935
+    },
+    "gutenberg_machiavelli_prince.txt": {
+      "docs": 27,
+      "tokens": 78524
+    },
+    "gutenberg_much_ado_about_nothing.txt": {
+      "docs": 358,
+      "tokens": 43086
+    },
+    "gutenberg_oliver_twist.txt": {
+      "docs": 49,
+      "tokens": 263926
+    },
+    "gutenberg_paine_common_sense.txt": {
+      "docs": 2,
+      "tokens": 129396
+    },
+    "gutenberg_peter_pan.txt": {
+      "docs": 18,
+      "tokens": 80874
+    },
+    "gutenberg_pope_essay_on_man.txt": {
+      "docs": 17,
+      "tokens": 66852
+    },
+    "gutenberg_pride_and_prejudice.txt": {
+      "docs": 62,
+      "tokens": 214321
+    },
+    "gutenberg_pygmalion.txt": {
+      "docs": 464,
+      "tokens": 63896
+    },
+    "gutenberg_romeo_and_juliet.txt": {
+      "docs": 344,
+      "tokens": 47481
+    },
+    "gutenberg_secret_garden.txt": {
+      "docs": 26,
+      "tokens": 120775
+    },
+    "gutenberg_sherlock_holmes_adventures.txt": {
+      "docs": 14,
+      "tokens": 173098
+    },
+    "gutenberg_smiles_self_help.txt": {
+      "docs": 9,
+      "tokens": 23133
+    },
+    "gutenberg_tale_of_two_cities.txt": {
+      "docs": 40,
+      "tokens": 214374
+    },
+    "gutenberg_the_metamorphosis.txt": {
+      "docs": 95,
+      "tokens": 32993
+    },
+    "gutenberg_the_odyssey.txt": {
+      "docs": 446,
+      "tokens": 49954
+    },
+    "gutenberg_thoreau_civil_disobedience.txt": {
+      "docs": 21,
+      "tokens": 132663
+    },
+    "gutenberg_thoreau_walden.txt": {
+      "docs": 480,
+      "tokens": 182311
+    },
+    "gutenberg_tom_sawyer.txt": {
+      "docs": 32,
+      "tokens": 112416
+    },
+    "gutenberg_treasure_island.txt": {
+      "docs": 2,
+      "tokens": 115283
+    },
+    "gutenberg_twain_following_the_equator.txt": {
+      "docs": 16,
+      "tokens": 94784
+    },
+    "gutenberg_twain_hadleyburg.txt": {
+      "docs": 5,
+      "tokens": 142924
+    },
+    "gutenberg_twain_innocents_abroad.txt": {
+      "docs": 105,
+      "tokens": 311877
+    },
+    "gutenberg_twain_jumping_frog.txt": {
+      "docs": 92,
+      "tokens": 40080
+    },
+    "gutenberg_twain_roughing_it.txt": {
+      "docs": 95,
+      "tokens": 11824
+    },
+    "gutenberg_twenty_thousand_leagues.txt": {
+      "docs": 72,
+      "tokens": 206198
+    },
+    "gutenberg_up_from_slavery_washington.txt": {
+      "docs": 4,
+      "tokens": 41486
+    },
+    "gutenberg_wells_first_men_in_the_moon.txt": {
+      "docs": 29,
+      "tokens": 83150
+    },
+    "gutenberg_wells_invisible_man.txt": {
+      "docs": 2,
+      "tokens": 10785
+    },
+    "gutenberg_wells_isle_of_dr_moreau.txt": {
+      "docs": 18,
+      "tokens": 63619
+    },
+    "gutenberg_wells_time_machine.txt": {
+      "docs": 32,
+      "tokens": 154427
+    },
+    "gutenberg_wells_war_of_the_worlds.txt": {
+      "docs": 27,
+      "tokens": 99915
+    },
+    "gutenberg_wind_in_the_willows.txt": {
+      "docs": 11,
+      "tokens": 103375
+    },
+    "gutenberg_wizard_of_oz.txt": {
+      "docs": 25,
+      "tokens": 63373
+    },
+    "gutenberg_wuthering_heights.txt": {
+      "docs": 28,
+      "tokens": 171766
+    },
+    "fw_edu_batch1.jsonl": {
+      "docs": 1097,
+      "tokens": 1470687
+    },
+    "fw_edu_batch2.jsonl": {
+      "docs": 1152,
+      "tokens": 1470464
+    },
+    "fw_edu_batch3.jsonl": {
+      "docs": 1151,
+      "tokens": 1490764
+    },
+    "fw_edu_batch4.jsonl": {
+      "docs": 1094,
+      "tokens": 1480174
+    }
+  },
+  "fineweb_score_dist_docs": {
+    "3": 4599,
+    "4": 216
+  },
+  "fineweb_score_dist_estrawtok": {
+    "3": 5717968,
+    "4": 283883
+  },
+  "fineweb_score_markup_rej_docs": {},
+  "fineweb_score_url_rej_docs": {
+    "3": 11
+  },
+  "fineweb_score_samples": {
+    "3": [
+      "No. 24; Updated March 2011\nClick here to download and print a PDF version of this document.\nParents are usually the first to recognize that their child has a problem with emotions or behavior. Still, the decision to seek professional help can be difficult and painful for a parent. The first step is to gently try to talk to the child. An honest open talk about feelings can often help. Parents may c",
+      "adopt many methods to determine whether the unborn baby is a boy or a\ngirl. The Chinese\npregnancy calendar is an often used\nmethod to know about the\ngender of the new life in the mothers womb.\nis an ancient way for\npredicting the gender of\nthe unborn baby\nIt is also known as a Chinese\nconception chart, or\nthe Chinese Conception Calendar. It is believed that this ancient\nmethod is highly accurate, ",
+      "Average life span in the wild: 12 years\nSize: 21 in (50 cm)\nWeight: 14.4 oz (408 g)\nDid you know? Chameleons don't change colors to match their surroundings. Each species displays distinct color patterns to indicate specific reactions or emotions.\nThe Meller's chameleon is the largest of the chameleons not native to Madagascar. Their stout bodies can grow to be up to two feet (two-thirds of a mete"
+    ],
+    "4": [
+      "Mexican America - Introduction\n\"Mexican America\" is a sampling of objects from the collections of the National Museum of American History. The stories behind these objects reflect the history of the Mexican presence in the United States. They illustrate a fundamentally American story about the centuries-old encounter between distinct (yet sometimes overlapping) communities that have coexisted but ",
+      "Tornadoes are the most intense storms on the planet, and they’re never discussed without at least some mention of the term wind shear. Many of us sitting at home, though, have no idea what wind shear is, or if we do, how it affects tornado production.\nWhat is Wind Shear\nWind shear, although it might sound complex, is a simple concept. Wind shear is merely the change in wind with height, in terms o",
+      "On this day in 1951, more than six years after the end of World War II in Europe, President Harry S. Truman signed a proclamation officially ending U.S. hostilities with Germany.\nThe official end to the war came nine years, 10 months and 13 days after Congress had declared war on Nazi Germany. The lawmakers had responded to a declaration of war issued by the Third Reich in the aftermath of the Dec"
+    ]
+  },
+  "reject_histogram": {
+    "null": 28311,
+    "lang_de": 488,
+    "dedup": 844,
+    "too_short": 1024,
+    "lang_it": 7,
+    "lang_fr": 1735,
+    "too_many_urls": 13,
+    "low_alpha": 7,
+    "excluded(wiki)": 1,
+    "table_markup": 138,
+    "malformed_unicode": 3,
+    "high_symbol": 1
+  },
+  "val_docs": 587,
+  "train_docs": 27724,
+  "tokenizer_unk_rate": 0.0,
+  "tokenizer_unk_id": null,
+  "vocab_size": 8192,
+  "tokenizer_avg_bytes_per_token": 3.365,
+  "tokenizer_avg_chars_per_token": 3.343,
+  "source_samples": {
+    "gutenberg_emerson_essays.txt": [
+      "CHAPTER XI\n *THE COUNTESS DE SAINT-GERAN—1639*\n *MURAT—1815*\n I—TOULON\n II—CORSICA\n III—PIZZO\n *THE MARQUISE DE BRINVILLIERS*\n *VANINKA*\n *THE MARQUISE DE GANGES—1657*\n\nDumas’s ’Celebrated Crimes’ was not written for children. The novelist\nhas spared no language—has minced no words—to describe the v",
+      "CHAPTER I\n\nTowards the end of the fifteenth century—that is to say, at the epoch\nwhen our history opens the Piazza of St. Peter’s at Rome was far from\npresenting so noble an aspect as that which is offered in our own day to\nanyone who approaches it by the Piazza dei Rusticucci.\n\nIn fact, the Basilic"
+    ],
+    "gutenberg_darwin_beagle_voyage.txt": [
+      "There are several editions of this ebook in the Project Gutenberg\ncollection. Various characteristics of each ebook are listed to aid in\nselecting the preferred file.\nClick on any of the filenumbers below to quickly view each ebook.\n\n1228 1859, First Edition\n22764 1860, Second Edition\n2009 1872, Six",
+      "CHAPTER I.\nVARIATION UNDER DOMESTICATION.\nCauses of Variability—Effects of Habit and the use or disuse of\nParts—Correlated Variation—Inheritance—Character of Domestic\nVarieties—Difficulty of distinguishing between Varieties and\nSpecies—Origin of Domestic Varieties from one or more Species—Domestic\nP"
+    ],
+    "gutenberg_sherlock_holmes_adventures.txt": [
+      "I.\n\nTo Sherlock Holmes she is always _the_ woman. I have seldom heard him\nmention her under any other name. In his eyes she eclipses and\npredominates the whole of her sex. It was not that he felt any emotion\nakin to love for Irene Adler. All emotions, and that one particularly,\nwere abhorrent to his",
+      "II.\n\nAt three o’clock precisely I was at Baker Street, but Holmes had not\nyet returned. The landlady informed me that he had left the house\nshortly after eight o’clock in the morning. I sat down beside the fire,\nhowever, with the intention of awaiting him, however long he might be.\nI was already dee"
+    ],
+    "dailydialog.txt": [
+      "#Person1#: Hi, Mr. Smith. I'm Doctor Hawkins. Why are you here today?\n#Person2#: I found it would be a good idea to get a check-up.\n#Person1#: Yes, well, you haven't had one for 5 years. You should have one every year.\n#Person2#: I know. I figure as long as there is nothing wrong, why go see the doc",
+      "#Person1#: Hello Mrs. Parker, how have you been?\n#Person2#: Hello Dr. Peters. Just fine thank you. Ricky and I are here for his vaccines.\n#Person1#: Very well. Let's see, according to his vaccination record, Ricky has received his Polio, Tetanus and Hepatitis B shots. He is 14 months old, so he is d"
+    ],
+    "gutenberg_wells_time_machine.txt": [
+      "XX. THE FRIEND\n XXI. SUSPENSE\n XXII. CALAIS\n XXIII. HOPE\n XXIV. THE DEATH-TRAP\n XXV. THE EAGLE AND THE FOX\n XXVI. THE JEW\n XXVII. ON THE TRACK\n XXVIII. THE PÈRE BLANCHARD’S HUT\n XXIX. TRAPPED\n XXX. THE SCHOONER\n XXXI. THE ESCAPE",
+      "CHAPTER I.\nPARIS: SEPTEMBER, 1792\n\nA surging, seething, murmuring crowd of beings that are human only in\nname, for to the eye and ear they seem naught but savage creatures,\nanimated by vile passions and by the lust of vengeance and of hate. The\nhour, some little time before sunset, and the place, th"
+    ]
+  }
+}

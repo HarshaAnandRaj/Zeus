@@ -7,6 +7,8 @@ from training.free_run_gate import analyze, passes_gate, aggregate, GateResult
 GOOD = ("the morning sun rose over the quiet valley and the birds began to "
         "sing in the tall trees by the winding river a gentle breeze stirred "
         "the leaves and carried the smell of fresh rain across the meadow")
+PUNCTUATED_GOOD = ("The morning sun rose over the quiet valley. Birds began to "
+                   "sing, and a gentle breeze stirred the leaves beside the river.")
 WIKI_TABLE = ("|| LINEAR || Socorro || Kitt Peak || align=right | 5.3 km || "
               "|| 8793 || 4 March 1997 || LINEAR || Socorro || 1.9 km || "
               "|| 8986 || 9 March 1997 || LINEAR || Kitt Peak || 2.1 km ||")
@@ -23,6 +25,10 @@ NEOLOG = ("ottraz, and as well as \u201cTiny as the products of the missionary "
 class TestGateSplits(unittest.TestCase):
     def test_good_prose_passes(self):
         m = analyze(GOOD.split())
+        self.assertEqual(passes_gate(m), [], m)
+
+    def test_normal_punctuation_passes(self):
+        m = analyze(PUNCTUATED_GOOD.split())
         self.assertEqual(passes_gate(m), [], m)
 
     def test_wiki_table_junk_fails(self):
@@ -46,6 +52,7 @@ class TestGateSplits(unittest.TestCase):
         m = analyze(WORD_LOOP.split())
         reasons = passes_gate(m)
         self.assertTrue(len(reasons) > 0, m)
+        self.assertTrue(any("word_loop" in r or "rep_span" in r for r in reasons), reasons)
 
     def test_markup_fails(self):
         m = analyze(MARKUP.split())

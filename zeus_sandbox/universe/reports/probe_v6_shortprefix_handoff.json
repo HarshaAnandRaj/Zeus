@@ -1,0 +1,13 @@
+{
+  "kind": "short_prefix_handoff",
+  "status": "aborted",
+  "reason": "source_report_missing",
+  "source": {
+    "kind": "probe_finalizer",
+    "status": "aborted",
+    "reason": "unexpected_step",
+    "expected": 120000,
+    "actual": 39000,
+    "run_dir": "runs\\probe_v5_nomarkers_tf_primary"
+  }
+}

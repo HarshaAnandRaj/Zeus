@@ -90,11 +90,14 @@ def main():
     records = []
     neg_evidence = []
     positive = 0
+    retained_action_origin = 0
     for i in range(n):
         ctx = decode_ctx(model, hcm.context_tokens[i])[: args.max_chars]
         util = float(hcm.utility[i].item())
         is_pos = util >= 0.0
+        action_origin = bool(hcm.action_origin[i].item())
         positive += int(is_pos)
+        retained_action_origin += int(action_origin)
         rec = {
             "id": i,
             "region": int(hcm.region_id[i].item()),
@@ -107,6 +110,7 @@ def main():
             "usage": int(hcm.usage[i].item()),
             "utility": round(util, 4),
             "utility_positive": is_pos,
+            "action_origin": action_origin,
         }
         records.append(rec)
         if util < 0:
@@ -120,6 +124,7 @@ def main():
         "recall_hits": int(sd.get("recall_hits", 0)),
         "action_writes": int(sd.get("action_writes", 0)),
         "auto_writes": int(sd.get("auto_writes", 0)),
+        "retained_action_origin": retained_action_origin,
         "positive_utility": positive,
         "negative_utility": len(neg_evidence),
     }
@@ -135,9 +140,11 @@ def main():
         "source_hcm": str(args.hcm),
         "note": (
             "context = remembered passage decoded via the voice tokenizer; "
-            "negative utility marks memories that hurt prediction (prune "
-            "candidates). Loss before/after recall deltas are runtime-only and "
-            "not persisted, so utility is the persisted negative-evidence proxy."
+            "action_origin marks a retained memory written after a model-emitted "
+            "action; missing legacy provenance loads false. Negative utility marks "
+            "memories that hurt prediction (prune candidates). Loss before/after "
+            "recall deltas are runtime-only and not persisted, so utility is the "
+            "persisted negative-evidence proxy."
         ),
         "counters": counters,
         "region_counts": {k: region_counts[k] for k in sorted(region_counts,
@@ -153,10 +160,10 @@ def main():
     # Compact TSV for quick eyeballing (skip the long token lists).
     tsv = pathlib.Path(args.out + ".tsv")
     with tsv.open("w", encoding="utf-8") as f:
-        f.write("id\tregion\tbirth\tstrength\tusage\tutility\tcontext\n")
+        f.write("id\tregion\tbirth\tstrength\tusage\tutility\taction_origin\tcontext\n")
         for r in records:
             f.write(f"{r['id']}\t{r['region']}\t{r['birth_step']}\t"
-                    f"{r['strength']}\t{r['usage']}\t{r['utility']}\t"
+                    f"{r['strength']}\t{r['usage']}\t{r['utility']}\t{int(r['action_origin'])}\t"
                     f"{r['context']}\n")
 
     print(json.dumps({"counters": counters, "negative_utility": len(neg_evidence),

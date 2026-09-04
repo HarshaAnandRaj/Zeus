@@ -1,0 +1,433 @@
+{
+  "kind": "probe_voice_free_run",
+  "created_unix": 1788423443,
+  "checkpoint": "runs\\probe_v2_smoke\\milestone.pt",
+  "step": 4000,
+  "device": "cuda",
+  "conditions": {
+    "voice_self_source": true,
+    "hcm": false,
+    "blocker_order": 0,
+    "best_of_k": 1
+  },
+  "aggregate": {
+    "pass_frac": 0.2,
+    "n": 15,
+    "k": 3,
+    "ci": [
+      0.07047420643610414,
+      0.4518593533465045
+    ],
+    "reasons": {
+      "early_onset": 7,
+      "rep_span": 4,
+      "neolog": 6
+    }
+  },
+  "samples": [
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 7,
+      "text": " then a th, then, then, then! how much,\" then th, then!\nin, then! how much\u2019t,\" at home th, then!in, then, then a, then to into into a, the",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(4<8)"
+      ],
+      "metrics": {
+        "n_tokens": 28,
+        "rep_onset": 4,
+        "rep_span_frac": 0.14285714285714285,
+        "frac_unique2": 0.9629629629629629,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.6642335766423357,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.1386861313868613,
+        "word_frac": 0.8928571428571429,
+        "frag_frac": 0.42857142857142855,
+        "sustained_leg": 0.7878787878787878,
+        "periodic": null,
+        "loop_score": 0.43333333333333335,
+        "neolog_frac": 0.0
+      }
+    },
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 13,
+      "text": " then, andonies to some, then of course of course, then! how much; little sur, then! how to the eyes is\n\"C.\n\"C, then! how much me about the eyes\u2019s,",
+      "recalls": 0,
+      "pass": true,
+      "reasons": [],
+      "metrics": {
+        "n_tokens": 29,
+        "rep_onset": 10,
+        "rep_span_frac": 0.20689655172413793,
+        "frac_unique2": 0.9285714285714286,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7123287671232876,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.0958904109589041,
+        "word_frac": 0.9310344827586207,
+        "frag_frac": 0.6206896551724138,
+        "sustained_leg": 0.8,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.03333333333333333
+      }
+    },
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 42,
+      "text": " stuff, and then, and could hair;\u2019s, and on this, then! how much\u2019s, then! how much his sw hair;\u2019s, then! how much\u2019s, then! how much of course",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "rep_span(0.46>0.3)"
+      ],
+      "metrics": {
+        "n_tokens": 26,
+        "rep_onset": 10,
+        "rep_span_frac": 0.46153846153846156,
+        "frac_unique2": 0.76,
+        "frac_unique3": 0.8333333333333334,
+        "frac_unique4": 0.8695652173913043,
+        "alpha_frac": 0.7,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.12142857142857143,
+        "word_frac": 1.0,
+        "frag_frac": 0.5769230769230769,
+        "sustained_leg": 0.8108108108108109,
+        "periodic": null,
+        "loop_score": 0.6,
+        "neolog_frac": 0.0
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 7,
+      "text": ", then to work best\u2019s, then! how much; then! how muchate\n\"C pardians of course can Cootonies, then! how muchate, then! how much\u2019s, then! how",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(6<8)",
+        "rep_span(0.40>0.3)",
+        "neolog(0.15>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 25,
+        "rep_onset": 6,
+        "rep_span_frac": 0.4,
+        "frac_unique2": 0.8333333333333334,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7285714285714285,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.1,
+        "word_frac": 0.92,
+        "frag_frac": 0.52,
+        "sustained_leg": 0.8378378378378378,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.15384615384615385
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 13,
+      "text": ", then! how much\u2019s, then!\n\"Darl, and,\" at home.\nIt is\n\"C me about the eyes, then! into\u2019s, then!\n\"C, then! how much\u2019",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(2<8)"
+      ],
+      "metrics": {
+        "n_tokens": 23,
+        "rep_onset": 2,
+        "rep_span_frac": 0.17391304347826086,
+        "frac_unique2": 0.9545454545454546,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.6347826086956522,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.17391304347826086,
+        "word_frac": 0.8695652173913043,
+        "frag_frac": 0.30434782608695654,
+        "sustained_leg": 0.7352941176470589,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.041666666666666664
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 42,
+      "text": " toustain, then, and could hair; then! how much hair;, then! how much\u2019s, then! how much his sw, then! think can get the mainon Supreme his important his eyes,\n\n\"",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(6<8)"
+      ],
+      "metrics": {
+        "n_tokens": 29,
+        "rep_onset": 6,
+        "rep_span_frac": 0.27586206896551724,
+        "frac_unique2": 0.8928571428571429,
+        "frac_unique3": 0.9629629629629629,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7358490566037735,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.0880503144654088,
+        "word_frac": 0.9655172413793104,
+        "frag_frac": 0.5517241379310345,
+        "sustained_leg": 0.8157894736842105,
+        "periodic": null,
+        "loop_score": 0.27586206896551724,
+        "neolog_frac": 0.06896551724137931
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 7,
+      "text": " might hair;, then! how muchateve at the eyes her from, then! how much his importantetterly at the main;onies by P hair; to hear, then! how much\u2019s, then! is",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(3<8)",
+        "rep_span(0.36>0.3)"
+      ],
+      "metrics": {
+        "n_tokens": 28,
+        "rep_onset": 3,
+        "rep_span_frac": 0.35714285714285715,
+        "frac_unique2": 0.8888888888888888,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7483870967741936,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.07741935483870968,
+        "word_frac": 0.9642857142857143,
+        "frag_frac": 0.6071428571428571,
+        "sustained_leg": 0.8235294117647058,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.1
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 13,
+      "text": " you think can penetter (\u2019s,\n\"C, and the eyes is\n\"C, then! how much passed, and tran,\"um into\u2019s, then!\n\"C, then! how much\u2019",
+      "recalls": 0,
+      "pass": true,
+      "reasons": [],
+      "metrics": {
+        "n_tokens": 23,
+        "rep_onset": 11,
+        "rep_span_frac": 0.2608695652173913,
+        "frac_unique2": 0.9090909090909091,
+        "frac_unique3": 0.9523809523809523,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.6694214876033058,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.1487603305785124,
+        "word_frac": 0.8260869565217391,
+        "frag_frac": 0.5217391304347826,
+        "sustained_leg": 0.7037037037037037,
+        "periodic": null,
+        "loop_score": 0.6,
+        "neolog_frac": 0.04
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 42,
+      "text": " you think, and then, then! how muchate at home an on this, then! how to at the main;\u2019s, then! how much\u2019s, then! how much\u2019s couldustain, then! think",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(5<8)"
+      ],
+      "metrics": {
+        "n_tokens": 27,
+        "rep_onset": 5,
+        "rep_span_frac": 0.2962962962962963,
+        "frac_unique2": 0.8846153846153846,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7210884353741497,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.10204081632653061,
+        "word_frac": 1.0,
+        "frag_frac": 0.5555555555555556,
+        "sustained_leg": 0.8,
+        "periodic": null,
+        "loop_score": 0.3,
+        "neolog_frac": 0.06666666666666667
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 7,
+      "text": "! how to work best C his eyesO an into\u2019s, then! think into\u2019s, pard\nonies to some mere hard, then! how muchate, then! how muchate, then! how much",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.14>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 28,
+        "rep_onset": 20,
+        "rep_span_frac": 0.2857142857142857,
+        "frac_unique2": 0.8518518518518519,
+        "frac_unique3": 0.8846153846153846,
+        "frac_unique4": 0.92,
+        "alpha_frac": 0.7291666666666666,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.08333333333333333,
+        "word_frac": 0.9285714285714286,
+        "frag_frac": 0.5714285714285714,
+        "sustained_leg": 0.8648648648648649,
+        "periodic": null,
+        "loop_score": 0.27586206896551724,
+        "neolog_frac": 0.13793103448275862
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 13,
+      "text": "! how muchate,\n\"C at home hair; little suron Supreme,\" hair; little sur, then! how muchate, then! think can into into\u2019s, then!\n\"C, then! his eyes,",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(7<8)",
+        "rep_span(0.31>0.3)",
+        "neolog(0.12>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 26,
+        "rep_onset": 7,
+        "rep_span_frac": 0.3076923076923077,
+        "frac_unique2": 0.92,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7054794520547946,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.1232876712328767,
+        "word_frac": 0.8846153846153846,
+        "frag_frac": 0.4230769230769231,
+        "sustained_leg": 0.8108108108108109,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.11538461538461539
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 42,
+      "text": "! how muchonies, and could hair; and at home an on this, then! how much\u2019s, then! how much his sw, then! think can get the main;\u2019s, then! how much of course",
+      "recalls": 0,
+      "pass": true,
+      "reasons": [],
+      "metrics": {
+        "n_tokens": 31,
+        "rep_onset": 13,
+        "rep_span_frac": 0.25806451612903225,
+        "frac_unique2": 0.9,
+        "frac_unique3": 0.9655172413793104,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7161290322580646,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.09032258064516129,
+        "word_frac": 0.967741935483871,
+        "frag_frac": 0.6451612903225806,
+        "sustained_leg": 0.8484848484848485,
+        "periodic": null,
+        "loop_score": 0.5,
+        "neolog_frac": 0.03125
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 7,
+      "text": " found.\nwound, then read, and hair; little suron Supremeate into\u2019s an into\u2019s could into can Cootonies by P hair; to the eyes\u2019s, then to hair; can penet",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.13>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 27,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.76,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.06666666666666667,
+        "word_frac": 0.9629629629629629,
+        "frag_frac": 0.5555555555555556,
+        "sustained_leg": 0.8846153846153846,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.13333333333333333
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 13,
+      "text": " found in\nonies, then! was notook made aroter Catherine de 7nersIt is\ntook is abs thrown, and tonightonies, then! how muchate, then! how muchate",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.29>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 24,
+        "rep_onset": 19,
+        "rep_span_frac": 0.16666666666666666,
+        "frac_unique2": 0.9565217391304348,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7832167832167832,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.055944055944055944,
+        "word_frac": 1.0,
+        "frag_frac": 0.625,
+        "sustained_leg": 0.9148936170212766,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.2916666666666667
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 42,
+      "text": " found in,\u201d saidonies, then aroter at home an on this, then! how much\u2019s, then! how muchate, but; little survey,\n\"C \u2018GGGGGGGG",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.18>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 21,
+        "rep_onset": 11,
+        "rep_span_frac": 0.19047619047619047,
+        "frac_unique2": 0.95,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7317073170731707,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.10569105691056911,
+        "word_frac": 0.9523809523809523,
+        "frag_frac": 0.47619047619047616,
+        "sustained_leg": 0.8333333333333334,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.18181818181818182
+      }
+    }
+  ]
+}

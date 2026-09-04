@@ -1,0 +1,438 @@
+{
+  "kind": "probe_voice_free_run",
+  "created_unix": 1788438926,
+  "checkpoint": "runs\\probe_v5_nomarkers_tf_primary\\milestone.pt",
+  "step": 4000,
+  "device": "cuda",
+  "conditions": {
+    "voice_self_source": true,
+    "hcm": false,
+    "blocker_order": 0,
+    "best_of_k": 1
+  },
+  "aggregate": {
+    "pass_frac": 0.13333333333333333,
+    "n": 15,
+    "k": 2,
+    "ci": [
+      0.0373604698913593,
+      0.3788249920651624
+    ],
+    "reasons": {
+      "neolog": 7,
+      "early_onset": 6,
+      "symbol": 2,
+      "rep_span": 5
+    }
+  },
+  "samples": [
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 7,
+      "text": " if it were\nabouted by the city, as shels, and the\ngainly, and shels, and she was himself with his hands and shelsheelow, and even more than the",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.18>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 28,
+        "rep_onset": 9,
+        "rep_span_frac": 0.14285714285714285,
+        "frac_unique2": 0.9629629629629629,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7762237762237763,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.03496503496503497,
+        "word_frac": 1.0,
+        "frag_frac": 0.8214285714285714,
+        "sustained_leg": 0.9032258064516129,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.17857142857142858
+      }
+    },
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 13,
+      "text": "\nsole from within the man, and all\ngenergyed her and the great force, and all her daughter the strooms, and she had a lip, and crept, and with him in the desp",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(6<8)"
+      ],
+      "metrics": {
+        "n_tokens": 32,
+        "rep_onset": 6,
+        "rep_span_frac": 0.125,
+        "frac_unique2": 0.967741935483871,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7707006369426752,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.03184713375796178,
+        "word_frac": 0.96875,
+        "frag_frac": 0.8125,
+        "sustained_leg": 0.9259259259259259,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.09375
+      }
+    },
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 42,
+      "text": " shelars.\n\n\"Come young lamper, and shelsound up with her daughter the ozzoantasticed up to the stamping the\ntaining his lensing.\n\n\"",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.25>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 21,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8046875,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.0390625,
+        "word_frac": 0.9523809523809523,
+        "frag_frac": 0.7619047619047619,
+        "sustained_leg": 0.9302325581395349,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.25
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 7,
+      "text": " shelars?\"\n\n\"Oh, the passion of the welcome, the pencil of the stamping, but I just again?\"\n\n\"Don't you think I should be answered",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(5<8)",
+        "symbol(0.08>0.06)"
+      ],
+      "metrics": {
+        "n_tokens": 23,
+        "rep_onset": 5,
+        "rep_span_frac": 0.17391304347826086,
+        "frac_unique2": 0.9545454545454546,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7480314960629921,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.07874015748031496,
+        "word_frac": 0.9130434782608695,
+        "frag_frac": 0.6521739130434783,
+        "sustained_leg": 0.8666666666666667,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.043478260869565216
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 13,
+      "text": " of the\nthroughouting the stamp, and the sending her daughter, and the sternal, and the stomo in the stamping it.\n\n\"Abs, and the great weather, and",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(6<8)",
+        "rep_span(0.31>0.3)",
+        "neolog(0.12>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 26,
+        "rep_onset": 6,
+        "rep_span_frac": 0.3076923076923077,
+        "frac_unique2": 0.88,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7793103448275862,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.04827586206896552,
+        "word_frac": 1.0,
+        "frag_frac": 0.7692307692307693,
+        "sustained_leg": 0.90625,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.11538461538461539
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 42,
+      "text": " of the court, and saving\nthey and at the hurred, the\nhispered, and\ntaken, and kept the precautifully, and the\nconsenseing, and they were",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.17>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 24,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7867647058823529,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.04411764705882353,
+        "word_frac": 1.0,
+        "frag_frac": 0.75,
+        "sustained_leg": 0.9210526315789473,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.16666666666666666
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 7,
+      "text": " the\nsmallow, and grantastic, and shels, and the\ngain of the only of the stamping, and their own; and to hear, and\nmay; and this\nthat the",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.11>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 27,
+        "rep_onset": 10,
+        "rep_span_frac": 0.14814814814814814,
+        "frac_unique2": 0.9615384615384616,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7573529411764706,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.051470588235294115,
+        "word_frac": 1.0,
+        "frag_frac": 0.7407407407407407,
+        "sustained_leg": 0.896551724137931,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.1111111111111111
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 13,
+      "text": " the\nalmost,\ndes, and\ns of a great man of the great resist, and she had the stro of the great unfortable.\n\nof speaking, and the great man, but she was",
+      "recalls": 0,
+      "pass": true,
+      "reasons": [],
+      "metrics": {
+        "n_tokens": 31,
+        "rep_onset": 10,
+        "rep_span_frac": 0.25806451612903225,
+        "frac_unique2": 0.9,
+        "frac_unique3": 0.9655172413793104,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7567567567567568,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.04054054054054054,
+        "word_frac": 0.9354838709677419,
+        "frag_frac": 0.7419354838709677,
+        "sustained_leg": 0.9230769230769231,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.06451612903225806
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 42,
+      "text": "\n\nhis parents, and she said the despression of the pal, \u201cHe has been the dress of the spirit of the great hazzo of the end of the\ntogether to the\ntogether by the great",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "rep_span(0.47>0.3)"
+      ],
+      "metrics": {
+        "n_tokens": 34,
+        "rep_onset": 8,
+        "rep_span_frac": 0.47058823529411764,
+        "frac_unique2": 0.8181818181818182,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7818181818181819,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.01818181818181818,
+        "word_frac": 1.0,
+        "frag_frac": 0.9117647058823529,
+        "sustained_leg": 0.9259259259259259,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.058823529411764705
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 7,
+      "text": " she was the two, and the\nmay, the passion of the U.\n\n\u201cLetchardemn\u2019t help it was not send to the creepsay, and the scope, \u201cHe",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(5<8)",
+        "symbol(0.07>0.06)"
+      ],
+      "metrics": {
+        "n_tokens": 25,
+        "rep_onset": 5,
+        "rep_span_frac": 0.16,
+        "frac_unique2": 0.9583333333333334,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7398373983739838,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.06504065040650407,
+        "word_frac": 0.96,
+        "frag_frac": 0.72,
+        "sustained_leg": 0.918918918918919,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.07692307692307693
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 13,
+      "text": " the in the\nconsense, and all\nmov, and sitting of the troops, and\nhis the stamp of the passive, and the N, afterwards, and their\nafter a number of",
+      "recalls": 0,
+      "pass": true,
+      "reasons": [],
+      "metrics": {
+        "n_tokens": 29,
+        "rep_onset": 10,
+        "rep_span_frac": 0.13793103448275862,
+        "frac_unique2": 0.9642857142857143,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7655172413793103,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.041379310344827586,
+        "word_frac": 0.9310344827586207,
+        "frag_frac": 0.7586206896551724,
+        "sustained_leg": 0.9142857142857143,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.034482758620689655
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 42,
+      "text": " she\nmayed, and shelfirst and\nwased up, the\nhispered the great about the head, and the two pieces of the tears, and the barrier from the\ngenergy",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.19>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 27,
+        "rep_onset": 15,
+        "rep_span_frac": 0.14814814814814814,
+        "frac_unique2": 0.9615384615384616,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7902097902097902,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.027972027972027972,
+        "word_frac": 1.0,
+        "frag_frac": 0.8518518518518519,
+        "sustained_leg": 0.9428571428571428,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.18518518518518517
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 7,
+      "text": " were\nthemselves, and yet, and all the passion of the welcome, the great delay of the strost, and their\ntogether to the\nmay, and all the floors.",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "rep_span(0.37>0.3)"
+      ],
+      "metrics": {
+        "n_tokens": 27,
+        "rep_onset": 9,
+        "rep_span_frac": 0.37037037037037035,
+        "frac_unique2": 0.8846153846153846,
+        "frac_unique3": 0.96,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7762237762237763,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.04195804195804196,
+        "word_frac": 1.0,
+        "frag_frac": 0.7777777777777778,
+        "sustained_leg": 0.9428571428571428,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.037037037037037035
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 13,
+      "text": " were in the wood of\nthemselves of the\ncons of the expression of the stamp, and their\nlance of the dippers of the kick, and their\nbelpolate the\n",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(7<8)",
+        "rep_span(0.50>0.3)"
+      ],
+      "metrics": {
+        "n_tokens": 28,
+        "rep_onset": 7,
+        "rep_span_frac": 0.5,
+        "frac_unique2": 0.8148148148148148,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.795774647887324,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.014084507042253521,
+        "word_frac": 1.0,
+        "frag_frac": 0.9285714285714286,
+        "sustained_leg": 0.9655172413793104,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.07142857142857142
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 42,
+      "text": "\nthemselves N continentine, the\ncons of the pal of the\nhispered to the\ntaken, and the two pieces of the tender of the\ngenergy,\nbellect",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(6<8)",
+        "rep_span(0.32>0.3)",
+        "neolog(0.16>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 25,
+        "rep_onset": 6,
+        "rep_span_frac": 0.32,
+        "frac_unique2": 0.875,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7969924812030075,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.022556390977443608,
+        "word_frac": 0.96,
+        "frag_frac": 0.84,
+        "sustained_leg": 0.9655172413793104,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.16
+      }
+    }
+  ]
+}

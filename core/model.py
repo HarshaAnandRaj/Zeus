@@ -303,6 +303,14 @@ class ZeusCore(nn.Module):
         self.pathways = PathwayLayer(c)
         self.readout = CoupledReadout(c)
         self.w_slow = nn.Linear(c.slow_dim, c.dim)
+        # Physical interface. These modules are intentionally separate from
+        # the token mouth: a future sensorimotor phase must learn how bodily
+        # conditions enter S and how actions are selected from S. They are not
+        # a rule-based controller and old checkpoints load them fresh.
+        self.body_proj = nn.Sequential(nn.Linear(5, c.dim), nn.Tanh(), nn.Linear(c.dim, c.dim))
+        self.action_head = nn.Sequential(
+            nn.Linear(c.dim + 5, c.dim), nn.Tanh(), nn.Linear(c.dim, 6),
+        )
         self.register_buffer("S", torch.zeros(c.dim), persistent=False)
         self.register_buffer("slow", torch.zeros(c.slow_dim), persistent=False)
         self.register_buffer("E_hist", torch.zeros(c.ctx_window, c.dim), persistent=False)
@@ -383,7 +391,8 @@ class ZeusCore(nn.Module):
 
     # ---- single token ----
     def step(self, token_id=None, embed_override=None, freeze_dynamics=False,
-             temperature_tau=True, pin_mask=None, pin_tau_min=2.0):
+             temperature_tau=True, pin_mask=None, pin_tau_min=2.0,
+             record_token_context=True):
         c = self.cfg
         with torch.no_grad() if not self.training else torch.enable_grad():
             if embed_override is not None:
@@ -451,7 +460,7 @@ class ZeusCore(nn.Module):
             self._hptr = (ptr + 1) % c.window
             aux = {"rent": rent, "div": div, "g": g.detach(), "tau_mean": tau_stats[0].item(),
                    "tau_mean_t": tau.mean(), "tau_pre_override": tau_pre_override}
-            if e is not None:
+            if e is not None and record_token_context:
                 self.last_e = e.detach()
                 self.E_hist = torch.roll(self.E_hist, shifts=-1, dims=0)
                 self.E_hist[-1] = e.detach()
@@ -468,6 +477,37 @@ class ZeusCore(nn.Module):
     def ingest(self, ids):
         for i in ids:
             self.step(i)
+
+    @torch.no_grad()
+    def sense_body(self, observation):
+        """Let physical observation perturb S without entering token history."""
+        obs = torch.as_tensor(observation, dtype=self.S.dtype, device=self.S.device)
+        if obs.numel() != 5:
+            raise ValueError("body observation must contain exactly five values")
+        return self.step(embed_override=self.body_proj(obs.reshape(5)),
+                         record_token_context=False)
+
+    def policy_logits(self, observation):
+        """Differentiable sensorimotor policy readout.
+
+        This is deliberately separate from ``select_action``: training may
+        optimize only this policy surface while the recurrent core and mouth
+        remain frozen.  It does not itself impose an action preference.
+        """
+        obs = torch.as_tensor(observation, dtype=self.S.dtype, device=self.S.device)
+        if obs.numel() != 5:
+            raise ValueError("body observation must contain exactly five values")
+        return self.action_head(torch.cat([self.S, obs.reshape(5)], dim=0))
+
+    @torch.no_grad()
+    def action_logits(self, observation):
+        """Inference wrapper for the learnable sensorimotor policy."""
+        return self.policy_logits(observation)
+
+    @torch.no_grad()
+    def select_action(self, observation, *, generator=None):
+        probs = F.softmax(self.action_logits(observation), dim=-1)
+        return int(torch.multinomial(probs, 1, generator=generator).item())
 
     # Stage-1 trained over dense windows of real embeddings; a zero-filled E_hist
     # (after reset_state) degenerates a short-prompt reply. Fill the window with a
@@ -549,7 +589,24 @@ class ZeusCore(nn.Module):
             if "H" not in keep:
                 keep["H"] = torch.zeros(cfg.window, cfg.dim)
             sd = keep
-        model.load_state_dict(sd)
+        incompatible = model.load_state_dict(sd, strict=False)
+        # The sensorimotor modules were added after the original Zeus
+        # checkpoints.  They may be fresh, but every other missing or
+        # unexpected parameter is a genuine compatibility failure rather than
+        # something to silently initialize.
+        fresh_sensorimotor = {
+            "body_proj.0.weight", "body_proj.0.bias",
+            "body_proj.2.weight", "body_proj.2.bias",
+            "action_head.0.weight", "action_head.0.bias",
+            "action_head.2.weight", "action_head.2.bias",
+        }
+        missing = set(incompatible.missing_keys)
+        unexpected = set(incompatible.unexpected_keys)
+        if not missing.issubset(fresh_sensorimotor) or unexpected:
+            raise RuntimeError(
+                "checkpoint compatibility failure: "
+                f"missing={sorted(missing)}, unexpected={sorted(unexpected)}"
+            )
         model.reset_state(0.0)
         model.to(device)
         model.eval()

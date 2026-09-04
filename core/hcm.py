@@ -82,6 +82,10 @@ class HCM:
         # Anti-crutch: store the target token that was being predicted
         # when this pattern was written. Used to detect verbatim regurgitation.
         self.target_token = torch.zeros(max_patterns, dtype=torch.long, device=device)
+        # Provenance is per retained memory, not just an aggregate counter.  A
+        # bank can evict old entries, so action_writes alone cannot establish
+        # that the memories still available for recall were self-initiated.
+        self.action_origin = torch.zeros(max_patterns, dtype=torch.bool, device=device)
         # Token context window (passage before write) for n-gram matching
         self.context_tokens = torch.zeros(max_patterns, self.context_len, dtype=torch.long, device=device)
         # Recent token buffer for context tracking
@@ -166,6 +170,7 @@ class HCM:
             self.birth_step[victim] = self.step_count
             self.usage[victim] = 0
             self.target_token[victim] = target_token if target_token >= 0 else 0
+            self.action_origin[victim] = bool(from_action)
             self.context_tokens[victim] = ctx
         else:
             self.patterns[self.n_patterns] = pattern.clone()
@@ -175,6 +180,7 @@ class HCM:
             self.birth_step[self.n_patterns] = self.step_count
             self.usage[self.n_patterns] = 0
             self.target_token[self.n_patterns] = target_token if target_token >= 0 else 0
+            self.action_origin[self.n_patterns] = bool(from_action)
             self.context_tokens[self.n_patterns] = ctx
             self.n_patterns += 1
         self.total_writes += 1
@@ -294,6 +300,7 @@ class HCM:
             self.birth_step[:n_keep] = self.birth_step[keep]
             self.usage[:n_keep] = self.usage[keep]
             self.target_token[:n_keep] = self.target_token[keep]
+            self.action_origin[:n_keep] = self.action_origin[keep]
             self.context_tokens[:n_keep] = self.context_tokens[keep]
             self.utility[:n_keep] = self.utility[keep]
             self.n_patterns = n_keep
@@ -380,6 +387,7 @@ class HCM:
                 "birth_step": self.birth_step[:self.n_patterns].clone(),
                 "usage": self.usage[:self.n_patterns].clone(),
                 "target_token": self.target_token[:self.n_patterns].clone(),
+                "action_origin": self.action_origin[:self.n_patterns].clone(),
                 "context_tokens": self.context_tokens[:self.n_patterns].clone(),
                 "utility": self.utility[:self.n_patterns].clone(),
                 "proj": self.proj.clone(),
@@ -399,6 +407,9 @@ class HCM:
         self.usage[:n] = d["usage"]
         if "target_token" in d:
             self.target_token[:n] = d["target_token"]
+        self.action_origin[:n] = False
+        if "action_origin" in d:
+            self.action_origin[:n] = d["action_origin"].to(self.device, dtype=torch.bool)
         if "context_tokens" in d:
             saved = d["context_tokens"]
             if saved.shape[1] != self.context_len:
