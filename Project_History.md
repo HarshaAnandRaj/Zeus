@@ -2124,6 +2124,24 @@ needs no mouth at all; (3) dynamics health under the corrected CDT audit.
 Permanently out of reach with this mouth: P4 causal expression + all
 legibility-gated pillars (the gate requires readable replies by construction).
 
+### Brain-return execution: mem smoke clean, no-mem control live, policy run launched (2026-09-05)
+
+Mem-arm 2k smoke COMPLETED clean: finite losses/grads, ckpt+resume path
+written, 425 patterns across 22 regions, 13,886 writes, 5,037 recalls,
+consolidation + 87 prunes firing (~1.9 steps/s on cuda). Val_ce 29.5 at 2k is
+expected (fresh random dynamics); Night6 needed 7k to reach 6.94. No-mem
+control smoke launched with identical everything plus `--no_hcm`
+(~450/2000, healthy). Extension to exact 8k endpoints follows both smokes.
+
+`docs/embodiment_policy_protocol.md` pre-registers pol1: 100 REINFORCE
+updates x 8 episodes x 96 ticks on CPU from the live shadow milestone into
+isolated `runs/pol1_homeostatic/policy.pt` (live untouched), seed 20260911.
+Bars: last-10 mean reward > first-10 mean AND last-10 survival >= 0.90 AND
+exact same-seed replay. Pass -> P6 audit; fail -> affordance only. Launched
+concurrently (mouth-independent, CPU-light). Rewire fix:
+`train_homeostatic_policy.py` missed the repo-root sys.path insert (crashed
+on `import core` when launched as a script) — fixed, relaunched, worker live.
+
 ### Brain return opens: Night6 replication pre-registered, full loop rewired (2026-09-05)
 
 `docs/night6_replication_protocol.md` fixes the memory-helps-prediction test
