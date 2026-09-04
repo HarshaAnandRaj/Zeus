@@ -1987,6 +1987,7 @@ hypothesis toward vocab/head redesign.
 
 ### fw1 smoke verdict: head does not answer to incentives, data hypothesis retired (2026-09-04)
 
+
 fw1 completed its exact 5,000 steps (gradients finite; dense 0.788 -> 0.842,
 inside the 0.5 guardrail) and assembled. Stratified report on the identical
 4,000-position draw as the v8 baseline:
@@ -2016,6 +2017,33 @@ too, the remaining options are vocab-size reduction (re-tokenize, breaks the
 frozen tokenizer + HCM embeddings — expensive) or accepting current mouth
 limits and returning to the brain program. Reports:
 `probe_fw1_freqweight_eval_step5000.json`.
+
+### sw1 smoke verdict: dropout changes nothing, subword-regularization retired (2026-09-04)
+
+sw1 completed its exact 5,000 greedy updates on native BPE-dropout ids
+(17.68M tokens, sha-pinned) from the v8 mouth; gradients finite, dense
+0.788 -> 0.935 (inside guardrail). Stratified report, same draw as baselines:
+
+| bucket | v8 acc/CE | sw1 acc/CE | bar | verdict |
+|---|---|---|---|---|
+| 101--500 | .050 / 9.672 | .025 / 9.903 | <=8.672 | MISS (+0.23) |
+| 501--1k | .047 / 8.069 | .057 / 8.276 | <=7.569 | MISS (+0.21) |
+| 1k--5k / 5k+ | .084/6.620 / .280/3.690 | .079/6.799 / .277/3.766 | — | flat-to-worse |
+
+Gate 1/15 with neolog reason count 14 — NOT strictly below v8's 14, so the
+emission bar fails too; the sole pass was read and rejected ("did. They were
+to Spring a car food... driversed sointer'saked"). Per-sample neolog
+0.19--0.46 outside the pass: dropout did not dent fragment emission at all.
+
+Two composition interventions (explicit 8x incentives, then segmentation
+noise) now fail identically: flat-to-worse everywhere. The mouth does not
+lack exposure to attachment patterns — it cannot represent them at this
+vocabulary scale on this data. **Subword-regularization retired.** Remaining
+options, neither cheap: (a) vocab-size reduction (re-tokenize smaller,
+re-train head from scratch; breaks frozen tokenizer + HCM embeddings);
+(b) accept mouth limits and return to the brain program (state-path,
+Night6 memory, embodiment) with P1 officially conceded as out of reach for
+this mouth generation. Reports: `probe_sw1_bpedrop_eval_step5000.json`.
 
 ### CDT revitalization adopted: theorem demotions + finite-horizon probes (2026-09-04)
 
