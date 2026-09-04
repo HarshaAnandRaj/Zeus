@@ -1779,6 +1779,26 @@ gap CI [3.18849, 3.36576], not selected after a new run. This is a
 pre-registration only; neither arm has been implemented or launched, and P1
 remains failed.
 
+### P1 two-arm mechanics smokes passed; exact endpoints authorized (2026-09-04)
+
+After the user explicitly authorized the registered protocol, the raw-sampled
+rollout path was implemented with a dedicated device-local `torch.Generator`.
+Its state is stored in every probe checkpoint and restored on resume, so raw
+multinomial self-history is replayable rather than silently consuming global
+Torch RNG. Regression coverage verifies raw-rollout generator replay and
+rejects raw sampling without that generator; the focused suite passed 63/63
+before compute began.
+
+Both arms started from the exact V6 step-30,000 mouth with identical corpus,
+seed (20260905), optimizer envelope, and 1,000-step teacher-forced warm phase.
+The only arm factor is `rollout_sampling`: A uses greedy, B uses raw unmodified
+multinomial sampling. Both registered 2,000-step smoke checkpoints are exact,
+contain the sampler state, and assemble into isolated voices. Arm A ended with
+rollout loss 6.87128, dense validation CE 2.64930, gradient norm 19.28606;
+Arm B ended with 6.70689, 2.61034, and 15.79843 respectively. These are
+mechanics checks only, not a selection signal or P1 evidence. The paired
+30,000-step endpoints are now the sole active hypothesis.
+
 ### Endpoint status checkpoint (2026-09-04)
 
 Verified against frozen artifacts: V5 step-120,000 raw strict **1/15** (CI
@@ -1794,3 +1814,21 @@ the boundary). No training worker is running (GPU idle); no state-path,
 memory, embodiment, policy, or initiative experiment has been activated; all
 remain fail-closed. Standing verdict: rigorously measured negative result at
 P1 — not evidence of consciousness or an emergent self.
+
+### Arm A (greedy control) endpoint: formal failure, gap improved but short (2026-09-04)
+
+Arm A completed its exact 30,000-step endpoint from the V6 mouth and assembled
+into an isolated voice. Raw strict free-run: **0/15** (CI 0.000--0.204;
+neolog 13, symbol 11, sustained_leg 7, alpha 7, word_frac 6). Exposure gap
+**2.36967** (CI 2.30043--2.44536), down from V6's 3.27610: greedy rollout
+exposure recovered ~0.9 nats of self-history robustness (self-generated CE
+8.05108 -> 7.19700; teacher-forced 4.77498 -> 4.82733, essentially flat).
+But the gap's upper bound (2.44536) misses the pre-registered <=2.18 bar, and
+legibility went backward (V6 3/15 -> 0/15): recovery improved while expression
+did not. Arm A therefore fails the co-primary standard on both legs. No
+selection between arms is permitted on this result; the protocol stays
+undecided until Arm B's exact endpoint, raw-strict eval, exposure CI, and
+direct sample reading are all in. Reports:
+`probe_v7a_greedy_primary_eval_step30000.json`,
+`probe_v7a_greedy_primary_exposure_step30000.json`,
+`probe_v7a_greedy_primary_prefix_step30000.json`.
