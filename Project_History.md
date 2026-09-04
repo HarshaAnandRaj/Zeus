@@ -1968,3 +1968,19 @@ inexorable, so the probe may fail and its fallback is head-side changes
 bet before/with the probe: a short frequency-weighted CE smoke on current
 data testing whether the head CAN learn composition when rare targets are
 upweighted.
+
+### Frequency-weighting smoke launched (2026-09-04)
+
+User approved the cheap test first; corpus spend stays held. `docs/
+head_freqweight_smoke.md` pre-registers fw1: 5,000 greedy updates from the
+exact v8 mouth (fresh optimizer/RNG, seed 20260907) with the identical v8
+objective plus `--freq_weight_alpha 0.5` — per-target weight
+(median/count)^0.5 floored at 1, clipped at 8, self-normalized per batch, in
+all three losses (right-aligned, dense, rollout). `validate()` stays
+unweighted so diagnostics remain comparable. Implementation + 3 regression
+tests in `training/probe_train.py` / `test_probe_train.py` (15/15 suite
+green); alpha=0 reproduces plain mean CE exactly. Worker confirmed live;
+step-1000 TF loss 3.91, val_dense 0.73, grad finite. Bars: rare buckets
+101--500 CE 9.672 -> <=8.672 and 501--1k 8.069 -> <=7.569, dense regresses
+<=0.5, grads finite. Pass licenses the corpus probe; fail retires the data
+hypothesis toward vocab/head redesign.

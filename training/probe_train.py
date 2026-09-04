@@ -126,6 +126,29 @@ def sample_visible_lengths(np_rng, batch, width, short_prefix_prob=0.0,
     return visible
 
 
+def target_weights(targets, counts, alpha, wmax=8.0):
+    """Rare-target upweighting for the lexical-tail diagnosis.
+
+    w = clip((median_count / count)^alpha, 1, wmax): frequent types are never
+    downweighted (floor 1), rare types are boosted, self-normalized to mean 1
+    so the effective learning-rate scale is preserved.  alpha <= 0 disables
+    (returns None) and the caller falls back to plain mean CE.
+    """
+    if alpha <= 0:
+        return None
+    c = counts.to(targets.device)[targets].clamp_min(1).to(torch.float32)
+    ref = float(torch.median(counts.to(torch.float32)))
+    w = torch.clamp((ref / c) ** float(alpha), min=1.0, max=float(wmax))
+    return w / w.mean().clamp_min(1e-9)
+
+
+def weighted_ce(logits, targets, weights):
+    ce = F.cross_entropy(logits.float(), targets, reduction="none")
+    if weights is None:
+        return ce.mean()
+    return (ce * weights).mean()
+
+
 def readout_logits(readout, emb, e_in, cfg, *, last_token_present=True):
     """The exact self-source token path used by the deploy-shaped trainer."""
     batch, width, dim = e_in.shape
@@ -161,7 +184,7 @@ def readout_logits(readout, emb, e_in, cfg, *, last_token_present=True):
 
 def right_aligned_loss(readout, emb, cfg, ids, np_rng, *, short_prefix_prob=0.0,
                        short_prefix_max=16, blank_prefix_prob=0.0,
-                       blank_prefix_max=2):
+                       blank_prefix_max=2, freq=None):
     """Predict a real token from a right-aligned, zero-filled prefix."""
     device, width, dim = ids.device, cfg.ctx_window, cfg.dim
     batch = ids.shape[0]
@@ -176,11 +199,12 @@ def right_aligned_loss(readout, emb, cfg, ids, np_rng, *, short_prefix_prob=0.0,
         targets[row] = ids[row, r]
     logits = readout_logits(readout, emb, layouts, cfg,
                             last_token_present=visible > 0)[:, -1]
-    return F.cross_entropy(logits.float(), targets)
+    weights = target_weights(targets, *freq) if freq is not None else None
+    return weighted_ce(logits, targets, weights)
 
 
 def rollout_loss(readout, emb, cfg, ids, np_rng, *, rollout_tokens, min_prefix,
-                 sampling="greedy", generator=None):
+                 sampling="greedy", generator=None, freq=None):
     """Train recovery from the mouth's *own* sampled history.
 
     Dense/teacher-forced CE can look good while every small sampling error moves
@@ -218,7 +242,8 @@ def rollout_loss(readout, emb, cfg, ids, np_rng, *, rollout_tokens, min_prefix,
         logits = readout_logits(readout, emb, layout, cfg)[:, -1]
         targets = torch.stack([ids[row, int(prefixes[row]) + offset]
                                for row in range(batch)])
-        losses.append(F.cross_entropy(logits.float(), targets))
+        weights = target_weights(targets, *freq) if freq is not None else None
+        losses.append(weighted_ce(logits, targets, weights))
         # Runtime sampling is not differentiable.  The raw mode deliberately
         # uses exactly the strict evaluator's unmodified distribution
         # (temperature/top-p/repetition penalty all 1); its own CUDA/CPU
@@ -234,12 +259,13 @@ def rollout_loss(readout, emb, cfg, ids, np_rng, *, rollout_tokens, min_prefix,
     return torch.stack(losses).mean()
 
 
-def dense_loss(readout, emb, cfg, ids):
+def dense_loss(readout, emb, cfg, ids, freq=None):
     width = cfg.ctx_window
     e_in = emb(ids[:, :width])
     logits = readout_logits(readout, emb, e_in, cfg)
-    return F.cross_entropy(logits.reshape(-1, logits.shape[-1]).float(),
-                           ids[:, 1:width + 1].reshape(-1).long())
+    targets = ids[:, 1:width + 1].reshape(-1).long()
+    weights = target_weights(targets, *freq) if freq is not None else None
+    return weighted_ce(logits.reshape(-1, logits.shape[-1]), targets, weights)
 
 
 @torch.no_grad()
@@ -289,6 +315,10 @@ def main():
     ap.add_argument("--lr", type=float, default=2.5e-4)
     ap.add_argument("--warmup_steps", type=int, default=100)
     ap.add_argument("--dense_weight", type=float, default=0.15)
+    ap.add_argument("--freq_weight_alpha", type=float, default=0.0,
+                    help="rare-target upweight exponent; 0 disables (plain mean CE)")
+    ap.add_argument("--freq_weight_max", type=float, default=8.0,
+                    help="clip for rare-target upweighting")
     ap.add_argument("--short_prefix_prob", type=float, default=0.0,
                     help="fraction of right-aligned updates sampled from short reply-start prefixes")
     ap.add_argument("--short_prefix_max", type=int, default=16,
@@ -403,6 +433,19 @@ def main():
 
     train_ids = np.load(train_path, mmap_mode="r")
     val_ids = np.load(val_path, mmap_mode="r")
+    freq = None
+    if args.freq_weight_alpha > 0:
+        counts = torch.bincount(
+            torch.from_numpy(np.asarray(train_ids).astype(np.int64)),
+            minlength=cfg.vocab).to(torch.float64)
+        freq = (counts, args.freq_weight_alpha, args.freq_weight_max)
+        print(json.dumps({"kind": "freq_weights",
+                          "alpha": args.freq_weight_alpha,
+                          "max": args.freq_weight_max,
+                          "median_count": float(torch.median(counts.to(torch.float32))),
+                          "types_le100": int((counts <= 100).sum()),
+                          "vocab": len(counts)}),
+              flush=True)
     if min(len(train_ids), len(val_ids)) <= cfg.ctx_window + 1:
         raise ValueError("corpus is too short for the configured context window")
     stop_at = min(args.steps, args.max_steps) if args.max_steps else args.steps
@@ -431,14 +474,16 @@ def main():
                                         rollout_tokens=args.rollout_tokens,
                                         min_prefix=args.rollout_min_prefix,
                                         sampling=args.rollout_sampling,
-                                        generator=rollout_generator)
+                                        generator=rollout_generator,
+                                        freq=freq)
                 else:
                     loss = right_aligned_loss(readout, emb, cfg, ids, np_rng,
                                               short_prefix_prob=args.short_prefix_prob,
                                               short_prefix_max=args.short_prefix_max,
                                               blank_prefix_prob=args.blank_prefix_prob,
-                                              blank_prefix_max=args.blank_prefix_max)
-                    loss = loss + args.dense_weight * dense_loss(readout, emb, cfg, ids)
+                                              blank_prefix_max=args.blank_prefix_max,
+                                              freq=freq)
+                    loss = loss + args.dense_weight * dense_loss(readout, emb, cfg, ids, freq)
             scaler.scale(loss).backward()
             scaler.unscale_(optimizer)
             gnorm = float(torch.nn.utils.clip_grad_norm_(list(readout.parameters()) + list(emb.parameters()), 1.0).item())

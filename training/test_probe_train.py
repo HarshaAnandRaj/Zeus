@@ -13,6 +13,7 @@ from training.probe_train import (
     atomic_torch_save, capture_rng, make_rollout_generator, readout_logits, restore_rng,
     rollout_loss, should_rollout,
     sample_visible_lengths,
+    target_weights, weighted_ce,
 )
 
 
@@ -167,6 +168,42 @@ class ProbeTrainTests(unittest.TestCase):
                                  model.E_hist.unsqueeze(0), model.cfg)[0, -1]
         deployed = model.observe()
         self.assertTrue(torch.allclose(trained, deployed, atol=1e-6, rtol=1e-5))
+
+    def test_freq_weights_disabled_at_zero_alpha(self):
+        targets = torch.tensor([0, 1, 2])
+        counts = torch.tensor([1.0, 100.0, 10000.0])
+        self.assertIsNone(target_weights(targets, counts, 0.0, 8.0))
+        logits = torch.randn(3, 3)
+        plain = torch.nn.functional.cross_entropy(logits, targets)
+        self.assertTrue(torch.allclose(weighted_ce(logits, targets, None), plain))
+
+    def test_freq_weights_boost_rare_never_cut_frequent(self):
+        targets = torch.tensor([0, 1, 2, 2])
+        counts = torch.tensor([4.0, 400.0, 40000.0])
+        w = target_weights(targets, counts, 0.5, 8.0)
+        # median is 400: type0 -> (100)^.5 capped at 8; type1 -> 1; type2 floored at 1
+        self.assertAlmostEqual(float(w[0]), 8.0 / ((8.0 + 1.0 + 1.0 + 1.0) / 4), places=5)
+        self.assertAlmostEqual(float(w[1]), float(w[2]), places=6)
+        self.assertAlmostEqual(float(w.mean()), 1.0, places=6)
+        self.assertTrue(bool((w <= 8.0).all()))
+
+    def test_rollout_loss_accepts_freq_weights(self):
+        emb = torch.nn.Embedding(16, 3)
+        cfg = types.SimpleNamespace(ctx_window=8, dim=3)
+        ids = torch.tensor([[2, 3, 4, 5, 6, 7, 8, 9]], dtype=torch.long)
+        counts = torch.full((16,), 100.0)
+
+        def fake_logits(_readout, _emb, layout, _cfg):
+            logits = layout.sum(dim=-1, keepdim=True) * 0
+            logits = logits.expand(-1, -1, 16).clone()
+            logits[..., 1] = 1.0
+            return logits
+
+        with mock.patch("training.probe_train.readout_logits", side_effect=fake_logits):
+            loss = rollout_loss(None, emb, cfg, ids, np.random.default_rng(9),
+                                rollout_tokens=2, min_prefix=3,
+                                freq=(counts, 0.5, 8.0))
+        self.assertTrue(torch.isfinite(loss))
 
 
 if __name__ == "__main__":
