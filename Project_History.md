@@ -1871,3 +1871,31 @@ on the registered objective with GPU training. Bars unchanged (15/15 +
 legibility + gap upper <=2.18). Pre-committed consequences: pass all bars ->
 state-path phase; gap closes without expression, or gap fails -> curricula
 retired by result, readout-architecture interrogation opens, no v9.
+
+### v8 greedy-continuation endpoint: bars missed, curricula retired (2026-09-04)
+
+The second 30,000-step greedy dose completed from the exact Arm A mouth
+(val_dense endpoint 0.78844 — memorization-grade TF crispness, the broca
+warning sign: TF falls while free-run stays junk) and assembled into an
+isolated voice. Raw strict free-run: **1/15** (CI 0.012--0.298; neolog 14).
+The sole formal pass was read directly and rejected ("was in the for it /
+What!" was" said you said, positive said she saidelf ..." — quote soup plus
+neologisms). Exposure gap **2.23702** (CI 2.16906--2.30453): upper bound misses
+the pre-registered <=2.18 bar by 0.12 nats. Prefix diagnostics flat vs Arm A
+(short 4.85993 vs 4.88020, long 4.86288 vs 4.77253, blank 6.72529 vs 6.64756).
+
+Dose-response across the greedy line: 3.27610 (V6) -> 2.36967 (v7a, -0.906)
+-> 2.23702 (v8, -0.133). The second dose returned one-seventh of the first;
+extrapolated, a third dose buys ~0.02 nats. Recovery gains have saturated far
+from legibility while expression never left zero (V5 1/15, V6 3/15, v7a 0/15,
+v7b 0/15, v8 1/15 — every pass rejected on reading).
+
+**Pre-committed consequence fires:** both bars missed, so mouth-training
+curricula are retired by result. No v9. The open question is now the
+readout architecture itself (suspects, in order: last-slot readout
+bottleneck, right-aligned ring geometry, zero-fill vs real-context mismatch).
+P1 remains failed; no state, memory, body, initiative, emergence, or
+consciousness claim is licensed. Reports:
+`probe_v8_greedy_continued_eval_step30000.json`,
+`probe_v8_greedy_continued_exposure_step30000.json`,
+`probe_v8_greedy_continued_prefix_step30000.json`.

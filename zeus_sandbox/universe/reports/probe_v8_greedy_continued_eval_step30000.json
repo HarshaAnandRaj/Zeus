@@ -1,0 +1,439 @@
+{
+  "kind": "probe_voice_free_run",
+  "created_unix": 1788539547,
+  "checkpoint": "runs\\probe_v8_greedy_continued\\milestone.pt",
+  "step": 30000,
+  "device": "cuda",
+  "conditions": {
+    "voice_self_source": true,
+    "hcm": false,
+    "blocker_order": 0,
+    "best_of_k": 1,
+    "temperature": 1.0,
+    "top_p": 1.0,
+    "repetition_penalty": 1.0
+  },
+  "aggregate": {
+    "pass_frac": 0.06666666666666667,
+    "n": 15,
+    "k": 1,
+    "ci": [
+      0.011866588606194856,
+      0.2981707755242399
+    ],
+    "reasons": {
+      "neolog": 14,
+      "early_onset": 1,
+      "symbol": 1,
+      "rep_span": 1
+    }
+  },
+  "samples": [
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 7,
+      "text": "one H French, which was surprisedve will represent pass. There was also the\ngapal of passed of theorsm hours which hour prefits beisper showing that\nmormement sc flutterly",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.25>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 28,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8304093567251462,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.011695906432748537,
+        "word_frac": 0.9642857142857143,
+        "frag_frac": 0.8571428571428571,
+        "sustained_leg": 0.9696969696969697,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.25
+      }
+    },
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 13,
+      "text": " take in the-int\n- means-the-law of a-- skin some fresh bed legs\npering Drs too, by in theonsense important of the,ful arming how\n with himlerollowing with",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.14>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 26,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7843137254901961,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.05228758169934641,
+        "word_frac": 0.9230769230769231,
+        "frag_frac": 0.7307692307692307,
+        "sustained_leg": 0.8333333333333334,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.13793103448275862
+      }
+    },
+    {
+      "prompt": "The river flowed quietly beneath the bridge, and",
+      "seed": 42,
+      "text": "\ntouted the faith; by its lickets on her, and\nThenighted her kickher where she lears lies she lertinter she had her bed womanoney woman\n\ng slear",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.27>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 26,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8098591549295775,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.014084507042253521,
+        "word_frac": 0.9615384615384616,
+        "frag_frac": 0.8461538461538461,
+        "sustained_leg": 0.9393939393939394,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.2692307692307692
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 7,
+      "text": " she had French\n remain\n suresterday since her father. gardenorge interest both the\ngreattenupeverteup pastwith handsfor garden himself up again\nisper, 1\nm Nousion said, looking chair",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.28>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 26,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8388888888888889,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.022222222222222223,
+        "word_frac": 0.9230769230769231,
+        "frag_frac": 0.7307692307692307,
+        "sustained_leg": 0.9117647058823529,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.28
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 13,
+      "text": " of her little comfort kneath: of\ndepend kparty and vublime Coast talk\nour everB WentlyTOTOTOTOTERugt,\u201d said claimsler weather think\n",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.32>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 19,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8396946564885496,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.022900763358778626,
+        "word_frac": 1.0,
+        "frag_frac": 0.7894736842105263,
+        "sustained_leg": 0.9622641509433962,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.3157894736842105
+      }
+    },
+    {
+      "prompt": "In the laboratory, the researcher recorded the result because",
+      "seed": 42,
+      "text": " sheuspuseusus spiritus spiritus spiritusive 220aughter,\nhhesushes etern spirit||irysears, looking at thisertinterrupt\nHowes his writingsope may live on her",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "early_onset(2<8)",
+        "neolog(0.53>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 18,
+        "rep_onset": 2,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8451612903225807,
+        "markup_frac": 0.012903225806451613,
+        "symbol_frac": 0.04516129032258064,
+        "word_frac": 1.0,
+        "frag_frac": 0.8333333333333334,
+        "sustained_leg": 0.9027777777777778,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.5263157894736842
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 7,
+      "text": " she was through\nour're himself gr temperature rise at thelled her look, for anyone have somethingEms, only for you canwith allows her hour?\nWhat sport lot of looking for something wife. It said this looking for the",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.11>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 37,
+        "rep_onset": 28,
+        "rep_span_frac": 0.10810810810810811,
+        "frac_unique2": 0.9722222222222222,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8084112149532711,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.02336448598130841,
+        "word_frac": 1.0,
+        "frag_frac": 0.8108108108108109,
+        "sustained_leg": 0.9534883720930233,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.10810810810810811
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 13,
+      "text": " was in the for it\nWhat!\" was\" said you said, positive said she saidelf with us talk\nhappy with too, Johnson in theonsense important of the,ful of us,\u201d said, him in weathering,",
+      "recalls": 0,
+      "pass": true,
+      "reasons": [],
+      "metrics": {
+        "n_tokens": 32,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7657142857142857,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.05714285714285714,
+        "word_frac": 1.0,
+        "frag_frac": 0.71875,
+        "sustained_leg": 0.8611111111111112,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.06060606060606061
+      }
+    },
+    {
+      "prompt": "The child opened the old book and discovered that",
+      "seed": 42,
+      "text": "\ne \"e here.\"\"What!\"\"o\" your\" on\" your hands on on on on on\"\nhereed head, and kept looking at an end of the footst staff hisoneyute\nlike himeredear",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "symbol(0.08>0.06)",
+        "neolog(0.14>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 27,
+        "rep_onset": 8,
+        "rep_span_frac": 0.14814814814814814,
+        "frac_unique2": 0.9230769230769231,
+        "frac_unique3": 0.96,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7379310344827587,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.08275862068965517,
+        "word_frac": 0.9259259259259259,
+        "frag_frac": 0.7407407407407407,
+        "sustained_leg": 0.7368421052631579,
+        "periodic": null,
+        "loop_score": 0.1724137931034483,
+        "neolog_frac": 0.13793103448275862
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 7,
+      "text": "!\"\n\"elles by himself by such an impulsion. There was by the\nneapition by 21 of his son, allowsfor hour by injverse by lot of showing 1.\nHowition said this by simple list",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.13>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 33,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.757396449704142,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.05325443786982249,
+        "word_frac": 0.9090909090909091,
+        "frag_frac": 0.7575757575757576,
+        "sustained_leg": 0.8857142857142857,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.13333333333333333
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 13,
+      "text": " take in all for it\nof means. of the current of art in the territoriesly with the movementouning of the the Moon table in the search set of the massession of the usual divport him in the principend",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "rep_span(0.37>0.3)",
+        "neolog(0.13>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 38,
+        "rep_onset": 8,
+        "rep_span_frac": 0.3684210526315789,
+        "frac_unique2": 0.8648648648648649,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8061224489795918,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.00510204081632653,
+        "word_frac": 1.0,
+        "frag_frac": 0.9473684210526315,
+        "sustained_leg": 0.9583333333333334,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.13157894736842105
+      }
+    },
+    {
+      "prompt": "A good explanation begins by stating the problem clearly, then",
+      "seed": 42,
+      "text": "\nefficientially here of the fieldpt are desiringium of 22018 directly ofThe how theseary k measureherallidodyears kept looking at thisert 88ing, International staff toyyyying very useful in",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.32>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 26,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.824468085106383,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.0425531914893617,
+        "word_frac": 0.9230769230769231,
+        "frag_frac": 0.8076923076923077,
+        "sustained_leg": 0.8863636363636364,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.32
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 7,
+      "text": " knew for French them in're surick such an rest experience. garden mass over U60inedionshem pipe passed of the doesn't hoursfor hourers for his bestisper showing 1istks No.] fl[ floin",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.27>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 29,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.7967032967032966,
+        "markup_frac": 0.01098901098901099,
+        "symbol_frac": 0.04945054945054945,
+        "word_frac": 1.0,
+        "frag_frac": 0.7241379310344828,
+        "sustained_leg": 0.9047619047619048,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.26666666666666666
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 13,
+      "text": " rest in rest wood it\nyou!you current ofyparty andyouy use what usey should use writing where writing may look so they are subwayessionful spokening how idea with himlerg principles",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.20>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 29,
+        "rep_onset": null,
+        "rep_span_frac": 0.0,
+        "frac_unique2": 1.0,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.8388888888888889,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.005555555555555556,
+        "word_frac": 1.0,
+        "frag_frac": 0.9655172413793104,
+        "sustained_leg": 0.9736842105263158,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.2
+      }
+    },
+    {
+      "prompt": "At dawn the travelers packed their bags before they",
+      "seed": 42,
+      "text": " look at the ende Ofe offered with the eyes passions on her studies whom she with her her studies knees where she lears lords for him marboard she had figure out hisoney additionalope. Most actuallyear",
+      "recalls": 0,
+      "pass": false,
+      "reasons": [
+        "neolog(0.17>0.1)"
+      ],
+      "metrics": {
+        "n_tokens": 35,
+        "rep_onset": 12,
+        "rep_span_frac": 0.11428571428571428,
+        "frac_unique2": 0.9705882352941176,
+        "frac_unique3": 1.0,
+        "frac_unique4": 1.0,
+        "alpha_frac": 0.825,
+        "markup_frac": 0.0,
+        "symbol_frac": 0.005,
+        "word_frac": 1.0,
+        "frag_frac": 0.9142857142857143,
+        "sustained_leg": 1.0,
+        "periodic": null,
+        "loop_score": 0.0,
+        "neolog_frac": 0.17142857142857143
+      }
+    }
+  ]
+}
