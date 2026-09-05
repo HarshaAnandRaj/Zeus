@@ -2149,6 +2149,37 @@ nonlinear map, same bars), not a rescue of this run. The hypothesis's
 strongest claim (recursive self-instantiation) finds no support; its weakest
 necessary claim (causal loop) does.
 
+### SMC1 scale grid: verdict FAILs everywhere, modes differ by scale (2026-09-05)
+
+Priors stated before running: P1 holds at all scales (near-mechanical);
+competence tracks k/N ratio; P2/P3 fail everywhere. Grid N={32,64,128} x
+k={4,8,16}, 5 seeds, g fixed (`--quiet` cells; sim now argparse-parametrized
+with SMC1 defaults preserved):
+
+- P1: PASS at N=32,64 (tight CIs) — FAILS at N=128 (means 1.65-1.83 but CIs
+  span negative: cross-seed variance explodes). Prior WRONG, on record:
+  causal-effect stability is NOT scale-invariant; larger systems show
+  seed-unstable feedback impact at fixed g. Candidate mechanism: fixed gain
+  against sqrt(N)-growing state norms (g/sqrt(N) scaling is the follow-up).
+- Competence tracks k/N as predicted: N=32 acc_k -0.17/0.34/0.54;
+  N=64 all negative; N=128 all negative. Only high-ratio cells have
+  competent M.
+- P3 fails in all 9 cells — including N=32,k=16 (acc_k=+0.54, competent M,
+  wash -0.30 < open +0.66): the strongest single point. Competence does not
+  rescue growing-into-model here.
+- P2 flips coin-wise on ~1e-05 noise-scale slopes at every cell: the bar as
+  written does not discriminate anywhere and needs redesign (longer T,
+  stronger g, or a different closure metric) before SMC2.
+- Open-loop alignment itself varies wildly by N (+0.66/-0.05/+0.73):
+  washout metric is input-stream-luck dominated; future P3 needs a
+  luck-robust form (multi-bias average or luck-matched controls).
+
+Reading for Zeus (N=768, tiny effective k/N): expect seed-unstable causal
+effects, absent closure, failed growth — the sim predicts our regime is the
+HARDEST for this mechanism, not an emergent sweet spot. Competent-M-first
+stands; SMC2 needs (a) high k/N ratio, (b) redesigned P2, (c) luck-robust P3,
+(d) g-scaling study. No consciousness inference anywhere in this chain.
+
 ### Architecture interrogation record: head organized, horizon broken, gate miscalibrated (2026-09-05)
 
 Eval-only battery on the frozen v8 mouth + corpus, run while the mem-8k arm

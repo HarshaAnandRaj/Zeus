@@ -24,6 +24,21 @@ REFIT_EVERY = 500
 REFIT_WIN = 1000
 
 
+def configure(n=None, rank=None, g=None, seeds=None, t=None):
+    """Override scale knobs (argparse entry uses these; defaults = SMC1 registry)."""
+    global N, K_RANK, G_FB, SEEDS, T
+    if n is not None:
+        N = n
+    if rank is not None:
+        K_RANK = rank
+    if g is not None:
+        G_FB = g
+    if seeds is not None:
+        SEEDS = tuple(seeds)
+    if t is not None:
+        T = t
+
+
 def make_substrate(seed):
     rng = np.random.default_rng(seed)
     W = rng.standard_normal((N, N)) / np.sqrt(N)
@@ -196,4 +211,38 @@ def main():
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    import argparse
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--n", type=int, default=None)
+    ap.add_argument("--rank", type=int, default=None)
+    ap.add_argument("--g", type=float, default=None)
+    ap.add_argument("--seeds", type=int, nargs="*", default=None)
+    ap.add_argument("--t", type=int, default=None)
+    ap.add_argument("--quiet", action="store_true",
+                    help="emit only the compact verdict line")
+    args = ap.parse_args()
+    configure(n=args.n, rank=args.rank, g=args.g, seeds=args.seeds, t=args.t)
+    if args.quiet:
+        import contextlib
+        import io as _io
+        buf = _io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            code = main()
+        try:
+            out = json.loads(buf.getvalue())
+            b = out["bars"]
+            print(json.dumps({"n": N, "rank": K_RANK, "g": G_FB,
+                              "cap": round(out["capability_r2"]["mean"], 3),
+                              "acc_k": round(out["acc_k6"]["mean"], 3),
+                              "p1": round(out["effect_comp"]["mean"], 4),
+                              "p1_lo": round(out["effect_comp"]["ci"][0], 4),
+                              "p2": round(out["slope_closed"]["mean"], 7),
+                              "p2o": round(out["slope_open"]["mean"], 7),
+                              "p3w": round(out["align_wash"]["mean"], 3),
+                              "p3o": round(out["align_open"]["mean"], 3),
+                              "bars": b, "verdict": out["verdict"]}))
+        except (ValueError, KeyError):
+            print(buf.getvalue())
+        sys.exit(code)
+    else:
+        sys.exit(main())
