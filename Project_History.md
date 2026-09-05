@@ -2124,6 +2124,31 @@ needs no mouth at all; (3) dynamics health under the corrected CDT audit.
 Permanently out of reach with this mouth: P4 causal expression + all
 legibility-gated pillars (the gate requires readable replies by construction).
 
+### SMC1 self-model closure sim: loop exists, fiction does not become real (2026-09-05)
+
+Minimal numpy test of the compression-plus-closure mechanism
+(`docs/self_model_closure_protocol.md`, `probes/self_model_closure.py`, 5
+seeds, N=64 RNN, rank-6 self-model). Capability floor passed (input-pred R²
+0.80, not void). First run declared VOID after the identical-slopes check
+exposed an implementation bug (fed-back predictions computed but never
+passed to rollout — all regimes ran open); fixed, re-ran clean.
+
+| Bar | Result |
+|---|---|
+| P1 causal effect ∂C/∂M | PASS: 0.242, CI [0.096, 0.387] excludes 0 (full-feedback 0.537) |
+| P2 closure slope | nominal PASS (4.21e-05 < 4.88e-05) with NEGLIGIBLE effect size — both CIs straddle 0, refit error flat in both regimes |
+| P3 grows-into-model | FAIL: washout alignment −0.499 vs open −0.052 — system ends opposed to the fiction, not reorganized toward it |
+
+Verdict FAIL. Honest reading: the causal loop EXISTS (a fed-back
+self-representation moves future state — P1 is not nothing), but neither
+consequence follows here: no closure improvement, no fiction-becoming-real.
+Contributing factor: the rank-6 linear map explains negative variance out of
+sample — the test's "self-model" is incompetent, so closure had no basis to
+improve on. That licenses exactly one follow-up (competent M: higher rank or
+nonlinear map, same bars), not a rescue of this run. The hypothesis's
+strongest claim (recursive self-instantiation) finds no support; its weakest
+necessary claim (causal loop) does.
+
 ### Architecture interrogation record: head organized, horizon broken, gate miscalibrated (2026-09-05)
 
 Eval-only battery on the frozen v8 mouth + corpus, run while the mem-8k arm
@@ -2243,3 +2268,231 @@ all failing, the cheap hypothesis space is exhausted: no further mouth smokes
 without a genuinely new mechanism. Remaining: vocab-size reduction (breaks
 frozen stack) or brain return with P1 conceded. Reports:
 `probe_wv1_wordfinal_eval_step5000.json`.
+
+### P1 ruler frozen and current mouth formally conceded (2026-09-05)
+
+The post-audit phase wording is now an executable evidence contract in
+`docs/p1_exit_contract.md` and `training/p1_contract.py`. The obsolete absolute
+15/15 ruler is historical only. A future P1 adjudication requires 30 paired,
+exact 48-word model/real-prose windows; overlapping Wilson 95% intervals;
+human coherence approval of every strict-gate pass; fixed-draw exposure-gap
+upper CI <=2.18; and raw, unassisted decode conditions. The adjudicator
+recomputes gate results and intervals and rejects incomplete provenance.
+Exposure reports now publish their seed and validation-array SHA-256.
+
+Recalibration does not reverse any licensed attempt: v8's 1/15 CI does not
+overlap the observed real-prose interval and its exposure upper CI is 2.30453;
+wv1's 3/15 upper CI is 0.45186, below the real-prose lower CI 0.455, and all
+three heuristic passes failed direct reading. The older reports also have only
+15 x 48-token samples and therefore cannot enter the new 30 x 48-word
+adjudication. P1 is formally conceded for this mouth generation. The brain
+slice pins `runs/probe_v8_greedy_continued/milestone.pt` (SHA-256
+`3c39972cf463e08312a75daa2eeb8475f1164daf6ad7d5c82c6e8c081f89cf9f`);
+failed follow-up mouths remain isolated, no further mouth run is licensed, and
+legibility-dependent claims stay out of scope. Focused contract/gate/exposure
+suite: 19/19 green.
+
+### pol1 verdict: numerical bars pass, replay precondition fails (2026-09-05)
+
+The 100-update homeostatic-policy run completed. First-10 mean episode reward
+was 3.3916295 and last-10 was 3.4766771 (learning bar passes); last-10 survival
+was 1.0 (viability bar passes). The required determinism bar is invalidated:
+the legacy milestone lacks all four `action_head` tensors, and the runner
+applied seed 20260911 only inside training, after `ZeusCore.load` randomly
+initialized those tensors. A direct two-load audit found all four unequal,
+maximum absolute parameter difference 0.07192146. A second two-hour run from a
+different unrecorded initialization cannot establish exact seeded replay, so
+it was not spent.
+
+Per the all-bars protocol pol1 **FAILS**. This licenses no endogenous-policy or
+P6 claim; embodiment remains an affordance substrate. The original artifact is
+preserved at SHA-256
+`358261183d3426c9b3907bd96de5e1ce658ce6c3d6b51a6030756ad536d15aa6`, and
+`pol1_homeostatic_verdict_20260905.json` publishes the bar-level evidence. The
+runner now seeds before legacy checkpoint construction, covered by regression,
+for a future separately registered experiment; that repair does not alter the
+pol1 verdict.
+
+### Night6 replication verdict: memory CE collapses; coarse HCM retired (2026-09-05)
+
+The memory arm completed exact step 8,000. Final-three val CE was
+35.7873/32.3532/32.9747, mean **33.7051** versus the registered `<7.10` bar:
+decisive FAIL. There were no non-finite log fields or chi-glass alarms. The
+retained-bank audit was directionally positive but weak: matched-minus-wrong
++0.01464 (the narrow protocol bar passes), matched-minus-none +0.01742,
+positive-gain fraction 0.375, selective-positive fraction 0.333; the audit's
+conservative aggregate fails. This does not demonstrate selective memory.
+
+The no-HCM extension exposed a checkpoint-fidelity defect. It was externally
+terminated after step 2,950 (last exact checkpoint 2,500); the old checkpoint
+did not carry Python/NumPy/Torch RNG states, while full chi-clock geometry lived
+only in overwritten sidecars. A second resume from 2,500 produced a different
+phase sequence and was stopped. Its artifacts are preserved under
+`runs/mem_repl_nohcm/` with `INVALIDATED.md` and cannot enter the matched-arm
+comparison. Since the bars are conjunctive, the exact memory arm's gross L1
+miss already proves the replication FAIL; no further invalid control compute
+was spent.
+
+Future checkpoints now include every RNG stream plus full coarse/fine chi-clock
+state; no-HCM resume handles null memory state; the relaunch wrapper requires a
+readable exact target rather than treating checkpoint errors as completion.
+Coarse HCM is retired for this stack. With pol1 also failed, the remaining
+licensed brain slice is dynamics only. Reports:
+`mem_repl_hcm_causal_step8000.json`,
+`night6_replication_verdict_20260905.json`, and the preserved incomplete report.
+
+### Dynamics return: obsolete d_s gate retired; DYN1 frozen before execution (2026-09-05)
+
+The remaining `p5_intrinsic_resilience` gate still used point-cloud `d_s<=2`
+as a viability threshold despite the corrected CDT no-identification result.
+That pass path is now retired and fails closed. It still reports finite/scale
+telemetry, but hard clamp plus tanh can supply those numerics without learned
+resilience.
+
+`docs/dynamics_resilience_protocol.md` pre-registers DYN1 before any new
+trajectory: 16 fixed seeds, frozen live milestone, identical no-input
+control/50%-norm-kick clones, 128 warm + 256 unassisted recovery steps, final-64
+regime features, leave-one-seed-out robust control envelopes, and an
+architecture-matched random-init comparator. A trained result requires >=15/16
+recoveries and a Wilson interval strictly above random initialization, with no
+heartbeat/HCM/input and <1% clamp saturation. This can establish only a learned
+dynamics prerequisite, never recover P1 or license broader self-organization
+claims.
+
+### DYN1 verdict: trained resilience does not beat architecture (2026-09-05)
+
+The hash-locked milestone completed the registered 16-seed DYN1 comparison.
+All 64 control/perturbed trajectories were finite, every perturb branch was
+restored to a bit-identical post-warm state before its deterministic kick, and
+none failed the clamp-saturation guard. The trained core recovered on **12/16**
+seeds (Wilson 95% CI `[0.5050, 0.8982]`): seeds 127/149/163 missed the
+one-step-displacement envelope and seed 109 missed effective rank. The same
+architecture at independent random initialization recovered on **14/16**
+(`[0.6398, 0.9650]`): one state-norm miss and one effective-rank miss.
+
+Both discriminative bars fail: trained is below the required 15/16, and its
+Wilson lower bound is not above random's upper bound. DYN1 is therefore
+**FAIL**. Current bounded return is not distinguishable from architectural
+containment; no intrinsic-resilience pillar claim or causal component ablation
+is licensed. `dyn1_resilience_20260905.json` contains all per-seed features,
+leave-one-out envelopes, checks, and bar decisions.
+
+One execution safeguard mattered: an initial optimized implementation replayed
+control and perturb branches sequentially without restoring the recurrent
+spectral-normalization iteration buffers. Its own pre-kick identity field
+failed 16/16, so that output was rejected before adjudication. The corrected
+runner snapshots/restores runtime plus both spectral buffers and has a
+regression test for exact pre-kick equality. Only the corrected 12/16 versus
+14/16 report is evidence.
+
+### POL2 opens: non-trivial body and state-mediated causal ruler (2026-09-05)
+
+Pol1's world audit found a second validity defect beyond its failed seeded
+initialization: fixed HARVEST survives 256/256 ticks on every tested V1 world.
+That ruler can certify a constant action as homeostatic policy. The replacement
+`EmbodiedWorldV2` was calibrated before any new policy training on 64 held-out
+seeds: fixed rest, fixed harvest, and uniform random each survive 0/64, while a
+transparent scan controller survives 64/64 and must use movement, harvest,
+regulation, and rest. The task is non-trivial but demonstrably solvable.
+
+`docs/pol2_state_homeostasis_protocol.md` freezes POL2. Observations must pass
+through Zeus's recurrent `S`; the action head receives no direct observation.
+Two independent seeded trainings must match every row and tensor exactly.
+Held-out evaluation then requires >=80% survival, clear reward and Wilson
+separation from random, >=30-point survival losses under fresh-policy,
+zero-state, coordinate-permuted-state, and action-permutation controls, matched
+state-intervention action flips, and a non-degenerate action repertoire. This
+is the first action experiment whose pass ruler demands both consequential
+world success and causal internal-state dependence. No policy run had launched
+when the conditions and implementation hashes were recorded.
+
+### POL2 verdict: reproducible state-sensitive learning, insufficient survival (2026-09-05)
+
+Twin POL2 trainings matched exactly: initial and final canonical policy hashes,
+all 150 training rows, every action-head tensor, and complete artifact-file
+hash. The learned policy is not a fixed-action reflex. On held-out decisions,
+zeroing state flips 59.69% of greedy choices and fixed coordinate permutation
+flips 79.10%; it uses harvest 40.31%, movement 26.21%, regulate 31.20%, rest
+2.28%, and speech 0%. Training curves improve materially (first-ten to
+last-ten reward 1.5147 -> 3.3081, survival .1625 -> .625, age 91.46 -> 115.33).
+
+The registered functional result is nevertheless **FAIL**. On 64 unseen
+256-tick worlds, normal survives only 1/64 (Wilson CI [.00276,.08334]), mean
+age 159.89 and reward 3.8493. Fresh, zero-state, permuted-state, and
+action-permuted controls each survive 0/64, so the policy has a large lifespan
+advantage but cannot meet >=80% survival or any >=30-point survival-difference
+bar. Mean reward also misses random+4. `pol2_endogenous_action_verdict_20260905.json`
+publishes every episode, action count, intervention aggregate, and bar. The
+result establishes trainability and causal state use, not endogenous viable
+action; embodiment remains an affordance substrate.
+
+### POL3 pre-registration: continuing viability instead of telescoping correction (2026-09-05)
+
+The POL2 survival curve makes its defect local: 58/64 held-out worlds remain
+alive at the trained 128-tick horizon, 31 at 160, 10 at 192, and 1 at 256.
+Post-hoc terminal replay attributes 56 deaths to energy and 7 to integrity;
+the dominant late loop spends energy on repeated regulation. The reward's
+homeostatic-improvement term telescopes while gamma .97 sees only ~33 ticks,
+so immediate correction can outrank the delayed cost that kills the body.
+
+`docs/pol3_continuing_viability_protocol.md` freezes the targeted repair before
+training. It starts from the exact reproducible POL2 policy, charges .08 times
+current homeostatic error on every tick, raises gamma to .995, and trains on
+256-tick worlds. The state-only path, frozen core/body projection, causal
+interventions, and repertoire bars remain unchanged. A new disjoint 512-tick
+calibration has fixed/rest/harvest/random at 0/64 and oracle at 64/64. POL3
+must reproduce twin tensors exactly, keep >=90% alive through 256 and >=80%
+through 512, beat its POL2 parent plus zero/permuted/action controls by 30
+survival points, improve reward by >2, and retain direct state sensitivity.
+This is a causal credit-assignment test, not a longer run licensed after seeing
+the result.
+
+### POL3 verdict: reward-only repair degrades the causal policy (2026-09-05)
+
+POL3 twins matched their POL2 parent start, every training row/tensor, final
+policy hash, and complete artifact file exactly. The registered intervention
+then failed worse than its parent: on 64 unseen 512-tick worlds, POL3 survives
+0/64, none reaches tick 256, mean age 71.67, reward -6.0119; the unchanged POL2
+parent also survives 0/64 but reaches mean age 171.92 and reward -4.8872.
+POL3 deaths are 43 energy, 15 integrity, 6 combined. It shifts to 59.25%
+harvest, removes rest entirely, and retains state sensitivity (zero-state flips
+40.75%, coordinate permutation 74.60%). State causality without viable function
+still fails. Continuing error rent + long discount is retired; further scalar
+reward/horizon tuning is not licensed.
+
+### Amplified CDT audited: functional projection, not gamma, becomes the design lever (2026-09-05)
+
+The separate canonical Configuration Drift Theory worktree now contains a
+mathematically narrowed theorem, exhaustive failure envelope, preregistered
+six-suite campaign, two corrective follow-ups, path-level evidence, and an
+integrity manifest. At the reviewed snapshot all 19 registered tests pass and
+all eight preregistration/code/result hashes match. The strongest causal
+simulation is hidden-coordinate drift in D=2 preserving a recurrent D=1
+projection; high dimension and self-repulsion are not necessary. Local-time
+repulsion remains finite-horizon support through gamma=10, not an asymptotic
+theorem.
+
+`docs/cdt_amplification_implications.md` ports the consequences without making
+CDT the hero project. Zeus must predeclare a function-preserving projection and
+measure viability separately. This confirms the retired d_s gate, explains why
+finite HCM prototypes need not help prediction, and blocks using novelty or
+repulsion as pillar evidence. The next mechanism direction is a learned
+low-dimensional viability quotient V, causally and predictively validated,
+while full S remains free to drift. That is a new representation mechanism,
+not another reward sweep, and is not yet a demonstrated capability.
+
+### QV0 pre-registration: test the viability projection before policy (2026-09-05)
+
+`docs/qv0_viability_quotient_protocol.md` freezes the first CDT-amplified
+mechanism test. A 12-dimensional recurrent quotient receives current body
+signals, observed change, previous action, and its own prior state; a decoder
+must predict the next body observation from the quotient plus candidate action
+with no direct sensor shortcut. Uniform random behavior supplies fixed training
+trajectories, so QV0 contains no oracle or learned policy.
+
+Twin training, exact data replay, held-out prediction beyond persistence,
+wrong-action degradation, zero/shuffled-quotient degradation, homeostatic-error
+accuracy, and non-collapse are all mandatory. Only a full pass licenses a new
+quotient-based policy protocol. QV0 itself cannot satisfy viability, action,
+CDT recurrence, or any self-organization pillar. No full QV0 training had run
+when the code hashes, seeds, controls, and bars were recorded.
