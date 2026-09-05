@@ -2527,3 +2527,35 @@ accuracy, and non-collapse are all mandatory. Only a full pass licenses a new
 quotient-based policy protocol. QV0 itself cannot satisfy viability, action,
 CDT recurrence, or any self-organization pillar. No full QV0 training had run
 when the code hashes, seeds, controls, and bars were recorded.
+
+### Why the base emergences exist: four mechanistic probes (2026-09-05)
+
+Predictions stated before running; scripts in
+`C:\Users\Anand\AppData\Local\Temp\opencode\` (`why12.py`, `why3.py`,
+`why4.py`), all eval-only on frozen artifacts:
+
+E1 self-necessity CONFIRMED mechanically: S-path carries ~64% of readout
+logit variance (token path 37%); freezing dynamics cuts unique bigrams
+39->28; identical histories from different S inits disagree 100% (1.000).
+The readout is majority-owned by state and fully determined by its start:
+ablate the self and there is literally nothing left to say. Serves the QV0
+direction — a quotient reading S reads the load-bearing variable.
+E2 tau swing REJECTED in the live artifact: corr(tau,||err||)=+0.114 (not
+negative), corr(tau,||u||)=-0.027, tau pinned at floor 4.0 with std 0.013
+driven / 0.072 free. The celebrated 8x gating does not exist in the deployed
+brain; it belonged to a dead training lineage. Consequence: the live core
+has no timescale hierarchy, so QV0's separately-slow quotient is new
+machinery, not duplication.
+E3 orbital clock owned by the forcing: coherent 37-step cycle survives
+no-slow (lockfrac 0.74) and flat-tau (period 37->50), but DIES with
+repulsion off (no finite period). The "glider" is an extrinsic oscillator —
+repulsion wake-ratcheting in the history/wall landscape, fixed code, not
+learned weights. Converges with amplified CDT: stop reading dynamics
+geometry as mind; build the functional projection instead.
+E4 POL2 sensitivity = recurrence dependence, not body-info routing: matched
+fresh-vs-recurrent flip 0.920 (n=301); fresh-info-only and never-sense both
+collapse to identical reward (-1.261) and zero survival. Double dissociation:
+frozen S without sensation dies, fresh sensation without recurrence dies,
+only integrated history lives. This is the empirical license for QV0's
+recurrent quotient — integration itself is the organ, measured before the
+quotient was proposed.
