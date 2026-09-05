@@ -21,10 +21,10 @@ from core.embodiment import EmbodiedWorldV2
 from core.viability_quotient import ViabilityQuotient, homeostatic_error_tensor
 
 
-TRAINING_VERSION = "qv0-predictive-quotient-2026-09-05"
-DEFAULT_SEED = 20260931
-TRAIN_WORLD_SEED_BASE = 202640000
-TRAIN_ACTION_SEED_BASE = 202641000
+TRAINING_VERSION = "qv0r-confirmatory-quotient-2026-09-05"
+DEFAULT_SEED = 20260932
+TRAIN_WORLD_SEED_BASE = 202680000
+TRAIN_ACTION_SEED_BASE = 202681000
 DEFAULT_TRAJECTORIES = 384
 DEFAULT_HORIZON = 96
 DEFAULT_EPOCHS = 120
@@ -217,7 +217,7 @@ def main() -> int:
         for name, value in model.state_dict().items()
     }
     payload = {
-        "kind": "qv0_viability_quotient",
+        "kind": "qv0r_viability_quotient",
         "training_version": TRAINING_VERSION,
         "world_version": EmbodiedWorldV2.VERSION,
         "seed": DEFAULT_SEED,

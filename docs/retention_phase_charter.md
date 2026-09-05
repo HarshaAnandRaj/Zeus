@@ -34,16 +34,18 @@ criterion is recency, volume, or human curation are rejected with it.
 
 ## Sub-goals (ordered; each pre-registered separately before compute)
 
-1. **QV0 viability quotient** (active, pre-registered). A slow recurrent
+1. **QV0 viability quotient** (exposed calibration positive but unlicensed;
+   QV0R clean confirmation pending committed pre-registration). A slow recurrent
    quotient integrating body signals with no sensor shortcut; must predict
    held-out observations beyond persistence with degradation under
    wrong-action and zero/shuffled-quotient controls. Licenses quotient-based
    policy on pass. *Retention reading: the first substrate designed to keep
    rather than merely react.*
-2. **Night6 memory-CE replication** (active, pre-registered). Coarse memory
+2. **Night6 memory-CE replication** (completed FAIL; route closed). Coarse memory
    must beat no-memory on val CE with selective causal audit. *Retention
    reading: tests whether kept structure helps prediction.*
-3. **Embodiment policy lineage** (POL3 active). Viability bars on unseen
+3. **Embodiment policy lineage** (POL3 completed FAIL; quotient lineage is
+   contingent on QV0R PASS). Viability bars on unseen
    worlds with state-sensitivity controls. *Retention reading: none yet —
    every run starts from scratch. On pass, the lineage owes a heredity
    design (see 5).*

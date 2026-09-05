@@ -13,7 +13,10 @@ from training.train_viability_quotient import (
     train_quotient,
     trajectory_sha256,
 )
-from training.evaluate_viability_quotient import evaluate
+from training.evaluate_viability_quotient import (
+    evaluate,
+    paired_bootstrap_ratio_intervals,
+)
 
 
 class ViabilityQuotientTests(unittest.TestCase):
@@ -104,6 +107,19 @@ class ViabilityQuotientTests(unittest.TestCase):
              "reset_history", "persistence", "training_mean"},
         )
         self.assertGreaterEqual(result["quotient"]["mean_coordinate_std"], 0.0)
+        intervals = paired_bootstrap_ratio_intervals(
+            result, samples=100, seed=801
+        )
+        self.assertEqual(
+            set(intervals),
+            {"observation_mse_over_persistence",
+             "observation_mse_over_wrong_action",
+             "observation_mse_over_zero_quotient",
+             "observation_mse_over_shuffled_quotient",
+             "homeostatic_error_mae_over_persistence"},
+        )
+        self.assertTrue(all(row["low"] <= row["high"]
+                            for row in intervals.values()))
 
 
 if __name__ == "__main__":

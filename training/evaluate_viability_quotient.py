@@ -36,12 +36,14 @@ from training.train_viability_quotient import (
 )
 
 
-CONTRACT_VERSION = "qv0-heldout-causal-gate-2026-09-05"
-EVAL_WORLD_SEED_BASE = 202650000
-EVAL_ACTION_SEED_BASE = 202651000
+CONTRACT_VERSION = "qv0r-heldout-causal-gate-2026-09-05"
+EVAL_WORLD_SEED_BASE = 202690000
+EVAL_ACTION_SEED_BASE = 202691000
 EVAL_TRAJECTORIES = 192
 EVAL_HORIZON = 128
 WRONG_ACTION_OFFSET = 1
+BOOTSTRAP_SEED = 20260933
+BOOTSTRAP_SAMPLES = 10000
 
 
 def load_artifact(path: pathlib.Path):
@@ -53,7 +55,7 @@ def load_artifact(path: pathlib.Path):
     }
     if set(payload) != required:
         raise ValueError("unexpected QV0 artifact keys")
-    if payload["kind"] != "qv0_viability_quotient":
+    if payload["kind"] != "qv0r_viability_quotient":
         raise ValueError("wrong artifact kind")
     if payload["training_version"] != TRAINING_VERSION:
         raise ValueError("training version mismatch")
@@ -104,13 +106,18 @@ def evaluate(model, trajectories, training_target_mean, *, device="cpu"):
     batch_size, max_steps = actions.shape
     state = model.initial_state(batch_size, device=device)
     state_rows = []
-    squared = {
-        key: 0.0 for key in (
+    condition_names = (
             "normal", "zero_quotient", "shuffled_quotient", "wrong_action",
             "reset_history", "persistence", "training_mean",
-        )
+    )
+    squared = {
+        key: torch.zeros(batch_size, dtype=torch.float64, device=device)
+        for key in condition_names
     }
-    error_absolute = {key: 0.0 for key in squared}
+    error_absolute = {
+        key: torch.zeros(batch_size, dtype=torch.float64, device=device)
+        for key in condition_names
+    }
     count = 0
     previous_observation = observations[:, 0]
     target_mean = torch.as_tensor(
@@ -143,21 +150,39 @@ def evaluate(model, trajectories, training_target_mean, *, device="cpu"):
         mask = active.to(target.dtype)
         target_error = homeostatic_error_tensor(target)
         for key, prediction in predictions.items():
-            squared[key] += float(
-                ((prediction - target).pow(2).mean(-1) * mask).sum().cpu()
-            )
-            error_absolute[key] += float(
-                ((homeostatic_error_tensor(prediction) - target_error).abs()
-                 * mask).sum().cpu()
-            )
+            squared[key] += (
+                (prediction - target).pow(2).mean(-1) * mask
+            ).to(torch.float64)
+            error_absolute[key] += (
+                (homeostatic_error_tensor(prediction) - target_error).abs()
+                * mask
+            ).to(torch.float64)
         state_rows.append(state[active].detach().cpu())
         count += int(active.sum().item())
         previous_observation = observations[:, tick]
     states = torch.cat(state_rows, dim=0)
-    mse = {key: value / count for key, value in squared.items()}
+    mse = {key: float(value.sum().cpu()) / count
+           for key, value in squared.items()}
     error_mae = {
-        key: value / count for key, value in error_absolute.items()
+        key: float(value.sum().cpu()) / count
+        for key, value in error_absolute.items()
     }
+    lengths_cpu = lengths.detach().cpu().to(torch.float64)
+    per_trajectory = []
+    for index in range(batch_size):
+        steps = float(lengths_cpu[index])
+        per_trajectory.append({
+            "index": index,
+            "transitions": int(steps),
+            "observation_mse": {
+                key: float(value[index].detach().cpu()) / steps
+                for key, value in squared.items()
+            },
+            "homeostatic_error_mae": {
+                key: float(value[index].detach().cpu()) / steps
+                for key, value in error_absolute.items()
+            },
+        })
     return {
         "transition_count": count,
         "observation_mse": mse,
@@ -167,6 +192,56 @@ def evaluate(model, trajectories, training_target_mean, *, device="cpu"):
             "minimum_coordinate_std": float(states.std(dim=0, unbiased=False).min()),
             "mean_norm": float(states.norm(dim=-1).mean()),
         },
+        "per_trajectory": per_trajectory,
+    }
+
+
+def paired_bootstrap_ratio_intervals(metrics, *, samples=BOOTSTRAP_SAMPLES,
+                                     seed=BOOTSTRAP_SEED):
+    """Cluster bootstrap over held-out trajectories for paired error ratios."""
+    rows = metrics["per_trajectory"]
+    count = len(rows)
+    generator = torch.Generator("cpu").manual_seed(seed)
+    draws = torch.randint(count, (samples, count), generator=generator)
+    transitions = torch.tensor(
+        [row["transitions"] for row in rows], dtype=torch.float64
+    )
+
+    def interval(metric_name, control):
+        normal = torch.tensor([
+            row[metric_name]["normal"] * row["transitions"] for row in rows
+        ], dtype=torch.float64)
+        baseline = torch.tensor([
+            row[metric_name][control] * row["transitions"] for row in rows
+        ], dtype=torch.float64)
+        sampled_steps = transitions[draws].sum(dim=1).clamp_min(1.0)
+        normal_mean = normal[draws].sum(dim=1) / sampled_steps
+        baseline_mean = baseline[draws].sum(dim=1) / sampled_steps
+        ratios = normal_mean / baseline_mean.clamp_min(1e-15)
+        return {
+            "estimate": float(
+                normal.sum() / baseline.sum().clamp_min(1e-15)
+            ),
+            "low": float(torch.quantile(ratios, 0.025)),
+            "high": float(torch.quantile(ratios, 0.975)),
+        }
+
+    return {
+        "observation_mse_over_persistence": interval(
+            "observation_mse", "persistence"
+        ),
+        "observation_mse_over_wrong_action": interval(
+            "observation_mse", "wrong_action"
+        ),
+        "observation_mse_over_zero_quotient": interval(
+            "observation_mse", "zero_quotient"
+        ),
+        "observation_mse_over_shuffled_quotient": interval(
+            "observation_mse", "shuffled_quotient"
+        ),
+        "homeostatic_error_mae_over_persistence": interval(
+            "homeostatic_error_mae", "persistence"
+        ),
     }
 
 
@@ -217,6 +292,7 @@ def main() -> int:
     metrics = evaluate(
         model, heldout, left["target_observation_mean"], device=args.device
     )
+    uncertainty = paired_bootstrap_ratio_intervals(metrics)
     mse = metrics["observation_mse"]
     error = metrics["homeostatic_error_mae"]
     bars = {
@@ -229,19 +305,19 @@ def main() -> int:
             == right["training_data_sha256"]
         ),
         "heldout_mse_beats_persistence_by_25pct": (
-            mse["normal"] <= 0.75 * mse["persistence"]
+            uncertainty["observation_mse_over_persistence"]["high"] <= 0.75
         ),
         "correct_action_beats_wrong_action_by_20pct": (
-            mse["normal"] <= 0.80 * mse["wrong_action"]
+            uncertainty["observation_mse_over_wrong_action"]["high"] <= 0.80
         ),
         "quotient_beats_zero_by_20pct": (
-            mse["normal"] <= 0.80 * mse["zero_quotient"]
+            uncertainty["observation_mse_over_zero_quotient"]["high"] <= 0.80
         ),
         "quotient_beats_shuffle_by_10pct": (
-            mse["normal"] <= 0.90 * mse["shuffled_quotient"]
+            uncertainty["observation_mse_over_shuffled_quotient"]["high"] <= 0.90
         ),
         "homeostatic_error_beats_persistence": (
-            error["normal"] < error["persistence"]
+            uncertainty["homeostatic_error_mae_over_persistence"]["high"] < 1.0
         ),
         "quotient_noncollapsed_mean_std_at_least_0_02": (
             metrics["quotient"]["mean_coordinate_std"] >= 0.02
@@ -253,7 +329,7 @@ def main() -> int:
         ),
     }
     report = {
-        "kind": "qv0_viability_quotient_verdict",
+        "kind": "qv0r_viability_quotient_verdict",
         "contract_version": CONTRACT_VERSION,
         "world_version": EmbodiedWorldV2.VERSION,
         "left_artifact": str(args.left.resolve()),
@@ -270,6 +346,12 @@ def main() -> int:
             "policy_training": False,
         },
         "metrics": metrics,
+        "uncertainty": {
+            "method": "paired trajectory-cluster bootstrap",
+            "seed": BOOTSTRAP_SEED,
+            "samples": BOOTSTRAP_SAMPLES,
+            "ratio_ci95": uncertainty,
+        },
         "bars": bars,
         "pass": all(bars.values()),
         "scope": (
