@@ -34,8 +34,8 @@ criterion is recency, volume, or human curation are rejected with it.
 
 ## Sub-goals (ordered; each pre-registered separately before compute)
 
-1. **QV0 viability quotient** (exposed calibration positive but unlicensed;
-   QV0R clean confirmation pending committed pre-registration). A slow recurrent
+1. **QV0 viability quotient** (QV0 exposed calibration unlicensed; QV0R
+   completed formal PASS; QV1 inheritance/policy registration licensed). A slow recurrent
    quotient integrating body signals with no sensor shortcut; must predict
    held-out observations beyond persistence with degradation under
    wrong-action and zero/shuffled-quotient controls. Licenses quotient-based

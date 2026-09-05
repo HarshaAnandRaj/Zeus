@@ -1,6 +1,7 @@
 # QV0R protocol: clean confirmation of the viability quotient
 
-Status: **pre-registration candidate; must be committed before compute.**
+Status: **completed formal PASS on 2026-09-05.** Pre-registered in commit
+`3f96381` before compute; verdict telemetry recorded below.
 
 ## Question
 
@@ -110,4 +111,57 @@ finite-horizon predictive retention substrate in the registered body/world.
 
 At verdict, all six questions in `docs/pre_registration_template.md` must be
 answered explicitly before the result enters an evidence column.
+
+## Verdict
+
+The two independent full trainings match in every required invariant and have
+canonical quotient-state hash
+`bae914c2095c0b55fb334aa4cbb4e42193f449cc4d51a672e3e6620878daada4`.
+On 13,989 transitions from the 192 unseen worlds, normal observation MSE is
+`0.0031910` versus persistence `0.0050907`, wrong action `0.0072966`, zero
+quotient `0.0540501`, shuffled quotient `0.0643066`, and reset history
+`0.0095119`. Normal homeostatic-error MAE is `0.0316530` versus persistence
+`0.0638209`. Mean coordinate standard deviation is `0.25478` (minimum
+`0.12775`).
+
+The paired 95% ratio intervals are:
+
+| Ratio | estimate | 95% CI | bar |
+|---|---:|---:|---:|
+| observation MSE / persistence | 0.62683 | [0.61511, 0.63875] | upper <= 0.75 |
+| observation MSE / wrong action | 0.43733 | [0.42170, 0.45272] | upper <= 0.80 |
+| observation MSE / zero quotient | 0.05904 | [0.05539, 0.06295] | upper <= 0.80 |
+| observation MSE / shuffled quotient | 0.04962 | [0.04552, 0.05401] | upper <= 0.90 |
+| homeostatic-error MAE / persistence | 0.49597 | [0.47834, 0.51401] | upper < 1.0 |
+
+All ten bars pass. Full per-trajectory telemetry is in
+`zeus_sandbox/universe/reports/qv0r_viability_quotient_verdict_20260905.json`
+(SHA-256
+`24a4aed23119a907721202da9e8cbb4834163edd2ca7ce36a1270056777d1bba`).
+
+## Mandatory emergence grading
+
+1. **Designed setup: yes.** A recurrent predictor was explicitly optimized for
+   this function. This is an engineering result, not emergent agency.
+2. **Unprogrammed setpoint: partial, insufficient for emergence.** No quotient
+   coordinate values or temporal code were specified, but the predictive
+   objective and success criterion were. The learned representation is not a
+   hand-written state table; the capability remains designed.
+3. **Selection artifact: controlled but not absent.** The architecture was
+   retained after the exposed positive calibration. QV0R used wholly unseen
+   seeds and confidence-bound bars, so it confirms generalization of the
+   selected architecture; it does not turn model selection into emergence.
+4. **Theory-predicted anyway: mostly yes at the engineering level.** A small
+   recurrent network can be expected to learn this deterministic world. The
+   amplified CDT motivated predeclaring a functional projection but did not
+   predict QV0R's success or establish recurrence.
+5. **Substrate-level only.** The result bears on the retention substrate and
+   licenses QV1. It passes no self-organization pillar and does not exit the
+   retention phase.
+6. **Survives the current audit: yes.** Exact twins, unseen draws, direct
+   causal controls, paired confidence intervals, non-collapse, and full
+   telemetry all satisfy the committed ruler.
+
+Final label: **PASS (predictive retention substrate; engineering evidence).**
+Per the precommit, QV1 policy/inheritance registration is now licensed.
 
