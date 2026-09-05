@@ -1,6 +1,6 @@
 import unittest
 
-from core.embodiment import Action, EmbodiedWorld
+from core.embodiment import Action, EmbodiedWorld, EmbodiedWorldV2
 
 
 class EmbodimentTests(unittest.TestCase):
@@ -32,3 +32,18 @@ class EmbodimentTests(unittest.TestCase):
         start = world.body.energy
         world.step(Action.SPEAK)
         self.assertLess(world.body.energy, start)
+
+    def test_v2_is_deterministic(self):
+        left, right = EmbodiedWorldV2(seed=21), EmbodiedWorldV2(seed=21)
+        actions = [Action.HARVEST, Action.MOVE_RIGHT, Action.REGULATE, Action.REST]
+        self.assertEqual([left.step(action) for action in actions],
+                         [right.step(action) for action in actions])
+
+    def test_v2_fixed_harvest_cannot_sustain_one_cell(self):
+        world = EmbodiedWorldV2(seed=20262001)
+        for _ in range(256):
+            effect = world.step(Action.HARVEST)
+            if not effect["viable"]:
+                break
+        self.assertFalse(world.viable())
+        self.assertLess(world.body.age, 256)

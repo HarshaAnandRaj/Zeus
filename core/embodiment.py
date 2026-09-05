@@ -139,3 +139,96 @@ class EmbodiedWorld:
         return ((max(0.0, 0.65 - energy) / 0.65) +
                 (max(0.0, 0.80 - integrity) / 0.80) +
                 abs(temperature - 0.50) / 0.50)
+
+
+class EmbodiedWorldV2(EmbodiedWorld):
+    """Non-trivial homeostatic world for learned, state-mediated control.
+
+    V1 accidentally admits HARVEST as a universal fixed-action solution: its
+    local renewal roughly pays basal metabolism, ambient temperature never
+    becomes damaging, and integrity rarely needs repair.  V2 keeps the same
+    five observable quantities and six material actions while making energy,
+    temperature, integrity, and spatial resource depletion independently
+    consequential.  A viable controller must harvest, move, regulate, and
+    sometimes rest; no host supplies those choices.
+    """
+
+    VERSION = "embodied-world-v2-2026-09-05"
+
+    def __init__(self, *, cells=9, seed=20260905):
+        if cells < 3 or cells % 2 == 0:
+            raise ValueError("cells must be odd and at least 3")
+        self.cells = cells
+        rng = random.Random(seed)
+        self.capacity = [0.35 + 0.45 * rng.random() for _ in range(cells)]
+        self.resources = [cap * (0.55 + 0.25 * rng.random())
+                          for cap in self.capacity]
+        self.body = Body(
+            position=rng.randrange(cells),
+            energy=0.65 + 0.15 * rng.random(),
+            integrity=0.85 + 0.10 * rng.random(),
+            temperature=0.35 + 0.30 * rng.random(),
+        )
+        self.ambient_phase = 30.0 * rng.random()
+        self.step_count = 0
+
+    def step(self, action: Action | int):
+        try:
+            action = Action(int(action))
+        except (TypeError, ValueError) as exc:
+            raise ValueError("unknown embodied action") from exc
+        b = self.body
+        before = self.observation()
+
+        # A stationary cell cannot renew enough food to pay metabolism.  The
+        # whole field can, so spatial exploration rather than starvation is the
+        # solvable route.
+        b.energy -= 0.018
+        ambient = 0.50 + 0.42 * math.sin(
+            (self.step_count + self.ambient_phase) / 23.0
+        )
+        b.temperature += 0.10 * (ambient - b.temperature)
+
+        if action == Action.REST:
+            if b.energy > 0.25 and abs(b.temperature - 0.50) < 0.25:
+                b.integrity += 0.018
+            b.temperature += 0.05 * (0.50 - b.temperature)
+        elif action == Action.MOVE_LEFT:
+            b.position = max(0, b.position - 1)
+            b.energy -= 0.008
+        elif action == Action.MOVE_RIGHT:
+            b.position = min(self.cells - 1, b.position + 1)
+            b.energy -= 0.008
+        elif action == Action.HARVEST:
+            amount = min(0.13, self.resources[b.position])
+            self.resources[b.position] -= amount
+            b.energy += 0.80 * amount
+            if amount < 0.03:
+                b.energy -= 0.006
+        elif action == Action.REGULATE:
+            b.energy -= 0.012
+            b.temperature += 0.45 * (0.50 - b.temperature)
+            if abs(b.temperature - 0.50) < 0.18 and b.energy > 0.25:
+                b.integrity += 0.004
+        elif action == Action.SPEAK:
+            b.energy -= 0.006
+
+        starvation = max(0.0, 0.25 - b.energy)
+        thermal_damage = max(0.0, abs(b.temperature - 0.50) - 0.18)
+        b.integrity -= 0.002 + 0.10 * starvation + 0.12 * thermal_damage
+        for index, capacity in enumerate(self.capacity):
+            self.resources[index] += 0.008 * (capacity - self.resources[index])
+            self.resources[index] = self._clip(self.resources[index])
+        b.energy = self._clip(b.energy)
+        b.integrity = self._clip(b.integrity)
+        b.temperature = self._clip(b.temperature)
+        b.age += 1
+        self.step_count += 1
+        after = self.observation()
+        return {
+            "action": action.name.lower(), "before": before, "after": after,
+            "homeostatic_error_before": self.homeostatic_error_for(before),
+            "homeostatic_error_after": self.homeostatic_error(),
+            "viable": self.viable(),
+            "world_version": self.VERSION,
+        }

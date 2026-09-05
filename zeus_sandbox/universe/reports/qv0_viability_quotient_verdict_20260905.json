@@ -1,0 +1,58 @@
+{
+  "kind": "qv0_viability_quotient_verdict",
+  "contract_version": "qv0-heldout-causal-gate-2026-09-05",
+  "world_version": "embodied-world-v2-2026-09-05",
+  "left_artifact": "C:\\Users\\Anand\\Desktop\\Projects\\Zeus\\zeus_sandbox\\universe\\runs\\qv0_a.pt",
+  "right_artifact": "C:\\Users\\Anand\\Desktop\\Projects\\Zeus\\zeus_sandbox\\universe\\runs\\qv0_b.pt",
+  "state_sha256": "6a48e979bb14c85ae7eafbddde0671df39f33c78486d0452aafdaff16a53d89d",
+  "training_data_sha256": "455c73ef446a57abdac1870c6eb4351f7ef6d6c30f3bdffd7c3414b5d49c3d06",
+  "heldout_data_sha256": "b56d5d497086368a0581bf1e3be1f9014a4e324afb6d749843206a1f911560f5",
+  "evaluation": {
+    "world_seed_base": 202650000,
+    "action_seed_base": 202651000,
+    "trajectories": 192,
+    "horizon": 128,
+    "wrong_action_mapping": "(action + 1) mod 6",
+    "policy_training": false
+  },
+  "metrics": {
+    "transition_count": 13706,
+    "observation_mse": {
+      "normal": 0.002937002908019872,
+      "zero_quotient": 0.049485588778670854,
+      "shuffled_quotient": 0.06605959563086229,
+      "wrong_action": 0.007168105310384947,
+      "reset_history": 0.008022797321820544,
+      "persistence": 0.004949541212891673,
+      "training_mean": 0.04361186237312939
+    },
+    "homeostatic_error_mae": {
+      "normal": 0.02811426433328119,
+      "zero_quotient": 0.2915154921126578,
+      "shuffled_quotient": 0.3013653898350465,
+      "wrong_action": 0.06872372422951704,
+      "reset_history": 0.18746628748071154,
+      "persistence": 0.06326724519290211,
+      "training_mean": 0.3086741247195215
+    },
+    "quotient": {
+      "mean_coordinate_std": 0.26464810967445374,
+      "minimum_coordinate_std": 0.22645361721515656,
+      "mean_norm": 1.086348295211792
+    }
+  },
+  "bars": {
+    "exact_twin_parameters": true,
+    "initialization_exactly_reconstructed": true,
+    "training_data_exactly_replayed": true,
+    "heldout_mse_beats_persistence_by_25pct": true,
+    "correct_action_beats_wrong_action_by_20pct": true,
+    "quotient_beats_zero_by_20pct": true,
+    "quotient_beats_shuffle_by_10pct": true,
+    "homeostatic_error_beats_persistence": true,
+    "quotient_noncollapsed_mean_std_at_least_0_02": true,
+    "all_metrics_finite": true
+  },
+  "pass": true,
+  "scope": "Representation gate only. A pass licenses quotient-based policy training; it is not evidence of viability, agency, or a CDT theorem."
+}
