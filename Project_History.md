@@ -2124,6 +2124,31 @@ needs no mouth at all; (3) dynamics health under the corrected CDT audit.
 Permanently out of reach with this mouth: P4 causal expression + all
 legibility-gated pillars (the gate requires readable replies by construction).
 
+### CYC0 ceiling: viability-via-cycling exists, learnability is the gap (2026-09-06)
+
+Branch A tested as a ceiling first (`docs/cycle_ceiling_protocol.md`,
+`training/cycle_ceiling_sim.py`, scripted oracles only, 64 fresh worlds
+disjoint from all prior ranges, horizon 512): sweep_orbit **64/64**
+survival (CI [0.9434, 1.0], mean age 512.0), greedy_oracle 64/64, versus
+stationary_harvest 0/64 and uniform_random 0/64. Bar PASSED as written
+(≥32/64 with lower bound above stationary's upper). Report:
+`cycle_ceiling_20260906.json`.
+
+Reading, with the guardrails the protocol set: the world is solvable by
+cycling — even the dumb sweep (fixed 0→8→0 pattern, local thresholds, no
+lookahead, no model) never dies. So Branch A survives as mechanism: the
+learned policies' failure is LEARNABILITY, not possibility. The sweep uses
+movement (which learned policies use at 0%) and local-only sensing, which
+sharpens the indictment: what a hand sweep finds, 160 updates × 3 arms never
+approached. Also notable: stationary dies mixed (integrity 24 / energy 30 /
+both 10) while learned policies die ~all-energy — different failure
+signatures, consistent with harvest/regulate-loop starvation versus
+sit-and-rot. Per pre-commitment: the question is now whether any learner
+discovers orbits — new protocol, survival bars unchanged, cycles must cash
+out in viability. Note the stdout-redirect trap bitten again (PowerShell `>`
+writes UTF-16): report converted to UTF-8 and re-validated; future reports
+must write JSON from inside Python.
+
 ### SMC1 self-model closure sim: loop exists, fiction does not become real (2026-09-05)
 
 Minimal numpy test of the compression-plus-closure mechanism

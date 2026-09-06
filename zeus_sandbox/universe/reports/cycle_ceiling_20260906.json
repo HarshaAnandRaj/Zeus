@@ -1,0 +1,48 @@
+{
+ "stationary_harvest": {
+  "survival": 0,
+  "n": 64,
+  "wilson": [
+   0.0,
+   0.0566
+  ],
+  "mean_age": 47.11,
+  "causes": {
+   "integrity": 24,
+   "energy": 30,
+   "energy+integrity": 10
+  }
+ },
+ "sweep_orbit": {
+  "survival": 64,
+  "n": 64,
+  "wilson": [
+   0.9434,
+   1.0
+  ],
+  "mean_age": 512.0,
+  "causes": {}
+ },
+ "greedy_oracle": {
+  "survival": 64,
+  "n": 64,
+  "wilson": [
+   0.9434,
+   1.0
+  ],
+  "mean_age": 512.0,
+  "causes": {}
+ },
+ "uniform_random": {
+  "survival": 0,
+  "n": 64,
+  "wilson": [
+   0.0,
+   0.0566
+  ],
+  "mean_age": 70.2,
+  "causes": {
+   "energy": 64
+  }
+ }
+}
