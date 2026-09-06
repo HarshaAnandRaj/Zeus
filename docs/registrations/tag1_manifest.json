@@ -1,0 +1,25 @@
+{
+  "checkpoint": "runs/mem_repl_hcm/zeus_step8000.pt",
+  "artifacts": {
+    "runs/mem_repl_hcm/zeus_step8000.pt": "bc69872b52857bc8f062d39720929730c0da126811ea355d62713b457da202fa",
+    "runs/probe_pilot_v3_nomarkers_b/train_ids.npy": "d8cb7175bc18be9bacfdcd5284e6352f7e417a3db2e90a7e724857796fac0eb7",
+    "runs/probe_pilot_v3_nomarkers_b/val_ids.npy": "8e20a6cb71e8fa9cdc9760281cdd8dc0e89a7420572d3d4d6592b485e9b2477d",
+    "corpus/data/tokenizer/bpe_8192.json": "71d757da6223f61ad6572cc41528ec464fc8ae9b12b821f50496a3a434a5f4fc",
+    "core/model.py": "40b337a38cb7412fa4a84e2d502fbba938aea2aa9e8a2fa157a6c86510182ca5",
+    "core/hcm.py": "4e4f2b0748a99fcd707e76ae9eef8c828b6909ba342246ef89a0f574419df595",
+    "training/hcm_causal_metrics.py": "3e92e44153dbce79bde251b7322475bbb3d71f4c22f45b81e019729edd091d68",
+    "docs/authorship_tagged_recall_protocol.md": "d1cf2d13c7383fa259898bebb2ca70a8556aa11323276384579f523ad9c3aa35",
+    "docs/registrations/tag1_model_snapshot.patch": "8bc00a2d607b01965de773c47090e149295c62641999b7f547b4c2a94249c7f4",
+    "training/tagged_recall.py": "eb004f0850e628bd30b262c00447f4995092b1b37fa38be7a1ba00e38c4f8822",
+    "training/qualify_tagged_recall.py": "ed2e76705d532c6e954dee4221c2dbb15936359643b2b31f2321c8a490f908d9",
+    "training/test_tagged_recall.py": "5e969f491d2418f98e377f6475f37f2d6f28dfb615614078586b6cc59be6cbed"
+  },
+  "committed": [
+    "docs/authorship_tagged_recall_protocol.md",
+    "docs/registrations/tag1_model_snapshot.patch",
+    "training/tagged_recall.py",
+    "training/qualify_tagged_recall.py",
+    "training/test_tagged_recall.py",
+    "docs/registrations/tag1_manifest.json"
+  ]
+}
