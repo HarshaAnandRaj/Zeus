@@ -1,0 +1,30 @@
+{
+  "checkpoint": "runs/mem_repl_hcm/zeus_step8000.pt",
+  "artifacts": {
+    "runs/mem_repl_hcm/zeus_step8000.pt": "bc69872b52857bc8f062d39720929730c0da126811ea355d62713b457da202fa",
+    "runs/probe_pilot_v3_nomarkers_b/train_ids.npy": "d8cb7175bc18be9bacfdcd5284e6352f7e417a3db2e90a7e724857796fac0eb7",
+    "runs/probe_pilot_v3_nomarkers_b/val_ids.npy": "8e20a6cb71e8fa9cdc9760281cdd8dc0e89a7420572d3d4d6592b485e9b2477d",
+    "corpus/data/tokenizer/bpe_8192.json": "71d757da6223f61ad6572cc41528ec464fc8ae9b12b821f50496a3a434a5f4fc",
+    "core/model.py": "40b337a38cb7412fa4a84e2d502fbba938aea2aa9e8a2fa157a6c86510182ca5",
+    "core/hcm.py": "4e4f2b0748a99fcd707e76ae9eef8c828b6909ba342246ef89a0f574419df595",
+    "docs/sel1_utility_inheritance_protocol.md": "8aa672977c2eb146867b1dded52495b15cfee1033188a6f206c1d74942d1c400",
+    "docs/registrations/tag1_manifest.json": "9ae98fca066af23aaebf9c56493de0dc1fa12ee963d2777156a019c22a857e67",
+    "docs/registrations/tag1_model_snapshot.patch": "8bc00a2d607b01965de773c47090e149295c62641999b7f547b4c2a94249c7f4",
+    "training/tagged_recall.py": "eb004f0850e628bd30b262c00447f4995092b1b37fa38be7a1ba00e38c4f8822",
+    "training/qualify_tagged_recall.py": "ed2e76705d532c6e954dee4221c2dbb15936359643b2b31f2321c8a490f908d9",
+    "training/utility_memory.py": "271ddc132912a813eee0d2a2021706002af04f6c70f2ed9ba3a49bc7cd044ec6",
+    "training/run_utility_inheritance.py": "caac3ec35895fa92255c27f1dbd67b6d175f3747d804eb166278ec2c49df5cbd",
+    "training/test_utility_memory.py": "9caae12b1e69c5868dc9dadce23871992e641830e569d09ebe9ec9e3d01792a6"
+  },
+  "committed": [
+    "docs/sel1_utility_inheritance_protocol.md",
+    "docs/registrations/tag1_manifest.json",
+    "docs/registrations/tag1_model_snapshot.patch",
+    "training/tagged_recall.py",
+    "training/qualify_tagged_recall.py",
+    "training/utility_memory.py",
+    "training/run_utility_inheritance.py",
+    "training/test_utility_memory.py",
+    "docs/registrations/sel1_manifest.json"
+  ]
+}
