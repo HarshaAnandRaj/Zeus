@@ -2583,3 +2583,21 @@ write/eviction by independently measured causal utility, followed by
 cross-session inheritance. Do not fabricate provenance, remove the mouth
 detach, or switch optimizers to rescue TAG1. No retention loop or higher
 pillar has passed; the ultimate six-pillar and live-judge goal remains open.
+
+### SEL1 registered: utility selection into cross-session inheritance (2026-09-06)
+
+Following the TAG1-R VOID amendment, `443ec32` preregisters SEL1 before
+implementation. Instrument `b02d9b6` and synthetic assertion correction
+`fb391f6` precede registered model/data compute; all 11 mechanics tests pass.
+SEL1 creates an empty-bank generation of observed-token memories, estimates
+causal CE benefit on separate training blocks, retains only entries whose
+block-bootstrap lower bound exceeds .02 nats, and conditionally reloads
+those entries in a fresh process for held-out inherited-function tests.
+
+Current-HCM, recency, random, matched-count random, erased memory, and
+content-permuted controls must all lose to the selected bank at the frozen
+confidence bound. Held-out positive-utility retained fraction must also rise.
+Fewer than eight selected entries stops the route before endpoint exposure.
+Exact twins launched; no outcome is known at this entry. This is a proposed
+predictive retention loop, not a replacement for the autonomous six-pillar
+system and open human-judge objective.

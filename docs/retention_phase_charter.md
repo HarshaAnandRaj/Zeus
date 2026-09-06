@@ -225,8 +225,16 @@ authorship of speech, action, initiative, or phase exit alone.
 
 ### 3. Selective HCM write and eviction
 
-Status: **next active route after TAG1-R VOID; selection implementation and
-compute require their own committed protocol and instrument manifest.**
+Status: **SEL1 registered in `443ec32`, instrument frozen in `b02d9b6` with
+synthetic assertion correction `fb391f6`; generation/selection twins launched.
+No selection or inheritance verdict yet.**
+
+`docs/sel1_utility_inheritance_protocol.md` tests this subgoal and conditionally
+Subgoal 4 together: new observed-token candidates, causal utility confidence
+bounds, selective consolidation, fresh-process inheritance, independent dense
+prediction, and erased/content-permuted/current-HCM/random controls. Eleven
+synthetic mechanics tests passed before registered model/data compute. A
+generation or selection failure stops before the held-out endpoint.
 
 Goal: test selection at write time. HCM must keep entries because prior
 retrievals measurably improved prediction/function, not because they are recent
@@ -248,8 +256,9 @@ loss of that gain when consolidated entries are erased or permuted.
 
 ### 4. Cross-session closure and inheritance
 
-Status: **unbuilt; this is the phase-exit experiment if Subgoal 2 or 3 produces
-a working selector.**
+Status: **implemented as SEL1 generation B; execution is conditional on at
+least eight independently utility-qualified entries from generation A. No
+cross-session functional result yet.**
 
 Run at least two sessions/generations:
 
