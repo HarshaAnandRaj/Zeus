@@ -2711,6 +2711,22 @@ and causal empowerment are unavailable. Status NOT READY, diagnostic only;
 no template activation or continuation authority. See
 docs/capability_pilot_20260906.md. Strategic phase exit still waits on SEL1.
 
+### Approved capability measurement completion and provenance disclosure (2026-09-06)
+
+The user authorized adding missing measurement components and explicitly
+approved SEL1 launch plus constitutional ratification. CAP1 registration
+`4c52366` freezes read-only POL2/DYN1 trajectory capture, reuse of QV1's saved
+diagnostic trajectories, synthetic measurement checks, viable observation-grid
+coverage, covariance participation ratio, one-step viable action-channel
+capacity, and local action-response rank. This supplies measurements, not a
+new Zeus mechanism or automatic continuation authority. SEL1 and CAP1 execute
+independently on CPU; no SEL1 selection results are inspected mid-run.
+
+The old QV1 protocol contains a malformed 63-character source hash. The file
+matches registered commit c524baa after newline normalization, while the other
+seven listed hashes match literally. The defect is disclosed in the dated
+QV1 post-mortem; no frozen protocol is edited and no source drift is inferred.
+
 ### SEL1 authorized empty-directory recovery (2026-09-06T13:44:57.1659911Z)
 
 The user explicitly approved launch and constitutional ratification. Immediately before removal, resolved paths were direct non-reparse children of the canonical SEL1 base and had zero entries including hidden files. No evidence or phase output existed in either directory. The runner's refusal of existing directories remains unchanged; only these verified empty shells are removed nonrecursively.

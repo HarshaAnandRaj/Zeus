@@ -109,3 +109,18 @@ instrument hashes are embedded; inputs were rehashed unchanged after replay.
 These observations explain failure modes. They do not establish retention,
 viability, resilience, a pillar, emergence, or consciousness. SEL1 and the
 strategic retention-phase decision remain separate and pending.
+
+### Additional provenance audit
+
+The old QV1 protocol lists a 63-character digest for
+`training/train_viability_quotient.py` (one `b` missing). That literal string
+cannot serve as a valid SHA-256 identity. The other seven listed source hashes
+match current files. The affected file matches its content at QV1 registration
+commit `c524baa` after Git newline normalization; its current byte SHA-256 is
+`7441162532992394626704ff16bce754e58af33a68aabbbc8e1dd76accbe3ab5`.
+This is a disclosed registration-text defect, not evidence of source drift.
+The frozen protocol has not been edited, and this audit does not claim every
+literal QV1 hash passed. The diagnostic report independently records its
+actual source identities; CAP1 has its own committed full-hash manifest.
+The old formal report's FAIL label is preserved as historical evidence, not
+silently reissued as a newly perfected registration.
