@@ -434,3 +434,13 @@ This bounded authorization is now consumed and closed: CYC-F UNDECIDED and
 CYC1 FAIL, with exact twins and unchanged absolute survival bars. See
 `docs/cycle_forensics_and_representation_review_20260907.md`. No continuation
 was earned; the negative retention closure and six-pillar requirements stand.
+
+## 2026-09-07 CYC2 user-authorized elimination decision
+
+The user's subsequent explicit delegation authorizes exactly
+`docs/cyc2_information_elimination_protocol_20260907.md`, independently of the
+closed CYC1/CYC-F routes. Valid endpoints now use a prospective binary
+qualification decision: clear all frozen lower confidence bounds or fail to
+qualify, with no automatic additional budget. Historical UNDECIDED labels stay
+unchanged. Broken evidence remains invalid, never a functional negative.
+This single Class E authorization does not reopen retention or higher pillars.
