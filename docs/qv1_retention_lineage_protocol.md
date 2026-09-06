@@ -1,6 +1,7 @@
 # QV1 protocol: inherited quotient to viable function
 
-Status: **pre-registration candidate; must be committed before compute.**
+Status: **completed formal FAIL on 2026-09-06.** Pre-registered in commit
+`c524baa` before compute; full verdict and emergence grading recorded below.
 
 ## Question
 
@@ -180,3 +181,68 @@ language-bearing ZeusCore runtime.
 At verdict, answer all six emergence-grading questions in
 `docs/pre_registration_template.md` before placing the result in evidence.
 
+## Verdict
+
+The two complete three-arm campaigns reproduce exactly: every quotient and
+policy initialization hash, all 160 training rows per arm, every final policy
+tensor, and all canonical hashes match. The instrument is valid.
+
+Training did learn lifespan extension in all arms, but no retention advantage:
+
+| Arm | first-20 mean age | last-20 mean age | first-20 reward | last-20 reward | last-20 survival |
+|---|---:|---:|---:|---:|---:|
+| inherited recurrent | 49.70 | 112.48 | -3.016 | -1.643 | 0.00625 |
+| inherited reset | 52.98 | 115.24 | -2.978 | -1.580 | 0.01875 |
+| fresh recurrent | 50.28 | 119.39 | -3.067 | -1.925 | 0.01250 |
+
+The correct reading is **no retention effect detected**, not evidence that
+retention harms: the late survival counts are sparse and the reset arm's small
+lead is not a registered negative-effect test.
+
+On the 64 unseen 512-tick worlds, every trained arm and every acute control has
+`0/64` survival through both 256 and 512 ticks. The inherited recurrent policy
+has mean age `39.42` and reward `-1.779`; inherited reset has age `42.00` and
+reward `-2.635`; fresh recurrent has age `47.31` and reward `-5.547`. All 64
+inherited deaths are energy failures. Its greedy repertoire collapses to
+harvest `45.46%` and regulate `54.54%`, with zero movement, rest, or speech.
+
+The inherited quotient still changes the policy causally: zeroing it flips
+`45.46%` of matched actions (95% CI `[44.46%, 46.43%]`) and erasing history
+flips `43.24%` (`[42.31%, 44.18%]`). Cross-world shuffling flips only `17.04%`
+(`[15.80%, 18.25%]`), missing the `20%` lower-bound bar. These state effects
+are nonfunctional: all paired survival differences are exactly zero.
+
+The inherited policy's reward advantage over reset is only `0.856` (95% CI
+`[0.732, 0.984]`), below the strict `>2` bar. It beats fresh by `3.767`
+(`[3.687, 3.840]`), but the combined lineage-control requirement therefore
+fails. Exactness, zero/reset action sensitivity, speech restraint, and finite
+telemetry pass; absolute survival, all survival advantages, combined reward,
+shuffle sensitivity, and functional repertoire fail.
+
+Full telemetry:
+`zeus_sandbox/universe/reports/qv1_retention_lineage_verdict_20260906.json`
+(SHA-256
+`b8fa78279b2bd399ab9c82fb1625ef3585bd0da133cd0d5c0688fe4da2f2ce81`).
+
+## Mandatory emergence grading
+
+1. **Designed setup: yes.** Both the predictive quotient and policy objective
+   were engineered. The observed lifespan gain is an optimization result, not
+   emergence.
+2. **Unprogrammed setpoint: no qualifying positive.** Exact action fractions
+   were not specified, but no functional retention outcome passed.
+3. **Selection artifact: controlled.** QV0R was selected by a prior registered
+   gate; QV1 used unseen worlds, exact twins, matched reset/fresh arms, and
+   acute interventions. The negative does not depend on favorable selection.
+4. **Theory-predicted anyway: lifespan learning is expected.** Reward shaping
+   predicts some age/reward movement in any trainable policy. Amplified CDT
+   does not predict a viability advantage and cannot rescue its absence.
+5. **Substrate-level only.** QV0R remains a predictive retention substrate;
+   QV1 supplies no complete ratchet, self-organization pillar, or phase exit.
+6. **Survives the current audit: yes, as a negative.** Reproduction, held-out
+   controls, confidence intervals, direct viability, and full telemetry agree.
+
+Final label: **FAIL.** Representation succeeds; this frozen quotient-feature
+plus REINFORCE bridge does not convert retained structure into viable control.
+Per the precommit it is retired, QV0R remains valid, and TAG1 is next. No reward,
+horizon, architecture, or survival-bar tuning is licensed under QV1.
