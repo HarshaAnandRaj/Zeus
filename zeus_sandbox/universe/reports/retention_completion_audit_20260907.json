@@ -1,0 +1,84 @@
+{
+  "all_evidence_checks_pass": true,
+  "checks": {
+    "SEL1_all_14_registered_identities_and_committed_files": true,
+    "SEL1_full_generation_and_evaluation_twins": true,
+    "SEL1_canonical_payload_twins": true,
+    "SEL1_report_matches_twins": true,
+    "SEL1_selection_recomputed_exactly": true,
+    "SEL1_registered_selection_failure": true,
+    "SEL1_no_calibration_or_endpoint_exposure": true,
+    "SEL1_full_draw_rows": true,
+    "SEL1_finite_report": true,
+    "SEL1_read_all_retained_entries": true,
+    "QV1_archive_equals_raw": true,
+    "QV1_twins_and_original_greedy_replay": true,
+    "QV1_all_768_traces_complete": true,
+    "QV1_all_KM_death_events": true,
+    "QV1_all_energy_ledgers": true,
+    "QV1_full_initial_join": true,
+    "CAP1_manifest_current": true,
+    "CAP1_calibration": true,
+    "CAP1_all_capture_hashes": true,
+    "CAP1R_exact_full_state_twins": true,
+    "CAP1R_all_64_windows_and_dimensions": true,
+    "CAP1_finite_components_and_fidelity": true,
+    "CAP1_fixed_reflex_separation": true,
+    "CAP1_preserves_historical_VOID_and_no_authority": true,
+    "TAG1_VOID_not_functional_FAIL": true
+  },
+  "retained_entries_direct_read": [
+    {
+      "memory_id": 14,
+      "context": " blinding, while their\nmothers were engrossed in that grave gossip which marks the dwellers in\nv",
+      "target": "ill",
+      "provenance": "observed_token",
+      "action_origin": false,
+      "selection_estimate": {
+        "memory_id": 14,
+        "blocks": 10,
+        "mean": 0.1421123504638672,
+        "ci": [
+          0.04987851619720459,
+          0.23982906818389885
+        ],
+        "consolidated": true
+      }
+    },
+    {
+      "memory_id": 29,
+      "context": " bring myself to\nbear the sight of him, and I thought he had a worse look by daylight.\n\n“",
+      "target": "I",
+      "provenance": "observed_token",
+      "action_origin": false,
+      "selection_estimate": {
+        "memory_id": 29,
+        "blocks": 22,
+        "mean": 0.183969107541171,
+        "ci": [
+          0.08296084837480025,
+          0.2869669957594438
+        ],
+        "consolidated": true
+      }
+    }
+  ],
+  "SEL1_bars": {
+    "1_identity_and_integrity": "PASS for executed phases; later interventions not reached",
+    "2_consolidation_and_coverage": "FAIL: 2 entries, minimum 8; endpoint coverage not evaluated",
+    "3_independent_dense_advantage": "NOT EVALUATED: registered early stop",
+    "4_independent_positive_utility_fraction": "NOT EVALUATED: registered early stop"
+  },
+  "registered_outcome": "SEL1 FAIL at selection; no retention success",
+  "limits": [
+    "This audit verifies execution evidence, not the six-pillar ultimate goal.",
+    "QV1 original protocol has a disclosed 63-character digest defect; affected source matches its registration commit after newline normalization.",
+    "No calibration or endpoint outcome is inferred for SEL1 from selection utility."
+  ],
+  "reports_sha256": {
+    "sel1_utility_inheritance_20260906.json": "4286ebc089d25c47c9f81f5ec2063470506d9e5540a5e5cae4072f538ae1639a",
+    "qv1_postmortem_20260906.json.gz": "6527aafbd44b751ef797491f0ce226f07b3ac2c2275ab8dd1239419a460982bd",
+    "capability_completion_20260906.json": "0147be641b815afec8943efba33eebdd8525fa63210fd3a4dd0b8847df8ef7ba",
+    "tag1_qualification_20260906.json": "87a9f47b1b66d9e3ffd9f2531053c872f87d7ddcbb35c2071723433a39f3886e"
+  }
+}

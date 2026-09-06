@@ -4,6 +4,11 @@
 Definitions and readiness requirements were frozen in
 `qv1_postmortem_design_20260906.md` before analysis.
 
+Historical saved-report pilot, preserved unchanged in scope. The user later
+authorized missing components; the completed capture/measurement result is in
+`retention_phase_exit_review_20260907.md`. Its validation does not retroactively
+change this initial pilot's missing-data result.
+
 The pilot read the original QV1, POL2, DYN1 and V2 calibration reports. POL2
 and fixed controls have exactly matching 64 world seeds and 256-tick horizons.
 POL2 normal has 3.812 entropy-effective actions; fixed rest and fixed harvest

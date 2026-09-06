@@ -110,7 +110,9 @@ instrument hashes are embedded; inputs were rehashed unchanged after replay.
 
 These observations explain failure modes. They do not establish retention,
 viability, resilience, a pillar, emergence, or consciousness. SEL1 and the
-strategic retention-phase decision remain separate and pending.
+strategic decision were pending when this diagnostic note was written. Their
+subsequent negative closure is recorded in
+`retention_phase_exit_review_20260907.md`; this diagnostic does not override it.
 
 ### Additional provenance audit
 

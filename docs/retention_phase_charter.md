@@ -1,8 +1,10 @@
 # Zeus program goal and Retention Phase charter
 
-Status: **amended 2026-09-06 after formal QV0R PASS, QV1 FAIL, and TAG1-R qualification VOID. This is the
-authoritative goal until the Retention Phase exits or a committed amendment
-supersedes it.**
+Status: **closed negative on 2026-09-07 after exact-twin SEL1 selection FAIL.
+Functional retention is unachieved with the current tested substrates. The
+ratified six-pillar goal remains authoritative; no successful phase handoff
+or higher-pillar reopening is licensed.** See
+`docs/retention_phase_exit_review_20260907.md` for the final audit and decision.
 
 ## Ultimate program goal
 
@@ -171,7 +173,7 @@ QV0R is consistent with this design lesson. QV1 demonstrates the equally
 important limit: a functionally predictive projection is not automatically a
 viability policy.
 
-## Ordered subgoals from here
+## Retained phase record and requirements for future proposals
 
 Each experiment requires a complete committed protocol before compute,
 including exact source/checkpoint hashes, seeds, controls, confidence
@@ -190,8 +192,8 @@ and no live QV1 workers.
 
 ### 1. TAG1-R: harden authorship-tagged recall registration
 
-Status: **registration committed as `6ad9d34`; instrument committed as
-`1b333d1`; exact qualification twins return VOID before training.**
+Status: **retired by rule. Registration `6ad9d34`, instrument `1b333d1`,
+and exact qualification twins are retained; the result is VOID before training.**
 
 The saved bank has 386 entries, 340 eligible, and zero action-origin entries.
 Source permutation cannot intervene on a constant label. The actual frozen
@@ -211,7 +213,7 @@ Goal: test selection at read time. Recalled content carries source, strength,
 and age evidence so the dynamics can learn to trust useful self-originated
 memory and doubt stale/wrong memory.
 
-Before implementation or compute:
+Historical planned requirements, not current compute authorization:
 
 - upgrade TAG1 to the current mandatory template;
 - freeze exact corpus/checkpoint identities and isolated run directory;
@@ -229,22 +231,27 @@ tagging and move directly to bank-quality selection.
 
 ### 2. TAG1 implementation and adjudication
 
-Status: **qualification instrument implemented and audited; optimization and
-endpoint adjudication deferred after VOID.**
+Status: **closed after qualification VOID; no optimization or endpoint
+adjudication is licensed for this fixed mechanism.**
 
-Implement the minimum tag pathway with all non-tag parameters frozen. Verify
-mechanics without looking at registered evaluation data, run exact twins, then
-apply the committed causal and confidence-bound bars with no heuristic
-override.
+The retired plan was to implement a minimum tag pathway with all non-tag
+parameters frozen, verify mechanics, run exact twins, and apply the frozen
+causal bars. Qualification prevented that experiment. Revival follows the
+fresh-substrate, optimizer, charter-amendment and registration rules above.
 
 This remains memory-quality infrastructure. It cannot pass legibility,
 authorship of speech, action, initiative, or phase exit alone.
 
 ### 3. Selective HCM write and eviction
 
-Status: **SEL1 registered in `443ec32`, instrument frozen in `b02d9b6` with
-synthetic assertion correction `fb391f6`; generation/selection twins launched.
-No selection or inheritance verdict yet.**
+Status: **SEL1 FAIL at selection; exact twins and canonical payloads verified.
+123 candidates were accepted, 32 had minimum block support, and only 2
+qualified against a minimum of 8. Both fresh evaluation processes verified
+reload and stopped with zero calibration/endpoint exposure. The fixed
+continuous-HCM utility selector is retired.** Registration `443ec32`,
+instrument `b02d9b6`, and pre-compute synthetic correction `fb391f6` remain
+unchanged; the final report is
+`zeus_sandbox/universe/reports/sel1_utility_inheritance_20260906.json`.
 
 `docs/sel1_utility_inheritance_protocol.md` tests this subgoal and conditionally
 Subgoal 4 together: new observed-token candidates, causal utility confidence
@@ -253,7 +260,7 @@ prediction, and erased/content-permuted/current-HCM/random controls. Eleven
 synthetic mechanics tests passed before registered model/data compute. A
 generation or selection failure stops before the held-out endpoint.
 
-Goal: test selection at write time. HCM must keep entries because prior
+Tested question: selection at write time. HCM must keep entries because prior
 retrievals measurably improved prediction/function, not because they are recent
 or surprising.
 
@@ -273,11 +280,11 @@ loss of that gain when consolidated entries are erased or permuted.
 
 ### 4. Cross-session closure and inheritance
 
-Status: **implemented as SEL1 generation B; execution is conditional on at
-least eight independently utility-qualified entries from generation A. No
-cross-session functional result yet.**
+Status: **closed without functional success. SEL1's separate processes
+verified serialization/reload but stopped at 2/8 qualified entries. No
+independent inherited-function endpoint was run or inferred.**
 
-Run at least two sessions/generations:
+The required complete loop, which this phase did not establish, is:
 
 1. generation A creates candidate structure;
 2. measured utility selects survivors;
@@ -306,7 +313,9 @@ trajectory metric, never as a replacement for viability.
 
 ### 6. Retention doctrine and phase handoff
 
-Status: **not writable as a success doctrine until Subgoal 4 passes.**
+Status: **no success doctrine written. The current phase is closed negative;
+the strategic decision is a genuinely new registered retention-substrate
+proposal, preserving the ultimate goal. No successor compute is licensed.**
 
 On a qualifying pass, replace this charter with a doctrine stating:
 
@@ -328,10 +337,16 @@ is evidence only and never authorizes continuation. Class E (engineered
 prerequisites) earns exactly the experiment named at registration and is
 consumed on use. A calibrated, preregistered capability instrument may earn
 one specified follow-up whose full protocol and bars are frozen in the same
-registration; it never authorizes a phase or passes a pillar. The saved-report
-pilot is NOT READY and has no authority. The user has authorized adding its
-missing measurement components under fresh diagnostic registration; that
-authorization does not supply a positive result or activate an instrument.
+registration; it never authorizes a phase or passes a pillar. The original
+saved-report pilot remains NOT READY. Subsequently authorized capture and
+fresh-seed dimension twins validated specific measurement components:
+repertoire, viable observation-grid coverage, covariance participation ratio,
+one-step viable world-channel capacity, and local action-response rank.
+These are now available descriptive instruments, Class O, with no earned
+follow-up. They do not measure a complete viability kernel, long-horizon
+controllability, or learned access to all available world actions. The failed
+historical DYN1 capture remains VOID and is not replaced by a resilience claim.
+See `zeus_sandbox/universe/reports/capability_completion_20260906.json`.
 
 Following the frozen QV1 2x2 diagnostic, future policy contracts must register
 decoding explicitly and distinguish world-cluster uncertainty from policy-RNG
@@ -361,9 +376,9 @@ are exposed. QV1's formal FAIL and retirement remain binding.
 10. **Do not overclaim.** Predictive retention, causal state use, viability,
     memory, resilience, authorship, action, and initiative are separate claims.
 
-## Retention Phase exit: all required
+## Successful Retention Phase handoff: all required
 
-The phase exits only when current evidence proves all of the following:
+A successful handoff requires current evidence for all of the following:
 
 - at least one complete generate-select-consolidate-inherit loop exists;
 - retained structure improves an independently measured function over a
@@ -374,12 +389,19 @@ The phase exits only when current evidence proves all of the following:
 - artifacts and telemetry are published; and
 - the retention doctrine is committed.
 
-QV0R alone does not meet this definition. QV1 directly contradicts completion.
-The Retention Phase is therefore **open**.
+QV0R alone does not meet this definition. QV1 did not convert its retained
+representation into qualifying control; TAG1 could not qualify; SEL1 failed
+before independent inherited-function evaluation. The current phase is
+therefore **closed negative, with no successful handoff**. This exercises
+the charter's precommitted negative exit, not a relaxation of the positive
+conditions. The six-pillar objective remains open. A genuinely new substrate
+requires a complete fresh registration before compute; threshold/reward/seed
+rescue of these fixed routes is not licensed.
 
 ## Post-retention path back to the ultimate goal
 
-After phase exit, higher pillars reopen one at a time under fresh contracts:
+After a future successful phase exit, higher pillars may reopen one at a time
+under fresh contracts. The current negative closure authorizes none of these:
 
 1. integrate the validated retention substrate into ZeusCore without a host
    policy or direct sensor/mouth shortcut;

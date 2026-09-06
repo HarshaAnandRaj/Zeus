@@ -2768,6 +2768,39 @@ with exact saved-state replay, preserving the historical defect separately.
 This is a measurement of the frozen DYN1 substrate on fresh seeds, not a new
 resilience verdict. SEL1 remains independent and continues without peeking.
 
+### SEL1 exact-twin FAIL and negative retention-phase closure (2026-09-07)
+
+Both SEL1 generations, both separate evaluation processes, and the joint
+finalizer completed successfully. Generation, all 8,192 utility observations,
+evaluation reports and canonical tensor payloads match exactly. Of 123 accepted
+candidates, 32 had eight-block support and only 2 cleared the .02-nat lower
+bound, below the fixed minimum of 8. Retained IDs 29 and 14 were directly
+read; both are observed-token entries without action-origin provenance.
+Independent recomputation reproduces all estimates and the selected set.
+Both evaluation processes verified reload and stopped at selection: zero
+calibration or endpoint exposure. SEL1 is FAIL, not VOID or UNDECIDED.
+The fixed continuous-HCM utility selector is retired without threshold rescue.
+
+The capability completion validates explicit descriptive measurement
+components. POL2 capture matches all original episodes, derived logits match
+every action, and fresh DYN1-substrate campaigns match every saved state and
+feature exactly. The earlier historical DYN1 capture remains VOID. The suite
+distinguishes POL2 from fixed reflexes, including coverage at matched lifetimes,
+but near-ceiling world-channel capacity and response rank are not learned
+control or a mind score. Its status remains Class O with no continuation
+authority; the template now lists the validated definitions and their limits.
+
+The final review `docs/retention_phase_exit_review_20260907.md` integrates SEL1,
+QV1 D1-D5 diagnostics, TAG1 retirement, capability results, all six pillars,
+and every positive retention-handoff obligation. Twenty-five artifact audit
+checks pass. No required functional loop or independent inherited gain was
+demonstrated. The current phase closes with the precommitted written negative;
+no success doctrine or higher-pillar reopening is authorized. The six-pillar
+machine-native objective is preserved. The only development route back is a
+genuinely new retention-substrate proposal with fresh committed registration,
+not reward/threshold/seed rescue of retired mechanisms. Both workers exited
+zero; no SEL1 or capability worker remained at the closing inventory.
+
 ### SEL1 authorized empty-directory recovery (2026-09-06T13:44:57.1659911Z)
 
 The user explicitly approved launch and constitutional ratification. Immediately before removal, resolved paths were direct non-reparse children of the canonical SEL1 base and had zero entries including hidden files. No evidence or phase output existed in either directory. The runner's refusal of existing directories remains unchanged; only these verified empty shells are removed nonrecursively.

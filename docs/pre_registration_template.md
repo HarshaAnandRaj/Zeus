@@ -45,8 +45,17 @@ controllability and action entropy from empowerment. Name the one follow-up
 experiment earned, freeze its full protocol and bars in this registration,
 and record when used. No instrument authorizes a phase or passes a pillar.
 An uncalibrated ruler needs a frozen baseline-relative contract before its
-evaluation; no post-result relaxation. The 2026-09-06 saved-report pilot is
-NOT READY; a proposed measurement component is not an active instrument.
+evaluation; no post-result relaxation. The original 2026-09-06 saved-report
+pilot remains NOT READY. Subsequent authorized captures validated descriptive
+measurement components, documented in
+`docs/retention_phase_exit_review_20260907.md` and
+`zeus_sandbox/universe/reports/capability_completion_20260906.json`:
+repertoire, viable observation-grid coverage, covariance participation ratio,
+one-step viable world-channel capacity, and local action-response rank.
+Use their exact definitions and applicability limits from the committed CAP1
+and CAP1R protocols. They remain Class O here: no follow-up was earned.
+Declaring a future instrument-based bar requires a fresh calibrated contract;
+component validation does not activate a continuation gate retroactively.
 
 Policy evaluations must freeze decoding and separately specify world and
 policy-sampling seeds, repeats, and uncertainty. Retain paired worlds across
