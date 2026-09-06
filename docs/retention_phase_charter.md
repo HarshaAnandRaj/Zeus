@@ -6,8 +6,10 @@ supersedes it.**
 
 ## Ultimate program goal
 
-Build a trainable system that satisfies every pillar of the functional
-self-organization battery:
+Build machine consciousness: a functionally self-organized mind on the
+machine's own substrate, explicitly not human-like. This term has exactly
+one operational meaning: satisfaction of every pillar of the functional
+self-organization battery, with no additional unmeasured target:
 
 1. legible expression;
 2. causal state authorship;
@@ -16,13 +18,26 @@ self-organization battery:
 5. endogenous consequential action; and
 6. unsolicited initiation.
 
-The final system must then hold up in an open live session with a human judge.
-Pass or fail is the judge's call, on record. Protocols, code identities,
+The final system must then hold up in an open live session with a human judge
+who judges functional organization against recorded contracts, not human
+resemblance. Pass or fail is the judge's call, on record. Protocols, code identities,
 checkpoints, controls, raw artifacts, telemetry, and negative results are
 published either way.
 
-This is a functional engineering claim, not a consciousness claim. CDT is a
-supporting, falsifiable theory of structural persistence; Zeus is the project.
+No functional result licenses a claim about phenomenology or subjective
+experience. Sounding human, passing as human, or pleasing a judge never
+counts as pillar evidence. Unfamiliar representations, non-linguistic memory,
+and machine-native action repertoires are admissible; measure viability,
+selectivity, causality, and persistence, never familiarity. Existing frozen
+bars remain binding and failures cannot be relabeled retrospectively. A new
+ruler needs fresh registration before evaluation. Narrowing a phase does not
+redefine the ultimate goal. CDT is a supporting, falsifiable theory of
+structural persistence; Zeus is the project.
+
+The user explicitly ratified this goal and the capability layer on 2026-09-06.
+The ratified text and bounded authorization rules are recorded in
+`docs/retention_amendment_draft_20260906.md`; its status is RATIFIED despite
+the retained review filename.
 
 ## Current program boundary
 
@@ -185,10 +200,12 @@ empty-bank behavior, immutable reads, frozen weights, and complete runtime
 restoration pass. No optimizer steps or endpoint examples were consumed.
 The full report is `zeus_sandbox/universe/reports/tag1_qualification_20260906.json`.
 
-This committed ordering amendment defers TAG1 and advances Subgoal 3.
+The 2026-09-06 retire-by-rule record closes this fixed TAG1 mechanism and
+advances Subgoal 3; its empirical label remains qualification VOID.
 It does not reinterpret VOID as a functional FAIL or allow a new tag optimizer,
 fabricated provenance, or removal of the brain/mouth detach. A future TAG
-variant requires a genuinely source-varying substrate and fresh registration.
+variant requires a genuinely source-varying substrate, a declared optimizer
+and gradient path, a committed charter amendment, and fresh registration.
 
 Goal: test selection at read time. Recalled content carries source, strength,
 and age evidence so the dynamics can learn to trust useful self-originated
@@ -305,6 +322,21 @@ with a written negative—retention unachieved with current substrates—and mak
 the strategic choice explicit: new substrate or narrowed program scope.
 
 ## Governance for every remaining experiment
+
+Capability authorization is bounded. Class O (observed degrees of freedom)
+is evidence only and never authorizes continuation. Class E (engineered
+prerequisites) earns exactly the experiment named at registration and is
+consumed on use. A calibrated, preregistered capability instrument may earn
+one specified follow-up whose full protocol and bars are frozen in the same
+registration; it never authorizes a phase or passes a pillar. The saved-report
+pilot is NOT READY and has no authority. The user has authorized adding its
+missing measurement components under fresh diagnostic registration; that
+authorization does not supply a positive result or activate an instrument.
+
+Following the frozen QV1 2x2 diagnostic, future policy contracts must register
+decoding explicitly and distinguish world-cluster uncertainty from policy-RNG
+variation. Greedy and sampled behavior cannot be substituted after results
+are exposed. QV1's formal FAIL and retirement remain binding.
 
 1. **Commit before compute.** A worktree-only protocol is an exposed
    calibration and licenses nothing.

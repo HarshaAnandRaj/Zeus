@@ -31,6 +31,28 @@ Pass -> ... . Fail -> ... . Name the next step for EACH outcome, including
 "undecided." No experiment ends in "more research is needed" without a
 specified, falsifiable follow-up or a retirement.
 
+## Capability status and bounded authorization
+
+Declare Class O, Class E, capability instrument, or not applicable. Class O
+is observed degrees of freedom: evidence only, no continuation permission.
+Class E is engineered prerequisites: name the single experiment earned at
+registration and record when that authorization is consumed.
+
+For a capability instrument, define the degrees-of-freedom metric, estimator,
+sampling unit, support requirements, uncertainty, fixed controls, calibration
+failure rule and causal assumptions. Distinguish observational geometry from
+controllability and action entropy from empowerment. Name the one follow-up
+experiment earned, freeze its full protocol and bars in this registration,
+and record when used. No instrument authorizes a phase or passes a pillar.
+An uncalibrated ruler needs a frozen baseline-relative contract before its
+evaluation; no post-result relaxation. The 2026-09-06 saved-report pilot is
+NOT READY; a proposed measurement component is not an active instrument.
+
+Policy evaluations must freeze decoding and separately specify world and
+policy-sampling seeds, repeats, and uncertainty. Retain paired worlds across
+conditions. Sampled training evidence cannot replace a greedy endpoint, or
+vice versa, after exposure.
+
 ---
 
 ## Emergence-grading checklist (mandatory at verdict, not at launch)
