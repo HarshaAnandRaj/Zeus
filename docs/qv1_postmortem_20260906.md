@@ -6,6 +6,8 @@ training or modification of registered models, worlds, rewards, or protocols.
 Both QV1 campaign artifacts still reproduce exactly. All three greedy
 held-out replays match original episode ages, actions, rewards, and causes.
 
+![QV1 survival curves and frozen decoding comparison](figures/qv1_postmortem_20260906.png)
+
 ## D1: the sampled repertoire was neither stillborn nor lost
 
 Every one of the 160 updates in every arm used all six actions. In the
