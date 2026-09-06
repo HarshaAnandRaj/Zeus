@@ -26,7 +26,7 @@ class UtilityMemoryTests(unittest.TestCase):
         self.assertEqual(selected, [0])
         self.assertIsNone(estimates[3]["ci"])
         self.assertEqual(estimates[3]["blocks"], 3)
-        self.assertEqual(estimates[2]["ci"], [.02, .02])
+        np.testing.assert_allclose(estimates[2]["ci"], [.02, .02], rtol=0, atol=1e-15)
 
     def test_many_same_block_hits_do_not_fake_independent_support(self):
         rows = [dict(block=0, memory_id=0, utility=.4) for _ in range(100)]
