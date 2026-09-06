@@ -418,3 +418,14 @@ under fresh contracts. The current negative closure authorizes none of these:
 
 No downstream success can backfill an upstream failed gate. The human verdict
 is final for the live session, and all telemetry is published either way.
+
+## 2026-09-07 bounded diagnostic and representation authorization
+
+The user's new cycle/death-forensics goal authorizes the saved-trajectory
+analysis in docs/cycle_forensics_analysis_protocol_20260907.md. The subsequent
+explicit instruction, "Include CYC1 as a separate representation test", also
+authorizes exactly docs/cyc1_orbit_cloning_protocol.md. CYC1 consumes its Class E
+authorization on launch, independently of the cycle-discovery spend gate.
+Neither route reopens the negative retention closure or passes a pillar.
+Existing absolute QV1 survival requirements remain unchanged. No result earns
+automatic extra training, redesign, or a higher-pillar experiment.
