@@ -2727,6 +2727,22 @@ matches registered commit c524baa after newline normalization, while the other
 seven listed hashes match literally. The defect is disclosed in the dated
 QV1 post-mortem; no frozen protocol is edited and no source drift is inferred.
 
+### CAP1 partial capture and fresh dimension registration (2026-09-06)
+
+CAP1's POL2 capture reproduces all 64 original normal episodes and both
+64-world fixed controls. Omitted logits were deterministically reconstructed
+from saved states and the frozen two-layer policy; all argmax actions match.
+The original capture remains unchanged and the derived telemetry is labeled.
+
+CAP1's DYN1 capture stopped on seed 101: control mean norm 35.38160174357525
+versus historical 35.38204714997999, outside the frozen comparison tolerance.
+That phase is VOID for historical-capture fidelity; its cause is unresolved.
+The tolerance was not changed and the exposed phase was not retried. Fresh
+registration `67b9580` adds CPU dimension twins on seeds 20260970..20260985,
+with exact saved-state replay, preserving the historical defect separately.
+This is a measurement of the frozen DYN1 substrate on fresh seeds, not a new
+resilience verdict. SEL1 remains independent and continues without peeking.
+
 ### SEL1 authorized empty-directory recovery (2026-09-06T13:44:57.1659911Z)
 
 The user explicitly approved launch and constitutional ratification. Immediately before removal, resolved paths were direct non-reparse children of the canonical SEL1 base and had zero entries including hidden files. No evidence or phase output existed in either directory. The runner's refusal of existing directories remains unchanged; only these verified empty shells are removed nonrecursively.
