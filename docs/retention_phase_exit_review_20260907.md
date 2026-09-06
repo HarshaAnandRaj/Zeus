@@ -154,6 +154,24 @@ Validated definitions can now be referenced by future registrations. None
 earned a next experiment here. A future capability-bar instrument must freeze
 its own bar, uncertainty, and the single follow-up protocol before compute.
 
+### Emergence grading of the diagnostic positives
+
+The component status means that its declared calibration checks passed. It
+is not a functional retention PASS. The QV1 decoding effect and capability
+separation are graded before being admitted as diagnostic evidence:
+
+| Mandatory question | QV1 decoding/energy diagnostics | Capability measurements |
+|---|---|---|
+| Designed setup? | Yes: frozen learned policies, imposed decoding and engineered body costs | Yes: declared bins, covariance estimator and cloned action channel |
+| Unprogrammed setpoint? | Exact lifespans were not specified; no qualifying viability setpoint emerged | Exact statistics were not specified; fixed-controller zero state and singleton repertoire are designed baselines |
+| Selection artifact? | Fixed worlds, one specified sampling draw, all three arms; no best-of selection. Final-policy replay is not historical training replay | Predeclared controls and fresh dimension seeds; all captures reported, including the historical VOID. Matched-prefix coverage exposes lifespan bias |
+| Theory-predicted anyway? | Sampling changes action support; stationary energy shortage follows the world equations. No CDT conclusion | Finite deterministic channel capacity follows its supplied outputs. Larger covariance dimension is not evidence of self-organization |
+| Substrate or pillar? | Failure localization and evaluation-design evidence only | Descriptive, bounded measurement instruments only; Class O |
+| Survives current audit? | Yes as a diagnostic with conditional sampling uncertainty and the disclosed old source-hash defect; no retention or viability claim survives | Yes for the declared component calibration and fresh exact twins; no historical DYN1 replay, learned-control, phase or pillar claim follows |
+
+Both positives are engineered/diagnostic observations, not emergent-mind
+evidence. All six questions therefore leave the pillar table below unchanged.
+
 ## Six-pillar status at closure
 
 | Pillar | Evidence at this review | Status |
