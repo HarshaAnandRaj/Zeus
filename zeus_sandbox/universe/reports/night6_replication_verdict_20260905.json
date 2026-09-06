@@ -1,0 +1,552 @@
+{
+  "kind": "night6_replication_verdict",
+  "protocol": "docs/night6_replication_protocol.md",
+  "endpoint": 8000,
+  "evidence_valid": false,
+  "errors": [
+    "runs\\mem_repl_nohcm: non-exact resume provenance [{'event': 'resume', 'from_step': 2500, 'ckpt': 'zeus_step2500.pt', 't': '13:16:26'}]",
+    "runs\\mem_repl_nohcm: no exact step-8000 COMPLETE marker",
+    "runs\\mem_repl_nohcm: missing exact endpoint checkpoint",
+    "runs\\mem_repl_nohcm: missing final eval steps [7500, 7750, 8000]"
+  ],
+  "arms": {
+    "mem": {
+      "run_dir": "runs\\mem_repl_hcm",
+      "complete": true,
+      "checkpoint": "runs\\mem_repl_hcm\\zeus_step8000.pt",
+      "checkpoint_present": true,
+      "resume_events": [
+        {
+          "event": "resume",
+          "from_step": 500,
+          "ckpt": "zeus_step500.pt",
+          "t": "02:02:48"
+        },
+        {
+          "event": "resume",
+          "from_step": 2000,
+          "ckpt": "zeus_step2000.pt",
+          "t": "02:07:23"
+        }
+      ],
+      "resume_provenance_valid": true,
+      "final_eval_steps": [
+        7500,
+        7750,
+        8000
+      ],
+      "final_eval_values": [
+        35.7873,
+        32.3532,
+        32.9747
+      ],
+      "final_3_mean_val_ce": 33.70506666666667,
+      "collapse": {
+        "finite_numeric_log_fields": true,
+        "nonfinite": [],
+        "glass_alarm_steps": [],
+        "persistent_alarm_pairs": [],
+        "pass": true
+      }
+    },
+    "no_mem": {
+      "run_dir": "runs\\mem_repl_nohcm",
+      "complete": false,
+      "checkpoint": "runs\\mem_repl_nohcm\\zeus_step8000.pt",
+      "checkpoint_present": false,
+      "resume_events": [
+        {
+          "event": "resume",
+          "from_step": 2000,
+          "ckpt": "zeus_step2000.pt",
+          "t": "10:37:40"
+        },
+        {
+          "event": "resume",
+          "from_step": 2500,
+          "ckpt": "zeus_step2500.pt",
+          "t": "13:16:26"
+        }
+      ],
+      "resume_provenance_valid": false,
+      "final_eval_steps": [
+        7500,
+        7750,
+        8000
+      ],
+      "final_eval_values": [],
+      "final_3_mean_val_ce": null,
+      "collapse": {
+        "finite_numeric_log_fields": true,
+        "nonfinite": [],
+        "glass_alarm_steps": [],
+        "persistent_alarm_pairs": [],
+        "pass": true
+      }
+    }
+  },
+  "audit": {
+    "kind": "hcm_causal_recall_audit",
+    "created_unix": 1788586351,
+    "checkpoint": "runs\\mem_repl_hcm\\zeus_step8000.pt",
+    "step": 8000,
+    "method": "stored state/context; one continuous-dynamics step; matched retrieval vs no-recall vs wrong-memory injection; no text prefix",
+    "summary": {
+      "n": 24,
+      "mean_matched_minus_none": 0.01742,
+      "median_matched_minus_none": 0.00879,
+      "positive_gain_frac": 0.375,
+      "mean_matched_minus_wrong": 0.01464,
+      "selective_gain_frac": 0.333,
+      "pass": false
+    },
+    "rows": [
+      {
+        "memory_id": 0,
+        "target_token": 15,
+        "recalled_ids": [
+          0,
+          231,
+          291,
+          289
+        ],
+        "wrong_memory_id": 1,
+        "logp_no_recall": -25.17083,
+        "logp_matched": -25.1807,
+        "logp_wrong": -25.20057,
+        "matched_minus_none": -0.00987,
+        "matched_minus_wrong": 0.01987,
+        "action_origin": false
+      },
+      {
+        "memory_id": 1,
+        "target_token": 214,
+        "recalled_ids": [
+          1,
+          22,
+          67,
+          236
+        ],
+        "wrong_memory_id": 2,
+        "logp_no_recall": -21.05406,
+        "logp_matched": -21.07445,
+        "logp_wrong": -21.08022,
+        "matched_minus_none": -0.0204,
+        "matched_minus_wrong": 0.00576,
+        "action_origin": false
+      },
+      {
+        "memory_id": 2,
+        "target_token": 311,
+        "recalled_ids": [
+          2,
+          145,
+          180,
+          138
+        ],
+        "wrong_memory_id": 3,
+        "logp_no_recall": -18.06355,
+        "logp_matched": -18.02827,
+        "logp_wrong": -18.02164,
+        "matched_minus_none": 0.03528,
+        "matched_minus_wrong": -0.00663,
+        "action_origin": false
+      },
+      {
+        "memory_id": 3,
+        "target_token": 431,
+        "recalled_ids": [
+          3,
+          337,
+          326,
+          94
+        ],
+        "wrong_memory_id": 4,
+        "logp_no_recall": -22.08627,
+        "logp_matched": -22.0712,
+        "logp_wrong": -22.07588,
+        "matched_minus_none": 0.01507,
+        "matched_minus_wrong": 0.00468,
+        "action_origin": false
+      },
+      {
+        "memory_id": 4,
+        "target_token": 368,
+        "recalled_ids": [
+          4,
+          5,
+          48,
+          70
+        ],
+        "wrong_memory_id": 5,
+        "logp_no_recall": -33.9379,
+        "logp_matched": -33.89291,
+        "logp_wrong": -33.92617,
+        "matched_minus_none": 0.04499,
+        "matched_minus_wrong": 0.03326,
+        "action_origin": false
+      },
+      {
+        "memory_id": 5,
+        "target_token": 214,
+        "recalled_ids": [
+          5,
+          4,
+          111,
+          49
+        ],
+        "wrong_memory_id": 6,
+        "logp_no_recall": -29.95957,
+        "logp_matched": -29.87154,
+        "logp_wrong": -29.85945,
+        "matched_minus_none": 0.08803,
+        "matched_minus_wrong": -0.01209,
+        "action_origin": false
+      },
+      {
+        "memory_id": 6,
+        "target_token": 68,
+        "recalled_ids": [
+          6,
+          65,
+          280,
+          232
+        ],
+        "wrong_memory_id": 7,
+        "logp_no_recall": -19.28416,
+        "logp_matched": -19.22348,
+        "logp_wrong": -19.25924,
+        "matched_minus_none": 0.06069,
+        "matched_minus_wrong": 0.03577,
+        "action_origin": false
+      },
+      {
+        "memory_id": 7,
+        "target_token": 2054,
+        "recalled_ids": [
+          7,
+          178,
+          281,
+          313
+        ],
+        "wrong_memory_id": 8,
+        "logp_no_recall": -18.59002,
+        "logp_matched": -18.57327,
+        "logp_wrong": -18.58714,
+        "matched_minus_none": 0.01674,
+        "matched_minus_wrong": 0.01386,
+        "action_origin": false
+      },
+      {
+        "memory_id": 8,
+        "target_token": 518,
+        "recalled_ids": [
+          8,
+          87,
+          72,
+          104
+        ],
+        "wrong_memory_id": 9,
+        "logp_no_recall": -21.30506,
+        "logp_matched": -21.29675,
+        "logp_wrong": -21.30951,
+        "matched_minus_none": 0.00831,
+        "matched_minus_wrong": 0.01275,
+        "action_origin": false
+      },
+      {
+        "memory_id": 9,
+        "target_token": 308,
+        "recalled_ids": [
+          9,
+          10,
+          8,
+          104
+        ],
+        "wrong_memory_id": 10,
+        "logp_no_recall": -30.73816,
+        "logp_matched": -30.76697,
+        "logp_wrong": -30.77596,
+        "matched_minus_none": -0.02881,
+        "matched_minus_wrong": 0.009,
+        "action_origin": false
+      },
+      {
+        "memory_id": 10,
+        "target_token": 34,
+        "recalled_ids": [
+          10,
+          9,
+          269,
+          69
+        ],
+        "wrong_memory_id": 11,
+        "logp_no_recall": -17.78878,
+        "logp_matched": -17.70166,
+        "logp_wrong": -17.75667,
+        "matched_minus_none": 0.08712,
+        "matched_minus_wrong": 0.05501,
+        "action_origin": false
+      },
+      {
+        "memory_id": 11,
+        "target_token": 327,
+        "recalled_ids": [
+          11,
+          31,
+          17,
+          45
+        ],
+        "wrong_memory_id": 12,
+        "logp_no_recall": -15.98186,
+        "logp_matched": -15.9874,
+        "logp_wrong": -16.00939,
+        "matched_minus_none": -0.00555,
+        "matched_minus_wrong": 0.02199,
+        "action_origin": false
+      },
+      {
+        "memory_id": 12,
+        "target_token": 17,
+        "recalled_ids": [
+          12,
+          257,
+          45,
+          17
+        ],
+        "wrong_memory_id": 13,
+        "logp_no_recall": -7.79212,
+        "logp_matched": -7.81489,
+        "logp_wrong": -7.82257,
+        "matched_minus_none": -0.02277,
+        "matched_minus_wrong": 0.00768,
+        "action_origin": false
+      },
+      {
+        "memory_id": 13,
+        "target_token": 1500,
+        "recalled_ids": [
+          13,
+          32,
+          144,
+          137
+        ],
+        "wrong_memory_id": 14,
+        "logp_no_recall": -15.49914,
+        "logp_matched": -15.5534,
+        "logp_wrong": -15.58345,
+        "matched_minus_none": -0.05426,
+        "matched_minus_wrong": 0.03005,
+        "action_origin": false
+      },
+      {
+        "memory_id": 14,
+        "target_token": 4825,
+        "recalled_ids": [
+          14,
+          49,
+          16,
+          70
+        ],
+        "wrong_memory_id": 15,
+        "logp_no_recall": -32.64288,
+        "logp_matched": -32.54641,
+        "logp_wrong": -32.57565,
+        "matched_minus_none": 0.09647,
+        "matched_minus_wrong": 0.02925,
+        "action_origin": false
+      },
+      {
+        "memory_id": 15,
+        "target_token": 15,
+        "recalled_ids": [
+          15,
+          23,
+          337,
+          327
+        ],
+        "wrong_memory_id": 16,
+        "logp_no_recall": -16.68524,
+        "logp_matched": -16.69089,
+        "logp_wrong": -16.70297,
+        "matched_minus_none": -0.00565,
+        "matched_minus_wrong": 0.01208,
+        "action_origin": false
+      },
+      {
+        "memory_id": 16,
+        "target_token": 214,
+        "recalled_ids": [
+          16,
+          14,
+          34,
+          49
+        ],
+        "wrong_memory_id": 17,
+        "logp_no_recall": -18.60689,
+        "logp_matched": -18.5981,
+        "logp_wrong": -18.58782,
+        "matched_minus_none": 0.00879,
+        "matched_minus_wrong": -0.01028,
+        "action_origin": false
+      },
+      {
+        "memory_id": 17,
+        "target_token": 1058,
+        "recalled_ids": [
+          17,
+          45,
+          12,
+          244
+        ],
+        "wrong_memory_id": 18,
+        "logp_no_recall": -20.10905,
+        "logp_matched": -20.09879,
+        "logp_wrong": -20.10973,
+        "matched_minus_none": 0.01025,
+        "matched_minus_wrong": 0.01093,
+        "action_origin": false
+      },
+      {
+        "memory_id": 18,
+        "target_token": 222,
+        "recalled_ids": [
+          18,
+          242,
+          190,
+          221
+        ],
+        "wrong_memory_id": 19,
+        "logp_no_recall": -25.48459,
+        "logp_matched": -25.53457,
+        "logp_wrong": -25.52735,
+        "matched_minus_none": -0.04998,
+        "matched_minus_wrong": -0.00722,
+        "action_origin": false
+      },
+      {
+        "memory_id": 19,
+        "target_token": 1002,
+        "recalled_ids": [
+          19,
+          75,
+          244,
+          221
+        ],
+        "wrong_memory_id": 20,
+        "logp_no_recall": -21.49206,
+        "logp_matched": -21.49372,
+        "logp_wrong": -21.52145,
+        "matched_minus_none": -0.00166,
+        "matched_minus_wrong": 0.02773,
+        "action_origin": false
+      },
+      {
+        "memory_id": 20,
+        "target_token": 261,
+        "recalled_ids": [
+          20,
+          5,
+          98,
+          97
+        ],
+        "wrong_memory_id": 21,
+        "logp_no_recall": -19.52722,
+        "logp_matched": -19.43761,
+        "logp_wrong": -19.44712,
+        "matched_minus_none": 0.08961,
+        "matched_minus_wrong": 0.00951,
+        "action_origin": false
+      },
+      {
+        "memory_id": 21,
+        "target_token": 1308,
+        "recalled_ids": [
+          21,
+          91,
+          208,
+          265
+        ],
+        "wrong_memory_id": 22,
+        "logp_no_recall": -18.28001,
+        "logp_matched": -18.2883,
+        "logp_wrong": -18.3013,
+        "matched_minus_none": -0.0083,
+        "matched_minus_wrong": 0.013,
+        "action_origin": false
+      },
+      {
+        "memory_id": 22,
+        "target_token": 498,
+        "recalled_ids": [
+          22,
+          262,
+          250,
+          143
+        ],
+        "wrong_memory_id": 23,
+        "logp_no_recall": -29.25547,
+        "logp_matched": -29.23103,
+        "logp_wrong": -29.24412,
+        "matched_minus_none": 0.02444,
+        "matched_minus_wrong": 0.01309,
+        "action_origin": false
+      },
+      {
+        "memory_id": 23,
+        "target_token": 595,
+        "recalled_ids": [
+          23,
+          205,
+          15,
+          206
+        ],
+        "wrong_memory_id": 0,
+        "logp_no_recall": -17.93815,
+        "logp_matched": -17.89849,
+        "logp_wrong": -17.9208,
+        "matched_minus_none": 0.03966,
+        "matched_minus_wrong": 0.02231,
+        "action_origin": false
+      }
+    ]
+  },
+  "bars": {
+    "mem_below_l1": {
+      "value": 33.70506666666667,
+      "threshold": 7.1,
+      "pass": false
+    },
+    "mem_below_no_mem": {
+      "mem": 33.70506666666667,
+      "no_mem": null,
+      "pass": false
+    },
+    "selective_recall": {
+      "mean_matched_minus_wrong": 0.01464,
+      "threshold": 0.0,
+      "pass": true
+    },
+    "no_collapse": {
+      "mem": {
+        "finite_numeric_log_fields": true,
+        "nonfinite": [],
+        "glass_alarm_steps": [],
+        "persistent_alarm_pairs": [],
+        "pass": true
+      },
+      "no_mem": {
+        "finite_numeric_log_fields": true,
+        "nonfinite": [],
+        "glass_alarm_steps": [],
+        "persistent_alarm_pairs": [],
+        "pass": true
+      },
+      "pass": true
+    }
+  },
+  "failure_proven": true,
+  "decision_status": "fail",
+  "overall_pass": false,
+  "allowed_conclusion": "no memory-help claim"
+}

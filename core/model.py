@@ -396,7 +396,7 @@ class ZeusCore(nn.Module):
     # ---- single token ----
     def step(self, token_id=None, embed_override=None, freeze_dynamics=False,
              temperature_tau=True, pin_mask=None, pin_tau_min=2.0,
-             record_token_context=True):
+             record_token_context=True, emit_readout=True):
         c = self.cfg
         with torch.no_grad() if not self.training else torch.enable_grad():
             if embed_override is not None:
@@ -471,6 +471,8 @@ class ZeusCore(nn.Module):
             # Brain/mouth rule: the readout (mouth) READS the self-state S (forward
             # coupling, observer C != 0) but its gradient is STOPPED at S, so the
             # mouth can never drive / reshape the brain (no afferent attractor).
+            if not emit_readout:
+                return None, aux
             hist = None if self.deploy_self_source else self.H
             read_s = (torch.zeros_like(self.S)
                       if self.deploy_self_source else self.S.detach())
@@ -483,13 +485,13 @@ class ZeusCore(nn.Module):
             self.step(i)
 
     @torch.no_grad()
-    def sense_body(self, observation):
+    def sense_body(self, observation, *, emit_readout=True):
         """Let physical observation perturb S without entering token history."""
         obs = torch.as_tensor(observation, dtype=self.S.dtype, device=self.S.device)
         if obs.numel() != 5:
             raise ValueError("body observation must contain exactly five values")
         return self.step(embed_override=self.body_proj(obs.reshape(5)),
-                         record_token_context=False)
+                         record_token_context=False, emit_readout=emit_readout)
 
     def policy_logits(self, observation):
         """Differentiable sensorimotor policy readout.
@@ -503,10 +505,27 @@ class ZeusCore(nn.Module):
             raise ValueError("body observation must contain exactly five values")
         return self.action_head(torch.cat([self.S, obs.reshape(5)], dim=0))
 
+    def state_policy_logits(self):
+        """Policy surface whose only runtime input is the recurrent self-state.
+
+        Body observations must first enter through ``sense_body``.  Zero-filled
+        legacy observation slots keep the saved action-head shape compatible
+        while preventing a direct sensor-to-action bypass.
+        """
+        no_direct_observation = torch.zeros(
+            5, dtype=self.S.dtype, device=self.S.device
+        )
+        return self.action_head(torch.cat([self.S, no_direct_observation], dim=0))
+
     @torch.no_grad()
     def action_logits(self, observation):
         """Inference wrapper for the learnable sensorimotor policy."""
         return self.policy_logits(observation)
+
+    @torch.no_grad()
+    def state_action_logits(self):
+        """Inference wrapper for the state-mediated policy surface."""
+        return self.state_policy_logits()
 
     @torch.no_grad()
     def select_action(self, observation, *, generator=None):

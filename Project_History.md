@@ -2528,6 +2528,27 @@ quotient-based policy protocol. QV0 itself cannot satisfy viability, action,
 CDT recurrence, or any self-organization pillar. No full QV0 training had run
 when the code hashes, seeds, controls, and bars were recorded.
 
+### QV0 exposed calibration: predictive substrate works, gate unlicensed (2026-09-05)
+
+QV0's two full deterministic trainings match exactly in initialization, all
+120 training rows, final canonical parameter hash, and every tensor. On 13,706
+transitions from 192 unseen worlds, the quotient predicts next observations at
+MSE .002937 versus .004950 for persistence. The frozen causal controls degrade
+as required: wrong action .007168, reset history .008023, zero quotient .049486,
+and shuffled quotient .066060. Homeostatic-error MAE is .02811 versus .06327
+for persistence. Coordinate standard deviations average .26465 with no
+collapsed coordinate. All ten registered bars pass.
+
+This is engineering evidence for a retained state selected by measured
+held-out function rather than recency, volume, or hand curation. It answers
+what is kept (predictive sensorimotor history) and what selects it (next-state
+and homeostatic prediction error). The protocol, however, was only frozen in
+the worktree and not committed before compute, violating the mandatory
+pre-registration template. The result is therefore an exposed calibration,
+not a formal pass, and licenses no action-policy run. A new-seed confirmatory
+QV0 registration must be committed before compute; no survival or cross-run
+inheritance result exists yet.
+
 ### Why the base emergences exist: four mechanistic probes (2026-09-05)
 
 Predictions stated before running; scripts in
@@ -2559,6 +2580,49 @@ frozen S without sensation dies, fresh sensation without recurrence dies,
 only integrated history lives. This is the empirical license for QV0's
 recurrent quotient — integration itself is the organ, measured before the
 quotient was proposed.
+
+### QV0R formal verdict: predictive retention substrate passes (2026-09-06)
+
+The first QV0 run was correctly demoted to exposed calibration because its
+protocol had not been committed before compute. QV0R froze the same mechanism
+and bars in commit `3f96381`, changed every model/train/evaluation seed, added
+paired trajectory-cluster confidence intervals, and then ran exact twins. The
+twins match every initialization, training row, and final tensor.
+
+On 13,989 unseen transitions, normal next-observation MSE is .003191 versus
+.005091 persistence. All 95% upper ratio bars pass: .63875 persistence, .45272
+wrong action, .06295 zero quotient, .05401 shuffled quotient; homeostatic-error
+ratio upper bound .51401. QV0R is a formal engineering PASS: a noncollapsed,
+function-selected state retains predictive temporal structure. It is not a
+viability, complete-ratchet, pillar, emergence, or CDT-theorem result.
+
+### QV1 formal verdict: retained representation does not convert to control (2026-09-06)
+
+QV1 was committed before compute (`c524baa`) and inherited the exact QV0R
+artifact into three matched policy arms: recurrent inheritance, the same
+weights reset every tick, and a fresh untrained quotient. Twin three-arm
+campaigns reproduce exactly. Training roughly doubled mean lifespan across all
+arms, but the inherited arm did not lead reset or fresh; the registered reading
+is no retention effect detected, not evidence that retention harms.
+
+Held out, every arm and acute control survives 0/64 through both 256 and 512
+ticks. The inherited policy reaches mean age 39.42, collapses to harvest and
+regulate, and all 64 bodies die of energy failure. Zeroing or resetting V flips
+45.46% and 43.24% of actions, proving causal state use, but all paired survival
+differences are zero. QV1 is a formal FAIL. The predictive quotient remains
+valid; the frozen quotient-feature plus REINFORCE bridge is retired.
+
+### Retention charter amended after QV1 (2026-09-06)
+
+`docs/retention_phase_charter.md` now combines the ultimate six-pillar and live
+human-judge objective with the active ratchet phase, current evidence ledger,
+amplified-CDT constraints, governance, ordered subgoals, phase exit, and the
+post-retention route back to the higher pillars. TAG1-R is next: the existing
+authorship-tag protocol is only an uncommitted design draft and must be upgraded
+to the current confidence-bound, exact-replay, commit-before-compute template.
+Selective utility-based HCM writes/eviction and cross-session inheritance then
+form the shortest remaining path to a complete retention loop. Embodiment is
+parked unless a committed amendment licenses a genuinely different controller.
 
 ### TAG1-R qualification VOID; advance utility-based bank selection (2026-09-06)
 

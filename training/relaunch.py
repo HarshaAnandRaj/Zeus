@@ -15,17 +15,19 @@ def complete(save_dir: pathlib.Path, target: int):
     try:
         import torch
         p = torch.load(final, map_location="meta", weights_only=False)
-        return int(p.get("step", -1)) >= target
+        return int(p.get("step", -1)) == target
     except Exception:
-        return True
+        return False
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--save_dir", required=True)
     ap.add_argument("--target", type=int, required=True)
-    ap.add_argument("train_args", nargs="*", default=[])
+    ap.add_argument("train_args", nargs=argparse.REMAINDER, default=[])
     args = ap.parse_args()
+    if args.train_args[:1] == ["--"]:
+        args.train_args = args.train_args[1:]
     sd = ROOT / args.save_dir
     sd.mkdir(parents=True, exist_ok=True)
     rlog = open(sd / "relaunch.log", "a", encoding="utf-8")
@@ -36,7 +38,8 @@ def main():
         rlog.write(line + "\n")
         rlog.flush()
 
-    newest = sorted(sd.glob("zeus_step*.pt"))
+    newest = sorted(sd.glob("zeus_step*.pt"),
+                    key=lambda p: int(p.stem.split("step")[-1]))
     if newest:
         args.train_args = [a for a in args.train_args]
         seed_note = f"resuming from {newest[-1].name}"

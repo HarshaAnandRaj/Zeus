@@ -5,6 +5,8 @@ from unittest import mock
 
 import torch
 
+from core.model import ZeusConfig, ZeusCore
+
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "zeus_sandbox"))
 _SCRIPT_ARGS = sys.argv[:]
@@ -35,6 +37,14 @@ class _BestOfKDummy:
 
 
 class ZSessionSamplingTests(unittest.TestCase):
+    def test_legacy_resilience_metric_fails_closed(self):
+        model = ZeusCore(ZeusConfig(dim=64, slow_dim=16, window=8, ctx_window=8,
+                                    readout_layers=1, readout_heads=4, vocab=8192)).eval()
+        result = zsession.p5_intrinsic_resilience(
+            model, warm_steps=2, recovery_steps=4, seed=31)
+        self.assertFalse(result["pass"])
+        self.assertIn("retired", result["gate_status"])
+
     def test_same_decode_seed_is_used_across_prompt_counterfactuals(self):
         # The fake mouth has no prompt dependence.  Its first sampled token
         # must therefore match for the same seed across prompts; without the

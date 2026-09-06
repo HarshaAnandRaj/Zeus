@@ -22,6 +22,12 @@ class SensorimotorInterfaceTests(unittest.TestCase):
         self.assertFalse(torch.equal(state_before, model.S))
         self.assertTrue(torch.equal(context_before, model.E_hist))
 
+    def test_body_sensing_can_skip_the_language_readout(self):
+        model = ZeusCore(ZeusConfig(dim=64, slow_dim=16, window=8, ctx_window=8,
+                                    readout_layers=1, readout_heads=4, vocab=8192)).eval()
+        logits, _ = model.sense_body((0.4, 0.8, 0.6, 0.2, 0.5), emit_readout=False)
+        self.assertIsNone(logits)
+
     def test_action_policy_reads_state_and_five_body_values(self):
         model = ZeusCore(ZeusConfig(dim=64, slow_dim=16, window=8, ctx_window=8,
                                     readout_layers=1, readout_heads=4, vocab=8192)).eval()
@@ -29,6 +35,14 @@ class SensorimotorInterfaceTests(unittest.TestCase):
         self.assertEqual(tuple(logits.shape), (6,))
         with self.assertRaises(ValueError):
             model.action_logits((0.4, 0.8))
+
+    def test_state_policy_has_no_direct_observation_argument(self):
+        model = ZeusCore(ZeusConfig(dim=64, slow_dim=16, window=8, ctx_window=8,
+                                    readout_layers=1, readout_heads=4, vocab=8192)).eval()
+        model.reset_state(0.12, torch.Generator("cpu").manual_seed(7))
+        logits = model.state_policy_logits()
+        expected = model.action_head(torch.cat([model.S, torch.zeros(5)]))
+        self.assertTrue(torch.equal(logits, expected))
 
     def test_policy_logits_keep_a_gradient_path_to_policy_only(self):
         model = ZeusCore(ZeusConfig(dim=64, slow_dim=16, window=8, ctx_window=8,

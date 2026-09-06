@@ -7,6 +7,7 @@ validate a training intervention.
 """
 
 import argparse
+import hashlib
 import json
 import pathlib
 import sys
@@ -21,6 +22,14 @@ sys.path.insert(0, str(ROOT))
 
 from core.model import ZeusConfig, ZeusCore
 from training.probe_train import readout_logits
+
+
+def file_sha256(path):
+    digest = hashlib.sha256()
+    with open(path, "rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def bootstrap_mean_ci(values, *, seed, resamples=2000):
@@ -123,6 +132,7 @@ def main():
     report = {"kind": "probe_exposure_gap", "created_unix": int(time.time()),
               "checkpoint": str(args.checkpoint), "step": int(saved["global_step"]),
               "val_ids": str(args.val_ids), "prefix_range": [args.low, args.high],
+              "val_ids_sha256": file_sha256(args.val_ids), "seed": args.seed,
               "rollout_tokens": args.rollout_tokens, "batches": args.batches,
               "batch": args.batch,
               **{k: ([round(x, 5) for x in v] if isinstance(v, list)

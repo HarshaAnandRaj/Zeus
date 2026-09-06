@@ -1,0 +1,3273 @@
+{
+  "kind": "pol3_embodiment_calibration",
+  "version": "pol3-world-calibration-2026-09-05",
+  "world_version": "embodied-world-v2-2026-09-05",
+  "seeds": [
+    20264001,
+    20264002,
+    20264003,
+    20264004,
+    20264005,
+    20264006,
+    20264007,
+    20264008,
+    20264009,
+    20264010,
+    20264011,
+    20264012,
+    20264013,
+    20264014,
+    20264015,
+    20264016,
+    20264017,
+    20264018,
+    20264019,
+    20264020,
+    20264021,
+    20264022,
+    20264023,
+    20264024,
+    20264025,
+    20264026,
+    20264027,
+    20264028,
+    20264029,
+    20264030,
+    20264031,
+    20264032,
+    20264033,
+    20264034,
+    20264035,
+    20264036,
+    20264037,
+    20264038,
+    20264039,
+    20264040,
+    20264041,
+    20264042,
+    20264043,
+    20264044,
+    20264045,
+    20264046,
+    20264047,
+    20264048,
+    20264049,
+    20264050,
+    20264051,
+    20264052,
+    20264053,
+    20264054,
+    20264055,
+    20264056,
+    20264057,
+    20264058,
+    20264059,
+    20264060,
+    20264061,
+    20264062,
+    20264063,
+    20264064
+  ],
+  "horizon": 512,
+  "results": {
+    "fixed_rest": {
+      "policy": "fixed_rest",
+      "n": 64,
+      "survival_rate": 0.0,
+      "mean_age": 37.765625,
+      "mean_reward": -3.4244694512557463,
+      "actions": {
+        "rest": 2417
+      },
+      "episodes": [
+        {
+          "seed": 20264001,
+          "completed": false,
+          "age": 35,
+          "reward": -3.3207108580613895,
+          "final_homeostatic_error": 1.5093342958772835,
+          "actions": {
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264002,
+          "completed": false,
+          "age": 38,
+          "reward": -3.0735131827993905,
+          "final_homeostatic_error": 1.4932124796787998,
+          "actions": {
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20264003,
+          "completed": false,
+          "age": 37,
+          "reward": -3.626336894605444,
+          "final_homeostatic_error": 1.4812019855659064,
+          "actions": {
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20264004,
+          "completed": false,
+          "age": 36,
+          "reward": -3.3374751352578023,
+          "final_homeostatic_error": 1.2918415992347414,
+          "actions": {
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264005,
+          "completed": false,
+          "age": 39,
+          "reward": -3.5807847062565754,
+          "final_homeostatic_error": 1.514851185992206,
+          "actions": {
+            "rest": 39
+          }
+        },
+        {
+          "seed": 20264006,
+          "completed": false,
+          "age": 39,
+          "reward": -3.6156707793528584,
+          "final_homeostatic_error": 1.5927858431030704,
+          "actions": {
+            "rest": 39
+          }
+        },
+        {
+          "seed": 20264007,
+          "completed": false,
+          "age": 41,
+          "reward": -3.5948976535239634,
+          "final_homeostatic_error": 1.5835388972130495,
+          "actions": {
+            "rest": 41
+          }
+        },
+        {
+          "seed": 20264008,
+          "completed": false,
+          "age": 34,
+          "reward": -3.6717330411159717,
+          "final_homeostatic_error": 1.6126176440013205,
+          "actions": {
+            "rest": 34
+          }
+        },
+        {
+          "seed": 20264009,
+          "completed": false,
+          "age": 42,
+          "reward": -3.751247033615801,
+          "final_homeostatic_error": 1.6268594730201444,
+          "actions": {
+            "rest": 42
+          }
+        },
+        {
+          "seed": 20264010,
+          "completed": false,
+          "age": 37,
+          "reward": -3.063661814176476,
+          "final_homeostatic_error": 1.5003369542852827,
+          "actions": {
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20264011,
+          "completed": false,
+          "age": 35,
+          "reward": -3.19268024351185,
+          "final_homeostatic_error": 1.5306052535310937,
+          "actions": {
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264012,
+          "completed": false,
+          "age": 41,
+          "reward": -3.389181721095948,
+          "final_homeostatic_error": 1.429729777037029,
+          "actions": {
+            "rest": 41
+          }
+        },
+        {
+          "seed": 20264013,
+          "completed": false,
+          "age": 36,
+          "reward": -3.648034391834858,
+          "final_homeostatic_error": 1.5955753576186187,
+          "actions": {
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264014,
+          "completed": false,
+          "age": 41,
+          "reward": -3.5386935382952895,
+          "final_homeostatic_error": 1.6060472315495868,
+          "actions": {
+            "rest": 41
+          }
+        },
+        {
+          "seed": 20264015,
+          "completed": false,
+          "age": 35,
+          "reward": -3.483427804637021,
+          "final_homeostatic_error": 1.555149761907987,
+          "actions": {
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264016,
+          "completed": false,
+          "age": 35,
+          "reward": -3.4984023971781495,
+          "final_homeostatic_error": 1.5483216693707635,
+          "actions": {
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264017,
+          "completed": false,
+          "age": 38,
+          "reward": -3.47183517541312,
+          "final_homeostatic_error": 1.5679285837650183,
+          "actions": {
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20264018,
+          "completed": false,
+          "age": 36,
+          "reward": -3.383678490525595,
+          "final_homeostatic_error": 1.558403646138361,
+          "actions": {
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264019,
+          "completed": false,
+          "age": 41,
+          "reward": -3.5003550756115485,
+          "final_homeostatic_error": 1.6085050359110327,
+          "actions": {
+            "rest": 41
+          }
+        },
+        {
+          "seed": 20264020,
+          "completed": false,
+          "age": 42,
+          "reward": -3.5165904995681987,
+          "final_homeostatic_error": 1.616501052050182,
+          "actions": {
+            "rest": 42
+          }
+        },
+        {
+          "seed": 20264021,
+          "completed": false,
+          "age": 37,
+          "reward": -3.7414222742595613,
+          "final_homeostatic_error": 1.603798986687335,
+          "actions": {
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20264022,
+          "completed": false,
+          "age": 40,
+          "reward": -3.6260839894161596,
+          "final_homeostatic_error": 1.6231520565322255,
+          "actions": {
+            "rest": 40
+          }
+        },
+        {
+          "seed": 20264023,
+          "completed": false,
+          "age": 39,
+          "reward": -3.0686384694282136,
+          "final_homeostatic_error": 1.529098275001227,
+          "actions": {
+            "rest": 39
+          }
+        },
+        {
+          "seed": 20264024,
+          "completed": false,
+          "age": 38,
+          "reward": -3.535507093077492,
+          "final_homeostatic_error": 1.6228325874240992,
+          "actions": {
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20264025,
+          "completed": false,
+          "age": 35,
+          "reward": -3.4280507600374235,
+          "final_homeostatic_error": 1.5579991132537152,
+          "actions": {
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264026,
+          "completed": false,
+          "age": 40,
+          "reward": -3.083774505404474,
+          "final_homeostatic_error": 1.2245051547721255,
+          "actions": {
+            "rest": 40
+          }
+        },
+        {
+          "seed": 20264027,
+          "completed": false,
+          "age": 38,
+          "reward": -3.2135028153870806,
+          "final_homeostatic_error": 1.5457241363035956,
+          "actions": {
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20264028,
+          "completed": false,
+          "age": 39,
+          "reward": -3.6871543598139658,
+          "final_homeostatic_error": 1.5963742064278248,
+          "actions": {
+            "rest": 39
+          }
+        },
+        {
+          "seed": 20264029,
+          "completed": false,
+          "age": 39,
+          "reward": -3.0841759037867758,
+          "final_homeostatic_error": 1.3860932937142638,
+          "actions": {
+            "rest": 39
+          }
+        },
+        {
+          "seed": 20264030,
+          "completed": false,
+          "age": 35,
+          "reward": -3.4207858961950195,
+          "final_homeostatic_error": 1.5392107595147464,
+          "actions": {
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264031,
+          "completed": false,
+          "age": 40,
+          "reward": -3.075729564762818,
+          "final_homeostatic_error": 1.5132588332119767,
+          "actions": {
+            "rest": 40
+          }
+        },
+        {
+          "seed": 20264032,
+          "completed": false,
+          "age": 38,
+          "reward": -3.023142899386868,
+          "final_homeostatic_error": 1.490093762620251,
+          "actions": {
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20264033,
+          "completed": false,
+          "age": 35,
+          "reward": -3.1622916881068193,
+          "final_homeostatic_error": 1.519590012977439,
+          "actions": {
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264034,
+          "completed": false,
+          "age": 42,
+          "reward": -3.2812427675284246,
+          "final_homeostatic_error": 1.6085644139600748,
+          "actions": {
+            "rest": 42
+          }
+        },
+        {
+          "seed": 20264035,
+          "completed": false,
+          "age": 41,
+          "reward": -3.649897565733279,
+          "final_homeostatic_error": 1.57706692577596,
+          "actions": {
+            "rest": 41
+          }
+        },
+        {
+          "seed": 20264036,
+          "completed": false,
+          "age": 35,
+          "reward": -3.264173668053629,
+          "final_homeostatic_error": 1.5619161037208198,
+          "actions": {
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264037,
+          "completed": false,
+          "age": 38,
+          "reward": -3.487415941668923,
+          "final_homeostatic_error": 1.5361309961859886,
+          "actions": {
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20264038,
+          "completed": false,
+          "age": 38,
+          "reward": -3.6718737947700375,
+          "final_homeostatic_error": 1.5844020621626738,
+          "actions": {
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20264039,
+          "completed": false,
+          "age": 35,
+          "reward": -3.531633409814658,
+          "final_homeostatic_error": 1.5934485589057985,
+          "actions": {
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264040,
+          "completed": false,
+          "age": 36,
+          "reward": -3.5564210663290754,
+          "final_homeostatic_error": 1.6135588245921624,
+          "actions": {
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264041,
+          "completed": false,
+          "age": 41,
+          "reward": -3.1161178213659664,
+          "final_homeostatic_error": 1.5313533141573141,
+          "actions": {
+            "rest": 41
+          }
+        },
+        {
+          "seed": 20264042,
+          "completed": false,
+          "age": 36,
+          "reward": -3.4188200078251443,
+          "final_homeostatic_error": 1.5766124091316969,
+          "actions": {
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264043,
+          "completed": false,
+          "age": 37,
+          "reward": -3.2258459899261185,
+          "final_homeostatic_error": 1.5351555926947145,
+          "actions": {
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20264044,
+          "completed": false,
+          "age": 36,
+          "reward": -3.600475170357311,
+          "final_homeostatic_error": 1.4984700799874586,
+          "actions": {
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264045,
+          "completed": false,
+          "age": 39,
+          "reward": -3.301828929221652,
+          "final_homeostatic_error": 1.4482089716760354,
+          "actions": {
+            "rest": 39
+          }
+        },
+        {
+          "seed": 20264046,
+          "completed": false,
+          "age": 41,
+          "reward": -3.563555006459964,
+          "final_homeostatic_error": 1.4615812005018087,
+          "actions": {
+            "rest": 41
+          }
+        },
+        {
+          "seed": 20264047,
+          "completed": false,
+          "age": 34,
+          "reward": -3.4098166591249406,
+          "final_homeostatic_error": 1.5358456655881472,
+          "actions": {
+            "rest": 34
+          }
+        },
+        {
+          "seed": 20264048,
+          "completed": false,
+          "age": 37,
+          "reward": -3.2528897650468767,
+          "final_homeostatic_error": 1.563864597476546,
+          "actions": {
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20264049,
+          "completed": false,
+          "age": 40,
+          "reward": -3.499834289048448,
+          "final_homeostatic_error": 1.5401812072411425,
+          "actions": {
+            "rest": 40
+          }
+        },
+        {
+          "seed": 20264050,
+          "completed": false,
+          "age": 37,
+          "reward": -3.6894496969058106,
+          "final_homeostatic_error": 1.5901365080612093,
+          "actions": {
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20264051,
+          "completed": false,
+          "age": 38,
+          "reward": -3.5955869684238966,
+          "final_homeostatic_error": 1.599241139162096,
+          "actions": {
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20264052,
+          "completed": false,
+          "age": 40,
+          "reward": -3.360779019487626,
+          "final_homeostatic_error": 1.5595062320282724,
+          "actions": {
+            "rest": 40
+          }
+        },
+        {
+          "seed": 20264053,
+          "completed": false,
+          "age": 38,
+          "reward": -3.4785102105548913,
+          "final_homeostatic_error": 1.5982052383251466,
+          "actions": {
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20264054,
+          "completed": false,
+          "age": 38,
+          "reward": -3.1854160371100653,
+          "final_homeostatic_error": 1.2967662891407874,
+          "actions": {
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20264055,
+          "completed": false,
+          "age": 36,
+          "reward": -3.5247871705437444,
+          "final_homeostatic_error": 1.4979209195628251,
+          "actions": {
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264056,
+          "completed": false,
+          "age": 39,
+          "reward": -3.1228399741347745,
+          "final_homeostatic_error": 1.5234335238414711,
+          "actions": {
+            "rest": 39
+          }
+        },
+        {
+          "seed": 20264057,
+          "completed": false,
+          "age": 38,
+          "reward": -3.600061300668304,
+          "final_homeostatic_error": 1.6081004309822928,
+          "actions": {
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20264058,
+          "completed": false,
+          "age": 35,
+          "reward": -3.63041164533855,
+          "final_homeostatic_error": 1.5997891317904356,
+          "actions": {
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264059,
+          "completed": false,
+          "age": 37,
+          "reward": -3.114085759471972,
+          "final_homeostatic_error": 1.558041723966441,
+          "actions": {
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20264060,
+          "completed": false,
+          "age": 37,
+          "reward": -3.5583608142203866,
+          "final_homeostatic_error": 1.60163376506651,
+          "actions": {
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20264061,
+          "completed": false,
+          "age": 35,
+          "reward": -3.5530917899988834,
+          "final_homeostatic_error": 1.5650067451821748,
+          "actions": {
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264062,
+          "completed": false,
+          "age": 36,
+          "reward": -3.659662572024519,
+          "final_homeostatic_error": 1.6121832602827353,
+          "actions": {
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264063,
+          "completed": false,
+          "age": 41,
+          "reward": -3.5966912105923727,
+          "final_homeostatic_error": 1.5387130415130965,
+          "actions": {
+            "rest": 41
+          }
+        },
+        {
+          "seed": 20264064,
+          "completed": false,
+          "age": 35,
+          "reward": -3.2552982031175848,
+          "final_homeostatic_error": 1.5736504297097416,
+          "actions": {
+            "rest": 35
+          }
+        }
+      ]
+    },
+    "fixed_harvest": {
+      "policy": "fixed_harvest",
+      "n": 64,
+      "survival_rate": 0.0,
+      "mean_age": 47.21875,
+      "mean_reward": -5.540174200609207,
+      "actions": {
+        "harvest": 3022
+      },
+      "episodes": [
+        {
+          "seed": 20264001,
+          "completed": false,
+          "age": 40,
+          "reward": -4.856044704215204,
+          "final_homeostatic_error": 2.378161154034033,
+          "actions": {
+            "harvest": 40
+          }
+        },
+        {
+          "seed": 20264002,
+          "completed": false,
+          "age": 43,
+          "reward": -4.31895567391472,
+          "final_homeostatic_error": 2.253350119007596,
+          "actions": {
+            "harvest": 43
+          }
+        },
+        {
+          "seed": 20264003,
+          "completed": false,
+          "age": 47,
+          "reward": -5.763347917373451,
+          "final_homeostatic_error": 2.138150776897881,
+          "actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20264004,
+          "completed": false,
+          "age": 54,
+          "reward": -5.307632356212169,
+          "final_homeostatic_error": 1.7885163127339336,
+          "actions": {
+            "harvest": 54
+          }
+        },
+        {
+          "seed": 20264005,
+          "completed": false,
+          "age": 48,
+          "reward": -5.696507356715996,
+          "final_homeostatic_error": 2.1926703588621326,
+          "actions": {
+            "harvest": 48
+          }
+        },
+        {
+          "seed": 20264006,
+          "completed": false,
+          "age": 44,
+          "reward": -5.422834684870387,
+          "final_homeostatic_error": 2.208374237405246,
+          "actions": {
+            "harvest": 44
+          }
+        },
+        {
+          "seed": 20264007,
+          "completed": false,
+          "age": 43,
+          "reward": -5.823202934032783,
+          "final_homeostatic_error": 2.4620836499977057,
+          "actions": {
+            "harvest": 43
+          }
+        },
+        {
+          "seed": 20264008,
+          "completed": false,
+          "age": 44,
+          "reward": -5.709634980566456,
+          "final_homeostatic_error": 2.2417709511043666,
+          "actions": {
+            "harvest": 44
+          }
+        },
+        {
+          "seed": 20264009,
+          "completed": false,
+          "age": 49,
+          "reward": -5.735424622098863,
+          "final_homeostatic_error": 2.302231589267276,
+          "actions": {
+            "harvest": 49
+          }
+        },
+        {
+          "seed": 20264010,
+          "completed": false,
+          "age": 52,
+          "reward": -5.392749760086268,
+          "final_homeostatic_error": 2.5755315940356915,
+          "actions": {
+            "harvest": 52
+          }
+        },
+        {
+          "seed": 20264011,
+          "completed": false,
+          "age": 45,
+          "reward": -5.255092962049175,
+          "final_homeostatic_error": 2.530490844867128,
+          "actions": {
+            "harvest": 45
+          }
+        },
+        {
+          "seed": 20264012,
+          "completed": false,
+          "age": 56,
+          "reward": -5.766797159116225,
+          "final_homeostatic_error": 1.926635238935058,
+          "actions": {
+            "harvest": 56
+          }
+        },
+        {
+          "seed": 20264013,
+          "completed": false,
+          "age": 42,
+          "reward": -5.8271772833541,
+          "final_homeostatic_error": 2.4037429766966203,
+          "actions": {
+            "harvest": 42
+          }
+        },
+        {
+          "seed": 20264014,
+          "completed": false,
+          "age": 44,
+          "reward": -5.602327270341965,
+          "final_homeostatic_error": 2.5675124169019607,
+          "actions": {
+            "harvest": 44
+          }
+        },
+        {
+          "seed": 20264015,
+          "completed": false,
+          "age": 50,
+          "reward": -5.752897193900774,
+          "final_homeostatic_error": 2.4618763768683927,
+          "actions": {
+            "harvest": 50
+          }
+        },
+        {
+          "seed": 20264016,
+          "completed": false,
+          "age": 44,
+          "reward": -5.658536983974088,
+          "final_homeostatic_error": 2.3954220203620453,
+          "actions": {
+            "harvest": 44
+          }
+        },
+        {
+          "seed": 20264017,
+          "completed": false,
+          "age": 50,
+          "reward": -5.640107528060995,
+          "final_homeostatic_error": 2.4364365615711,
+          "actions": {
+            "harvest": 50
+          }
+        },
+        {
+          "seed": 20264018,
+          "completed": false,
+          "age": 46,
+          "reward": -5.463428890038566,
+          "final_homeostatic_error": 2.3974627421232517,
+          "actions": {
+            "harvest": 46
+          }
+        },
+        {
+          "seed": 20264019,
+          "completed": false,
+          "age": 45,
+          "reward": -5.649546937954597,
+          "final_homeostatic_error": 2.4995607320047744,
+          "actions": {
+            "harvest": 45
+          }
+        },
+        {
+          "seed": 20264020,
+          "completed": false,
+          "age": 49,
+          "reward": -5.746734731533006,
+          "final_homeostatic_error": 2.5361907370584404,
+          "actions": {
+            "harvest": 49
+          }
+        },
+        {
+          "seed": 20264021,
+          "completed": false,
+          "age": 48,
+          "reward": -5.831577518740006,
+          "final_homeostatic_error": 2.298391486965798,
+          "actions": {
+            "harvest": 48
+          }
+        },
+        {
+          "seed": 20264022,
+          "completed": false,
+          "age": 44,
+          "reward": -5.549628489278134,
+          "final_homeostatic_error": 2.387922693630269,
+          "actions": {
+            "harvest": 44
+          }
+        },
+        {
+          "seed": 20264023,
+          "completed": false,
+          "age": 51,
+          "reward": -5.447557917747272,
+          "final_homeostatic_error": 2.5673023906521557,
+          "actions": {
+            "harvest": 51
+          }
+        },
+        {
+          "seed": 20264024,
+          "completed": false,
+          "age": 46,
+          "reward": -5.357586090068756,
+          "final_homeostatic_error": 2.3373326568787496,
+          "actions": {
+            "harvest": 46
+          }
+        },
+        {
+          "seed": 20264025,
+          "completed": false,
+          "age": 42,
+          "reward": -5.491589904387984,
+          "final_homeostatic_error": 2.5374636176797765,
+          "actions": {
+            "harvest": 42
+          }
+        },
+        {
+          "seed": 20264026,
+          "completed": false,
+          "age": 49,
+          "reward": -5.2788012102822055,
+          "final_homeostatic_error": 1.8508136066448233,
+          "actions": {
+            "harvest": 49
+          }
+        },
+        {
+          "seed": 20264027,
+          "completed": false,
+          "age": 50,
+          "reward": -5.562255975811114,
+          "final_homeostatic_error": 2.589591295539524,
+          "actions": {
+            "harvest": 50
+          }
+        },
+        {
+          "seed": 20264028,
+          "completed": false,
+          "age": 44,
+          "reward": -5.821325057071512,
+          "final_homeostatic_error": 2.4134076023691327,
+          "actions": {
+            "harvest": 44
+          }
+        },
+        {
+          "seed": 20264029,
+          "completed": false,
+          "age": 53,
+          "reward": -5.16002231473705,
+          "final_homeostatic_error": 1.9170003660361596,
+          "actions": {
+            "harvest": 53
+          }
+        },
+        {
+          "seed": 20264030,
+          "completed": false,
+          "age": 42,
+          "reward": -5.608272643032262,
+          "final_homeostatic_error": 2.5880275220848175,
+          "actions": {
+            "harvest": 42
+          }
+        },
+        {
+          "seed": 20264031,
+          "completed": false,
+          "age": 52,
+          "reward": -5.648153852484954,
+          "final_homeostatic_error": 2.623662702493167,
+          "actions": {
+            "harvest": 52
+          }
+        },
+        {
+          "seed": 20264032,
+          "completed": false,
+          "age": 51,
+          "reward": -5.284454606138357,
+          "final_homeostatic_error": 2.5605770028710975,
+          "actions": {
+            "harvest": 51
+          }
+        },
+        {
+          "seed": 20264033,
+          "completed": false,
+          "age": 47,
+          "reward": -5.13493070738284,
+          "final_homeostatic_error": 2.5065358864821308,
+          "actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20264034,
+          "completed": false,
+          "age": 46,
+          "reward": -5.256509862926331,
+          "final_homeostatic_error": 2.552372314796259,
+          "actions": {
+            "harvest": 46
+          }
+        },
+        {
+          "seed": 20264035,
+          "completed": false,
+          "age": 47,
+          "reward": -5.7942749727527465,
+          "final_homeostatic_error": 2.36717894016515,
+          "actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20264036,
+          "completed": false,
+          "age": 52,
+          "reward": -5.4806979740693755,
+          "final_homeostatic_error": 2.331238597679329,
+          "actions": {
+            "harvest": 52
+          }
+        },
+        {
+          "seed": 20264037,
+          "completed": false,
+          "age": 54,
+          "reward": -5.928412264015137,
+          "final_homeostatic_error": 2.0972734871557326,
+          "actions": {
+            "harvest": 54
+          }
+        },
+        {
+          "seed": 20264038,
+          "completed": false,
+          "age": 48,
+          "reward": -5.839868955775236,
+          "final_homeostatic_error": 2.160372620032799,
+          "actions": {
+            "harvest": 48
+          }
+        },
+        {
+          "seed": 20264039,
+          "completed": false,
+          "age": 40,
+          "reward": -5.284096450124719,
+          "final_homeostatic_error": 2.4443409409646644,
+          "actions": {
+            "harvest": 40
+          }
+        },
+        {
+          "seed": 20264040,
+          "completed": false,
+          "age": 43,
+          "reward": -5.893778728768385,
+          "final_homeostatic_error": 2.641402776306453,
+          "actions": {
+            "harvest": 43
+          }
+        },
+        {
+          "seed": 20264041,
+          "completed": false,
+          "age": 44,
+          "reward": -4.78655476101477,
+          "final_homeostatic_error": 2.443662651362266,
+          "actions": {
+            "harvest": 44
+          }
+        },
+        {
+          "seed": 20264042,
+          "completed": false,
+          "age": 45,
+          "reward": -5.700250910189704,
+          "final_homeostatic_error": 2.51974803705435,
+          "actions": {
+            "harvest": 45
+          }
+        },
+        {
+          "seed": 20264043,
+          "completed": false,
+          "age": 51,
+          "reward": -5.395938146774267,
+          "final_homeostatic_error": 2.556768084263249,
+          "actions": {
+            "harvest": 51
+          }
+        },
+        {
+          "seed": 20264044,
+          "completed": false,
+          "age": 46,
+          "reward": -5.604248931410355,
+          "final_homeostatic_error": 2.1597776505870816,
+          "actions": {
+            "harvest": 46
+          }
+        },
+        {
+          "seed": 20264045,
+          "completed": false,
+          "age": 47,
+          "reward": -5.598889335469112,
+          "final_homeostatic_error": 2.22436115681917,
+          "actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20264046,
+          "completed": false,
+          "age": 45,
+          "reward": -5.954173810601414,
+          "final_homeostatic_error": 2.3215347452257706,
+          "actions": {
+            "harvest": 45
+          }
+        },
+        {
+          "seed": 20264047,
+          "completed": false,
+          "age": 44,
+          "reward": -5.770464680579705,
+          "final_homeostatic_error": 2.5752881324392725,
+          "actions": {
+            "harvest": 44
+          }
+        },
+        {
+          "seed": 20264048,
+          "completed": false,
+          "age": 50,
+          "reward": -5.664118259151097,
+          "final_homeostatic_error": 2.565576155119599,
+          "actions": {
+            "harvest": 50
+          }
+        },
+        {
+          "seed": 20264049,
+          "completed": false,
+          "age": 54,
+          "reward": -5.845770184755478,
+          "final_homeostatic_error": 2.111482704670366,
+          "actions": {
+            "harvest": 54
+          }
+        },
+        {
+          "seed": 20264050,
+          "completed": false,
+          "age": 45,
+          "reward": -5.954009952273061,
+          "final_homeostatic_error": 2.4625644713907295,
+          "actions": {
+            "harvest": 45
+          }
+        },
+        {
+          "seed": 20264051,
+          "completed": false,
+          "age": 46,
+          "reward": -5.56745522152724,
+          "final_homeostatic_error": 2.3288796898275153,
+          "actions": {
+            "harvest": 46
+          }
+        },
+        {
+          "seed": 20264052,
+          "completed": false,
+          "age": 49,
+          "reward": -5.738761171067644,
+          "final_homeostatic_error": 2.5805174779988933,
+          "actions": {
+            "harvest": 49
+          }
+        },
+        {
+          "seed": 20264053,
+          "completed": false,
+          "age": 41,
+          "reward": -5.012308200102353,
+          "final_homeostatic_error": 2.4107615603455974,
+          "actions": {
+            "harvest": 41
+          }
+        },
+        {
+          "seed": 20264054,
+          "completed": false,
+          "age": 53,
+          "reward": -5.157400337592592,
+          "final_homeostatic_error": 1.744011129645728,
+          "actions": {
+            "harvest": 53
+          }
+        },
+        {
+          "seed": 20264055,
+          "completed": false,
+          "age": 55,
+          "reward": -5.846019900161637,
+          "final_homeostatic_error": 1.9602152344950805,
+          "actions": {
+            "harvest": 55
+          }
+        },
+        {
+          "seed": 20264056,
+          "completed": false,
+          "age": 53,
+          "reward": -5.603980990131388,
+          "final_homeostatic_error": 2.598134930017644,
+          "actions": {
+            "harvest": 53
+          }
+        },
+        {
+          "seed": 20264057,
+          "completed": false,
+          "age": 48,
+          "reward": -5.582872777243839,
+          "final_homeostatic_error": 2.2854480781500275,
+          "actions": {
+            "harvest": 48
+          }
+        },
+        {
+          "seed": 20264058,
+          "completed": false,
+          "age": 41,
+          "reward": -5.744316982298254,
+          "final_homeostatic_error": 2.3974350169368694,
+          "actions": {
+            "harvest": 41
+          }
+        },
+        {
+          "seed": 20264059,
+          "completed": false,
+          "age": 50,
+          "reward": -5.36500851905919,
+          "final_homeostatic_error": 2.5677520964240257,
+          "actions": {
+            "harvest": 50
+          }
+        },
+        {
+          "seed": 20264060,
+          "completed": false,
+          "age": 46,
+          "reward": -5.525561771043949,
+          "final_homeostatic_error": 2.346581978464833,
+          "actions": {
+            "harvest": 46
+          }
+        },
+        {
+          "seed": 20264061,
+          "completed": false,
+          "age": 46,
+          "reward": -5.66992429033735,
+          "final_homeostatic_error": 2.322215501836724,
+          "actions": {
+            "harvest": 46
+          }
+        },
+        {
+          "seed": 20264062,
+          "completed": false,
+          "age": 47,
+          "reward": -5.741813096981812,
+          "final_homeostatic_error": 2.325750537812345,
+          "actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20264063,
+          "completed": false,
+          "age": 46,
+          "reward": -5.491801179170124,
+          "final_homeostatic_error": 2.069745806506798,
+          "actions": {
+            "harvest": 46
+          }
+        },
+        {
+          "seed": 20264064,
+          "completed": false,
+          "age": 46,
+          "reward": -5.206728004048756,
+          "final_homeostatic_error": 2.5161845974084756,
+          "actions": {
+            "harvest": 46
+          }
+        }
+      ]
+    },
+    "uniform_random": {
+      "policy": "uniform_random",
+      "n": 64,
+      "survival_rate": 0.0,
+      "mean_age": 69.140625,
+      "mean_reward": -3.257125455019651,
+      "actions": {
+        "move_right": 767,
+        "move_left": 717,
+        "rest": 762,
+        "speak": 733,
+        "harvest": 691,
+        "regulate": 755
+      },
+      "episodes": [
+        {
+          "seed": 20264001,
+          "completed": false,
+          "age": 52,
+          "reward": -3.3120048675201876,
+          "final_homeostatic_error": 1.1990020186892734,
+          "actions": {
+            "move_right": 7,
+            "move_left": 5,
+            "rest": 10,
+            "speak": 11,
+            "harvest": 8,
+            "regulate": 11
+          }
+        },
+        {
+          "seed": 20264002,
+          "completed": false,
+          "age": 48,
+          "reward": -2.759854114276635,
+          "final_homeostatic_error": 1.2530906811856934,
+          "actions": {
+            "move_right": 7,
+            "speak": 9,
+            "move_left": 9,
+            "regulate": 10,
+            "rest": 7,
+            "harvest": 6
+          }
+        },
+        {
+          "seed": 20264003,
+          "completed": false,
+          "age": 52,
+          "reward": -2.4568522196388907,
+          "final_homeostatic_error": 1.0407853009079382,
+          "actions": {
+            "regulate": 11,
+            "harvest": 8,
+            "rest": 10,
+            "move_left": 9,
+            "speak": 7,
+            "move_right": 7
+          }
+        },
+        {
+          "seed": 20264004,
+          "completed": false,
+          "age": 36,
+          "reward": -2.626849681869907,
+          "final_homeostatic_error": 1.1387584037180012,
+          "actions": {
+            "regulate": 8,
+            "move_left": 5,
+            "harvest": 5,
+            "speak": 6,
+            "move_right": 6,
+            "rest": 6
+          }
+        },
+        {
+          "seed": 20264005,
+          "completed": false,
+          "age": 69,
+          "reward": -3.1684375345595326,
+          "final_homeostatic_error": 1.3233360696648222,
+          "actions": {
+            "harvest": 10,
+            "rest": 11,
+            "regulate": 12,
+            "move_left": 18,
+            "move_right": 6,
+            "speak": 12
+          }
+        },
+        {
+          "seed": 20264006,
+          "completed": false,
+          "age": 39,
+          "reward": -3.440988497000328,
+          "final_homeostatic_error": 1.5480365878274074,
+          "actions": {
+            "speak": 12,
+            "rest": 8,
+            "move_right": 9,
+            "harvest": 2,
+            "regulate": 4,
+            "move_left": 4
+          }
+        },
+        {
+          "seed": 20264007,
+          "completed": false,
+          "age": 44,
+          "reward": -2.440548767171149,
+          "final_homeostatic_error": 1.121643871731361,
+          "actions": {
+            "move_left": 7,
+            "regulate": 12,
+            "speak": 4,
+            "rest": 12,
+            "move_right": 5,
+            "harvest": 4
+          }
+        },
+        {
+          "seed": 20264008,
+          "completed": false,
+          "age": 50,
+          "reward": -3.6477568602827497,
+          "final_homeostatic_error": 1.403184374834436,
+          "actions": {
+            "move_left": 10,
+            "move_right": 8,
+            "rest": 6,
+            "harvest": 9,
+            "speak": 9,
+            "regulate": 8
+          }
+        },
+        {
+          "seed": 20264009,
+          "completed": false,
+          "age": 121,
+          "reward": -7.884199917674374,
+          "final_homeostatic_error": 1.9280465737512404,
+          "actions": {
+            "rest": 18,
+            "move_right": 25,
+            "speak": 18,
+            "move_left": 21,
+            "harvest": 23,
+            "regulate": 16
+          }
+        },
+        {
+          "seed": 20264010,
+          "completed": false,
+          "age": 120,
+          "reward": -5.036559989687305,
+          "final_homeostatic_error": 1.6847011744223162,
+          "actions": {
+            "speak": 18,
+            "move_right": 26,
+            "move_left": 18,
+            "rest": 18,
+            "harvest": 24,
+            "regulate": 16
+          }
+        },
+        {
+          "seed": 20264011,
+          "completed": false,
+          "age": 59,
+          "reward": -3.59467471379507,
+          "final_homeostatic_error": 1.4191736549442262,
+          "actions": {
+            "speak": 12,
+            "move_right": 15,
+            "move_left": 7,
+            "rest": 9,
+            "regulate": 8,
+            "harvest": 8
+          }
+        },
+        {
+          "seed": 20264012,
+          "completed": false,
+          "age": 61,
+          "reward": -3.998686936073714,
+          "final_homeostatic_error": 1.4807066164354623,
+          "actions": {
+            "speak": 7,
+            "rest": 12,
+            "harvest": 8,
+            "regulate": 8,
+            "move_left": 15,
+            "move_right": 11
+          }
+        },
+        {
+          "seed": 20264013,
+          "completed": false,
+          "age": 58,
+          "reward": -4.091508420198174,
+          "final_homeostatic_error": 1.3579499436815574,
+          "actions": {
+            "move_right": 12,
+            "speak": 10,
+            "harvest": 9,
+            "rest": 11,
+            "regulate": 6,
+            "move_left": 10
+          }
+        },
+        {
+          "seed": 20264014,
+          "completed": false,
+          "age": 95,
+          "reward": -3.937204364910043,
+          "final_homeostatic_error": 1.5624879476908906,
+          "actions": {
+            "harvest": 17,
+            "move_left": 11,
+            "rest": 20,
+            "move_right": 16,
+            "speak": 18,
+            "regulate": 13
+          }
+        },
+        {
+          "seed": 20264015,
+          "completed": false,
+          "age": 98,
+          "reward": -3.581690626496513,
+          "final_homeostatic_error": 1.5957129763183382,
+          "actions": {
+            "harvest": 20,
+            "speak": 17,
+            "move_right": 17,
+            "regulate": 16,
+            "move_left": 14,
+            "rest": 14
+          }
+        },
+        {
+          "seed": 20264016,
+          "completed": false,
+          "age": 30,
+          "reward": -3.257746974960904,
+          "final_homeostatic_error": 1.3885658792442601,
+          "actions": {
+            "regulate": 4,
+            "move_right": 10,
+            "rest": 5,
+            "move_left": 4,
+            "speak": 6,
+            "harvest": 1
+          }
+        },
+        {
+          "seed": 20264017,
+          "completed": false,
+          "age": 81,
+          "reward": -1.4505918273088416,
+          "final_homeostatic_error": 1.032250910521424,
+          "actions": {
+            "speak": 11,
+            "move_left": 12,
+            "harvest": 12,
+            "rest": 14,
+            "regulate": 18,
+            "move_right": 14
+          }
+        },
+        {
+          "seed": 20264018,
+          "completed": false,
+          "age": 53,
+          "reward": -3.1433493692600507,
+          "final_homeostatic_error": 1.4983182759271498,
+          "actions": {
+            "speak": 8,
+            "regulate": 9,
+            "harvest": 7,
+            "rest": 10,
+            "move_left": 6,
+            "move_right": 13
+          }
+        },
+        {
+          "seed": 20264019,
+          "completed": false,
+          "age": 41,
+          "reward": -2.1566121392665085,
+          "final_homeostatic_error": 1.1450827452311618,
+          "actions": {
+            "move_left": 9,
+            "move_right": 5,
+            "regulate": 13,
+            "rest": 5,
+            "harvest": 3,
+            "speak": 6
+          }
+        },
+        {
+          "seed": 20264020,
+          "completed": false,
+          "age": 72,
+          "reward": -1.8948708042405424,
+          "final_homeostatic_error": 0.9856371803199644,
+          "actions": {
+            "regulate": 19,
+            "speak": 12,
+            "rest": 12,
+            "harvest": 10,
+            "move_left": 10,
+            "move_right": 9
+          }
+        },
+        {
+          "seed": 20264021,
+          "completed": false,
+          "age": 69,
+          "reward": -3.4498763779556874,
+          "final_homeostatic_error": 1.4777460927378825,
+          "actions": {
+            "regulate": 10,
+            "harvest": 10,
+            "move_left": 12,
+            "move_right": 14,
+            "rest": 10,
+            "speak": 13
+          }
+        },
+        {
+          "seed": 20264022,
+          "completed": false,
+          "age": 72,
+          "reward": -2.805635571561063,
+          "final_homeostatic_error": 1.2893313413016743,
+          "actions": {
+            "speak": 10,
+            "rest": 12,
+            "harvest": 14,
+            "move_right": 14,
+            "move_left": 11,
+            "regulate": 11
+          }
+        },
+        {
+          "seed": 20264023,
+          "completed": false,
+          "age": 97,
+          "reward": -2.2468500858194482,
+          "final_homeostatic_error": 1.4590494406790637,
+          "actions": {
+            "speak": 18,
+            "harvest": 17,
+            "regulate": 24,
+            "move_right": 15,
+            "move_left": 14,
+            "rest": 9
+          }
+        },
+        {
+          "seed": 20264024,
+          "completed": false,
+          "age": 73,
+          "reward": -2.673482323717442,
+          "final_homeostatic_error": 1.3363087543114447,
+          "actions": {
+            "harvest": 13,
+            "speak": 12,
+            "move_right": 12,
+            "move_left": 8,
+            "regulate": 10,
+            "rest": 18
+          }
+        },
+        {
+          "seed": 20264025,
+          "completed": false,
+          "age": 85,
+          "reward": -2.8883088710156306,
+          "final_homeostatic_error": 1.2794615404091367,
+          "actions": {
+            "move_left": 12,
+            "move_right": 13,
+            "harvest": 20,
+            "speak": 13,
+            "rest": 12,
+            "regulate": 15
+          }
+        },
+        {
+          "seed": 20264026,
+          "completed": false,
+          "age": 74,
+          "reward": -3.2686623878564838,
+          "final_homeostatic_error": 1.7462699342311931,
+          "actions": {
+            "move_right": 22,
+            "harvest": 10,
+            "move_left": 10,
+            "rest": 12,
+            "speak": 12,
+            "regulate": 8
+          }
+        },
+        {
+          "seed": 20264027,
+          "completed": false,
+          "age": 78,
+          "reward": -1.8255634265373986,
+          "final_homeostatic_error": 1.0294313365929963,
+          "actions": {
+            "harvest": 11,
+            "move_left": 11,
+            "rest": 20,
+            "move_right": 10,
+            "regulate": 16,
+            "speak": 10
+          }
+        },
+        {
+          "seed": 20264028,
+          "completed": false,
+          "age": 115,
+          "reward": -6.495243530746921,
+          "final_homeostatic_error": 1.888488862731871,
+          "actions": {
+            "regulate": 18,
+            "rest": 21,
+            "move_left": 14,
+            "speak": 23,
+            "move_right": 18,
+            "harvest": 21
+          }
+        },
+        {
+          "seed": 20264029,
+          "completed": false,
+          "age": 82,
+          "reward": -4.243807272694329,
+          "final_homeostatic_error": 1.384517375239648,
+          "actions": {
+            "move_left": 15,
+            "regulate": 15,
+            "rest": 14,
+            "move_right": 10,
+            "speak": 13,
+            "harvest": 15
+          }
+        },
+        {
+          "seed": 20264030,
+          "completed": false,
+          "age": 52,
+          "reward": -3.064913241875723,
+          "final_homeostatic_error": 1.5522166007957607,
+          "actions": {
+            "move_right": 9,
+            "harvest": 6,
+            "regulate": 9,
+            "rest": 6,
+            "move_left": 12,
+            "speak": 10
+          }
+        },
+        {
+          "seed": 20264031,
+          "completed": false,
+          "age": 93,
+          "reward": -3.300636130074663,
+          "final_homeostatic_error": 1.5607539380781432,
+          "actions": {
+            "move_right": 17,
+            "harvest": 15,
+            "speak": 15,
+            "rest": 16,
+            "move_left": 12,
+            "regulate": 18
+          }
+        },
+        {
+          "seed": 20264032,
+          "completed": false,
+          "age": 60,
+          "reward": -2.669299939970429,
+          "final_homeostatic_error": 1.2621801701929412,
+          "actions": {
+            "rest": 13,
+            "regulate": 9,
+            "move_right": 13,
+            "harvest": 9,
+            "move_left": 6,
+            "speak": 10
+          }
+        },
+        {
+          "seed": 20264033,
+          "completed": false,
+          "age": 61,
+          "reward": -2.4157866710034708,
+          "final_homeostatic_error": 1.1142987627071608,
+          "actions": {
+            "move_left": 10,
+            "regulate": 14,
+            "rest": 14,
+            "move_right": 7,
+            "harvest": 8,
+            "speak": 8
+          }
+        },
+        {
+          "seed": 20264034,
+          "completed": false,
+          "age": 59,
+          "reward": -4.11224410069539,
+          "final_homeostatic_error": 1.4783962154050678,
+          "actions": {
+            "move_right": 11,
+            "move_left": 10,
+            "regulate": 8,
+            "rest": 14,
+            "speak": 8,
+            "harvest": 8
+          }
+        },
+        {
+          "seed": 20264035,
+          "completed": false,
+          "age": 106,
+          "reward": -5.4135563484872256,
+          "final_homeostatic_error": 1.8562654385502306,
+          "actions": {
+            "speak": 21,
+            "harvest": 18,
+            "move_right": 17,
+            "move_left": 20,
+            "regulate": 12,
+            "rest": 18
+          }
+        },
+        {
+          "seed": 20264036,
+          "completed": false,
+          "age": 49,
+          "reward": -4.123314786439597,
+          "final_homeostatic_error": 1.7033169055262467,
+          "actions": {
+            "rest": 5,
+            "speak": 14,
+            "move_right": 9,
+            "move_left": 7,
+            "harvest": 8,
+            "regulate": 6
+          }
+        },
+        {
+          "seed": 20264037,
+          "completed": false,
+          "age": 58,
+          "reward": -2.6656203906841713,
+          "final_homeostatic_error": 1.168396308833028,
+          "actions": {
+            "move_right": 10,
+            "regulate": 12,
+            "rest": 8,
+            "harvest": 7,
+            "move_left": 11,
+            "speak": 10
+          }
+        },
+        {
+          "seed": 20264038,
+          "completed": false,
+          "age": 50,
+          "reward": -2.631120272789131,
+          "final_homeostatic_error": 1.075590470274196,
+          "actions": {
+            "rest": 11,
+            "regulate": 9,
+            "move_right": 11,
+            "harvest": 5,
+            "move_left": 9,
+            "speak": 5
+          }
+        },
+        {
+          "seed": 20264039,
+          "completed": false,
+          "age": 65,
+          "reward": -2.55272591860781,
+          "final_homeostatic_error": 1.0777550652309724,
+          "actions": {
+            "harvest": 13,
+            "move_left": 11,
+            "move_right": 13,
+            "regulate": 15,
+            "rest": 9,
+            "speak": 4
+          }
+        },
+        {
+          "seed": 20264040,
+          "completed": false,
+          "age": 60,
+          "reward": -3.2042627226926346,
+          "final_homeostatic_error": 1.2429117717164255,
+          "actions": {
+            "move_right": 8,
+            "speak": 11,
+            "rest": 15,
+            "regulate": 9,
+            "move_left": 9,
+            "harvest": 8
+          }
+        },
+        {
+          "seed": 20264041,
+          "completed": false,
+          "age": 72,
+          "reward": -3.5756410321954983,
+          "final_homeostatic_error": 1.2296933766597749,
+          "actions": {
+            "regulate": 11,
+            "move_left": 11,
+            "rest": 19,
+            "speak": 11,
+            "harvest": 9,
+            "move_right": 11
+          }
+        },
+        {
+          "seed": 20264042,
+          "completed": false,
+          "age": 69,
+          "reward": -2.8886141328592734,
+          "final_homeostatic_error": 1.317516125378645,
+          "actions": {
+            "harvest": 14,
+            "move_left": 13,
+            "rest": 12,
+            "speak": 10,
+            "regulate": 11,
+            "move_right": 9
+          }
+        },
+        {
+          "seed": 20264043,
+          "completed": false,
+          "age": 70,
+          "reward": -3.5066323365771677,
+          "final_homeostatic_error": 1.3834366788955803,
+          "actions": {
+            "speak": 15,
+            "move_left": 18,
+            "harvest": 13,
+            "rest": 7,
+            "regulate": 7,
+            "move_right": 10
+          }
+        },
+        {
+          "seed": 20264044,
+          "completed": false,
+          "age": 31,
+          "reward": -2.663738790206258,
+          "final_homeostatic_error": 1.1642869573897703,
+          "actions": {
+            "move_right": 4,
+            "rest": 9,
+            "regulate": 7,
+            "speak": 2,
+            "move_left": 8,
+            "harvest": 1
+          }
+        },
+        {
+          "seed": 20264045,
+          "completed": false,
+          "age": 65,
+          "reward": -2.9278555287038692,
+          "final_homeostatic_error": 1.2989161643682423,
+          "actions": {
+            "regulate": 15,
+            "speak": 13,
+            "move_right": 10,
+            "move_left": 9,
+            "rest": 9,
+            "harvest": 9
+          }
+        },
+        {
+          "seed": 20264046,
+          "completed": false,
+          "age": 71,
+          "reward": -4.042093673449388,
+          "final_homeostatic_error": 1.5279859110276035,
+          "actions": {
+            "rest": 13,
+            "harvest": 11,
+            "move_left": 6,
+            "speak": 15,
+            "move_right": 14,
+            "regulate": 12
+          }
+        },
+        {
+          "seed": 20264047,
+          "completed": false,
+          "age": 49,
+          "reward": -3.2689974552666228,
+          "final_homeostatic_error": 1.4306349574966508,
+          "actions": {
+            "regulate": 7,
+            "rest": 12,
+            "move_right": 7,
+            "harvest": 5,
+            "move_left": 6,
+            "speak": 12
+          }
+        },
+        {
+          "seed": 20264048,
+          "completed": false,
+          "age": 61,
+          "reward": -2.2194821308428736,
+          "final_homeostatic_error": 1.1863575953573873,
+          "actions": {
+            "harvest": 8,
+            "speak": 13,
+            "move_right": 9,
+            "regulate": 12,
+            "move_left": 9,
+            "rest": 10
+          }
+        },
+        {
+          "seed": 20264049,
+          "completed": false,
+          "age": 110,
+          "reward": -2.8293552698344593,
+          "final_homeostatic_error": 1.2184670075021455,
+          "actions": {
+            "regulate": 20,
+            "move_left": 14,
+            "rest": 22,
+            "speak": 21,
+            "harvest": 18,
+            "move_right": 15
+          }
+        },
+        {
+          "seed": 20264050,
+          "completed": false,
+          "age": 65,
+          "reward": -4.133524446958461,
+          "final_homeostatic_error": 1.4502373223519824,
+          "actions": {
+            "move_left": 17,
+            "move_right": 15,
+            "harvest": 9,
+            "regulate": 8,
+            "speak": 12,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20264051,
+          "completed": false,
+          "age": 65,
+          "reward": -2.540119772784035,
+          "final_homeostatic_error": 0.9545392355034753,
+          "actions": {
+            "rest": 16,
+            "speak": 10,
+            "move_right": 10,
+            "harvest": 10,
+            "regulate": 12,
+            "move_left": 7
+          }
+        },
+        {
+          "seed": 20264052,
+          "completed": false,
+          "age": 77,
+          "reward": -3.207299527559872,
+          "final_homeostatic_error": 1.2809732373745466,
+          "actions": {
+            "regulate": 9,
+            "rest": 26,
+            "move_left": 8,
+            "move_right": 15,
+            "harvest": 11,
+            "speak": 8
+          }
+        },
+        {
+          "seed": 20264053,
+          "completed": false,
+          "age": 65,
+          "reward": -2.042816541187593,
+          "final_homeostatic_error": 0.9988737887561379,
+          "actions": {
+            "move_left": 13,
+            "speak": 9,
+            "move_right": 10,
+            "harvest": 9,
+            "rest": 8,
+            "regulate": 16
+          }
+        },
+        {
+          "seed": 20264054,
+          "completed": false,
+          "age": 69,
+          "reward": -2.977910831359546,
+          "final_homeostatic_error": 1.3431476301508143,
+          "actions": {
+            "move_left": 13,
+            "harvest": 10,
+            "regulate": 17,
+            "rest": 5,
+            "speak": 12,
+            "move_right": 12
+          }
+        },
+        {
+          "seed": 20264055,
+          "completed": false,
+          "age": 62,
+          "reward": -4.3509515759206,
+          "final_homeostatic_error": 1.5111146832138629,
+          "actions": {
+            "rest": 7,
+            "speak": 6,
+            "move_right": 20,
+            "move_left": 8,
+            "harvest": 9,
+            "regulate": 12
+          }
+        },
+        {
+          "seed": 20264056,
+          "completed": false,
+          "age": 61,
+          "reward": -2.4366051224855685,
+          "final_homeostatic_error": 1.2961351791563738,
+          "actions": {
+            "regulate": 10,
+            "harvest": 7,
+            "move_left": 7,
+            "move_right": 10,
+            "speak": 15,
+            "rest": 12
+          }
+        },
+        {
+          "seed": 20264057,
+          "completed": false,
+          "age": 94,
+          "reward": -3.1476731839122394,
+          "final_homeostatic_error": 1.8606311901048322,
+          "actions": {
+            "move_right": 16,
+            "harvest": 18,
+            "move_left": 16,
+            "speak": 15,
+            "regulate": 15,
+            "rest": 14
+          }
+        },
+        {
+          "seed": 20264058,
+          "completed": false,
+          "age": 61,
+          "reward": -1.9161119065322922,
+          "final_homeostatic_error": 1.0189173033500105,
+          "actions": {
+            "move_left": 11,
+            "move_right": 9,
+            "harvest": 8,
+            "regulate": 15,
+            "rest": 12,
+            "speak": 6
+          }
+        },
+        {
+          "seed": 20264059,
+          "completed": false,
+          "age": 74,
+          "reward": -3.4767718028464665,
+          "final_homeostatic_error": 1.2659980302736527,
+          "actions": {
+            "move_left": 10,
+            "speak": 12,
+            "harvest": 13,
+            "regulate": 13,
+            "move_right": 15,
+            "rest": 11
+          }
+        },
+        {
+          "seed": 20264060,
+          "completed": false,
+          "age": 78,
+          "reward": -2.82708143844794,
+          "final_homeostatic_error": 1.2940950130773898,
+          "actions": {
+            "move_left": 13,
+            "regulate": 13,
+            "harvest": 12,
+            "move_right": 12,
+            "speak": 15,
+            "rest": 13
+          }
+        },
+        {
+          "seed": 20264061,
+          "completed": false,
+          "age": 26,
+          "reward": -3.314135398135168,
+          "final_homeostatic_error": 1.670926873150065,
+          "actions": {
+            "regulate": 3,
+            "speak": 6,
+            "move_left": 10,
+            "rest": 5,
+            "move_right": 2
+          }
+        },
+        {
+          "seed": 20264062,
+          "completed": false,
+          "age": 77,
+          "reward": -4.341205675941578,
+          "final_homeostatic_error": 1.689822364566722,
+          "actions": {
+            "move_left": 21,
+            "rest": 7,
+            "move_right": 18,
+            "harvest": 14,
+            "speak": 11,
+            "regulate": 6
+          }
+        },
+        {
+          "seed": 20264063,
+          "completed": false,
+          "age": 176,
+          "reward": -2.7323535627712987,
+          "final_homeostatic_error": 1.3446300560171154,
+          "actions": {
+            "harvest": 39,
+            "move_left": 26,
+            "move_right": 28,
+            "rest": 27,
+            "speak": 26,
+            "regulate": 30
+          }
+        },
+        {
+          "seed": 20264064,
+          "completed": false,
+          "age": 40,
+          "reward": -3.1571589870635375,
+          "final_homeostatic_error": 1.5530782014730764,
+          "actions": {
+            "move_left": 15,
+            "move_right": 5,
+            "speak": 5,
+            "regulate": 4,
+            "rest": 7,
+            "harvest": 4
+          }
+        }
+      ]
+    },
+    "scan_oracle": {
+      "policy": "scan_oracle",
+      "n": 64,
+      "survival_rate": 1.0,
+      "mean_age": 512.0,
+      "mean_reward": 4.8978565409055435,
+      "actions": {
+        "harvest": 8406,
+        "move_right": 8989,
+        "move_left": 9012,
+        "regulate": 4058,
+        "rest": 2303
+      },
+      "episodes": [
+        {
+          "seed": 20264001,
+          "completed": true,
+          "age": 512,
+          "reward": 4.912787554506221,
+          "final_homeostatic_error": 0.2541476215982498,
+          "actions": {
+            "harvest": 133,
+            "move_right": 140,
+            "move_left": 140,
+            "regulate": 63,
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264002,
+          "completed": true,
+          "age": 512,
+          "reward": 5.380122786737436,
+          "final_homeostatic_error": 0.18327417023595932,
+          "actions": {
+            "harvest": 136,
+            "move_left": 137,
+            "move_right": 142,
+            "regulate": 64,
+            "rest": 33
+          }
+        },
+        {
+          "seed": 20264003,
+          "completed": true,
+          "age": 512,
+          "reward": 4.7582153605367115,
+          "final_homeostatic_error": 0.3716214733250324,
+          "actions": {
+            "harvest": 138,
+            "move_right": 138,
+            "regulate": 64,
+            "move_left": 136,
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264004,
+          "completed": true,
+          "age": 512,
+          "reward": 4.580693067362805,
+          "final_homeostatic_error": 0.4250543278679849,
+          "actions": {
+            "harvest": 126,
+            "move_left": 144,
+            "regulate": 64,
+            "move_right": 141,
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20264005,
+          "completed": true,
+          "age": 512,
+          "reward": 4.913148115677821,
+          "final_homeostatic_error": 0.40986793260514726,
+          "actions": {
+            "harvest": 140,
+            "move_right": 138,
+            "regulate": 63,
+            "move_left": 136,
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264006,
+          "completed": true,
+          "age": 512,
+          "reward": 4.760985783118306,
+          "final_homeostatic_error": 0.4972941684590862,
+          "actions": {
+            "harvest": 127,
+            "move_left": 141,
+            "regulate": 64,
+            "move_right": 144,
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264007,
+          "completed": true,
+          "age": 512,
+          "reward": 4.958130178694596,
+          "final_homeostatic_error": 0.4543717806703564,
+          "actions": {
+            "harvest": 135,
+            "move_right": 138,
+            "regulate": 64,
+            "move_left": 140,
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264008,
+          "completed": true,
+          "age": 512,
+          "reward": 4.954038873006623,
+          "final_homeostatic_error": 0.47338156314965946,
+          "actions": {
+            "harvest": 133,
+            "regulate": 65,
+            "move_left": 138,
+            "move_right": 141,
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264009,
+          "completed": true,
+          "age": 512,
+          "reward": 4.588642801707455,
+          "final_homeostatic_error": 0.46151834693924454,
+          "actions": {
+            "harvest": 133,
+            "move_right": 143,
+            "regulate": 63,
+            "move_left": 136,
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20264010,
+          "completed": true,
+          "age": 512,
+          "reward": 5.2786177646124735,
+          "final_homeostatic_error": 0.18775227845086598,
+          "actions": {
+            "harvest": 129,
+            "move_left": 141,
+            "move_right": 144,
+            "regulate": 64,
+            "rest": 34
+          }
+        },
+        {
+          "seed": 20264011,
+          "completed": true,
+          "age": 512,
+          "reward": 4.928676578075761,
+          "final_homeostatic_error": 0.2977345400633302,
+          "actions": {
+            "harvest": 124,
+            "move_right": 144,
+            "move_left": 144,
+            "regulate": 63,
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20264012,
+          "completed": true,
+          "age": 512,
+          "reward": 4.770818764203114,
+          "final_homeostatic_error": 0.5216511376134344,
+          "actions": {
+            "harvest": 135,
+            "move_left": 142,
+            "regulate": 63,
+            "move_right": 136,
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264013,
+          "completed": true,
+          "age": 512,
+          "reward": 5.0250568999654845,
+          "final_homeostatic_error": 0.4316533606218832,
+          "actions": {
+            "harvest": 142,
+            "regulate": 65,
+            "move_right": 134,
+            "move_left": 136,
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264014,
+          "completed": true,
+          "age": 512,
+          "reward": 4.765325372798239,
+          "final_homeostatic_error": 0.36824772702037634,
+          "actions": {
+            "harvest": 129,
+            "move_left": 144,
+            "regulate": 63,
+            "move_right": 139,
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20264015,
+          "completed": true,
+          "age": 512,
+          "reward": 4.8603276598787835,
+          "final_homeostatic_error": 0.336280811059368,
+          "actions": {
+            "harvest": 137,
+            "move_left": 141,
+            "regulate": 63,
+            "move_right": 136,
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264016,
+          "completed": true,
+          "age": 512,
+          "reward": 4.886122146187426,
+          "final_homeostatic_error": 0.36460342775234705,
+          "actions": {
+            "harvest": 131,
+            "move_left": 142,
+            "regulate": 63,
+            "move_right": 140,
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264017,
+          "completed": true,
+          "age": 512,
+          "reward": 4.710749670511639,
+          "final_homeostatic_error": 0.304875990528931,
+          "actions": {
+            "harvest": 134,
+            "move_left": 142,
+            "regulate": 63,
+            "move_right": 136,
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20264018,
+          "completed": true,
+          "age": 512,
+          "reward": 4.718469448135667,
+          "final_homeostatic_error": 0.3617399486876395,
+          "actions": {
+            "harvest": 124,
+            "move_left": 144,
+            "regulate": 64,
+            "move_right": 142,
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20264019,
+          "completed": true,
+          "age": 512,
+          "reward": 4.546078152800254,
+          "final_homeostatic_error": 0.5034282963716294,
+          "actions": {
+            "harvest": 130,
+            "move_right": 137,
+            "move_left": 144,
+            "regulate": 62,
+            "rest": 39
+          }
+        },
+        {
+          "seed": 20264020,
+          "completed": true,
+          "age": 512,
+          "reward": 4.735879399387018,
+          "final_homeostatic_error": 0.26745707464331275,
+          "actions": {
+            "harvest": 135,
+            "move_left": 140,
+            "move_right": 136,
+            "regulate": 63,
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20264021,
+          "completed": true,
+          "age": 512,
+          "reward": 4.734165432302428,
+          "final_homeostatic_error": 0.4176071187383254,
+          "actions": {
+            "harvest": 131,
+            "move_right": 144,
+            "regulate": 64,
+            "move_left": 137,
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264022,
+          "completed": true,
+          "age": 512,
+          "reward": 4.898874676813338,
+          "final_homeostatic_error": 0.4857167537454027,
+          "actions": {
+            "harvest": 135,
+            "move_left": 139,
+            "regulate": 64,
+            "move_right": 138,
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264023,
+          "completed": true,
+          "age": 512,
+          "reward": 5.2789564929496535,
+          "final_homeostatic_error": 0.2266230583946561,
+          "actions": {
+            "harvest": 127,
+            "move_right": 142,
+            "move_left": 144,
+            "regulate": 63,
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264024,
+          "completed": true,
+          "age": 512,
+          "reward": 4.835811391586746,
+          "final_homeostatic_error": 0.3922604068008496,
+          "actions": {
+            "harvest": 125,
+            "move_left": 142,
+            "regulate": 64,
+            "move_right": 144,
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20264025,
+          "completed": true,
+          "age": 512,
+          "reward": 4.6187749708996275,
+          "final_homeostatic_error": 0.44365713525315736,
+          "actions": {
+            "harvest": 127,
+            "move_right": 140,
+            "move_left": 144,
+            "regulate": 63,
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20264026,
+          "completed": true,
+          "age": 512,
+          "reward": 4.984858374116236,
+          "final_homeostatic_error": 0.44479921627544783,
+          "actions": {
+            "harvest": 127,
+            "move_left": 143,
+            "regulate": 64,
+            "move_right": 144,
+            "rest": 34
+          }
+        },
+        {
+          "seed": 20264027,
+          "completed": true,
+          "age": 512,
+          "reward": 4.93994988580496,
+          "final_homeostatic_error": 0.2071536382918518,
+          "actions": {
+            "harvest": 133,
+            "move_right": 137,
+            "move_left": 141,
+            "regulate": 63,
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20264028,
+          "completed": true,
+          "age": 512,
+          "reward": 4.851962290051139,
+          "final_homeostatic_error": 0.4510502022655616,
+          "actions": {
+            "harvest": 127,
+            "move_left": 141,
+            "regulate": 64,
+            "move_right": 144,
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264029,
+          "completed": true,
+          "age": 512,
+          "reward": 5.071001647658936,
+          "final_homeostatic_error": 0.3654815213328142,
+          "actions": {
+            "harvest": 132,
+            "move_left": 144,
+            "regulate": 63,
+            "move_right": 137,
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264030,
+          "completed": true,
+          "age": 512,
+          "reward": 4.8611908674598325,
+          "final_homeostatic_error": 0.3676509223524007,
+          "actions": {
+            "harvest": 139,
+            "move_left": 137,
+            "move_right": 136,
+            "regulate": 64,
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264031,
+          "completed": true,
+          "age": 512,
+          "reward": 5.013669188591667,
+          "final_homeostatic_error": 0.16972307228633063,
+          "actions": {
+            "harvest": 130,
+            "move_right": 143,
+            "move_left": 139,
+            "regulate": 64,
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264032,
+          "completed": true,
+          "age": 512,
+          "reward": 5.185629605352972,
+          "final_homeostatic_error": 0.19276266615505644,
+          "actions": {
+            "harvest": 137,
+            "move_left": 140,
+            "move_right": 136,
+            "regulate": 64,
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264033,
+          "completed": true,
+          "age": 512,
+          "reward": 5.4781767091448526,
+          "final_homeostatic_error": 0.15363020717537124,
+          "actions": {
+            "harvest": 127,
+            "move_right": 144,
+            "move_left": 144,
+            "regulate": 64,
+            "rest": 33
+          }
+        },
+        {
+          "seed": 20264034,
+          "completed": true,
+          "age": 512,
+          "reward": 4.956052228386179,
+          "final_homeostatic_error": 0.27070253783255294,
+          "actions": {
+            "harvest": 137,
+            "move_left": 138,
+            "move_right": 136,
+            "regulate": 63,
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20264035,
+          "completed": true,
+          "age": 512,
+          "reward": 4.71089324002536,
+          "final_homeostatic_error": 0.5421601957307257,
+          "actions": {
+            "harvest": 127,
+            "move_right": 143,
+            "regulate": 63,
+            "move_left": 144,
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264036,
+          "completed": true,
+          "age": 512,
+          "reward": 5.3525801209253885,
+          "final_homeostatic_error": 0.4258350572793138,
+          "actions": {
+            "harvest": 133,
+            "move_left": 140,
+            "move_right": 142,
+            "regulate": 63,
+            "rest": 34
+          }
+        },
+        {
+          "seed": 20264037,
+          "completed": true,
+          "age": 512,
+          "reward": 4.719359469818534,
+          "final_homeostatic_error": 0.42355949877806315,
+          "actions": {
+            "harvest": 127,
+            "move_right": 141,
+            "move_left": 144,
+            "regulate": 63,
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20264038,
+          "completed": true,
+          "age": 512,
+          "reward": 5.109193748451458,
+          "final_homeostatic_error": 0.4949126928641833,
+          "actions": {
+            "harvest": 137,
+            "regulate": 64,
+            "move_left": 142,
+            "move_right": 136,
+            "rest": 33
+          }
+        },
+        {
+          "seed": 20264039,
+          "completed": true,
+          "age": 512,
+          "reward": 4.723741322550413,
+          "final_homeostatic_error": 0.529649354465039,
+          "actions": {
+            "harvest": 138,
+            "move_right": 138,
+            "move_left": 138,
+            "regulate": 62,
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264040,
+          "completed": true,
+          "age": 512,
+          "reward": 4.9656357279517005,
+          "final_homeostatic_error": 0.41137814152432306,
+          "actions": {
+            "harvest": 128,
+            "move_left": 141,
+            "regulate": 64,
+            "move_right": 143,
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264041,
+          "completed": true,
+          "age": 512,
+          "reward": 4.918211303503232,
+          "final_homeostatic_error": 0.1679430419490518,
+          "actions": {
+            "harvest": 132,
+            "move_left": 142,
+            "move_right": 136,
+            "regulate": 64,
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20264042,
+          "completed": true,
+          "age": 512,
+          "reward": 4.71304752309917,
+          "final_homeostatic_error": 0.5126163550983261,
+          "actions": {
+            "harvest": 129,
+            "move_right": 144,
+            "regulate": 62,
+            "move_left": 140,
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20264043,
+          "completed": true,
+          "age": 512,
+          "reward": 5.334704035292769,
+          "final_homeostatic_error": 0.15751906265470436,
+          "actions": {
+            "harvest": 126,
+            "move_right": 146,
+            "move_left": 144,
+            "regulate": 63,
+            "rest": 33
+          }
+        },
+        {
+          "seed": 20264044,
+          "completed": true,
+          "age": 512,
+          "reward": 4.797090025356723,
+          "final_homeostatic_error": 0.5080208643230938,
+          "actions": {
+            "harvest": 132,
+            "move_left": 142,
+            "regulate": 63,
+            "move_right": 140,
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264045,
+          "completed": true,
+          "age": 512,
+          "reward": 4.568772584834447,
+          "final_homeostatic_error": 0.4637901850243248,
+          "actions": {
+            "harvest": 134,
+            "move_right": 140,
+            "regulate": 63,
+            "move_left": 136,
+            "rest": 39
+          }
+        },
+        {
+          "seed": 20264046,
+          "completed": true,
+          "age": 512,
+          "reward": 4.531214950773119,
+          "final_homeostatic_error": 0.484699926351996,
+          "actions": {
+            "harvest": 136,
+            "move_left": 140,
+            "regulate": 63,
+            "move_right": 136,
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20264047,
+          "completed": true,
+          "age": 512,
+          "reward": 4.693761453409729,
+          "final_homeostatic_error": 0.3793900570843986,
+          "actions": {
+            "harvest": 135,
+            "move_right": 139,
+            "regulate": 64,
+            "move_left": 136,
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20264048,
+          "completed": true,
+          "age": 512,
+          "reward": 5.138536889134596,
+          "final_homeostatic_error": 0.32782762464655235,
+          "actions": {
+            "harvest": 127,
+            "move_left": 143,
+            "move_right": 144,
+            "regulate": 63,
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264049,
+          "completed": true,
+          "age": 512,
+          "reward": 4.781701471345191,
+          "final_homeostatic_error": 0.5361536589629458,
+          "actions": {
+            "harvest": 132,
+            "move_right": 144,
+            "regulate": 62,
+            "move_left": 139,
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264050,
+          "completed": true,
+          "age": 512,
+          "reward": 5.0916453812299585,
+          "final_homeostatic_error": 0.449023437254489,
+          "actions": {
+            "harvest": 133,
+            "move_left": 143,
+            "regulate": 64,
+            "move_right": 139,
+            "rest": 33
+          }
+        },
+        {
+          "seed": 20264051,
+          "completed": true,
+          "age": 512,
+          "reward": 4.548070071892345,
+          "final_homeostatic_error": 0.47541179544364975,
+          "actions": {
+            "harvest": 138,
+            "move_right": 137,
+            "move_left": 136,
+            "regulate": 63,
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20264052,
+          "completed": true,
+          "age": 512,
+          "reward": 4.91338904204301,
+          "final_homeostatic_error": 0.24851855362094785,
+          "actions": {
+            "harvest": 124,
+            "move_left": 144,
+            "move_right": 143,
+            "regulate": 64,
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20264053,
+          "completed": true,
+          "age": 512,
+          "reward": 5.212369993806131,
+          "final_homeostatic_error": 0.383414257112496,
+          "actions": {
+            "harvest": 131,
+            "move_right": 141,
+            "move_left": 143,
+            "regulate": 63,
+            "rest": 34
+          }
+        },
+        {
+          "seed": 20264054,
+          "completed": true,
+          "age": 512,
+          "reward": 4.440377414526042,
+          "final_homeostatic_error": 0.537135889463712,
+          "actions": {
+            "harvest": 131,
+            "move_left": 138,
+            "move_right": 142,
+            "regulate": 63,
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20264055,
+          "completed": true,
+          "age": 512,
+          "reward": 4.549956251053691,
+          "final_homeostatic_error": 0.5388892889950325,
+          "actions": {
+            "harvest": 127,
+            "move_left": 144,
+            "regulate": 63,
+            "move_right": 141,
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20264056,
+          "completed": true,
+          "age": 512,
+          "reward": 5.377910654606145,
+          "final_homeostatic_error": 0.16133028995229945,
+          "actions": {
+            "harvest": 127,
+            "move_left": 144,
+            "move_right": 144,
+            "regulate": 63,
+            "rest": 34
+          }
+        },
+        {
+          "seed": 20264057,
+          "completed": true,
+          "age": 512,
+          "reward": 4.993110911835544,
+          "final_homeostatic_error": 0.495217474956937,
+          "actions": {
+            "harvest": 135,
+            "move_right": 144,
+            "regulate": 63,
+            "move_left": 136,
+            "rest": 34
+          }
+        },
+        {
+          "seed": 20264058,
+          "completed": true,
+          "age": 512,
+          "reward": 5.02488574211201,
+          "final_homeostatic_error": 0.40342779865715706,
+          "actions": {
+            "harvest": 125,
+            "regulate": 65,
+            "move_right": 144,
+            "move_left": 142,
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264059,
+          "completed": true,
+          "age": 512,
+          "reward": 5.242561080204738,
+          "final_homeostatic_error": 0.23408083663303852,
+          "actions": {
+            "harvest": 135,
+            "move_right": 139,
+            "move_left": 139,
+            "regulate": 63,
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264060,
+          "completed": true,
+          "age": 512,
+          "reward": 4.685049566048984,
+          "final_homeostatic_error": 0.4720649461533793,
+          "actions": {
+            "harvest": 129,
+            "move_left": 142,
+            "regulate": 63,
+            "move_right": 142,
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264061,
+          "completed": true,
+          "age": 512,
+          "reward": 4.553546596621533,
+          "final_homeostatic_error": 0.4676937954742848,
+          "actions": {
+            "harvest": 128,
+            "move_right": 142,
+            "regulate": 63,
+            "move_left": 141,
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20264062,
+          "completed": true,
+          "age": 512,
+          "reward": 5.049477250290887,
+          "final_homeostatic_error": 0.3496301294031481,
+          "actions": {
+            "harvest": 135,
+            "move_left": 139,
+            "regulate": 64,
+            "move_right": 139,
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20264063,
+          "completed": true,
+          "age": 512,
+          "reward": 4.798291079999375,
+          "final_homeostatic_error": 0.4689783042588411,
+          "actions": {
+            "harvest": 126,
+            "move_right": 142,
+            "regulate": 64,
+            "move_left": 144,
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20264064,
+          "completed": true,
+          "age": 512,
+          "reward": 5.1817735761901575,
+          "final_homeostatic_error": 0.2864358668881518,
+          "actions": {
+            "harvest": 124,
+            "move_left": 145,
+            "move_right": 144,
+            "regulate": 63,
+            "rest": 36
+          }
+        }
+      ]
+    }
+  },
+  "bars": {
+    "fixed_rest_survival_zero": true,
+    "fixed_harvest_survival_zero": true,
+    "uniform_random_survival_zero": true,
+    "oracle_survival_one": true
+  },
+  "pass": true
+}

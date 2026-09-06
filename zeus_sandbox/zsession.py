@@ -460,12 +460,12 @@ def p3_live_memory_selectivity(model, hcm, limit=24):
 
 
 def p5_intrinsic_resilience(model, warm_steps=64, recovery_steps=128, seed=31):
-    """Perturb the autonomous state and require viable unassisted recovery.
+    """Retained legacy measurement; fail closed pending the DYN1 audit.
 
-    This does not reward a return to an identical state (which would contradict
-    the desired non-repeating dynamics).  It only asks whether the perturbed
-    trajectory stays finite, remains in a comparable scale regime, and retains
-    non-collapsed dynamics without the external heartbeat.
+    The old pass rule inserted point-cloud ``d_s`` into a viability threshold.
+    The corrected CDT audit forbids that identification. Scale stability is
+    still reported, but cannot establish learned resilience because the hard
+    clamp and tanh architecture can produce it without training.
     """
     control, perturbed = clone_model(model), clone_model(model)
     control.reset_state(0.12, seeded_generator(seed))
@@ -493,14 +493,19 @@ def p5_intrinsic_resilience(model, warm_steps=64, recovery_steps=128, seed=31):
     dw = 2.0 / beta if beta == beta and beta > 0 else None
     ds = 2.0 * nu / dw if dw is not None and dw > 0 else None
     finite = bool(torch.isfinite(p_traj).all().item())
-    viable = bool(finite and 0.5 <= ratio <= 2.0 and p_traj.var().item() > 1e-8 and
-                  (ds is None or ds <= 2.0))
+    legacy_scale_stable = bool(finite and 0.5 <= ratio <= 2.0
+                               and p_traj.var().item() > 1e-8)
     return {"finite": finite, "control_rms": round(c_rms, 3),
             "perturbed_rms": round(p_rms, 3), "rms_ratio": round(ratio, 3),
             "nu": round(float(nu), 3) if nu == nu else None,
             "beta": round(float(beta), 3) if beta == beta else None,
             "d_s": round(float(ds), 3) if ds is not None and ds == ds else None,
-            "heartbeat_used": False, "pass": viable}
+            "heartbeat_used": False,
+            "legacy_scale_stable": legacy_scale_stable,
+            "gate_status": "retired; requires docs/dynamics_resilience_protocol.md",
+            "reason": ("point-cloud d_s is descriptive and architectural containment "
+                       "must be separated from learned perturbation resilience"),
+            "pass": False}
 
 
 def p6_endogenous_action(_model, _hcm):

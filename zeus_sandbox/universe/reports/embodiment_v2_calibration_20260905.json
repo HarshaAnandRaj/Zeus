@@ -1,0 +1,3019 @@
+{
+  "kind": "embodiment_v2_calibration",
+  "version": "pol2-world-calibration-2026-09-05",
+  "world_version": "embodied-world-v2-2026-09-05",
+  "seeds": [
+    20262001,
+    20262002,
+    20262003,
+    20262004,
+    20262005,
+    20262006,
+    20262007,
+    20262008,
+    20262009,
+    20262010,
+    20262011,
+    20262012,
+    20262013,
+    20262014,
+    20262015,
+    20262016,
+    20262017,
+    20262018,
+    20262019,
+    20262020,
+    20262021,
+    20262022,
+    20262023,
+    20262024,
+    20262025,
+    20262026,
+    20262027,
+    20262028,
+    20262029,
+    20262030,
+    20262031,
+    20262032,
+    20262033,
+    20262034,
+    20262035,
+    20262036,
+    20262037,
+    20262038,
+    20262039,
+    20262040,
+    20262041,
+    20262042,
+    20262043,
+    20262044,
+    20262045,
+    20262046,
+    20262047,
+    20262048,
+    20262049,
+    20262050,
+    20262051,
+    20262052,
+    20262053,
+    20262054,
+    20262055,
+    20262056,
+    20262057,
+    20262058,
+    20262059,
+    20262060,
+    20262061,
+    20262062,
+    20262063,
+    20262064
+  ],
+  "horizon": 256,
+  "results": {
+    "fixed_rest": {
+      "policy": "fixed_rest",
+      "n": 64,
+      "survival_rate": 0.0,
+      "mean_age": 37.984375,
+      "mean_reward": -0.8861140166521966,
+      "actions": {
+        "rest": 2431
+      },
+      "episodes": [
+        {
+          "seed": 20262001,
+          "completed": false,
+          "age": 37,
+          "reward": -1.0807453675514789,
+          "actions": {
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20262002,
+          "completed": false,
+          "age": 41,
+          "reward": -0.8781390240656306,
+          "actions": {
+            "rest": 41
+          }
+        },
+        {
+          "seed": 20262003,
+          "completed": false,
+          "age": 35,
+          "reward": -1.1851825203560455,
+          "actions": {
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20262004,
+          "completed": false,
+          "age": 39,
+          "reward": -0.7338279999560489,
+          "actions": {
+            "rest": 39
+          }
+        },
+        {
+          "seed": 20262005,
+          "completed": false,
+          "age": 35,
+          "reward": -0.8410407951765433,
+          "actions": {
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20262006,
+          "completed": false,
+          "age": 36,
+          "reward": -0.8851372706856734,
+          "actions": {
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20262007,
+          "completed": false,
+          "age": 40,
+          "reward": -0.8099118345562748,
+          "actions": {
+            "rest": 40
+          }
+        },
+        {
+          "seed": 20262008,
+          "completed": false,
+          "age": 39,
+          "reward": -0.9384105882357419,
+          "actions": {
+            "rest": 39
+          }
+        },
+        {
+          "seed": 20262009,
+          "completed": false,
+          "age": 42,
+          "reward": -0.7308114663692492,
+          "actions": {
+            "rest": 42
+          }
+        },
+        {
+          "seed": 20262010,
+          "completed": false,
+          "age": 38,
+          "reward": -0.9711766544734691,
+          "actions": {
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20262011,
+          "completed": false,
+          "age": 40,
+          "reward": -0.9347685098878536,
+          "actions": {
+            "rest": 40
+          }
+        },
+        {
+          "seed": 20262012,
+          "completed": false,
+          "age": 41,
+          "reward": -0.5286240036420906,
+          "actions": {
+            "rest": 41
+          }
+        },
+        {
+          "seed": 20262013,
+          "completed": false,
+          "age": 40,
+          "reward": -0.5033571542465188,
+          "actions": {
+            "rest": 40
+          }
+        },
+        {
+          "seed": 20262014,
+          "completed": false,
+          "age": 34,
+          "reward": -0.9521892548696755,
+          "actions": {
+            "rest": 34
+          }
+        },
+        {
+          "seed": 20262015,
+          "completed": false,
+          "age": 36,
+          "reward": -1.0109585748971832,
+          "actions": {
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20262016,
+          "completed": false,
+          "age": 35,
+          "reward": -0.7956307398449769,
+          "actions": {
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20262017,
+          "completed": false,
+          "age": 37,
+          "reward": -1.0939610615210942,
+          "actions": {
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20262018,
+          "completed": false,
+          "age": 34,
+          "reward": -1.0346140349378303,
+          "actions": {
+            "rest": 34
+          }
+        },
+        {
+          "seed": 20262019,
+          "completed": false,
+          "age": 34,
+          "reward": -1.0115214169651505,
+          "actions": {
+            "rest": 34
+          }
+        },
+        {
+          "seed": 20262020,
+          "completed": false,
+          "age": 39,
+          "reward": -0.8172130730250111,
+          "actions": {
+            "rest": 39
+          }
+        },
+        {
+          "seed": 20262021,
+          "completed": false,
+          "age": 42,
+          "reward": -0.9043346033309763,
+          "actions": {
+            "rest": 42
+          }
+        },
+        {
+          "seed": 20262022,
+          "completed": false,
+          "age": 39,
+          "reward": -0.9254945848163632,
+          "actions": {
+            "rest": 39
+          }
+        },
+        {
+          "seed": 20262023,
+          "completed": false,
+          "age": 37,
+          "reward": -0.9692678569587874,
+          "actions": {
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20262024,
+          "completed": false,
+          "age": 42,
+          "reward": -0.7261754326721188,
+          "actions": {
+            "rest": 42
+          }
+        },
+        {
+          "seed": 20262025,
+          "completed": false,
+          "age": 38,
+          "reward": -0.896536578174179,
+          "actions": {
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20262026,
+          "completed": false,
+          "age": 41,
+          "reward": -0.7610493107381149,
+          "actions": {
+            "rest": 41
+          }
+        },
+        {
+          "seed": 20262027,
+          "completed": false,
+          "age": 41,
+          "reward": -0.9702637222938856,
+          "actions": {
+            "rest": 41
+          }
+        },
+        {
+          "seed": 20262028,
+          "completed": false,
+          "age": 34,
+          "reward": -0.9273270527386709,
+          "actions": {
+            "rest": 34
+          }
+        },
+        {
+          "seed": 20262029,
+          "completed": false,
+          "age": 41,
+          "reward": -0.9136945198491087,
+          "actions": {
+            "rest": 41
+          }
+        },
+        {
+          "seed": 20262030,
+          "completed": false,
+          "age": 36,
+          "reward": -0.9788911334207002,
+          "actions": {
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20262031,
+          "completed": false,
+          "age": 40,
+          "reward": -0.556424182245089,
+          "actions": {
+            "rest": 40
+          }
+        },
+        {
+          "seed": 20262032,
+          "completed": false,
+          "age": 37,
+          "reward": -0.8802995137706446,
+          "actions": {
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20262033,
+          "completed": false,
+          "age": 36,
+          "reward": -0.938423468793953,
+          "actions": {
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20262034,
+          "completed": false,
+          "age": 34,
+          "reward": -0.7987203226997762,
+          "actions": {
+            "rest": 34
+          }
+        },
+        {
+          "seed": 20262035,
+          "completed": false,
+          "age": 35,
+          "reward": -1.0565942927552057,
+          "actions": {
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20262036,
+          "completed": false,
+          "age": 40,
+          "reward": -0.692408519653157,
+          "actions": {
+            "rest": 40
+          }
+        },
+        {
+          "seed": 20262037,
+          "completed": false,
+          "age": 40,
+          "reward": -0.8914156462727825,
+          "actions": {
+            "rest": 40
+          }
+        },
+        {
+          "seed": 20262038,
+          "completed": false,
+          "age": 42,
+          "reward": -0.7402619838431617,
+          "actions": {
+            "rest": 42
+          }
+        },
+        {
+          "seed": 20262039,
+          "completed": false,
+          "age": 40,
+          "reward": -0.7724049917848907,
+          "actions": {
+            "rest": 40
+          }
+        },
+        {
+          "seed": 20262040,
+          "completed": false,
+          "age": 38,
+          "reward": -0.9095063714242753,
+          "actions": {
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20262041,
+          "completed": false,
+          "age": 42,
+          "reward": -0.8049147172525836,
+          "actions": {
+            "rest": 42
+          }
+        },
+        {
+          "seed": 20262042,
+          "completed": false,
+          "age": 39,
+          "reward": -1.0101715937752032,
+          "actions": {
+            "rest": 39
+          }
+        },
+        {
+          "seed": 20262043,
+          "completed": false,
+          "age": 34,
+          "reward": -1.0692168948296534,
+          "actions": {
+            "rest": 34
+          }
+        },
+        {
+          "seed": 20262044,
+          "completed": false,
+          "age": 35,
+          "reward": -1.0020624818946882,
+          "actions": {
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20262045,
+          "completed": false,
+          "age": 35,
+          "reward": -1.0773752147197075,
+          "actions": {
+            "rest": 35
+          }
+        },
+        {
+          "seed": 20262046,
+          "completed": false,
+          "age": 39,
+          "reward": -0.8553342788741147,
+          "actions": {
+            "rest": 39
+          }
+        },
+        {
+          "seed": 20262047,
+          "completed": false,
+          "age": 39,
+          "reward": -1.0187004341738564,
+          "actions": {
+            "rest": 39
+          }
+        },
+        {
+          "seed": 20262048,
+          "completed": false,
+          "age": 36,
+          "reward": -1.1952850028753854,
+          "actions": {
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20262049,
+          "completed": false,
+          "age": 38,
+          "reward": -0.8599702940610966,
+          "actions": {
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20262050,
+          "completed": false,
+          "age": 37,
+          "reward": -0.8903258815727036,
+          "actions": {
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20262051,
+          "completed": false,
+          "age": 34,
+          "reward": -0.9604354102866812,
+          "actions": {
+            "rest": 34
+          }
+        },
+        {
+          "seed": 20262052,
+          "completed": false,
+          "age": 37,
+          "reward": -0.6917843723063672,
+          "actions": {
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20262053,
+          "completed": false,
+          "age": 41,
+          "reward": -0.9771207856048469,
+          "actions": {
+            "rest": 41
+          }
+        },
+        {
+          "seed": 20262054,
+          "completed": false,
+          "age": 37,
+          "reward": -1.0000391341842385,
+          "actions": {
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20262055,
+          "completed": false,
+          "age": 38,
+          "reward": -0.470519337916684,
+          "actions": {
+            "rest": 38
+          }
+        },
+        {
+          "seed": 20262056,
+          "completed": false,
+          "age": 36,
+          "reward": -1.0434765579109688,
+          "actions": {
+            "rest": 36
+          }
+        },
+        {
+          "seed": 20262057,
+          "completed": false,
+          "age": 37,
+          "reward": -0.9764840121447385,
+          "actions": {
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20262058,
+          "completed": false,
+          "age": 37,
+          "reward": -0.9252990016571077,
+          "actions": {
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20262059,
+          "completed": false,
+          "age": 42,
+          "reward": -0.9016598252448575,
+          "actions": {
+            "rest": 42
+          }
+        },
+        {
+          "seed": 20262060,
+          "completed": false,
+          "age": 41,
+          "reward": -0.9579261439675024,
+          "actions": {
+            "rest": 41
+          }
+        },
+        {
+          "seed": 20262061,
+          "completed": false,
+          "age": 37,
+          "reward": -0.9644318492037082,
+          "actions": {
+            "rest": 37
+          }
+        },
+        {
+          "seed": 20262062,
+          "completed": false,
+          "age": 39,
+          "reward": -0.7885573351199419,
+          "actions": {
+            "rest": 39
+          }
+        },
+        {
+          "seed": 20262063,
+          "completed": false,
+          "age": 39,
+          "reward": -0.6488563938195584,
+          "actions": {
+            "rest": 39
+          }
+        },
+        {
+          "seed": 20262064,
+          "completed": false,
+          "age": 37,
+          "reward": -0.6746346788450045,
+          "actions": {
+            "rest": 37
+          }
+        }
+      ]
+    },
+    "fixed_harvest": {
+      "policy": "fixed_harvest",
+      "n": 64,
+      "survival_rate": 0.0,
+      "mean_age": 46.875,
+      "mean_reward": -1.3604125689065323,
+      "actions": {
+        "harvest": 3000
+      },
+      "episodes": [
+        {
+          "seed": 20262001,
+          "completed": false,
+          "age": 48,
+          "reward": -1.4148917265008916,
+          "actions": {
+            "harvest": 48
+          }
+        },
+        {
+          "seed": 20262002,
+          "completed": false,
+          "age": 45,
+          "reward": -1.5593719505789148,
+          "actions": {
+            "harvest": 45
+          }
+        },
+        {
+          "seed": 20262003,
+          "completed": false,
+          "age": 52,
+          "reward": -1.1878510386653978,
+          "actions": {
+            "harvest": 52
+          }
+        },
+        {
+          "seed": 20262004,
+          "completed": false,
+          "age": 53,
+          "reward": -0.6956639692193662,
+          "actions": {
+            "harvest": 53
+          }
+        },
+        {
+          "seed": 20262005,
+          "completed": false,
+          "age": 40,
+          "reward": -1.4364755485650988,
+          "actions": {
+            "harvest": 40
+          }
+        },
+        {
+          "seed": 20262006,
+          "completed": false,
+          "age": 51,
+          "reward": -0.9664421840746765,
+          "actions": {
+            "harvest": 51
+          }
+        },
+        {
+          "seed": 20262007,
+          "completed": false,
+          "age": 47,
+          "reward": -1.4473477491183073,
+          "actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20262008,
+          "completed": false,
+          "age": 47,
+          "reward": -1.3805388099851041,
+          "actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20262009,
+          "completed": false,
+          "age": 47,
+          "reward": -1.4076242735982794,
+          "actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20262010,
+          "completed": false,
+          "age": 50,
+          "reward": -1.3743371649823302,
+          "actions": {
+            "harvest": 50
+          }
+        },
+        {
+          "seed": 20262011,
+          "completed": false,
+          "age": 54,
+          "reward": -1.3487586258731272,
+          "actions": {
+            "harvest": 54
+          }
+        },
+        {
+          "seed": 20262012,
+          "completed": false,
+          "age": 49,
+          "reward": -0.8538012172271368,
+          "actions": {
+            "harvest": 49
+          }
+        },
+        {
+          "seed": 20262013,
+          "completed": false,
+          "age": 49,
+          "reward": -0.7230018417604301,
+          "actions": {
+            "harvest": 49
+          }
+        },
+        {
+          "seed": 20262014,
+          "completed": false,
+          "age": 41,
+          "reward": -1.6214931152670427,
+          "actions": {
+            "harvest": 41
+          }
+        },
+        {
+          "seed": 20262015,
+          "completed": false,
+          "age": 47,
+          "reward": -1.5512093618744425,
+          "actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20262016,
+          "completed": false,
+          "age": 40,
+          "reward": -1.3584152947620631,
+          "actions": {
+            "harvest": 40
+          }
+        },
+        {
+          "seed": 20262017,
+          "completed": false,
+          "age": 47,
+          "reward": -1.6284347164643322,
+          "actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20262018,
+          "completed": false,
+          "age": 40,
+          "reward": -1.821528868931256,
+          "actions": {
+            "harvest": 40
+          }
+        },
+        {
+          "seed": 20262019,
+          "completed": false,
+          "age": 53,
+          "reward": -1.3276646420990517,
+          "actions": {
+            "harvest": 53
+          }
+        },
+        {
+          "seed": 20262020,
+          "completed": false,
+          "age": 43,
+          "reward": -1.531865239865635,
+          "actions": {
+            "harvest": 43
+          }
+        },
+        {
+          "seed": 20262021,
+          "completed": false,
+          "age": 46,
+          "reward": -1.7020283422822415,
+          "actions": {
+            "harvest": 46
+          }
+        },
+        {
+          "seed": 20262022,
+          "completed": false,
+          "age": 49,
+          "reward": -1.5634030658280749,
+          "actions": {
+            "harvest": 49
+          }
+        },
+        {
+          "seed": 20262023,
+          "completed": false,
+          "age": 49,
+          "reward": -1.4182333670998757,
+          "actions": {
+            "harvest": 49
+          }
+        },
+        {
+          "seed": 20262024,
+          "completed": false,
+          "age": 45,
+          "reward": -1.4060693940142208,
+          "actions": {
+            "harvest": 45
+          }
+        },
+        {
+          "seed": 20262025,
+          "completed": false,
+          "age": 50,
+          "reward": -1.2307074819133685,
+          "actions": {
+            "harvest": 50
+          }
+        },
+        {
+          "seed": 20262026,
+          "completed": false,
+          "age": 42,
+          "reward": -1.5849035368513347,
+          "actions": {
+            "harvest": 42
+          }
+        },
+        {
+          "seed": 20262027,
+          "completed": false,
+          "age": 50,
+          "reward": -1.3930361001849922,
+          "actions": {
+            "harvest": 50
+          }
+        },
+        {
+          "seed": 20262028,
+          "completed": false,
+          "age": 56,
+          "reward": -0.6669236838393715,
+          "actions": {
+            "harvest": 56
+          }
+        },
+        {
+          "seed": 20262029,
+          "completed": false,
+          "age": 50,
+          "reward": -1.6429446192737105,
+          "actions": {
+            "harvest": 50
+          }
+        },
+        {
+          "seed": 20262030,
+          "completed": false,
+          "age": 55,
+          "reward": -0.654095306931129,
+          "actions": {
+            "harvest": 55
+          }
+        },
+        {
+          "seed": 20262031,
+          "completed": false,
+          "age": 44,
+          "reward": -1.2309966287580225,
+          "actions": {
+            "harvest": 44
+          }
+        },
+        {
+          "seed": 20262032,
+          "completed": false,
+          "age": 42,
+          "reward": -1.4615473873919869,
+          "actions": {
+            "harvest": 42
+          }
+        },
+        {
+          "seed": 20262033,
+          "completed": false,
+          "age": 48,
+          "reward": -1.379257101600301,
+          "actions": {
+            "harvest": 48
+          }
+        },
+        {
+          "seed": 20262034,
+          "completed": false,
+          "age": 39,
+          "reward": -1.2502619039351142,
+          "actions": {
+            "harvest": 39
+          }
+        },
+        {
+          "seed": 20262035,
+          "completed": false,
+          "age": 47,
+          "reward": -1.1653944670714382,
+          "actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20262036,
+          "completed": false,
+          "age": 50,
+          "reward": -0.9997635894057084,
+          "actions": {
+            "harvest": 50
+          }
+        },
+        {
+          "seed": 20262037,
+          "completed": false,
+          "age": 50,
+          "reward": -1.5297820135152151,
+          "actions": {
+            "harvest": 50
+          }
+        },
+        {
+          "seed": 20262038,
+          "completed": false,
+          "age": 50,
+          "reward": -1.4520865519158574,
+          "actions": {
+            "harvest": 50
+          }
+        },
+        {
+          "seed": 20262039,
+          "completed": false,
+          "age": 44,
+          "reward": -1.4329924701117136,
+          "actions": {
+            "harvest": 44
+          }
+        },
+        {
+          "seed": 20262040,
+          "completed": false,
+          "age": 51,
+          "reward": -1.262200611818654,
+          "actions": {
+            "harvest": 51
+          }
+        },
+        {
+          "seed": 20262041,
+          "completed": false,
+          "age": 48,
+          "reward": -1.186528803798865,
+          "actions": {
+            "harvest": 48
+          }
+        },
+        {
+          "seed": 20262042,
+          "completed": false,
+          "age": 48,
+          "reward": -1.4047127800483024,
+          "actions": {
+            "harvest": 48
+          }
+        },
+        {
+          "seed": 20262043,
+          "completed": false,
+          "age": 39,
+          "reward": -1.7899350344566287,
+          "actions": {
+            "harvest": 39
+          }
+        },
+        {
+          "seed": 20262044,
+          "completed": false,
+          "age": 42,
+          "reward": -1.660979293226232,
+          "actions": {
+            "harvest": 42
+          }
+        },
+        {
+          "seed": 20262045,
+          "completed": false,
+          "age": 46,
+          "reward": -1.6197742114878804,
+          "actions": {
+            "harvest": 46
+          }
+        },
+        {
+          "seed": 20262046,
+          "completed": false,
+          "age": 48,
+          "reward": -1.256832282727887,
+          "actions": {
+            "harvest": 48
+          }
+        },
+        {
+          "seed": 20262047,
+          "completed": false,
+          "age": 45,
+          "reward": -1.6417183039092567,
+          "actions": {
+            "harvest": 45
+          }
+        },
+        {
+          "seed": 20262048,
+          "completed": false,
+          "age": 43,
+          "reward": -1.7314212887492042,
+          "actions": {
+            "harvest": 43
+          }
+        },
+        {
+          "seed": 20262049,
+          "completed": false,
+          "age": 47,
+          "reward": -1.2399067775183694,
+          "actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20262050,
+          "completed": false,
+          "age": 52,
+          "reward": -0.9712072707022887,
+          "actions": {
+            "harvest": 52
+          }
+        },
+        {
+          "seed": 20262051,
+          "completed": false,
+          "age": 49,
+          "reward": -1.5183066771187257,
+          "actions": {
+            "harvest": 49
+          }
+        },
+        {
+          "seed": 20262052,
+          "completed": false,
+          "age": 41,
+          "reward": -1.354500274505357,
+          "actions": {
+            "harvest": 41
+          }
+        },
+        {
+          "seed": 20262053,
+          "completed": false,
+          "age": 48,
+          "reward": -1.5954717223401156,
+          "actions": {
+            "harvest": 48
+          }
+        },
+        {
+          "seed": 20262054,
+          "completed": false,
+          "age": 47,
+          "reward": -1.3189414983215793,
+          "actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20262055,
+          "completed": false,
+          "age": 40,
+          "reward": -1.1820989630170988,
+          "actions": {
+            "harvest": 40
+          }
+        },
+        {
+          "seed": 20262056,
+          "completed": false,
+          "age": 43,
+          "reward": -1.7418288297973517,
+          "actions": {
+            "harvest": 43
+          }
+        },
+        {
+          "seed": 20262057,
+          "completed": false,
+          "age": 39,
+          "reward": -1.7450786532567586,
+          "actions": {
+            "harvest": 39
+          }
+        },
+        {
+          "seed": 20262058,
+          "completed": false,
+          "age": 50,
+          "reward": -1.0101898127524491,
+          "actions": {
+            "harvest": 50
+          }
+        },
+        {
+          "seed": 20262059,
+          "completed": false,
+          "age": 47,
+          "reward": -1.4328285817048965,
+          "actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20262060,
+          "completed": false,
+          "age": 49,
+          "reward": -1.615451621135707,
+          "actions": {
+            "harvest": 49
+          }
+        },
+        {
+          "seed": 20262061,
+          "completed": false,
+          "age": 52,
+          "reward": -1.3666182476243305,
+          "actions": {
+            "harvest": 52
+          }
+        },
+        {
+          "seed": 20262062,
+          "completed": false,
+          "age": 46,
+          "reward": -1.4455475058265654,
+          "actions": {
+            "harvest": 46
+          }
+        },
+        {
+          "seed": 20262063,
+          "completed": false,
+          "age": 51,
+          "reward": -0.758373798782298,
+          "actions": {
+            "harvest": 51
+          }
+        },
+        {
+          "seed": 20262064,
+          "completed": false,
+          "age": 40,
+          "reward": -1.4148072140547,
+          "actions": {
+            "harvest": 40
+          }
+        }
+      ]
+    },
+    "uniform_random": {
+      "policy": "uniform_random",
+      "n": 64,
+      "survival_rate": 0.0,
+      "mean_age": 72.9375,
+      "mean_reward": 0.6395433881686047,
+      "actions": {
+        "harvest": 769,
+        "speak": 804,
+        "move_left": 757,
+        "regulate": 771,
+        "rest": 792,
+        "move_right": 775
+      },
+      "episodes": [
+        {
+          "seed": 20262001,
+          "completed": false,
+          "age": 63,
+          "reward": 0.2986160459850622,
+          "actions": {
+            "harvest": 9,
+            "speak": 12,
+            "move_left": 6,
+            "regulate": 10,
+            "rest": 13,
+            "move_right": 13
+          }
+        },
+        {
+          "seed": 20262002,
+          "completed": false,
+          "age": 43,
+          "reward": -0.33887497019863944,
+          "actions": {
+            "speak": 6,
+            "move_right": 6,
+            "move_left": 9,
+            "rest": 8,
+            "regulate": 11,
+            "harvest": 3
+          }
+        },
+        {
+          "seed": 20262003,
+          "completed": false,
+          "age": 52,
+          "reward": -0.13566149771667768,
+          "actions": {
+            "harvest": 6,
+            "move_right": 9,
+            "move_left": 8,
+            "speak": 12,
+            "rest": 8,
+            "regulate": 9
+          }
+        },
+        {
+          "seed": 20262004,
+          "completed": false,
+          "age": 64,
+          "reward": 0.4546553802963236,
+          "actions": {
+            "speak": 12,
+            "rest": 14,
+            "regulate": 15,
+            "move_left": 6,
+            "harvest": 8,
+            "move_right": 9
+          }
+        },
+        {
+          "seed": 20262005,
+          "completed": false,
+          "age": 53,
+          "reward": 0.08268890110803473,
+          "actions": {
+            "move_right": 14,
+            "regulate": 7,
+            "speak": 9,
+            "harvest": 6,
+            "rest": 11,
+            "move_left": 6
+          }
+        },
+        {
+          "seed": 20262006,
+          "completed": false,
+          "age": 55,
+          "reward": 0.4328119848716734,
+          "actions": {
+            "rest": 7,
+            "move_right": 8,
+            "speak": 10,
+            "regulate": 16,
+            "move_left": 7,
+            "harvest": 7
+          }
+        },
+        {
+          "seed": 20262007,
+          "completed": false,
+          "age": 64,
+          "reward": 0.5825825528040762,
+          "actions": {
+            "regulate": 14,
+            "rest": 11,
+            "harvest": 9,
+            "move_left": 7,
+            "move_right": 12,
+            "speak": 11
+          }
+        },
+        {
+          "seed": 20262008,
+          "completed": false,
+          "age": 64,
+          "reward": 0.4097323856416095,
+          "actions": {
+            "harvest": 8,
+            "rest": 13,
+            "move_left": 16,
+            "regulate": 11,
+            "move_right": 8,
+            "speak": 8
+          }
+        },
+        {
+          "seed": 20262009,
+          "completed": false,
+          "age": 66,
+          "reward": 0.34149132402041404,
+          "actions": {
+            "speak": 20,
+            "move_left": 12,
+            "move_right": 10,
+            "rest": 10,
+            "harvest": 8,
+            "regulate": 6
+          }
+        },
+        {
+          "seed": 20262010,
+          "completed": false,
+          "age": 64,
+          "reward": 0.661932236163912,
+          "actions": {
+            "speak": 13,
+            "move_right": 8,
+            "harvest": 8,
+            "rest": 14,
+            "move_left": 9,
+            "regulate": 12
+          }
+        },
+        {
+          "seed": 20262011,
+          "completed": false,
+          "age": 77,
+          "reward": 0.9705009983792325,
+          "actions": {
+            "speak": 13,
+            "move_left": 14,
+            "move_right": 12,
+            "harvest": 11,
+            "regulate": 17,
+            "rest": 10
+          }
+        },
+        {
+          "seed": 20262012,
+          "completed": false,
+          "age": 85,
+          "reward": 1.1971722484047498,
+          "actions": {
+            "harvest": 17,
+            "move_right": 10,
+            "regulate": 20,
+            "speak": 11,
+            "rest": 15,
+            "move_left": 12
+          }
+        },
+        {
+          "seed": 20262013,
+          "completed": false,
+          "age": 184,
+          "reward": 4.863342930784155,
+          "actions": {
+            "move_right": 27,
+            "move_left": 27,
+            "speak": 29,
+            "harvest": 44,
+            "rest": 28,
+            "regulate": 29
+          }
+        },
+        {
+          "seed": 20262014,
+          "completed": false,
+          "age": 78,
+          "reward": 1.0403119832359977,
+          "actions": {
+            "speak": 10,
+            "regulate": 17,
+            "harvest": 13,
+            "rest": 13,
+            "move_right": 8,
+            "move_left": 17
+          }
+        },
+        {
+          "seed": 20262015,
+          "completed": false,
+          "age": 77,
+          "reward": 0.9574092320763898,
+          "actions": {
+            "speak": 12,
+            "regulate": 8,
+            "move_right": 16,
+            "move_left": 13,
+            "harvest": 11,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262016,
+          "completed": false,
+          "age": 35,
+          "reward": -0.7046506189318744,
+          "actions": {
+            "speak": 7,
+            "move_right": 9,
+            "move_left": 3,
+            "regulate": 6,
+            "harvest": 2,
+            "rest": 8
+          }
+        },
+        {
+          "seed": 20262017,
+          "completed": false,
+          "age": 59,
+          "reward": 0.13369335340937805,
+          "actions": {
+            "speak": 13,
+            "rest": 10,
+            "move_left": 12,
+            "move_right": 9,
+            "regulate": 7,
+            "harvest": 8
+          }
+        },
+        {
+          "seed": 20262018,
+          "completed": false,
+          "age": 79,
+          "reward": 0.5515322739535098,
+          "actions": {
+            "regulate": 8,
+            "move_right": 18,
+            "harvest": 14,
+            "rest": 15,
+            "speak": 11,
+            "move_left": 13
+          }
+        },
+        {
+          "seed": 20262019,
+          "completed": false,
+          "age": 68,
+          "reward": 0.5056452097377042,
+          "actions": {
+            "rest": 7,
+            "speak": 18,
+            "regulate": 11,
+            "harvest": 10,
+            "move_left": 14,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262020,
+          "completed": false,
+          "age": 55,
+          "reward": -0.15458850896390297,
+          "actions": {
+            "move_left": 9,
+            "move_right": 13,
+            "harvest": 6,
+            "speak": 10,
+            "regulate": 8,
+            "rest": 9
+          }
+        },
+        {
+          "seed": 20262021,
+          "completed": false,
+          "age": 107,
+          "reward": 1.9543640685184593,
+          "actions": {
+            "move_right": 18,
+            "harvest": 22,
+            "speak": 16,
+            "rest": 14,
+            "move_left": 18,
+            "regulate": 19
+          }
+        },
+        {
+          "seed": 20262022,
+          "completed": false,
+          "age": 99,
+          "reward": 1.2862611366546486,
+          "actions": {
+            "move_left": 22,
+            "regulate": 14,
+            "rest": 14,
+            "harvest": 18,
+            "speak": 16,
+            "move_right": 15
+          }
+        },
+        {
+          "seed": 20262023,
+          "completed": false,
+          "age": 45,
+          "reward": -0.500970167416403,
+          "actions": {
+            "regulate": 9,
+            "move_right": 9,
+            "rest": 6,
+            "move_left": 8,
+            "speak": 7,
+            "harvest": 6
+          }
+        },
+        {
+          "seed": 20262024,
+          "completed": false,
+          "age": 97,
+          "reward": 1.6199513402668146,
+          "actions": {
+            "harvest": 16,
+            "move_left": 16,
+            "move_right": 17,
+            "speak": 18,
+            "regulate": 17,
+            "rest": 13
+          }
+        },
+        {
+          "seed": 20262025,
+          "completed": false,
+          "age": 55,
+          "reward": -0.002296142563634751,
+          "actions": {
+            "regulate": 8,
+            "move_left": 8,
+            "rest": 10,
+            "speak": 12,
+            "harvest": 6,
+            "move_right": 11
+          }
+        },
+        {
+          "seed": 20262026,
+          "completed": false,
+          "age": 79,
+          "reward": 1.0634706709794857,
+          "actions": {
+            "harvest": 14,
+            "regulate": 17,
+            "move_right": 11,
+            "rest": 12,
+            "speak": 15,
+            "move_left": 10
+          }
+        },
+        {
+          "seed": 20262027,
+          "completed": false,
+          "age": 35,
+          "reward": -1.240335930022445,
+          "actions": {
+            "regulate": 5,
+            "rest": 5,
+            "move_right": 3,
+            "speak": 12,
+            "harvest": 1,
+            "move_left": 9
+          }
+        },
+        {
+          "seed": 20262028,
+          "completed": false,
+          "age": 69,
+          "reward": 0.678834672091454,
+          "actions": {
+            "regulate": 13,
+            "rest": 12,
+            "speak": 12,
+            "move_left": 14,
+            "harvest": 10,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262029,
+          "completed": false,
+          "age": 64,
+          "reward": 0.0856627957279994,
+          "actions": {
+            "rest": 10,
+            "harvest": 9,
+            "regulate": 8,
+            "move_right": 14,
+            "speak": 12,
+            "move_left": 11
+          }
+        },
+        {
+          "seed": 20262030,
+          "completed": false,
+          "age": 47,
+          "reward": -0.07919153024243619,
+          "actions": {
+            "regulate": 13,
+            "speak": 6,
+            "move_left": 12,
+            "move_right": 5,
+            "harvest": 5,
+            "rest": 6
+          }
+        },
+        {
+          "seed": 20262031,
+          "completed": false,
+          "age": 84,
+          "reward": 1.1709337022973623,
+          "actions": {
+            "rest": 10,
+            "harvest": 20,
+            "speak": 6,
+            "move_right": 15,
+            "regulate": 20,
+            "move_left": 13
+          }
+        },
+        {
+          "seed": 20262032,
+          "completed": false,
+          "age": 51,
+          "reward": -0.302051222955558,
+          "actions": {
+            "speak": 10,
+            "move_left": 11,
+            "harvest": 6,
+            "move_right": 11,
+            "regulate": 9,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262033,
+          "completed": false,
+          "age": 68,
+          "reward": 0.11130931051679882,
+          "actions": {
+            "harvest": 9,
+            "regulate": 9,
+            "speak": 17,
+            "rest": 13,
+            "move_right": 9,
+            "move_left": 11
+          }
+        },
+        {
+          "seed": 20262034,
+          "completed": false,
+          "age": 62,
+          "reward": 0.4096052628959046,
+          "actions": {
+            "move_right": 11,
+            "harvest": 9,
+            "move_left": 11,
+            "speak": 12,
+            "regulate": 6,
+            "rest": 13
+          }
+        },
+        {
+          "seed": 20262035,
+          "completed": false,
+          "age": 86,
+          "reward": 1.0775800350037414,
+          "actions": {
+            "speak": 9,
+            "regulate": 17,
+            "harvest": 16,
+            "rest": 15,
+            "move_left": 19,
+            "move_right": 10
+          }
+        },
+        {
+          "seed": 20262036,
+          "completed": false,
+          "age": 93,
+          "reward": 1.1539484092084638,
+          "actions": {
+            "move_right": 16,
+            "move_left": 8,
+            "speak": 18,
+            "regulate": 12,
+            "rest": 21,
+            "harvest": 18
+          }
+        },
+        {
+          "seed": 20262037,
+          "completed": false,
+          "age": 73,
+          "reward": 0.9520428232751756,
+          "actions": {
+            "rest": 16,
+            "move_left": 10,
+            "regulate": 15,
+            "harvest": 14,
+            "speak": 6,
+            "move_right": 12
+          }
+        },
+        {
+          "seed": 20262038,
+          "completed": false,
+          "age": 83,
+          "reward": 1.2176166283250822,
+          "actions": {
+            "move_right": 19,
+            "rest": 13,
+            "harvest": 12,
+            "speak": 11,
+            "move_left": 13,
+            "regulate": 15
+          }
+        },
+        {
+          "seed": 20262039,
+          "completed": false,
+          "age": 58,
+          "reward": 0.2910790000644372,
+          "actions": {
+            "harvest": 12,
+            "speak": 10,
+            "move_right": 7,
+            "move_left": 8,
+            "regulate": 13,
+            "rest": 8
+          }
+        },
+        {
+          "seed": 20262040,
+          "completed": false,
+          "age": 70,
+          "reward": 0.6360995834098846,
+          "actions": {
+            "move_right": 11,
+            "harvest": 11,
+            "speak": 15,
+            "move_left": 10,
+            "rest": 15,
+            "regulate": 8
+          }
+        },
+        {
+          "seed": 20262041,
+          "completed": false,
+          "age": 149,
+          "reward": 3.115027966521623,
+          "actions": {
+            "move_right": 30,
+            "move_left": 21,
+            "harvest": 37,
+            "speak": 17,
+            "regulate": 14,
+            "rest": 30
+          }
+        },
+        {
+          "seed": 20262042,
+          "completed": false,
+          "age": 100,
+          "reward": 1.6477018159413814,
+          "actions": {
+            "regulate": 14,
+            "move_left": 17,
+            "rest": 20,
+            "harvest": 22,
+            "move_right": 12,
+            "speak": 15
+          }
+        },
+        {
+          "seed": 20262043,
+          "completed": false,
+          "age": 84,
+          "reward": 1.1660478657277156,
+          "actions": {
+            "speak": 14,
+            "rest": 13,
+            "regulate": 13,
+            "move_left": 13,
+            "harvest": 16,
+            "move_right": 15
+          }
+        },
+        {
+          "seed": 20262044,
+          "completed": false,
+          "age": 73,
+          "reward": 1.0572051627395926,
+          "actions": {
+            "harvest": 11,
+            "speak": 13,
+            "move_left": 13,
+            "regulate": 13,
+            "rest": 16,
+            "move_right": 7
+          }
+        },
+        {
+          "seed": 20262045,
+          "completed": false,
+          "age": 72,
+          "reward": 0.792724643477952,
+          "actions": {
+            "move_left": 14,
+            "harvest": 12,
+            "move_right": 12,
+            "speak": 15,
+            "regulate": 13,
+            "rest": 6
+          }
+        },
+        {
+          "seed": 20262046,
+          "completed": false,
+          "age": 43,
+          "reward": -0.4538173321217639,
+          "actions": {
+            "move_left": 7,
+            "move_right": 8,
+            "speak": 8,
+            "harvest": 3,
+            "rest": 11,
+            "regulate": 6
+          }
+        },
+        {
+          "seed": 20262047,
+          "completed": false,
+          "age": 72,
+          "reward": 0.7208175286274752,
+          "actions": {
+            "speak": 11,
+            "harvest": 10,
+            "move_right": 13,
+            "rest": 14,
+            "regulate": 14,
+            "move_left": 10
+          }
+        },
+        {
+          "seed": 20262048,
+          "completed": false,
+          "age": 54,
+          "reward": -0.03475542309090218,
+          "actions": {
+            "regulate": 10,
+            "move_right": 13,
+            "move_left": 8,
+            "speak": 2,
+            "harvest": 6,
+            "rest": 15
+          }
+        },
+        {
+          "seed": 20262049,
+          "completed": false,
+          "age": 76,
+          "reward": 0.5869030897131657,
+          "actions": {
+            "harvest": 19,
+            "regulate": 12,
+            "speak": 16,
+            "move_right": 12,
+            "move_left": 7,
+            "rest": 10
+          }
+        },
+        {
+          "seed": 20262050,
+          "completed": false,
+          "age": 40,
+          "reward": -0.5265118881706008,
+          "actions": {
+            "rest": 7,
+            "harvest": 3,
+            "regulate": 8,
+            "move_left": 9,
+            "move_right": 8,
+            "speak": 5
+          }
+        },
+        {
+          "seed": 20262051,
+          "completed": false,
+          "age": 119,
+          "reward": 1.772090092835057,
+          "actions": {
+            "move_right": 24,
+            "harvest": 26,
+            "speak": 21,
+            "move_left": 14,
+            "rest": 20,
+            "regulate": 14
+          }
+        },
+        {
+          "seed": 20262052,
+          "completed": false,
+          "age": 46,
+          "reward": -0.2866183874979784,
+          "actions": {
+            "harvest": 6,
+            "regulate": 6,
+            "speak": 10,
+            "move_left": 10,
+            "move_right": 7,
+            "rest": 7
+          }
+        },
+        {
+          "seed": 20262053,
+          "completed": false,
+          "age": 52,
+          "reward": -0.5468398342841043,
+          "actions": {
+            "move_left": 12,
+            "regulate": 8,
+            "move_right": 6,
+            "harvest": 5,
+            "speak": 15,
+            "rest": 6
+          }
+        },
+        {
+          "seed": 20262054,
+          "completed": false,
+          "age": 60,
+          "reward": -0.009371389239202665,
+          "actions": {
+            "move_right": 10,
+            "move_left": 13,
+            "harvest": 9,
+            "rest": 9,
+            "speak": 13,
+            "regulate": 6
+          }
+        },
+        {
+          "seed": 20262055,
+          "completed": false,
+          "age": 73,
+          "reward": 0.6326613155466043,
+          "actions": {
+            "rest": 12,
+            "speak": 12,
+            "move_left": 15,
+            "regulate": 12,
+            "harvest": 13,
+            "move_right": 9
+          }
+        },
+        {
+          "seed": 20262056,
+          "completed": false,
+          "age": 102,
+          "reward": 1.1233499425269775,
+          "actions": {
+            "harvest": 22,
+            "regulate": 13,
+            "move_left": 16,
+            "rest": 19,
+            "move_right": 19,
+            "speak": 13
+          }
+        },
+        {
+          "seed": 20262057,
+          "completed": false,
+          "age": 42,
+          "reward": -0.6973933724180494,
+          "actions": {
+            "move_left": 8,
+            "harvest": 3,
+            "speak": 9,
+            "move_right": 8,
+            "rest": 11,
+            "regulate": 3
+          }
+        },
+        {
+          "seed": 20262058,
+          "completed": false,
+          "age": 108,
+          "reward": 1.7806692041368979,
+          "actions": {
+            "harvest": 20,
+            "move_right": 16,
+            "speak": 24,
+            "rest": 15,
+            "move_left": 17,
+            "regulate": 16
+          }
+        },
+        {
+          "seed": 20262059,
+          "completed": false,
+          "age": 122,
+          "reward": 2.249288787187396,
+          "actions": {
+            "regulate": 20,
+            "move_right": 19,
+            "rest": 21,
+            "harvest": 21,
+            "move_left": 17,
+            "speak": 24
+          }
+        },
+        {
+          "seed": 20262060,
+          "completed": false,
+          "age": 99,
+          "reward": 1.318098472005723,
+          "actions": {
+            "harvest": 18,
+            "move_right": 22,
+            "speak": 13,
+            "rest": 12,
+            "move_left": 14,
+            "regulate": 20
+          }
+        },
+        {
+          "seed": 20262061,
+          "completed": false,
+          "age": 41,
+          "reward": -0.6794186650950044,
+          "actions": {
+            "move_left": 5,
+            "move_right": 9,
+            "regulate": 7,
+            "rest": 6,
+            "speak": 10,
+            "harvest": 4
+          }
+        },
+        {
+          "seed": 20262062,
+          "completed": false,
+          "age": 70,
+          "reward": 0.6492885064249074,
+          "actions": {
+            "harvest": 11,
+            "rest": 15,
+            "move_left": 10,
+            "speak": 12,
+            "move_right": 13,
+            "regulate": 9
+          }
+        },
+        {
+          "seed": 20262063,
+          "completed": false,
+          "age": 106,
+          "reward": 1.6328423834247425,
+          "actions": {
+            "move_right": 17,
+            "regulate": 17,
+            "rest": 15,
+            "speak": 19,
+            "harvest": 21,
+            "move_left": 17
+          }
+        },
+        {
+          "seed": 20262064,
+          "completed": false,
+          "age": 55,
+          "reward": 0.18652846677472779,
+          "actions": {
+            "regulate": 14,
+            "rest": 11,
+            "speak": 6,
+            "move_left": 8,
+            "move_right": 7,
+            "harvest": 9
+          }
+        }
+      ]
+    },
+    "scan_oracle": {
+      "policy": "scan_oracle",
+      "n": 64,
+      "survival_rate": 1.0,
+      "mean_age": 256.0,
+      "mean_reward": 9.945369703177937,
+      "actions": {
+        "harvest": 4175,
+        "move_right": 4633,
+        "move_left": 4624,
+        "regulate": 2175,
+        "rest": 777
+      },
+      "episodes": [
+        {
+          "seed": 20262001,
+          "completed": true,
+          "age": 256,
+          "reward": 9.87087018473969,
+          "actions": {
+            "harvest": 64,
+            "move_right": 73,
+            "move_left": 72,
+            "regulate": 34,
+            "rest": 13
+          }
+        },
+        {
+          "seed": 20262002,
+          "completed": true,
+          "age": 256,
+          "reward": 9.940737178718843,
+          "actions": {
+            "harvest": 66,
+            "move_left": 73,
+            "regulate": 35,
+            "move_right": 72,
+            "rest": 10
+          }
+        },
+        {
+          "seed": 20262003,
+          "completed": true,
+          "age": 256,
+          "reward": 9.77186661485891,
+          "actions": {
+            "harvest": 63,
+            "move_right": 78,
+            "regulate": 34,
+            "move_left": 72,
+            "rest": 9
+          }
+        },
+        {
+          "seed": 20262004,
+          "completed": true,
+          "age": 256,
+          "reward": 9.997031501009214,
+          "actions": {
+            "harvest": 63,
+            "move_left": 73,
+            "regulate": 34,
+            "move_right": 72,
+            "rest": 14
+          }
+        },
+        {
+          "seed": 20262005,
+          "completed": true,
+          "age": 256,
+          "reward": 10.093148505881459,
+          "actions": {
+            "harvest": 66,
+            "regulate": 34,
+            "move_right": 70,
+            "move_left": 72,
+            "rest": 14
+          }
+        },
+        {
+          "seed": 20262006,
+          "completed": true,
+          "age": 256,
+          "reward": 9.995557132745612,
+          "actions": {
+            "harvest": 68,
+            "move_left": 71,
+            "move_right": 72,
+            "regulate": 33,
+            "rest": 12
+          }
+        },
+        {
+          "seed": 20262007,
+          "completed": true,
+          "age": 256,
+          "reward": 9.940727716884615,
+          "actions": {
+            "harvest": 67,
+            "move_right": 71,
+            "move_left": 72,
+            "regulate": 34,
+            "rest": 12
+          }
+        },
+        {
+          "seed": 20262008,
+          "completed": true,
+          "age": 256,
+          "reward": 9.877201863339442,
+          "actions": {
+            "harvest": 65,
+            "move_left": 72,
+            "regulate": 35,
+            "move_right": 71,
+            "rest": 13
+          }
+        },
+        {
+          "seed": 20262009,
+          "completed": true,
+          "age": 256,
+          "reward": 10.00863447809288,
+          "actions": {
+            "harvest": 64,
+            "move_left": 75,
+            "regulate": 35,
+            "move_right": 72,
+            "rest": 10
+          }
+        },
+        {
+          "seed": 20262010,
+          "completed": true,
+          "age": 256,
+          "reward": 9.8958298644164,
+          "actions": {
+            "harvest": 65,
+            "move_left": 73,
+            "move_right": 72,
+            "regulate": 34,
+            "rest": 12
+          }
+        },
+        {
+          "seed": 20262011,
+          "completed": true,
+          "age": 256,
+          "reward": 9.806640625185484,
+          "actions": {
+            "harvest": 64,
+            "move_right": 75,
+            "move_left": 75,
+            "regulate": 33,
+            "rest": 9
+          }
+        },
+        {
+          "seed": 20262012,
+          "completed": true,
+          "age": 256,
+          "reward": 10.087141839355457,
+          "actions": {
+            "harvest": 66,
+            "regulate": 35,
+            "move_left": 72,
+            "move_right": 70,
+            "rest": 13
+          }
+        },
+        {
+          "seed": 20262013,
+          "completed": true,
+          "age": 256,
+          "reward": 9.893381745400621,
+          "actions": {
+            "harvest": 64,
+            "move_right": 77,
+            "regulate": 32,
+            "move_left": 72,
+            "rest": 11
+          }
+        },
+        {
+          "seed": 20262014,
+          "completed": true,
+          "age": 256,
+          "reward": 10.134621224870278,
+          "actions": {
+            "harvest": 66,
+            "move_left": 72,
+            "regulate": 35,
+            "move_right": 70,
+            "rest": 13
+          }
+        },
+        {
+          "seed": 20262015,
+          "completed": true,
+          "age": 256,
+          "reward": 9.846885488883947,
+          "actions": {
+            "harvest": 65,
+            "move_right": 74,
+            "move_left": 73,
+            "regulate": 32,
+            "rest": 12
+          }
+        },
+        {
+          "seed": 20262016,
+          "completed": true,
+          "age": 256,
+          "reward": 10.02480438336915,
+          "actions": {
+            "harvest": 67,
+            "move_left": 71,
+            "move_right": 72,
+            "regulate": 33,
+            "rest": 13
+          }
+        },
+        {
+          "seed": 20262017,
+          "completed": true,
+          "age": 256,
+          "reward": 9.900069525288464,
+          "actions": {
+            "harvest": 64,
+            "move_right": 73,
+            "move_left": 74,
+            "regulate": 35,
+            "rest": 10
+          }
+        },
+        {
+          "seed": 20262018,
+          "completed": true,
+          "age": 256,
+          "reward": 9.929141003405139,
+          "actions": {
+            "harvest": 69,
+            "move_left": 66,
+            "move_right": 72,
+            "regulate": 35,
+            "rest": 14
+          }
+        },
+        {
+          "seed": 20262019,
+          "completed": true,
+          "age": 256,
+          "reward": 9.843367544032011,
+          "actions": {
+            "harvest": 67,
+            "move_right": 72,
+            "move_left": 72,
+            "regulate": 33,
+            "rest": 12
+          }
+        },
+        {
+          "seed": 20262020,
+          "completed": true,
+          "age": 256,
+          "reward": 10.044857760776177,
+          "actions": {
+            "harvest": 63,
+            "move_left": 73,
+            "regulate": 36,
+            "move_right": 72,
+            "rest": 12
+          }
+        },
+        {
+          "seed": 20262021,
+          "completed": true,
+          "age": 256,
+          "reward": 9.872983895432032,
+          "actions": {
+            "harvest": 63,
+            "move_right": 74,
+            "move_left": 72,
+            "regulate": 34,
+            "rest": 13
+          }
+        },
+        {
+          "seed": 20262022,
+          "completed": true,
+          "age": 256,
+          "reward": 9.862523953553584,
+          "actions": {
+            "harvest": 64,
+            "move_left": 75,
+            "move_right": 72,
+            "regulate": 34,
+            "rest": 11
+          }
+        },
+        {
+          "seed": 20262023,
+          "completed": true,
+          "age": 256,
+          "reward": 9.987236477380364,
+          "actions": {
+            "harvest": 65,
+            "move_right": 71,
+            "move_left": 72,
+            "regulate": 34,
+            "rest": 14
+          }
+        },
+        {
+          "seed": 20262024,
+          "completed": true,
+          "age": 256,
+          "reward": 9.960199623603653,
+          "actions": {
+            "harvest": 69,
+            "move_left": 70,
+            "regulate": 35,
+            "move_right": 72,
+            "rest": 10
+          }
+        },
+        {
+          "seed": 20262025,
+          "completed": true,
+          "age": 256,
+          "reward": 10.086738207803839,
+          "actions": {
+            "harvest": 65,
+            "move_right": 73,
+            "move_left": 72,
+            "regulate": 35,
+            "rest": 11
+          }
+        },
+        {
+          "seed": 20262026,
+          "completed": true,
+          "age": 256,
+          "reward": 9.997189145493753,
+          "actions": {
+            "harvest": 67,
+            "move_left": 72,
+            "regulate": 35,
+            "move_right": 70,
+            "rest": 12
+          }
+        },
+        {
+          "seed": 20262027,
+          "completed": true,
+          "age": 256,
+          "reward": 9.829551027727227,
+          "actions": {
+            "harvest": 62,
+            "move_right": 77,
+            "regulate": 34,
+            "move_left": 72,
+            "rest": 11
+          }
+        },
+        {
+          "seed": 20262028,
+          "completed": true,
+          "age": 256,
+          "reward": 10.009431463831094,
+          "actions": {
+            "harvest": 65,
+            "move_right": 76,
+            "regulate": 33,
+            "move_left": 72,
+            "rest": 10
+          }
+        },
+        {
+          "seed": 20262029,
+          "completed": true,
+          "age": 256,
+          "reward": 9.861901848657459,
+          "actions": {
+            "harvest": 64,
+            "move_right": 73,
+            "move_left": 72,
+            "regulate": 33,
+            "rest": 14
+          }
+        },
+        {
+          "seed": 20262030,
+          "completed": true,
+          "age": 256,
+          "reward": 9.891070815629424,
+          "actions": {
+            "harvest": 66,
+            "move_left": 71,
+            "regulate": 34,
+            "move_right": 72,
+            "rest": 13
+          }
+        },
+        {
+          "seed": 20262031,
+          "completed": true,
+          "age": 256,
+          "reward": 10.039482585842864,
+          "actions": {
+            "harvest": 67,
+            "move_right": 70,
+            "regulate": 34,
+            "move_left": 71,
+            "rest": 14
+          }
+        },
+        {
+          "seed": 20262032,
+          "completed": true,
+          "age": 256,
+          "reward": 9.837075321886015,
+          "actions": {
+            "harvest": 65,
+            "move_left": 73,
+            "regulate": 33,
+            "move_right": 72,
+            "rest": 13
+          }
+        },
+        {
+          "seed": 20262033,
+          "completed": true,
+          "age": 256,
+          "reward": 9.969705163676604,
+          "actions": {
+            "harvest": 65,
+            "move_right": 72,
+            "move_left": 72,
+            "regulate": 34,
+            "rest": 13
+          }
+        },
+        {
+          "seed": 20262034,
+          "completed": true,
+          "age": 256,
+          "reward": 10.017871974348214,
+          "actions": {
+            "harvest": 66,
+            "move_left": 75,
+            "regulate": 33,
+            "move_right": 72,
+            "rest": 10
+          }
+        },
+        {
+          "seed": 20262035,
+          "completed": true,
+          "age": 256,
+          "reward": 9.820043547512231,
+          "actions": {
+            "harvest": 65,
+            "move_right": 73,
+            "move_left": 75,
+            "regulate": 34,
+            "rest": 9
+          }
+        },
+        {
+          "seed": 20262036,
+          "completed": true,
+          "age": 256,
+          "reward": 10.145370760667577,
+          "actions": {
+            "harvest": 63,
+            "move_left": 74,
+            "move_right": 73,
+            "regulate": 34,
+            "rest": 12
+          }
+        },
+        {
+          "seed": 20262037,
+          "completed": true,
+          "age": 256,
+          "reward": 9.910556852815471,
+          "actions": {
+            "harvest": 63,
+            "move_right": 73,
+            "move_left": 74,
+            "regulate": 34,
+            "rest": 12
+          }
+        },
+        {
+          "seed": 20262038,
+          "completed": true,
+          "age": 256,
+          "reward": 9.915552132139604,
+          "actions": {
+            "harvest": 64,
+            "move_left": 73,
+            "move_right": 72,
+            "regulate": 32,
+            "rest": 15
+          }
+        },
+        {
+          "seed": 20262039,
+          "completed": true,
+          "age": 256,
+          "reward": 9.92398200877019,
+          "actions": {
+            "harvest": 66,
+            "move_left": 74,
+            "regulate": 34,
+            "move_right": 72,
+            "rest": 10
+          }
+        },
+        {
+          "seed": 20262040,
+          "completed": true,
+          "age": 256,
+          "reward": 9.891726187457683,
+          "actions": {
+            "harvest": 66,
+            "move_left": 74,
+            "regulate": 34,
+            "move_right": 72,
+            "rest": 10
+          }
+        },
+        {
+          "seed": 20262041,
+          "completed": true,
+          "age": 256,
+          "reward": 9.988261683206021,
+          "actions": {
+            "harvest": 63,
+            "move_right": 74,
+            "regulate": 36,
+            "move_left": 72,
+            "rest": 11
+          }
+        },
+        {
+          "seed": 20262042,
+          "completed": true,
+          "age": 256,
+          "reward": 9.940718650844499,
+          "actions": {
+            "harvest": 68,
+            "move_left": 71,
+            "move_right": 72,
+            "regulate": 35,
+            "rest": 10
+          }
+        },
+        {
+          "seed": 20262043,
+          "completed": true,
+          "age": 256,
+          "reward": 9.9351659441342,
+          "actions": {
+            "harvest": 63,
+            "move_left": 74,
+            "regulate": 34,
+            "move_right": 72,
+            "rest": 13
+          }
+        },
+        {
+          "seed": 20262044,
+          "completed": true,
+          "age": 256,
+          "reward": 10.140534402744262,
+          "actions": {
+            "harvest": 66,
+            "move_left": 71,
+            "regulate": 36,
+            "move_right": 70,
+            "rest": 13
+          }
+        },
+        {
+          "seed": 20262045,
+          "completed": true,
+          "age": 256,
+          "reward": 9.930565580483732,
+          "actions": {
+            "harvest": 66,
+            "move_right": 73,
+            "move_left": 72,
+            "regulate": 34,
+            "rest": 11
+          }
+        },
+        {
+          "seed": 20262046,
+          "completed": true,
+          "age": 256,
+          "reward": 10.082838337035179,
+          "actions": {
+            "harvest": 66,
+            "move_left": 71,
+            "regulate": 35,
+            "move_right": 71,
+            "rest": 13
+          }
+        },
+        {
+          "seed": 20262047,
+          "completed": true,
+          "age": 256,
+          "reward": 9.88076305516178,
+          "actions": {
+            "harvest": 66,
+            "move_right": 71,
+            "regulate": 35,
+            "move_left": 72,
+            "rest": 12
+          }
+        },
+        {
+          "seed": 20262048,
+          "completed": true,
+          "age": 256,
+          "reward": 9.874924261602542,
+          "actions": {
+            "harvest": 68,
+            "move_left": 71,
+            "regulate": 35,
+            "move_right": 72,
+            "rest": 10
+          }
+        },
+        {
+          "seed": 20262049,
+          "completed": true,
+          "age": 256,
+          "reward": 10.022422682965697,
+          "actions": {
+            "harvest": 64,
+            "move_right": 74,
+            "regulate": 35,
+            "move_left": 72,
+            "rest": 11
+          }
+        },
+        {
+          "seed": 20262050,
+          "completed": true,
+          "age": 256,
+          "reward": 10.109573829188886,
+          "actions": {
+            "harvest": 63,
+            "move_right": 74,
+            "regulate": 35,
+            "move_left": 72,
+            "rest": 12
+          }
+        },
+        {
+          "seed": 20262051,
+          "completed": true,
+          "age": 256,
+          "reward": 9.972915682205066,
+          "actions": {
+            "harvest": 63,
+            "move_right": 74,
+            "move_left": 72,
+            "regulate": 32,
+            "rest": 15
+          }
+        },
+        {
+          "seed": 20262052,
+          "completed": true,
+          "age": 256,
+          "reward": 10.031428645504718,
+          "actions": {
+            "harvest": 64,
+            "move_left": 73,
+            "regulate": 33,
+            "move_right": 72,
+            "rest": 14
+          }
+        },
+        {
+          "seed": 20262053,
+          "completed": true,
+          "age": 256,
+          "reward": 9.742203851289812,
+          "actions": {
+            "harvest": 66,
+            "move_right": 72,
+            "regulate": 34,
+            "move_left": 72,
+            "rest": 12
+          }
+        },
+        {
+          "seed": 20262054,
+          "completed": true,
+          "age": 256,
+          "reward": 9.914975434989133,
+          "actions": {
+            "harvest": 63,
+            "move_left": 72,
+            "move_right": 72,
+            "regulate": 35,
+            "rest": 14
+          }
+        },
+        {
+          "seed": 20262055,
+          "completed": true,
+          "age": 256,
+          "reward": 10.061759649218764,
+          "actions": {
+            "harvest": 69,
+            "move_right": 71,
+            "move_left": 72,
+            "regulate": 32,
+            "rest": 12
+          }
+        },
+        {
+          "seed": 20262056,
+          "completed": true,
+          "age": 256,
+          "reward": 9.849945251346297,
+          "actions": {
+            "harvest": 65,
+            "move_right": 72,
+            "regulate": 34,
+            "move_left": 72,
+            "rest": 13
+          }
+        },
+        {
+          "seed": 20262057,
+          "completed": true,
+          "age": 256,
+          "reward": 9.843805373225416,
+          "actions": {
+            "harvest": 65,
+            "move_right": 73,
+            "move_left": 72,
+            "regulate": 34,
+            "rest": 12
+          }
+        },
+        {
+          "seed": 20262058,
+          "completed": true,
+          "age": 256,
+          "reward": 10.10966197757979,
+          "actions": {
+            "harvest": 64,
+            "move_left": 71,
+            "move_right": 72,
+            "regulate": 35,
+            "rest": 14
+          }
+        },
+        {
+          "seed": 20262059,
+          "completed": true,
+          "age": 256,
+          "reward": 9.768669867633912,
+          "actions": {
+            "harvest": 63,
+            "move_right": 74,
+            "regulate": 34,
+            "move_left": 72,
+            "rest": 13
+          }
+        },
+        {
+          "seed": 20262060,
+          "completed": true,
+          "age": 256,
+          "reward": 9.791947384870245,
+          "actions": {
+            "harvest": 65,
+            "move_left": 73,
+            "move_right": 72,
+            "regulate": 33,
+            "rest": 13
+          }
+        },
+        {
+          "seed": 20262061,
+          "completed": true,
+          "age": 256,
+          "reward": 9.882359892669914,
+          "actions": {
+            "harvest": 65,
+            "move_right": 73,
+            "move_left": 75,
+            "regulate": 33,
+            "rest": 10
+          }
+        },
+        {
+          "seed": 20262062,
+          "completed": true,
+          "age": 256,
+          "reward": 10.057716238353557,
+          "actions": {
+            "harvest": 67,
+            "move_left": 70,
+            "move_right": 72,
+            "regulate": 32,
+            "rest": 15
+          }
+        },
+        {
+          "seed": 20262063,
+          "completed": true,
+          "age": 256,
+          "reward": 9.842068101183783,
+          "actions": {
+            "harvest": 68,
+            "move_right": 71,
+            "regulate": 33,
+            "move_left": 70,
+            "rest": 14
+          }
+        },
+        {
+          "seed": 20262064,
+          "completed": true,
+          "age": 256,
+          "reward": 9.995726050468027,
+          "actions": {
+            "harvest": 69,
+            "move_left": 70,
+            "regulate": 33,
+            "move_right": 69,
+            "rest": 15
+          }
+        }
+      ]
+    }
+  },
+  "bars": {
+    "fixed_rest_survival_zero": true,
+    "fixed_harvest_survival_zero": true,
+    "uniform_random_survival_at_most_0_10": true,
+    "oracle_survival_one": true,
+    "oracle_uses_rest_move_harvest_regulate": true
+  },
+  "pass": true
+}

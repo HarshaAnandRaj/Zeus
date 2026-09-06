@@ -1,6 +1,7 @@
 # P1 greedy-continuation protocol (v8)
 
-Status: **pre-registered 2026-09-04; last curriculum bet before architecture review.**
+Status: **completed historical protocol; expression bar superseded by
+`p1_exit_contract.md` on 2026-09-05.**
 
 ## Question
 

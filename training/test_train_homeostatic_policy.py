@@ -1,10 +1,32 @@
 import unittest
+from unittest.mock import patch
+
+import torch
 
 from core.model import ZeusConfig, ZeusCore
-from training.train_homeostatic_policy import discounted_returns, train_homeostatic_policy, viability_reward
+from training.train_homeostatic_policy import (
+    discounted_returns,
+    load_seeded_model,
+    train_homeostatic_policy,
+    viability_reward,
+)
 
 
 class HomeostaticPolicyTrainingTests(unittest.TestCase):
+    def test_seed_is_applied_before_legacy_fresh_policy_is_constructed(self):
+        cfg = ZeusConfig(dim=64, slow_dim=16, window=8, ctx_window=8,
+                         readout_layers=1, readout_heads=4, vocab=8192)
+
+        def fresh_model(*_args, **_kwargs):
+            return ZeusCore(cfg).eval()
+
+        with patch("training.train_homeostatic_policy.ZeusCore.load",
+                   side_effect=fresh_model):
+            left = load_seeded_model("legacy.pt", device="cpu", seed=19)
+            right = load_seeded_model("legacy.pt", device="cpu", seed=19)
+        for key, value in left.action_head.state_dict().items():
+            self.assertTrue(torch.equal(value, right.action_head.state_dict()[key]), key)
+
     def test_reward_is_grounded_in_world_effect(self):
         effect = {"homeostatic_error_before": 0.7, "homeostatic_error_after": 0.4,
                   "viable": True}

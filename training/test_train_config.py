@@ -1,12 +1,47 @@
 import json
 import pathlib
+import random
 import tempfile
 import unittest
+from unittest.mock import Mock
 
-from training.train import _mouth_cfg_from_lm_pretrain
+import numpy as np
+import torch
+
+from training.train import (
+    _capture_rng_state,
+    _mouth_cfg_from_lm_pretrain,
+    _restore_hcm_state,
+    _restore_rng_state,
+)
 
 
 class MouthCfgTests(unittest.TestCase):
+    def test_rng_checkpoint_round_trip(self):
+        random.seed(31)
+        np.random.seed(31)
+        torch.manual_seed(31)
+        state = _capture_rng_state()
+        expected = (random.random(), float(np.random.random()), float(torch.rand(())))
+        random.seed(99)
+        np.random.seed(99)
+        torch.manual_seed(99)
+        self.assertTrue(_restore_rng_state(state))
+        actual = (random.random(), float(np.random.random()), float(torch.rand(())))
+        self.assertEqual(actual, expected)
+
+    def test_missing_rng_checkpoint_is_explicit(self):
+        self.assertFalse(_restore_rng_state(None))
+
+    def test_no_hcm_resume_ignores_serialized_hcm_key(self):
+        self.assertFalse(_restore_hcm_state(None, {"hcm": {"patterns": []}}))
+
+    def test_hcm_resume_restores_present_state(self):
+        hcm = Mock()
+        state = {"patterns": [1]}
+        self.assertTrue(_restore_hcm_state(hcm, {"hcm": state}))
+        hcm.load_state_dict.assert_called_once_with(state)
+
     def test_probe_era_nested_config(self):
         with tempfile.TemporaryDirectory() as d:
             rc = pathlib.Path(d) / "run_config.json"

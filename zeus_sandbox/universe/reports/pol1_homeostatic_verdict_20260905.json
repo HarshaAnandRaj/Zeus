@@ -1,0 +1,37 @@
+{
+  "kind": "homeostatic_policy_verdict",
+  "protocol": "docs/embodiment_policy_protocol.md",
+  "artifact": "runs/pol1_homeostatic/policy.pt",
+  "artifact_sha256": "358261183d3426c9b3907bd96de5e1ce658ce6c3d6b51a6030756ad536d15aa6",
+  "source_checkpoint": "zeus_sandbox/universe/shadow/milestone.pt",
+  "source_checkpoint_sha256": "bd3c6ca0b8fe92153345d19ea4b30471832528d934e81d05e91530c59c49feb3",
+  "updates": 100,
+  "bars": {
+    "learning": {
+      "first_10_mean_episode_reward": 3.3916295,
+      "last_10_mean_episode_reward": 3.4766771,
+      "comparison": "last > first",
+      "pass": true
+    },
+    "viability": {
+      "last_10_mean_survival_frac": 1.0,
+      "threshold": 0.9,
+      "pass": true
+    },
+    "determinism": {
+      "pass": false,
+      "status": "precondition contradicted; exact row replay not licensed",
+      "audit": "two independent loads of the same legacy checkpoint before training",
+      "action_head_keys_equal": {
+        "0.weight": false,
+        "0.bias": false,
+        "2.weight": false,
+        "2.bias": false
+      },
+      "max_abs_parameter_difference": 0.0719214603304863,
+      "root_cause": "the original runner seeded after ZeusCore.load constructed checkpoint-missing sensorimotor heads"
+    }
+  },
+  "overall_pass": false,
+  "allowed_conclusion": "embodiment affordance only; no endogenous-policy or P6 claim"
+}

@@ -1,6 +1,6 @@
 # Embodiment policy protocol (pol1)
 
-Status: **pre-registered 2026-09-05; mouth-independent endogenous-behavior test.**
+Status: **completed 2026-09-05; FAIL on required determinism bar.**
 
 ## Question
 
@@ -43,3 +43,20 @@ entropy collapse?) without touching the mouth program.
   causal effect of the learned policy) as the follow-up experiment.
 - Fail -> embodiment stays an affordance substrate, not an agency result;
   brain return continues on Night6-CE + dynamics only.
+
+## Recorded disposition
+
+The completed artifact passed the two numerical bars: first-10 mean reward
+`3.3916295`, last-10 `3.4766771`, and last-10 survival `1.0`. It cannot support
+a policy claim because the determinism bar failed before replay: the legacy
+checkpoint omits the sensorimotor heads, while the original runner seeded only
+after `ZeusCore.load` randomly constructed them. Two independent loads differed
+in all four action-head tensors (maximum absolute difference `0.07192146`).
+Consequently an identical process launch did not have an identical initial
+policy, and rerunning the two-hour training could not prove seeded replay.
+
+The result is **FAIL** under the all-required contract. The original artifact
+is preserved; embodiment remains an affordance substrate only and no P6 audit
+is licensed. The runner now seeds before checkpoint loading, with a regression
+test, for any separately pre-registered future experiment. That repair does not
+retroactively change pol1's verdict.

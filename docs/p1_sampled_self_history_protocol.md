@@ -1,6 +1,7 @@
 # P1 sampled self-history recovery protocol
 
-Status: **pre-registered design only; not implemented, approved, or launched** (2026-09-04).
+Status: **completed historical protocol; expression bar superseded by
+`p1_exit_contract.md` on 2026-09-05.**
 
 ## Question
 

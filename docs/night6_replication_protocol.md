@@ -1,6 +1,6 @@
 # Night6 memory-CE replication protocol (mem1)
 
-Status: **pre-registered 2026-09-05; brain-return step 1.**
+Status: **completed 2026-09-05; FAIL on the binding memory-CE bar.**
 
 ## Question
 
@@ -61,3 +61,30 @@ opens on partial passes.
   upgrade path (M1/M3 gates), still with no legibility claims.
 - Fail -> coarse memory joins the retired list with the mouth curricula;
   brain return continues on embodiment + dynamics only.
+
+## Recorded disposition
+
+The memory arm reached the exact step-8,000 endpoint with no non-finite fields
+or glass alarms. Its final three validation CEs were `35.7873`, `32.3532`, and
+`32.9747`, mean `33.7051`. This decisively fails the required `<7.10` bar.
+
+The retained-bank causal audit found mean matched-minus-wrong `+0.01464`, so
+the protocol's narrow `>0` direction bar passes. The effect is not robust under
+the audit's stricter diagnostic: matched-minus-none `+0.01742`, positive-gain
+fraction `0.375`, selective-positive fraction `0.333`, aggregate audit fail.
+This is weak association-path evidence, not selective-memory capability.
+
+The no-memory control cannot supply the matched endpoint comparison. Its first
+extension was externally terminated after step 2,950 with an exact step-2,500
+checkpoint. Audit then showed that `training/train.py` had not checkpointed
+Python, NumPy, or Torch RNG state and stored full chi-clock geometry only in an
+overwritten sidecar. A second resume therefore introduced an unmatched random
+reset and was stopped; all partial artifacts are retained and labeled invalid.
+The control cannot be repaired into the registered trajectory after the fact.
+
+Because the bars are conjunctive, the proven memory-CE failure is sufficient
+for a final **FAIL** even though the control comparison is unavailable. No
+memory-help claim or downstream memory phase opens. Coarse HCM is retired for
+this stack; brain-return work continues on dynamics only (pol1 separately
+failed its determinism bar). Checkpoints now carry all stochastic streams and
+full coarse/fine chi-clock state so future experiments can resume exactly.

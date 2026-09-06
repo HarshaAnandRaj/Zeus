@@ -1,0 +1,6800 @@
+{
+  "kind": "pol2_endogenous_action_verdict",
+  "contract_version": "pol2-causal-action-2026-09-05",
+  "source_checkpoint": "C:\\Users\\Anand\\Desktop\\Projects\\Zeus\\zeus_sandbox\\universe\\shadow\\milestone.pt",
+  "source_sha256": "bd3c6ca0b8fe92153345d19ea4b30471832528d934e81d05e91530c59c49feb3",
+  "artifacts": {
+    "a": {
+      "path": "C:\\Users\\Anand\\Desktop\\Projects\\Zeus\\runs\\pol2_state_homeostasis_a\\policy.pt",
+      "file_sha256": "e788171a46e9035e1775b1c7c43af89ba381005f024371c8682d3f4e819d7998",
+      "policy_sha256": "fae521c4dc8ca72ce3b691ddfb5dacfc9af6a038e1d96d59ed142c157ed4de93"
+    },
+    "b": {
+      "path": "C:\\Users\\Anand\\Desktop\\Projects\\Zeus\\runs\\pol2_state_homeostasis_b\\policy.pt",
+      "file_sha256": "e788171a46e9035e1775b1c7c43af89ba381005f024371c8682d3f4e819d7998",
+      "policy_sha256": "fae521c4dc8ca72ce3b691ddfb5dacfc9af6a038e1d96d59ed142c157ed4de93"
+    }
+  },
+  "conditions": {
+    "eval_seeds": [
+      20262001,
+      20262002,
+      20262003,
+      20262004,
+      20262005,
+      20262006,
+      20262007,
+      20262008,
+      20262009,
+      20262010,
+      20262011,
+      20262012,
+      20262013,
+      20262014,
+      20262015,
+      20262016,
+      20262017,
+      20262018,
+      20262019,
+      20262020,
+      20262021,
+      20262022,
+      20262023,
+      20262024,
+      20262025,
+      20262026,
+      20262027,
+      20262028,
+      20262029,
+      20262030,
+      20262031,
+      20262032,
+      20262033,
+      20262034,
+      20262035,
+      20262036,
+      20262037,
+      20262038,
+      20262039,
+      20262040,
+      20262041,
+      20262042,
+      20262043,
+      20262044,
+      20262045,
+      20262046,
+      20262047,
+      20262048,
+      20262049,
+      20262050,
+      20262051,
+      20262052,
+      20262053,
+      20262054,
+      20262055,
+      20262056,
+      20262057,
+      20262058,
+      20262059,
+      20262060,
+      20262061,
+      20262062,
+      20262063,
+      20262064
+    ],
+    "eval_horizon": 256,
+    "state_permutation_seed": 20260922,
+    "action_permutation": {
+      "rest": "move_left",
+      "move_left": "move_right",
+      "move_right": "harvest",
+      "harvest": "regulate",
+      "regulate": "rest",
+      "speak": "speak"
+    },
+    "state_only_policy": true,
+    "mouth_readout": false,
+    "greedy_actions": true
+  },
+  "twin_replay": {
+    "initial_policy_hash_equal": true,
+    "training_rows_equal": true,
+    "policy_hash_equal": true,
+    "policy_tensors_equal": true,
+    "pass": true
+  },
+  "reconstructed_initial_policy_sha256": "dc0c810f42441362cedadb8250db93ad465eaf72e34d200b540124b9fb9e3af2",
+  "world_calibration": {
+    "path": "C:\\Users\\Anand\\Desktop\\Projects\\Zeus\\zeus_sandbox\\universe\\reports\\embodiment_v2_calibration_20260905.json",
+    "uniform_random": {
+      "policy": "uniform_random",
+      "n": 64,
+      "survival_rate": 0.0,
+      "mean_age": 72.9375,
+      "mean_reward": 0.6395433881686047,
+      "actions": {
+        "harvest": 769,
+        "speak": 804,
+        "move_left": 757,
+        "regulate": 771,
+        "rest": 792,
+        "move_right": 775
+      },
+      "episodes": [
+        {
+          "seed": 20262001,
+          "completed": false,
+          "age": 63,
+          "reward": 0.2986160459850622,
+          "actions": {
+            "harvest": 9,
+            "speak": 12,
+            "move_left": 6,
+            "regulate": 10,
+            "rest": 13,
+            "move_right": 13
+          }
+        },
+        {
+          "seed": 20262002,
+          "completed": false,
+          "age": 43,
+          "reward": -0.33887497019863944,
+          "actions": {
+            "speak": 6,
+            "move_right": 6,
+            "move_left": 9,
+            "rest": 8,
+            "regulate": 11,
+            "harvest": 3
+          }
+        },
+        {
+          "seed": 20262003,
+          "completed": false,
+          "age": 52,
+          "reward": -0.13566149771667768,
+          "actions": {
+            "harvest": 6,
+            "move_right": 9,
+            "move_left": 8,
+            "speak": 12,
+            "rest": 8,
+            "regulate": 9
+          }
+        },
+        {
+          "seed": 20262004,
+          "completed": false,
+          "age": 64,
+          "reward": 0.4546553802963236,
+          "actions": {
+            "speak": 12,
+            "rest": 14,
+            "regulate": 15,
+            "move_left": 6,
+            "harvest": 8,
+            "move_right": 9
+          }
+        },
+        {
+          "seed": 20262005,
+          "completed": false,
+          "age": 53,
+          "reward": 0.08268890110803473,
+          "actions": {
+            "move_right": 14,
+            "regulate": 7,
+            "speak": 9,
+            "harvest": 6,
+            "rest": 11,
+            "move_left": 6
+          }
+        },
+        {
+          "seed": 20262006,
+          "completed": false,
+          "age": 55,
+          "reward": 0.4328119848716734,
+          "actions": {
+            "rest": 7,
+            "move_right": 8,
+            "speak": 10,
+            "regulate": 16,
+            "move_left": 7,
+            "harvest": 7
+          }
+        },
+        {
+          "seed": 20262007,
+          "completed": false,
+          "age": 64,
+          "reward": 0.5825825528040762,
+          "actions": {
+            "regulate": 14,
+            "rest": 11,
+            "harvest": 9,
+            "move_left": 7,
+            "move_right": 12,
+            "speak": 11
+          }
+        },
+        {
+          "seed": 20262008,
+          "completed": false,
+          "age": 64,
+          "reward": 0.4097323856416095,
+          "actions": {
+            "harvest": 8,
+            "rest": 13,
+            "move_left": 16,
+            "regulate": 11,
+            "move_right": 8,
+            "speak": 8
+          }
+        },
+        {
+          "seed": 20262009,
+          "completed": false,
+          "age": 66,
+          "reward": 0.34149132402041404,
+          "actions": {
+            "speak": 20,
+            "move_left": 12,
+            "move_right": 10,
+            "rest": 10,
+            "harvest": 8,
+            "regulate": 6
+          }
+        },
+        {
+          "seed": 20262010,
+          "completed": false,
+          "age": 64,
+          "reward": 0.661932236163912,
+          "actions": {
+            "speak": 13,
+            "move_right": 8,
+            "harvest": 8,
+            "rest": 14,
+            "move_left": 9,
+            "regulate": 12
+          }
+        },
+        {
+          "seed": 20262011,
+          "completed": false,
+          "age": 77,
+          "reward": 0.9705009983792325,
+          "actions": {
+            "speak": 13,
+            "move_left": 14,
+            "move_right": 12,
+            "harvest": 11,
+            "regulate": 17,
+            "rest": 10
+          }
+        },
+        {
+          "seed": 20262012,
+          "completed": false,
+          "age": 85,
+          "reward": 1.1971722484047498,
+          "actions": {
+            "harvest": 17,
+            "move_right": 10,
+            "regulate": 20,
+            "speak": 11,
+            "rest": 15,
+            "move_left": 12
+          }
+        },
+        {
+          "seed": 20262013,
+          "completed": false,
+          "age": 184,
+          "reward": 4.863342930784155,
+          "actions": {
+            "move_right": 27,
+            "move_left": 27,
+            "speak": 29,
+            "harvest": 44,
+            "rest": 28,
+            "regulate": 29
+          }
+        },
+        {
+          "seed": 20262014,
+          "completed": false,
+          "age": 78,
+          "reward": 1.0403119832359977,
+          "actions": {
+            "speak": 10,
+            "regulate": 17,
+            "harvest": 13,
+            "rest": 13,
+            "move_right": 8,
+            "move_left": 17
+          }
+        },
+        {
+          "seed": 20262015,
+          "completed": false,
+          "age": 77,
+          "reward": 0.9574092320763898,
+          "actions": {
+            "speak": 12,
+            "regulate": 8,
+            "move_right": 16,
+            "move_left": 13,
+            "harvest": 11,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262016,
+          "completed": false,
+          "age": 35,
+          "reward": -0.7046506189318744,
+          "actions": {
+            "speak": 7,
+            "move_right": 9,
+            "move_left": 3,
+            "regulate": 6,
+            "harvest": 2,
+            "rest": 8
+          }
+        },
+        {
+          "seed": 20262017,
+          "completed": false,
+          "age": 59,
+          "reward": 0.13369335340937805,
+          "actions": {
+            "speak": 13,
+            "rest": 10,
+            "move_left": 12,
+            "move_right": 9,
+            "regulate": 7,
+            "harvest": 8
+          }
+        },
+        {
+          "seed": 20262018,
+          "completed": false,
+          "age": 79,
+          "reward": 0.5515322739535098,
+          "actions": {
+            "regulate": 8,
+            "move_right": 18,
+            "harvest": 14,
+            "rest": 15,
+            "speak": 11,
+            "move_left": 13
+          }
+        },
+        {
+          "seed": 20262019,
+          "completed": false,
+          "age": 68,
+          "reward": 0.5056452097377042,
+          "actions": {
+            "rest": 7,
+            "speak": 18,
+            "regulate": 11,
+            "harvest": 10,
+            "move_left": 14,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262020,
+          "completed": false,
+          "age": 55,
+          "reward": -0.15458850896390297,
+          "actions": {
+            "move_left": 9,
+            "move_right": 13,
+            "harvest": 6,
+            "speak": 10,
+            "regulate": 8,
+            "rest": 9
+          }
+        },
+        {
+          "seed": 20262021,
+          "completed": false,
+          "age": 107,
+          "reward": 1.9543640685184593,
+          "actions": {
+            "move_right": 18,
+            "harvest": 22,
+            "speak": 16,
+            "rest": 14,
+            "move_left": 18,
+            "regulate": 19
+          }
+        },
+        {
+          "seed": 20262022,
+          "completed": false,
+          "age": 99,
+          "reward": 1.2862611366546486,
+          "actions": {
+            "move_left": 22,
+            "regulate": 14,
+            "rest": 14,
+            "harvest": 18,
+            "speak": 16,
+            "move_right": 15
+          }
+        },
+        {
+          "seed": 20262023,
+          "completed": false,
+          "age": 45,
+          "reward": -0.500970167416403,
+          "actions": {
+            "regulate": 9,
+            "move_right": 9,
+            "rest": 6,
+            "move_left": 8,
+            "speak": 7,
+            "harvest": 6
+          }
+        },
+        {
+          "seed": 20262024,
+          "completed": false,
+          "age": 97,
+          "reward": 1.6199513402668146,
+          "actions": {
+            "harvest": 16,
+            "move_left": 16,
+            "move_right": 17,
+            "speak": 18,
+            "regulate": 17,
+            "rest": 13
+          }
+        },
+        {
+          "seed": 20262025,
+          "completed": false,
+          "age": 55,
+          "reward": -0.002296142563634751,
+          "actions": {
+            "regulate": 8,
+            "move_left": 8,
+            "rest": 10,
+            "speak": 12,
+            "harvest": 6,
+            "move_right": 11
+          }
+        },
+        {
+          "seed": 20262026,
+          "completed": false,
+          "age": 79,
+          "reward": 1.0634706709794857,
+          "actions": {
+            "harvest": 14,
+            "regulate": 17,
+            "move_right": 11,
+            "rest": 12,
+            "speak": 15,
+            "move_left": 10
+          }
+        },
+        {
+          "seed": 20262027,
+          "completed": false,
+          "age": 35,
+          "reward": -1.240335930022445,
+          "actions": {
+            "regulate": 5,
+            "rest": 5,
+            "move_right": 3,
+            "speak": 12,
+            "harvest": 1,
+            "move_left": 9
+          }
+        },
+        {
+          "seed": 20262028,
+          "completed": false,
+          "age": 69,
+          "reward": 0.678834672091454,
+          "actions": {
+            "regulate": 13,
+            "rest": 12,
+            "speak": 12,
+            "move_left": 14,
+            "harvest": 10,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262029,
+          "completed": false,
+          "age": 64,
+          "reward": 0.0856627957279994,
+          "actions": {
+            "rest": 10,
+            "harvest": 9,
+            "regulate": 8,
+            "move_right": 14,
+            "speak": 12,
+            "move_left": 11
+          }
+        },
+        {
+          "seed": 20262030,
+          "completed": false,
+          "age": 47,
+          "reward": -0.07919153024243619,
+          "actions": {
+            "regulate": 13,
+            "speak": 6,
+            "move_left": 12,
+            "move_right": 5,
+            "harvest": 5,
+            "rest": 6
+          }
+        },
+        {
+          "seed": 20262031,
+          "completed": false,
+          "age": 84,
+          "reward": 1.1709337022973623,
+          "actions": {
+            "rest": 10,
+            "harvest": 20,
+            "speak": 6,
+            "move_right": 15,
+            "regulate": 20,
+            "move_left": 13
+          }
+        },
+        {
+          "seed": 20262032,
+          "completed": false,
+          "age": 51,
+          "reward": -0.302051222955558,
+          "actions": {
+            "speak": 10,
+            "move_left": 11,
+            "harvest": 6,
+            "move_right": 11,
+            "regulate": 9,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262033,
+          "completed": false,
+          "age": 68,
+          "reward": 0.11130931051679882,
+          "actions": {
+            "harvest": 9,
+            "regulate": 9,
+            "speak": 17,
+            "rest": 13,
+            "move_right": 9,
+            "move_left": 11
+          }
+        },
+        {
+          "seed": 20262034,
+          "completed": false,
+          "age": 62,
+          "reward": 0.4096052628959046,
+          "actions": {
+            "move_right": 11,
+            "harvest": 9,
+            "move_left": 11,
+            "speak": 12,
+            "regulate": 6,
+            "rest": 13
+          }
+        },
+        {
+          "seed": 20262035,
+          "completed": false,
+          "age": 86,
+          "reward": 1.0775800350037414,
+          "actions": {
+            "speak": 9,
+            "regulate": 17,
+            "harvest": 16,
+            "rest": 15,
+            "move_left": 19,
+            "move_right": 10
+          }
+        },
+        {
+          "seed": 20262036,
+          "completed": false,
+          "age": 93,
+          "reward": 1.1539484092084638,
+          "actions": {
+            "move_right": 16,
+            "move_left": 8,
+            "speak": 18,
+            "regulate": 12,
+            "rest": 21,
+            "harvest": 18
+          }
+        },
+        {
+          "seed": 20262037,
+          "completed": false,
+          "age": 73,
+          "reward": 0.9520428232751756,
+          "actions": {
+            "rest": 16,
+            "move_left": 10,
+            "regulate": 15,
+            "harvest": 14,
+            "speak": 6,
+            "move_right": 12
+          }
+        },
+        {
+          "seed": 20262038,
+          "completed": false,
+          "age": 83,
+          "reward": 1.2176166283250822,
+          "actions": {
+            "move_right": 19,
+            "rest": 13,
+            "harvest": 12,
+            "speak": 11,
+            "move_left": 13,
+            "regulate": 15
+          }
+        },
+        {
+          "seed": 20262039,
+          "completed": false,
+          "age": 58,
+          "reward": 0.2910790000644372,
+          "actions": {
+            "harvest": 12,
+            "speak": 10,
+            "move_right": 7,
+            "move_left": 8,
+            "regulate": 13,
+            "rest": 8
+          }
+        },
+        {
+          "seed": 20262040,
+          "completed": false,
+          "age": 70,
+          "reward": 0.6360995834098846,
+          "actions": {
+            "move_right": 11,
+            "harvest": 11,
+            "speak": 15,
+            "move_left": 10,
+            "rest": 15,
+            "regulate": 8
+          }
+        },
+        {
+          "seed": 20262041,
+          "completed": false,
+          "age": 149,
+          "reward": 3.115027966521623,
+          "actions": {
+            "move_right": 30,
+            "move_left": 21,
+            "harvest": 37,
+            "speak": 17,
+            "regulate": 14,
+            "rest": 30
+          }
+        },
+        {
+          "seed": 20262042,
+          "completed": false,
+          "age": 100,
+          "reward": 1.6477018159413814,
+          "actions": {
+            "regulate": 14,
+            "move_left": 17,
+            "rest": 20,
+            "harvest": 22,
+            "move_right": 12,
+            "speak": 15
+          }
+        },
+        {
+          "seed": 20262043,
+          "completed": false,
+          "age": 84,
+          "reward": 1.1660478657277156,
+          "actions": {
+            "speak": 14,
+            "rest": 13,
+            "regulate": 13,
+            "move_left": 13,
+            "harvest": 16,
+            "move_right": 15
+          }
+        },
+        {
+          "seed": 20262044,
+          "completed": false,
+          "age": 73,
+          "reward": 1.0572051627395926,
+          "actions": {
+            "harvest": 11,
+            "speak": 13,
+            "move_left": 13,
+            "regulate": 13,
+            "rest": 16,
+            "move_right": 7
+          }
+        },
+        {
+          "seed": 20262045,
+          "completed": false,
+          "age": 72,
+          "reward": 0.792724643477952,
+          "actions": {
+            "move_left": 14,
+            "harvest": 12,
+            "move_right": 12,
+            "speak": 15,
+            "regulate": 13,
+            "rest": 6
+          }
+        },
+        {
+          "seed": 20262046,
+          "completed": false,
+          "age": 43,
+          "reward": -0.4538173321217639,
+          "actions": {
+            "move_left": 7,
+            "move_right": 8,
+            "speak": 8,
+            "harvest": 3,
+            "rest": 11,
+            "regulate": 6
+          }
+        },
+        {
+          "seed": 20262047,
+          "completed": false,
+          "age": 72,
+          "reward": 0.7208175286274752,
+          "actions": {
+            "speak": 11,
+            "harvest": 10,
+            "move_right": 13,
+            "rest": 14,
+            "regulate": 14,
+            "move_left": 10
+          }
+        },
+        {
+          "seed": 20262048,
+          "completed": false,
+          "age": 54,
+          "reward": -0.03475542309090218,
+          "actions": {
+            "regulate": 10,
+            "move_right": 13,
+            "move_left": 8,
+            "speak": 2,
+            "harvest": 6,
+            "rest": 15
+          }
+        },
+        {
+          "seed": 20262049,
+          "completed": false,
+          "age": 76,
+          "reward": 0.5869030897131657,
+          "actions": {
+            "harvest": 19,
+            "regulate": 12,
+            "speak": 16,
+            "move_right": 12,
+            "move_left": 7,
+            "rest": 10
+          }
+        },
+        {
+          "seed": 20262050,
+          "completed": false,
+          "age": 40,
+          "reward": -0.5265118881706008,
+          "actions": {
+            "rest": 7,
+            "harvest": 3,
+            "regulate": 8,
+            "move_left": 9,
+            "move_right": 8,
+            "speak": 5
+          }
+        },
+        {
+          "seed": 20262051,
+          "completed": false,
+          "age": 119,
+          "reward": 1.772090092835057,
+          "actions": {
+            "move_right": 24,
+            "harvest": 26,
+            "speak": 21,
+            "move_left": 14,
+            "rest": 20,
+            "regulate": 14
+          }
+        },
+        {
+          "seed": 20262052,
+          "completed": false,
+          "age": 46,
+          "reward": -0.2866183874979784,
+          "actions": {
+            "harvest": 6,
+            "regulate": 6,
+            "speak": 10,
+            "move_left": 10,
+            "move_right": 7,
+            "rest": 7
+          }
+        },
+        {
+          "seed": 20262053,
+          "completed": false,
+          "age": 52,
+          "reward": -0.5468398342841043,
+          "actions": {
+            "move_left": 12,
+            "regulate": 8,
+            "move_right": 6,
+            "harvest": 5,
+            "speak": 15,
+            "rest": 6
+          }
+        },
+        {
+          "seed": 20262054,
+          "completed": false,
+          "age": 60,
+          "reward": -0.009371389239202665,
+          "actions": {
+            "move_right": 10,
+            "move_left": 13,
+            "harvest": 9,
+            "rest": 9,
+            "speak": 13,
+            "regulate": 6
+          }
+        },
+        {
+          "seed": 20262055,
+          "completed": false,
+          "age": 73,
+          "reward": 0.6326613155466043,
+          "actions": {
+            "rest": 12,
+            "speak": 12,
+            "move_left": 15,
+            "regulate": 12,
+            "harvest": 13,
+            "move_right": 9
+          }
+        },
+        {
+          "seed": 20262056,
+          "completed": false,
+          "age": 102,
+          "reward": 1.1233499425269775,
+          "actions": {
+            "harvest": 22,
+            "regulate": 13,
+            "move_left": 16,
+            "rest": 19,
+            "move_right": 19,
+            "speak": 13
+          }
+        },
+        {
+          "seed": 20262057,
+          "completed": false,
+          "age": 42,
+          "reward": -0.6973933724180494,
+          "actions": {
+            "move_left": 8,
+            "harvest": 3,
+            "speak": 9,
+            "move_right": 8,
+            "rest": 11,
+            "regulate": 3
+          }
+        },
+        {
+          "seed": 20262058,
+          "completed": false,
+          "age": 108,
+          "reward": 1.7806692041368979,
+          "actions": {
+            "harvest": 20,
+            "move_right": 16,
+            "speak": 24,
+            "rest": 15,
+            "move_left": 17,
+            "regulate": 16
+          }
+        },
+        {
+          "seed": 20262059,
+          "completed": false,
+          "age": 122,
+          "reward": 2.249288787187396,
+          "actions": {
+            "regulate": 20,
+            "move_right": 19,
+            "rest": 21,
+            "harvest": 21,
+            "move_left": 17,
+            "speak": 24
+          }
+        },
+        {
+          "seed": 20262060,
+          "completed": false,
+          "age": 99,
+          "reward": 1.318098472005723,
+          "actions": {
+            "harvest": 18,
+            "move_right": 22,
+            "speak": 13,
+            "rest": 12,
+            "move_left": 14,
+            "regulate": 20
+          }
+        },
+        {
+          "seed": 20262061,
+          "completed": false,
+          "age": 41,
+          "reward": -0.6794186650950044,
+          "actions": {
+            "move_left": 5,
+            "move_right": 9,
+            "regulate": 7,
+            "rest": 6,
+            "speak": 10,
+            "harvest": 4
+          }
+        },
+        {
+          "seed": 20262062,
+          "completed": false,
+          "age": 70,
+          "reward": 0.6492885064249074,
+          "actions": {
+            "harvest": 11,
+            "rest": 15,
+            "move_left": 10,
+            "speak": 12,
+            "move_right": 13,
+            "regulate": 9
+          }
+        },
+        {
+          "seed": 20262063,
+          "completed": false,
+          "age": 106,
+          "reward": 1.6328423834247425,
+          "actions": {
+            "move_right": 17,
+            "regulate": 17,
+            "rest": 15,
+            "speak": 19,
+            "harvest": 21,
+            "move_left": 17
+          }
+        },
+        {
+          "seed": 20262064,
+          "completed": false,
+          "age": 55,
+          "reward": 0.18652846677472779,
+          "actions": {
+            "regulate": 14,
+            "rest": 11,
+            "speak": 6,
+            "move_left": 8,
+            "move_right": 7,
+            "harvest": 9
+          }
+        }
+      ]
+    },
+    "uniform_random_wilson_95": [
+      3.469446951953614e-18,
+      0.05662405979280534
+    ]
+  },
+  "evaluations": {
+    "normal": {
+      "mode": "normal",
+      "n": 64,
+      "survival_count": 1,
+      "survival_rate": 0.015625,
+      "survival_wilson_95": [
+        0.002763541923337505,
+        0.08334101600094265
+      ],
+      "mean_age": 159.890625,
+      "mean_reward": 3.8492577518293527,
+      "selected_actions": {
+        "harvest": 4125,
+        "move_right": 1714,
+        "regulate": 3193,
+        "move_left": 968,
+        "rest": 233
+      },
+      "selected_action_fractions": {
+        "harvest": 0.40310759308120786,
+        "move_right": 0.1674973126160461,
+        "regulate": 0.31202970780807193,
+        "move_left": 0.09459591517639011,
+        "rest": 0.022769471318283982
+      },
+      "executed_actions": {
+        "harvest": 4125,
+        "move_right": 1714,
+        "regulate": 3193,
+        "move_left": 968,
+        "rest": 233
+      },
+      "finite": true,
+      "episodes": [
+        {
+          "seed": 20262001,
+          "completed": false,
+          "age": 156,
+          "reward": 3.6633510162303864,
+          "selected_actions": {
+            "harvest": 60,
+            "move_right": 28,
+            "regulate": 49,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 60,
+            "move_right": 28,
+            "regulate": 49,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262002,
+          "completed": false,
+          "age": 160,
+          "reward": 4.083690015554003,
+          "selected_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262003,
+          "completed": true,
+          "age": 256,
+          "reward": 8.72234595343745,
+          "selected_actions": {
+            "harvest": 126,
+            "move_right": 28,
+            "regulate": 75,
+            "move_left": 23,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 126,
+            "move_right": 28,
+            "regulate": 75,
+            "move_left": 23,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262004,
+          "completed": false,
+          "age": 240,
+          "reward": 6.885777117464036,
+          "selected_actions": {
+            "harvest": 117,
+            "move_right": 28,
+            "regulate": 68,
+            "move_left": 23,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 117,
+            "move_right": 28,
+            "regulate": 68,
+            "move_left": 23,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262005,
+          "completed": false,
+          "age": 148,
+          "reward": 3.1504747655792467,
+          "selected_actions": {
+            "harvest": 56,
+            "move_right": 28,
+            "regulate": 45,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 56,
+            "move_right": 28,
+            "regulate": 45,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262006,
+          "completed": false,
+          "age": 148,
+          "reward": 3.4496883065363932,
+          "selected_actions": {
+            "harvest": 56,
+            "move_right": 28,
+            "regulate": 45,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 56,
+            "move_right": 28,
+            "regulate": 45,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262007,
+          "completed": false,
+          "age": 159,
+          "reward": 4.061496749719817,
+          "selected_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 51,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 51,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262008,
+          "completed": false,
+          "age": 159,
+          "reward": 3.638704264669059,
+          "selected_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 51,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 51,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262009,
+          "completed": false,
+          "age": 153,
+          "reward": 3.858237905112789,
+          "selected_actions": {
+            "harvest": 57,
+            "move_right": 28,
+            "regulate": 49,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 57,
+            "move_right": 28,
+            "regulate": 49,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262010,
+          "completed": false,
+          "age": 159,
+          "reward": 3.9784353881928873,
+          "selected_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 51,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 51,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262011,
+          "completed": false,
+          "age": 164,
+          "reward": 3.9127631231240207,
+          "selected_actions": {
+            "harvest": 65,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 65,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262012,
+          "completed": false,
+          "age": 160,
+          "reward": 3.9076432470243705,
+          "selected_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262013,
+          "completed": false,
+          "age": 156,
+          "reward": 3.4299399521599443,
+          "selected_actions": {
+            "harvest": 60,
+            "move_right": 28,
+            "regulate": 49,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 60,
+            "move_right": 28,
+            "regulate": 49,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262014,
+          "completed": false,
+          "age": 35,
+          "reward": -0.5268743979320623,
+          "selected_actions": {
+            "harvest": 6,
+            "move_right": 13,
+            "regulate": 16
+          },
+          "executed_actions": {
+            "harvest": 6,
+            "move_right": 13,
+            "regulate": 16
+          }
+        },
+        {
+          "seed": 20262015,
+          "completed": false,
+          "age": 166,
+          "reward": 3.862003681170374,
+          "selected_actions": {
+            "harvest": 65,
+            "move_right": 28,
+            "regulate": 53,
+            "move_left": 16,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 65,
+            "move_right": 28,
+            "regulate": 53,
+            "move_left": 16,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262016,
+          "completed": false,
+          "age": 151,
+          "reward": 3.326643899176357,
+          "selected_actions": {
+            "harvest": 57,
+            "move_right": 28,
+            "regulate": 47,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 57,
+            "move_right": 28,
+            "regulate": 47,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262017,
+          "completed": false,
+          "age": 162,
+          "reward": 3.950257190964432,
+          "selected_actions": {
+            "harvest": 63,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 63,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262018,
+          "completed": false,
+          "age": 145,
+          "reward": 3.309653852773293,
+          "selected_actions": {
+            "harvest": 53,
+            "move_right": 28,
+            "regulate": 45,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 53,
+            "move_right": 28,
+            "regulate": 45,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262019,
+          "completed": false,
+          "age": 159,
+          "reward": 3.8014403613319017,
+          "selected_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 51,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 51,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262020,
+          "completed": false,
+          "age": 163,
+          "reward": 4.000097673113236,
+          "selected_actions": {
+            "harvest": 64,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 64,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262021,
+          "completed": false,
+          "age": 242,
+          "reward": 6.540758829955466,
+          "selected_actions": {
+            "harvest": 119,
+            "move_right": 28,
+            "regulate": 68,
+            "move_left": 23,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 119,
+            "move_right": 28,
+            "regulate": 68,
+            "move_left": 23,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262022,
+          "completed": false,
+          "age": 162,
+          "reward": 3.9227856389636715,
+          "selected_actions": {
+            "harvest": 62,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 16,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 62,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 16,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262023,
+          "completed": false,
+          "age": 162,
+          "reward": 3.899588998199729,
+          "selected_actions": {
+            "harvest": 63,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 63,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262024,
+          "completed": false,
+          "age": 159,
+          "reward": 3.87547002205051,
+          "selected_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 51,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 51,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262025,
+          "completed": false,
+          "age": 161,
+          "reward": 4.135203278302056,
+          "selected_actions": {
+            "harvest": 62,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 62,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262026,
+          "completed": false,
+          "age": 38,
+          "reward": -0.5736130597960123,
+          "selected_actions": {
+            "harvest": 6,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "harvest": 6,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 3
+          }
+        },
+        {
+          "seed": 20262027,
+          "completed": false,
+          "age": 228,
+          "reward": 6.030643537019814,
+          "selected_actions": {
+            "harvest": 107,
+            "move_right": 28,
+            "regulate": 68,
+            "move_left": 21,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 107,
+            "move_right": 28,
+            "regulate": 68,
+            "move_left": 21,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262028,
+          "completed": false,
+          "age": 240,
+          "reward": 6.871007903237185,
+          "selected_actions": {
+            "harvest": 117,
+            "move_right": 28,
+            "regulate": 68,
+            "move_left": 23,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 117,
+            "move_right": 28,
+            "regulate": 68,
+            "move_left": 23,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262029,
+          "completed": false,
+          "age": 153,
+          "reward": 3.57430528758149,
+          "selected_actions": {
+            "harvest": 57,
+            "move_right": 28,
+            "regulate": 49,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 57,
+            "move_right": 28,
+            "regulate": 49,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262030,
+          "completed": false,
+          "age": 164,
+          "reward": 3.6755151437368587,
+          "selected_actions": {
+            "harvest": 65,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 65,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262031,
+          "completed": false,
+          "age": 163,
+          "reward": 3.785378066438478,
+          "selected_actions": {
+            "harvest": 64,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 64,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262032,
+          "completed": false,
+          "age": 196,
+          "reward": 5.023621210603668,
+          "selected_actions": {
+            "harvest": 87,
+            "move_right": 28,
+            "regulate": 59,
+            "move_left": 18,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 87,
+            "move_right": 28,
+            "regulate": 59,
+            "move_left": 18,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262033,
+          "completed": false,
+          "age": 151,
+          "reward": 3.717474292774443,
+          "selected_actions": {
+            "harvest": 57,
+            "move_right": 28,
+            "regulate": 47,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 57,
+            "move_right": 28,
+            "regulate": 47,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262034,
+          "completed": false,
+          "age": 163,
+          "reward": 3.91198535667122,
+          "selected_actions": {
+            "harvest": 64,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 64,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262035,
+          "completed": false,
+          "age": 159,
+          "reward": 3.7672174089059434,
+          "selected_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 51,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 51,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262036,
+          "completed": false,
+          "age": 165,
+          "reward": 3.9507136422365523,
+          "selected_actions": {
+            "harvest": 66,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 66,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262037,
+          "completed": false,
+          "age": 162,
+          "reward": 3.883033709850634,
+          "selected_actions": {
+            "harvest": 63,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 63,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262038,
+          "completed": false,
+          "age": 157,
+          "reward": 3.689965073161925,
+          "selected_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 49,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 49,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262039,
+          "completed": false,
+          "age": 37,
+          "reward": -0.5837246412873346,
+          "selected_actions": {
+            "harvest": 6,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 2
+          },
+          "executed_actions": {
+            "harvest": 6,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 2
+          }
+        },
+        {
+          "seed": 20262040,
+          "completed": false,
+          "age": 237,
+          "reward": 6.433092231494192,
+          "selected_actions": {
+            "harvest": 113,
+            "move_right": 28,
+            "regulate": 68,
+            "move_left": 24,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 113,
+            "move_right": 28,
+            "regulate": 68,
+            "move_left": 24,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262041,
+          "completed": false,
+          "age": 159,
+          "reward": 3.8388473744089975,
+          "selected_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 51,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 51,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262042,
+          "completed": false,
+          "age": 149,
+          "reward": 3.4721176064394736,
+          "selected_actions": {
+            "harvest": 57,
+            "move_right": 28,
+            "regulate": 45,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 57,
+            "move_right": 28,
+            "regulate": 45,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262043,
+          "completed": false,
+          "age": 33,
+          "reward": -0.7019304940709064,
+          "selected_actions": {
+            "harvest": 6,
+            "move_right": 13,
+            "regulate": 14
+          },
+          "executed_actions": {
+            "harvest": 6,
+            "move_right": 13,
+            "regulate": 14
+          }
+        },
+        {
+          "seed": 20262044,
+          "completed": false,
+          "age": 158,
+          "reward": 3.9829364517225585,
+          "selected_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 50,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 50,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262045,
+          "completed": false,
+          "age": 153,
+          "reward": 3.7998799277771145,
+          "selected_actions": {
+            "harvest": 57,
+            "move_right": 28,
+            "regulate": 49,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 57,
+            "move_right": 28,
+            "regulate": 49,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262046,
+          "completed": false,
+          "age": 156,
+          "reward": 3.67234001157202,
+          "selected_actions": {
+            "harvest": 60,
+            "move_right": 28,
+            "regulate": 49,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 60,
+            "move_right": 28,
+            "regulate": 49,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262047,
+          "completed": false,
+          "age": 151,
+          "reward": 3.5644877905701673,
+          "selected_actions": {
+            "harvest": 57,
+            "move_right": 28,
+            "regulate": 47,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 57,
+            "move_right": 28,
+            "regulate": 47,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262048,
+          "completed": false,
+          "age": 135,
+          "reward": 2.846487142200936,
+          "selected_actions": {
+            "harvest": 51,
+            "move_right": 28,
+            "regulate": 38,
+            "move_left": 14,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 51,
+            "move_right": 28,
+            "regulate": 38,
+            "move_left": 14,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262049,
+          "completed": false,
+          "age": 242,
+          "reward": 6.968862901372579,
+          "selected_actions": {
+            "harvest": 118,
+            "move_right": 28,
+            "regulate": 68,
+            "move_left": 24,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 118,
+            "move_right": 28,
+            "regulate": 68,
+            "move_left": 24,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262050,
+          "completed": false,
+          "age": 165,
+          "reward": 3.938455911461233,
+          "selected_actions": {
+            "harvest": 66,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 66,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262051,
+          "completed": false,
+          "age": 160,
+          "reward": 3.7650669492578324,
+          "selected_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262052,
+          "completed": false,
+          "age": 35,
+          "reward": -0.5632520655544504,
+          "selected_actions": {
+            "harvest": 6,
+            "move_right": 13,
+            "regulate": 16
+          },
+          "executed_actions": {
+            "harvest": 6,
+            "move_right": 13,
+            "regulate": 16
+          }
+        },
+        {
+          "seed": 20262053,
+          "completed": false,
+          "age": 159,
+          "reward": 3.877851707943224,
+          "selected_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 51,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 51,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262054,
+          "completed": false,
+          "age": 239,
+          "reward": 6.903190840319555,
+          "selected_actions": {
+            "harvest": 116,
+            "move_right": 28,
+            "regulate": 68,
+            "move_left": 23,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 116,
+            "move_right": 28,
+            "regulate": 68,
+            "move_left": 23,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262055,
+          "completed": false,
+          "age": 119,
+          "reward": 2.1766816242598024,
+          "selected_actions": {
+            "harvest": 43,
+            "move_right": 25,
+            "regulate": 36,
+            "move_left": 14,
+            "rest": 1
+          },
+          "executed_actions": {
+            "harvest": 43,
+            "move_right": 25,
+            "regulate": 36,
+            "move_left": 14,
+            "rest": 1
+          }
+        },
+        {
+          "seed": 20262056,
+          "completed": false,
+          "age": 158,
+          "reward": 3.779804660452524,
+          "selected_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 50,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 50,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262057,
+          "completed": false,
+          "age": 167,
+          "reward": 4.0445000297917755,
+          "selected_actions": {
+            "harvest": 66,
+            "move_right": 28,
+            "regulate": 53,
+            "move_left": 16,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 66,
+            "move_right": 28,
+            "regulate": 53,
+            "move_left": 16,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262058,
+          "completed": false,
+          "age": 162,
+          "reward": 3.934691132487144,
+          "selected_actions": {
+            "harvest": 63,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 63,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262059,
+          "completed": false,
+          "age": 253,
+          "reward": 7.286470429489765,
+          "selected_actions": {
+            "harvest": 123,
+            "move_right": 28,
+            "regulate": 75,
+            "move_left": 23,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 123,
+            "move_right": 28,
+            "regulate": 75,
+            "move_left": 23,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262060,
+          "completed": false,
+          "age": 168,
+          "reward": 4.086467824638567,
+          "selected_actions": {
+            "harvest": 66,
+            "move_right": 28,
+            "regulate": 54,
+            "move_left": 16,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 66,
+            "move_right": 28,
+            "regulate": 54,
+            "move_left": 16,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262061,
+          "completed": false,
+          "age": 160,
+          "reward": 3.9720089499596014,
+          "selected_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262062,
+          "completed": false,
+          "age": 136,
+          "reward": 2.7388452087990363,
+          "selected_actions": {
+            "harvest": 51,
+            "move_right": 28,
+            "regulate": 38,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 51,
+            "move_right": 28,
+            "regulate": 38,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262063,
+          "completed": false,
+          "age": 158,
+          "reward": 3.432847715316316,
+          "selected_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 50,
+            "move_left": 15,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 61,
+            "move_right": 28,
+            "regulate": 50,
+            "move_left": 15,
+            "rest": 4
+          }
+        },
+        {
+          "seed": 20262064,
+          "completed": false,
+          "age": 160,
+          "reward": 3.538644490961297,
+          "selected_actions": {
+            "harvest": 60,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 16,
+            "rest": 4
+          },
+          "executed_actions": {
+            "harvest": 60,
+            "move_right": 28,
+            "regulate": 52,
+            "move_left": 16,
+            "rest": 4
+          }
+        }
+      ],
+      "matched_state_interventions": {
+        "n": 10233,
+        "zero_state_action_flip_fraction": 0.5968924069187922,
+        "permuted_state_action_flip_fraction": 0.7909703899149809,
+        "zero_state_mean_js": 0.241469817720066,
+        "permuted_state_mean_js": 0.24456182585480007
+      }
+    },
+    "zero_state": {
+      "mode": "zero_state",
+      "n": 64,
+      "survival_count": 0,
+      "survival_rate": 0.0,
+      "survival_wilson_95": [
+        3.469446951953614e-18,
+        0.05662405979280534
+      ],
+      "mean_age": 46.875,
+      "mean_reward": -1.3604125689065323,
+      "selected_actions": {
+        "harvest": 3000
+      },
+      "selected_action_fractions": {
+        "harvest": 1.0
+      },
+      "executed_actions": {
+        "harvest": 3000
+      },
+      "finite": true,
+      "episodes": [
+        {
+          "seed": 20262001,
+          "completed": false,
+          "age": 48,
+          "reward": -1.4148917265008916,
+          "selected_actions": {
+            "harvest": 48
+          },
+          "executed_actions": {
+            "harvest": 48
+          }
+        },
+        {
+          "seed": 20262002,
+          "completed": false,
+          "age": 45,
+          "reward": -1.5593719505789148,
+          "selected_actions": {
+            "harvest": 45
+          },
+          "executed_actions": {
+            "harvest": 45
+          }
+        },
+        {
+          "seed": 20262003,
+          "completed": false,
+          "age": 52,
+          "reward": -1.1878510386653978,
+          "selected_actions": {
+            "harvest": 52
+          },
+          "executed_actions": {
+            "harvest": 52
+          }
+        },
+        {
+          "seed": 20262004,
+          "completed": false,
+          "age": 53,
+          "reward": -0.6956639692193662,
+          "selected_actions": {
+            "harvest": 53
+          },
+          "executed_actions": {
+            "harvest": 53
+          }
+        },
+        {
+          "seed": 20262005,
+          "completed": false,
+          "age": 40,
+          "reward": -1.4364755485650988,
+          "selected_actions": {
+            "harvest": 40
+          },
+          "executed_actions": {
+            "harvest": 40
+          }
+        },
+        {
+          "seed": 20262006,
+          "completed": false,
+          "age": 51,
+          "reward": -0.9664421840746765,
+          "selected_actions": {
+            "harvest": 51
+          },
+          "executed_actions": {
+            "harvest": 51
+          }
+        },
+        {
+          "seed": 20262007,
+          "completed": false,
+          "age": 47,
+          "reward": -1.4473477491183073,
+          "selected_actions": {
+            "harvest": 47
+          },
+          "executed_actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20262008,
+          "completed": false,
+          "age": 47,
+          "reward": -1.3805388099851041,
+          "selected_actions": {
+            "harvest": 47
+          },
+          "executed_actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20262009,
+          "completed": false,
+          "age": 47,
+          "reward": -1.4076242735982794,
+          "selected_actions": {
+            "harvest": 47
+          },
+          "executed_actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20262010,
+          "completed": false,
+          "age": 50,
+          "reward": -1.3743371649823302,
+          "selected_actions": {
+            "harvest": 50
+          },
+          "executed_actions": {
+            "harvest": 50
+          }
+        },
+        {
+          "seed": 20262011,
+          "completed": false,
+          "age": 54,
+          "reward": -1.3487586258731272,
+          "selected_actions": {
+            "harvest": 54
+          },
+          "executed_actions": {
+            "harvest": 54
+          }
+        },
+        {
+          "seed": 20262012,
+          "completed": false,
+          "age": 49,
+          "reward": -0.8538012172271368,
+          "selected_actions": {
+            "harvest": 49
+          },
+          "executed_actions": {
+            "harvest": 49
+          }
+        },
+        {
+          "seed": 20262013,
+          "completed": false,
+          "age": 49,
+          "reward": -0.7230018417604301,
+          "selected_actions": {
+            "harvest": 49
+          },
+          "executed_actions": {
+            "harvest": 49
+          }
+        },
+        {
+          "seed": 20262014,
+          "completed": false,
+          "age": 41,
+          "reward": -1.6214931152670427,
+          "selected_actions": {
+            "harvest": 41
+          },
+          "executed_actions": {
+            "harvest": 41
+          }
+        },
+        {
+          "seed": 20262015,
+          "completed": false,
+          "age": 47,
+          "reward": -1.5512093618744425,
+          "selected_actions": {
+            "harvest": 47
+          },
+          "executed_actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20262016,
+          "completed": false,
+          "age": 40,
+          "reward": -1.3584152947620631,
+          "selected_actions": {
+            "harvest": 40
+          },
+          "executed_actions": {
+            "harvest": 40
+          }
+        },
+        {
+          "seed": 20262017,
+          "completed": false,
+          "age": 47,
+          "reward": -1.6284347164643322,
+          "selected_actions": {
+            "harvest": 47
+          },
+          "executed_actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20262018,
+          "completed": false,
+          "age": 40,
+          "reward": -1.821528868931256,
+          "selected_actions": {
+            "harvest": 40
+          },
+          "executed_actions": {
+            "harvest": 40
+          }
+        },
+        {
+          "seed": 20262019,
+          "completed": false,
+          "age": 53,
+          "reward": -1.3276646420990517,
+          "selected_actions": {
+            "harvest": 53
+          },
+          "executed_actions": {
+            "harvest": 53
+          }
+        },
+        {
+          "seed": 20262020,
+          "completed": false,
+          "age": 43,
+          "reward": -1.531865239865635,
+          "selected_actions": {
+            "harvest": 43
+          },
+          "executed_actions": {
+            "harvest": 43
+          }
+        },
+        {
+          "seed": 20262021,
+          "completed": false,
+          "age": 46,
+          "reward": -1.7020283422822415,
+          "selected_actions": {
+            "harvest": 46
+          },
+          "executed_actions": {
+            "harvest": 46
+          }
+        },
+        {
+          "seed": 20262022,
+          "completed": false,
+          "age": 49,
+          "reward": -1.5634030658280749,
+          "selected_actions": {
+            "harvest": 49
+          },
+          "executed_actions": {
+            "harvest": 49
+          }
+        },
+        {
+          "seed": 20262023,
+          "completed": false,
+          "age": 49,
+          "reward": -1.4182333670998757,
+          "selected_actions": {
+            "harvest": 49
+          },
+          "executed_actions": {
+            "harvest": 49
+          }
+        },
+        {
+          "seed": 20262024,
+          "completed": false,
+          "age": 45,
+          "reward": -1.4060693940142208,
+          "selected_actions": {
+            "harvest": 45
+          },
+          "executed_actions": {
+            "harvest": 45
+          }
+        },
+        {
+          "seed": 20262025,
+          "completed": false,
+          "age": 50,
+          "reward": -1.2307074819133685,
+          "selected_actions": {
+            "harvest": 50
+          },
+          "executed_actions": {
+            "harvest": 50
+          }
+        },
+        {
+          "seed": 20262026,
+          "completed": false,
+          "age": 42,
+          "reward": -1.5849035368513347,
+          "selected_actions": {
+            "harvest": 42
+          },
+          "executed_actions": {
+            "harvest": 42
+          }
+        },
+        {
+          "seed": 20262027,
+          "completed": false,
+          "age": 50,
+          "reward": -1.3930361001849922,
+          "selected_actions": {
+            "harvest": 50
+          },
+          "executed_actions": {
+            "harvest": 50
+          }
+        },
+        {
+          "seed": 20262028,
+          "completed": false,
+          "age": 56,
+          "reward": -0.6669236838393715,
+          "selected_actions": {
+            "harvest": 56
+          },
+          "executed_actions": {
+            "harvest": 56
+          }
+        },
+        {
+          "seed": 20262029,
+          "completed": false,
+          "age": 50,
+          "reward": -1.6429446192737105,
+          "selected_actions": {
+            "harvest": 50
+          },
+          "executed_actions": {
+            "harvest": 50
+          }
+        },
+        {
+          "seed": 20262030,
+          "completed": false,
+          "age": 55,
+          "reward": -0.654095306931129,
+          "selected_actions": {
+            "harvest": 55
+          },
+          "executed_actions": {
+            "harvest": 55
+          }
+        },
+        {
+          "seed": 20262031,
+          "completed": false,
+          "age": 44,
+          "reward": -1.2309966287580225,
+          "selected_actions": {
+            "harvest": 44
+          },
+          "executed_actions": {
+            "harvest": 44
+          }
+        },
+        {
+          "seed": 20262032,
+          "completed": false,
+          "age": 42,
+          "reward": -1.4615473873919869,
+          "selected_actions": {
+            "harvest": 42
+          },
+          "executed_actions": {
+            "harvest": 42
+          }
+        },
+        {
+          "seed": 20262033,
+          "completed": false,
+          "age": 48,
+          "reward": -1.379257101600301,
+          "selected_actions": {
+            "harvest": 48
+          },
+          "executed_actions": {
+            "harvest": 48
+          }
+        },
+        {
+          "seed": 20262034,
+          "completed": false,
+          "age": 39,
+          "reward": -1.2502619039351142,
+          "selected_actions": {
+            "harvest": 39
+          },
+          "executed_actions": {
+            "harvest": 39
+          }
+        },
+        {
+          "seed": 20262035,
+          "completed": false,
+          "age": 47,
+          "reward": -1.1653944670714382,
+          "selected_actions": {
+            "harvest": 47
+          },
+          "executed_actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20262036,
+          "completed": false,
+          "age": 50,
+          "reward": -0.9997635894057084,
+          "selected_actions": {
+            "harvest": 50
+          },
+          "executed_actions": {
+            "harvest": 50
+          }
+        },
+        {
+          "seed": 20262037,
+          "completed": false,
+          "age": 50,
+          "reward": -1.5297820135152151,
+          "selected_actions": {
+            "harvest": 50
+          },
+          "executed_actions": {
+            "harvest": 50
+          }
+        },
+        {
+          "seed": 20262038,
+          "completed": false,
+          "age": 50,
+          "reward": -1.4520865519158574,
+          "selected_actions": {
+            "harvest": 50
+          },
+          "executed_actions": {
+            "harvest": 50
+          }
+        },
+        {
+          "seed": 20262039,
+          "completed": false,
+          "age": 44,
+          "reward": -1.4329924701117136,
+          "selected_actions": {
+            "harvest": 44
+          },
+          "executed_actions": {
+            "harvest": 44
+          }
+        },
+        {
+          "seed": 20262040,
+          "completed": false,
+          "age": 51,
+          "reward": -1.262200611818654,
+          "selected_actions": {
+            "harvest": 51
+          },
+          "executed_actions": {
+            "harvest": 51
+          }
+        },
+        {
+          "seed": 20262041,
+          "completed": false,
+          "age": 48,
+          "reward": -1.186528803798865,
+          "selected_actions": {
+            "harvest": 48
+          },
+          "executed_actions": {
+            "harvest": 48
+          }
+        },
+        {
+          "seed": 20262042,
+          "completed": false,
+          "age": 48,
+          "reward": -1.4047127800483024,
+          "selected_actions": {
+            "harvest": 48
+          },
+          "executed_actions": {
+            "harvest": 48
+          }
+        },
+        {
+          "seed": 20262043,
+          "completed": false,
+          "age": 39,
+          "reward": -1.7899350344566287,
+          "selected_actions": {
+            "harvest": 39
+          },
+          "executed_actions": {
+            "harvest": 39
+          }
+        },
+        {
+          "seed": 20262044,
+          "completed": false,
+          "age": 42,
+          "reward": -1.660979293226232,
+          "selected_actions": {
+            "harvest": 42
+          },
+          "executed_actions": {
+            "harvest": 42
+          }
+        },
+        {
+          "seed": 20262045,
+          "completed": false,
+          "age": 46,
+          "reward": -1.6197742114878804,
+          "selected_actions": {
+            "harvest": 46
+          },
+          "executed_actions": {
+            "harvest": 46
+          }
+        },
+        {
+          "seed": 20262046,
+          "completed": false,
+          "age": 48,
+          "reward": -1.256832282727887,
+          "selected_actions": {
+            "harvest": 48
+          },
+          "executed_actions": {
+            "harvest": 48
+          }
+        },
+        {
+          "seed": 20262047,
+          "completed": false,
+          "age": 45,
+          "reward": -1.6417183039092567,
+          "selected_actions": {
+            "harvest": 45
+          },
+          "executed_actions": {
+            "harvest": 45
+          }
+        },
+        {
+          "seed": 20262048,
+          "completed": false,
+          "age": 43,
+          "reward": -1.7314212887492042,
+          "selected_actions": {
+            "harvest": 43
+          },
+          "executed_actions": {
+            "harvest": 43
+          }
+        },
+        {
+          "seed": 20262049,
+          "completed": false,
+          "age": 47,
+          "reward": -1.2399067775183694,
+          "selected_actions": {
+            "harvest": 47
+          },
+          "executed_actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20262050,
+          "completed": false,
+          "age": 52,
+          "reward": -0.9712072707022887,
+          "selected_actions": {
+            "harvest": 52
+          },
+          "executed_actions": {
+            "harvest": 52
+          }
+        },
+        {
+          "seed": 20262051,
+          "completed": false,
+          "age": 49,
+          "reward": -1.5183066771187257,
+          "selected_actions": {
+            "harvest": 49
+          },
+          "executed_actions": {
+            "harvest": 49
+          }
+        },
+        {
+          "seed": 20262052,
+          "completed": false,
+          "age": 41,
+          "reward": -1.354500274505357,
+          "selected_actions": {
+            "harvest": 41
+          },
+          "executed_actions": {
+            "harvest": 41
+          }
+        },
+        {
+          "seed": 20262053,
+          "completed": false,
+          "age": 48,
+          "reward": -1.5954717223401156,
+          "selected_actions": {
+            "harvest": 48
+          },
+          "executed_actions": {
+            "harvest": 48
+          }
+        },
+        {
+          "seed": 20262054,
+          "completed": false,
+          "age": 47,
+          "reward": -1.3189414983215793,
+          "selected_actions": {
+            "harvest": 47
+          },
+          "executed_actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20262055,
+          "completed": false,
+          "age": 40,
+          "reward": -1.1820989630170988,
+          "selected_actions": {
+            "harvest": 40
+          },
+          "executed_actions": {
+            "harvest": 40
+          }
+        },
+        {
+          "seed": 20262056,
+          "completed": false,
+          "age": 43,
+          "reward": -1.7418288297973517,
+          "selected_actions": {
+            "harvest": 43
+          },
+          "executed_actions": {
+            "harvest": 43
+          }
+        },
+        {
+          "seed": 20262057,
+          "completed": false,
+          "age": 39,
+          "reward": -1.7450786532567586,
+          "selected_actions": {
+            "harvest": 39
+          },
+          "executed_actions": {
+            "harvest": 39
+          }
+        },
+        {
+          "seed": 20262058,
+          "completed": false,
+          "age": 50,
+          "reward": -1.0101898127524491,
+          "selected_actions": {
+            "harvest": 50
+          },
+          "executed_actions": {
+            "harvest": 50
+          }
+        },
+        {
+          "seed": 20262059,
+          "completed": false,
+          "age": 47,
+          "reward": -1.4328285817048965,
+          "selected_actions": {
+            "harvest": 47
+          },
+          "executed_actions": {
+            "harvest": 47
+          }
+        },
+        {
+          "seed": 20262060,
+          "completed": false,
+          "age": 49,
+          "reward": -1.615451621135707,
+          "selected_actions": {
+            "harvest": 49
+          },
+          "executed_actions": {
+            "harvest": 49
+          }
+        },
+        {
+          "seed": 20262061,
+          "completed": false,
+          "age": 52,
+          "reward": -1.3666182476243305,
+          "selected_actions": {
+            "harvest": 52
+          },
+          "executed_actions": {
+            "harvest": 52
+          }
+        },
+        {
+          "seed": 20262062,
+          "completed": false,
+          "age": 46,
+          "reward": -1.4455475058265654,
+          "selected_actions": {
+            "harvest": 46
+          },
+          "executed_actions": {
+            "harvest": 46
+          }
+        },
+        {
+          "seed": 20262063,
+          "completed": false,
+          "age": 51,
+          "reward": -0.758373798782298,
+          "selected_actions": {
+            "harvest": 51
+          },
+          "executed_actions": {
+            "harvest": 51
+          }
+        },
+        {
+          "seed": 20262064,
+          "completed": false,
+          "age": 40,
+          "reward": -1.4148072140547,
+          "selected_actions": {
+            "harvest": 40
+          },
+          "executed_actions": {
+            "harvest": 40
+          }
+        }
+      ]
+    },
+    "permuted_state": {
+      "mode": "permuted_state",
+      "n": 64,
+      "survival_count": 0,
+      "survival_rate": 0.0,
+      "survival_wilson_95": [
+        3.469446951953614e-18,
+        0.05662405979280534
+      ],
+      "mean_age": 26.5,
+      "mean_reward": -1.534476584706075,
+      "selected_actions": {
+        "move_right": 640,
+        "rest": 128,
+        "regulate": 448,
+        "speak": 375,
+        "move_left": 105
+      },
+      "selected_action_fractions": {
+        "move_right": 0.37735849056603776,
+        "rest": 0.07547169811320754,
+        "regulate": 0.2641509433962264,
+        "speak": 0.22110849056603774,
+        "move_left": 0.061910377358490566
+      },
+      "executed_actions": {
+        "move_right": 640,
+        "rest": 128,
+        "regulate": 448,
+        "speak": 375,
+        "move_left": 105
+      },
+      "finite": true,
+      "episodes": [
+        {
+          "seed": 20262001,
+          "completed": false,
+          "age": 26,
+          "reward": -1.6965256984460555,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          }
+        },
+        {
+          "seed": 20262002,
+          "completed": false,
+          "age": 28,
+          "reward": -1.5172853126174677,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 3
+          }
+        },
+        {
+          "seed": 20262003,
+          "completed": false,
+          "age": 25,
+          "reward": -1.6857586750682103,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6
+          }
+        },
+        {
+          "seed": 20262004,
+          "completed": false,
+          "age": 27,
+          "reward": -1.5228180619055656,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 2
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 2
+          }
+        },
+        {
+          "seed": 20262005,
+          "completed": false,
+          "age": 25,
+          "reward": -1.4651760981380462,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6
+          }
+        },
+        {
+          "seed": 20262006,
+          "completed": false,
+          "age": 25,
+          "reward": -1.4826285530057146,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6
+          }
+        },
+        {
+          "seed": 20262007,
+          "completed": false,
+          "age": 28,
+          "reward": -1.4978292670155828,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 3
+          }
+        },
+        {
+          "seed": 20262008,
+          "completed": false,
+          "age": 27,
+          "reward": -1.6923852355752151,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 2
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 2
+          }
+        },
+        {
+          "seed": 20262009,
+          "completed": false,
+          "age": 29,
+          "reward": -1.4000710280816793,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 4
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 4
+          }
+        },
+        {
+          "seed": 20262010,
+          "completed": false,
+          "age": 26,
+          "reward": -1.5233472030930018,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          }
+        },
+        {
+          "seed": 20262011,
+          "completed": false,
+          "age": 28,
+          "reward": -1.492413011123146,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 3
+          }
+        },
+        {
+          "seed": 20262012,
+          "completed": false,
+          "age": 28,
+          "reward": -1.3824608107258698,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 3
+          }
+        },
+        {
+          "seed": 20262013,
+          "completed": false,
+          "age": 28,
+          "reward": -1.4643743360279822,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 3
+          }
+        },
+        {
+          "seed": 20262014,
+          "completed": false,
+          "age": 24,
+          "reward": -1.4859617592877883,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 5
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 5
+          }
+        },
+        {
+          "seed": 20262015,
+          "completed": false,
+          "age": 25,
+          "reward": -1.41423179201799,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6
+          }
+        },
+        {
+          "seed": 20262016,
+          "completed": false,
+          "age": 25,
+          "reward": -1.511812168169567,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6
+          }
+        },
+        {
+          "seed": 20262017,
+          "completed": false,
+          "age": 26,
+          "reward": -1.6544891950918323,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          }
+        },
+        {
+          "seed": 20262018,
+          "completed": false,
+          "age": 24,
+          "reward": -1.5635806898085984,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 5
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 5
+          }
+        },
+        {
+          "seed": 20262019,
+          "completed": false,
+          "age": 24,
+          "reward": -1.4177237113339478,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 5
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 5
+          }
+        },
+        {
+          "seed": 20262020,
+          "completed": false,
+          "age": 27,
+          "reward": -1.4604639404050084,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 2
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 2
+          }
+        },
+        {
+          "seed": 20262021,
+          "completed": false,
+          "age": 29,
+          "reward": -1.5523559175273733,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 4
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 4
+          }
+        },
+        {
+          "seed": 20262022,
+          "completed": false,
+          "age": 27,
+          "reward": -1.4763343827633897,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 2
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 2
+          }
+        },
+        {
+          "seed": 20262023,
+          "completed": false,
+          "age": 26,
+          "reward": -1.5778575144642075,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          }
+        },
+        {
+          "seed": 20262024,
+          "completed": false,
+          "age": 29,
+          "reward": -1.535250958865978,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 4
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 4
+          }
+        },
+        {
+          "seed": 20262025,
+          "completed": false,
+          "age": 26,
+          "reward": -1.46548340748735,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          }
+        },
+        {
+          "seed": 20262026,
+          "completed": false,
+          "age": 28,
+          "reward": -1.474120932123642,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 3
+          }
+        },
+        {
+          "seed": 20262027,
+          "completed": false,
+          "age": 29,
+          "reward": -1.6678889325294577,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 4
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 4
+          }
+        },
+        {
+          "seed": 20262028,
+          "completed": false,
+          "age": 24,
+          "reward": -1.436524412538286,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 5
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 5
+          }
+        },
+        {
+          "seed": 20262029,
+          "completed": false,
+          "age": 29,
+          "reward": -1.6046151741505008,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 4
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 4
+          }
+        },
+        {
+          "seed": 20262030,
+          "completed": false,
+          "age": 25,
+          "reward": -1.6232995358784736,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6
+          }
+        },
+        {
+          "seed": 20262031,
+          "completed": false,
+          "age": 28,
+          "reward": -1.4514401895995905,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 3
+          }
+        },
+        {
+          "seed": 20262032,
+          "completed": false,
+          "age": 26,
+          "reward": -1.6562962942095067,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          }
+        },
+        {
+          "seed": 20262033,
+          "completed": false,
+          "age": 25,
+          "reward": -1.490745654300094,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6
+          }
+        },
+        {
+          "seed": 20262034,
+          "completed": false,
+          "age": 24,
+          "reward": -1.4264347320864843,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 5
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 5
+          }
+        },
+        {
+          "seed": 20262035,
+          "completed": false,
+          "age": 25,
+          "reward": -1.638576482583431,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6
+          }
+        },
+        {
+          "seed": 20262036,
+          "completed": false,
+          "age": 28,
+          "reward": -1.4867523078449638,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 3
+          }
+        },
+        {
+          "seed": 20262037,
+          "completed": false,
+          "age": 28,
+          "reward": -1.5003125916485835,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 3
+          }
+        },
+        {
+          "seed": 20262038,
+          "completed": false,
+          "age": 29,
+          "reward": -1.419974611024979,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 4
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 4
+          }
+        },
+        {
+          "seed": 20262039,
+          "completed": false,
+          "age": 28,
+          "reward": -1.5315168768863323,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 3
+          }
+        },
+        {
+          "seed": 20262040,
+          "completed": false,
+          "age": 26,
+          "reward": -1.4007158365991401,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          }
+        },
+        {
+          "seed": 20262041,
+          "completed": false,
+          "age": 29,
+          "reward": -1.6005289975470616,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 4
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 4
+          }
+        },
+        {
+          "seed": 20262042,
+          "completed": false,
+          "age": 27,
+          "reward": -1.596089827021576,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 2
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 2
+          }
+        },
+        {
+          "seed": 20262043,
+          "completed": false,
+          "age": 24,
+          "reward": -1.5709647628217929,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 5
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 5
+          }
+        },
+        {
+          "seed": 20262044,
+          "completed": false,
+          "age": 24,
+          "reward": -1.4817863685226693,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 5
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 5
+          }
+        },
+        {
+          "seed": 20262045,
+          "completed": false,
+          "age": 24,
+          "reward": -1.5048420606816741,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 5
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 5
+          }
+        },
+        {
+          "seed": 20262046,
+          "completed": false,
+          "age": 27,
+          "reward": -1.5725370219354369,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 2
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 2
+          }
+        },
+        {
+          "seed": 20262047,
+          "completed": false,
+          "age": 27,
+          "reward": -1.6676965464749203,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 2
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 2
+          }
+        },
+        {
+          "seed": 20262048,
+          "completed": false,
+          "age": 25,
+          "reward": -1.7050616202068216,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6
+          }
+        },
+        {
+          "seed": 20262049,
+          "completed": false,
+          "age": 27,
+          "reward": -1.5374250012982658,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 2
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 2
+          }
+        },
+        {
+          "seed": 20262050,
+          "completed": false,
+          "age": 26,
+          "reward": -1.5371828974162676,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          }
+        },
+        {
+          "seed": 20262051,
+          "completed": false,
+          "age": 24,
+          "reward": -1.407195186332475,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 5
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 5
+          }
+        },
+        {
+          "seed": 20262052,
+          "completed": false,
+          "age": 26,
+          "reward": -1.499059804518521,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          }
+        },
+        {
+          "seed": 20262053,
+          "completed": false,
+          "age": 29,
+          "reward": -1.7211729482611404,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 4
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 4
+          }
+        },
+        {
+          "seed": 20262054,
+          "completed": false,
+          "age": 26,
+          "reward": -1.7205711134349702,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          }
+        },
+        {
+          "seed": 20262055,
+          "completed": false,
+          "age": 26,
+          "reward": -1.3691948540522179,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          }
+        },
+        {
+          "seed": 20262056,
+          "completed": false,
+          "age": 25,
+          "reward": -1.5351528094545852,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6
+          }
+        },
+        {
+          "seed": 20262057,
+          "completed": false,
+          "age": 26,
+          "reward": -1.519062354730602,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          }
+        },
+        {
+          "seed": 20262058,
+          "completed": false,
+          "age": 26,
+          "reward": -1.6156001750764855,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          }
+        },
+        {
+          "seed": 20262059,
+          "completed": false,
+          "age": 29,
+          "reward": -1.7386110107639552,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 4
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 4
+          }
+        },
+        {
+          "seed": 20262060,
+          "completed": false,
+          "age": 29,
+          "reward": -1.6455946531237893,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 4
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 4
+          }
+        },
+        {
+          "seed": 20262061,
+          "completed": false,
+          "age": 26,
+          "reward": -1.4407907136298947,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          }
+        },
+        {
+          "seed": 20262062,
+          "completed": false,
+          "age": 27,
+          "reward": -1.3256174033834418,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 2
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 2
+          }
+        },
+        {
+          "seed": 20262063,
+          "completed": false,
+          "age": 27,
+          "reward": -1.614040771778543,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 2
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 2
+          }
+        },
+        {
+          "seed": 20262064,
+          "completed": false,
+          "age": 26,
+          "reward": -1.532889226671668,
+          "selected_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          },
+          "executed_actions": {
+            "move_right": 10,
+            "rest": 2,
+            "regulate": 7,
+            "speak": 6,
+            "move_left": 1
+          }
+        }
+      ]
+    },
+    "action_permuted": {
+      "mode": "action_permuted",
+      "n": 64,
+      "survival_count": 0,
+      "survival_rate": 0.0,
+      "survival_wilson_95": [
+        3.469446951953614e-18,
+        0.05662405979280534
+      ],
+      "mean_age": 46.03125,
+      "mean_reward": -0.2296174180548445,
+      "selected_actions": {
+        "harvest": 646,
+        "move_right": 850,
+        "regulate": 1040,
+        "move_left": 409,
+        "rest": 1
+      },
+      "selected_action_fractions": {
+        "harvest": 0.21928038017651053,
+        "move_right": 0.28852681602172436,
+        "regulate": 0.3530210454854039,
+        "move_left": 0.13883231500339444,
+        "rest": 0.00033944331296673454
+      },
+      "executed_actions": {
+        "regulate": 646,
+        "harvest": 850,
+        "rest": 1040,
+        "move_right": 409,
+        "move_left": 1
+      },
+      "finite": true,
+      "episodes": [
+        {
+          "seed": 20262001,
+          "completed": false,
+          "age": 46,
+          "reward": -0.3891852527037264,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262002,
+          "completed": false,
+          "age": 44,
+          "reward": -0.28914122400458464,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 6
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 6
+          }
+        },
+        {
+          "seed": 20262003,
+          "completed": false,
+          "age": 50,
+          "reward": -0.011800561786606156,
+          "selected_actions": {
+            "harvest": 13,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 13,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262004,
+          "completed": false,
+          "age": 50,
+          "reward": 0.04499777465992061,
+          "selected_actions": {
+            "harvest": 12,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 9
+          },
+          "executed_actions": {
+            "regulate": 12,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 9
+          }
+        },
+        {
+          "seed": 20262005,
+          "completed": false,
+          "age": 39,
+          "reward": -0.522223413733629,
+          "selected_actions": {
+            "harvest": 7,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "regulate": 7,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 3
+          }
+        },
+        {
+          "seed": 20262006,
+          "completed": false,
+          "age": 47,
+          "reward": -0.047012123870114664,
+          "selected_actions": {
+            "harvest": 10,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 10,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262007,
+          "completed": false,
+          "age": 45,
+          "reward": -0.2615229862811679,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 7
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 7
+          }
+        },
+        {
+          "seed": 20262008,
+          "completed": false,
+          "age": 46,
+          "reward": -0.40155444508021,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262009,
+          "completed": false,
+          "age": 46,
+          "reward": -0.2072689580903101,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262010,
+          "completed": false,
+          "age": 48,
+          "reward": -0.08620284238398224,
+          "selected_actions": {
+            "harvest": 11,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 11,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262011,
+          "completed": false,
+          "age": 64,
+          "reward": 0.5793199472377775,
+          "selected_actions": {
+            "harvest": 19,
+            "move_right": 19,
+            "regulate": 18,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 19,
+            "harvest": 19,
+            "rest": 18,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262012,
+          "completed": false,
+          "age": 49,
+          "reward": 0.10872041262777388,
+          "selected_actions": {
+            "harvest": 11,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 9
+          },
+          "executed_actions": {
+            "regulate": 11,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 9
+          }
+        },
+        {
+          "seed": 20262013,
+          "completed": false,
+          "age": 46,
+          "reward": -0.1744021752674002,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262014,
+          "completed": false,
+          "age": 40,
+          "reward": -0.4691123556947143,
+          "selected_actions": {
+            "harvest": 8,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "regulate": 8,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 3
+          }
+        },
+        {
+          "seed": 20262015,
+          "completed": false,
+          "age": 44,
+          "reward": -0.4439178807715174,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 6
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 6
+          }
+        },
+        {
+          "seed": 20262016,
+          "completed": false,
+          "age": 39,
+          "reward": -0.561771635574293,
+          "selected_actions": {
+            "harvest": 7,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "regulate": 7,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 3
+          }
+        },
+        {
+          "seed": 20262017,
+          "completed": false,
+          "age": 44,
+          "reward": -0.43379584856418574,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 6
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 6
+          }
+        },
+        {
+          "seed": 20262018,
+          "completed": false,
+          "age": 39,
+          "reward": -0.6979256770129081,
+          "selected_actions": {
+            "harvest": 7,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "regulate": 7,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 3
+          }
+        },
+        {
+          "seed": 20262019,
+          "completed": false,
+          "age": 48,
+          "reward": -0.0598389144292355,
+          "selected_actions": {
+            "harvest": 11,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 11,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262020,
+          "completed": false,
+          "age": 44,
+          "reward": -0.2739696596123187,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 6
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 6
+          }
+        },
+        {
+          "seed": 20262021,
+          "completed": false,
+          "age": 44,
+          "reward": -0.474364363946033,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 6
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 6
+          }
+        },
+        {
+          "seed": 20262022,
+          "completed": false,
+          "age": 46,
+          "reward": -0.39855102614913906,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262023,
+          "completed": false,
+          "age": 48,
+          "reward": -0.09365551474874301,
+          "selected_actions": {
+            "harvest": 11,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 11,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262024,
+          "completed": false,
+          "age": 44,
+          "reward": -0.25411300236301204,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 6
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 6
+          }
+        },
+        {
+          "seed": 20262025,
+          "completed": false,
+          "age": 47,
+          "reward": -0.07751484967304134,
+          "selected_actions": {
+            "harvest": 10,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 10,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262026,
+          "completed": false,
+          "age": 43,
+          "reward": -0.2734006296579674,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 5
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 5
+          }
+        },
+        {
+          "seed": 20262027,
+          "completed": false,
+          "age": 71,
+          "reward": 0.7262127732009187,
+          "selected_actions": {
+            "harvest": 21,
+            "move_right": 19,
+            "regulate": 23,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 21,
+            "harvest": 19,
+            "rest": 23,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262028,
+          "completed": false,
+          "age": 49,
+          "reward": 0.2015122785665291,
+          "selected_actions": {
+            "harvest": 12,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 12,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262029,
+          "completed": false,
+          "age": 48,
+          "reward": -0.17997290594347604,
+          "selected_actions": {
+            "harvest": 11,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 11,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262030,
+          "completed": false,
+          "age": 74,
+          "reward": 0.6875879985269246,
+          "selected_actions": {
+            "harvest": 22,
+            "move_right": 19,
+            "regulate": 23,
+            "move_left": 9,
+            "rest": 1
+          },
+          "executed_actions": {
+            "regulate": 22,
+            "harvest": 19,
+            "rest": 23,
+            "move_right": 9,
+            "move_left": 1
+          }
+        },
+        {
+          "seed": 20262031,
+          "completed": false,
+          "age": 43,
+          "reward": -0.2221371619282635,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 5
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 5
+          }
+        },
+        {
+          "seed": 20262032,
+          "completed": false,
+          "age": 41,
+          "reward": -0.5834929200456664,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 3
+          }
+        },
+        {
+          "seed": 20262033,
+          "completed": false,
+          "age": 45,
+          "reward": -0.2863162446349936,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 7
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 7
+          }
+        },
+        {
+          "seed": 20262034,
+          "completed": false,
+          "age": 39,
+          "reward": -0.5559864221746735,
+          "selected_actions": {
+            "harvest": 7,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "regulate": 7,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 3
+          }
+        },
+        {
+          "seed": 20262035,
+          "completed": false,
+          "age": 43,
+          "reward": -0.31529724941278714,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 5
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 5
+          }
+        },
+        {
+          "seed": 20262036,
+          "completed": false,
+          "age": 47,
+          "reward": -0.023553812369315752,
+          "selected_actions": {
+            "harvest": 10,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 10,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262037,
+          "completed": false,
+          "age": 47,
+          "reward": -0.22311876753061555,
+          "selected_actions": {
+            "harvest": 10,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 10,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262038,
+          "completed": false,
+          "age": 48,
+          "reward": -0.022399579551090287,
+          "selected_actions": {
+            "harvest": 11,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 11,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262039,
+          "completed": false,
+          "age": 42,
+          "reward": -0.3196645358066268,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 4
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 4
+          }
+        },
+        {
+          "seed": 20262040,
+          "completed": false,
+          "age": 50,
+          "reward": 0.12942219423840018,
+          "selected_actions": {
+            "harvest": 13,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 13,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262041,
+          "completed": false,
+          "age": 50,
+          "reward": 0.03334455647625778,
+          "selected_actions": {
+            "harvest": 13,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 13,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262042,
+          "completed": false,
+          "age": 47,
+          "reward": -0.146397794574754,
+          "selected_actions": {
+            "harvest": 10,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 10,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262043,
+          "completed": false,
+          "age": 39,
+          "reward": -0.8095015318871651,
+          "selected_actions": {
+            "harvest": 7,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "regulate": 7,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 3
+          }
+        },
+        {
+          "seed": 20262044,
+          "completed": false,
+          "age": 41,
+          "reward": -0.31388063649353715,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 3
+          }
+        },
+        {
+          "seed": 20262045,
+          "completed": false,
+          "age": 44,
+          "reward": -0.42034562449678514,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 6
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 6
+          }
+        },
+        {
+          "seed": 20262046,
+          "completed": false,
+          "age": 46,
+          "reward": -0.26454037733903735,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262047,
+          "completed": false,
+          "age": 44,
+          "reward": -0.40699795295025765,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 6
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 6
+          }
+        },
+        {
+          "seed": 20262048,
+          "completed": false,
+          "age": 41,
+          "reward": -0.5020075065408616,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 3
+          }
+        },
+        {
+          "seed": 20262049,
+          "completed": false,
+          "age": 44,
+          "reward": -0.22234019773459368,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 6
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 6
+          }
+        },
+        {
+          "seed": 20262050,
+          "completed": false,
+          "age": 48,
+          "reward": 0.010200429011694379,
+          "selected_actions": {
+            "harvest": 11,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 11,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262051,
+          "completed": false,
+          "age": 45,
+          "reward": -0.41697666050083715,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 7
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 7
+          }
+        },
+        {
+          "seed": 20262052,
+          "completed": false,
+          "age": 40,
+          "reward": -0.4465462347243163,
+          "selected_actions": {
+            "harvest": 8,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "regulate": 8,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 3
+          }
+        },
+        {
+          "seed": 20262053,
+          "completed": false,
+          "age": 48,
+          "reward": -0.20286219379154324,
+          "selected_actions": {
+            "harvest": 11,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 11,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262054,
+          "completed": false,
+          "age": 46,
+          "reward": -0.40822387509399705,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262055,
+          "completed": false,
+          "age": 39,
+          "reward": -0.48868443985465254,
+          "selected_actions": {
+            "harvest": 7,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "regulate": 7,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 3
+          }
+        },
+        {
+          "seed": 20262056,
+          "completed": false,
+          "age": 41,
+          "reward": -0.39335740436126965,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 3
+          }
+        },
+        {
+          "seed": 20262057,
+          "completed": false,
+          "age": 39,
+          "reward": -0.7023159215322234,
+          "selected_actions": {
+            "harvest": 7,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "regulate": 7,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 3
+          }
+        },
+        {
+          "seed": 20262058,
+          "completed": false,
+          "age": 50,
+          "reward": 0.05161184158856602,
+          "selected_actions": {
+            "harvest": 13,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 13,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262059,
+          "completed": false,
+          "age": 49,
+          "reward": -0.13009583542398329,
+          "selected_actions": {
+            "harvest": 12,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 12,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262060,
+          "completed": false,
+          "age": 48,
+          "reward": -0.19735808319302206,
+          "selected_actions": {
+            "harvest": 11,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 11,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262061,
+          "completed": false,
+          "age": 48,
+          "reward": -0.06155810604472223,
+          "selected_actions": {
+            "harvest": 11,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 11,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262062,
+          "completed": false,
+          "age": 44,
+          "reward": -0.32639401093392095,
+          "selected_actions": {
+            "harvest": 9,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 6
+          },
+          "executed_actions": {
+            "regulate": 9,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 6
+          }
+        },
+        {
+          "seed": 20262063,
+          "completed": false,
+          "age": 48,
+          "reward": -0.19634210577063582,
+          "selected_actions": {
+            "harvest": 11,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 8
+          },
+          "executed_actions": {
+            "regulate": 11,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 8
+          }
+        },
+        {
+          "seed": 20262064,
+          "completed": false,
+          "age": 40,
+          "reward": -0.577533527606347,
+          "selected_actions": {
+            "harvest": 8,
+            "move_right": 13,
+            "regulate": 16,
+            "move_left": 3
+          },
+          "executed_actions": {
+            "regulate": 8,
+            "harvest": 13,
+            "rest": 16,
+            "move_right": 3
+          }
+        }
+      ]
+    },
+    "fresh_initial": {
+      "mode": "fresh_initial",
+      "n": 64,
+      "survival_count": 0,
+      "survival_rate": 0.0,
+      "survival_wilson_95": [
+        3.469446951953614e-18,
+        0.05662405979280534
+      ],
+      "mean_age": 47.171875,
+      "mean_reward": -0.9809351355008562,
+      "selected_actions": {
+        "move_right": 64,
+        "harvest": 384,
+        "speak": 1486,
+        "rest": 1085
+      },
+      "selected_action_fractions": {
+        "move_right": 0.02119907254057635,
+        "harvest": 0.1271944352434581,
+        "speak": 0.4922159655515071,
+        "rest": 0.3593905266644584
+      },
+      "executed_actions": {
+        "move_right": 64,
+        "harvest": 384,
+        "speak": 1486,
+        "rest": 1085
+      },
+      "finite": true,
+      "episodes": [
+        {
+          "seed": 20262001,
+          "completed": false,
+          "age": 43,
+          "reward": -1.350509727963969,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 19,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 19,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262002,
+          "completed": false,
+          "age": 50,
+          "reward": -1.020371620475976,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262003,
+          "completed": false,
+          "age": 48,
+          "reward": -1.1071283662234506,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 24,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 24,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262004,
+          "completed": false,
+          "age": 50,
+          "reward": -0.45914499494479766,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262005,
+          "completed": false,
+          "age": 48,
+          "reward": -0.4161163880581098,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 24,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 24,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262006,
+          "completed": false,
+          "age": 42,
+          "reward": -1.0768027951727352,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 18,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 18,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262007,
+          "completed": false,
+          "age": 51,
+          "reward": -0.9303131476682566,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 27,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 27,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262008,
+          "completed": false,
+          "age": 47,
+          "reward": -0.9966932829882482,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 23,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 23,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262009,
+          "completed": false,
+          "age": 47,
+          "reward": -1.0697577852827689,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 23,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 23,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262010,
+          "completed": false,
+          "age": 44,
+          "reward": -1.231946421145659,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 20,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 20,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262011,
+          "completed": false,
+          "age": 51,
+          "reward": -1.1267054184562164,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 27,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 27,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262012,
+          "completed": false,
+          "age": 50,
+          "reward": -0.4714164698426674,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262013,
+          "completed": false,
+          "age": 50,
+          "reward": -0.24236782648548671,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262014,
+          "completed": false,
+          "age": 41,
+          "reward": -1.1957534116690707,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 17,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 17,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262015,
+          "completed": false,
+          "age": 48,
+          "reward": -1.1491769027422485,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 24,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 24,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262016,
+          "completed": false,
+          "age": 44,
+          "reward": -0.7392381748665362,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 20,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 20,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262017,
+          "completed": false,
+          "age": 49,
+          "reward": -1.124375508588877,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 25,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 25,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262018,
+          "completed": false,
+          "age": 49,
+          "reward": -1.1607666509890802,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 25,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 25,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262019,
+          "completed": false,
+          "age": 41,
+          "reward": -1.2014484845857116,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 17,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 17,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262020,
+          "completed": false,
+          "age": 50,
+          "reward": -1.011108601616641,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262021,
+          "completed": false,
+          "age": 48,
+          "reward": -1.2565584391860947,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 24,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 24,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262022,
+          "completed": false,
+          "age": 51,
+          "reward": -1.1431250698906434,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 27,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 27,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262023,
+          "completed": false,
+          "age": 46,
+          "reward": -1.2338774921413052,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 22,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 22,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262024,
+          "completed": false,
+          "age": 50,
+          "reward": -0.6654131327793981,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262025,
+          "completed": false,
+          "age": 49,
+          "reward": -0.9635054607051183,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 25,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 25,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262026,
+          "completed": false,
+          "age": 44,
+          "reward": -1.2018106184388224,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 20,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 20,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262027,
+          "completed": false,
+          "age": 47,
+          "reward": -1.285684869140938,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 23,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 23,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262028,
+          "completed": false,
+          "age": 45,
+          "reward": -0.9031586745506056,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 21,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 21,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262029,
+          "completed": false,
+          "age": 49,
+          "reward": -1.218715020865323,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 25,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 25,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262030,
+          "completed": false,
+          "age": 49,
+          "reward": -0.6697145358984808,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 25,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 25,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262031,
+          "completed": false,
+          "age": 48,
+          "reward": -0.5658853617124924,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 24,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 24,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262032,
+          "completed": false,
+          "age": 40,
+          "reward": -1.272994844472443,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 17,
+            "rest": 16
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 17,
+            "rest": 16
+          }
+        },
+        {
+          "seed": 20262033,
+          "completed": false,
+          "age": 49,
+          "reward": -1.0374752311687583,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 25,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 25,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262034,
+          "completed": false,
+          "age": 51,
+          "reward": -0.028848093332630276,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 27,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 27,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262035,
+          "completed": false,
+          "age": 46,
+          "reward": -0.8095507706250681,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 22,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 22,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262036,
+          "completed": false,
+          "age": 50,
+          "reward": -0.5579948592200176,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262037,
+          "completed": false,
+          "age": 48,
+          "reward": -1.189852402852898,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 24,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 24,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262038,
+          "completed": false,
+          "age": 51,
+          "reward": -1.076855595473415,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 27,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 27,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262039,
+          "completed": false,
+          "age": 44,
+          "reward": -1.0907768382179206,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 20,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 20,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262040,
+          "completed": false,
+          "age": 44,
+          "reward": -1.1607831683737775,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 20,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 20,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262041,
+          "completed": false,
+          "age": 45,
+          "reward": -1.2012149850580647,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 21,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 21,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262042,
+          "completed": false,
+          "age": 44,
+          "reward": -1.310959595446605,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 20,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 20,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262043,
+          "completed": false,
+          "age": 39,
+          "reward": -1.373298188034336,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 17,
+            "rest": 15
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 17,
+            "rest": 15
+          }
+        },
+        {
+          "seed": 20262044,
+          "completed": false,
+          "age": 48,
+          "reward": -1.1057036376060472,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 24,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 24,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262045,
+          "completed": false,
+          "age": 51,
+          "reward": -1.0966805114272349,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 27,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 27,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262046,
+          "completed": false,
+          "age": 47,
+          "reward": -1.0163988560919948,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 23,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 23,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262047,
+          "completed": false,
+          "age": 48,
+          "reward": -1.1811656716345593,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 24,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 24,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262048,
+          "completed": false,
+          "age": 49,
+          "reward": -0.9451980261545632,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 25,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 25,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262049,
+          "completed": false,
+          "age": 50,
+          "reward": -0.6099511724386467,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262050,
+          "completed": false,
+          "age": 48,
+          "reward": -0.8470894944431602,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 24,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 24,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262051,
+          "completed": false,
+          "age": 42,
+          "reward": -1.1837176273079595,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 18,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 18,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262052,
+          "completed": false,
+          "age": 42,
+          "reward": -0.9886421156730772,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 18,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 18,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262053,
+          "completed": false,
+          "age": 50,
+          "reward": -1.242612844556397,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262054,
+          "completed": false,
+          "age": 50,
+          "reward": -0.8569248945839685,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262055,
+          "completed": false,
+          "age": 42,
+          "reward": -0.7704936088017007,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 18,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 18,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262056,
+          "completed": false,
+          "age": 41,
+          "reward": -1.298524505106671,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 17,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 17,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262057,
+          "completed": false,
+          "age": 51,
+          "reward": -1.1451305107802225,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 27,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 27,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262058,
+          "completed": false,
+          "age": 47,
+          "reward": -0.9871348337403099,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 23,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 23,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262059,
+          "completed": false,
+          "age": 50,
+          "reward": -1.0512635737646832,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262060,
+          "completed": false,
+          "age": 51,
+          "reward": -1.2474519702208162,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 27,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 27,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262061,
+          "completed": false,
+          "age": 45,
+          "reward": -1.1494968351282722,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 21,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 21,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262062,
+          "completed": false,
+          "age": 46,
+          "reward": -1.0233214731758211,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 22,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 22,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262063,
+          "completed": false,
+          "age": 50,
+          "reward": -0.4205622735842234,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 26,
+            "rest": 17
+          }
+        },
+        {
+          "seed": 20262064,
+          "completed": false,
+          "age": 51,
+          "reward": -0.31318900848280895,
+          "selected_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 27,
+            "rest": 17
+          },
+          "executed_actions": {
+            "move_right": 1,
+            "harvest": 6,
+            "speak": 27,
+            "rest": 17
+          }
+        }
+      ]
+    }
+  },
+  "bars": {
+    "twin_exact_replay": true,
+    "seeded_initial_policy_reconstructed": true,
+    "all_model_evaluations_finite": true,
+    "heldout_survival_at_least_0_80": false,
+    "survival_wilson_above_uniform_random": false,
+    "mean_reward_exceeds_uniform_random_by_4": false,
+    "survival_exceeds_fresh_policy_by_0_30": false,
+    "survival_exceeds_zero_state_by_0_30": false,
+    "survival_exceeds_permuted_state_by_0_30": false,
+    "survival_exceeds_action_permutation_by_0_30": false,
+    "matched_zero_state_flips_at_least_0_20": true,
+    "matched_permuted_state_flips_at_least_0_20": true,
+    "uses_energy_movement_and_regulation": true,
+    "speak_fraction_at_most_0_05": true
+  },
+  "pass": false,
+  "interpretation_if_pass": "P6 endogenous consequential action prerequisite only; no language, memory, resilience, initiative, emergence, or consciousness claim",
+  "interpretation_if_fail": "embodiment remains an affordance substrate"
+}

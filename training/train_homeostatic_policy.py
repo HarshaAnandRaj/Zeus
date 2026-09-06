@@ -41,6 +41,15 @@ def discounted_returns(rewards, gamma=0.97):
     return list(reversed(values))
 
 
+def load_seeded_model(checkpoint, *, device, seed):
+    """Seed before construction so legacy-fresh sensorimotor heads replay."""
+    random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+    return ZeusCore.load(checkpoint, device=device)
+
+
 def train_homeostatic_policy(model, *, updates=100, episodes_per_update=8,
                              horizon=96, lr=3e-4, gamma=0.97,
                              entropy_weight=0.002, seed=20260903):
@@ -131,7 +140,7 @@ def main():
     ap.add_argument("--device", default="cpu")
     args = ap.parse_args()
 
-    model = ZeusCore.load(args.checkpoint, device=args.device)
+    model = load_seeded_model(args.checkpoint, device=args.device, seed=args.seed)
     rows = train_homeostatic_policy(
         model, updates=args.updates, episodes_per_update=args.episodes_per_update,
         horizon=args.horizon, lr=args.lr, seed=args.seed,

@@ -79,6 +79,30 @@ class ChiClock:
                 "sd_ratio": rf["sd_ratio"],
                 "coverage": rf["coverage"]}
 
+    def state_dict(self):
+        """Full restart state; unlike snapshot(), this preserves geometry."""
+        return {
+            "counts": dict(self.counts),
+            "chi": self.chi,
+            "minted": self.minted,
+            "revisits": self.revisits,
+            "last_mint_step": self.last_mint_step,
+            "_win": list(self._win),
+            "motion_base": self.motion_base,
+        }
+
+    def load_state_dict(self, state):
+        if not state:
+            return False
+        self.counts = {tuple(k): v for k, v in state.get("counts", {}).items()}
+        self.chi = state.get("chi", 0.0)
+        self.minted = state.get("minted", 0)
+        self.revisits = state.get("revisits", 0)
+        self.last_mint_step = state.get("last_mint_step", 0)
+        self._win = [tuple(row) for row in state.get("_win", [])]
+        self.motion_base = state.get("motion_base")
+        return True
+
     def load(self, st):
         if not st:
             return
@@ -88,11 +112,10 @@ class ChiClock:
         self.last_mint_step = st.get("last_mint_step", 0)
 
     def dump_state(self, path):
-        payload = {"counts": {json.dumps(list(k)): v for k, v in self.counts.items()},
-                   "chi": self.chi, "minted": self.minted, "revisits": self.revisits,
-                   "last_mint_step": self.last_mint_step,
-                   "_win": [list(t) for t in self._win],
-                   "motion_base": self.motion_base}
+        state = self.state_dict()
+        payload = {**state,
+                   "counts": {json.dumps(list(k)): v for k, v in self.counts.items()},
+                   "_win": [list(t) for t in self._win]}
         with open(path, "w", encoding="utf-8") as f:
             json.dump(payload, f)
 
@@ -100,12 +123,8 @@ class ChiClock:
         try:
             with open(path, "r", encoding="utf-8") as f:
                 payload = json.load(f)
-            self.counts = {tuple(json.loads(k)): v for k, v in payload["counts"].items()}
-            self.chi = payload.get("chi", 0.0)
-            self.minted = payload.get("minted", 0)
-            self.revisits = payload.get("revisits", 0)
-            self.last_mint_step = payload.get("last_mint_step", 0)
-            self._win = [tuple(t) for t in payload.get("_win", [])]
-            self.motion_base = payload.get("motion_base")
+            payload["counts"] = {tuple(json.loads(k)): v
+                                 for k, v in payload["counts"].items()}
+            self.load_state_dict(payload)
         except FileNotFoundError:
             pass

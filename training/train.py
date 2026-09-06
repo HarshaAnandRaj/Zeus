@@ -68,6 +68,41 @@ def _mouth_cfg_from_lm_pretrain(run_config_path):
     return {k: source[k] for k in MOUTH_KEYS if k in source}
 
 
+def _restore_hcm_state(hcm, resume_payload):
+    """Restore HCM only when the resumed arm actually instantiates one."""
+    state = resume_payload.get("hcm")
+    if hcm is None or state is None:
+        return False
+    hcm.load_state_dict(state)
+    return True
+
+
+def _capture_rng_state():
+    return {
+        "python": random.getstate(),
+        "numpy": np.random.get_state(),
+        "torch_cpu": torch.get_rng_state(),
+        "torch_cuda": torch.cuda.get_rng_state_all() if torch.cuda.is_available() else None,
+    }
+
+
+def _restore_rng_state(state):
+    """Restore every stochastic stream used by the trainer."""
+    if not isinstance(state, dict):
+        return False
+    required = {"python", "numpy", "torch_cpu", "torch_cuda"}
+    if set(state) != required:
+        raise RuntimeError(f"incomplete RNG checkpoint: keys={sorted(state)}")
+    random.setstate(state["python"])
+    np.random.set_state(state["numpy"])
+    torch.set_rng_state(state["torch_cpu"])
+    if state["torch_cuda"] is not None:
+        if not torch.cuda.is_available():
+            raise RuntimeError("checkpoint has CUDA RNG state but CUDA is unavailable")
+        torch.cuda.set_rng_state_all(state["torch_cuda"])
+    return True
+
+
 def dyn_lm_params(model):
     lm_keys = ("embed", "readout")
     dyn, lm = [], []
@@ -908,15 +943,19 @@ def main():
         opt.load_state_dict(resume_payload["opt"])
         ctrl.load(resume_payload.get("controller"))
         governor.load(resume_payload.get("governor"))
-        clock.load(resume_payload.get("chi_clock"))
-        if "hcm" in resume_payload:
-            hcm.load_state_dict(resume_payload["hcm"])
+        if not clock.load_state_dict(resume_payload.get("chi_clock_full")):
+            clock.load(resume_payload.get("chi_clock"))
+        clock_fine.load_state_dict(resume_payload.get("chi_clock_fine_full"))
+        _restore_hcm_state(hcm, resume_payload)
+        rng_restored = _restore_rng_state(resume_payload.get("rng_state"))
         start = resume_payload["step"]
         if "self_ratio" in resume_payload:
             args.self_ratio = resume_payload["self_ratio"]
         if "w_norm" in resume_payload:
             args.w_norm = resume_payload["w_norm"]
-        log({"event": "resume", "from_step": start, "ckpt": latest.name})
+        log({"event": "resume", "from_step": start, "ckpt": latest.name,
+             "rng_restored": rng_restored,
+             "chi_full_restored": "chi_clock_full" in resume_payload})
     else:
         log({"event": "fresh_start"})
 
@@ -1014,6 +1053,9 @@ def main():
                                               "governor": governor.state(), "self_ratio": args.self_ratio,
                                               "w_norm": args.w_norm,
                                                "chi_clock": clock.snapshot(),
+                                               "chi_clock_full": clock.state_dict(),
+                                               "chi_clock_fine_full": clock_fine.state_dict(),
+                                               "rng_state": _capture_rng_state(),
                                                "hcm": hcm.state_dict() if hcm is not None else None})
             clock.dump_state(save_dir / "chi_state.json")
             clock_fine.dump_state(save_dir / "chi_state_fine.json")
