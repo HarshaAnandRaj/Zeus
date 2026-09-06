@@ -21,8 +21,8 @@ def main():
     artifact_path=Path(report['artifacts']['a']['path'])
     artifact=_load_artifact(artifact_path)
     weights=artifact['action_head']
-    # The registered action_head is a Linear layer; reject any other layout.
-    assert set(weights)=={'weight','bias'}
+    # core/model.py declares Linear -> Tanh -> Linear; reject other layouts.
+    assert set(weights)=={'0.weight','0.bias','2.weight','2.bias'}
     capture_path=OUT/'pol2.json.gz'
     capture=load(capture_path)
     rows=[]
@@ -30,7 +30,8 @@ def main():
         logits=[]
         for state,action in zip(episode['states'],episode['actions']):
             features=torch.cat([torch.tensor(state,dtype=torch.float32),torch.zeros(5)])
-            output=torch.nn.functional.linear(features,weights['weight'],weights['bias'])
+            hidden=torch.tanh(torch.nn.functional.linear(features,weights['0.weight'],weights['0.bias']))
+            output=torch.nn.functional.linear(hidden,weights['2.weight'],weights['2.bias'])
             assert torch.isfinite(output).all() and int(output.argmax())==action
             logits.append(output.tolist())
         assert len(logits)==episode['age']
