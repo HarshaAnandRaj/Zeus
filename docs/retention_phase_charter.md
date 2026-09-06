@@ -429,3 +429,8 @@ authorization on launch, independently of the cycle-discovery spend gate.
 Neither route reopens the negative retention closure or passes a pillar.
 Existing absolute QV1 survival requirements remain unchanged. No result earns
 automatic extra training, redesign, or a higher-pillar experiment.
+
+This bounded authorization is now consumed and closed: CYC-F UNDECIDED and
+CYC1 FAIL, with exact twins and unchanged absolute survival bars. See
+`docs/cycle_forensics_and_representation_review_20260907.md`. No continuation
+was earned; the negative retention closure and six-pillar requirements stand.

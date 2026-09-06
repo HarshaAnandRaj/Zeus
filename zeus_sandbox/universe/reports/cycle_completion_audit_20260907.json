@@ -1,0 +1,27 @@
+{
+  "all_passed": true,
+  "checks": {
+    "CYC1_sources_unchanged": true,
+    "CYC-F_sources_unchanged": true,
+    "CYC1_saved_artifact_hashes": true,
+    "all_reloaded_training_tensors_traces_optimizer_exact": true,
+    "dataset_count_shape": true,
+    "dataset_finite": true,
+    "all_reloaded_evaluation_traces_exact": true,
+    "teacher_control_64_survivors": true,
+    "fixed_controls_no_survivors": true,
+    "CYC1_saved_action_replays": true,
+    "960_forensic_lifetime_energy_integrity_balances": true,
+    "955_death_tails": true,
+    "cycle_gate_correctly_unidentified": true,
+    "executed_moves_bootstrap_recomputed": true,
+    "zero_flips_bootstrap_recomputed": true,
+    "zero_survival_both_horizons": true,
+    "functional_failure_unrescued": true,
+    "no_followup_launch_authority": true
+  },
+  "checks_count": 18,
+  "CYC1_replayed_episodes": 512,
+  "forensic_episodes": 960,
+  "forensic_deaths": 955
+}

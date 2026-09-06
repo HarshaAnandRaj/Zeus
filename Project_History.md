@@ -2820,3 +2820,39 @@ The user explicitly approved launch and constitutional ratification. Immediately
   }
 ]
 
+
+### Cycle/death investigation and separate CYC1 closure (2026-09-07)
+
+User goal continued the reported CYC0 ceiling with saved-trajectory death
+forensics and a prespecified cycle-survival spending gate. User separately
+authorized: "Include CYC1 as a separate representation test." Frozen analysis
+registration 246a934 and instrument e10c13e preceded statistics. Revised CYC1
+registration d2140a8 and synthetic-checked instrument 84961c2 preceded teacher
+collection, training and endpoint evaluation. No registered-data hotfix.
+
+CYC-F UNDECIDED: 960 saved episodes replay exactly, 955 death tails published,
+energy/integrity accounting verified. Greedy inherited QV1 exhausts local food
+at ticks 2-5, then spends 93.59% of its final 20 ticks regulating and dies of
+energy failure (64/64, mean 39.42). Sampled QV1 moves and often cycles but still
+underfeeds. POL2 has 59 lifetime cyclers, 56 energy and 7 integrity deaths, and
+39/63 immobile death tails. Resources renew in every cell irrespective of
+movement; CYC0 is scripted feasibility, not proof of pure exploration failure.
+At landmark 64 every viable POL2 body is already a cycler, leaving no supported
+noncycling comparison. Only reset-sampled QV1 supports both groups. Primary
+identification fails; no cycle-reward training or proposal is earned.
+
+CYC1 FAIL: supervised clone, 32768 teacher pairs, 20 fixed epochs, frozen QV0R,
+original policy interface. Same-world teacher 64/64 survival at 256/512, stationary
+controls 0/64. Exact independent training/data/optimizer/evaluation twins;
+all parent tensors frozen. Clone survival 0/64 at both horizons, unchanged
+Wilson lower bars. Movement 20.60% and zero-state flips 52.08% pass their lower
+bounds but cannot rescue viability. Mean age 73.5, all 64 energy deaths, 36
+qualifying cyclers. Finite cloning failure does not prove representational
+incapacity; imitation does not count toward emergence or a pillar.
+
+Review: docs/cycle_forensics_and_representation_review_20260907.md, including
+all six emergence questions, raw artifact paths/hashes and functional limits.
+Four synthetic mechanics tests and 18 independent completion checks pass;
+512 CYC1 saved episodes independently replay, 960 forensic balances reconcile.
+Both processes exited zero. CYC1 Class E authority consumed; no follow-up or
+higher-pillar authorization. Prior negative retention closure remains intact.
