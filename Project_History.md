@@ -2559,3 +2559,27 @@ frozen S without sensation dies, fresh sensation without recurrence dies,
 only integrated history lives. This is the empirical license for QV0's
 recurrent quotient — integration itself is the organ, measured before the
 quotient was proposed.
+
+### TAG1-R qualification VOID; advance utility-based bank selection (2026-09-06)
+
+TAG1-R registration `6ad9d34` preceded instrument commit `1b333d1` and
+qualification compute. Five mechanics tests passed. Two fresh CPU processes
+produced exactly identical qualification reports. The bank contains 386
+entries, 340 eligible, but no saved action-origin entry; source permutation
+therefore changes nothing. The actual frozen-model CE also has no autograd
+path to the tag parameters. Both blockers were disclosed in advance and now
+confirmed by the registered checks.
+
+Verdict: **VOID before training**, not a functional failure of learned tags.
+No optimizer steps or registered endpoint examples were consumed. Immutable
+reads, frozen model parameters, age/strength variation, empty-bank behavior,
+and full runtime/spectral-buffer restoration passed. The complete metadata,
+identity hashes, gradient evidence, twin artifact hashes, and six emergence
+answers are published in
+`zeus_sandbox/universe/reports/tag1_qualification_20260906.json`.
+
+The charter ordering is amended to defer TAG1 and advance selective HCM
+write/eviction by independently measured causal utility, followed by
+cross-session inheritance. Do not fabricate provenance, remove the mouth
+detach, or switch optimizers to rescue TAG1. No retention loop or higher
+pillar has passed; the ultimate six-pillar and live-judge goal remains open.

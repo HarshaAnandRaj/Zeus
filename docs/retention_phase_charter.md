@@ -1,6 +1,6 @@
 # Zeus program goal and Retention Phase charter
 
-Status: **amended 2026-09-06 after formal QV0R PASS and QV1 FAIL. This is the
+Status: **amended 2026-09-06 after formal QV0R PASS, QV1 FAIL, and TAG1-R qualification VOID. This is the
 authoritative goal until the Retention Phase exits or a committed amendment
 supersedes it.**
 
@@ -164,7 +164,7 @@ intervals, PASS/FAIL/UNDECIDED/VOID rules, and precommitted consequences.
 
 ### 0. Close and publish QV1
 
-Status: **verdict produced; record/telemetry commit pending at this amendment.**
+Status: **closed in commit `13474ef`; no live QV1 Python workers at the TAG1-R audit.**
 
 - Record the training-scale lifespan gain and arm-ordering null separately.
 - Publish both twin artifacts and the full held-out verdict.
@@ -175,8 +175,20 @@ and no live QV1 workers.
 
 ### 1. TAG1-R: harden authorship-tagged recall registration
 
-Status: **next active route; existing TAG1 document is an uncommitted design
-draft, not yet a valid preregistration.**
+Status: **registration committed as `6ad9d34`; instrument committed as
+`1b333d1`; exact qualification twins return VOID before training.**
+
+The saved bank has 386 entries, 340 eligible, and zero action-origin entries.
+Source permutation cannot intervene on a constant label. The actual frozen
+model CE has no autograd path to the 771 tag parameters. Metadata variation,
+empty-bank behavior, immutable reads, frozen weights, and complete runtime
+restoration pass. No optimizer steps or endpoint examples were consumed.
+The full report is `zeus_sandbox/universe/reports/tag1_qualification_20260906.json`.
+
+This committed ordering amendment defers TAG1 and advances Subgoal 3.
+It does not reinterpret VOID as a functional FAIL or allow a new tag optimizer,
+fabricated provenance, or removal of the brain/mouth detach. A future TAG
+variant requires a genuinely source-varying substrate and fresh registration.
 
 Goal: test selection at read time. Recalled content carries source, strength,
 and age evidence so the dynamics can learn to trust useful self-originated
@@ -200,7 +212,8 @@ tagging and move directly to bank-quality selection.
 
 ### 2. TAG1 implementation and adjudication
 
-Status: **blocked by Subgoal 1 only; no implementation is licensed yet.**
+Status: **qualification instrument implemented and audited; optimization and
+endpoint adjudication deferred after VOID.**
 
 Implement the minimum tag pathway with all non-tag parameters frozen. Verify
 mechanics without looking at registered evaluation data, run exact twins, then
@@ -212,7 +225,8 @@ authorship of speech, action, initiative, or phase exit alone.
 
 ### 3. Selective HCM write and eviction
 
-Status: **unbuilt; required whether TAG1 passes or fails.**
+Status: **next active route after TAG1-R VOID; selection implementation and
+compute require their own committed protocol and instrument manifest.**
 
 Goal: test selection at write time. HCM must keep entries because prior
 retrievals measurably improved prediction/function, not because they are recent
