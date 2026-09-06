@@ -1,0 +1,459 @@
+{
+  "grade": "diagnostic only",
+  "status": "NOT READY",
+  "continuation_authority": false,
+  "source_hashes": {
+    "pol2_endogenous_action_verdict_20260905.json": "ff7d777a55f5e49911a54782e61c55cb9777c430308625849d4af9b942531993",
+    "qv1_retention_lineage_verdict_20260906.json": "b8fa78279b2bd399ab9c82fb1625ef3585bd0da133cd0d5c0688fe4da2f2ce81",
+    "dyn1_resilience_20260905.json": "243254b4257523a51c40550a3d88aae0566b445d0d1f0ac0c83172c4507a6d79",
+    "embodiment_v2_calibration_20260905.json": "47541ef4936c96768dcb7ce2b91731244508a726ea0fe6ddc7edaf4dcb916975"
+  },
+  "instrument_sha256": "50b7a6731728a2aa94b50c22e8d2e21d101d8f825dcd74244411f654aeda8f2a",
+  "repertoire": {
+    "POL2/normal": {
+      "counts": {
+        "harvest": 4125,
+        "move_right": 1714,
+        "regulate": 3193,
+        "move_left": 968,
+        "rest": 233
+      },
+      "fractions": {
+        "rest": 0.022769471318283982,
+        "move_left": 0.09459591517639011,
+        "move_right": 0.1674973126160461,
+        "harvest": 0.40310759308120786,
+        "regulate": 0.31202970780807193,
+        "speak": 0.0
+      },
+      "observed_actions": 5,
+      "entropy_effective_actions": 3.811893743402583
+    },
+    "POL2/zero_state": {
+      "counts": {
+        "harvest": 3000
+      },
+      "fractions": {
+        "rest": 0.0,
+        "move_left": 0.0,
+        "move_right": 0.0,
+        "harvest": 1.0,
+        "regulate": 0.0,
+        "speak": 0.0
+      },
+      "observed_actions": 1,
+      "entropy_effective_actions": 1.0
+    },
+    "POL2/permuted_state": {
+      "counts": {
+        "move_right": 640,
+        "rest": 128,
+        "regulate": 448,
+        "speak": 375,
+        "move_left": 105
+      },
+      "fractions": {
+        "rest": 0.07547169811320754,
+        "move_left": 0.061910377358490566,
+        "move_right": 0.37735849056603776,
+        "harvest": 0.0,
+        "regulate": 0.2641509433962264,
+        "speak": 0.22110849056603774
+      },
+      "observed_actions": 5,
+      "entropy_effective_actions": 4.1385189190081695
+    },
+    "POL2/action_permuted": {
+      "counts": {
+        "harvest": 646,
+        "move_right": 850,
+        "regulate": 1040,
+        "move_left": 409,
+        "rest": 1
+      },
+      "fractions": {
+        "rest": 0.00033944331296673454,
+        "move_left": 0.13883231500339444,
+        "move_right": 0.28852681602172436,
+        "harvest": 0.21928038017651053,
+        "regulate": 0.3530210454854039,
+        "speak": 0.0
+      },
+      "observed_actions": 5,
+      "entropy_effective_actions": 3.802945621368745
+    },
+    "POL2/fresh_initial": {
+      "counts": {
+        "move_right": 64,
+        "harvest": 384,
+        "speak": 1486,
+        "rest": 1085
+      },
+      "fractions": {
+        "rest": 0.3593905266644584,
+        "move_left": 0.0,
+        "move_right": 0.02119907254057635,
+        "harvest": 0.1271944352434581,
+        "regulate": 0.0,
+        "speak": 0.4922159655515071
+      },
+      "observed_actions": 4,
+      "entropy_effective_actions": 2.8882729232701596
+    },
+    "QV1/inherited_recurrent": {
+      "counts": {
+        "harvest": 1147,
+        "regulate": 1376
+      },
+      "fractions": {
+        "rest": 0.0,
+        "move_left": 0.0,
+        "move_right": 0.0,
+        "harvest": 0.4546175188267935,
+        "regulate": 0.5453824811732065,
+        "speak": 0.0
+      },
+      "observed_actions": 2,
+      "entropy_effective_actions": 1.991767363350105
+    },
+    "QV1/inherited_policy_zero_quotient": {
+      "counts": {
+        "regulate": 1482
+      },
+      "fractions": {
+        "rest": 0.0,
+        "move_left": 0.0,
+        "move_right": 0.0,
+        "harvest": 0.0,
+        "regulate": 1.0,
+        "speak": 0.0
+      },
+      "observed_actions": 1,
+      "entropy_effective_actions": 1.0
+    },
+    "QV1/inherited_policy_shuffled_quotient": {
+      "counts": {
+        "harvest": 1067,
+        "regulate": 1406
+      },
+      "fractions": {
+        "rest": 0.0,
+        "move_left": 0.0,
+        "move_right": 0.0,
+        "harvest": 0.43145976546704407,
+        "regulate": 0.5685402345329559,
+        "speak": 0.0
+      },
+      "observed_actions": 2,
+      "entropy_effective_actions": 1.9812382030358278
+    },
+    "QV1/inherited_policy_reset_history": {
+      "counts": {
+        "harvest": 1881,
+        "regulate": 871
+      },
+      "fractions": {
+        "rest": 0.0,
+        "move_left": 0.0,
+        "move_right": 0.0,
+        "harvest": 0.6835029069767442,
+        "regulate": 0.3164970930232558,
+        "speak": 0.0
+      },
+      "observed_actions": 2,
+      "entropy_effective_actions": 1.8667534805364125
+    },
+    "QV1/inherited_policy_action_permuted": {
+      "counts": {
+        "harvest": 819,
+        "regulate": 1074
+      },
+      "fractions": {
+        "rest": 0.0,
+        "move_left": 0.0,
+        "move_right": 0.0,
+        "harvest": 0.4326465927099842,
+        "regulate": 0.5673534072900158,
+        "speak": 0.0
+      },
+      "observed_actions": 2,
+      "entropy_effective_actions": 1.9818813630685044
+    },
+    "QV1/inherited_reset": {
+      "counts": {
+        "harvest": 1687,
+        "regulate": 1001
+      },
+      "fractions": {
+        "rest": 0.0,
+        "move_left": 0.0,
+        "move_right": 0.0,
+        "harvest": 0.6276041666666666,
+        "regulate": 0.3723958333333333,
+        "speak": 0.0
+      },
+      "observed_actions": 2,
+      "entropy_effective_actions": 1.9352150979189107
+    },
+    "QV1/fresh_recurrent": {
+      "counts": {
+        "harvest": 3028
+      },
+      "fractions": {
+        "rest": 0.0,
+        "move_left": 0.0,
+        "move_right": 0.0,
+        "harvest": 1.0,
+        "regulate": 0.0,
+        "speak": 0.0
+      },
+      "observed_actions": 1,
+      "entropy_effective_actions": 1.0
+    },
+    "V2/fixed_rest": {
+      "counts": {
+        "rest": 2431
+      },
+      "fractions": {
+        "rest": 1.0,
+        "move_left": 0.0,
+        "move_right": 0.0,
+        "harvest": 0.0,
+        "regulate": 0.0,
+        "speak": 0.0
+      },
+      "observed_actions": 1,
+      "entropy_effective_actions": 1.0
+    },
+    "V2/fixed_harvest": {
+      "counts": {
+        "harvest": 3000
+      },
+      "fractions": {
+        "rest": 0.0,
+        "move_left": 0.0,
+        "move_right": 0.0,
+        "harvest": 1.0,
+        "regulate": 0.0,
+        "speak": 0.0
+      },
+      "observed_actions": 1,
+      "entropy_effective_actions": 1.0
+    },
+    "V2/uniform_random": {
+      "counts": {
+        "harvest": 769,
+        "speak": 804,
+        "move_left": 757,
+        "regulate": 771,
+        "rest": 792,
+        "move_right": 775
+      },
+      "fractions": {
+        "rest": 0.16966580976863754,
+        "move_left": 0.16216795201371037,
+        "move_right": 0.16602399314481578,
+        "harvest": 0.16473864610111397,
+        "regulate": 0.16516709511568123,
+        "speak": 0.17223650385604114
+      },
+      "observed_actions": 6,
+      "entropy_effective_actions": 5.998804049746663
+    },
+    "V2/scan_oracle": {
+      "counts": {
+        "harvest": 4175,
+        "move_right": 4633,
+        "move_left": 4624,
+        "regulate": 2175,
+        "rest": 777
+      },
+      "fractions": {
+        "rest": 0.04742431640625,
+        "move_left": 0.2822265625,
+        "move_right": 0.28277587890625,
+        "harvest": 0.25482177734375,
+        "regulate": 0.13275146484375,
+        "speak": 0.0
+      },
+      "observed_actions": 5,
+      "entropy_effective_actions": 4.372060438947427
+    }
+  },
+  "DY\u039d1_original_rank90": {
+    "trained": [
+      {
+        "seed": 101,
+        "control_rank90": 5,
+        "perturbed_rank90": 5
+      },
+      {
+        "seed": 103,
+        "control_rank90": 5,
+        "perturbed_rank90": 5
+      },
+      {
+        "seed": 107,
+        "control_rank90": 5,
+        "perturbed_rank90": 5
+      },
+      {
+        "seed": 109,
+        "control_rank90": 5,
+        "perturbed_rank90": 4
+      },
+      {
+        "seed": 113,
+        "control_rank90": 5,
+        "perturbed_rank90": 5
+      },
+      {
+        "seed": 127,
+        "control_rank90": 5,
+        "perturbed_rank90": 5
+      },
+      {
+        "seed": 131,
+        "control_rank90": 5,
+        "perturbed_rank90": 5
+      },
+      {
+        "seed": 137,
+        "control_rank90": 5,
+        "perturbed_rank90": 5
+      },
+      {
+        "seed": 139,
+        "control_rank90": 5,
+        "perturbed_rank90": 5
+      },
+      {
+        "seed": 149,
+        "control_rank90": 5,
+        "perturbed_rank90": 5
+      },
+      {
+        "seed": 151,
+        "control_rank90": 5,
+        "perturbed_rank90": 5
+      },
+      {
+        "seed": 157,
+        "control_rank90": 5,
+        "perturbed_rank90": 5
+      },
+      {
+        "seed": 163,
+        "control_rank90": 5,
+        "perturbed_rank90": 5
+      },
+      {
+        "seed": 167,
+        "control_rank90": 5,
+        "perturbed_rank90": 5
+      },
+      {
+        "seed": 173,
+        "control_rank90": 5,
+        "perturbed_rank90": 5
+      },
+      {
+        "seed": 179,
+        "control_rank90": 5,
+        "perturbed_rank90": 5
+      }
+    ],
+    "random_init": [
+      {
+        "seed": 101,
+        "control_rank90": 3,
+        "perturbed_rank90": 3
+      },
+      {
+        "seed": 103,
+        "control_rank90": 3,
+        "perturbed_rank90": 3
+      },
+      {
+        "seed": 107,
+        "control_rank90": 3,
+        "perturbed_rank90": 3
+      },
+      {
+        "seed": 109,
+        "control_rank90": 2,
+        "perturbed_rank90": 3
+      },
+      {
+        "seed": 113,
+        "control_rank90": 3,
+        "perturbed_rank90": 3
+      },
+      {
+        "seed": 127,
+        "control_rank90": 3,
+        "perturbed_rank90": 3
+      },
+      {
+        "seed": 131,
+        "control_rank90": 3,
+        "perturbed_rank90": 3
+      },
+      {
+        "seed": 137,
+        "control_rank90": 3,
+        "perturbed_rank90": 3
+      },
+      {
+        "seed": 139,
+        "control_rank90": 3,
+        "perturbed_rank90": 3
+      },
+      {
+        "seed": 149,
+        "control_rank90": 3,
+        "perturbed_rank90": 3
+      },
+      {
+        "seed": 151,
+        "control_rank90": 3,
+        "perturbed_rank90": 3
+      },
+      {
+        "seed": 157,
+        "control_rank90": 3,
+        "perturbed_rank90": 3
+      },
+      {
+        "seed": 163,
+        "control_rank90": 2,
+        "perturbed_rank90": 2
+      },
+      {
+        "seed": 167,
+        "control_rank90": 3,
+        "perturbed_rank90": 3
+      },
+      {
+        "seed": 173,
+        "control_rank90": 3,
+        "perturbed_rank90": 3
+      },
+      {
+        "seed": 179,
+        "control_rank90": 3,
+        "perturbed_rank90": 3
+      }
+    ]
+  },
+  "POL2_separates_saved_fixed_reflexes": true,
+  "viable_set_coverage": null,
+  "covariance_participation_ratio": null,
+  "empowerment": null,
+  "availability": {
+    "QV1": "Saved formal report contains episode counts and outcomes, not per-tick states or causal action channels.",
+    "POL2": "Saved formal report and calibration contain action counts and outcomes, not per-tick states or counterfactual action channels.",
+    "DYN1": "Saved report has rank90 feature summaries; no full covariance spectrum, action channel, or embodied viable observations."
+  },
+  "interpretation": "Repertoire distinguishes a multi-action policy from constant action but does not prove useful control. Full instrument components are unidentifiable from these saved reports. No template activation; no further data collection is authorized by this pilot."
+}

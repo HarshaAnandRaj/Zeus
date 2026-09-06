@@ -2665,3 +2665,48 @@ Fewer than eight selected entries stops the route before endpoint exposure.
 Exact twins launched; no outcome is known at this entry. This is a proposed
 predictive retention loop, not a replacement for the autonomous six-pillar
 system and open human-judge objective.
+
+### SEL1 readiness correction and pending launch approval (2026-09-06)
+
+At 13:33:27 UTC, both canonical SEL1 twin directories contained zero entries,
+including hidden files. twin_a creation/modification time was
+08:13:37.5660831 UTC; twin_b was 08:14:05.4110769 UTC. The initial process
+inventory found no Python worker. Thus the earlier launch entry does not
+establish a live run or completed generation. Fourteen registered artifact
+hashes and committed files match; .venv has Torch 2.5.1+cu121 and NumPy 2.5.2.
+No directory was removed and no SEL1 compute was started in this audit.
+The supplied plan explicitly reserves empty-directory removal and launch for
+approval. Recheck emptiness immediately before any approved removal.
+
+### TAG1 retired by rule after qualification VOID (2026-09-06)
+
+The supplied plan closes the current TAG1 mechanism rather than leaving it
+as an active tuning route. The formal result remains qualification VOID,
+not a functional FAIL: the constant-source bank cannot support a source
+permutation, and the frozen CE path is detached from tag parameters by design.
+No hotfix, fabricated source labels, detach removal, or undeclared optimizer
+is allowed. No code changes or new TAG1 compute accompany this retirement.
+The forward route is bank quality via the already registered SEL1 selector.
+Revival requires a genuinely source-varying bank, a declared optimizer and
+gradient path, a committed charter amendment, and fresh registration before
+any exposed phase is run. It is not a continuation of TAG1-R.
+
+### QV1 diagnostic closure and capability pilot (2026-09-06)
+
+Frozen diagnostic design cadbce3 and instrument 379c1e9 precede the read-only
+replay. QV1 twins remain exact. All six actions appear in every training
+update; original held-out deaths all occur by tick 56. A fixed three-arm 2x2
+at 256 ticks reproduces original greedy results and shows a large decoding
+effect in both seen and held-out worlds. Inherited held-out age rises from
+39.42 greedy to 120.19 sampled, but only 1/64 sampled bodies survives; reset
+and fresh have similar lifespans. QV1 remains FAIL and retired. Future policy
+contracts must specify decoding and separate world from sampling uncertainty.
+The energy ledger reproduces 39.421875 mean age, no movement, rapid local
+depletion and all energy deaths. Full evidence and limitations are in
+docs/qv1_postmortem_20260906.md and its hashed raw report.
+
+The saved-artifact capability pilot distinguishes POL2's 3.812 effective
+actions from fixed controls' 1, but viable-set coverage, covariance spectrum,
+and causal empowerment are unavailable. Status NOT READY, diagnostic only;
+no template activation or continuation authority. See
+docs/capability_pilot_20260906.md. Strategic phase exit still waits on SEL1.
