@@ -2710,3 +2710,23 @@ actions from fixed controls' 1, but viable-set coverage, covariance spectrum,
 and causal empowerment are unavailable. Status NOT READY, diagnostic only;
 no template activation or continuation authority. See
 docs/capability_pilot_20260906.md. Strategic phase exit still waits on SEL1.
+
+### SEL1 authorized empty-directory recovery (2026-09-06T13:44:57.1659911Z)
+
+The user explicitly approved launch and constitutional ratification. Immediately before removal, resolved paths were direct non-reparse children of the canonical SEL1 base and had zero entries including hidden files. No evidence or phase output existed in either directory. The runner's refusal of existing directories remains unchanged; only these verified empty shells are removed nonrecursively.
+
+[
+  {
+    "Path": "C:\\Users\\Anand\\Desktop\\Projects\\Zeus\\runs\\sel1_20260906\\twin_a",
+    "CreatedUtc": "2026-09-06T08:13:37.5660831Z",
+    "ModifiedUtc": "2026-09-06T08:13:37.5660831Z",
+    "Children": 0
+  },
+  {
+    "Path": "C:\\Users\\Anand\\Desktop\\Projects\\Zeus\\runs\\sel1_20260906\\twin_b",
+    "CreatedUtc": "2026-09-06T08:14:05.4110769Z",
+    "ModifiedUtc": "2026-09-06T08:14:05.4110769Z",
+    "Children": 0
+  }
+]
+
