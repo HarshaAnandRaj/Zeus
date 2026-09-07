@@ -479,3 +479,11 @@ The subsequent user instruction "Let's do it" authorizes exactly
 recurrent resource-memory experiment under the calibrated supplied controller.
 Its fresh training and evaluation seeds, acute history controls and binary
 qualification bars are frozen before compute. No prior phase is reopened.
+
+CYC4 is now consumed and closed with FAIL TO QUALIFY. Intact learned history
+selects the correct first action on 256/256 worlds, but 0/256 survive256 or512;
+all five survival/gain requirements fail. The explicit-cache calibration and
+all 17 independent audit checks pass, including exact training/evaluation twins.
+Retire this specific cache-distillation recipe as a qualified continuing-survival
+component. Its narrow initial-choice effect does not rescue qualification or
+earn automatic follow-up. See `docs/cyc4_learned_carryover_review_20260907.md`.

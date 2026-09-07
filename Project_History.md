@@ -2921,3 +2921,30 @@ explicit limits. A future learner protocol must freeze input/previous-input
 channels and selective memory interventions; it cannot assume which history
 cue a recurrent learner will use. Zero learner training was performed. The
 calibration authorization is complete and purchases no automatic training run.
+
+### CYC4 learned carryover: initial choice learned, continuing-survival FAIL (2026-09-07)
+
+The user's subsequent "Let's do it" authorized a fresh bounded learner test.
+Protocol 9c09057 and seven-check instrument 64ed6fc preceded compute. Fresh
+32-hidden GRU predicts nine nominal resource estimates from only local resource
+and one-hot location. A supplied CYC3 controller uses those estimates; bodily
+history cannot leak into neural memory. Training uses 128 teacher sequences,
+200 epochs/1600 updates, with exact sequential twins and no endpoint tuning.
+
+Fresh 128 paired seeds/256 worlds: intact learned history gives 256 correct
+first actions, erased 128, swapped zero, untrained 128. Nevertheless every
+neural world dies before256; all survival512 gains are zero. Intact mean age
+183.18 versus erased99.28, swapped20.00 and untrained61.87. Every neural death
+is energy depletion. Explicit cache survives all256 fresh worlds and all128
+training worlds; all1280 information-necessity searches exhaust with no survivor
+or cap. The prepared assay remains calibrated; the learner recipe FAILS.
+
+The independent 17-check audit passes, including exact weights/optimizer/losses/
+predictions, 1024 neural and384 teacher episode replays, isolated interventions,
+world accounting, independent BFS and pair-level statistics. Run and audit exit0.
+Post-verdict saved traces show estimate-driven depleted-route bouncing while
+food remains elsewhere; training fit is insufficient for sustained function.
+Review: docs/cyc4_learned_carryover_review_20260907.md. Canonical verdict/audit/
+diagnostics committed under zeus_sandbox/universe/reports; large raw artifacts
+stay local with hashes. All six emergence questions graded. Authorization closed;
+no retuning, automatic follow-up, prior-phase reopening or pillar promotion.
