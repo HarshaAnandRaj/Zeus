@@ -487,3 +487,11 @@ all 17 independent audit checks pass, including exact training/evaluation twins.
 Retire this specific cache-distillation recipe as a qualified continuing-survival
 component. Its narrow initial-choice effect does not rescue qualification or
 earn automatic follow-up. See `docs/cyc4_learned_carryover_review_20260907.md`.
+
+## 2026-09-07 CYC5 four-way learning authorization
+
+The user's new "Proceed" authorizes exactly
+`docs/cyc5_learning_elimination_protocol_20260907.md`: matched teacher/learner
+experience crossed with resource/decision-aware objectives, followed by the
+frozen survival and causal-history gates, multiplicity correction and independent
+audit. This bounded Class E experiment does not reopen any prior phase or verdict.
