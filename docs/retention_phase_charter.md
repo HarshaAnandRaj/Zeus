@@ -504,3 +504,12 @@ over the matched teacher-only MSE baseline. One shared initialization and a
 prepared distribution limit the inference. CYC4 remains FAIL. Retain qualified
 supervised components only; no pillar promotion or automatic follow-up. See
 `docs/cyc5_learning_elimination_review_20260907.md`.
+
+## 2026-09-07 CYC6 initialization robustness authorization
+
+The user's subsequent "Proceed with your next priority" authorizes exactly
+`docs/cyc6_initialization_robustness_protocol_20260907.md`: eight fresh
+initializations of the simplest CYC5 recipe, common fixed training data/order,
+fresh matched evaluation worlds and each seed's own untrained control. All eight
+must qualify. This fixed-seed stress test does not estimate universal robustness
+or reopen CYC4/CYC5. It includes its independent audit and no automatic follow-up.

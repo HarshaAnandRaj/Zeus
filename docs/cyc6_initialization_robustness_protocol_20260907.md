@@ -31,7 +31,7 @@ AdamW.001/betas(.9,.999)/eps1e-8/decay.01, clip1, no decision-loss contribution.
 Final checkpoint only. No new experience collection. Save initial, all stages,
 optimizer,1600 losses and final teacher predictions. Each seed trains exact twin
 A then B sequentially, one CPU intra/inter-op thread and float32 deterministic.
-At most four hidden worker processes concurrently;32? No: exactly16 training
+At most four hidden worker processes concurrently; exactly16 training
 runs total, eight seeds times two twins,25600 optimizer updates altogether.
 
 ## Fresh evaluation and causal controls
