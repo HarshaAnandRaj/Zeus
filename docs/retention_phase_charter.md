@@ -471,3 +471,11 @@ audit reproduced them. This qualifies the controlled assay for a fresh learner
 protocol, not for automatic learner training or a pillar promotion. See
 `docs/cyc3_carryover_calibration_review_20260907.md` for the engineered preparation,
 claim limits and complete evidence.
+
+## 2026-09-07 CYC4 learner authorization
+
+The subsequent user instruction "Let's do it" authorizes exactly
+`docs/cyc4_learned_carryover_protocol_20260907.md`: one bounded supervised
+recurrent resource-memory experiment under the calibrated supplied controller.
+Its fresh training and evaluation seeds, acute history controls and binary
+qualification bars are frozen before compute. No prior phase is reopened.
