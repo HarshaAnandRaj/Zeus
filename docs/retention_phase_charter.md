@@ -444,3 +444,12 @@ qualification decision: clear all frozen lower confidence bounds or fail to
 qualify, with no automatic additional budget. Historical UNDECIDED labels stay
 unchanged. Broken evidence remains invalid, never a functional negative.
 This single Class E authorization does not reopen retention or higher pillars.
+
+CYC2 is now consumed and closed: observations+direction FAIL, quotient+direction
+PASS, quotient-only FAIL; the broader assistance-repair criterion FAILS because
+its raw-input positive control fails. Exact twins and the independent 25-check
+audit pass. The assisted checkpoint is retained as an engineering reference,
+without a pillar promotion or automatic follow-up. See
+`docs/cyc2_information_elimination_review_20260907.md`. The user's clarification
+about useful information passing between cycles is recorded separately in
+`docs/cycle_information_carryover_proposal_20260907.md`; that assay is not yet run.

@@ -2856,3 +2856,35 @@ Four synthetic mechanics tests and 18 independent completion checks pass;
 512 CYC1 saved episodes independently replay, 960 forensic balances reconcile.
 Both processes exited zero. CYC1 Class E authority consumed; no follow-up or
 higher-pillar authorization. Prior negative retention closure remains intact.
+
+### CYC2 binary elimination results and cycle-to-cycle clarification (2026-09-07)
+
+The user delegated explicit PASS/FAIL elimination decisions. Protocol 7deecc1
+and checked instrument c73e0b5 preceded compute. All three arms had matched
+49->64->6 policies, initial tensors, 32768 demonstrations, 100 fixed epochs,
+6400 steps and fresh 128-world evaluation. Seven synthetic tests pass. No
+post-result epoch/seed/decoder/threshold changes.
+
+A observations+direction FAIL: 0/128 survival at 256/512. B quotient+direction
+PASS: 128/128 at both horizons, Wilson lower .97086. C quotient-only FAIL:
+104/128 at 256 and 102/128 at 512; both required lower bounds miss. Zeroing or
+flipping B's direction input gives 0/128 survival in each control. The broader
+registered assistance-repair criterion FAILS because A fails. This does not
+cancel B's distinct engineering pass or authorize renaming the wider contract.
+A's saved training confusion shows only 26/5843 regulation labels correct;
+its 81% aggregate accuracy did not establish functional competence.
+
+All 25 independent audit checks pass, including exact training/optimizer/logit
+twins, source integrity, 640 model episode replays with 144826 transitions,
+128 calibration replays, exact histories/inputs/logits/actions, physical balances
+and bootstrap recomputation. Both processes exited zero. Keep B as a working
+assisted control reference; stop further cloning variants under this consumed
+Class E authorization. No pillar promotion, phase reopening, or automatic
+follow-up. See docs/cyc2_information_elimination_review_20260907.md.
+
+The user clarified that cycles should carry nontrivial information, rather
+than reset everything. Current within-world recurrence already persists across
+spatial closures. Richer encounter-specific carryover remains unproved. The
+separate docs/cycle_information_carryover_proposal_20260907.md proposes matched
+present observations with different useful pasts and selective erase/swap
+controls, with assay calibration before any learner budget. It is not yet run.

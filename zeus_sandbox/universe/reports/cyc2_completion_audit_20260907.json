@@ -1,0 +1,71 @@
+{
+  "all_passed": true,
+  "checks_count": 25,
+  "checks": {
+    "source_hashes_unchanged": true,
+    "artifact_hashes_match": true,
+    "evaluation_twins_identical_uncompressed": true,
+    "observations_direction_exact_training_optimizer_logits_twins": true,
+    "observations_direction_exactly_100_epochs": true,
+    "quotient_direction_exact_training_optimizer_logits_twins": true,
+    "quotient_direction_exactly_100_epochs": true,
+    "quotient_only_exact_training_optimizer_logits_twins": true,
+    "quotient_only_exactly_100_epochs": true,
+    "matched_initial_policy_tensors": true,
+    "complete_finite_training_data": true,
+    "128_scripted_calibration_replays": true,
+    "observations_direction_all_states_inputs_logits_actions_balances_exact": true,
+    "quotient_direction_all_states_inputs_logits_actions_balances_exact": true,
+    "zero_bit_all_states_inputs_logits_actions_balances_exact": true,
+    "flipped_bit_all_states_inputs_logits_actions_balances_exact": true,
+    "quotient_only_all_states_inputs_logits_actions_balances_exact": true,
+    "frozen_quotient_after_replay": true,
+    "observations_direction_binary_qualification_recomputed": true,
+    "quotient_direction_binary_qualification_recomputed": true,
+    "quotient_only_binary_qualification_recomputed": true,
+    "zero_bit_paired_bootstrap_exact": true,
+    "flipped_bit_paired_bootstrap_exact": true,
+    "no_automatic_followup": true,
+    "sources_still_unchanged": true
+  },
+  "model_replay_episodes": 640,
+  "physical_transitions": 144826,
+  "summaries": {
+    "observations_direction": {
+      "episodes": 128,
+      "mean_age": 75.390625,
+      "survival_256": 0,
+      "survival_512": 0,
+      "lifetime_cyclers": 128
+    },
+    "quotient_direction": {
+      "episodes": 128,
+      "mean_age": 512.0,
+      "survival_256": 128,
+      "survival_512": 128,
+      "lifetime_cyclers": 128
+    },
+    "zero_bit": {
+      "episodes": 128,
+      "mean_age": 59.34375,
+      "survival_256": 0,
+      "survival_512": 0,
+      "lifetime_cyclers": 0
+    },
+    "flipped_bit": {
+      "episodes": 128,
+      "mean_age": 56.0546875,
+      "survival_256": 0,
+      "survival_512": 0,
+      "lifetime_cyclers": 0
+    },
+    "quotient_only": {
+      "episodes": 128,
+      "mean_age": 428.6640625,
+      "survival_256": 104,
+      "survival_512": 102,
+      "lifetime_cyclers": 122
+    }
+  },
+  "interpretation": "Saved history/input/logit replay and physical accounting; no new exploration or training."
+}
