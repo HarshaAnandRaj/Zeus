@@ -101,3 +101,13 @@ self-organization; it would not by itself reopen the six-pillar roadmap.
 This proposal purchases no training. CYC2 remains the fixed information-access
 comparison already authorized, with its own binary outcomes. Carryover is a
 distinct mechanism question, not a post-result renaming of CYC2.
+
+## 2026-09-07 calibration update
+
+The user subsequently authorized building and calibrating this assay. One
+controlled instantiation, CYC3, now passes its complete frozen qualification.
+It uses a one-time low-energy checkpoint, observation-limited resource records,
+matched erase/swap interventions and exhaustive alternative-action searches.
+See `docs/cyc3_carryover_calibration_review_20260907.md`. This advances the assay
+portion of the proposal; the learner comparison above has not been trained or
+evaluated, and the engineering result is not an emergence claim.

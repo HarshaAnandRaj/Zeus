@@ -1,0 +1,28 @@
+{
+  "all_passed": true,
+  "checks_count": 15,
+  "checks": {
+    "sources_unchanged": true,
+    "artifact_hashes_match": true,
+    "exact_uncompressed_campaign_twins": true,
+    "256_matched_preparations_and_only_target_content_differs": true,
+    "768_saved_controller_episodes_exact": true,
+    "all_observation_only_memory_updates_and_interventions_verified": true,
+    "all_physical_energy_integrity_balances_verified": true,
+    "1280_search_certificates_or_counterexamples_verified": true,
+    "pair_unit_survival_256_recomputed": true,
+    "pair_unit_survival_512_recomputed": true,
+    "erased_paired_bootstrap_exact": true,
+    "swapped_paired_bootstrap_exact": true,
+    "binary_verdict_recomputed": true,
+    "zero_learner_training": true,
+    "sources_still_unchanged": true
+  },
+  "prepared_worlds": 256,
+  "controller_episodes": 768,
+  "preparation_transitions": 4096,
+  "controller_transitions": 192128,
+  "alternative_searches": 1280,
+  "bfs_reverified_exhaustive_transitions": 64256,
+  "verified_counterexample_paths": 0
+}

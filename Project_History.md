@@ -2888,3 +2888,36 @@ spatial closures. Richer encounter-specific carryover remains unproved. The
 separate docs/cycle_information_carryover_proposal_20260907.md proposes matched
 present observations with different useful pasts and selective erase/swap
 controls, with assay calibration before any learner budget. It is not yet run.
+
+### CYC3 resource-history carryover assay calibration PASS (2026-09-07)
+
+User authorized building/calibrating the carryover test before learner training.
+Protocol 1ccfa9a and tested instrument 009a66f were committed before compute.
+Five mechanics checks passed on nonregistered/synthetic conditions. Fixed
+128 paired histories include both rich-target orientations, a shared 16-action
+exposure/return and an explicit one-time age 16 low-energy body checkpoint.
+World equations remain unchanged; subsequent cycles reset nothing. The policy
+receives only present observations, physical time and records of visited cells.
+
+CYC3 PASS: intact 256/256 worlds survive absolute ages 256/512; erased 128/256;
+swapped 0/256. All 128 intact pairs survive both orientations, Wilson lower .97086.
+Paired intact-minus-erased and swapped gains are .50 and 1.0, both clearing .30
+lower bounds. Exact deterministic twins. Every one of 1280 alternative-first-
+action searches exhausts without 12-tick survival, 64256 expanded transitions,
+no counterexamples and no caps. This certifies the prepared first-choice
+ambiguity independently of ablation-controller quality.
+
+All 15 independent audit checks pass, including a separate breadth-first search,
+256 matched preparations, 768 complete controller replays, 4096 exposure steps,
+192128 controller transitions, memory-content isolation, physical balances and
+pair-level statistics. Both processes exited zero; no Python worker remained.
+Review: docs/cyc3_carryover_calibration_review_20260907.md. All six emergence
+questions are graded: this is engineered assay calibration, not a trained Zeus
+capability. No pillar promotion or change to prior negative retention closure.
+
+Useful encounter-specific information now has a calibrated next-cycle assay.
+The one-time body intervention and the narrow binary resource choice remain
+explicit limits. A future learner protocol must freeze input/previous-input
+channels and selective memory interventions; it cannot assume which history
+cue a recurrent learner will use. Zero learner training was performed. The
+calibration authorization is complete and purchases no automatic training run.

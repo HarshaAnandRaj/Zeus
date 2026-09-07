@@ -462,3 +462,12 @@ explicit-cache calibration and binary spending gate in
 diagnostic authorization. It includes no learner training or phase reopening.
 The specified low-energy checkpoint is an explicit artificial diagnostic
 preparation; it must not be represented as unassisted self-organization.
+
+CYC3 is now closed with calibration PASS: intact resource memory 256/256 world
+survival, erased 128/256 and swapped 0/256, with both intact pair-level survival
+bounds and both memory-control gain bounds passed. All 1280 alternative-first-
+action searches exhausted with no 12-tick survivor; a separate breadth-first
+audit reproduced them. This qualifies the controlled assay for a fresh learner
+protocol, not for automatic learner training or a pillar promotion. See
+`docs/cyc3_carryover_calibration_review_20260907.md` for the engineered preparation,
+claim limits and complete evidence.
