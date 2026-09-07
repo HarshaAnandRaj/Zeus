@@ -453,3 +453,12 @@ without a pillar promotion or automatic follow-up. See
 `docs/cyc2_information_elimination_review_20260907.md`. The user's clarification
 about useful information passing between cycles is recorded separately in
 `docs/cycle_information_carryover_proposal_20260907.md`; that assay is not yet run.
+
+## 2026-09-07 CYC3 calibration authorization
+
+The user's subsequent "Proceed with it then" authorizes the assay preparation,
+explicit-cache calibration and binary spending gate in
+`docs/cyc3_carryover_calibration_protocol_20260907.md`. This is a fresh bounded
+diagnostic authorization. It includes no learner training or phase reopening.
+The specified low-energy checkpoint is an explicit artificial diagnostic
+preparation; it must not be represented as unassisted self-organization.
