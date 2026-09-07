@@ -28,6 +28,9 @@ centered covariance participation dimension=(sum eigenvalues)^2/sum eigenvalues^
 top-two explained fraction, and within-episode centered RMS. Degenerate zero
 variance is explicit(null dimension), never fabricated structure. Coordinates
 are unaligned across trained models; compare invariant summaries, not neuron IDs.
+Numerical zero-energy tolerance is1e-24. Fixed-case plots project the same raw
+unit indices within a trial; the untrained control has different weights and
+its position in the trained PCA axes is not an aligned learned representation.
 
 SVD of each appropriate linear32->9 readout gives its numerical rank and row
 space. Measure the fraction of centered hidden variation in its orthogonal
