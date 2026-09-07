@@ -1,0 +1,132 @@
+"""E1+E2 why-probes on the frozen shadow brain (eval-only, no training).
+E1 PREDICT: readout logit variance dominated by S-path (not token path);
+  freezing dynamics degenerates output; different S inits diverge outputs.
+E2 PREDICT: per-step tau_mean negatively correlates with ||err|| —
+  tau_net learned integrate-when-predictable / follow-when-surprised.
+"""
+import io, sys
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+import sys as _s
+_s.path.insert(0, "C:/Users/Anand/Desktop/Projects/Zeus")
+_s.path.insert(0, "C:/Users/Anand/Desktop/Projects/Zeus/zeus_sandbox")
+sys.argv = ["zsession.py", "--mode", "interact"]
+import numpy as np, torch
+import torch.nn.functional as F
+import zsession
+from core.model import ZeusConfig, ZeusCore
+
+ROOT = "C:/Users/Anand/Desktop/Projects/Zeus/"
+pay = torch.load(ROOT+"zeus_sandbox/universe/shadow/milestone.pt", map_location="cpu", weights_only=False)
+cfg = ZeusConfig(**pay["config"])
+model = ZeusCore(cfg, tokenizer_path=pay.get("tokenizer"))
+model.load_state_dict(zsession._migrate_legacy_experts(pay["model"], cfg), strict=False)
+model.deploy_self_source = False  # coupled read for decomposition
+model.to(zsession.DEVICE).eval()
+model.train(False)
+VAL = np.load(ROOT+"runs/probe_pilot_v3_nomarkers_b/val_ids.npy", mmap_mode="r")
+
+def tau_of(S):
+    with torch.no_grad():
+        t = cfg.tau_min + F.softplus(model.tau_net(S))
+        return torch.clamp(t, cfg.tau_min, cfg.tau_max)
+
+# ---------- E1a: readout variance share S-path vs token-path ----------
+torch.manual_seed(0)
+starts = np.random.default_rng(0).integers(0, len(VAL)-80, size=60)
+full_L, tok_L = [], []
+model.reset_state(0.0)
+with torch.no_grad():
+    for s in starts:
+        toks = [int(x) for x in VAL[s:s+40]]
+        model.reset_state(0.0)
+        model.ingest(toks[:20])
+        for tid in toks[20:]:
+            l_full, _ = model.step(tid)
+            full_L.append(l_full.float().cpu())
+            S_sav, H_sav = model.S.clone(), model.H.clone()
+            model.S = torch.zeros_like(model.S); model.H = torch.zeros_like(model.H)
+            l_tok = model.observe()
+            tok_L.append(l_tok.float().cpu())
+            model.S, model.H = S_sav, H_sav
+            model.step(tid)  # advance for real (double-step accepted: diagnostic only)
+FL = torch.stack(full_L); Tk = torch.stack(tok_L)
+v_full = float(FL.var()); v_tok = float(Tk.var())
+v_spath = float((FL - Tk).var())
+print(f"E1a readout var: full={v_full:.3f} tokenpath={v_tok:.3f} Spath-resid={v_spath:.3f} Spath-share~{v_spath/max(v_full,1e-9):.3f}", flush=True)
+
+# ---------- E1b: freeze degeneracy (speech-clamp analog) ----------
+def cugen(seed):
+    g = torch.Generator(device=model.S.device)
+    g.manual_seed(seed)
+    return g
+
+
+def cpugen(seed):
+    g = torch.Generator(device="cpu")
+    g.manual_seed(seed)
+    return g
+
+
+def gen_text(seed, freeze, n=48):
+    g = cugen(seed)
+    model.reset_state(0.12, cpugen(seed))
+    ids = model.encode("The river flowed quietly beneath the bridge, and")
+    model.ingest(ids)
+    out = []
+    with torch.no_grad():
+        for _ in range(n):
+            logits = model.observe()
+            probs = torch.softmax(logits, dim=-1)
+            nxt = int(torch.multinomial(probs, 1, generator=g))
+            out.append(nxt)
+            model.step(nxt, freeze_dynamics=freeze)
+    return model.decode(out)
+for fr in (False, True):
+    t = gen_text(7, fr)
+    words = t.split()
+    print(f"E1b freeze={fr}: nunique2grams={len(set(zip(words, words[1:])))} nwords={len(words)} sample={t[:90]!r}", flush=True)
+
+# ---------- E1c: init sensitivity (same history, different S init) ----------
+outs = []
+with torch.no_grad():
+    for sd in (7, 8):
+        g = cugen(sd)
+        model.reset_state(0.12, cpugen(sd))
+        ids = model.encode("The child opened the old book and discovered that")
+        model.ingest(ids)
+        o = []
+        for _ in range(24):
+            logits = model.observe()
+            o.append(int(torch.multinomial(torch.softmax(logits, dim=-1), 1, generator=g)))
+            model.step(o[-1])
+        outs.append(o)
+dis = sum(a != b for a, b in zip(*outs)) / len(outs[0])
+print(f"E1c init-disagreement: {dis:.3f} (high=self-driven, low=input-driven)", flush=True)
+
+# ---------- E2: tau vs surprise ----------
+taus, errs, us = [], [], []
+model.reset_state(0.0)
+with torch.no_grad():
+    toks = [int(x) for x in VAL[1000:1300]]
+    model.ingest(toks[:32])
+    for tid in toks[32:]:
+        e = model.embed(torch.tensor(tid, device=model.S.device))
+        ant = model.self_pred(model.S)
+        err = e - ant
+        taus.append(float(tau_of(model.S).mean()))
+        errs.append(float(err.norm())); us.append(float((err * torch.sigmoid(model.err_gate(err)).squeeze(-1)).norm()))
+        model.step(tid)
+ta, er, uu = np.array(taus), np.array(errs), np.array(us)
+def pear(a, b):
+    a, b = a - a.mean(), b - b.mean()
+    return float((a * b).mean() / (a.std() * b.std() + 1e-12))
+print(f"E2 driven: corr(tau,||err||)={pear(ta, er):.3f} corr(tau,||u||)={pear(ta, uu):.3f} tau_mean={ta.mean():.3f} tau_std={ta.std():.3f}", flush=True)
+# free-roll tau distribution
+model.reset_state(0.1)
+fr = []
+with torch.no_grad():
+    for _ in range(300):
+        model.step(None)
+        fr.append(float(tau_of(model.S).mean()))
+fr = np.array(fr)
+print(f"E2 free: tau_mean={fr.mean():.3f} tau_std={fr.std():.3f}", flush=True)

@@ -1,0 +1,16 @@
+{
+  "kind": "SN2_COMPLETION_AUDIT",
+  "passed": true,
+  "diagnostic_only": true,
+  "checks": {
+    "source_and_observation_hashes": true,
+    "all_ten_preparations_replayed": true,
+    "all_sixty_direct_readout_logits_exact": true,
+    "independent_numpy_js_and_argmax": true,
+    "paired_token_identity_and_self_source_invariance": true,
+    "independent_variance_covariance_identity": true,
+    "post_audit_sources": true
+  },
+  "report_sha": "4a70afde4ec5cf0d536f5b9a01b7d06dcc86927a15cf5d3b395e4f0f6ed59107",
+  "audit_source_sha": "474d49ee553b26c212412f99ba8f68fe155b7fc3fe7d80352d7e4e6f26c1aa4b"
+}

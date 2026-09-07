@@ -495,3 +495,12 @@ The user's new "Proceed" authorizes exactly
 experience crossed with resource/decision-aware objectives, followed by the
 frozen survival and causal-history gates, multiplicity correction and independent
 audit. This bounded Class E experiment does not reopen any prior phase or verdict.
+
+CYC5 is now consumed and closed with PASS for all four arms. Each intact arm
+survives256/256 worlds through512; erased128, swapped0, shared untrained0.
+All adjusted qualification bounds and17 independent audit checks pass. All five
+factorial contrasts are zero: neither added component earns a survival advantage
+over the matched teacher-only MSE baseline. One shared initialization and a
+prepared distribution limit the inference. CYC4 remains FAIL. Retain qualified
+supervised components only; no pillar promotion or automatic follow-up. See
+`docs/cyc5_learning_elimination_review_20260907.md`.

@@ -2948,3 +2948,66 @@ Review: docs/cyc4_learned_carryover_review_20260907.md. Canonical verdict/audit/
 diagnostics committed under zeus_sandbox/universe/reports; large raw artifacts
 stay local with hashes. All six emergence questions graded. Authorization closed;
 no retuning, automatic follow-up, prior-phase reopening or pillar promotion.
+
+### CYC5 four-way learning: all arms PASS, no factorial survival advantage (2026-09-07)
+
+The user's subsequent "Proceed" authorized the matched experience/objective
+experiment. Protocol31c6301 and eight-check instrument681fadf preceded compute.
+Fresh GRU initialization and128 teacher histories; teacher-only versus accumulated
+learner histories crossed with resource MSE versus MSE+.05 direction CE.
+Every arm receives1600 updates with sequential exact twins and fresh evaluation.
+
+All four intact arms survive256/256 held-out worlds to256/512. Erased128/256,
+swapped0/256, shared untrained0/256. All128 intact mirrored pairs survive; adjusted
+Wilson lower0.930574. Intact-minus-control survival512 lower bounds.50,1,1 all
+clear.30. All four arms PASS. All five factorial contrasts are zero[0,0]; no
+survival improvement is attributable to either addition at this ceiling. This is
+not evidence of general equivalence. CYC4 and CYC5 also differ in initialization
+and world draws; this result neither explains nor reverses CYC4's FAIL.
+
+All17 independent audit checks pass, including exact training/endpoint twins,
+complete neural/teacher/collection replays, labels, optimizer budgets, physics,
+1280 separately exhaustive first-action searches and all25 adjusted quantities.
+Run and audit exit0. Review and visually checked figure:
+docs/cyc5_learning_elimination_review_20260907.md. Canonical verdict/audit in
+zeus_sandbox/universe/reports; large raw artifacts remain local with hashes.
+Useful learned carryover now supports continuing survival in this engineered
+assay. Supplied controller, artificial preparation and one shared initialization
+remain explicit limits. All six emergence questions graded; authorization closed,
+qualified components retained, no automatic run or higher-pillar promotion.
+
+### Direct self-necessity review: history dependence, corrected attribution (2026-09-07)
+
+The user requested a direct inspection of CoupledReadout and observations from
+our own work, challenging the inference that engineered conditions exclude
+emergence. That exclusion is too strong. Unprescribed magnitude is a candidate
+phenomenon, but neither surprise nor missing objective terms prove useful
+self-necessity. The current mouth has direct token paths and H cross-attention;
+.1 scales only direct S projection, not the full brain-dependent route.
+
+Inspection of the original why12 source corrects historical interpretations:
+the approximately64% statistic is a residual variance ratio with covariance
+omitted from the ownership wording. The100% comparison also changes sampling
+seeds and subsequent generated histories. Neither supports exclusive ownership
+or total initialization control. The approximately.095 idle statistic elsewhere
+ablates recurrent weights; it is not itself the speech-freeze experiment. These
+old measurements were inspected for provenance, not re-observed.
+
+SN1 stopped INVALID on uncleared E_hist. SN1R's token-matched preparations could
+not be exactly replayed because nonpersistent spectral u/v buffers were neither
+seeded nor reset with runtime state. Both attempts are preserved. Fresh SN2,
+frozen6df1c93, matches those buffers and token windows without core/config edits.
+All10 preparations and60 readout logits independently replay exactly; all seven
+audit checks pass and run/audit exit0. Mean JS zero-S=.000292936, zero-H=.693147020,
+self-source=.686274871; recurrent initializations change argmax4/5, whereas
+self-source outputs are exactly identical5/5. Residual/full variance.970840328
+is not exclusive ownership; zero/full.669693965 plus covariance term-.640534293
+completes the unit total. Short prompts and synthetic zero-H limit interpretation.
+
+Configured deployment disables direct S/H readout while HCM selection can still
+route state-selected content through tokens; no live-service or HCM utility claim
+is made. Strong causal history dependence, CYC4's observed starvation-loop
+failure pattern and CYC5's useful learned carryover are recorded with separate
+emergence grades. No new functional self-necessity or higher-pillar pass follows.
+Review: docs/self_necessity_direct_observation_review_20260907.md. Canonical
+diagnostic/audit/failure/provenance records in zeus_sandbox/universe/reports.

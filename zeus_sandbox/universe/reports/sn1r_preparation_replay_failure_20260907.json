@@ -1,0 +1,7 @@
+{
+  "status": "PREPARATION_REPLAY_FAILED",
+  "assertion": "S",
+  "cause": "nonpersistent spectral u/v absent from reset and runtime snapshot; unseeded model construction",
+  "scope": "initialization attribution requires correction; saved readout interventions can still be replayed",
+  "audit_source": "tools/sn1r_completion_audit_20260907.py"
+}
