@@ -3011,3 +3011,39 @@ failure pattern and CYC5's useful learned carryover are recorded with separate
 emergence grades. No new functional self-necessity or higher-pillar pass follows.
 Review: docs/self_necessity_direct_observation_review_20260907.md. Canonical
 diagnostic/audit/failure/provenance records in zeus_sandbox/universe/reports.
+
+### CYC6 initialization robustness: six successes, all-eight gate FAIL (2026-09-08)
+
+The user's "Proceed with your next priority" authorized the fresh seed stress
+test. Protocol9c98226 and six-check instrumentb931dae preceded compute. Eight
+initializations20261101..108 use the same CYC5 teacher data, shuffle, architecture
+and1600-update MSE recipe. Each trains exact sequential twins; total16 training
+runs/25600 updates. Fresh128 mirrored world pairs202678000..127 are shared across
+trials; each trial retains its own untrained control. No best-seed substitution.
+
+Six intact trials survive256/256 worlds at256/512 and pass every adjusted gate.
+Initializations20261105 and20261107 survive0/256 at both horizons and fail all
+five bars. The frozen requirement was8/8: overall FAIL TO QUALIFY. Successful
+pair-survival lower bound.924755674; causal gains.50 or1.00. Erased20261104 also
+survives zero; other successful trials' erased controls survive128. All swapped
+and own-untrained controls survive zero. Calibration passes:128 training and256
+held-out teacher survivors;1280 exhaustive searches,64256 transitions, no cap
+or survivor. No prior verdict is overwritten.
+
+All14 independent audit checks pass, reconstructing every initial state, exact
+training stages/optimizer/losses/predictions, all8192 neural endpoint episodes,
+teacher labels/physics, matched history interventions, searches and40 adjusted
+bounds. Run and audit exit0. Figure visually inspected. Review:
+docs/cyc6_initialization_robustness_review_20260907.md. Canonical verdict/audit and
+post-verdict saved-trace diagnostics committed under zeus_sandbox/universe/reports.
+
+Failed20261105 gets128 first choices correct, yet all256 episodes eventually
+die from energy depletion (ages21..179). Failed20261107 gets every first choice
+correct, then dies in every world (ages143..228); saved traces again show
+depleted-route loops while food remains elsewhere. Its teacher MSE is lower than
+one successful trial's, so fit does not reliably identify useful behavior.
+The result isolates initialization dependence under fixed data/order, not the
+cause of the historical CYC4/CYC5 difference. Preserve six successful components;
+reject recipe reliability under this test. All six emergence questions graded,
+authorization closed, no automatic retuning or pillar promotion. The continuing
+memory-necessity gap is recorded as a design question, not a new experiment.

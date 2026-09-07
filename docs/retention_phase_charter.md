@@ -513,3 +513,11 @@ initializations of the simplest CYC5 recipe, common fixed training data/order,
 fresh matched evaluation worlds and each seed's own untrained control. All eight
 must qualify. This fixed-seed stress test does not estimate universal robustness
 or reopen CYC4/CYC5. It includes its independent audit and no automatic follow-up.
+
+CYC6 closed2026-09-08 with FAIL TO QUALIFY: six of eight trials pass, but all eight
+were required. Initializations20261105 and20261107 fail all five survival/gain
+bars; every intact episode in each dies before256. All14 independent audit
+checks pass and common teacher/search calibration passes. Preserve individual
+successes and reject this recipe as reliable under the fixed-seed stress test.
+No automatic retuning, larger seed sweep, phase reopening or pillar promotion.
+Review: `docs/cyc6_initialization_robustness_review_20260907.md`.
