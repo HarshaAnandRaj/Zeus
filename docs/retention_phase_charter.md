@@ -578,3 +578,21 @@ short-period sustained cycle, without proving asymptotic convergence everywhere.
 Eight independent audit checks and three mechanics tests pass. See
 `docs/obs3_constant_input_review_20260909.md`. This bounded authorization is
 complete; slow-direction/readout coupling is a proposed next question, not a run.
+
+## 2026-09-09 OBS4 persistent marker/readout closure
+
+The user authorized the proposed next probe: "proceed with that". Protocol and
+three-test instrument b070a80 preceded measurement. Each of 256 OBS3 endpoints
+was replayed under trained and initial weights, with matched start/input and
+weight-specific slow, one-step-fast and slow readout-null directions. Baseline
+and plus/minus interventions at two amplitudes yield 6656 offline branches.
+
+The declared 512-step persistent-readable-marker criterion passes in 219/256
+trained-weight cases and 0/256 initial-weight cases. All 37 trained failures miss
+the retention bar; 16 also miss output access; none fails amplitude consistency.
+All eight audit checks pass, including independent manual replay of every branch.
+The result is a small but resolved output effect of an injected marker, not
+naturally encoded content, selective retention, viability, autonomy or a pillar.
+No training, world episode, deployment or functional verdict change occurred.
+Review: `docs/obs4_slow_readout_review_20260909.md`. This bounded authorization
+is complete. A natural-history intervention is proposed, not launched.

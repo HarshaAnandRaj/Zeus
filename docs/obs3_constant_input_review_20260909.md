@@ -139,3 +139,12 @@ future outputs in O4**. A next bounded probe could compare matched-input trained
 and initial Jacobians, then perturb slow directions and measure later readout
 effects. That would connect the dynamics to accessible information before any
 separate usefulness test. It is proposed here and has not been launched.
+
+## Subsequent authorized result: OBS4
+
+The user subsequently approved this follow-up. [OBS4 is complete](obs4_slow_readout_review_20260909.md):
+219/256 trained-weight cases pass the fixed persistent-readable-marker criterion
+at 512 steps, versus 0/256 matched initial-weight cases. The marker starts in
+the immediate readout null space. All eight audit checks pass. This establishes
+an injected causal route to delayed output; naturally formed history content
+and usefulness remain separate questions.

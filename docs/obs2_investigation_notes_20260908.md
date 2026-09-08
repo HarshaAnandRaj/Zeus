@@ -98,3 +98,10 @@ after 16,384 constant-input updates, 138/192 trained baseline branches settle,
 amplitudes and no tested short-period return. All eight audit checks pass.
 The current lead is long relaxation and its relationship to later readout
 accessibility; no additional experiment has been launched.
+
+The user then authorized [OBS4's slow-direction/readout probe](obs4_slow_readout_review_20260909.md).
+It is complete: an injected marker initially invisible to the readout persists
+and meets the declared later-output criterion in 219/256 trained-weight cases,
+versus 0/256 matched initial-weight cases. Eight audit checks pass. The next
+proposed discriminant concerns naturally formed history differences; it has not
+been launched.

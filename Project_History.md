@@ -3152,3 +3152,36 @@ with hashes. Review: docs/obs3_constant_input_review_20260909.md.
 No training, world simulation, deployment or prior functional verdict change.
 The next proposed question links slow recurrent directions to future readout
 accessibility. This bounded investigation is complete with no automatic launch.
+
+### OBS4: persistent state markers become readable later (2026-09-09)
+
+The user approved the slow-direction/readout follow-up. Protocol and three-test
+instrument b070a80 preceded compute. All 256 OBS3 baseline endpoints/held inputs
+were replayed under trained and initial weights. Local J^64 selects a hidden-slow
+direction and a readout-null constrained slow direction, without selecting for
+later readout gain; the smallest one-step singular direction is the fast control.
+Directions are computed separately per weight set while endpoint/input match.
+
+Baseline and plus/minus state displacements at epsilon1e-4 and1e-5 produce6656
+branches across512 combinations. The null-slow marker starts invisible to the
+linear readout, yet meets the fixed retention and sigmoid-access bars at512 in
+219/256 trained-weight cases versus0/256 initial-weight cases. Model trained pass
+counts out of32:32,18,32,20,32,21,32,32. Every trained case has measurable output
+access at some step; all37 final failures miss retention and16 also miss final
+output access. No trained case fails two-amplitude vector consistency.
+
+At epsilon1e-5, median trained null-slow hidden response is.155257 and sigmoid
+response.0153036 per unit perturbation; the actual plus/minus prediction distance
+is about3.06e-7. The fast control has median hidden response2.17e-6. Initial-weight
+medians are numerically zero at512. This is a resolved injected causal route to
+later output, not evidence that naturally formed semantic content occupies it.
+
+All eight audit checks pass, including complete independent manual replay of all
+6656 branches and16 native-autograd Jacobians. Maximum state difference1.84e-14,
+response-gain difference5.07e-10, Jacobian difference2.23e-16. Figure visually
+inspected; canonical compact JSON committed, raw arrays local with hashes.
+Review: docs/obs4_slow_readout_review_20260909.md. No usefulness admission filter,
+training, world episode, deployment, functional verdict revision or pillar claim.
+Next proposed discriminant: whether states formed by real preparation histories
+use this route, tested by selective component removal under matched inputs.
+The bounded authorization is complete; no follow-up was launched automatically.
