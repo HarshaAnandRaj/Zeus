@@ -521,3 +521,22 @@ checks pass and common teacher/search calibration passes. Preserve individual
 successes and reject this recipe as reliable under the fixed-seed stress test.
 No automatic retuning, larger seed sweep, phase reopening or pillar promotion.
 Review: `docs/cyc6_initialization_robustness_review_20260907.md`.
+
+## 2026-09-08 OBS1 discovery authorization and closure
+
+The user clarified: "Emergent is umbrella term for us to look there. Whether it
+is useful is for us to diagnose once we find what it is." The subsequent "Let's
+get to it" authorizes open observational discovery under
+`docs/obs1_state_discovery_protocol_20260908.md`. Usefulness is not an admission
+criterion for this Class O catalogue. Record small, harmful, unexplained and
+apparently nonfunctional patterns alongside other observations. Distinguish
+measurement artifacts and structural expectations without discarding the data.
+
+OBS1 is complete: all8192 CYC6 episodes across eight models/four conditions,
+with nine measurement-audit checks passing. It records low-dimensional variance,
+near-boundary occupation, smooth evolution and partial return rhythms, immediate
+readout-null motion, and differing history persistence under matched inputs.
+None is promoted to certified emergence or a pillar; their usefulness need not
+be settled here. Prior functional verdicts stay unchanged. The catalogue has
+evidentiary authority and no automatic next-experiment budget. Review:
+`docs/obs1_state_discovery_review_20260908.md`.

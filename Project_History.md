@@ -3047,3 +3047,43 @@ cause of the historical CYC4/CYC5 difference. Preserve six successful components
 reject recipe reliability under this test. All six emergence questions graded,
 authorization closed, no automatic retuning or pillar promotion. The continuing
 memory-necessity gap is recorded as a design question, not a new experiment.
+
+### OBS1 open state discovery: patterns before usefulness (2026-09-08)
+
+The user explicitly corrected the discovery framing: emergence is the umbrella
+for looking, and usefulness is diagnosed after identification. "Let's get to it"
+authorized a bounded saved-state pass, without a survival admission filter.
+Protocol9249d4a and five-test instrument8c79d5a precede extraction. Scope: all8192
+CYC6 twin-A episodes, eight GRU memory models and four conditions; no new model
+forward pass, training, world simulation or deployment. This is not ZeusCore.
+
+The catalogue records32 complete groups. Intact episode participation dimensions
+span1.546..3.341; near-boundary fractions span10.1%..43.5%. Every readout has rank9,
+making its23-dimensional null space structural; measured intact hidden-motion
+fractions in that space span20.0%..34.1%. Current-input linear descriptions and
+body/age extensions are recorded without treating residual variance as memory.
+
+Six intact models favor lag2 only because shorter lags have still smaller
+displacements: smooth evolution, not a two-cycle discovery. Model20261107 favors
+lag6 in221/256 eligible tails, with partial matching input/action repetition;
+untrained models also exhibit partial return rhythms. No autonomous oscillator
+or exact full-state recurrence is inferred. Tail eligibility is3104/8192 and
+all short episodes remain in the other metrics and denominator tables.
+
+All4096 history-control prefixes start from equal current inputs;1152 share at
+least two consecutive inputs and have lower final-prefix than initial hidden
+distance. This is not monotonic/global contraction. In20261106,70 erased/intact
+pairs share496 inputs and finish at median hidden separation8.10e-6;20261108 has
+one full-length pair retaining.14049. Both persistence and washout remain open
+observations, with usefulness unclassified. Derived counts are labelled
+post-extraction descriptions of already-audited measurements.
+
+All nine audit checks pass: source/artifact identity,8192 IDs/lengths,128 selected
+raw geometry/recurrence cases,4096 full prefix/null checks, every sampled array,
+64 independent linear fits, all group aggregates/eligibility, fixed examples and
+final sources. Extraction/audit exit0. Three figures visually inspected; every
+fixed illustration uses world202678000/orientation2. Full per-episode data remain
+local with hashes; catalogue/audit/derived summaries committed canonically.
+Review: docs/obs1_state_discovery_review_20260908.md. No usefulness gate, no prior
+verdict revision, no certified emergence or pillar promotion; bounded Class O
+authorization closed with candidate causal questions retained.
