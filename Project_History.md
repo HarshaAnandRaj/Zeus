@@ -3121,3 +3121,34 @@ remain local with hashes. No training, new world episode, deployment, usefulness
 filter or functional verdict change. The next proposed discriminant is longer
 constant-input continuation to distinguish slow decay from sustained dynamics;
 it has not been launched. The bounded six-investigation authorization is closed.
+
+### OBS3: long constant-input relaxation (2026-09-09)
+
+The user approved the proposed O3 follow-up and resumed it. Protocol/instrument
+2922409 and three mechanics tests preceded new measurements. All 256 OBS2R
+cases were replayed for 16384 constant-input steps from the recorded endpoint,
+zero and opposite norm-1e-5 perturbations in one fixed direction: 1024 branches.
+
+Among 192 trained baselines, 138 settle under the declared final-tail threshold,
+30 meet the tenfold decay criterion, and 24 remain moving at the horizon. The
+64 untrained baselines all settle. All-start counts are 804/124/96. The 24
+still-moving baselines belong to models 5 and 8, with final/8192 checkpoint-window
+maximum-step ratios .1204–.7597. All their tested return profiles rise with lag.
+No short-period sustained orbit was identified; observed motion predominantly
+resolves into long relaxation. Finite-horizon persistence is not asymptotic proof.
+
+Every small perturbation has lower final than initial separation, maximum ratio
+.111633. Settled baseline/zero pairs differ by at most 1.63e-9, providing no
+distinct settled-endpoint candidate under the declared 1e-6 bar. The maximum
+local spectral radius is .999966633; near-one derivatives are compatible with
+slow local relaxation, not a global convergence theorem or evidence of function.
+
+All eight audit checks pass: 1024 branch statistics, all separation curves and
+input/start identities, residuals/spectra, 16 full manual-formula replays and
+16 native-autograd Jacobians, plus source/artifact checks. Maximum independent
+checkpoint difference 1.74e-14; Jacobian difference 2.23e-16. Figure visually
+inspected. Canonical compact JSON evidence is committed; arrays remain local
+with hashes. Review: docs/obs3_constant_input_review_20260909.md.
+No training, world simulation, deployment or prior functional verdict change.
+The next proposed question links slow recurrent directions to future readout
+accessibility. This bounded investigation is complete with no automatic launch.

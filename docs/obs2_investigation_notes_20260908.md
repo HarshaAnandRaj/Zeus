@@ -89,3 +89,12 @@ preserve or erase them. O1's small-variance directions belong in that probe rath
 than being discarded as noise. These are proposed follow-ups, not launched runs.
 The bounded six-investigation request ends with these notes; previous functional
 verdicts remain unchanged.
+
+## Subsequent authorized follow-up, 2026-09-09
+
+The user approved the O3 follow-up. [OBS3 is complete](obs3_constant_input_review_20260909.md):
+after 16,384 constant-input updates, 138/192 trained baseline branches settle,
+30 meet the fixed decay criterion, and 24 remain moving but have declining
+amplitudes and no tested short-period return. All eight audit checks pass.
+The current lead is long relaxation and its relationship to later readout
+accessibility; no additional experiment has been launched.

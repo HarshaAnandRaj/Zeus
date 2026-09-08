@@ -562,3 +562,19 @@ not an admission criterion. No prior functional verdict or pillar is promoted.
 Six separate notes and the proposed next discriminants are indexed in
 `docs/obs2_investigation_notes_20260908.md`. This bounded authorization is closed;
 no longer-horizon follow-up was launched automatically.
+
+## 2026-09-09 OBS3 constant-input follow-up closure
+
+The user's "proceed" and "resume" authorize the proposed O3 long-horizon probe.
+Protocol/instrument 2922409 preceded compute. Frozen offline GRU replay covered
+all 256 prior cases, four starts each, and 16384 constant-input updates. No
+training, new world episode, deployment or functional verdict change occurred.
+
+Of 192 trained baseline branches, 138 settle numerically, 30 meet the fixed
+decay criterion, and 24 remain moving at the horizon. All 64 untrained baseline
+branches settle. The 24 remaining cases also have falling amplitudes and no
+return trough at tested lags. The evidence favors long relaxation over a detected
+short-period sustained cycle, without proving asymptotic convergence everywhere.
+Eight independent audit checks and three mechanics tests pass. See
+`docs/obs3_constant_input_review_20260909.md`. This bounded authorization is
+complete; slow-direction/readout coupling is a proposed next question, not a run.

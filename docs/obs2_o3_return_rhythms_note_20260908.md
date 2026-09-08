@@ -5,6 +5,12 @@
 1e-10 final-step norm by step 192. None of the 192 trained branches does.
 None of the 100 eligible repeated-six-input branches is stationary at that endpoint.
 
+**Follow-up, 2026-09-09:** [OBS3's 16,384-step investigation](obs3_constant_input_review_20260909.md)
+resolves 138/192 trained baseline branches into numerical settlement and another
+30 into the declared decay category. The remaining 24 still show falling motion
+and no return trough at tested lags. The original 192-step finding remains valid;
+the longer probe favors relaxation over a detected sustained short-period cycle.
+
 ## What we investigated
 
 From each of 256 fixed saved endpoints, replayed 192 copies of its last input.
