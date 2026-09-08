@@ -540,3 +540,25 @@ None is promoted to certified emergence or a pillar; their usefulness need not
 be settled here. Prior functional verdicts stay unchanged. The catalogue has
 evidentiary authority and no automatic next-experiment budget. Review:
 `docs/obs1_state_discovery_review_20260908.md`.
+
+## 2026-09-08 OBS2R individual investigation closure
+
+The user authorized investigation of each concrete discovery observation, one
+by one, with separate notes. OBS2 protocol 1d146f5 and instrument 374e2aa preceded
+execution. The original attempt stopped before O1 because some episodes have
+only three states. Correction 6b27886 used a universal three-state window and
+preserved the original invalid attempt. All six corrected investigations and
+ten independent audit checks are complete. A first audit failure on numerically
+tied lag labels is also preserved; full curves agree and the revised audit
+checks minima within its existing numerical tolerance.
+
+Scope was frozen offline replay and saved-state description, without training,
+new world simulation or deployment. Low participation dimension is variance
+concentration; identical inputs isolate trained saturation; trained constant-input
+motion persists to step 192; immediate readout-null directions influence later
+logits; history separation depends on input sequence; richer current-input fits
+explain part of a linear fit's residual. Usefulness remains a later diagnosis,
+not an admission criterion. No prior functional verdict or pillar is promoted.
+Six separate notes and the proposed next discriminants are indexed in
+`docs/obs2_investigation_notes_20260908.md`. This bounded authorization is closed;
+no longer-horizon follow-up was launched automatically.

@@ -3087,3 +3087,37 @@ local with hashes; catalogue/audit/derived summaries committed canonically.
 Review: docs/obs1_state_discovery_review_20260908.md. No usefulness gate, no prior
 verdict revision, no certified emergence or pillar promotion; bounded Class O
 authorization closed with candidate causal questions retained.
+
+### OBS2R: six individual discovery investigations (2026-09-08)
+
+The user requested each concrete OBS1 observation be investigated one by one and
+documented. All six sequential frozen diagnostic probes are complete. Protocol
+1d146f5 and instrument 374e2aa preceded execution; correction 6b27886 changes the
+universal covariance window from four to three states after the original attempt
+stopped before its first result. No episodes were dropped or padded to repair it.
+
+O1: intact pooled covariance has numerical rank 32, participation 1.50–3.26 and
+4–13 directions for 99% variance. O2: trained saturation on matched teacher input
+from zero is 10.61–52.20%, versus zero at each initialization. O3: all 192 trained
+constant-input branches still move at step 192, while all 64 untrained branches
+settle below 1e-10; this does not distinguish slow relaxation from sustained
+dynamics. O4: immediate readout-null directions have nonzero next-step logit
+sensitivity in all 256 cases. O5: all 128 teacher-driven history pairs end closer,
+but 6/128 constant-driven pairs end farther apart; transient growth occurs under
+both. O6: nonlinear current-input and recent-four-input descriptions improve
+the linear current-input baseline in every intact model. Residuals are not
+automatically memory, and none of these observations requires usefulness.
+
+All ten independent audit checks pass, covering native replays, source identity,
+covariance SVD, local autograd propagation and weighted-fit SVD. The first audit
+stopped on tied lag labels in eight untrained motif branches; complete return
+curves agree to 6.67e-16. The failure and diagnosis are preserved, and numerical
+ties are explicitly accepted only under the existing comparison tolerance.
+Five mechanics tests pass and the six-panel figure was visually inspected.
+
+Six separate notes: docs/obs2_investigation_notes_20260908.md. Canonical result,
+completion, audit and correction evidence are committed; full replay arrays
+remain local with hashes. No training, new world episode, deployment, usefulness
+filter or functional verdict change. The next proposed discriminant is longer
+constant-input continuation to distinguish slow decay from sustained dynamics;
+it has not been launched. The bounded six-investigation authorization is closed.

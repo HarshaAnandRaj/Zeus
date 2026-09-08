@@ -1,0 +1,16 @@
+audited O1 and replay inputs seed_0
+audited O1 and replay inputs seed_1
+audited O1 and replay inputs seed_2
+audited O1 and replay inputs seed_3
+audited O1 and replay inputs seed_4
+audited O1 and replay inputs seed_5
+audited O1 and replay inputs seed_6
+audited O1 and replay inputs seed_7
+Traceback (most recent call last):
+  File "C:\Users\Anand\Desktop\Projects\Zeus\tools\obs2r_completion_audit_20260908.py", line 155, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "C:\Users\Anand\Desktop\Projects\Zeus\tools\obs2r_completion_audit_20260908.py", line 102, in main
+    else:close(v['ratios'],ratios);assert v['best_lag']==int(O.LAGS[1+np.argmin(ratios[1:])])
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
