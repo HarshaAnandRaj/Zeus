@@ -665,3 +665,26 @@ target/timing checks and independent bootstrap reconstruction. Review:
 deployment, prior survival verdict change or authorship promotion. Earlier causal
 mechanisms remain observations; factual usefulness failed this test. The bounded
 authorization is complete with no automatic next diagnosis.
+
+## 2026-09-09 OBS8 target-mismatch diagnosis closure
+
+The user authorizes the proposed target comparison ("proceed"). Protocol and
+three-test instrument 51226f0 were frozen before scoring. All 3584 OBS7 cached
+branches were rescored against the original scripted teaching estimator using
+the same primary window, observation mask, model/world matrices and bootstrap
+draws. No new neural forward pass or world rollout was used.
+
+PROXY_BENEFIT FAIL; PROXY_SPECIFIC_BENEFIT FAIL; TARGET_TRADEOFF FAIL. Mean
+estimator benefit is -6.85577e-7 MSE, descriptive bounds [-2.63414e-6,+5.67274e-7];
+mean specificity -6.55270e-7, bounds [-2.11694e-6,+2.75568e-7]. Initial effects
+are zero. The OBS7 factual FAIL remains unchanged. Target disagreement changes
+the effect size but does not establish beneficial estimator fidelity or justify
+retargeting training as a demonstrated repair. Six favorable-sign individual
+tradeoffs do not replace the complete fixed-set decision.
+
+Seven independent audit checks pass, including raw estimator reconstruction,
+every cached loss/decomposition, signed identities, bootstrap and source hashes.
+Review: `docs/obs8_target_mismatch_review_20260909.md`. No authorship or survival
+promotion, training, deployment or policy rollout. The proposed next distinction
+is practical choices/outcomes under model-driven feedback and frozen weights;
+this bounded diagnosis is complete and no next experiment has been launched.

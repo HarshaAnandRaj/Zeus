@@ -3292,3 +3292,36 @@ target a scripted cache estimator, so target mismatch is a possible future
 diagnostic, not a rescue of this result. No training, policy rollout, deployment,
 survival verdict change or authorship claim. Bounded authorization complete;
 no additional diagnosis launched.
+
+### OBS8: estimator-target explanation fails to qualify (2026-09-09)
+
+The user authorized the target comparison ("proceed"). Protocol and three-test
+instrument 51226f0 preceded scoring. All 128 OBS7 model/preparation/weight
+combinations and 3584 cached branches were rescored, with zero new neural forward
+passes. Original teaching targets were reconstructed and independently checked
+from raw observation histories. They approximate resource recovery toward .575
+with factor .992; unseen cells receive .40. Matching-world targets, factual
+records, primary mask/window, all cases and bootstrap draws stayed fixed.
+
+PROXY_BENEFIT FAIL; PROXY_SPECIFIC_BENEFIT FAIL; TARGET_TRADEOFF FAIL. Trained
+estimator benefit (removal minus original) is -6.85577e-7 MSE, descriptive 95%
+model/world resampling bounds [-2.63414e-6,+5.67274e-7]. Estimator specificity
+is -6.55270e-7, bounds [-2.11694e-6,+2.75568e-7]. Both intervals span zero.
+The factual effect remains -3.35284e-6 and its OBS7 FAIL is unchanged. Initial
+late effects are zero. Six individual cases have estimator/factual tradeoff
+signs, but the complete fixed-set criterion fails; no favorable subset rescues it.
+
+Signed MSE decomposition and paired identities account exactly for a +2.66727e-6
+estimator-minus-factual effect gap. Target disagreement exists but neither
+explains training causation nor demonstrates that changing targets would fix
+the component. The proposed beneficial-estimator tradeoff is not supported by
+the registered criterion; persistence and cancellation remain observations.
+
+All seven independent audit checks pass, including raw target reconstruction,
+all branch losses/decompositions, primary matrices and bootstrap decisions.
+Maximum loss discrepancy 0; identity residual 8.50e-17; paired residual 2.06e-18.
+Figure visually inspected. Review: docs/obs8_target_mismatch_review_20260909.md.
+Canonical compact evidence committed; raw scores and hashes remain local.
+No training, world/policy rollout, deployment, survival change or authorship
+promotion. Proposed next discriminant: closed-loop choices and survival under
+the component intervention and matched control, with frozen weights. Not launched.

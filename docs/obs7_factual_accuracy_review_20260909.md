@@ -151,3 +151,11 @@ the scripted estimator the model was taught, rather than more accurate world
 knowledge. Comparing those two targets could explain the discrepancy, but would
 not retroactively turn this failed factual-benefit test into a pass. This bounded
 diagnosis is complete; no additional test has been launched.
+
+## Subsequent authorized comparison
+
+[OBS8 is now complete](obs8_target_mismatch_review_20260909.md). The specific
+estimator-fidelity explanation fails to qualify: estimator benefit, specific
+benefit and target tradeoff all FAIL. The estimator and factual targets disagree,
+but retaining the component does not qualify as beneficial against either.
+All seven independent checks pass; the OBS7 factual verdict remains unchanged.

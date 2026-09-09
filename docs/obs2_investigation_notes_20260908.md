@@ -124,3 +124,11 @@ both factual-benefit and specific-benefit criteria fail. Keeping the actual null
 component does not improve the fixed late factual score; removal slightly lowers
 mean error. Eight audit checks pass. This does not erase the earlier persistence
 and cancellation observations or establish that memory in general is harmful.
+
+The approved target comparison is [OBS8, complete](obs8_target_mismatch_review_20260909.md).
+Estimator benefit, specific benefit and target tradeoff all FAIL to qualify.
+Removing the component slightly lowers both mean errors; estimator-effect bounds
+span zero. Target disagreement changes the effect size but does not establish a
+usefulness explanation. Seven audit checks pass across all 3584 cached branches.
+The next proposed distinction is actual decisions and survival under model-driven
+feedback, with frozen weights. It has not been launched.
