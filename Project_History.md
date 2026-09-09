@@ -3518,3 +3518,18 @@ Full report: docs/ql1_diagnosis_20260910.md, with a visually verified six-panel 
 Compact audited and diagnostic evidence: zeus_sandbox/universe/reports/ql1_*_20260910.json.
 Post-hoc results do not rescue gates or promote pillars. Recommended next research
 is a new registered basic-feeding acquisition/transfer experiment; none launched.
+
+### QL2 staged-start acquisition comparison prepared (2026-09-10)
+
+User authorized the next run and diagnosis. QL2 isolates engineered initial-position
+exposure: safe patch, adjacent site, then ordinary centre starts, versus ordinary
+starts throughout. Same learner, reward and physics; exactly16384 world steps per
+run, four fresh initializations, two arms and exact twins. Registered transfer uses
+new ordinary-start seeds, untrained/history-erased controls, separate acquisition,
+training-comparison and full-viability gates. No QL1 source or verdict changed.
+
+Independent auditor and five new qualification tests are implemented, including
+end-to-end endpoint/cue replay and training corruption rejection. All new tests pass;
+33 existing checks passed with the initial four new tests before the final replay
+addition. Precompute protocol: docs/ql2_protocol_20260910.md. No scientific result
+exists at this preparation checkpoint. Proceed to frozen sequential campaign.
