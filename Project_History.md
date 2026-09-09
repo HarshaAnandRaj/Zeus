@@ -3382,3 +3382,34 @@ Design stage only: no code implementation, simulation, optimizer update,
 training campaign or scientific test ran in this turn. The existing test pause
 is retained. Next construction target is the versioned lifetime world and its
 public interface, followed separately by calibration and a learning contract.
+
+### Lifetime world v1 built; adaptation calibration FAIL (2026-09-09)
+
+The user authorized construction and basic calibration ("proceed"). World,
+ten mechanics tests, controllers and protocol ecaedb2 were frozen before running.
+The versioned world has seven public sensor values, six physical actions,
+resource recovery, tool wear/repair, masked transient inspection and a hidden
+recovery-rate swap. Events preserve stock/body; snapshots preserve sensor,
+time, schedule and RNG continuation. No legacy neural checkpoint was connected.
+
+All 640 episodes completed: 32 seeds, stable/changing twins, ten fixed controllers,
+1024-tick horizon. Informed, reactive, periodic and reactive-inspection policies
+each survive 32/32 in both conditions. All six constant actions survive 0/32.
+REFERENCE_FEASIBLE PASS and CONSTANT_ACTIONS_FAIL PASS; SURVIVAL_HEADROOM FAIL
+(0/32 versus the required >=7/32). Overall FAIL. The 36-action periodic route
+ignores observations and change timing, demonstrating that this survival ruler
+does not distinguish lifetime adaptation from routine operation. Constants start
+at the workshop; their failure does not rule out stronger simple strategies.
+
+All seven audit checks pass over 281920 transitions: source/artifact identities,
+seeded starts, controller choices, exact replays, independent scalar accounting
+at absolute 1e-12, public sensor/mask/termination checks and complete statistics/
+decisions. Compact evidence committed; raw snapshots/traces remain hashed locally.
+Review: docs/lifetime_calibration_v1_review_20260909.md.
+
+Inspection and acquired-memory utility remain unestablished; no neural forward
+pass, training or pillar promotion. No post-exposure changes to frozen sources
+or automatic second calibration. Next design issue is meaningful recurring
+information-dependent choices rather than an economical route visiting both
+patches irrespective of their recovery swap. This construction/calibration
+request is complete, and agent training remains unlaunched.

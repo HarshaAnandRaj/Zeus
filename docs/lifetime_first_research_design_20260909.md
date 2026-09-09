@@ -218,3 +218,12 @@ evaluation lifetimes.
 This design stage is complete. World construction, numerical calibration and
 the learning campaign are distinct subsequent stages. No new world, model run,
 optimizer update or scientific test was executed in adopting this direction.
+
+## Subsequent construction and first calibration
+
+The user subsequently authorized world construction and basic calibration. The
+[first version is built and calibrated](lifetime_calibration_v1_review_20260909.md).
+Its mechanics and audit pass, but its adaptation calibration FAILS: an unchanging
+periodic route survives all stable and changing worlds, as do the informed and
+reactive controllers. It is retained as a negative calibration and baseline.
+Training has not begun, and no second version was silently tuned or launched.

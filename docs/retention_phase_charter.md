@@ -12,7 +12,10 @@ operation. See [the lifetime design](lifetime_first_research_design_20260909.md)
 This is a new design route, not a successful exit from the closed retention phase
 or a higher-pillar pass. Earlier phase-specific boundaries below are preserved as
 their historical contract. The six-pillar goal and closed verdicts are unchanged;
-training and scientific experiments are currently paused.
+training remains paused. The user subsequently authorized construction and basic
+calibration: [lifetime world v1](lifetime_calibration_v1_review_20260909.md) is
+implemented, but its adaptation calibration FAILS because a fixed route survives
+all tested changing worlds. No learned-agent training or new pillar result follows.
 
 ## Ultimate program goal
 
