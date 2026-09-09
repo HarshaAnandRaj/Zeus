@@ -3445,3 +3445,24 @@ Next bounded work is eight-sensor learner integration with masked prediction
 targets and a frozen development/fixed-weight-evaluation contract. Calibration
 seeds are exposed; private schedules and scripted memory rules cannot become
 learner inputs. The user-authorized revision/calibration is complete.
+
+### QL1 learner integration and frozen pilot contract (2026-09-09)
+
+The user authorized the next bounded integration ("go ahead"). A fresh 32-unit
+recurrent learner now accepts the quality world's eight public sensors. Unavailable
+inspection values are masked as inputs and prediction targets. Legacy five-sensor
+checkpoints cannot be mistaken for QL1. Fixed-weight evaluation disables optimizer
+updates and history replay; continuing information must reside in recurrent state.
+
+The registered pilot uses four fresh initializations with exact twins, 256 development
+lifetimes per twin, and 64 held-out stable/changing world pairs per model. It separates
+learned viability from survival benefit of recurrent history using intact, history-
+erased and untrained controls. Complete valid evidence receives binary PASS/FAIL;
+invalid evidence is preserved separately. No threshold tuning or automatic reruns.
+Contract: docs/ql1_learning_protocol_20260909.md. Explicit prepare/train/evaluate/
+finalize runner implemented; endpoint verdict remains provisional until an independent
+endpoint auditor is added and frozen before evaluation. No campaign has started.
+
+29 synthetic implementation checks pass across the new adapter and existing persistent
+learner. This includes a synthetic optimizer update, not world training. The completed
+v2 calibration and frozen world sources are unchanged. No adaptation or pillar claim.

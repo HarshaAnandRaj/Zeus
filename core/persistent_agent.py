@@ -35,15 +35,17 @@ class AgentOutput(NamedTuple):
 
 
 class PersistentAgent(nn.Module):
+    observation_dim = OBSERVATIONS
+
     def __init__(self, config: AgentConfig = AgentConfig()):
         super().__init__()
         self.config = config
-        self.recurrence = nn.GRUCell(OBSERVATIONS + ACTIONS + 1, config.hidden_size)
+        self.recurrence = nn.GRUCell(self.observation_dim + ACTIONS + 1, config.hidden_size)
         self.actor = nn.Linear(config.hidden_size, ACTIONS)
         self.critic = nn.Linear(config.hidden_size, 1)
         self.transition = nn.Sequential(
             nn.Linear(config.hidden_size + ACTIONS, config.hidden_size),
-            nn.Tanh(), nn.Linear(config.hidden_size, OBSERVATIONS), nn.Sigmoid(),
+            nn.Tanh(), nn.Linear(config.hidden_size, self.observation_dim), nn.Sigmoid(),
         )
         # The supplied update helper increments this checkpointed counter.
         self.register_buffer("revision", torch.zeros((), dtype=torch.long))
@@ -58,8 +60,8 @@ class PersistentAgent(nn.Module):
         batch = state.shape[0] if state.ndim == 2 else 0
         if state.shape != (batch, self.config.hidden_size) or batch == 0:
             raise ValueError("state must be [batch, hidden_size]")
-        if observation.shape != (batch, OBSERVATIONS):
-            raise ValueError("observation must be [batch, 5]")
+        if observation.shape != (batch, self.observation_dim):
+            raise ValueError(f"observation must be [batch, {self.observation_dim}]")
         if previous_action.shape != (batch,) or previous_action.dtype != torch.long:
             raise ValueError("previous_action must be int64 [batch]")
         if starts.shape != (batch,) or starts.dtype != torch.bool:
@@ -86,3 +88,6 @@ class PersistentAgent(nn.Module):
                                       candidates[None].expand(batch, -1, -1)), -1)
         return AgentOutput(hidden, self.actor(hidden), self.critic(hidden).squeeze(-1),
                            self.transition(prediction_input))
+
+    def prediction_loss(self, prediction, target):
+        return F.mse_loss(prediction, target.detach())

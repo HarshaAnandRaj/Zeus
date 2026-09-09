@@ -75,8 +75,8 @@ class PersistentSession:
     def _observation(self, observation):
         ref = self.model.actor.weight
         value = torch.as_tensor(observation, dtype=ref.dtype, device=ref.device)
-        if value.shape != (5,) or not torch.isfinite(value).all():
-            raise ValueError("observation must contain five finite values")
+        if value.shape != (self.model.observation_dim,) or not torch.isfinite(value).all():
+            raise ValueError(f"observation must contain {self.model.observation_dim} finite values")
         if ((value < 0) | (value > 1)).any():
             raise ValueError("observations must lie in [0, 1]")
         return value.detach().clone()

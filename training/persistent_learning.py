@@ -118,7 +118,7 @@ def sequence_loss(model: PersistentAgent, batch: SequenceBatch, settings: LossSe
     if batch.revision != int(model.revision):
         raise ValueError("stale policy segment: collect new experience after an update")
     length = len(batch.observation)
-    if length < 1 or batch.observation.shape != (length, 1, 5):
+    if length < 1 or batch.observation.shape != (length, 1, model.observation_dim):
         raise ValueError("one nonempty unpadded body segment is required")
     for name in ('previous_action', 'starts', 'actions', 'rewards', 'terminated', 'truncated'):
         if getattr(batch, name).shape != (length, 1):
@@ -160,7 +160,7 @@ def sequence_loss(model: PersistentAgent, batch: SequenceBatch, settings: LossSe
     chosen = log_probabilities.gather(-1, batch.actions[..., None]).squeeze(-1)
     actor_loss = -(chosen * advantage).mean()
     value_loss = .5 * (values - targets).square().mean()
-    prediction_loss = F.mse_loss(predictions, batch.next_observation.detach())
+    prediction_loss = model.prediction_loss(predictions, batch.next_observation)
     entropy = -(log_probabilities.exp() * log_probabilities).sum(-1).mean()
     total = (actor_loss + settings.value_weight * value_loss
              + settings.prediction_weight * prediction_loss - settings.entropy_weight * entropy)
