@@ -3533,3 +3533,30 @@ end-to-end endpoint/cue replay and training corruption rejection. All new tests 
 33 existing checks passed with the initial four new tests before the final replay
 addition. Precompute protocol: docs/ql2_protocol_20260910.md. No scientific result
 exists at this preparation checkpoint. Proceed to frozen sequential campaign.
+
+### QL2 audited failure and operating-state diagnosis (2026-09-10)
+
+The user authorized the next run and diagnosis. QL2 was frozen at6485a68 before
+compute: four fresh initializations, staged versus ordinary starts, eight exact twin
+pairs,262144 total development steps (131072 unique). All pairs match. Independent
+audit passes all unique training transitions plus132539 endpoint transitions across
+2048 lifetimes. Acquisition FAIL, curriculum transfer FAIL, full viability FAIL;
+zero full-horizon survivors. No settings, thresholds or frozen sources changed.
+
+The staged starts did increase first-phase energy-increasing harvests976 versus588,
+but ordinary-start transfer mean lifespans69.13 stable/68.24 changing were below the
+ordinary-training control72.32/70.81 (diagnostic intervals do not establish harm).
+Only1/256 staged stable lifetimes survived past256 versus3/256 ordinary. The direct
+safe-minus-bad food cue effect was -0.00441,+0.00063,+0.00317,+0.00430, far below0.10.
+Most harvests/repairs remain misplaced; no staged lifetime reaches a quality change.
+
+Lower-order history/lifespan gains recur against untrained and zero-state controls.
+New read-only probe: fixed mean states fit on even stable seeds approximate intact
+odd-seed action distributions, reducing discrepancy relative to zero state by80-86%.
+This suggests an operating-bias confound in the erasure comparison. It does not prove
+that constant state preserves functional lifespan. No extra world rollouts or weight
+updates were used for this probe. Recommended next experiment: a registered functional
+fixed-mean-state control on fresh seeds, before more training; not launched here.
+
+Full diagnosis and verified plot: docs/ql2_diagnosis_20260910.md. Canonical compact
+artifacts: zeus_sandbox/universe/reports/ql2_*_20260910.json. No pillar promotion.
