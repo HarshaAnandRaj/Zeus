@@ -17,6 +17,13 @@ calibration: [lifetime world v1](lifetime_calibration_v1_review_20260909.md) is
 implemented, but its adaptation calibration FAILS because a fixed route survives
 all tested changing worlds. No learned-agent training or new pillar result follows.
 
+The subsequently authorized [v2 quality-world calibration](lifetime_calibration_v2_review_20260909.md)
+PASSES all six fixed bars. Public scripted map revision survives32/32 changing
+worlds versus0/32 for a frozen map. Current inspection also survives32/32; retained
+quality information reduces inspection burden but accepts contamination exposure.
+This qualifies a candidate learning setting, not learned adaptation or a pillar.
+The next scope is explicit learner integration and its frozen training contract.
+
 ## Ultimate program goal
 
 Build machine consciousness: a functionally self-organized mind on the

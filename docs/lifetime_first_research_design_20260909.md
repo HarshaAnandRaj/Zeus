@@ -227,3 +227,11 @@ Its mechanics and audit pass, but its adaptation calibration FAILS: an unchangin
 periodic route survives all stable and changing worlds, as do the informed and
 reactive controllers. It is retained as a negative calibration and baseline.
 Training has not begun, and no second version was silently tuned or launched.
+
+The user then authorized a separate revision. [V2 now passes its registered
+information/revision calibration](lifetime_calibration_v2_review_20260909.md).
+It changes locally inspectable resource quality while preserving continuous life.
+Updating a supplied quality map survives32/32 changing worlds, versus0/32 with
+its map frozen. Repeated current inspection also survives32/32, so quality-map
+retention is not shown necessary for survival. It reduces paid inspections but
+incurs occasional contamination exposure. Neural learning remains untested.

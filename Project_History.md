@@ -3413,3 +3413,35 @@ or automatic second calibration. Next design issue is meaningful recurring
 information-dependent choices rather than an economical route visiting both
 patches irrespective of their recovery swap. This construction/calibration
 request is complete, and agent training remains unlaunched.
+
+### Lifetime world v2: information/revision calibration PASS (2026-09-09)
+
+The user authorized the recommended revision ("proceed as you recommend").
+World, controller suite, eight mechanics checks and protocol3ae7d96 were frozen
+before calibration. V1 stays unchanged. V2 has equal fast recovery at both
+patches but one locally inspectable usable quality and one contaminated quality.
+Three hidden quality reversals preserve body, resources and controller state.
+Inspection supplies a masked eighth public value, never the future schedule.
+
+All six bars PASS across768 episodes:32 stable/changing pairs and12 scripted
+controllers at1024 ticks. Informed/public-memory/current-inspection survive32/32
+in both conditions. Frozen map survives32/32 stable and0/32 changing; reactive
+sweep31/32 stable and23/32 changing; periodic route and all constants0/32.
+Continuing revision qualifies against a fixed pre-change map. Map retention is
+not necessary for survival against repeated current inspection. Changing-world
+inspection counts139 versus4106 (96.6% fewer) favor retention, while contaminated
+harvests96 versus0 reveal its cost:three exposures per retained-map lifetime.
+All scripts and their contradiction/repair logic are engineered references,
+not learned discoveries. Finite-set bars are not population confidence intervals.
+
+All seven audit checks pass on318583 transitions, including seeded initial states,
+all controller choices, exact replay, independent physical/contamination/event
+balances at1e-12, sensors/masks/termination and complete aggregates/decisions.
+Compact evidence committed; raw traces/snapshots remain hashed locally. Review:
+docs/lifetime_calibration_v2_review_20260909.md.
+
+No neural model, optimization, training, pillar promotion or third calibration.
+Next bounded work is eight-sensor learner integration with masked prediction
+targets and a frozen development/fixed-weight-evaluation contract. Calibration
+seeds are exposed; private schedules and scripted memory rules cannot become
+learner inputs. The user-authorized revision/calibration is complete.

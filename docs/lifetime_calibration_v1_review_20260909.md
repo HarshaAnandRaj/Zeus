@@ -114,3 +114,9 @@ belong to a separately recorded version.
 
 This bounded construction/calibration request is complete. Training remains
 unlaunched. The six-pillar goal and all earlier model verdicts are unchanged.
+
+## Subsequently authorized revision
+
+[V2 passes its separate calibration](lifetime_calibration_v2_review_20260909.md)
+with a locally inspectable, changing quality variable. V1 and its FAIL remain
+unchanged. This is a supplied-controller calibration, not learned adaptation.
