@@ -3325,3 +3325,31 @@ Canonical compact evidence committed; raw scores and hashes remain local.
 No training, world/policy rollout, deployment, survival change or authorship
 promotion. Proposed next discriminant: closed-loop choices and survival under
 the component intervention and matched control, with frozen weights. Not launched.
+
+### New persistent sensorimotor lineage: implementation only (2026-09-09)
+
+The user paused scientific tests, requested a new-lineage design, and approved
+construction. Design proposal 34fafb8 precedes implementation. A new independent
+32-unit GRU receives full five-value observations, previous executed action and
+an explicit start bit. State supplies learned action/value heads and an
+action-conditioned next-observation predictor. The shared representation and
+heads are jointly trainable; neither a frozen quotient nor the CYC6 scripted
+controller supplies its policy. Earlier core, world and frozen experiments are
+unchanged.
+
+Live session state persists across recording cuts and repeated activities.
+Starts, outcomes, true termination and time limits are explicit. Sequence
+learning separates death from bootstrap at a chunk/time limit, rejects stale
+or greedy data, and reaches the shared core from each objective. A checkpointed
+revision blocks action after a weight update until full experienced-history
+replay reconstructs state under the new weights. This replay takes no new world
+action and does not pretend past decisions were made by the updated model.
+
+Eighteen focused synthetic implementation checks pass, including one synthetic
+joint update and a four-step stub collector. No scientific run, real-world
+trajectory evaluation, training campaign or new learned checkpoint was produced.
+No supplied reward, campaign seeds/budget or scientific thresholds were chosen.
+Slower memory, consolidation/inheritance and language remain deferred. All
+functional verdicts and six-pillar claims are unchanged. Build record:
+docs/persistent_lineage_build_20260909.md. Training remains paused pending its
+separate frozen campaign contract and runner.

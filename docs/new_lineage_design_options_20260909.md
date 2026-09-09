@@ -157,3 +157,11 @@ recurrent-state mismatch are substantive implementation issues documented by
 be assumed to reproduce the state of a continuously acting agent after learning.
 These are standard building blocks. Their suitability and any emergent properties
 in this Zeus lineage remain unmeasured.
+
+## Subsequent implementation authorization
+
+The user then approved construction ("let's proceed with this"). The first
+[persistent sensorimotor implementation](persistent_lineage_build_20260909.md)
+is built with focused synthetic implementation checks. Training and scientific
+experiments remain paused. Slower memory, inheritance and expression remain
+separate additions; this does not amend any closed functional verdict.
