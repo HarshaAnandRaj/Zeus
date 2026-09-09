@@ -6,6 +6,14 @@ ratified six-pillar goal remains authoritative; no successful phase handoff
 or higher-pillar reopening is licensed.** See
 `docs/retention_phase_exit_review_20260907.md` for the final audit and decision.
 
+**Active direction, 2026-09-09:** the user approved a fresh lifetime-first research
+design centred on acquiring, revising and using experience during continuous
+operation. See [the lifetime design](lifetime_first_research_design_20260909.md).
+This is a new design route, not a successful exit from the closed retention phase
+or a higher-pillar pass. Earlier phase-specific boundaries below are preserved as
+their historical contract. The six-pillar goal and closed verdicts are unchanged;
+training and scientific experiments are currently paused.
+
 ## Ultimate program goal
 
 Build machine consciousness: a functionally self-organized mind on the

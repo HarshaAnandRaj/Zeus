@@ -131,3 +131,11 @@ about the new mechanism. The next construction dependency for training is a
 frozen campaign contract and runner covering objective, worlds, budgets, raw
 artifacts, checkpoint/resume semantics and functional controls. No campaign was
 launched or performance threshold chosen during this build.
+
+## Subsequent direction decision
+
+The user subsequently approved the [lifetime-first research design](lifetime_first_research_design_20260909.md).
+This build is a candidate baseline. Its five-value input and legacy physical
+action mapping do not define the new environment. Reuse requires an explicit
+versioned interface; fixed-weight evaluation must not call the optimizer or
+reconstruct erased experience through the development-time refresh path.

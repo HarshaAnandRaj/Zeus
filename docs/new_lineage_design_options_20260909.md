@@ -165,3 +165,11 @@ The user then approved construction ("let's proceed with this"). The first
 is built with focused synthetic implementation checks. Training and scientific
 experiments remain paused. Slower memory, inheritance and expression remain
 separate additions; this does not amend any closed functional verdict.
+
+## Direction superseded by the lifetime-first design
+
+After reconsidering the program without sunk-cost obligations, the user approved
+[learning through a continuous lifetime](lifetime_first_research_design_20260909.md)
+as the active direction. This architecture proposal and its implementation remain
+candidate baselines. They do not determine the new world's observations, actions
+or learning problem. The lifetime design comes first; scientific tests stay paused.

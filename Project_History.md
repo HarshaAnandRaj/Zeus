@@ -3353,3 +3353,32 @@ Slower memory, consolidation/inheritance and language remain deferred. All
 functional verdicts and six-pillar claims are unchanged. Build record:
 docs/persistent_lineage_build_20260909.md. Training remains paused pending its
 separate frozen campaign contract and runner.
+
+### Lifetime-first research direction adopted (2026-09-09)
+
+The user asked for a fresh-start recommendation irrespective of sunk costs,
+preferred learning during continuous lifetimes to the accumulated mechanism-first
+route, and authorized making it concrete ("Let's do that then"). The active
+design is docs/lifetime_first_research_design_20260909.md. Prior lineages remain
+evidence and optional baselines; none is an architectural obligation.
+
+The first proposed world has five sites, two replenishing resource patches,
+a workshop, a vulnerable body and a wearable harvesting tool. Time and energy
+make movement, inspection and maintenance consequential. An unannounced change
+alters patch recovery while existing stock, body and agent state persist. A
+precise inspection packet is a paid, transient sensor observation, not a future
+event or correct-action label. Base weights stay fixed during evaluation; live
+state must support any measured adaptation. No cycle or event resets the life.
+
+The design specifies lifetime/reset/censoring boundaries, observation/audit
+separation, tick order, staged changes, calibration requirements and distinct
+discovery/functional ledgers. It does not claim numerical physics are calibrated,
+memory or inspection are necessary, or adaptation establishes all six pillars.
+The goal and prior verdicts are unchanged. The newly built recurrent component
+is explicitly a candidate baseline; its old interface must not constrain the
+new world or silently acquire different action semantics.
+
+Design stage only: no code implementation, simulation, optimizer update,
+training campaign or scientific test ran in this turn. The existing test pause
+is retained. Next construction target is the versioned lifetime world and its
+public interface, followed separately by calibration and a learning contract.
