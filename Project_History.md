@@ -3478,3 +3478,15 @@ are added to the manifest before any campaign data exists. Settings and decision
 rules from the original contract remain unchanged. Audit addendum:
 docs/ql1_audit_addendum_20260909.md. Next action is the registered sequential campaign;
 no learned result exists at this construction checkpoint.
+
+### QL1 ready for held-out evaluation (2026-09-10)
+
+The independent auditor and source closure were frozen at 6b92973. The already
+launched development campaign finished successfully: four initializations, two exact
+twins each, 256 lifetimes per twin. All four logical checkpoint/trace identity pairs
+were verified again, along with all 17 source hashes. No invalid markers. 33
+implementation checks passed before compute. Held-out evaluation remains unopened;
+no scientific pass/fail or learned-capability claim exists yet. The user's latest
+explicit goal stops at readiness, so evaluation has not been launched. Readiness:
+docs/ql1_readiness_20260910.md; compact hash evidence:
+zeus_sandbox/universe/reports/ql1_readiness_20260910.json.
