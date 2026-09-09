@@ -3490,3 +3490,31 @@ no scientific pass/fail or learned-capability claim exists yet. The user's lates
 explicit goal stops at readiness, so evaluation has not been launched. Readiness:
 docs/ql1_readiness_20260910.md; compact hash evidence:
 zeus_sandbox/universe/reports/ql1_readiness_20260910.json.
+
+### QL1 endpoint and diagnostic closure (2026-09-10)
+
+The user authorized the held-out run and broad useful diagnosis after readiness.
+Evaluation finished: all four models, 64 stable/changing seed pairs and three arms,
+1,536 lifetimes / 93,236 transitions. The frozen independent audit passes. Every
+64-case cell has zero survivors: learned viability FAIL, learned history benefit
+FAIL. No registered rule or source changed; no rescue or additional training.
+
+Every changing development/evaluation lifetime died before its first scheduled
+reversal. Of 512 intact endpoint deaths, 499 involve depleted energy. The actor
+remains near-uniform (98.84% of maximum entropy); most harvests occur away from food
+and most repair attempts away from the workshop. Basic action/context competence
+fails before the memory-revision challenge can be exercised.
+
+Preserved lower-order diagnostic findings: changing/intact mean lifespan 66.43 vs
+59.30 with history erased and 58.29 untrained; all model-level mean advantages are
+positive. Same-stream history erasure changes probabilities by mean TV .0531;
+47.05% argmax changes partly reflect near ties. Predictor error improves but barely
+beats aggregate persistence and is much worse on energy/integrity. State motion
+concentrates to effective dimension4.1-5.7, with substantial low-dimensionality
+already present untrained. Hidden-quality decoding is inconsistent. Final-checkpoint
+no-update loss-gradient probes do not establish a historical cause of failure.
+
+Full report: docs/ql1_diagnosis_20260910.md, with a visually verified six-panel plot.
+Compact audited and diagnostic evidence: zeus_sandbox/universe/reports/ql1_*_20260910.json.
+Post-hoc results do not rescue gates or promote pillars. Recommended next research
+is a new registered basic-feeding acquisition/transfer experiment; none launched.
