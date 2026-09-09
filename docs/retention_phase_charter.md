@@ -596,3 +596,25 @@ naturally encoded content, selective retention, viability, autonomy or a pillar.
 No training, world episode, deployment or functional verdict change occurred.
 Review: `docs/obs4_slow_readout_review_20260909.md`. This bounded authorization
 is complete. A natural-history intervention is proposed, not launched.
+
+## 2026-09-09 OBS5 recorded-history intervention closure
+
+The user's "Let's go for it" authorizes the proposed history-component test.
+Protocol and three-test instrument6512d36 preceded compute. All eight models,
+eight recorded preparations, two weight sets and two shared input drivers were
+included:256 combinations and6144 paired branches. Histories are actual supplied
+observations, not evidence of self-selected experience or encoding goals.
+
+The projected null-history route passes in32/64 trained teacher cases and64/64
+constant cases; the selective slow-null reduction criterion passes in10/64 and
+0/64 respectively. All initial-weight cases fail both criteria. Sufficiency in
+edited states and selective reduction of the original effect remain separate.
+Removing all null components increases later prediction separation at both scales
+in46/64 teacher and48/64 constant cases. This is an observed amplification pattern,
+not discarded because it fails the anticipated reduction direction.
+
+All nine audit checks pass, including all histories and all branches independently
+replayed. No training, world episode, deployment, functional verdict revision or
+authorship pillar pass. Review: `docs/obs5_natural_history_review_20260909.md`.
+The bounded authorization is complete. A cancellation-versus-nonlinearity probe
+is a proposed next discriminator, not a launched run.

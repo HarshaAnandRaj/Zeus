@@ -3185,3 +3185,37 @@ training, world episode, deployment, functional verdict revision or pillar claim
 Next proposed discriminant: whether states formed by real preparation histories
 use this route, tested by selective component removal under matched inputs.
 The bounded authorization is complete; no follow-up was launched automatically.
+
+### OBS5: recorded histories and hidden-component effects (2026-09-09)
+
+The user approved the proposed real-history follow-up. Protocol and three-test
+instrument6512d36 preceded compute. States were reconstructed from actual16-input
+preparation histories for both orientations, eight models and trained/initial
+weights. Shared teacher or constant continuations last496 steps. Full and half
+scale original, slow-null removal, matched null shift, all-null removal, only-null
+and erased differences yield256 combinations and6144 branches. Null edits preserve
+immediate logit differences; later changes arise through recurrence.
+
+NULL_HISTORY_ROUTE passes in32/64 trained teacher and64/64 trained constant
+combinations, versus0/128 initial-weight combinations. This is sufficiency of a
+history-derived component in edited states, not necessity in the untouched pair.
+SLOW_NULL_REDUCTION passes only10/64 trained teacher and0/64 trained constant
+cases, versus zero initial cases. Only three cases pass both independent bars.
+The original-state effect is not generally explained by the single local direction.
+
+The unexpected direction is retained: slow-null removal increases final output
+separation at both scales in33/64 teacher and40/64 constant cases. Removing all
+null components increases it in46/64 and48/64. Full-scale median reductions for
+all-null removal are-.6466 and-1.3226. This is compatible with counteracting
+components or nonlinear finite-intervention effects; neither mechanism is isolated.
+More separation is not automatically more useful memory or worse behavior.
+
+All nine audit checks pass, including128 manual history reconstructions, all6144
+manual branch replays, all saved statistics/decisions and16 autograd Jacobians.
+Maximum state error3.45e-15, gap error1.10e-14, Jacobian error2.23e-16; original
+float32 versus reconstructed history difference3.34e-7 within1e-5. Figure visually
+inspected. Canonical compact JSON committed; arrays remain local with hashes.
+Review: docs/obs5_natural_history_review_20260909.md. No training, world episode,
+deployment, functional verdict change or authorship claim. The next proposed
+discriminator separates signed component cancellation from nonlinear editing.
+This bounded authorization is complete with no automatic next run.

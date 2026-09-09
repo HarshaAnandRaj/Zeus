@@ -105,3 +105,10 @@ and meets the declared later-output criterion in 219/256 trained-weight cases,
 versus 0/256 matched initial-weight cases. Eight audit checks pass. The next
 proposed discriminant concerns naturally formed history differences; it has not
 been launched.
+
+The subsequent authorized [OBS5 recorded-history probe](obs5_natural_history_review_20260909.md)
+is also complete. History-derived hidden components can reach later output,
+but one selected slow-null direction explains a selective reduction in only10/128
+trained combinations. Removing hidden components often increases the later
+history effect. Nine audit checks pass; the next proposed question separates
+counteracting components from nonlinear effects of the intervention.

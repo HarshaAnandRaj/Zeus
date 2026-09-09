@@ -133,3 +133,14 @@ their slow/null components. The loss of a later history-dependent output effect
 would connect the artificial marker result to naturally formed state differences.
 Usefulness would still require its own subsequent diagnosis. No such follow-up
 has been launched here.
+
+## Subsequent authorized follow-up: OBS5
+
+The user approved the recorded-history test. [OBS5 is complete](obs5_natural_history_review_20260909.md):
+the projected history-derived null component passes persistence/access in32/64
+trained teacher-input cases and64/64 constant-input cases, versus zero initial-
+weight cases. Selectively removing the single slow-null component meets the
+specific reduction criterion in only10/64 teacher cases and0/64 constant cases.
+Removal often increases later separation instead. All nine audit checks pass.
+This advances the experience-mediated causal-mechanism question without proving
+authorship or usefulness; cancellation versus nonlinear editing is the next lead.
