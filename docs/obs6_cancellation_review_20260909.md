@@ -177,3 +177,13 @@ reduces differences between histories**. That requires comparing edited and
 original predictions against a specified factual target, with matching controls.
 It should not be called useful regulation merely because cancellation exists.
 This investigation is complete; no such functional probe has been launched.
+
+## Subsequent authorized result: OBS7
+
+The factual-accuracy diagnosis is [complete](obs7_factual_accuracy_review_20260909.md).
+Both positive-benefit criteria fail: retaining the actual null-history component
+does not improve the registered late unobserved-cell score. Removal slightly
+reduces mean error by3.35e-6 MSE (about.0845% of original loss); its advantage
+over the equal-size control is not established by the resampling bounds. All
+eight audit checks pass. The cancellation finding remains valid, with factual
+usefulness unqualified on this test.

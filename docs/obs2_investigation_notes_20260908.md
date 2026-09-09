@@ -118,3 +118,9 @@ Local cancellation explains most resolved amplification:68/80 trained cases
 within full-scale tolerance,9 with additional finite-size nonlinear effects,
 and3 finite-scale-only. Eight audit checks pass. The next proposed diagnosis is
 whether this opposition improves factual prediction accuracy; it has not run.
+
+The user authorized that diagnosis. [OBS7 is complete](obs7_factual_accuracy_review_20260909.md):
+both factual-benefit and specific-benefit criteria fail. Keeping the actual null
+component does not improve the fixed late factual score; removal slightly lowers
+mean error. Eight audit checks pass. This does not erase the earlier persistence
+and cancellation observations or establish that memory in general is harmful.

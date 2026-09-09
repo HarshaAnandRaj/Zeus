@@ -641,3 +641,27 @@ audit runtime without changing the experiment or tolerances. Review:
 `docs/obs6_cancellation_review_20260909.md`. No training, world simulation or
 deployment. This bounded authorization is complete; factual prediction benefit
 is a proposed next question, not a launched functional gate.
+
+## 2026-09-09 OBS7 factual-accuracy diagnosis closure
+
+The user authorizes the proposed diagnosis ("Let's go for it"). Protocol and
+three-test instrument72016f8 preceded scoring. All64 trained and64 initial-weight
+teacher combinations were used; synthetic constant-input branches have no factual
+world continuation and were excluded by design. True resources_before fields,
+aligned before action, supply the target. Primary MSE covers the eight currently
+unobserved cells over the final128 updates, full-scale matching-history PLUS side.
+
+FACTUAL_BENEFIT FAIL; SPECIFIC_BENEFIT FAIL. Trained mean removal-minus-original
+loss is-3.35284e-6, descriptive95% two-axis bounds[-8.84938e-6,-2.14636e-7]. Removal
+slightly lowers error, about.0845% of original MSE. Removal-minus-matched-control
+mean is-2.11483e-6, bounds[-6.01652e-6,+6.20627e-7]. No specific beneficial-retention
+claim qualifies; neither does a distinct removal advantage over the control.
+Initial effects are numerically zero. The histories/worlds are reused, and the
+small fixed-set resampling bounds are not a new confirmatory endpoint.
+
+All eight audit checks pass, including all3584 manual branches, raw factual
+target/timing checks and independent bootstrap reconstruction. Review:
+`docs/obs7_factual_accuracy_review_20260909.md`. No training, policy/world rollout,
+deployment, prior survival verdict change or authorship promotion. Earlier causal
+mechanisms remain observations; factual usefulness failed this test. The bounded
+authorization is complete with no automatic next diagnosis.

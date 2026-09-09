@@ -3256,3 +3256,39 @@ simulation, deployment, usefulness certification or authorship pillar claim.
 The next proposed question asks whether opposition improves factual prediction
 accuracy or merely reduces history differences. This bounded investigation ends
 without launching that functional diagnosis.
+
+### OBS7: factual prediction benefit fails to qualify (2026-09-09)
+
+The user approved factual-accuracy diagnosis. Protocol and three-test instrument
+72016f8 preceded scoring. All64 trained and64 initial teacher combinations were
+included, with six old arms and a full-null-norm matched control at two scales
+and both signs:3584 branches. Constant synthetic drivers were excluded because
+they lack a recorded evolving factual target. Raw resources_before fields and
+positions supply independent truth, aligned after neural input and before action.
+
+Primary: full-scale correct-history PLUS side, final128 updates, eight currently
+unobserved cells. Original MSE.003967194; null removal.003963841; matched null shift
+.003965956. Mean benefit(removal-original)=-3.35284e-6 with descriptive95% crossed
+model/world bootstrap bounds[-8.84938e-6,-2.14636e-7]. Retention benefit fails;
+removal's improvement is small(.0845% of original loss). Specificity(removal-control)
+mean=-2.11483e-6, bounds[-6.01652e-6,+6.20627e-7], also fails the positive gate.
+The control interval does not establish a distinct removal advantage. Initial
+late effects are zero. Seven model means and41/64 cases favor removal; the one
+positive model mean is below the1e-6 floor. Half-scale and prior-amplification
+strata are secondary and do not replace the failed primary criterion.
+
+All eight audit checks pass: raw targets/timing, every3584 branch independently
+replayed, all predictions/losses/summaries, control geometry and immediate-output
+invariance, effects/strata, fixed10000 two-axis bootstrap, and source identities.
+Maximum state error3.39e-15, loss error2.64e-16, exact OBS5 checkpoint agreement.
+Figure visually inspected; canonical compact evidence committed and raw targets,
+predictions and states local with hashes. Review:
+docs/obs7_factual_accuracy_review_20260909.md.
+
+This does not invalidate measured persistence/cancellation or show that memory
+generally harms prediction. It fails the proposed factual usefulness of this
+component under the fixed recorded-trajectory test. Learned outputs originally
+target a scripted cache estimator, so target mismatch is a possible future
+diagnostic, not a rescue of this result. No training, policy rollout, deployment,
+survival verdict change or authorship claim. Bounded authorization complete;
+no additional diagnosis launched.
