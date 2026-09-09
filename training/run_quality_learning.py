@@ -27,7 +27,11 @@ OUT = ROOT / 'runs/ql1_20260909'
 SOURCES = ('core/persistent_agent.py', 'core/persistent_session.py', 'core/quality_agent.py',
            'core/lifetime_world.py', 'core/lifetime_world_v2.py', 'training/persistent_learning.py',
            'training/quality_learning_contract.py', 'training/run_quality_learning.py',
-           'training/test_quality_learning.py', 'docs/ql1_learning_protocol_20260909.md')
+           'training/test_quality_learning.py', 'docs/ql1_learning_protocol_20260909.md',
+           'training/audit_quality_learning.py', 'training/test_audit_quality_learning.py',
+           'training/audit_lifetime_calibration.py', 'training/audit_lifetime_calibration_v2.py',
+           'training/calibrate_lifetime_world.py', 'training/calibrate_lifetime_world_v2.py',
+           'docs/ql1_audit_addendum_20260909.md')
 
 
 def sha(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -229,6 +233,8 @@ def finalize(manifest):
 
 
 def main():
+    if sys.flags.optimize:
+        raise RuntimeError('QL1 requires Python assertions enabled')
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('phase', choices=('prepare','train','evaluate','finalize'))
     args = parser.parse_args(); configure(); manifest = prepare()

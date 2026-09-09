@@ -3466,3 +3466,15 @@ endpoint auditor is added and frozen before evaluation. No campaign has started.
 29 synthetic implementation checks pass across the new adapter and existing persistent
 learner. This includes a synthetic optimizer update, not world training. The completed
 v2 calibration and frozen world sources are unchanged. No adaptation or pillar claim.
+
+### QL1 independent auditor ready; campaign authorized (2026-09-09)
+
+The user approved proceeding with the independent auditor and frozen campaign.
+Auditor construction is complete, with exact checkpoint/action/state replay separate
+from the session runner, independent physical/sensor/reward reconstruction, complete
+endpoint checks and independent crossed-bootstrap decisions. 33 implementation checks
+pass, including deliberate corruptions on nonregistered fixtures. Source dependencies
+are added to the manifest before any campaign data exists. Settings and decision
+rules from the original contract remain unchanged. Audit addendum:
+docs/ql1_audit_addendum_20260909.md. Next action is the registered sequential campaign;
+no learned result exists at this construction checkpoint.
