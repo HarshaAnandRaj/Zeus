@@ -179,3 +179,12 @@ nonlinear effects of editing the state, using a fixed amplitude ladder and signe
 output-vector decomposition. That would test whether some hidden history routes
 counteract other routes. Any usefulness or authorship diagnosis remains separate.
 This investigation is complete; that next probe has not been launched.
+
+## Subsequent authorized result: OBS6
+
+The user approved the cancellation test. [OBS6 is complete](obs6_cancellation_review_20260909.md).
+Of80 trained cases meeting its fixed amplification bar,68 are explained by local
+linear cancellation within tolerance,9 combine local cancellation with finite-size
+nonlinear effects, and3 are finite-scale-only under the declared criteria. All
+small-scale comparisons and all eight audit checks pass. Counteracting effects
+are supported; usefulness and authorship remain unproven.

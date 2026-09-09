@@ -3219,3 +3219,40 @@ Review: docs/obs5_natural_history_review_20260909.md. No training, world episode
 deployment, functional verdict change or authorship claim. The next proposed
 discriminator separates signed component cancellation from nonlinear editing.
 This bounded authorization is complete with no automatic next run.
+
+### OBS6: opposing history effects explain removal amplification (2026-09-09)
+
+The user approved the next discriminator. Protocol and three-test instrument
+c9f5935 preceded compute. All256 OBS5 combinations remain, using full/row/null
+history differences at six fixed scales and a midpoint baseline:9472 branches.
+Actual tangent propagation along the full496-step evolving midpoint trajectory
+provides signed local predictions; no frozen-J^496 assumption is used.
+
+Of128 trained cases,80 meet the fixed>=10% resolved amplification criterion.
+Among them,68 match local linear cancellation at full scale within5%,9 combine
+local cancellation with finite-size nonlinear effects, and3 are finite-scale-only.
+Teacher/constant amplified counts are40/40; corresponding linear-explains counts
+36/32, mixed1/8, finite-only3/0. Local cancellation is independently flagged in
+39/64 teacher and48/64 constant cases, including10 without full-scale amplification.
+All256 two-smallest-scale checks pass; all128 initial cases have no resolved
+final amplification or cancellation. Those zero-effect controls do not establish
+absence of earlier cancellation. The remaining48 trained cases are retained.
+
+In amplified trained subsets, median row/null output cosine is-.99994/-.99708
+for teacher/constant drivers; median row/full response ratios4.90/9.68. Trained
+median additivity residuals shrink from.00133/.00170 at full scale to about5.3e-9/
+5.5e-9 at the smallest scale. Additivity itself is structural mathematics; the
+measured opposition and agreement with finite replays are the empirical result.
+
+All eight audit checks pass, including9472 manual branches and16 complete
+forward-mode automatic derivative maps. Maximum state error3.45e-15, response
+error4.88e-12, tangent error1.05e-16; OBS5 checkpoints match exactly. Runtime
+optimization replaced a dense reverse Jacobian with directional forward AD and
+eliminated repeated NPZ decompression inside the audit loop. Both stopped audit
+sources/logs and an execution note are preserved; no experiment/threshold change.
+Figure visually inspected. Canonical compact evidence committed; arrays local
+with hashes. Review: docs/obs6_cancellation_review_20260909.md. No training, world
+simulation, deployment, usefulness certification or authorship pillar claim.
+The next proposed question asks whether opposition improves factual prediction
+accuracy or merely reduces history differences. This bounded investigation ends
+without launching that functional diagnosis.

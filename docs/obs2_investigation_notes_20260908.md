@@ -112,3 +112,9 @@ but one selected slow-null direction explains a selective reduction in only10/12
 trained combinations. Removing hidden components often increases the later
 history effect. Nine audit checks pass; the next proposed question separates
 counteracting components from nonlinear effects of the intervention.
+
+That approved discriminator is now [OBS6, complete](obs6_cancellation_review_20260909.md).
+Local cancellation explains most resolved amplification:68/80 trained cases
+within full-scale tolerance,9 with additional finite-size nonlinear effects,
+and3 finite-scale-only. Eight audit checks pass. The next proposed diagnosis is
+whether this opposition improves factual prediction accuracy; it has not run.

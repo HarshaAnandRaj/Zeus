@@ -618,3 +618,26 @@ replayed. No training, world episode, deployment, functional verdict revision or
 authorship pillar pass. Review: `docs/obs5_natural_history_review_20260909.md`.
 The bounded authorization is complete. A cancellation-versus-nonlinearity probe
 is a proposed next discriminator, not a launched run.
+
+## 2026-09-09 OBS6 cancellation discriminator closure
+
+The user's "Proceed with next" authorizes the proposed amplitude/decomposition
+test. Protocol and three-test instrument c9f5935 preceded compute. All256 OBS5
+combinations were retained: full/row/null history differences, six amplitude
+levels and a midpoint baseline produce9472 branches. Actual time-varying
+midpoint tangent maps are used, rather than a frozen-Jacobian approximation.
+
+Eighty trained cases meet the fixed full-scale amplification bar. Of these,
+68 match a locally cancelling linear prediction at full scale,9 have local
+cancellation plus finite-size nonlinear effects, and3 are finite-scale-only.
+All256 smallest-amplitude comparisons pass. Initial-weight cases have no resolved
+final amplification. Local cancellation itself is not intentional regulation,
+useful forgetting, an authorship pillar or a change in functional verdict.
+
+Eight audit checks pass, including9472 independent manual branches and16 complete
+native forward-mode derivative maps. Two slow audit implementations were stopped
+and preserved; directional derivatives and cached decompressed arrays improved
+audit runtime without changing the experiment or tolerances. Review:
+`docs/obs6_cancellation_review_20260909.md`. No training, world simulation or
+deployment. This bounded authorization is complete; factual prediction benefit
+is a proposed next question, not a launched functional gate.
