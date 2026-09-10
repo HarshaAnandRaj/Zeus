@@ -3576,3 +3576,28 @@ calculated replay. Canonical full CDT claim template filled: finite neural/struc
 coordinates only; no full-system transience, Green bound, projected Markov closure or
 phenomenology claim. Protocol docs/dri1_protocol_20260910.md frozen before preparation
 or endpoint; next action is the registered pilot and diagnosis.
+
+### DRI1 CDT-inspired pilot closed (2026-09-10)
+
+Frozen7e862e5; user requested testing CDT elements. Four fixed QL2 models, six arms,
+32 stable/changing pairs, exact endpoint twins:3072 lifetimes/203474 total steps.
+Independent audit passes101737 unique transitions. Directed drift benefit FAIL;
+full viability FAIL; every arm0 full survivors. No weights or physics trained/changed.
+
+Protected self-repulsion preserves immediate centred logits to3.21e-9 and probabilities
+to1.31e-7 TV, but has no detected survival advantage over intact or protected noise.
+Stable neural historical returns31.12% intact ->0.014% protected repulsion while
+policy-projection returns39.93% ->11.91%. Visible repulsion gives0.151%/0.110%;
+protected noise0%/35.21%. Finite drift-location separation is real, function absent;
+anchored neural returns0 across arms cannot be confused with these historical rates.
+
+Development-fitted fixed mean state gives69.49 stable/66.61 changing mean lifespan,
+close to intact70.20/65.45, while zero state gives57.93/57.19. No evolving-history
+advantage beyond a constant operating state detected; not a formal equivalence claim.
+Earlier zero-state penalties are confounded by removing the usual operating bias.
+Protected noise keeps identical action tapes in200/256 pairs despite fine nonreturns.
+
+Full report: docs/dri1_diagnosis_20260910.md; compact evidence:
+zeus_sandbox/universe/reports/dri1_*_20260910.json. Canonical CDT scope respected:
+no full-system Green/recurrence proof, spectral-dimension, life or pillar claim.
+Specific repulsion recipe closed; no post-exposure sweep or new experiment launched.
