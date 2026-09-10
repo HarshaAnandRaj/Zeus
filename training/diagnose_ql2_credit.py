@@ -119,7 +119,7 @@ def run(trial, arm):
                 if not done:
                     session.refresh_state()
             end = next(events); assert end['kind'] == 'end'
-            assert world.snapshot() == end['episode']['final_world']
+            assert json.loads(json.dumps(world.snapshot())) == end['episode']['final_world']
     assert R.Q.tree_hash(model.state_dict()) == R.Q.tree_hash(payload['final'])
     assert R.Q.tree_hash(optimizer.state_dict()) == R.Q.tree_hash(payload['optimizer'])
     assert torch.equal(generator.get_state(), payload['sampling_rng'])

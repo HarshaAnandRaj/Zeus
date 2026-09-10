@@ -15,3 +15,5 @@ Decompose updates with pre-update revision divisible by 16, across all three tra
 Summarize by initialization, training arm and phase; pooled transition summaries are descriptive and not independent statistical trials. Do not equate a large gradient norm with harmful interference. Require actual update comparisons to support a local interference observation. Report missing categories explicitly. No new functional PASS is available from this diagnostic.
 
 All derived files live under runs/ql2_credit_diagnosis_20260910 and zeus_sandbox/universe/reports/ql2_credit_diagnosis_20260910.json. Partial per-run files may be reused only with unchanged diagnostic source; any code correction after a failure must be recorded before continuing.
+
+Execution correction: the first attempt stopped at the first episode's snapshot assertion before writing any per-run result. Python RNG snapshots use tuples, while saved JSON uses lists. Normalize the live snapshot through JSON before exact comparison; do not weaken numeric or field comparisons. No model, objective, sample schedule or analytical threshold changed.
