@@ -3560,3 +3560,19 @@ fixed-mean-state control on fresh seeds, before more training; not launched here
 
 Full diagnosis and verified plot: docs/ql2_diagnosis_20260910.md. Canonical compact
 artifacts: zeus_sandbox/universe/reports/ql2_*_20260910.json. No pillar promotion.
+
+### DRI1 CDT-inspired intervention prepared (2026-09-10)
+
+User authorized a CDT-based experiment. Canonical theory and evidence ledger reviewed:
+use location of drift relative to a declared projection, not an unsupported spectral
+life threshold. DRI1 protects centred action logits while adding historical repulsion
+in their null space; matched row-space and null-noise controls test placement/direction.
+Intact, fixed-development-mean and zero-state controls retain the QL2 operating-bias
+question. Four frozen QL2 models; no learning or physics change. Fresh32 world pairs,
+six arms, exact endpoint twins. Separate binary drift-benefit and full-viability gates.
+
+Five new instrument checks pass, including exact miniature twins and independently
+calculated replay. Canonical full CDT claim template filled: finite neural/structural
+coordinates only; no full-system transience, Green bound, projected Markov closure or
+phenomenology claim. Protocol docs/dri1_protocol_20260910.md frozen before preparation
+or endpoint; next action is the registered pilot and diagnosis.
