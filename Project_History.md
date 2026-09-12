@@ -3882,3 +3882,30 @@ recurrent-control papers was checked against primary PDFs and recorded as future
 mechanism notes; LMB1 recipe remains unchanged. Protocol: docs/lmb1_protocol_20260913.md;
 mechanism notes: docs/zeus_fulltext_mechanism_notes_20260913.md. Local authoritative
 campaign inputs/checkpoints/logs: runs/lmb1_20260913 and runs/lmb1_training_20260913.log.
+
+### 2026-09-13 — Separate birth-resource reference utility calibration audited PASS
+
+Full-roadmap continuation preserves LMB1's frozen default motor endpoint. Eight
+motor training completions are terminal; endpoint evaluation is running. Separately,
+birth-resource reference calibration froze at d5ffb55 before physical compute.
+Only later-body initial energy/config changes; all original world physics and source
+are unchanged. Four fixed profiles.12/.20/.35/.85,32 shared development ecologies,
+four bodies and five public policies were retained without selection or adjustment.
+
+Carry learns the safe-side fact by actual first-body inspection and survives100%
+later bodies at all profiles. Forget/reinspect survives50% at.12 and100% otherwise;
+public HARVEST probe50% at.12/.20 and100% otherwise; blind routes50% throughout.
+Equal-profile pooled survival gains.125/.25/.50/.50 pass all declared margins and
+paired bounds. Larger-energy negative forgetting contrasts are preserved. At.12
+right-safe forgetting spends seven decisions travelling/inspecting and dies at
+energy.008. This is a public-information cost contrast, not learned retention.
+
+Independent audit PASS:2,560 bodies,504,448 physical public decisions, separate
+reference-policy implementation, original-factory reconstruction, complete trace
+and physical tool metrics, summaries/gates/bootstrap. Four mechanics tests pass,
+including deliberate action corruption. Conditional earned scope is a fresh
+controller-transfer/lineage design after audited LMB1 motor qualification; no
+learned native inheritance, selection, authorship or six-pillar pass is claimed.
+Review: docs/birth_resource_memory_calibration_review_20260913.md. Full manifest/
+public records: runs/birth_resource_memory_calibration_20260913. Result/audit:
+zeus_sandbox/universe/reports/birth_resource_memory_calibration*_20260913.json.

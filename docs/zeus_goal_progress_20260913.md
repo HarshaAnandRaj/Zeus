@@ -23,16 +23,24 @@ LMB1 body-control prerequisite froze at088e3fb. The new fast body recurrence,
 public teacher and independent physical/NumPy feedback auditor are built. The84-test
 relevant mechanics suite passes, including recurrent-gradient and executed-action
 world/state connectivity. Separate teacher calibration survives256/256 bodies with
-minimum27 positive feeds and one repair; matched WAIT survives0/256. Fixed training
-is running; no LMB1 endpoint or functional result has yet been exposed. Poll the
-actual process/PTY and runs/lmb1_training_20260913.log; a timeout is not a restart
-instruction. Source hashes remain frozen through evaluation and audit.
+minimum27 positive feeds and one repair; matched WAIT survives0/256. All eight
+training completions exist and training terminated successfully. Frozen endpoint
+evaluation is running; no finalized LMB1 functional result or audit exists yet.
+Source hashes remain frozen through evaluation and audit.
+
+Separate birth-resource reference calibration froze at d5ffb55 and has audited
+PASS: carrying a publicly acquired fact survives100% at every declared energy,
+versus50% for reinspection at.12 and100% at larger energies. Equal-profile pooled
+gain over forgetting.125, probe.25, blind routes.50. Independent replay checks
+504,448 physical decisions across2,560 bodies. This is a physical setting/ruler,
+not a neural retention result; default motor qualification is still required.
+Review: docs/birth_resource_memory_calibration_review_20260913.md.
 
 ## Requirement-by-requirement status
 
 | Roadmap item | Status | Evidence still needed |
 |---|---|---|
-| 1. Sustained body control/self-maintenance | INCOMPLETE; LMB1 fixed training active | Raw learned256-step operation with feeding and passive/reference/initial controls, followed by longer maintenance evidence where repair matters. |
+| 1. Sustained body control/self-maintenance | INCOMPLETE; LMB1 endpoint running after complete training | Raw learned256-step operation with feeding and passive/reference/initial controls, followed by longer maintenance evidence where repair matters. |
 | 2. Native benefit of inherited memory | INCOMPLETE | Fresh closed-loop native function gain over acute and matched trained forgetting/content controls. Public reinspection remains available. |
 | 3. Self-directed acquisition | INCOMPLETE | Agent-selected information gathering and later causal benefit; engineered inspection/teacher targets do not close it. |
 | 4. Selective keeping/forgetting | INCOMPLETE | Utility-qualified selection under storage limits, consolidation and inheritance, independently useful over matched selection controls. |
