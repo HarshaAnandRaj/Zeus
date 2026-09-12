@@ -3636,3 +3636,30 @@ Reports: docs/credit_split_and_cdt_repairs_20260912.md,
 docs/om1_diagnosis_20260912.md; external repair patch:
 docs/cdt_measurement_repair_20260912.patch. Next earned step is a recurrent
 integration design with interfering experience and matched credit controls.
+
+### 2026-09-12 — OM2 audited Zeus integration failure
+
+OM2 froze a one-slot learned writer/reader upstream of each QL2 curriculum GRU:
+four parents, four credit arms, exact twins, 1,048,576 unique training transitions,
+and 3,072 held-out lifetimes. All 16 twin pairs match. Independent audit replays
+every unique training transition and endpoint and reproduces the frozen verdict.
+Memory utility FAIL, acquisition FAIL, full viability FAIL; zero horizon survivors.
+
+The mechanism persists but does not become selective control. Training supplies
+16,289 inspected-patch write opportunities; the full writer stores good/bad events
+at 51.38%/51.08%, and readers remain near coin flips. Slots exist on 38–71% of live
+endpoint decisions, yet zeroing contents changes logits only 0.006–0.018 mean L2.
+Full-minus all three learned-credit controls is exactly zero at alive256. Present
+gradient probes reach writer, reader, injection, GRU and actor, ruling out the old
+disconnected-backprop defect without proving useful historical signal.
+
+Only 7/256 full changing endpoints reach the first quality reversal. Of 512 deaths,
+466 are energy-only. OM2 also clears memory at every body boundary while the next
+world redraws quality independently, so it does not test useful information passing
+between cycles. Frozen OM2 conditions are retired with no rescue sweep. Recommended
+successor is a lineage-level ecology with a learnable relation shared across body
+cycles, deterministic differentiable consolidation, and reset/shuffled inheritance
+controls before adding adaptive dimension allocation.
+
+Full report: docs/om2_diagnosis_20260912.md. Compact evidence:
+zeus_sandbox/universe/reports/om2*_20260912.json. No pillar promotion.
