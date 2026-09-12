@@ -4028,3 +4028,18 @@ User authorized Elicit as well as Undermind. Elicit API search refused because t
 account plan lacks API access; Undermind full text and primary arXiv corroboration
 of Ngu22 completed. Its privileged state expert/RL remedy does not explain our
 public-only BC failure. Notes: docs/recurrent_imitation_research_notes_20260913.md.
+
+### 2026-09-13 — Exposed public teacher recovery diagnosis completed
+
+Observer/protocol froze atdded403. All512 LMB2 source collection bodies,119,020
+actual public physical steps and all teacher labels replay. At reached alive
+prefixes0,32,...224,3,774 matched physics forks continue fixed public teacher or
+WAIT to original256 horizon. Teacher survives3,759; at32 all103 learner-history
+and14 demonstration cases whose recorded learner later dies are recovered.
+All15 teacher failures are energy-only, initial energy.027244–.14645;13 initially
+move and2 maintain. One teacher failure comes from a recorded learner survivor.
+Known public teacher tool estimates have zero error versus observer physical tool.
+This narrows pervasive teacher incapacity as an explanation, does not prove
+optimal recovery or diagnose recurrent credit/representation/objective failure.
+Dependent checkpoints are not independent trials. No learned endpoint is rescued;
+LMB2 stays VOID, LMB3 frozen unchanged. Review/report: public_teacher_recovery_diagnosis_20260913.
