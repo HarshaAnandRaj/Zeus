@@ -19,9 +19,11 @@ All four parents remain; no best-parent choice. The conditional reference settin
 already has audited PASS, not a learned result. No new optimizer at this checkpoint.
 
 Freeze four energies.12/.20/.35/.85 equally,128 fresh ecologies212113000–212113127
-per profile and balanced inspected sides/qualities. Generate actual original-energy
-24-step public three-body preparation and inherited slow state, then run the real
-fourth body from the separately declared birth-resource factory. Every action executes
+per profile and balanced inspected sides/qualities. Generate actual24-step public
+three-body preparation in the birth-resource factory: body0 original energy, bodies1/2
+at the declared later energy, then the real fourth body at that energy. The source
+records are not reused from.85 worlds. Final contract: docs/lbt1_protocol_20260913.md.
+Every action executes
 raw from the unchanged controller, starting a continuing fresh fast state. Dedicated
 RNG212413000+1000*parent+index, shared across matched profiles. No teacher/world
 snapshot/hidden safe patch enters the actuator. Audits may inspect physical state.
