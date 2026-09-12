@@ -1,6 +1,6 @@
 # Zeus: the problems remaining beyond a usable memory path
 
-Roadmap snapshot, 2026-09-12. Planning only: this list does not launch experiments,
+Roadmap created 2026-09-12; evidence refreshed 2026-09-13. Planning only: this list does not launch experiments,
 change frozen bars, reopen a closed verdict or establish a pillar result. The user
 asked for a durable list so that local repairs do not displace the program goal.
 
@@ -12,18 +12,19 @@ Zeus is the project; CDT and adaptive dimensionality are supporting hypotheses.
 
 ## Where we stand
 
-LCM3 qualifies supervised action use of engineered protected memory after three
-fast-state resets. LCM4-C transfers first-direction action to true native public
-records: all four parents choose correctly in all full-memory examples. Its overall
-compatibility verdict is nevertheless FAIL because parent2/right/bad quality recall
-is 57.8125%, below the frozen 90% cell bar. The immediate proposal is a new native
-quality reader on fixed stores/actors, separately preregistered with fresh data.
+LCM5's fresh native quality reader has an independently audited PASS on fixed
+stores and actors, including delayed recall controls. This resolves the named
+decoder blocker in its declared setup. LCM4-C's original quality-head compatibility
+FAIL remains closed. LMB1 body-control training reached all 384 updates in the
+final twin; endpoint qualification and independent audit remain pending. Training
+completion itself is not a functional result.
 
 Storage identity and supplied inspection are engineered. Current evidence does
 not establish learned write selection, sustained body control, native inherited
 viability benefit, self-directed learning or any of the six complete pillars.
-The original quality reader's quantity-conditioned weakness is a concrete local
-blocker; resolving it would earn motor preparation, not close every memory question.
+Resolving the reader earned motor preparation, not closure of every memory
+question. In particular, an agent may survive after forgetting by inspecting again;
+body-control success alone cannot establish an inheritance benefit.
 
 ## Remaining problems and evidence we would need
 
@@ -33,7 +34,7 @@ and discoveries reveal. Each new experiment still needs its own frozen protocol.
 
 | # | Problem | What would count as progress | Present limit / dependency |
 |---|---|---|---|
-| 1 | Sustained body control and self-maintenance | Learned raw-sampled actions feed, manage wear and maintain viable operation over a declared long horizon, with physical accounting and passive controls. | A first direction is qualified; learned 256-step operation is not. WAIT already survives 64 steps without feeding, so that horizon is insufficient. |
+| 1 | Sustained body control and self-maintenance | Learned raw-sampled actions feed, manage wear and maintain viable operation over a declared long horizon, with physical accounting and passive controls. | LMB1 training is complete; learned 256-step operation awaits endpoint qualification and audit. Longer operation where repair is necessary remains separately owed. |
 | 2 | Functional benefit of inherited memory | Prior experience improves fresh native operation over acute forgetting, opposite content, disabled writes and matched trained forgetting controls. | Forgetting agents may recover equally well through public reinspection. Equal survival is a negative viability contrast; inspection savings cannot silently replace it. |
 | 3 | Acquiring experience through its own actions | The evaluated agent chooses information-gathering actions, experiences their consequences and later benefits from the information it obtained. | Preparation currently supplies inspection. Public supervised teaching can qualify prerequisites but does not demonstrate autonomous acquisition. |
 | 4 | Selective keeping and forgetting | Under limited storage, the agent retains independently useful experience and removes distracting or obsolete material, with matched quantity/recency/random controls. | Current evidence eligibility is fixed by the designer. Protected storage alone is not utility-based selection or the complete generate→select→consolidate→inherit ratchet. |
@@ -74,8 +75,10 @@ closed failures. Each component earns only its explicitly registered follow-up.
   [lifetime-first design](lifetime_first_research_design_20260909.md).
 - Current audited blocker:
   [native compatibility diagnosis](lcm4_native_compatibility_diagnosis_20260912.md).
-- Immediate proposed repair:
-  [native quality-reader draft](lcm5_native_quality_readout_design_draft_20260912.md).
+- Audited reader repair:
+  [LCM5 review](lcm5_review_20260913.md).
+- Body-control qualification contract:
+  [LMB1 protocol](lmb1_protocol_20260913.md).
 - Next native functional checkpoints:
   [integration design](lcm4_native_integration_design_draft_20260912.md).
 - Dated verdicts and implementation history: [Project History](../Project_History.md).
