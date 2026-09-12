@@ -3909,3 +3909,31 @@ learned native inheritance, selection, authorship or six-pillar pass is claimed.
 Review: docs/birth_resource_memory_calibration_review_20260913.md. Full manifest/
 public records: runs/birth_resource_memory_calibration_20260913. Result/audit:
 zeus_sandbox/universe/reports/birth_resource_memory_calibration*_20260913.json.
+
+### 2026-09-13 — LMB1 closed VOID with independently verified functional FAIL
+
+Full fixed training and endpoint terminated; original finalizer failed writing NumPy
+boolean gates to JSON, leaving a preserved partial verdict. Campaign VOID under
+frozen defect rule. No original source/endpoint changes or reporting hotfix issue
+a PASS. Frozen primary/independent calculations agree on functional FAIL: parent0
+inherited85.9375%/empty86.71875%, parent1 empty81.25%, parent2 empty89.0625%, all
+below90%. Other cells91.40625–94.53125% inherited and90.625% parent3 empty. All
+feeding/repair/native/delayed memory and initial-gain gates pass; no partial pillar.
+
+Postmortem observers froze atdf87238/725428f. Original independent auditor unchanged
+replayed4 complete twins,4 fixed store/quality parents,1,536 batch identities,
+480,767 physical actions and322,559 NumPy endpoint decisions, then rejected the
+partial verdict at final-file comparison line202. Observer catches only that expected
+JSON rejection and records diagnostic replay PASS with qualification=false/campaign
+VOID. Probability error1.03713e-5, state9.26108e-6. No optimizer numerical replay claim.
+
+All110 fatal learned runs starve,86 between patches, median44 decisions since
+positive feeding. Fatal histories contain3,132 interior WAITs;3,122 interior policy
+argmax WAITs. Teacher corpus has no interior WAIT/HARVEST labels. This supports a
+learner-state coverage hypothesis, not a proof of absent backpropagation or a license
+for action masking. Fresh proposal: public learner-history data aggregation versus
+equal-budget demonstration control, all4 warm candidates, fresh data/raw gates,
+complete twins and independent replay. No LMB1 continuation or higher-pillar promotion.
+Review: docs/lmb1_review_20260913.md; compact postmortem receipts:
+zeus_sandbox/universe/reports/lmb1_*diagnos*_20260913.json and
+zeus_sandbox/universe/reports/lmb1_diagnostic_replay_20260913.json.

@@ -24,9 +24,15 @@ public teacher and independent physical/NumPy feedback auditor are built. The84-
 relevant mechanics suite passes, including recurrent-gradient and executed-action
 world/state connectivity. Separate teacher calibration survives256/256 bodies with
 minimum27 positive feeds and one repair; matched WAIT survives0/256. All eight
-training completions exist and training terminated successfully. Frozen endpoint
-evaluation is running; no finalized LMB1 functional result or audit exists yet.
-Source hashes remain frozen through evaluation and audit.
+training completions exist and training terminated successfully. Endpoint finished,
+but frozen JSON finalization failed on NumPy booleans: campaign VOID, preserved
+frozen-rule functional judgment FAIL in four survival cells. Unchanged independent
+auditor completed all preceding physical/neural/rule checks before rejecting the
+partial verdict. Postmortem receipt verifies480,767 physics actions and322,559 NumPy
+decisions, with qualification=false. All feeding/repair/memory regressions pass;
+survival81.25–94.53125% is insufficient. All110 fatal runs starve; interior WAIT
+preferences motivate a fresh learner-state correction contrast, not a bypass or retry.
+Review: docs/lmb1_review_20260913.md. Original sources and artifacts stay frozen.
 
 Separate birth-resource reference calibration froze at d5ffb55 and has audited
 PASS: carrying a publicly acquired fact survives100% at every declared energy,
@@ -40,7 +46,7 @@ Review: docs/birth_resource_memory_calibration_review_20260913.md.
 
 | Roadmap item | Status | Evidence still needed |
 |---|---|---|
-| 1. Sustained body control/self-maintenance | INCOMPLETE; LMB1 endpoint running after complete training | Raw learned256-step operation with feeding and passive/reference/initial controls, followed by longer maintenance evidence where repair matters. |
+| 1. Sustained body control/self-maintenance | INCOMPLETE; LMB1 VOID, frozen-rule function FAIL | Fresh correction hypothesis needs raw learned256-step qualification; longer maintenance where repair matters remains owed. |
 | 2. Native benefit of inherited memory | INCOMPLETE | Fresh closed-loop native function gain over acute and matched trained forgetting/content controls. Public reinspection remains available. |
 | 3. Self-directed acquisition | INCOMPLETE | Agent-selected information gathering and later causal benefit; engineered inspection/teacher targets do not close it. |
 | 4. Selective keeping/forgetting | INCOMPLETE | Utility-qualified selection under storage limits, consolidation and inheritance, independently useful over matched selection controls. |

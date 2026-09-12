@@ -15,9 +15,11 @@ Zeus is the project; CDT and adaptive dimensionality are supporting hypotheses.
 LCM5's fresh native quality reader has an independently audited PASS on fixed
 stores and actors, including delayed recall controls. This resolves the named
 decoder blocker in its declared setup. LCM4-C's original quality-head compatibility
-FAIL remains closed. LMB1 body-control training reached all 384 updates in the
-final twin; endpoint qualification and independent audit remain pending. Training
-completion itself is not a functional result.
+FAIL remains closed. LMB1's complete training and endpoint show substantial motor
+learning but miss four90% survival cells; a frozen JSON reporting defect makes
+the campaign VOID. Postmortem independent replay verifies the preserved frozen-rule
+FAIL. All110 fatal learned runs starve, often after waiting between patches. Fresh
+learner-state coverage correction is the next hypothesis; training loss is not proof.
 
 Storage identity and supplied inspection are engineered. Current evidence does
 not establish learned write selection, sustained body control, native inherited
@@ -34,7 +36,7 @@ and discoveries reveal. Each new experiment still needs its own frozen protocol.
 
 | # | Problem | What would count as progress | Present limit / dependency |
 |---|---|---|---|
-| 1 | Sustained body control and self-maintenance | Learned raw-sampled actions feed, manage wear and maintain viable operation over a declared long horizon, with physical accounting and passive controls. | LMB1 training is complete; learned 256-step operation awaits endpoint qualification and audit. Longer operation where repair is necessary remains separately owed. |
+| 1 | Sustained body control and self-maintenance | Learned raw-sampled actions feed, manage wear and maintain viable operation over a declared long horizon, with physical accounting and passive controls. | LMB1 misses four survival cells; a fresh correction experiment is required. Longer operation where repair is necessary remains separately owed. |
 | 2 | Functional benefit of inherited memory | Prior experience improves fresh native operation over acute forgetting, opposite content, disabled writes and matched trained forgetting controls. | Forgetting agents may recover equally well through public reinspection. Equal survival is a negative viability contrast; inspection savings cannot silently replace it. |
 | 3 | Acquiring experience through its own actions | The evaluated agent chooses information-gathering actions, experiences their consequences and later benefits from the information it obtained. | Preparation currently supplies inspection. Public supervised teaching can qualify prerequisites but does not demonstrate autonomous acquisition. |
 | 4 | Selective keeping and forgetting | Under limited storage, the agent retains independently useful experience and removes distracting or obsolete material, with matched quantity/recency/random controls. | Current evidence eligibility is fixed by the designer. Protected storage alone is not utility-based selection or the complete generate→select→consolidate→inherit ratchet. |
