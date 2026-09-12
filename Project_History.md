@@ -3733,3 +3733,54 @@ docs/lcm2_qualification_20260912.png. Draft: docs/lcm3_readout_design_draft_2026
 Compact result, independent audit, diagnostic and readout-probe evidence:
 zeus_sandbox/universe/reports/lcm2*_20260912.json. Full local campaign artifacts:
 runs/lcm2_20260912.
+
+### 2026-09-12 — LCM3 audited reliable memory-to-action readout PASS
+
+LCM3 froze at 0a0145b before compute. All four LCM2 protected encoders are fixed
+parents; fresh action heads train separately on public cue-derived targets.
+Four arms: normalized direct, normalized gated bridge, raw gated bridge and
+matched direct no-write. Parent model identities are hard-coded and every parent,
+normalization buffer and inactive tensor remains unchanged. Sixteen exact twin
+pairs match complete model/optimizer/input/log payloads.
+
+Readout qualification PASS at both 192/384 nuisance transitions and three
+fast-state resets. Direct sampled action accuracy is 98.68%/98.93%, every parent
+97.46–99.61%. Reset gives 47.85%/47.80%; opposite cue 1.17%/1.03%; trained no-write
+50.00%/51.03%. Public quality recall remains 94.92–100%, exact storage passes, and
+opposite content directs action to the donor's direction at 96.09–99.61%.
+All frozen effect means and lower-CI bars pass: full-minus-reset 50.83/51.12
+percentage points, opposite donor 97.51/97.90, trained no-write 48.68/47.90.
+
+The anticipated interface explanation is unsupported. Direct-interface attribution
+FAIL: normalized gated bridge scores 100% and outperforms direct by 1.32/1.07 points.
+Normalization attribution FAIL: raw bridge scores 99.95%; normalized-minus-raw
+mean .05 points, far below its frozen 10-point bar. The original bridge is capable
+under separately trained fixed representations; no root-cause attribution to freezing,
+LR, budget or joint optimization is isolated versus LCM2. Negative LCM2 verdict stays
+closed rather than being relabeled.
+
+Independent inputs verify 6,144 unique-run training batches. NumPy reconstruction
+reproduces all 28,672 held-out sampled decisions, recalls, gates and bootstrap.
+Probability error <= 9.24e-7. The 99 relevant tests pass. This is an engineered
+protected-storage and supervised readout result, not a native viability, learned
+write selection, intrinsic dimension, autonomous feedback or pillar pass.
+
+Earned next scope: native integration design only, with actual-public-cue compatibility,
+learned motor competence and then a freshly registered lineage viability test with
+forgetting/content controls. Current query GRU has no qualified within-body motor
+behavior; no automatic survival launch. Design must include empty-memory cases
+and cannot rescue absent viability by removing inspection after exposure.
+
+Additional development physics calibration shows that WAIT survives all 2,048
+64-step bodies without feeding. It survives none at 128/256, dying at step 70;
+a scripted public-inspection/map reference survives all bodies at every horizon.
+The native motor draft therefore proposes 256-step raw sampled viability with
+audited feeding before a separate retention benefit test. This is a public-only
+reference calibration, not learned-agent performance or a revision of LCM1.
+Receipt: zeus_sandbox/universe/reports/lcm3_native_horizon_calibration_20260912.json.
+
+Diagnosis/figure: docs/lcm3_diagnosis_20260912.md and
+docs/lcm3_qualification_20260912.png. Native design:
+docs/lcm4_native_integration_design_draft_20260912.md. Compact result, audit and
+diagnostic evidence: zeus_sandbox/universe/reports/lcm3*_20260912.json.
+Full local twins, parents, input identities and sampled endpoints: runs/lcm3_20260912.
