@@ -26,15 +26,16 @@ class MemoryQualityAgent(nn.Module):
     def act(self,observation,state,action_rng,memory_rng,*,zero_content=False):
         obs=self.core.canonical_observation(observation)
         eligible=obs[:,4].bool() & ((obs[:,2]==0)|(obs[:,2]==1))
-        before_value=self.core.critic(state['h']).squeeze(-1)
         wf=torch.cat((obs,state['memory'],state['exists'][:,None].float()),-1)
-        write,wl,we=draw(self.writer(wf).squeeze(-1),memory_rng)
+        writer_logits=self.writer(wf).squeeze(-1)
+        write,wl,we=draw(writer_logits,memory_rng)
         write=write.bool() & eligible
         memory=torch.where(write[:,None],obs,state['memory'])
         exists=state['exists']|write
         match=exists & (obs[:,2]==memory[:,2])
         rf=torch.cat((obs,memory,exists[:,None].float(),match[:,None].float()),-1)
-        read,rl,re=draw(self.reader(rf).squeeze(-1),memory_rng)
+        reader_logits=self.reader(rf).squeeze(-1)
+        read,rl,re=draw(reader_logits,memory_rng)
         read=read*exists
         contents=torch.zeros_like(memory) if zero_content else memory
         incoming=state['h']+read[:,None]*self.inject(contents)
@@ -42,13 +43,17 @@ class MemoryQualityAgent(nn.Module):
         probabilities=output.logits.softmax(-1)
         action=torch.multinomial(probabilities,1,generator=action_rng).squeeze(-1)
         logp=output.logits.log_softmax(-1)
-        nxt=dict(h=output.state,memory=memory.detach(),exists=exists,previous=action,
-                 age=torch.where(write,torch.zeros_like(state['age']),state['age']+1))
+        age=torch.where(write,torch.zeros_like(state['age']),
+                        torch.where(exists,state['age']+1,torch.zeros_like(state['age'])))
+        nxt=dict(h=output.state,memory=memory.detach(),exists=exists,previous=action,age=age)
         return action,nxt,dict(actor_logp=logp.gather(-1,action[:,None]).squeeze(-1),
             writer_logp=wl*eligible,reader_logp=rl*exists,
             actor_entropy=-(probabilities*logp).sum(-1),memory_entropy=we*eligible+re*exists,
-            value=before_value,prediction=output.predictions[torch.arange(len(obs)),action],
-            write=write,read=read.bool(),logits=output.logits)
+            value=output.value,prediction=output.predictions[torch.arange(len(obs),device=obs.device),action],
+            eligible=eligible,exists=exists,match=match,age=age,
+            write=write,read=read.bool(),writer_probability=writer_logits.sigmoid(),
+            reader_probability=reader_logits.sigmoid(),
+            logits=output.logits)
 
     @staticmethod
     def reset(state,done):
