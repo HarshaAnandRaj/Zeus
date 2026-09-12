@@ -3693,3 +3693,43 @@ Report: docs/lcm1_development_diagnosis_20260912.md; candidate contract and with
 campaign gates: docs/lcm1_protocol_20260912.md. Compact diagnostic/audit evidence:
 zeus_sandbox/universe/reports/lcm1_development_20260912.json. Local traces/checkpoint
 remain in runs/lcm1_development_v2_20260912.
+
+### 2026-09-12 — LCM2 audited protected-memory qualification failure with retained information
+
+LCM2 froze at 3eb30c2 before compute: fresh 32-fast/8-slow recurrent encoders,
+public-inspection evidence writes, exact identity storage otherwise, and three
+fast-state resets before a delayed six-action query. Synthetic public transitions,
+supervised direction/quality targets, four initializations, protected/every-step/
+no-write arms, and exact twins. This qualifies a storage/action path, not body
+physics, learned write selection, adaptive capacity, survival, authorship or a pillar.
+
+Overall qualification FAIL under unchanged frozen bars. Full stored-quality recall
+passes at 192/384 intervening transitions: every model 94.92–100% correct, with exact
+storage identity. Full sampled direction accuracy is 61.72%/64.40%, below 90% each.
+Reset gives 48.44%/49.02%; opposite donor 37.94%/37.45%. Full-minus-reset effects 13.28/
+15.38 percentage points have positive paired lower 95% bounds 6.74/9.96 points, but
+remain below the 30-point margin; donor/no-write effects likewise miss their margins.
+There is a modest causal action benefit in this assay, not a no-effect result
+and not robust qualification. Survival integration remains unearned.
+
+All 12 twin pairs match complete model/optimizer/input payloads. Independent input
+generation verifies 2,304 unique-run training batches. NumPy GRU/readout reconstructs
+all 24,576 endpoint decisions and reproduces sampled actions, labels, gates and
+bootstrap; probability error <= 5.96e-7. The 92 relevant tests pass.
+
+Read-only diagnostics identify an information/use gap. Separate linear decoders,
+trained/tested on disjoint new development cues, recover quality, side and safe
+direction 100% for all four trained stores without changing experimental weights.
+The current actor has weak confidence and two models misrank one cue combination.
+Argmax/probe scores never replace the frozen sampled-action FAIL. Protected encoding
+participation-ratio dimensions 1.69–2.09 are covariance diagnostics, not natural
+trajectory dimension or emergence evidence. No LCM2 continuation/sweep is proposed.
+
+Next candidate is a separately trained, normalized direct memory-to-action head
+versus the existing normalized gated bridge, using frozen consolidators and fresh
+data. It is a design draft only; no new compute or native-physics integration
+launch follows. Diagnosis/figure: docs/lcm2_diagnosis_20260912.md and
+docs/lcm2_qualification_20260912.png. Draft: docs/lcm3_readout_design_draft_20260912.md.
+Compact result, independent audit, diagnostic and readout-probe evidence:
+zeus_sandbox/universe/reports/lcm2*_20260912.json. Full local campaign artifacts:
+runs/lcm2_20260912.
