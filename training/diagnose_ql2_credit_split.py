@@ -18,7 +18,7 @@ def flat(values, parameters):
 def split(model, optimizer, batch, consequences, categories):
     params = tuple(model.parameters())
     losses = sequence_loss(model, batch, D.K.SETTINGS)
-    actor_g = flat(torch.autograd.grad(losses['actor'], params), params).detach()
+    actor_g = flat(torch.autograd.grad(losses['actor'], params, allow_unused=True), params).detach()
     state = batch.initial_state
     logps = []
     for t in range(len(batch.actions)):

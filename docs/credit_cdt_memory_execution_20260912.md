@@ -8,6 +8,8 @@ Keep the existing diagnostic selection (revision divisible by 16), original eigh
 
 Compare actor-only new-gradient updates with historical AdamW, zeroed first moment but retained second moment/counter, entirely fresh AdamW, and plain clipped SGD without decay. The first-moment intervention is the narrow causal comparison; fresh Adam additionally changes preconditioning and bias correction, and SGD additionally changes optimizer and decay. All are local copies, not training recommendations. Counterfactual probabilities replay the same chunk from its fixed incoming state. Report each model and pooled descriptive counts, no independent-transition confidence claims or survival promotion.
 
+Initial execution stopped before any per-run result: the actor-only derivative query included critic/predictor parameters without allowing their structurally absent gradients. Represent those gradients as zeros, consistent with the existing branch implementation. No sample or learning rule changed.
+
 ## 2. CDT instruments
 
 Preserve the user's existing edits and old outputs. Repair the multivariate phase construction to preserve the complex spectrum's relative phases; test means, cross-spectrum and odd/even endpoints. Reject unknown null names. Treat the phase score as an exploratory contrast and calibrate it on declared stationary controls before any empirical wall claim. Repair the identically-zero capacity probe with an explicit seed-dependent nonzero initial condition; remove claims that it can prove a universal capacity floor. Correct the toy gate-penalty derivative and Adam time counter, verifying relevant gradients before interpreting any earlier numerical prescription.
