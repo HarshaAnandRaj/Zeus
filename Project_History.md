@@ -3784,3 +3784,41 @@ docs/lcm3_qualification_20260912.png. Native design:
 docs/lcm4_native_integration_design_draft_20260912.md. Compact result, audit and
 diagnostic evidence: zeus_sandbox/universe/reports/lcm3*_20260912.json.
 Full local twins, parents, input identities and sampled endpoints: runs/lcm3_20260912.
+
+### 2026-09-12 — LCM4-C native action transfer succeeds; quality-decoder gate FAIL
+
+Native compatibility froze at 731d0a0 before compute, following user authorization
+to proceed from the LCM3 result. All four fixed raw-gated parents, 512 fresh
+development ecologies at both inspected patches, true public step/reward streams,
+three body resets and identical fourth-body query sensors. Engineered preparation
+supplies inspection; no labels, seed or hidden quality relation enters the model.
+
+Qualification FAIL: all 4,096 full-memory sampled directions are correct, but
+parent2/right/bad quality recall is 148/256 (57.8125%), below its frozen 90% cell
+bar. Other fifteen recall cells score 100%. Full-minus-reset direction effect
+49.98 points, CI [49.85,50.10], and full-minus-opposite 99.98, CI [99.85,100], pass.
+Exact slow-state identity and all three fast/transition resets pass. Robust first
+native direction use is demonstrated; complete compatibility and motor compute
+remain unearned. No failure is pooled away, parent removed or threshold changed.
+
+Independent physical replay verifies 49,152 public steps across complete exact
+twins; NumPy reconstructs all 24,576 sampled decisions/recalls, parents, sources,
+gates and bootstrap. Probability error <= 1.19e-7, recall/state <= 1.79e-7. The
+71 relevant tests pass. No motor training or native survival campaign launches.
+
+Read-only diagnostics find all 108 wrong quality labels when coarse quantity is
+0.75 both before/after inspection. The head's good-quality probability is only
+0.49364–0.50314, while the unchanged action route assigns correct-direction
+probability >= 0.99736. Algebraic replacement of both coarse readings with 0.5
+restores this cell's recall; individual energy/integrity/tool/precise/reward anchors
+do not. These exposed-data nonphysical probes localize a fragile composite
+write/read margin, not a sensor repair or a new PASS. Original diagnostic receipt
+is preserved before adding quantity-conditioned groups; qualification never reruns.
+
+Next draft: separately fit a native-public quality reader on the frozen store,
+preserve all action tensors/physics/parents and test joint compatibility on fresh
+data before the 256-step motor stage. No training follows from the design draft.
+Diagnosis: docs/lcm4_native_compatibility_diagnosis_20260912.md. Proposed repair:
+docs/lcm5_native_quality_readout_design_draft_20260912.md. Compact result/audit/
+diagnosis: zeus_sandbox/universe/reports/lcm4_compatibility*_20260912.json.
+Full local public/twin/manifest artifacts: runs/lcm4_compatibility_20260912.
