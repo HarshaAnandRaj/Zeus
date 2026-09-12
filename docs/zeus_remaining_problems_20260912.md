@@ -16,10 +16,20 @@ LCM5's fresh native quality reader has an independently audited PASS on fixed
 stores and actors, including delayed recall controls. This resolves the named
 decoder blocker in its declared setup. LCM4-C's original quality-head compatibility
 FAIL remains closed. LMB1's complete training and endpoint show substantial motor
-learning but miss four90% survival cells; a frozen JSON reporting defect makes
-the campaign VOID. Postmortem independent replay verifies the preserved frozen-rule
-FAIL. All110 fatal learned runs starve, often after waiting between patches. Fresh
-learner-state coverage correction is the next hypothesis; training loss is not proof.
+learning but miss four 90% survival cells; a frozen JSON reporting defect makes
+the campaign VOID. Its postmortem preserves the underlying functional FAIL.
+LMB2's learner-history correction fails, while its demonstration control meets
+the raw functional gates. However, the independent accumulating NumPy replay
+exceeds its frozen probability tolerance, so LMB2 is VOID and neither arm is
+qualified for transfer. A fresh, prospectively validated replay instrument and
+fresh controller qualification are required; the old tolerance cannot be changed
+to rescue the exposed campaign.
+
+An independently audited reference-controller calibration shows that inherited
+information can improve survival in the declared scarce-resource birth family.
+This is evidence that the world can measure the intended contrast, not that the
+neural agent has demonstrated it. LBT1 is prepared but remains unlaunched because
+its audited LMB2 prerequisite was not earned.
 
 Storage identity and supplied inspection are engineered. Current evidence does
 not establish learned write selection, sustained body control, native inherited
@@ -36,7 +46,7 @@ and discoveries reveal. Each new experiment still needs its own frozen protocol.
 
 | # | Problem | What would count as progress | Present limit / dependency |
 |---|---|---|---|
-| 1 | Sustained body control and self-maintenance | Learned raw-sampled actions feed, manage wear and maintain viable operation over a declared long horizon, with physical accounting and passive controls. | LMB1 misses four survival cells; a fresh correction experiment is required. Longer operation where repair is necessary remains separately owed. |
+| 1 | Sustained body control and self-maintenance | Learned raw-sampled actions feed, manage wear and maintain viable operation over a declared long horizon, with physical accounting and passive controls. | LMB2's demonstration control meets raw functional gates but its campaign is VOID after replay rejection. Fresh instrument validation and qualification come first. Longer operation where repair is necessary remains separately owed. |
 | 2 | Functional benefit of inherited memory | Prior experience improves fresh native operation over acute forgetting, opposite content, disabled writes and matched trained forgetting controls. | Forgetting agents may recover equally well through public reinspection. Equal survival is a negative viability contrast; inspection savings cannot silently replace it. |
 | 3 | Acquiring experience through its own actions | The evaluated agent chooses information-gathering actions, experiences their consequences and later benefits from the information it obtained. | Preparation currently supplies inspection. Public supervised teaching can qualify prerequisites but does not demonstrate autonomous acquisition. |
 | 4 | Selective keeping and forgetting | Under limited storage, the agent retains independently useful experience and removes distracting or obsolete material, with matched quantity/recency/random controls. | Current evidence eligibility is fixed by the designer. Protected storage alone is not utility-based selection or the complete generate→select→consolidate→inherit ratchet. |
@@ -75,12 +85,19 @@ closed failures. Each component earns only its explicitly registered follow-up.
 - Ultimate goal: [program charter](retention_phase_charter.md).
 - Current direction and the discovery/function ledgers:
   [lifetime-first design](lifetime_first_research_design_20260909.md).
-- Current audited blocker:
-  [native compatibility diagnosis](lcm4_native_compatibility_diagnosis_20260912.md).
+- Closed native compatibility diagnosis:
+  [LCM4 diagnosis](lcm4_native_compatibility_diagnosis_20260912.md).
 - Audited reader repair:
   [LCM5 review](lcm5_review_20260913.md).
 - Body-control qualification contract:
   [LMB1 protocol](lmb1_protocol_20260913.md).
+- Current body-control campaign and replay rejection:
+  [LMB2 protocol](lmb2_protocol_20260913.md),
+  [rejection diagnosis](../zeus_sandbox/universe/reports/lmb2_replay_rejection_20260913.json).
+- Audited world calibration:
+  [scarce-resource reference review](birth_resource_memory_calibration_review_20260913.md).
+- Conditional, unlaunched transfer:
+  [LBT1 protocol](lbt1_protocol_20260913.md).
 - Next native functional checkpoints:
   [integration design](lcm4_native_integration_design_draft_20260912.md).
 - Dated verdicts and implementation history: [Project History](../Project_History.md).
