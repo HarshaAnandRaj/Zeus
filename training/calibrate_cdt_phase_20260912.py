@@ -27,7 +27,7 @@ def main():
         rs=[r for r in rows if r['control']==name]
         summary[name]=dict(n=len(rs),mean=float(np.mean([r['est'] for r in rs])),
             min=min(r['est'] for r in rs),max=max(r['est'] for r in rs),
-            historical_threshold_hits=sum(r['est']>.4 and r['lo']>0 for r in rs),
+            historical_threshold_hits=int(sum(r['est']>.4 and r['lo']>0 for r in rs)),
             ci_unavailable=sum('unavailable' in r['note'] for r in rs))
     result=dict(grade='Finite null calibration; no universal wall threshold licensed',
                 source_sha=hashlib.sha256((CDT/'gamma_probe.py').read_bytes()).hexdigest(),

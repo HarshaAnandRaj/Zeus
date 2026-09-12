@@ -16,6 +16,12 @@ Preserve the user's existing edits and old outputs. Repair the multivariate phas
 
 Do not run adaptive-dimension or novelty-reward training on Zeus during these repairs. Measure recovery of function before calling a future endogenous gate controller self-rescue.
 
+Calibration execution correction: NumPy produced an int64 threshold-hit count,
+which JSON rejected during export. The incomplete output is preserved under
+`runs/cdt_repair_before_20260912/phase_calibration_incomplete.json`; cast that count
+to Python int and repeat the identical fixed calibration. No threshold, seed or
+trajectory changed.
+
 ## 3. Bounded memory test
 
 After the first two reports, freeze a separate minimal delayed-information experiment. It must distinguish forward retrieval, delayed writer credit and reader credit with exact identities and a delay beyond the current 64-step truncation. A fixed memory capacity and source/event records are prerequisites, not evidence of authorship. Use independently trained initializations, held-out event sequences, stopped or shuffled credit controls, and a strict functional pass/fail. Passing this engineered assay earns only a later integration experiment; it cannot promote Zeus survival or the six pillars.
