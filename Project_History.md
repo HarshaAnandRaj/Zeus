@@ -3993,3 +3993,38 @@ Death-category clarification: all110 fatal cases cross energy threshold;109 ener
 only and one simultaneously integrity. Earlier single-category diagnosis gives
 energy precedence and must not be read as excluding that simultaneous case.
 Original frozen source/data remain unchanged. Full twelve-item goal remains active.
+
+### 2026-09-13 — LMB2 closed VOID; dual replay instrument validated; fresh LMB3 running
+
+LMB2 fitting/evaluation/finalization terminated. Raw frozen-rule demonstration
+PASS, learner-history FAIL in all survival cells; attribution FAIL with pooled
+inherited/empty survival difference -.435546875/-.439453125 and strictly negative
+95% paired intervals. Original auditor terminated on accumulating NumPy probability
+error3.07262e-5 at parent0 demonstration refresh4 case0 decision151, above frozen2e-5.
+Rejection observer6bfcb13 reproduces primary full collection exactly and local
+NumPy step within1.19209e-7. Overall campaign VOID, qualification=false; old sources,
+raw reports and bounds remain unchanged. Review: docs/lmb2_review_20260913.md.
+LBT1 remains unlaunched because its audited LMB2 prerequisite was not earned.
+
+New dual replay instrument/validation froze at5a0de84. Six mechanics tests pass;
+all256 exposed source bodies and32 phases across4 demonstration fit twins pass,
+64,331 decisions,400 eligible writes,213,835 public physical actions. Complete
+shared-PyTorch float32 probabilities/h/z are exact; independent local NumPy
+probability/state maximum5.06639e-7/9.53674e-7. Saved states are assertions only,
+never trajectory inputs or resets. This is explicit shared-engine plus distinct
+local-math/physics coverage, not independent Adam or cross-engine portability.
+No old endpoint is qualified. Receipt and review: dual_body_replay_validation_20260913.
+
+Fresh zero-update LMB3 froze at98824f5 after10 relevant mechanics tests. All4 final
+LMB2 demonstration models are declared unqualified reused candidates; no parent
+selection, fitting or attribution claim. New128 default-world ecologies, raw256
+bodies in inherited/empty modes, original/warm baseline controls, native256 and
+paired512 delayed regressions64/128. Complete whole-arm gates, new dual audit and
+artifact hashes required; evaluation is live, no verdict/audit yet. PASS can earn
+only a fresh known-memory birth-transfer design, never a pillar. Full12-item goal
+remains active and incomplete. Protocol: docs/lmb3_protocol_20260913.md.
+
+User authorized Elicit as well as Undermind. Elicit API search refused because the
+account plan lacks API access; Undermind full text and primary arXiv corroboration
+of Ngu22 completed. Its privileged state expert/RL remedy does not explain our
+public-only BC failure. Notes: docs/recurrent_imitation_research_notes_20260913.md.

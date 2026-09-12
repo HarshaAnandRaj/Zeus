@@ -31,6 +31,12 @@ This is evidence that the world can measure the intended contrast, not that the
 neural agent has demonstrated it. LBT1 is prepared but remains unlaunched because
 its audited LMB2 prerequisite was not earned.
 
+Dual replay instrument validation subsequently PASSes all256 exposed source
+bodies. Fresh zero-update LMB3 is frozen and running on new worlds, with all four
+fixed demonstration candidates and original/warm controls. No fresh qualification
+or transfer verdict is available yet. Its instrument shares hardware operators
+and independently checks local mathematics; it does not prove engine portability.
+
 Storage identity and supplied inspection are engineered. Current evidence does
 not establish learned write selection, sustained body control, native inherited
 viability benefit, self-directed learning or any of the six complete pillars.
@@ -46,7 +52,7 @@ and discoveries reveal. Each new experiment still needs its own frozen protocol.
 
 | # | Problem | What would count as progress | Present limit / dependency |
 |---|---|---|---|
-| 1 | Sustained body control and self-maintenance | Learned raw-sampled actions feed, manage wear and maintain viable operation over a declared long horizon, with physical accounting and passive controls. | LMB2's demonstration control meets raw functional gates but its campaign is VOID after replay rejection. Fresh instrument validation and qualification come first. Longer operation where repair is necessary remains separately owed. |
+| 1 | Sustained body control and self-maintenance | Learned raw-sampled actions feed, manage wear and maintain viable operation over a declared long horizon, with physical accounting and passive controls. | LMB2 stays VOID. Dual replay instrument validation PASS; fresh fixed-candidate LMB3 endpoint is running, audit pending. Longer operation where repair is necessary remains separately owed. |
 | 2 | Functional benefit of inherited memory | Prior experience improves fresh native operation over acute forgetting, opposite content, disabled writes and matched trained forgetting controls. | Forgetting agents may recover equally well through public reinspection. Equal survival is a negative viability contrast; inspection savings cannot silently replace it. |
 | 3 | Acquiring experience through its own actions | The evaluated agent chooses information-gathering actions, experiences their consequences and later benefits from the information it obtained. | Preparation currently supplies inspection. Public supervised teaching can qualify prerequisites but does not demonstrate autonomous acquisition. |
 | 4 | Selective keeping and forgetting | Under limited storage, the agent retains independently useful experience and removes distracting or obsolete material, with matched quantity/recency/random controls. | Current evidence eligibility is fixed by the designer. Protected storage alone is not utility-based selection or the complete generate→select→consolidate→inherit ratchet. |
@@ -94,6 +100,9 @@ closed failures. Each component earns only its explicitly registered follow-up.
 - Current body-control campaign and replay rejection:
   [LMB2 protocol](lmb2_protocol_20260913.md),
   [rejection diagnosis](../zeus_sandbox/universe/reports/lmb2_replay_rejection_20260913.json).
+- Fresh instrument and qualification:
+  [dual replay review](dual_body_replay_validation_review_20260913.md),
+  [LMB3 protocol](lmb3_protocol_20260913.md).
 - Audited world calibration:
   [scarce-resource reference review](birth_resource_memory_calibration_review_20260913.md).
 - Conditional, unlaunched transfer:
