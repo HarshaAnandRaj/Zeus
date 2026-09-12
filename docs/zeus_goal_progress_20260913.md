@@ -44,18 +44,29 @@ Review: docs/birth_resource_memory_calibration_review_20260913.md.
 
 Fresh correction LMB2 froze atf8c0cd5, with24 relevant integration tests passing
 (seven new correction tests). Separate fresh public teacher calibration passes;
-fixed96-update four-parent/two-arm/exact-twin fitting is running. Public labels on
+fixed96-update four-parent/two-arm/exact-twin fitting has terminated successfully.
+All16 completions exist; eight complete model/optimizer/log checkpoint pairs have
+identical logical hashes. Fresh raw endpoint evaluation is running; independent
+collection/snapshot/physics/NumPy/rule audit remains pending. Public labels on
 raw executed learner histories are used only in learner_history; demonstration
 has the same optimizer/collection allocation. Store/quality stay frozen. Motor
 qualification and learner-history attribution are separately frozen judgments;
 no LMB2 functional verdict exists yet. Protocol: docs/lmb2_protocol_20260913.md.
 Conditional next-transfer design: docs/known_memory_birth_transfer_design_draft_20260913.md.
 
+Offline observation probe, sourcee7a3e85:5,319 interior WAIT-argmax records reproduce
+intact distributions within4.18e-7. Keeping the slow map while zeroing fast state
+restores public-teacher instantaneous argmax agreement66.39–99.66% across all
+parent/outcome groups; zeroing only the map0–15.43%. No counterfactual actions execute,
+no survival is rescued and no pillar is inferred. This supports fast-state/position
+mismatch over wholesale map loss. One fatal case crosses both death thresholds;
+the other109 energy only. Notes: docs/native_body_observation_ledger_20260913.md.
+
 ## Requirement-by-requirement status
 
 | Roadmap item | Status | Evidence still needed |
 |---|---|---|
-| 1. Sustained body control/self-maintenance | INCOMPLETE; LMB2 correction/control training active, LMB1 closed VOID/function FAIL | Fresh correction needs raw learned256-step qualification; longer maintenance where repair matters remains owed. |
+| 1. Sustained body control/self-maintenance | INCOMPLETE; LMB2 complete fits/fresh endpoint running, LMB1 closed VOID/function FAIL | Fresh correction needs raw learned256-step qualification; longer maintenance where repair matters remains owed. |
 | 2. Native benefit of inherited memory | INCOMPLETE | Fresh closed-loop native function gain over acute and matched trained forgetting/content controls. Public reinspection remains available. |
 | 3. Self-directed acquisition | INCOMPLETE | Agent-selected information gathering and later causal benefit; engineered inspection/teacher targets do not close it. |
 | 4. Selective keeping/forgetting | INCOMPLETE | Utility-qualified selection under storage limits, consolidation and inheritance, independently useful over matched selection controls. |

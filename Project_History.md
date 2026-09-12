@@ -3968,3 +3968,28 @@ LMB1 and all older closed negatives stay closed. Protocol: docs/lmb2_protocol_20
 Draft next dependency: docs/known_memory_birth_transfer_design_draft_20260913.md.
 Source/role/snapshot/complete public collection records: runs/lmb2_20260913;
 live progress: runs/lmb2_training_20260913.log.
+
+### 2026-09-13 — LMB2 full fitting terminal; offline state mismatch observation
+
+All16 LMB2 fixed fits terminated normally. Eight complete model/optimizer/input/
+log checkpoint pairs have exact logical identity and sources remain verified against
+f8c0cd5. Fresh raw endpoint is live; no motor/attribution verdict or complete audit
+exists yet. A missing training process after terminal exit is not a restart request.
+Endpoint progress: runs/lmb2_evaluation_20260913.log.
+
+Separate offline LMB1 state probe froze ate7a3e85 before extraction. All5,319 learned
+interior records with intact argmax WAIT are included; intact predictions reproduce
+within4.17233e-7. Fixed-reading2x2 zero-fast/zero-slow intervention changes only
+instantaneous output distributions, never executes a replacement action. Keeping
+the map/zeroing fast state gives66.39–99.66% public-teacher argmax agreement across
+all parent/outcome groups, compared with0–15.43% when only map is removed. This
+supports immediate fast-state contribution/state-position mismatch; no recovered
+viability, dynamical attraction, autonomous authorship or reset hack is established.
+Source/notes: training/probe_lmb1_interior_state.py and
+docs/native_body_observation_ledger_20260913.md. Full result:
+zeus_sandbox/universe/reports/lmb1_interior_state_probe_20260913.json.
+
+Death-category clarification: all110 fatal cases cross energy threshold;109 energy
+only and one simultaneously integrity. Earlier single-category diagnosis gives
+energy precedence and must not be read as excluding that simultaneous case.
+Original frozen source/data remain unchanged. Full twelve-item goal remains active.

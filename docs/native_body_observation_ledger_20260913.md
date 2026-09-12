@@ -44,3 +44,35 @@ preference under matched readings. State-zeroing can be off distribution and can
 prove recovered viability, endogenous authorship, attraction or learned utility.
 Any useful new question must receive a fresh protocol; observation class alone
 does not buy a functional transition. Probe: training/probe_lmb1_interior_state.py.
+
+## Offline probe result
+
+Source froze at e7a3e85. All5,319 selected records are included. Batched intact
+predictions reproduce the actual recorded probabilities within4.17233e-7. Intact
+teacher-argmax agreement is0 by this exploratory WAIT selection: the public teacher
+never chooses WAIT at an interior position. The table reports instantaneous argmax
+agreement after each state intervention; rows within trajectories are dependent
+observations, not independent intervention trials or viability tests.
+
+| Parent | Original outcome | Records | h zero, z kept | z zero, h kept | Both zero |
+|---|---|---:|---:|---:|---:|
+| 0 | Fatal | 1,029 | 93.97% | .49% | 43.63% |
+| 0 | Survived | 658 | 90.27% | 1.22% | 56.53% |
+| 1 | Fatal | 731 | 98.22% | 0% | 35.70% |
+| 1 | Survived | 593 | 99.66% | 0% | 63.41% |
+| 2 | Fatal | 714 | 66.39% | 8.82% | 40.48% |
+| 2 | Survived | 416 | 76.68% | 7.45% | 31.97% |
+| 3 | Fatal | 648 | 85.19% | 15.43% | 63.89% |
+| 3 | Survived | 530 | 91.32% | 12.83% | 50.57% |
+
+Under fixed readings/history fields, removing fast state usually changes the
+inappropriate preference more than removing the slow map. Keeping the map also
+generally improves the zero-fast-state answer over removing both. This isolates
+an immediate causal contribution of the existing fast state to the off-route
+preference in these selected records; it supports a state/position mismatch
+hypothesis. It does not establish an attractor, explain every fatal action, prove
+that zeroing state recovers sustained operation, or make routine resets a proposed
+solution. Fast state also carries useful tool/history information; removing it can
+harm appropriate maintenance. LMB2's previously frozen learner-history correction
+remains unchanged. Full distributions and denominators:
+zeus_sandbox/universe/reports/lmb1_interior_state_probe_20260913.json.
