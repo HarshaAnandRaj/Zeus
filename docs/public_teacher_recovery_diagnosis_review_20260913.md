@@ -22,8 +22,8 @@ threshold, with initial fork energy .027244–.14645; none is integrity-only or 
 The teacher's first action is movement in13 failures and MAINTAIN in2. It can
 prioritize repair/travel when energy is too low, but this test does not establish
 which states are impossible to recover under every admissible policy. One failed
-teacher fork is from a recorded learner survivor (learner-history,parent1,224-step
-group); teacher superiority or optimality is not universal. Known tool estimates
+teacher fork is from a recorded learner survivor (learner-history,parent0,phase3,
+case1,prefix224); teacher superiority or optimality is not universal. Known tool estimates
 match actual physical tool exactly at every recorded fork; no hidden-tool drift
 is detected in this finite source family. Unknown estimates remain unknown.
 
