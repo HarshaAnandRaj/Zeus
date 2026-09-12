@@ -3663,3 +3663,33 @@ controls before adding adaptive dimension allocation.
 
 Full report: docs/om2_diagnosis_20260912.md. Compact evidence:
 zeus_sandbox/universe/reports/om2*_20260912.json. No pillar promotion.
+
+### 2026-09-12 — LCM1 cross-body consolidation fails development qualification
+
+Built a fresh 32-fast/8-slow recurrent agent and four-body lineage ecology with a
+balanced safe-patch relation held across independently seeded body resets. Only
+slow state crosses boundaries; previous reward/action and fast state reset. Total
+lineage return and recurrent graph cross body boundaries, with public predictive
+and quality-reconstruction auxiliary objectives. Literature mapping in Undermind
+supports trial-level state and predictive memory, without establishing Zeus claims.
+
+Corrected one-initialization development pilot: 64 updates, 105,906 active training
+transitions. Full alive64 counts across bodies are 8,9,10,13/64; boundary reset and
+opposite-ecology shuffle reproduce the exact sampled trajectories. Zero input gives
+8,10,10,13. Acquisition requirement48/64 fails; no development inheritance effect
+detected. No four-model held-out campaign, exact development twins, or pillar promotion.
+Campaign CLI is blocked. The first partial development attempt remains preserved
+after discovery of a critic-target detachment defect, without a verdict.
+
+Separate physical replay audits every active training transition; independent endpoint
+loop reproduces all256 lineages/1,024 bodies. Public reconstruction remains near chance
+(.6918→.6946). Controlled cue differences contract from state distance .2738 to .005235
+after8 routine transitions and float32-zero after64. Actor gradients reach slow weights
+and reinstatement; tensor persistence does not supply protected information storage.
+83 relevant tests pass. Next priority is a protected identity-path store qualified on
+delayed public-cue recall and content-sensitive control before another survival campaign.
+
+Report: docs/lcm1_development_diagnosis_20260912.md; candidate contract and withheld
+campaign gates: docs/lcm1_protocol_20260912.md. Compact diagnostic/audit evidence:
+zeus_sandbox/universe/reports/lcm1_development_20260912.json. Local traces/checkpoint
+remain in runs/lcm1_development_v2_20260912.
