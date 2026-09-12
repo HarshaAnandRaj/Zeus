@@ -1,0 +1,140 @@
+{
+  "grade": "Deterministic implementation counterexamples, not a Zeus endpoint",
+  "sources": {
+    "gamma_probe.py": "fc447420aed67078c5f702cd76a6e5930bc02f995dc8faa113181245f917f69c",
+    "scale_capacity.py": "2ffe34e92c75d99beff79337c6f12f18828496da7460d3514b6da6e9d7614ec2",
+    "alive_reward_demo.py": "0bffd745b4a094c24657f568767d74189350b30c3616a419c864c1f5601d6c17",
+    "zeus_adaptive_dim.py": "1460ae6158dfbc84abffd459030155f396bd71ed1339c525e390dc9f36b582bc",
+    "configuration_drift_theory.md": "2d53e799b48d4470f4c09842b4b7ed6bcb5d4ba3805a3e230d0751cc637eee7a",
+    "configuration_drift_theorem.md": "ba2f4cccfaa3156977344deebc514a2000c4ba3928784b4d4fb681b0bb49946c"
+  },
+  "phase_control": [
+    {
+      "n": 255,
+      "measures": {
+        "original": {
+          "correlation": 1.2190684191962501e-17,
+          "centered_rank": 2,
+          "mean": [
+            -2.0,
+            2.9999999999999982
+          ],
+          "max_power_error": 0.0,
+          "max_cross_spectrum_error": 0.0
+        },
+        "current_control": {
+          "correlation": 0.9999999999999997,
+          "centered_rank": 1,
+          "mean": [
+            2.0000000000000013,
+            3.0000000000000018
+          ],
+          "max_power_error": 7.275957614183426e-12,
+          "max_cross_spectrum_error": 780300.0
+        },
+        "corrected_comparison": {
+          "correlation": 5.398731570726246e-17,
+          "centered_rank": 2,
+          "mean": [
+            -1.9999999999999984,
+            3.0000000000000018
+          ],
+          "max_power_error": 2.1827872842550278e-11,
+          "max_cross_spectrum_error": 1.6371237731498755e-11
+        }
+      }
+    },
+    {
+      "n": 256,
+      "measures": {
+        "original": {
+          "correlation": 4.120560748651483e-17,
+          "centered_rank": 2,
+          "mean": [
+            -2.0000000000000013,
+            3.0000000000000013
+          ],
+          "max_power_error": 0.0,
+          "max_cross_spectrum_error": 0.0
+        },
+        "current_control": {
+          "correlation": 1.0,
+          "centered_rank": 1,
+          "mean": [
+            2.0,
+            3.000000000000001
+          ],
+          "max_power_error": 4.094498104854554e-28,
+          "max_cross_spectrum_error": 786432.0
+        },
+        "corrected_comparison": {
+          "correlation": 1.1336071321327621e-17,
+          "centered_rank": 2,
+          "mean": [
+            -2.000000000000001,
+            3.0000000000000004
+          ],
+          "max_power_error": 3.68148583871247e-28,
+          "max_cross_spectrum_error": 3.7111558579067175e-12
+        }
+      }
+    }
+  ],
+  "capacity_probe": [
+    {
+      "hidden": 4,
+      "radius": 0.4,
+      "score": 0.0033333333333333335
+    },
+    {
+      "hidden": 4,
+      "radius": 1.5,
+      "score": 0.0033333333333333335
+    },
+    {
+      "hidden": 8,
+      "radius": 0.4,
+      "score": 0.0033333333333333335
+    },
+    {
+      "hidden": 8,
+      "radius": 1.5,
+      "score": 0.0033333333333333335
+    },
+    {
+      "hidden": 16,
+      "radius": 0.4,
+      "score": 0.0033333333333333335
+    },
+    {
+      "hidden": 16,
+      "radius": 1.5,
+      "score": 0.0033333333333333335
+    },
+    {
+      "hidden": 32,
+      "radius": 0.4,
+      "score": 0.0033333333333333335
+    },
+    {
+      "hidden": 32,
+      "radius": 1.5,
+      "score": 0.0033333333333333335
+    },
+    {
+      "hidden": 64,
+      "radius": 0.4,
+      "score": 0.0033333333333333335
+    },
+    {
+      "hidden": 64,
+      "radius": 1.5,
+      "score": 0.0033333333333333335
+    }
+  ],
+  "phase_cross_spectrum_claim": "FAIL",
+  "capacity_floor_identifiability": "FAIL",
+  "corrected_comparison_invariants": "PASS",
+  "external_files_modified": false,
+  "limitation": "Does not recompute Zeus gamma scores or validate a replacement null calibration."
+}
