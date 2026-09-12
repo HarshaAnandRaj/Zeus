@@ -3822,3 +3822,35 @@ Diagnosis: docs/lcm4_native_compatibility_diagnosis_20260912.md. Proposed repair
 docs/lcm5_native_quality_readout_design_draft_20260912.md. Compact result/audit/
 diagnosis: zeus_sandbox/universe/reports/lcm4_compatibility*_20260912.json.
 Full local public/twin/manifest artifacts: runs/lcm4_compatibility_20260912.
+
+### 2026-09-13 — LCM5 native public-quality reader repair audited PASS
+
+User authorized the full-roadmap goal. LCM5 froze at 0dd09cd before compute:
+all four raw-gated LCM3 parents fixed, fresh linear two-output quality readers,
+native public training corpus and disjoint native/delayed synthetic qualification,
+matched no-write readers, original/initial references and complete optimizer twins.
+Original action/consolidator/gate/GRU/projection/normalization tensors are unchanged.
+
+Joint qualification PASS. All native new-reader quality cells and both pre-inspection
+quantity bins score100%, with >=91 examples per bin. Native sampled action cells
+99.609375–100%; donor action-follow100%. Delayed synthetic cells recall100%, action
+99.159664–100%, donor-follow99.259259–100%. Quality full-minus-reset/no-write50 points
+and opposite100 points pass their frozen margins and paired bounds. The original
+parent2/right/bad head remains62.109375% on fresh data; LCM4-C FAIL is not relabeled.
+
+Independent audit PASS: eight complete model/optimizer/input/log twin pairs,
+four unchanged parents,49,152 physical public steps,3,072 NumPy reader BCE/gradient/
+Adam batches and24,576 native/synthetic sampled decisions. Training parameter error
+<=1.43e-6, loss<=1.79e-7, endpoint<=2.39e-7. Six new reader tests pass; the prior
+relevant instrument suite passed71 tests. No native viability or pillar is claimed.
+
+Earned next action: body-control construction and separately frozen256-step raw
+motor qualification with missing-memory acquisition, public teaching provenance,
+feeding/passive controls and explicit recurrent credit. Full twelve-item roadmap
+remains active, recorded in docs/zeus_goal_progress_20260913.md. Undermind's existing
+cross-cycle search and targeted motor/write search were inspected; candidates remain
+abstract-level until full-text analysis. No attractive geometry replaces function.
+
+Review: docs/lcm5_review_20260913.md; report/audit:
+zeus_sandbox/universe/reports/lcm5*_20260913.json. Complete local identities,
+training public streams, checkpoints and regression: runs/lcm5_20260913.
