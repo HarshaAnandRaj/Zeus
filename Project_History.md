@@ -3854,3 +3854,31 @@ abstract-level until full-text analysis. No attractive geometry replaces functio
 Review: docs/lcm5_review_20260913.md; report/audit:
 zeus_sandbox/universe/reports/lcm5*_20260913.json. Complete local identities,
 training public streams, checkpoints and regression: runs/lcm5_20260913.
+
+### 2026-09-13 — LMB1 real-body recurrent motor prerequisite frozen and training
+
+Following audited LCM5 PASS and the active full-roadmap authorization, LMB1 froze
+at088e3fb. All four LCM5 parents warm-start explicit continuing fast body recurrence;
+store/quality reader remain unchanged. Public teacher chooses physical actions from
+remembered public inspections, energy/integrity and estimated tool wear; no seed,
+hidden quality or privileged planner enters targets. Fixed weighted body imitation
+and cue-regression losses train fast GRU/projection/gate/actor through32-step BPTT.
+
+The84-test relevant suite passes, including fast recurrent gradient, weight movement,
+exact small optimizer twins, public-only teacher and actual action/world/state
+connectivity. Before fitting, independent-role calibration teacher survives all256
+bodies through256 steps, minimum27 feeding events and one workshop repair; WAIT
+survives none. This earns the named fixed motor workload, not learned viability.
+
+Training launched under384-update/batch8 frozen budget with complete sequential
+twins. No endpoint is exposed yet. The registered fresh raw endpoint requires every
+parent to achieve>=90%256-step survival in inherited/empty conditions, real feeding/
+repair bars, initial-policy gain and preserved native/delayed cue/content controls.
+Independent auditor must reconstruct actual public physics, sampling, slow writes,
+fast state, metrics and confidence bounds. No teacher acts at the learned endpoint.
+
+Full roadmap stays active. Full-text Undermind reading of memory-write action and
+recurrent-control papers was checked against primary PDFs and recorded as future
+mechanism notes; LMB1 recipe remains unchanged. Protocol: docs/lmb1_protocol_20260913.md;
+mechanism notes: docs/zeus_fulltext_mechanism_notes_20260913.md. Local authoritative
+campaign inputs/checkpoints/logs: runs/lmb1_20260913 and runs/lmb1_training_20260913.log.

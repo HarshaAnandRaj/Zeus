@@ -19,11 +19,20 @@ Previous goal turn classification: progress. New source/contract/tests were comm
 before fitting; complete twins ran; new native/delayed endpoints and independent
 physics/NumPy training/inference audits changed the next action to body control.
 
+LMB1 body-control prerequisite froze at088e3fb. The new fast body recurrence,
+public teacher and independent physical/NumPy feedback auditor are built. The84-test
+relevant mechanics suite passes, including recurrent-gradient and executed-action
+world/state connectivity. Separate teacher calibration survives256/256 bodies with
+minimum27 positive feeds and one repair; matched WAIT survives0/256. Fixed training
+is running; no LMB1 endpoint or functional result has yet been exposed. Poll the
+actual process/PTY and runs/lmb1_training_20260913.log; a timeout is not a restart
+instruction. Source hashes remain frozen through evaluation and audit.
+
 ## Requirement-by-requirement status
 
 | Roadmap item | Status | Evidence still needed |
 |---|---|---|
-| 1. Sustained body control/self-maintenance | INCOMPLETE; next active build | Raw learned256-step operation with feeding and passive/reference/initial controls, followed by longer maintenance evidence where repair matters. |
+| 1. Sustained body control/self-maintenance | INCOMPLETE; LMB1 fixed training active | Raw learned256-step operation with feeding and passive/reference/initial controls, followed by longer maintenance evidence where repair matters. |
 | 2. Native benefit of inherited memory | INCOMPLETE | Fresh closed-loop native function gain over acute and matched trained forgetting/content controls. Public reinspection remains available. |
 | 3. Self-directed acquisition | INCOMPLETE | Agent-selected information gathering and later causal benefit; engineered inspection/teacher targets do not close it. |
 | 4. Selective keeping/forgetting | INCOMPLETE | Utility-qualified selection under storage limits, consolidation and inheritance, independently useful over matched selection controls. |
