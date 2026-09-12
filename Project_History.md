@@ -3937,3 +3937,34 @@ complete twins and independent replay. No LMB1 continuation or higher-pillar pro
 Review: docs/lmb1_review_20260913.md; compact postmortem receipts:
 zeus_sandbox/universe/reports/lmb1_*diagnos*_20260913.json and
 zeus_sandbox/universe/reports/lmb1_diagnostic_replay_20260913.json.
+
+### 2026-09-13 — Fresh LMB2 learner-history motor correction/control frozen and running
+
+Based on the independently replayed LMB1 functional negative and full-roadmap
+authorization, LMB2 froze atf8c0cd5. All4 LMB1 candidates start2 arms identically;
+96 new Adam update slots, old motor-only modules/weights/cue objective,32-step
+continuing BPTT and frozen store/quality. Every12 updates both arms collect8 real
+raw bodies and query public teacher labels without replacing the chosen actions.
+Learner_history fits aggregated actual histories; demonstration fits fixed public
+demonstrations with equal optimizer/collection allocation. Deaths are preserved;
+inactive padding cannot contribute to loss. Actual live data counts are reported.
+
+24 relevant integration tests PASS, including7 new tests for original NumPy-gate
+JSON roundtrip, prevalidation/no-file rejection, exclusive writes, public-label
+and independent sampled/physics/state replay, changed-label rejection, padding
+exclusion, all motor gradients, frozen writer/reader, complete tiny optimizer/
+collection twins and independent frozen-rule failure agreement. Older donor-swapping
+helper's four-row assumption was caught before freeze; new independent storage-only
+replay handles ordinary history batches. Fresh public teacher calibration passes.
+Fixed training is live; no learned endpoint or higher-pillar result is exposed.
+
+Motor qualification and data-source attribution are separate judgments. All4
+parents in an arm must clear original native/delayed/raw256-step motor gates;
+preregistered priority uses learner_history if wholly qualified, otherwise wholly
+qualified demonstration, otherwise none. No cherry-picked parent, budget continuation
+or CE selection. Audited motor PASS earns only fresh known-memory birth actuation
+transfer, then a separately frozen native own-experience inheritance question.
+LMB1 and all older closed negatives stay closed. Protocol: docs/lmb2_protocol_20260913.md.
+Draft next dependency: docs/known_memory_birth_transfer_design_draft_20260913.md.
+Source/role/snapshot/complete public collection records: runs/lmb2_20260913;
+live progress: runs/lmb2_training_20260913.log.
