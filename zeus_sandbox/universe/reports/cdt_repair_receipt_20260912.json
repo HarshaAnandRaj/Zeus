@@ -1,0 +1,37 @@
+{
+  "external_directory": "C:\\Users\\Anand\\Desktop\\Projects\\Configuration Drift Hypothesis",
+  "files": {
+    "gamma_probe.py": {
+      "before": "fc447420aed67078c5f702cd76a6e5930bc02f995dc8faa113181245f917f69c",
+      "after": "9c6eab798d4a8c17e3e01e9ccc2199474c7c09b67da5999e7f9e2497c2c18cfe"
+    },
+    "scale_capacity.py": {
+      "before": "2ffe34e92c75d99beff79337c6f12f18828496da7460d3514b6da6e9d7614ec2",
+      "after": "57cda09ec08209e7b80e96abb2a0da49980da7449df1a3158bc3b38afb546a62"
+    },
+    "alive_reward_demo.py": {
+      "before": "0bffd745b4a094c24657f568767d74189350b30c3616a419c864c1f5601d6c17",
+      "after": "8fdffc879828e95ed35a63daf0587c640fbe86db284b4f225487d3e233ea3c23"
+    },
+    "configuration_drift_theory.md": {
+      "before": "2d53e799b48d4470f4c09842b4b7ed6bcb5d4ba3805a3e230d0751cc637eee7a",
+      "after": "3044512363760459b615171fdcd43a6e7802d2133d43f278f2332d92661f2c4e"
+    },
+    "zeus_probe_cdt.py": {
+      "before": "b77a88d195f4ef29f65faa0bed6f8864ada1987cb28b0dd7df3ac91fd8c0dfc4",
+      "after": "aefd5efc1f5bf7f4b1f603cf24b548fc73628b782c19090fe9333407df0c953c"
+    },
+    "zeus_adaptive_dim.py": {
+      "before": "1460ae6158dfbc84abffd459030155f396bd71ed1339c525e390dc9f36b582bc",
+      "after": "53da996c7c88162d8869335aecbb5f9ffac7a3e57eb58adcf76f76937fffd413"
+    },
+    "measurement_repair_20260912.md": {
+      "after": "a451605a8c97a45f9cc593c96256b370c15ff04d60b0d23231f17952e92c21fd"
+    },
+    "test_measurement_repair_20260912.py": {
+      "after": "132796f7457eb14635c1b2672f858dd84c1492a12178046975c6936206d471ff"
+    }
+  },
+  "preexisting_user_edits_preserved": true,
+  "old_result_files_untouched": true
+}

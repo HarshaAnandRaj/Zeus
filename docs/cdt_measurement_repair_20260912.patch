@@ -1,0 +1,296 @@
+--- before/gamma_probe.py
++++ after/gamma_probe.py
+@@ -4,6 +4,12 @@
+ threshold is not transferable without recalibration. Step shuffling changes more
+ than memory in many processes. See configuration_drift_theorem.md, Sections 5,
+ 8, and 12, before using this exploratory diagnostic.
++
++2026-09-12: phase-v2 preserves the original relative Fourier phases. Earlier
++phase-null Zeus scores used a defective multivariate surrogate and are archived,
++not validated wall verdicts. Historical interpretation text below is superseded
++by this notice; neither null licenses an alive/dead classification. The segment
++interval is exploratory and its coverage has not been established.
+ 
+ Replaces raw mp-floor checks (e.g. "mp > 0.125"), which are trivially passed in
+ high-dimensional raw spaces where any two points are far apart. This operator is
+@@ -103,12 +109,12 @@
+     return _distant_rate(Y, eps, tau)
+ 
+ 
+-def _phase_surr_rate(Y, eps, tau, rng):
+-    """Phase-randomized surrogate: same power spectrum/autocorrelation in every
+-    coordinate (same random phases across dims preserves cross-correlations),
+-    but exact temporal revisits destroyed. The right null for STABILIZED or
+-    confined trajectories, where step-shuffling breaks the stabilizing
+-    correlations and makes healthy mean-reversion look like lock-in."""
++def phase_surrogate(Y, rng):
++    """Preserve means and the complete multivariate circular cross-spectrum.
++
++    Common phase *increments* retain original relative phases. This does not
++    guarantee removal of periodic returns, stationarity or a calibrated null.
++    """
+     n, d = Y.shape
+     F = np.fft.rfft(Y, axis=0)
+     nf = F.shape[0]
+@@ -116,12 +122,17 @@
+     ph[0] = 0.0
+     if n % 2 == 0:
+         ph[-1] = 0.0  # Nyquist stays real
+-    Ys = np.fft.irfft(np.abs(F) * np.exp(1j * ph)[:, None], n=n, axis=0)
+-    return _distant_rate(Ys, eps, tau)
+-
+-
+-def gamma_hat(X, tau=8, q_eps=0.01, q_R=0.10, M=1000, K=15, B=25,
+-              nblocks=10, seed=0, null="steps"):
++    return np.fft.irfft(F * np.exp(1j * ph)[:, None], n=n, axis=0)
++
++
++def _phase_surr_rate(Y, eps, tau, rng):
++    return _distant_rate(phase_surrogate(Y, rng), eps, tau)
++
++
++def gamma_hat(X, tau=8, q_eps=0.01, q_R=0.10, M=1000, K=15, B=25,
++              nblocks=10, seed=0, null="steps"):
++    if null not in ('steps', 'phase'):
++        raise ValueError('null must be steps or phase')
+     rng = np.random.default_rng(seed)
+     X = np.asarray(X, dtype=float)
+     N = len(X)
+@@ -166,11 +177,13 @@
+     if len(segs) >= 5:
+         se = float(np.std(segs, ddof=1) / np.sqrt(len(segs)))
+         lo, hi = est - 1.96 * se, est + 1.96 * se
+-        note = "ok"
++        note = "exploratory segment-SE interval; coverage not calibrated"
+     else:
+         lo, hi, note = est, est, "CI unavailable (too few informative segments)"
+-    return dict(est=est, lo=lo, hi=hi, rho_obs=rho_obs, rho_null=rho_null,
+-                rhyme=rhyme, note=note)
++    return dict(est=est, lo=lo, hi=hi, rho_obs=rho_obs, rho_null=rho_null,
++                rhyme=rhyme, note=note, null=null,
++                null_version='relative-phase-v2' if null == 'phase' else 'steps-v1',
++                calibrated_wall_verdict=False)
+ 
+ 
+ if __name__ == "__main__":
+--- before/scale_capacity.py
++++ after/scale_capacity.py
+@@ -1,20 +1,22 @@
+-"""scale_capacity.py -- capacity floor H_min: where can autonomous novelty exist?
++"""scale_capacity.py -- finite untrained trajectory response across dimensions.
+ 
+ Untrained Elman reservoirs (spectral radius 0.4, lock-in-prone init, exactly
+ the training init of alive_reward_demo.py), FREE-RUN probe (x = 0, 300 steps),
+ aliveFrac with sqrt(H)-scaled cells, 6 seeds. No training: this measures the
+-raw capacity of the dynamics to host novelty. Below H_min no lambda can rescue
+-(there is nothing to amplify); the lambda-centering rule only applies at
+-H >= H_min.
++response to a declared nonzero initial state. It cannot establish a universal
++capacity floor or show that training cannot rescue a particular dimension.
+ """
+ import numpy as np
+ 
+ 
+-def probe_alive(H, radius, seed, steps=300):
++def probe_alive(H, radius, seed, steps=300, initial_rms=0.1):
+     rng = np.random.default_rng(seed)
+     W = rng.standard_normal((H, H))
+     W_h = W * (radius / max(abs(np.linalg.eigvals(W))))
+-    h = np.zeros(H)
++    if not np.isfinite(initial_rms) or initial_rms < 0:
++        raise ValueError('initial_rms must be finite and nonnegative')
++    h = rng.standard_normal(H)
++    h *= initial_rms * np.sqrt(H) / max(np.linalg.norm(h), 1e-30)
+     Hs = []
+     for _ in range(steps):
+         h = np.tanh(W_h @ h)
+@@ -30,11 +32,10 @@
+ 
+ 
+ if __name__ == "__main__":
+-    print("=== capacity floor: untrained free-run aliveFrac vs H ===")
++    print("=== finite untrained response; initial state RMS=0.1 ===")
+     print(f"{'H':>4s} | aliveFrac (radius 0.4) | aliveFrac (radius 1.5)")
+     for H in (4, 8, 16, 32, 64):
+         a = [probe_alive(H, 0.4, 500 + i) for i in range(6)]
+         b = [probe_alive(H, 1.5, 900 + i) for i in range(6)]
+         print(f"{H:>4d} | {np.mean(a):20.3f}  | {np.mean(b):21.3f}")
+-    print("\nH_min = smallest H with nonzero lock-in-regime novelty: below it, "
+-          "no lambda rescues (nothing to amplify).")
++    print("\nFinite cell counts are not a capacity-floor theorem or functional recovery.")
+--- before/alive_reward_demo.py
++++ after/alive_reward_demo.py
+@@ -153,10 +153,10 @@
+             dhg = P["W_h"].T @ dpre
+             G["z"] += (dhg * (Hf[t - 1] if t > 0 else 0.0)) * g * (1.0 - g)
+             dh_next = dhg * g
+-        G["z"] += MU / H * np.ones(H)
++        G["z"] += MU / H * g * (1.0 - g)
++        step += 1
+         for k in P:
+             G[k] = np.clip(G[k], -5, 5)
+-            step += 1
+             M[k] = b1 * M[k] + (1 - b1) * G[k]
+             V[k] = b2 * V[k] + (1 - b2) * G[k] ** 2
+             P[k] -= LR * (M[k] / (1 - b1 ** step)) / \
+--- before/configuration_drift_theory.md
++++ after/configuration_drift_theory.md
+@@ -9,6 +9,17 @@
+ > retained as the research history and empirical notebook.
+ 
+ **Author:** Harsha Anand Raj Pammi
++
++> **Instrument correction (2026-09-12).** See
++> [measurement_repair_20260912.md](measurement_repair_20260912.md).
++> Phase-null results in this notebook predate a correction preserving relative
++> Fourier phases and cannot presently support their reported wall verdicts.
++> The untrained zero-state capacity probe did not identify a capacity floor.
++> Toy novelty-reward numerical prescriptions predate gate-gradient and Adam
++> counter repairs and require fresh validation. The historical results remain
++> recorded below; they are not silently replaced by new outcomes. Adaptive
++> dimensionality's intended target is learned functional recovery without an
++> external perturbation/rescue controller, not externally driven PCA expansion.
+ 
+ > Companion to `configuration_drift_full_report.md`. This document develops the
+ > **theory** in full: the conceptual hypothesis (exact recurrence of a state
+--- before/zeus_probe_cdt.py
++++ after/zeus_probe_cdt.py
+@@ -121,17 +121,16 @@
+     fl = n_floor(hi)
+     usable = len(P) >= fl
+     g = gamma_hat(P, null=args.null)
+-    g_ok = (g["est"] > 0.4 and g["lo"] > 0)
++    g_ok = bool(g.get('calibrated_wall_verdict', False))
+     outer = est <= bound
+     alive = bool(usable and outer and g_ok)
+     print(f"[outer] beta={beta:.2f} dw={dw:.2f} alpha={alpha:.2f} "
+           f"bound={bound:.2f} nu={est:.2f} CI=[{lo:.2f},{hi:.2f}] "
+           f"floor={fl} N={len(P)} -> {'USABLE' if usable else 'UNDECIDABLE'}; "
+-          f"outer {'HOLDS' if outer else 'FAILED'}")
++          f"heuristic inequality={outer}; not a recurrence proof")
+     print(f"[inner] ghat={g['est']:+.3f} CI=[{g['lo']:+.3f},{g['hi']:+.3f}] "
+-          f"rhyme={g['rhyme']:.3f} -> {'HOLDS' if g_ok else 'NOT HELD'}")
+-    print(f"VERDICT: {'CDT-ALIVE' if alive else 'ALIVE UNVERIFIED'} "
+-          f"(CDT-alive, never 'conscious')")
++          f"rhyme={g['rhyme']:.3f} -> EXPLORATORY")
++    print('VERDICT: exploratory diagnostics; no calibrated CDT/aliveness verdict')
+ 
+     drive = np.tile([12, 400, 7, 88], int(np.ceil(args.steps / 4)))[:args.steps]
+     S_drv, _ = roll(model, args.steps, drive_ids=drive, seed=args.seed)
+@@ -167,7 +166,7 @@
+                  f"nu={est:.3f} CI=[{lo:.3f},{hi:.3f}] floor={fl} "
+                  f"usable={usable} outer={outer}\n"
+                  f"ghat={g['est']:+.3f} CI=[{g['lo']:+.3f},{g['hi']:+.3f}] "
+-                 f"g_ok={g_ok}\nVERDICT={'CDT-ALIVE' if alive else 'ALIVE UNVERIFIED'}\n"
++                 f"g_ok={g_ok}\nVERDICT=EXPLORATORY_ONLY\n"
+                  f"autonomy_div={div:.1f} "
+                  f"raw_settle={float(post_r[len(post_r)//2]):.1f} "
+                  f"manifold_settle={float(post_m[len(post_m)//2]):.1f} "
+--- before/zeus_adaptive_dim.py
++++ after/zeus_adaptive_dim.py
+@@ -144,9 +144,8 @@
+         Pn = P / (float(np.sqrt((P ** 2).mean())) + 1e-12)
+         af = alive_frac(P)
+         g = gamma_hat(Pn, null="phase")
+-        ok = g["est"] > 0.4 and g["lo"] > 0
+         line = (f"{arm:8s} | {k:3d} | {af:9.3f} | {g['est']:+.3f} "
+-                f"[{g['lo']:+.2f},{g['hi']:+.2f}] {'HOLD' if ok else '----'} | "
++                f"[{g['lo']:+.2f},{g['hi']:+.2f}] EXPLORATORY | "
+                 f"{e:7.1f} | {n:5d}")
+         print(line)
+         lines.append(line)
+--- /dev/null
++++ after/measurement_repair_20260912.md
+@@ -0,0 +1,27 @@
++# Measurement and optimizer repair, 2026-09-12
++
++Authorized by the user's instruction to carry out the credit/CDT/memory sequence.
++The pre-edit versions of gamma_probe.py, scale_capacity.py, alive_reward_demo.py
++and configuration_drift_theory.md were copied to the Zeus workspace under
++runs/cdt_repair_before_20260912. All earlier exploratory output files remain intact.
++
++Changes:
++- Phase controls now multiply the original complex Fourier spectrum by common
++  random phase increments. Means, per-coordinate power and the complete circular
++  cross-spectrum are preserved. This does not imply every temporal revisit is
++  destroyed or prove stationarity. Unknown null names raise ValueError.
++- The score identifies its null version and explicitly declines calibrated wall
++  authority. The inherited segment-SE interval is labelled exploratory.
++- The capacity probe uses a seeded initial state of RMS 0.1, with zero available
++  as an explicit control. A finite untrained trajectory is not a capacity theorem.
++- The toy sparsity gradient includes sigmoid(z)*(1-sigmoid(z)); Adam increments
++  its time index once per joint update rather than once per parameter array.
++
++Old positive phase scores and numeric novelty-reward scaling prescriptions must
++not be treated as repaired results. See the new invariant/gradient tests and
++phase-calibration report before using this instrument. The authoritative theorem
++file and old numerical reports are unchanged.
++
++Adaptive dimensionality must ultimately be selected and controlled by the learner
++and restore independently measured function without an external rescue mechanism.
++Variance expansion under an externally applied gain is only a mechanism probe.
+--- /dev/null
++++ after/test_measurement_repair_20260912.py
+@@ -0,0 +1,62 @@
++import unittest
++import numpy as np
++from gamma_probe import phase_surrogate, gamma_hat
++import alive_reward_demo as A
++from scale_capacity import probe_alive
++
++
++class RepairTests(unittest.TestCase):
++    def test_multivariate_phase_preserves_full_cross_spectrum(self):
++        for n in (255,256):
++            rng=np.random.default_rng(81); y=rng.normal(size=(n,3))+[-2,3,1]
++            x=phase_surrogate(y,np.random.default_rng(19))
++            f=np.fft.rfft(y,axis=0);g=np.fft.rfft(x,axis=0)
++            np.testing.assert_allclose(x.mean(0),y.mean(0),atol=1e-12)
++            np.testing.assert_allclose(g[:,:,None]*g[:,None,:].conj(),f[:,:,None]*f[:,None,:].conj(),atol=1e-8)
++            self.assertFalse(np.allclose(x,y))
++
++    def test_null_name_cannot_silently_fall_back(self):
++        with self.assertRaises(ValueError):gamma_hat(np.ones((30,2)),null='phsae')
++
++    def test_nonzero_capacity_start_and_explicit_zero_control(self):
++        self.assertEqual(probe_alive(16,1.5,18,initial_rms=0),1/300)
++        self.assertGreater(probe_alive(16,1.5,18),1/300)
++
++    def test_capped_spread_gradient_finite_difference(self):
++        x=np.random.default_rng(4).normal(scale=.12,size=(7,3))
++        analytic=A.dcapspread(x,R=.5)
++        def objective(z):
++            i,j=np.triu_indices(len(z),1)
++            return np.minimum(np.linalg.norm(z[i]-z[j],axis=1),.5).mean()
++        for i in range(7):
++            for j in range(3):
++                a=x.copy();b=x.copy();a[i,j]+=1e-6;b[i,j]-=1e-6
++                self.assertAlmostEqual(analytic[i,j],(objective(a)-objective(b))/2e-6,places=6)
++
++    def test_toy_two_updates_match_independent_torch_autograd(self):
++        import torch
++        old=(A.H,A.T,A.EPOCHS)
++        try:
++            A.H,A.T,A.EPOCHS=3,9,2
++            seed=17;lam=.03;rng=np.random.default_rng(seed)
++            w=rng.standard_normal((3,3));w=w*(.4/max(abs(np.linalg.eigvals(w))))
++            values={'W_h':w,'W_x':rng.standard_normal(3)*.5,'b':np.zeros(3),
++                    'Wy':rng.standard_normal(3)*.1,'z':np.zeros(3)}
++            p={k:torch.tensor(v,dtype=torch.float64,requires_grad=True) for k,v in values.items()}
++            opt=torch.optim.Adam(list(p.values()),lr=A.LR,eps=1e-8,foreach=False)
++            xs=torch.tensor(A.task_series(9,seed=seed),dtype=torch.float64)
++            for _ in range(2):
++                g=p['z'].sigmoid();h=torch.zeros(3,dtype=torch.float64);hf=h.clone();ys=[];states=[]
++                for x in xs:
++                    h=torch.tanh(p['W_h']@(h*g)+p['W_x']*x+p['b']);ys.append(p['Wy']@(h*g))
++                    hf=torch.tanh(p['W_h']@(hf*g)+p['b']);states.append(hf)
++                loss=(torch.stack(ys)-xs).square().mean()-lam*torch.pdist(torch.stack(states)).clamp(max=np.sqrt(3/16)).mean()+A.MU*g.mean()
++                opt.zero_grad();loss.backward()
++                for v in p.values():v.grad.clamp_(-5,5)
++                opt.step()
++            actual,_,_=A.train(seed,lam,mode='cap')
++            for k in p:np.testing.assert_allclose(actual[k],p[k].detach().numpy(),rtol=1e-8,atol=1e-9)
++        finally:A.H,A.T,A.EPOCHS=old
++
++
++if __name__=='__main__':unittest.main()

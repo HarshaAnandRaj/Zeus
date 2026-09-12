@@ -3601,3 +3601,38 @@ Full report: docs/dri1_diagnosis_20260910.md; compact evidence:
 zeus_sandbox/universe/reports/dri1_*_20260910.json. Canonical CDT scope respected:
 no full-system Green/recurrence proof, spectral-dimension, life or pillar claim.
 Specific repulsion recipe closed; no post-exposure sweep or new experiment launched.
+
+### 2026-09-12 — Historical credit split, CDT instrument repairs, OM1 PASS
+
+User confirmed that Adaptive Dimensionality must remove dependence on external
+rescue, and authorized the sequence: isolate credit interference, repair/calibrate
+CDT measurements, then test a bounded memory-operation loop.
+
+QL2 exact replay again matched all 131,072 steps and 2,782 updates. In the same
+selected contexts, other transitions reverse the aggregate direction for 152/369
+positive-credit feeding actions. Historical AdamW also often opposes negative
+credit for damaging harvests; resetting its first moment helps those contexts but
+does not uniformly help feeding. Both sequence-gradient interference and optimizer
+history matter locally; no global optimizer cure or new QL2 viability claim.
+
+CDT phase construction now preserves relative Fourier phases and cross-spectrum;
+the zero-start capacity probe and toy gate-gradient/Adam counter were corrected.
+Five CDT checks pass, including independent autograd comparison. Fixed null
+calibration yields 0/32 old-threshold hits; this is not universal calibration or a
+rerun of the old Zeus scores. Pre-existing CDT edits and old outputs preserved;
+pre-edit backups, a patch and source-hash receipt are stored in Zeus. External CDT
+changes are left in that project's working tree, not committed over user work.
+
+OM1 frozen at 684e89c: five-parameter writer/reader/answer policy, one-slot memory,
+128-tick quiet clock delay, terminal reward only, four initializations and four
+arms with exact twins. All six registered functional bars PASS. Full accuracy
+89.45-89.97%; stopped writer58.13-60.01%; shuffled writer55.25-64.18%; stopped
+reader68.68-70.26%; zero-content48.44-50.05%. Independent NumPy audit reproduces
+98,304 evaluation decisions and all16 twin pairs match. Combined relevant Zeus
+tests35/35 pass. This is a standalone engineered operation-credit success, not
+recurrent interference resistance, Zeus survival, authorship or ADA self-recovery.
+
+Reports: docs/credit_split_and_cdt_repairs_20260912.md,
+docs/om1_diagnosis_20260912.md; external repair patch:
+docs/cdt_measurement_repair_20260912.patch. Next earned step is a recurrent
+integration design with interfering experience and matched credit controls.
