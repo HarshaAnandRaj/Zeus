@@ -110,5 +110,12 @@ before utility judgment; do not make recurrence, dimension concentration or a
 trained target into an automatic emergence or pillar claim. Verify public provenance,
 world feedback and intended gradient paths throughout every proposed mechanism.
 
+Maintenance-ruler diagnosis, sourcead77bb2: a fresh public reference survives4096
+steps in32/32 static original-world bodies without any repair, spending>=3369
+steps at tool0; passiveWAIT0/32. Independent policy/world/scalar auditPASS133312
+transitions. This is a counterexample to repair necessity at that horizon, not
+neural maintenance. Repair-dependent long operation remains owed in a separately
+calibrated family. Review: docs/repair_necessity_counterexample_review_20260913.md.
+
 The goal remains active. No completion or blockage is claimed. Failed hypotheses
 can be sorted as negative evidence; they do not count as achieved capabilities.

@@ -4131,3 +4131,7 @@ confirmed live; no restart, parameter/bar change or endpoint exposure follows.
 ### 2026-09-13 — LMB4 fitting complete; fresh raw endpoint launched
 All16 fixed fits completed at frozen source4aab291, with8 exact whole model/head/optimizer/input/log twin pairs and verified source manifest. Training session96213 exited0. Fresh raw evaluation launched with session22263 and exclusive log runs/lmb4_evaluation_20260913.log. No functional verdict, grounding attribution or independent qualification yet. All12 roadmap obligations remain incomplete. Primary-checked value-relevant memory research notes were committed separately; no frozen campaign source changed.
 
+
+### 2026-09-13 — Original-world repair necessity counterexample audited
+Fresh diagnostic source froze atad77bb2. All32 public-reference bodies survive4096 actions without MAINTAIN, with1042 harvests each, final integrity1 and>=3369 steps at tool0; passiveWAIT dies70/70 ticks in all32 cases. Separate policy/world replay and independent scalar balance auditPASS133312 transitions. No neural capability, infinite-horizon or emergence claim. Existing LMB4 repair-count gate remains frozen; a separate calibrated repair-dependent family remains required for long maintenance. Review: docs/repair_necessity_counterexample_review_20260913.md.
+

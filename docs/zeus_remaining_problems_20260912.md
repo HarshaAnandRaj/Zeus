@@ -50,6 +50,11 @@ Resolving the reader earned motor preparation, not closure of every memory
 question. In particular, an agent may survive after forgetting by inspecting again;
 body-control success alone cannot establish an inheritance benefit.
 
+A fresh public-reference counterexample independently audits32/32 survivors at
+4096 steps without repair, including at least3369 tool0 steps per body; passive
+WAIT0/32. Original-world survival/repair counts cannot establish repair necessity.
+A separately calibrated repair-dependent family remains owed; no current gate changes.
+
 ## Remaining problems and evidence we would need
 
 The first two are the immediate functional sequence after compatibility. The later
@@ -116,6 +121,8 @@ closed failures. Each component earns only its explicitly registered follow-up.
   [LMB4 protocol](lmb4_protocol_20260913.md).
 - Audited world calibration:
   [scarce-resource reference review](birth_resource_memory_calibration_review_20260913.md).
+- Maintenance-ruler limit:
+  [audited no-repair counterexample](repair_necessity_counterexample_review_20260913.md).
 - Conditional, unlaunched transfer:
   [LBT1 protocol](lbt1_protocol_20260913.md).
 - Next native functional checkpoints:
