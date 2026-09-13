@@ -4286,3 +4286,14 @@ pairs/768 batches/7168 endpoint bodies verify;2122095 public physical steps and
 Complete gated read-only diagnosis session59749 launched after audit completion.
 This supersedes earlier running-audit statuses. No endpoint rescue or new source
 qualification; all12 requirements remain incomplete and full goal active.
+
+### 2026-09-13 — diagnosis accounting rejection, distinct successor
+
+Original LMB5 diagnosis59749 exited1 after all12 groups reconstructed, before
+publishingCOMPLETE. Its last assertion conflated1540015 body decisions with the
+1552303 audit total, which also includes12288 native readout queries. Preserve
+original source c292fbb and runs/lmb5_failure_diagnosis_20260913.log; no campaign
+source, audit or functionalFAIL changes. Distinct full-coverage diagnosis2 froze
+at a43a130 after two real development fixture/corruption tests and launched as
+session67694. It repeats all bodies and explicitly checks body+query totals,
+publishing a different report. Complete diagnosis remains owed until it finishes.
