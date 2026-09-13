@@ -12,6 +12,15 @@ Zeus is the project; CDT and adaptive dimensionality are supporting hypotheses.
 
 ## Where we stand
 
+Current status: LMB5 is independently FAIL and its complete successor diagnosis
+and fixed-reading state probe are finished. LMT1 long maintenance is independently
+FAIL. LMB6's learned current-observation state correction, matched recurrent
+control, legacy training control and independent replay are development components
+with11 passing checks. Its full campaign is not yet prepared or launched. All12
+requirements below remain incomplete. The following narrative preserves the
+sequence of earlier decisions; dated launch-time running statuses are historical.
+See [the candidate design](lmb6_anchored_state_design_draft_20260913.md).
+
 LCM5's fresh native quality reader has an independently audited PASS on fixed
 stores and actors, including delayed recall controls. This resolves the named
 decoder blocker in its declared setup. LCM4-C's original quality-head compatibility
@@ -88,8 +97,8 @@ and discoveries reveal. Each new experiment still needs its own frozen protocol.
 
 | # | Problem | What would count as progress | Present limit / dependency |
 |---|---|---|---|
-| 1 | Sustained body control and self-maintenance | Learned raw-sampled actions feed, manage wear and maintain viable operation over a declared long horizon, with physical accounting and passive controls. | LMB4 both arms auditedPASS on256-step original bodies; grounding attributionFAIL. A separate repair-dependent reference ruler auditsPASS and LMT1 evaluation is running in parallel with LMB5 fits; long neural result/audit remains owed. LMB2 staysVOID and LMB3 staysFAIL. |
-| 2 | Functional benefit of inherited memory | Prior experience improves fresh native operation over acute forgetting, opposite content, disabled writes and matched trained forgetting controls. | Fresh LBT2 known-memory actuation is independently closedFAIL and completely diagnosed. LMB5 independently audited teacher checkPASS and fits running; endpoint unlaunched. Qualification and subsequent own-acquisition/forgetting/content controls remain owed. Equal survival from reinspection is a negative viability contrast; inspection savings cannot silently replace it. |
+| 1 | Sustained body control and self-maintenance | Learned raw-sampled actions feed, manage wear and maintain viable operation over a declared long horizon, with physical accounting and passive controls. | LMT1 is independently FAIL and completely diagnosed:2048 deaths, with actual repairs in many enabled bodies. The calibrated repair-dependent world is viable under its public reference; sustained neural operation remains owed. LMB4's256-step qualification does not close this requirement. |
+| 2 | Functional benefit of inherited memory | Prior experience improves fresh native operation over acute forgetting, opposite content, disabled writes and matched trained forgetting controls. | LBT2 and LMB5 are independently FAIL, with complete diagnoses. The LMB5 state probe motivates LMB6 components now under preparation. Whole actuator qualification and subsequent own-acquisition/forgetting/content controls remain owed. Equal survival from reinspection is a negative viability contrast; inspection savings cannot silently replace it. |
 | 3 | Acquiring experience through its own actions | The evaluated agent chooses information-gathering actions, experiences their consequences and later benefits from the information it obtained. | Preparation currently supplies inspection. Public supervised teaching can qualify prerequisites but does not demonstrate autonomous acquisition. |
 | 4 | Selective keeping and forgetting | Under limited storage, the agent retains independently useful experience and removes distracting or obsolete material, with matched quantity/recency/random controls. | Current evidence eligibility is fixed by the designer. Protected storage alone is not utility-based selection or the complete generate→select→consolidate→inherit ratchet. |
 | 5 | Revision without destructive interference | During continuing operation, new evidence corrects stale beliefs while preserving still-useful knowledge; stable and changing worlds distinguish appropriate revision from indiscriminate change. | Static one-safe-patch inheritance is insufficient. Multiple facts, contradictory evidence and repeated changes need their own task and controls. |

@@ -15,9 +15,12 @@ native quality and quantity-bin recall100%, delayed quality regression100%.
 LCM4-C original-head compatibility stays FAIL. This resolves the named decoder
 blocker in the declared setup, not every memory or authorship question.
 
-Latest goal continuation classification: progress. Fresh LMB4 campaign/auditor
-and controls are complete and frozen at4aab291. Twenty relevant mechanics tests
-and fresh public-teacher calibration PASS; the fixed training schedule is live.
+Latest goal continuation classification: progress. LMB5 is independently closed
+FAIL, its complete successor diagnosis and immediate state-contribution probe
+are finished. LMT1 long maintenance is independently FAIL. LMB6 candidate state-
+correction, training and replay components pass11 development checks; its full
+campaign runner, calibration, final audit and protocol are still being prepared.
+No training or evaluation process is currently running for this new candidate.
 
 LMB1 body-control prerequisite froze at088e3fb. The new fast body recurrence,
 public teacher and independent physical/NumPy feedback auditor are built. The84-test
@@ -114,7 +117,7 @@ the other109 energy only. Notes: docs/native_body_observation_ledger_20260913.md
 | Roadmap item | Status | Evidence still needed |
 |---|---|---|
 | 1. Sustained body control/self-maintenance | INCOMPLETE; LMT1 auditedFAIL and completely diagnosed | Fresh sustained repair-dependent neural operation remains owed. LMB3FAIL/LMB2VOID remain closed. |
-| 2. Native benefit of inherited memory | INCOMPLETE; LBT2 independently closedFAIL/completely diagnosed; LMB5 teacher ruler auditedPASS/all fits twin-qualified/fresh evaluation live | LMB5 independent functional qualification remains owed; qualification and closed-loop native function gain over acute and matched trained forgetting/content controls remain owed. Public reinspection remains available. |
+| 2. Native benefit of inherited memory | INCOMPLETE; LMB5 independently FAIL, complete diagnosis/probe finished; LMB6 components under preparation | Whole actuator qualification and closed-loop native function gain over acute and matched trained forgetting/content controls remain owed. Public reinspection remains available. |
 | 3. Self-directed acquisition | INCOMPLETE | Agent-selected information gathering and later causal benefit; engineered inspection/teacher targets do not close it. |
 | 4. Selective keeping/forgetting | INCOMPLETE | Utility-qualified selection under storage limits, consolidation and inheritance, independently useful over matched selection controls. |
 | 5. Revision/interference resistance | INCOMPLETE | Correct stale information in continuous changing operation while preserving other useful facts. |
