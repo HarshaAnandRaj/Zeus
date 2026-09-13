@@ -73,10 +73,13 @@ Public-state/consequence heads and public-data encoding are prepared; four new
 gradient/control/death/continuity tests plus ten relevant prior tests PASS.
 Fresh full LMB4 campaign/auditor/protocol froze at4aab291 after20 relevant tests.
 Public-teacher calibration passes all256 bodies;16 fixed fits completed with eight
-exact whole model/head/optimizer/input/log twin pairs. Fresh raw evaluation is running. Own-action
+exact whole model/head/optimizer/input/log twin pairs. Fresh raw evaluation/finalization completed. Own-action
 grounding targets use actual public current/next sensors, not own teacher labels;
 detached control blocks auxiliary body credit with separate motor/head clipping.
-No raw endpoint, attribution or independent full audit exists yet. Protocol:
+Both arms PASS all raw qualification gates; grounded selected by frozen priority.
+Grounding attributionFAIL: inherited contrast-.005859375 CI[-.03515625,.01953125],
+empty-.00390625 CI[-.041015625,.03125]. No survival advantage detected; a negative
+point estimate does not establish harm. Independent full audit is running. Protocol:
 docs/lmb4_protocol_20260913.md. All older outcomes and transfer dependencies stay closed.
 Known-memory birth transfer remains unearned; no old verdict or bar changes.
 
@@ -92,7 +95,7 @@ the other109 energy only. Notes: docs/native_body_observation_ledger_20260913.md
 
 | Roadmap item | Status | Evidence still needed |
 |---|---|---|
-| 1. Sustained body control/self-maintenance | INCOMPLETE; LMB4 fitting/twins complete and raw evaluation running, LMB3 stays FAIL | Complete raw endpoint/independent qualification; long repair-dependent maintenance remains owed. |
+| 1. Sustained body control/self-maintenance | INCOMPLETE; LMB4 both arms rawPASS, attributionFAIL, independent audit running; LMB3 stays FAIL | Complete independent qualification; long repair-dependent neural maintenance remains owed. |
 | 2. Native benefit of inherited memory | INCOMPLETE | Fresh closed-loop native function gain over acute and matched trained forgetting/content controls. Public reinspection remains available. |
 | 3. Self-directed acquisition | INCOMPLETE | Agent-selected information gathering and later causal benefit; engineered inspection/teacher targets do not close it. |
 | 4. Selective keeping/forgetting | INCOMPLETE | Utility-qualified selection under storage limits, consolidation and inheritance, independently useful over matched selection controls. |
