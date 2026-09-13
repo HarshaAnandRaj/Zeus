@@ -4333,3 +4333,29 @@ No replacement action executed and no sustained recovery established. Review:
 docs/lmb5_interior_state_probe_review_20260913.md. Next is a distinct justified
 control mechanism retaining useful history and grounding current public physiology,
 not routine resets or reuse/tuning of any exposed endpoint. Full goal active.
+
+### 2026-09-13 — LMB6 candidate state correction, training and replay components
+
+Commit2ff8097 adds a learned correction within the recurrent action state:
+h=r+(1-abs(r))*tanh(W e+b), using current canonical observations or the first8
+recurrent coordinates as the declared parameter-matched comparison. An unmodified
+legacy arm controls additional training. Zero initialization preserves the source;
+the range bound holds inductively from bounded initial states. The original raw
+addition was corrected before any candidate campaign freeze or compute.
+
+Independent review checked design/control limits and training integration. A
+separate replayer includes the correction in CPU and independently arranged local
+NumPy calculations, with actual model methods disabled during replay tests.
+Eleven combined development testsPASS: recurrent/body credit, range stress,
+whole optimizer twins in3 arms, independent public encoding, post-update bodies,
+16 additional nonzero-anchor physical bodies, vectorized queries/writes and
+corruption/mode/source rejection. These are mechanics results, not a survival
+qualification. The full LMB4 source receipt must still bind every actual source
+model/head in the campaign; component loaders alone do not provide that guarantee.
+
+Current roadmap tables now reflect completed LMB5FAIL/diagnosis/probe and LMT1FAIL.
+Next: complete guarded LMB6 runner, public calibration, frozen endpoint/attribution
+judgments and independent full auditor before any campaign training. Source stays
+all4 audited LMB4 grounded controllers. LMB5 remains unqualified; all12 roadmap
+requirements and the complete six-pillar/live-session objective remain open.
+Design: docs/lmb6_anchored_state_design_draft_20260913.md.
