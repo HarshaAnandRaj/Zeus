@@ -43,8 +43,11 @@ evaluation/finalization completed: both arms PASS every raw gate, grounded selec
 by frozen priority, grounding attribution FAIL (contrasts-.005859/-.003906 with
 both confidence bounds crossing0). Independent auditPASS verifies512 source and
 4096 endpoint bodies,768 batches and998526 neural decisions. Fresh known-memory
-LBT2 is frozen at35aa9aa, prepared and evaluating all4 models/4 energy profiles;
-its native memory-benefit follow-up is not yet earned. The instrument shares hardware operators
+LBT2 is frozen at35aa9aa and has completed all2048 bodies across4 models/4 energy
+profiles. Its raw verdict is FAIL; independent audit is running. Pooled survivors
+by initial energy are89/512 at.12,371/512 at.20,448/512 at.35 and501/512 at.85;
+these descriptive totals do not replace the frozen per-cell gates. Its native
+memory-benefit follow-up is not yet earned. The instrument shares hardware operators
 and independently checks local mathematics; it does not prove engine portability.
 
 Storage identity and supplied inspection are engineered. Current evidence does
@@ -63,8 +66,8 @@ restoration/no-repair/passive cases all die. A configured energy bound proves no
 tool-restoring action sequence can survive through598 under its assumptions.
 Only the world ruler is qualified; long neural maintenance remains owed and no
 current campaign gate changes. Guarded LMT1 runner/auditor/protocol are prepared
-at00f7401 after11 campaign/shared mechanics tests; its directory is absent and
-body endpoint unlaunched. Memory transfer retains immediate priority after LMB4
+at00f7401 after11 campaign/shared mechanics tests; guarded preparation has now
+exited0 and its manifest exists, with the body endpoint unlaunched. Memory transfer retains immediate priority after LMB4
 independent qualification.
 
 ## Remaining problems and evidence we would need
@@ -76,7 +79,7 @@ and discoveries reveal. Each new experiment still needs its own frozen protocol.
 | # | Problem | What would count as progress | Present limit / dependency |
 |---|---|---|---|
 | 1 | Sustained body control and self-maintenance | Learned raw-sampled actions feed, manage wear and maintain viable operation over a declared long horizon, with physical accounting and passive controls. | LMB4 both arms auditedPASS on256-step original bodies; grounding attributionFAIL. A separate repair-dependent reference ruler auditsPASS and LMT1 is prepared/unlaunched; long neural operation remains owed. LMB2 staysVOID and LMB3 staysFAIL. |
-| 2 | Functional benefit of inherited memory | Prior experience improves fresh native operation over acute forgetting, opposite content, disabled writes and matched trained forgetting controls. | Fresh LBT2 known-memory actuation is evaluating; its qualification and the subsequent own-acquisition/forgetting/content controls remain owed. Equal survival from reinspection is a negative viability contrast; inspection savings cannot silently replace it. |
+| 2 | Functional benefit of inherited memory | Prior experience improves fresh native operation over acute forgetting, opposite content, disabled writes and matched trained forgetting controls. | Fresh LBT2 known-memory actuation has rawFAIL, with independent audit running; qualification and subsequent own-acquisition/forgetting/content controls remain owed. Equal survival from reinspection is a negative viability contrast; inspection savings cannot silently replace it. |
 | 3 | Acquiring experience through its own actions | The evaluated agent chooses information-gathering actions, experiences their consequences and later benefits from the information it obtained. | Preparation currently supplies inspection. Public supervised teaching can qualify prerequisites but does not demonstrate autonomous acquisition. |
 | 4 | Selective keeping and forgetting | Under limited storage, the agent retains independently useful experience and removes distracting or obsolete material, with matched quantity/recency/random controls. | Current evidence eligibility is fixed by the designer. Protected storage alone is not utility-based selection or the complete generate→select→consolidate→inherit ratchet. |
 | 5 | Revision without destructive interference | During continuing operation, new evidence corrects stale beliefs while preserving still-useful knowledge; stable and changing worlds distinguish appropriate revision from indiscriminate change. | Static one-safe-patch inheritance is insufficient. Multiple facts, contradictory evidence and repeated changes need their own task and controls. |
@@ -143,7 +146,7 @@ closed failures. Each component earns only its explicitly registered follow-up.
   [LMT1 protocol](lmt1_protocol_20260913.md).
 - Conditional, unlaunched transfer:
   [LBT1 protocol](lbt1_protocol_20260913.md).
-- Fresh qualified-source transfer now evaluating:
+- Fresh qualified-source transfer completed with rawFAIL, audit pending:
   [LBT2 protocol](lbt2_protocol_20260913.md).
 - Next native functional checkpoints:
   [integration design](lcm4_native_integration_design_draft_20260912.md).

@@ -86,8 +86,10 @@ qualified-source artifact guard passes. Protocol:
 docs/lmb4_protocol_20260913.md. All older outcomes and transfer dependencies stay closed.
 Fresh known-memory LBT2 froze at35aa9aa after3 campaign and8 shared mechanics
 tests; source/calibration guardsPASS and preparation exit0. Actual evaluation
-session41931 is running on4 parents/4 energy profiles/128 new ecologies,2048
-256-step bodies. Old LBT1 remains unlaunched; native memory-benefit follow-up
+session41931 exited0 after all4 parents/4 energy profiles/128 new ecologies,2048
+256-step bodies. Finalization exited0 with rawFAIL; independent audit session1372
+is running. Pooled survival by energy.12/.20/.35/.85 is89/371/448/501 of512
+each; descriptive pooling does not replace per-cell gates. Old LBT1 remains unlaunched; native memory-benefit follow-up
 unearned until LBT2 independent qualification. No old verdict or bar changes.
 
 Offline observation probe, sourcee7a3e85:5,319 interior WAIT-argmax records reproduce
@@ -103,7 +105,7 @@ the other109 energy only. Notes: docs/native_body_observation_ledger_20260913.md
 | Roadmap item | Status | Evidence still needed |
 |---|---|---|
 | 1. Sustained body control/self-maintenance | INCOMPLETE; LMB4 auditedPASS at256 steps, attributionFAIL; LMT1 prepared/unlaunched | Long repair-dependent neural maintenance remains owed. LMB3FAIL/LMB2VOID remain closed. |
-| 2. Native benefit of inherited memory | INCOMPLETE; LBT2 known-information actuation evaluating | Complete transfer qualification then fresh closed-loop native function gain over acute and matched trained forgetting/content controls. Public reinspection remains available. |
+| 2. Native benefit of inherited memory | INCOMPLETE; LBT2 known-information actuation rawFAIL, audit running | Complete independent adjudication and diagnosis before any fresh qualification; closed-loop native function gain over acute and matched trained forgetting/content controls remains owed. Public reinspection remains available. |
 | 3. Self-directed acquisition | INCOMPLETE | Agent-selected information gathering and later causal benefit; engineered inspection/teacher targets do not close it. |
 | 4. Selective keeping/forgetting | INCOMPLETE | Utility-qualified selection under storage limits, consolidation and inheritance, independently useful over matched selection controls. |
 | 5. Revision/interference resistance | INCOMPLETE | Correct stale information in continuous changing operation while preserving other useful facts. |
@@ -132,9 +134,9 @@ energy-envelope bound rules out survival through598 without tool restoration.
 This earns only preparation of long neural maintenance/controller transfer, not
 learned operation. Review: docs/repair_dependent_calibration_review_20260913.md.
 LMT1 complete guarded runner/auditor/protocol prepared at00f7401 after11 combined
-campaign/shared guard/operation/physical mechanics tests. Its directory is absent,
-no body endpoint launched. Complete audited LMB4 source and calibrated-world
-artifact guards are required before preparation; memory-transfer sequence stays
+campaign/shared guard/operation/physical mechanics tests. Guarded preparation
+exited0 and its manifest exists; no body endpoint launched. Complete audited LMB4
+source and calibrated-world artifact guards passed preparation; memory-transfer sequence stays
 first. Protocol: docs/lmt1_protocol_20260913.md.
 
 The goal remains active. No completion or blockage is claimed. Failed hypotheses

@@ -4151,3 +4151,27 @@ World-ruler purchase prepared runner/auditor/protocol at00f7401, with11 combined
 ### 2026-09-13 — LMB4 audit PASS and fresh LBT2 frozen/prepared/launched
 LMB4 audit session41778 exits0, receiptPASS/verdictPASS/qualificationTrue;512 source/4096 endpoint bodies,768 unique batches,1126526 physical steps and998526 neural decisions. Complete audited-source guard passes all checkpoints/collections/artifacts. Grounding attribution remainsFAIL; warm fresh survival also exceeds90% in all cells, so no extra-update or grounding rescue attribution is claimed. Review: docs/lmb4_review_20260913.md. Fresh LBT2 runner/auditor/protocol froze at35aa9aa after3 campaign and8 shared mechanics tests; a birth/final-energy reporting collision was caught/corrected before freeze, both logs retained. Complete controller/reference guardsPASS, prepare exits0 and actual evaluation launches session41931, log runs/lbt2_evaluation_20260913.log. All4 qualified parents,4 equally represented energies.12/.20/.35/.85,128 new218113000 ecologies per profile,2048 raw256-step bodies and64 cells; no fitting. Original LBT1 and all closed failures remain untouched. Memory-benefit/acquisition follow-up still unearned, LMT1 remains unlaunched and all12 full-roadmap obligations incomplete. Protocol: docs/lbt2_protocol_20260913.md.
 
+
+### 2026-09-13 — LBT2 raw endpoint complete; broader roadmap retained
+
+LBT2 evaluation session41931 exited0 with all2048 fresh bodies. Finalization
+exited0 with rawFAIL; independent audit session1372 is running, so this is not an
+independently closed verdict. Pooled survivors at initial energies.12/.20/.35/.85
+are89/371/448/501 of512 each; these diagnostics do not replace frozen per-cell
+gates or establish memory loss. If the audit confirms FAIL, the registered next
+step is complete public-state/action/death diagnosis before a fresh controller
+learning protocol. Agent-own acquisition and native memory-benefit controls remain
+unearned. No exposed endpoint is resumed or tuned.
+
+LMT1 guarded preparation exited0 and its manifest exists; the4096-step neural
+body endpoint remains unlaunched. Updated both durable roadmap documents while
+preserving all12 incomplete obligations and the six-pillar destination.
+
+LBT2 complete failure observer/protocol froze at4c1f712 after3 focused mechanics
+checks: physically viable public-reference feeding occurs at step3 while a
+symbolic-correct-memory WAIT fixture dies of energy at step9; tampered physics,
+public consequences, reward, endpoint and case identity reject; failed, passing-
+functional or incomplete audit receipts cannot authorize extraction. A missing
+fixture tick field was corrected before freeze; the original bad log is retained.
+This is diagnostic metrology, not a neural or functional qualification. Extraction
+waits for the actual complete independent audit confirming functional FAIL.
