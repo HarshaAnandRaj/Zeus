@@ -76,3 +76,25 @@ solution. Fast state also carries useful tool/history information; removing it c
 harm appropriate maintenance. LMB2's previously frozen learner-history correction
 remains unchanged. Full distributions and denominators:
 zeus_sandbox/universe/reports/lmb1_interior_state_probe_20260913.json.
+
+## LBT2: correct remembered route, unprescribed waiting at a scarce birth
+
+Independently audited LBT2FAIL and complete read-only diagnosis cover all2048
+bodies. Every body recalls the inspected quality correctly and reaches the safe
+patch in two moves. At energy.12, all512 third-decision argmaxes are WAIT,498
+sampled actions are WAIT, and the public teacher chooses HARVEST in all512 cases.
+Median WAIT probability is.9815185964. All639 deaths are energy-only;435 fatal
+bodies never gain energy from food, including383 lowest-energy deaths.
+
+Classification: observed unprescribed transfer pattern, mechanism unresolved.
+Original-energy teacher trajectories explicitly prescribe appropriate waiting;
+starvation-producing transfer of that preference to a scarce reset birth is not
+a supplied target. Architecture, resets and training exposure are engineered
+conditions. A learned start schedule, insufficient physiological conditioning or
+other state/history interaction is plausible, but no attractor or internal motive
+has been causally established. Correct recall/navigation and failed viability
+remain distinct. Keep this harmful pattern as a discovery rather than dismissing
+it for lack of usefulness or calling it self-maintenance.
+
+Sources: docs/lbt2_review_20260913.md and the complete audited failure diagnosis.
+Classification guidance: docs/emergence_affordance_classification_20260913.md.

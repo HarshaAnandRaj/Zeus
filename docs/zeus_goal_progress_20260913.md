@@ -87,8 +87,13 @@ docs/lmb4_protocol_20260913.md. All older outcomes and transfer dependencies sta
 Fresh known-memory LBT2 froze at35aa9aa after3 campaign and8 shared mechanics
 tests; source/calibration guardsPASS and preparation exit0. Actual evaluation
 session41931 exited0 after all4 parents/4 energy profiles/128 new ecologies,2048
-256-step bodies. Finalization exited0 with rawFAIL; independent audit session1372
-is running. Pooled survival by energy.12/.20/.35/.85 is89/371/448/501 of512
+256-step bodies. Finalization and independent audit session1372 exited0;
+auditPASS confirms functionalFAIL,400635 physical steps and388347 decisions.
+Complete diagnosis session10115 exited0 and covers all639 energy-only deaths.
+Every body recalls correctly and reaches the safe patch at step2; all512
+lowest-energy third-decision argmaxes are WAIT. LMB5 equal-profile training draft
+and development components pass4 focused mechanics/credit/twin checks; the full
+campaign remains unprepared/unlaunched. Pooled survival by energy.12/.20/.35/.85 is89/371/448/501 of512
 each; descriptive pooling does not replace per-cell gates. Old LBT1 remains unlaunched; native memory-benefit follow-up
 unearned until LBT2 independent qualification. No old verdict or bar changes.
 
@@ -105,7 +110,7 @@ the other109 energy only. Notes: docs/native_body_observation_ledger_20260913.md
 | Roadmap item | Status | Evidence still needed |
 |---|---|---|
 | 1. Sustained body control/self-maintenance | INCOMPLETE; LMB4 auditedPASS at256 steps, attributionFAIL; LMT1 prepared/unlaunched | Long repair-dependent neural maintenance remains owed. LMB3FAIL/LMB2VOID remain closed. |
-| 2. Native benefit of inherited memory | INCOMPLETE; LBT2 known-information actuation rawFAIL, audit running | Complete independent adjudication and diagnosis before any fresh qualification; closed-loop native function gain over acute and matched trained forgetting/content controls remains owed. Public reinspection remains available. |
+| 2. Native benefit of inherited memory | INCOMPLETE; LBT2 independently closedFAIL/completely diagnosed; LMB5 development components prepared | Fresh equal-profile controller campaign remains unprepared/unlaunched; qualification and closed-loop native function gain over acute and matched trained forgetting/content controls remain owed. Public reinspection remains available. |
 | 3. Self-directed acquisition | INCOMPLETE | Agent-selected information gathering and later causal benefit; engineered inspection/teacher targets do not close it. |
 | 4. Selective keeping/forgetting | INCOMPLETE | Utility-qualified selection under storage limits, consolidation and inheritance, independently useful over matched selection controls. |
 | 5. Revision/interference resistance | INCOMPLETE | Correct stale information in continuous changing operation while preserving other useful facts. |
@@ -121,6 +126,9 @@ Keep discovery open alongside these gates. Record small unexpected organization
 before utility judgment; do not make recurrence, dimension concentration or a
 trained target into an automatic emergence or pillar claim. Verify public provenance,
 world feedback and intended gradient paths throughout every proposed mechanism.
+Engineered affordances are allowed: distinguish fixed mechanisms, taught behavior
+and unprescribed organization before causal/functional classification. Guidance:
+docs/emergence_affordance_classification_20260913.md.
 
 Maintenance-ruler diagnosis, sourcead77bb2: a fresh public reference survives4096
 steps in32/32 static original-world bodies without any repair, spending>=3369

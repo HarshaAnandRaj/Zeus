@@ -44,7 +44,12 @@ by frozen priority, grounding attribution FAIL (contrasts-.005859/-.003906 with
 both confidence bounds crossing0). Independent auditPASS verifies512 source and
 4096 endpoint bodies,768 batches and998526 neural decisions. Fresh known-memory
 LBT2 is frozen at35aa9aa and has completed all2048 bodies across4 models/4 energy
-profiles. Its raw verdict is FAIL; independent audit is running. Pooled survivors
+profiles. Independent auditPASS confirms functionalFAIL, with400635 physical
+steps/388347 decisions. Complete frozen diagnosis covers every639 energy-only
+death; all bodies recall correctly/reach the safe patch in two moves, but all512
+lowest-energy third-decision argmaxes are WAIT. LMB5 equal-profile training draft
+and development components pass4 focused checks; the full campaign remains
+unprepared/unlaunched. Pooled survivors
 by initial energy are89/512 at.12,371/512 at.20,448/512 at.35 and501/512 at.85;
 these descriptive totals do not replace the frozen per-cell gates. Its native
 memory-benefit follow-up is not yet earned. The instrument shares hardware operators
@@ -79,7 +84,7 @@ and discoveries reveal. Each new experiment still needs its own frozen protocol.
 | # | Problem | What would count as progress | Present limit / dependency |
 |---|---|---|---|
 | 1 | Sustained body control and self-maintenance | Learned raw-sampled actions feed, manage wear and maintain viable operation over a declared long horizon, with physical accounting and passive controls. | LMB4 both arms auditedPASS on256-step original bodies; grounding attributionFAIL. A separate repair-dependent reference ruler auditsPASS and LMT1 is prepared/unlaunched; long neural operation remains owed. LMB2 staysVOID and LMB3 staysFAIL. |
-| 2 | Functional benefit of inherited memory | Prior experience improves fresh native operation over acute forgetting, opposite content, disabled writes and matched trained forgetting controls. | Fresh LBT2 known-memory actuation has rawFAIL, with independent audit running; qualification and subsequent own-acquisition/forgetting/content controls remain owed. Equal survival from reinspection is a negative viability contrast; inspection savings cannot silently replace it. |
+| 2 | Functional benefit of inherited memory | Prior experience improves fresh native operation over acute forgetting, opposite content, disabled writes and matched trained forgetting controls. | Fresh LBT2 known-memory actuation is independently closedFAIL and completely diagnosed. LMB5 scarce-birth training components/draft are prepared, full campaign unlaunched. Qualification and subsequent own-acquisition/forgetting/content controls remain owed. Equal survival from reinspection is a negative viability contrast; inspection savings cannot silently replace it. |
 | 3 | Acquiring experience through its own actions | The evaluated agent chooses information-gathering actions, experiences their consequences and later benefits from the information it obtained. | Preparation currently supplies inspection. Public supervised teaching can qualify prerequisites but does not demonstrate autonomous acquisition. |
 | 4 | Selective keeping and forgetting | Under limited storage, the agent retains independently useful experience and removes distracting or obsolete material, with matched quantity/recency/random controls. | Current evidence eligibility is fixed by the designer. Protected storage alone is not utility-based selection or the complete generate→select→consolidate→inherit ratchet. |
 | 5 | Revision without destructive interference | During continuing operation, new evidence corrects stale beliefs while preserving still-useful knowledge; stable and changing worlds distinguish appropriate revision from indiscriminate change. | Static one-safe-patch inheritance is insufficient. Multiple facts, contradictory evidence and repeated changes need their own task and controls. |
@@ -106,6 +111,9 @@ unexpected patterns. Admission does not require utility. Diagnose mechanism and
 function afterward; low covariance dimension or recurrence is not automatically
 benefit, authorship or life. A discovery may motivate a new experiment without
 becoming a target we force the model to reproduce.
+Engineering affordances does not disqualify emergence. Record what is fixed by
+code, explicitly taught and left to learning/interaction separately; follow the
+[affordance classification guidance](emergence_affordance_classification_20260913.md).
 
 **Preserve scientific continuity.** Commit before compute, keep fresh role-separated
 data, exact twins, public provenance, independent physical/neural audits, frozen
@@ -146,8 +154,12 @@ closed failures. Each component earns only its explicitly registered follow-up.
   [LMT1 protocol](lmt1_protocol_20260913.md).
 - Conditional, unlaunched transfer:
   [LBT1 protocol](lbt1_protocol_20260913.md).
-- Fresh qualified-source transfer completed with rawFAIL, audit pending:
+- Fresh qualified-source transfer independently closedFAIL and diagnosed:
   [LBT2 protocol](lbt2_protocol_20260913.md).
+- Audited transfer outcome and complete failure anatomy:
+  [LBT2 review](lbt2_review_20260913.md).
+- Next controller exposure comparison, development components only:
+  [LMB5 design draft](lmb5_scarce_birth_design_draft_20260913.md).
 - Next native functional checkpoints:
   [integration design](lcm4_native_integration_design_draft_20260912.md).
 - Dated verdicts and implementation history: [Project History](../Project_History.md).

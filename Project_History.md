@@ -4175,3 +4175,34 @@ functional or incomplete audit receipts cannot authorize extraction. A missing
 fixture tick field was corrected before freeze; the original bad log is retained.
 This is diagnostic metrology, not a neural or functional qualification. Extraction
 waits for the actual complete independent audit confirming functional FAIL.
+
+### 2026-09-13 — LBT2 independently closed FAIL and completely diagnosed
+
+Independent audit session1372 exited0: statusPASS/verdictFAIL,512 public source
+preparations,2048 endpoint bodies,400635 physical steps and388347 decisions.
+Maximum local probability/state errors8.940696716e-7/1.072883606e-6; full hardware
+trajectories and physical/scalar balances exact.35/64 survival cells fail. Pooled
+survivors at.12/.20/.35/.85 are89/371/448/501 of512; no pooling rescues a cell.
+All initial quality/first-direction measurements and storage/reset identities pass.
+
+Frozen complete diagnosis session10115 exited0 and replays all2048 bodies/every639
+energy-only death. All bodies reach the safe patch at step2. At.12, all512 third-
+decision argmaxes areWAIT,498 sampled actionsWAIT; public teacherHARVEST512/512.
+Median WAIT probability.9815185964;435 fatal bodies never gain energy from food.
+The observed unprescribed transfer pattern is retained in the discovery ledger;
+a particular attractor, motive or global absence of physiological information is
+not established. Review: docs/lbt2_review_20260913.md. No old source, profile,
+horizon, gate or sampler changes; native benefit/own acquisition remain unearned.
+
+LMB5 scarce-birth training components/design draft committed66020ae after4 focused
+checks, including real profile/teacher/scalar replay, actual death masking,
+independent encoding, full optimizer twins, all intended body module updates and
+changed policy distributions. Frozen memory/quality and unused prediction heads
+remain unchanged. These are development components only; full campaign runner,
+auditor and protocol still owed before preparation/96-update fits/held-out endpoint.
+
+User clarified engineered affordances are required conditions, not emergence
+exclusions. Added docs/emergence_affordance_classification_20260913.md: distinguish
+engineered mechanisms, explicitly taught behavior, observed unprescribed patterns
+and supported emergent organization; causal attribution and utility remain separate.
+All12 roadmap requirements stay incomplete and the full goal remains active.
