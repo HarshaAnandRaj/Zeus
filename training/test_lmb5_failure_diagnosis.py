@@ -18,6 +18,8 @@ class DiagnosisTests(unittest.TestCase):
 
     def test_complete_public_body_modes_and_profiles(self):
         for prep in self.preps:
+            self.assertEqual(D.R.S.A.preparation(prep,D.R.R.CONFIG|dict(base=229713000,ecologies=4,
+                horizon=32,energies=self.config['energies'])),24)
             for mode in ('inherited','empty'):
                 result,rows=self.fixture(prep,mode)
                 summary,stats,fatal=D.anatomy(prep,result,rows,0,'warm',mode,self.config)

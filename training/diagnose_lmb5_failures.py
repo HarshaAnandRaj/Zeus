@@ -91,7 +91,9 @@ def main():
     for name in SOURCES:
         assert subprocess.check_output(['git','show',commit+':'+name],cwd=ROOT).replace(b'\r\n',b'\n')==(ROOT/name).read_bytes().replace(b'\r\n',b'\n')
     preps=M.L.P.L3.read(R.OUT/'endpoint_public.json');assert len(preps)==512
-    source_steps=sum(R.S.A.preparation(p,R.R.CONFIG|dict(horizon=R.K.CONFIG['body_horizon'])) for p in preps)
+    preparation_config=R.R.CONFIG|dict(base=R.K.CONFIG['evaluation_base'],ecologies=R.K.CONFIG['evaluation_ecologies'],
+        horizon=R.K.CONFIG['body_horizon'],energies=R.K.CONFIG['energies'])
+    source_steps=sum(R.S.A.preparation(p,preparation_config) for p in preps)
     groups={};summaries=[];fatal=[]
     for variant in (*R.K.CONFIG['arms'],'warm'):
         endpoint=M.L.P.L3.read(R.OUT/f'{variant}_endpoint.json')['bodies'];cursor=0
