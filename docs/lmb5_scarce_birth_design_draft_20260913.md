@@ -60,3 +60,10 @@ updates or thresholds on the exposed endpoint. Audit defects produceVOID.
 This is a draft plus development training components, not a frozen full campaign.
 Complete runner, physical/neural/fit auditor, calibration and final protocol remain
 necessary before campaign preparation. No campaign endpoint is launched here.
+
+Implementation update: full runner, independently arranged judgments/teacher
+audit/fit provenance/whole neural-physical auditor and final protocol subsequently
+froze at58134f7 after4 campaign and4 component checks. Preparation passed and the
+public teacher check is running. Fits/endpoint still await independent reachability
+qualification. This draft retains its earlier design status; current authority is
+docs/lmb5_protocol_20260913.md and the dated goal/history ledger.

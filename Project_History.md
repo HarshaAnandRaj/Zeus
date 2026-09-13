@@ -4206,3 +4206,21 @@ exclusions. Added docs/emergence_affordance_classification_20260913.md: distingu
 engineered mechanisms, explicitly taught behavior, observed unprescribed patterns
 and supported emergent organization; causal attribution and utility remain separate.
 All12 roadmap requirements stay incomplete and the full goal remains active.
+
+### 2026-09-13 — LMB5 prospective exposure campaign frozen and prepared
+
+Full LMB5 runner, independently arranged judgments/calibration teacher/scalar
+source audit, complete fit-pair/input provenance and whole neural/physical/native
+readout audit plus protocol froze58134f7 after4 campaign and4 development training
+checks. Actual source/diagnosis guards passed; preparation exited0. Teacher check
+session19483 is running. Before96-update fits require independent reachability
+PASS with exact manifest/data hashes. Fits and held-out endpoint are unlaunched.
+
+Balanced versus original actual births share64 fit ecologies/four nominal slots,
+inherited/empty training contexts, minibatches and96-update budgets. Actual cold
+empty teacher deaths remain masked partial trajectories, with live-step counts
+published. Four parents/twins; store/quality and unused prediction heads frozen.
+Fresh declared endpoint7168 bodies/native readout12288 queries, every cell bars,
+separate scarce-exposure attribution and paired zero-update reference. Original
+LBT2FAIL is preserved. Eight independently twin-qualified fits would be a motor
+prerequisite, not native survival-memory benefit or a complete roadmap item.

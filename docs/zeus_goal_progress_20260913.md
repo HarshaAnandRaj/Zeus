@@ -91,9 +91,11 @@ session41931 exited0 after all4 parents/4 energy profiles/128 new ecologies,2048
 auditPASS confirms functionalFAIL,400635 physical steps and388347 decisions.
 Complete diagnosis session10115 exited0 and covers all639 energy-only deaths.
 Every body recalls correctly and reaches the safe patch at step2; all512
-lowest-energy third-decision argmaxes are WAIT. LMB5 equal-profile training draft
-and development components pass4 focused mechanics/credit/twin checks; the full
-campaign remains unprepared/unlaunched. Pooled survival by energy.12/.20/.35/.85 is89/371/448/501 of512
+lowest-energy third-decision argmaxes are WAIT. LMB5 equal-profile campaign froze
+at58134f7 after4 campaign and4 mechanics/credit/twin checks. Actual prerequisite
+guards/preparation pass and teacher check session19483 is running;96-update fits
+and fresh endpoint remain unlaunched until independently audited reachabilityPASS.
+Pooled survival by energy.12/.20/.35/.85 is89/371/448/501 of512
 each; descriptive pooling does not replace per-cell gates. Old LBT1 remains unlaunched; native memory-benefit follow-up
 unearned until LBT2 independent qualification. No old verdict or bar changes.
 
@@ -110,7 +112,7 @@ the other109 energy only. Notes: docs/native_body_observation_ledger_20260913.md
 | Roadmap item | Status | Evidence still needed |
 |---|---|---|
 | 1. Sustained body control/self-maintenance | INCOMPLETE; LMB4 auditedPASS at256 steps, attributionFAIL; LMT1 prepared/unlaunched | Long repair-dependent neural maintenance remains owed. LMB3FAIL/LMB2VOID remain closed. |
-| 2. Native benefit of inherited memory | INCOMPLETE; LBT2 independently closedFAIL/completely diagnosed; LMB5 development components prepared | Fresh equal-profile controller campaign remains unprepared/unlaunched; qualification and closed-loop native function gain over acute and matched trained forgetting/content controls remain owed. Public reinspection remains available. |
+| 2. Native benefit of inherited memory | INCOMPLETE; LBT2 independently closedFAIL/completely diagnosed; LMB5 frozen/prepared, teacher check running | LMB5 fits/endpoint unlaunched until independent reachabilityPASS; qualification and closed-loop native function gain over acute and matched trained forgetting/content controls remain owed. Public reinspection remains available. |
 | 3. Self-directed acquisition | INCOMPLETE | Agent-selected information gathering and later causal benefit; engineered inspection/teacher targets do not close it. |
 | 4. Selective keeping/forgetting | INCOMPLETE | Utility-qualified selection under storage limits, consolidation and inheritance, independently useful over matched selection controls. |
 | 5. Revision/interference resistance | INCOMPLETE | Correct stale information in continuous changing operation while preserving other useful facts. |
