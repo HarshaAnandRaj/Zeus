@@ -4089,3 +4089,32 @@ fresh controlled runner/auditor/protocol is next. Draft prospective scope:
 docs/lmb4_public_grounding_design_draft_20260913.md. Targets are engineered sensor
 representation, not emergent awareness. Every closed verdict and all12 obligations
 remain intact; goal active, no completion or genuine blocker.
+
+### 2026-09-13 — LMB4 grounded-state/control campaign frozen; calibrated and training
+
+New LMB4 runner/auditor/protocol froze at4aab291, all4 unqualified LMB3 parents,
+96 motor/head Adam updates in grounded versus detached auxiliary-control arms,
+32-step value-preserving truncation, separate motor/head clipping. Actor/cue BC
+stays fresh public demonstration-only; current-state/consequence auxiliary targets
+come from actually executed own histories. Their public teacher labels are unused.
+Source/body/head/optimizer exact twins and fresh214... role-separated data required;
+1536 total twin update slots,768 unique audited updates. No old data for fitting.
+
+20 relevant mechanics tests PASS, including6 new full-campaign tests: independent
+public tensor/head math, altered labels irrelevant, changed prediction rejection,
+complete tiny optimizer/source/collection twins, matched phase0 collections,
+separate clipping groups, independent two-arm FAIL/attribution rules and JSON,
+role/phase balance, prediction annotation independent of future observation/actions.
+A small interface error in unfrozen preparation was corrected before the20-test
+PASS and campaign freeze; no frozen source or old verdict was patched.
+
+Preparation and fresh teacher calibration terminated normally; all256 calibration
+bodies survive the fixed256 horizon. Training is live at runs/lmb4_training_20260913.log,
+fixed16 fits (4parents×2arms×2twins). No learned endpoint is exposed. Main motor
+qualification, auxiliary-mechanism attribution and prediction diagnostics remain
+separate. Audit will replay512 unique source bodies and4096 endpoint bodies,
+independent public targets/head math and exact hardware/local NumPy trajectories,
+all native/delayed content controls and complete artifact identities. No independent
+Adam/cross-engine portability or complete self-model/initiative claim is licensed.
+All12 roadmap obligations and six pillars remain intact; no scarce-birth transfer
+or goal completion/blockage is claimed. Protocol: docs/lmb4_protocol_20260913.md.

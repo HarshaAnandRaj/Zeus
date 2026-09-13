@@ -15,10 +15,9 @@ native quality and quantity-bin recall100%, delayed quality regression100%.
 LCM4-C original-head compatibility stays FAIL. This resolves the named decoder
 blocker in the declared setup, not every memory or authorship question.
 
-Latest goal continuation classification: progress. The complete fresh audit
-confirms LMB3 FAIL; all candidate deaths and frozen public-state probes are
-extracted. Their evidence changes the next hypothesis to public-state grounding
-and own-action prediction; new components have verified intended gradient paths.
+Latest goal continuation classification: progress. Fresh LMB4 campaign/auditor
+and controls are complete and frozen at4aab291. Twenty relevant mechanics tests
+and fresh public-teacher calibration PASS; the fixed training schedule is live.
 
 LMB1 body-control prerequisite froze at088e3fb. The new fast body recurrence,
 public teacher and independent physical/NumPy feedback auditor are built. The84-test
@@ -72,8 +71,13 @@ are weaker in off-route WAIT states; slow-only broad position scores reveal
 stationary occupancy bias. Review: docs/lmb3_public_state_probe_review_20260913.md.
 Public-state/consequence heads and public-data encoding are prepared; four new
 gradient/control/death/continuity tests plus ten relevant prior tests PASS.
-Fresh full campaign/auditor/protocol remain to build before any training launch.
-Draft: docs/lmb4_public_grounding_design_draft_20260913.md.
+Fresh full LMB4 campaign/auditor/protocol froze at4aab291 after20 relevant tests.
+Public-teacher calibration passes all256 bodies;16 fixed fits are running, two
+arms with eight whole model/head/optimizer/input/log twin pairs required. Own-action
+grounding targets use actual public current/next sensors, not own teacher labels;
+detached control blocks auxiliary body credit with separate motor/head clipping.
+No raw endpoint, attribution or independent full audit exists yet. Protocol:
+docs/lmb4_protocol_20260913.md. All older outcomes and transfer dependencies stay closed.
 Known-memory birth transfer remains unearned; no old verdict or bar changes.
 
 Offline observation probe, sourcee7a3e85:5,319 interior WAIT-argmax records reproduce
@@ -88,7 +92,7 @@ the other109 energy only. Notes: docs/native_body_observation_ledger_20260913.md
 
 | Roadmap item | Status | Evidence still needed |
 |---|---|---|
-| 1. Sustained body control/self-maintenance | INCOMPLETE; LMB3 audited FAIL, grounding components prepared | Complete fresh controlled grounding campaign and qualification; long repair-dependent maintenance remains owed. |
+| 1. Sustained body control/self-maintenance | INCOMPLETE; LMB4 frozen and training, LMB3 stays FAIL | Complete fixed fitting/raw endpoint/independent qualification; long repair-dependent maintenance remains owed. |
 | 2. Native benefit of inherited memory | INCOMPLETE | Fresh closed-loop native function gain over acute and matched trained forgetting/content controls. Public reinspection remains available. |
 | 3. Self-directed acquisition | INCOMPLETE | Agent-selected information gathering and later causal benefit; engineered inspection/teacher targets do not close it. |
 | 4. Selective keeping/forgetting | INCOMPLETE | Utility-qualified selection under storage limits, consolidation and inheritance, independently useful over matched selection controls. |
