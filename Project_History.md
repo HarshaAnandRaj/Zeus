@@ -4065,3 +4065,27 @@ fixed ridge.001, all parent/mode/outcome/interior-WAIT counts, no model updates.
 This distinguishes linear public-state availability from readout/selection,
 never qualifies an endpoint. Probe is running; no result assumed. LBT1/known-memory
 scarce-birth transfer remains unearned. Full twelve-item goal remains active.
+
+### 2026-09-13 — Public-state probes complete; grounding/prediction components prepared
+
+Frozen observerb625e4e finishes all1,024 candidate bodies. Held-out fast/mouth
+linear readers have substantially higher energy errors in off-route WAIT states
+than broad routine records; parent3 inherited n373 has energy RMSE.14598/.18203,
+position accuracy63.27%/68.10%. Slow-only all-record location accuracy88.03–96.93%
+exposes stationary safe-patch occupancy bias: broad decoding cannot establish
+movement tracking. No absence/causal-use/viability claim. Mouth reconstruction
+error5.96046e-7. Full params/counts: lmb3_public_state_probe_20260913.json; review
+and interpretation: docs/lmb3_public_state_probe_review_20260913.md.
+
+New engineered component core/body_prediction_heads.py reconstructs current
+public E/I/position from fast state and predicts actual next sensor changes from
+mouth state plus executed action. Public-data frontend supplies only actual
+public targets, preserving death masks. Detached-body control has identical
+initial predictions/head gradients with no body credit; full arm has fast/gate/
+reinstatement credit, no auxiliary actor or frozen writer/quality gradients.
+Chunk boundaries preserve recurrent values. Four new tests and ten relevant
+prior tests PASS(14 total). No fitting or held-out campaign launched; complete
+fresh controlled runner/auditor/protocol is next. Draft prospective scope:
+docs/lmb4_public_grounding_design_draft_20260913.md. Targets are engineered sensor
+representation, not emergent awareness. Every closed verdict and all12 obligations
+remain intact; goal active, no completion or genuine blocker.

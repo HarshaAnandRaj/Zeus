@@ -35,8 +35,10 @@ Dual replay instrument validation subsequently PASSes all256 exposed source
 bodies. Fresh zero-update LMB3 is frozen and running on new worlds, with all four
 fixed demonstration candidates and original/warm controls. Its independent audit
 confirms functional FAIL: parent3 inherited115/128 misses90%; all other gates pass.
-Complete death diagnosis and offline state-availability probes precede the next
-fresh learning mechanism. No transfer is earned. Its instrument shares hardware operators
+Complete death diagnosis and offline state-availability probes now motivate
+public-state grounding/own-action prediction. Components have mechanics PASS;
+the fresh controlled campaign/auditor must be completed before training.
+No transfer is earned. Its instrument shares hardware operators
 and independently checks local mathematics; it does not prove engine portability.
 
 Storage identity and supplied inspection are engineered. Current evidence does
@@ -54,7 +56,7 @@ and discoveries reveal. Each new experiment still needs its own frozen protocol.
 
 | # | Problem | What would count as progress | Present limit / dependency |
 |---|---|---|---|
-| 1 | Sustained body control and self-maintenance | Learned raw-sampled actions feed, manage wear and maintain viable operation over a declared long horizon, with physical accounting and passive controls. | LMB2 stays VOID, LMB3 audited FAIL in one survival cell. Diagnose state availability/action selection and qualify a fresh mechanism. Longer operation where repair is necessary remains separately owed. |
+| 1 | Sustained body control and self-maintenance | Learned raw-sampled actions feed, manage wear and maintain viable operation over a declared long horizon, with physical accounting and passive controls. | LMB2 stays VOID, LMB3 audited FAIL in one survival cell. State-grounding/prediction components are prepared; fresh controlled training/qualification is owed. Longer repair-dependent operation remains separately owed. |
 | 2 | Functional benefit of inherited memory | Prior experience improves fresh native operation over acute forgetting, opposite content, disabled writes and matched trained forgetting controls. | Forgetting agents may recover equally well through public reinspection. Equal survival is a negative viability contrast; inspection savings cannot silently replace it. |
 | 3 | Acquiring experience through its own actions | The evaluated agent chooses information-gathering actions, experiences their consequences and later benefits from the information it obtained. | Preparation currently supplies inspection. Public supervised teaching can qualify prerequisites but does not demonstrate autonomous acquisition. |
 | 4 | Selective keeping and forgetting | Under limited storage, the agent retains independently useful experience and removes distracting or obsolete material, with matched quantity/recency/random controls. | Current evidence eligibility is fixed by the designer. Protected storage alone is not utility-based selection or the complete generate→select→consolidate→inherit ratchet. |
