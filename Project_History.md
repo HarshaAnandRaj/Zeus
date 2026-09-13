@@ -4247,3 +4247,18 @@ This separate2048-body/4096-step repair-dependent test uses the earlier qualifie
 LMB4 models. Full endpoint/finalization/independent audit remain owed. A result
 cannot be attached to newly fitted LMB5 models or replace memory controls. All12
 roadmap requirements remain incomplete, full goal active.
+
+### Current authoritative update: completed fits and closed maintenance
+
+All sixteen LMB5 fits completed successfully. The read-only pre-exposure
+completion guard passes all eight whole model/head/optimizer/log twin pairs and
+input/source/frozen-module checks. Fresh evaluation session75282 is confirmed
+live, with balanced parents0,1,2 complete at this observation. Qualification
+requires completed endpoint, frozen finalization and independent full audit.
+
+LMT1 evaluation4271 and independent audit62426 completed successfully; functional
+verdictFAIL. Complete diagnosis80544 is COMPLETE: all2048 bodies die,
+2047 energy-only and1 integrity-only. Tool restoration occurs in864/1024 enabled
+bodies, but fails to sustain operation. Full review: docs/lmt1_review_20260913.md.
+This supersedes earlier launch-time running statuses above. All12 requirements
+remain incomplete; full goal remains active.
