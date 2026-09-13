@@ -191,3 +191,14 @@ confidence requirement, so the combined attributionFAIL is preserved. Partial
 improvement cannot replace whole-arm gates or qualify a source. Complete
 failure diagnosis is owed if the audit confirmsFAIL; agent-own acquisition
 remains unearned. All12 roadmap requirements remain incomplete.
+
+### 2026-09-13 — LMB5 independently closed FAIL; diagnosis running
+
+Full audit session89510 exited0: evidence statusPASS, functionalFAIL,
+qualificationfalse, no selected arm and exposure-attributionFAIL. All8 whole fit
+pairs/768 batches/7168 endpoint bodies verify;2122095 public physical steps and
+1552303 neural decisions replayed. Max local probability/state errors are
+1.0728836059570312e-6/1.341104507446289e-6. Review: docs/lmb5_review_20260913.md.
+Complete gated read-only diagnosis session59749 launched after audit completion.
+This supersedes earlier running-audit statuses. No endpoint rescue or new source
+qualification; all12 requirements remain incomplete and full goal active.
