@@ -113,7 +113,7 @@ the other109 energy only. Notes: docs/native_body_observation_ledger_20260913.md
 
 | Roadmap item | Status | Evidence still needed |
 |---|---|---|
-| 1. Sustained body control/self-maintenance | INCOMPLETE; LMB4 auditedPASS at256 steps, attributionFAIL; LMT1 prepared/unlaunched | Long repair-dependent neural maintenance remains owed. LMB3FAIL/LMB2VOID remain closed. |
+| 1. Sustained body control/self-maintenance | INCOMPLETE; LMB4 auditedPASS at256 steps, attributionFAIL; LMT1 evaluation running | Complete long repair-dependent neural endpoint and independent audit remain owed. LMB3FAIL/LMB2VOID remain closed. |
 | 2. Native benefit of inherited memory | INCOMPLETE; LBT2 independently closedFAIL/completely diagnosed; LMB5 teacher ruler auditedPASS/fits running | LMB5 fresh endpoint unlaunched until complete fit/twin checks; qualification and closed-loop native function gain over acute and matched trained forgetting/content controls remain owed. Public reinspection remains available. |
 | 3. Self-directed acquisition | INCOMPLETE | Agent-selected information gathering and later causal benefit; engineered inspection/teacher targets do not close it. |
 | 4. Selective keeping/forgetting | INCOMPLETE | Utility-qualified selection under storage limits, consolidation and inheritance, independently useful over matched selection controls. |
@@ -147,9 +147,18 @@ This earns only preparation of long neural maintenance/controller transfer, not
 learned operation. Review: docs/repair_dependent_calibration_review_20260913.md.
 LMT1 complete guarded runner/auditor/protocol prepared at00f7401 after11 combined
 campaign/shared guard/operation/physical mechanics tests. Guarded preparation
-exited0 and its manifest exists; no body endpoint launched. Complete audited LMB4
-source and calibrated-world artifact guards passed preparation; memory-transfer sequence stays
-first. Protocol: docs/lmt1_protocol_20260913.md.
+exited0 and its manifest exists. Endpoint session4271 is now running in parallel
+with memory-priority LMB5 fits; first maintenance parent complete. Complete audited
+LMB4 source and calibrated-world artifact guards pass; source remains earlier
+LMB4 controllers and full maintenance result/audit is owed. Protocol:
+docs/lmt1_protocol_20260913.md.
+
+Separate read-only LMB5 pre-exposure fit guard committed433e96f changes no frozen
+campaign rule/source. Partial inspection verifies completed balanced parent0/1
+whole model/head/optimizer/log twin identities, intended active updates and frozen
+modules. It does not write whole-campaign receipt or establish functional result;
+all16 completions/8 exact pairs and input provenance remain required before the
+fresh endpoint. Guidance: docs/lmb5_completion_guard_20260913.md.
 
 The goal remains active. No completion or blockage is claimed. Failed hypotheses
 can be sorted as negative evidence; they do not count as achieved capabilities.

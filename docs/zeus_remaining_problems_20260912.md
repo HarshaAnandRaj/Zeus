@@ -75,8 +75,10 @@ tool-restoring action sequence can survive through598 under its assumptions.
 Only the world ruler is qualified; long neural maintenance remains owed and no
 current campaign gate changes. Guarded LMT1 runner/auditor/protocol are prepared
 at00f7401 after11 campaign/shared mechanics tests; guarded preparation has now
-exited0 and its manifest exists, with the body endpoint unlaunched. Memory transfer retains immediate priority after LMB4
-independent qualification.
+exited0 and its manifest exists. Its endpoint is now running as an independent
+parallel test while LMB5 memory-priority fits continue; the first maintenance
+parent is complete, with no full functional result yet. Source remains the
+earlier audited LMB4 controllers, not newly fitted LMB5 models.
 
 ## Remaining problems and evidence we would need
 
@@ -86,7 +88,7 @@ and discoveries reveal. Each new experiment still needs its own frozen protocol.
 
 | # | Problem | What would count as progress | Present limit / dependency |
 |---|---|---|---|
-| 1 | Sustained body control and self-maintenance | Learned raw-sampled actions feed, manage wear and maintain viable operation over a declared long horizon, with physical accounting and passive controls. | LMB4 both arms auditedPASS on256-step original bodies; grounding attributionFAIL. A separate repair-dependent reference ruler auditsPASS and LMT1 is prepared/unlaunched; long neural operation remains owed. LMB2 staysVOID and LMB3 staysFAIL. |
+| 1 | Sustained body control and self-maintenance | Learned raw-sampled actions feed, manage wear and maintain viable operation over a declared long horizon, with physical accounting and passive controls. | LMB4 both arms auditedPASS on256-step original bodies; grounding attributionFAIL. A separate repair-dependent reference ruler auditsPASS and LMT1 evaluation is running in parallel with LMB5 fits; long neural result/audit remains owed. LMB2 staysVOID and LMB3 staysFAIL. |
 | 2 | Functional benefit of inherited memory | Prior experience improves fresh native operation over acute forgetting, opposite content, disabled writes and matched trained forgetting controls. | Fresh LBT2 known-memory actuation is independently closedFAIL and completely diagnosed. LMB5 independently audited teacher checkPASS and fits running; endpoint unlaunched. Qualification and subsequent own-acquisition/forgetting/content controls remain owed. Equal survival from reinspection is a negative viability contrast; inspection savings cannot silently replace it. |
 | 3 | Acquiring experience through its own actions | The evaluated agent chooses information-gathering actions, experiences their consequences and later benefits from the information it obtained. | Preparation currently supplies inspection. Public supervised teaching can qualify prerequisites but does not demonstrate autonomous acquisition. |
 | 4 | Selective keeping and forgetting | Under limited storage, the agent retains independently useful experience and removes distracting or obsolete material, with matched quantity/recency/random controls. | Current evidence eligibility is fixed by the designer. Protected storage alone is not utility-based selection or the complete generate→select→consolidate→inherit ratchet. |
@@ -153,7 +155,7 @@ closed failures. Each component earns only its explicitly registered follow-up.
   [audited no-repair counterexample](repair_necessity_counterexample_review_20260913.md).
 - Separate repair-dependent ruler:
   [reference calibration review](repair_dependent_calibration_review_20260913.md).
-- Prepared, unlaunched long neural maintenance:
+- Fresh long neural maintenance evaluating:
   [LMT1 protocol](lmt1_protocol_20260913.md).
 - Conditional, unlaunched transfer:
   [LBT1 protocol](lbt1_protocol_20260913.md).

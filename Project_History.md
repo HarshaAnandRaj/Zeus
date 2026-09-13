@@ -4231,3 +4231,19 @@ subsequently exited0 withPASS. Complete public teacher/scalar/source audit cover
 retained. Exact hashed calibration guardPASS.96-update training session68944 is
 now running; actual whole fits/twins must finish and be checked before fresh
 endpoint exposure. This is a teacher ruler, not a neural functional result.
+
+### 2026-09-13 — parallel long maintenance and LMB5 fit integrity
+
+LMB5 training68944 remains live; balanced parent0/1 complete whole-model/head/
+optimizer/log pairs independently inspected with exact identities/source/frozen
+module/update/log checks. Read-only pre-exposure guard committed433e96f implements
+already-declared completion obligations, changing no frozen campaign source or
+numerical rule. Whole receipt waits for all16 completions/8 pairs and input hashes;
+no fresh LMB5 endpoint is opened yet.
+
+Prepared LMT1 endpoint launched as session4271 while memory-priority fits continue.
+Actual manifest/source/world guards pass; first maintenance parent complete.
+This separate2048-body/4096-step repair-dependent test uses the earlier qualified
+LMB4 models. Full endpoint/finalization/independent audit remain owed. A result
+cannot be attached to newly fitted LMB5 models or replace memory controls. All12
+roadmap requirements remain incomplete, full goal active.
