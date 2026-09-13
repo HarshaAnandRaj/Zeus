@@ -4127,3 +4127,7 @@ have exact byte identity. Parent0 grounded first auxiliary-credit norms are fast
 Source/parent/head identities still verify against4aab291. This is actual training
 mechanics, not a functional/prediction/retention claim. Training process remains
 confirmed live; no restart, parameter/bar change or endpoint exposure follows.
+
+### 2026-09-13 — LMB4 fitting complete; fresh raw endpoint launched
+All16 fixed fits completed at frozen source4aab291, with8 exact whole model/head/optimizer/input/log twin pairs and verified source manifest. Training session96213 exited0. Fresh raw evaluation launched with session22263 and exclusive log runs/lmb4_evaluation_20260913.log. No functional verdict, grounding attribution or independent qualification yet. All12 roadmap obligations remain incomplete. Primary-checked value-relevant memory research notes were committed separately; no frozen campaign source changed.
+

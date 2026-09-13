@@ -72,8 +72,8 @@ stationary occupancy bias. Review: docs/lmb3_public_state_probe_review_20260913.
 Public-state/consequence heads and public-data encoding are prepared; four new
 gradient/control/death/continuity tests plus ten relevant prior tests PASS.
 Fresh full LMB4 campaign/auditor/protocol froze at4aab291 after20 relevant tests.
-Public-teacher calibration passes all256 bodies;16 fixed fits are running, two
-arms with eight whole model/head/optimizer/input/log twin pairs required. Own-action
+Public-teacher calibration passes all256 bodies;16 fixed fits completed with eight
+exact whole model/head/optimizer/input/log twin pairs. Fresh raw evaluation is running. Own-action
 grounding targets use actual public current/next sensors, not own teacher labels;
 detached control blocks auxiliary body credit with separate motor/head clipping.
 No raw endpoint, attribution or independent full audit exists yet. Protocol:
@@ -92,7 +92,7 @@ the other109 energy only. Notes: docs/native_body_observation_ledger_20260913.md
 
 | Roadmap item | Status | Evidence still needed |
 |---|---|---|
-| 1. Sustained body control/self-maintenance | INCOMPLETE; LMB4 frozen and training, LMB3 stays FAIL | Complete fixed fitting/raw endpoint/independent qualification; long repair-dependent maintenance remains owed. |
+| 1. Sustained body control/self-maintenance | INCOMPLETE; LMB4 fitting/twins complete and raw evaluation running, LMB3 stays FAIL | Complete raw endpoint/independent qualification; long repair-dependent maintenance remains owed. |
 | 2. Native benefit of inherited memory | INCOMPLETE | Fresh closed-loop native function gain over acute and matched trained forgetting/content controls. Public reinspection remains available. |
 | 3. Self-directed acquisition | INCOMPLETE | Agent-selected information gathering and later causal benefit; engineered inspection/teacher targets do not close it. |
 | 4. Selective keeping/forgetting | INCOMPLETE | Utility-qualified selection under storage limits, consolidation and inheritance, independently useful over matched selection controls. |
