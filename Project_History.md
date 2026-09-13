@@ -4118,3 +4118,12 @@ all native/delayed content controls and complete artifact identities. No indepen
 Adam/cross-engine portability or complete self-model/initiative claim is licensed.
 All12 roadmap obligations and six pillars remain intact; no scarce-birth transfer
 or goal completion/blockage is claimed. Protocol: docs/lmb4_protocol_20260913.md.
+
+### 2026-09-13 — Actual LMB4 initial control symmetry and auxiliary route verified
+
+During fixed live training, parent0 grounded/detached phase0 collection artifacts
+have exact byte identity. Parent0 grounded first auxiliary-credit norms are fast
+1.2970415204763412, reinstatement.1251441091299057, gate.11725765094161034, actor0.
+Source/parent/head identities still verify against4aab291. This is actual training
+mechanics, not a functional/prediction/retention claim. Training process remains
+confirmed live; no restart, parameter/bar change or endpoint exposure follows.
