@@ -2,8 +2,15 @@
 
 Preparation earned by the audited repair-dependent reference calibration,
 sourcec244372. Draft only: no body endpoint, optimizer or experiment output created.
-Runner, independent auditor, exact source/model bindings and final protocol still
-need implementation, mechanics checks and a prospective freeze before exposure.
+Complete campaign runner, independent auditor and final protocol still need
+implementation, mechanics checks and a prospective freeze before exposure.
+Shared helpers are now prepared: lmb4_qualified_source binds the full independent
+receipt and original artifacts before returning any arm; native_body_operation
+streams frozen raw actions/continuing recurrence in an explicitly supplied world.
+Six focused guard/operation tests PASS on short development fixtures, including
+low-energy births, disabled restoration, acute memory erasure, observer-label
+independence, weight identity and rejection of altered physics/saved states.
+No held-out long body or qualified-source experiment has been launched.
 Native scarce-birth memory transfer remains the immediate sequence after LMB4's
 independent qualification; this distinct maintenance obligation does not replace it.
 
@@ -17,7 +24,7 @@ artifacts, not a planner or a demonstrated capability model.
 
 Proposed fresh128 static repair-family ecologies217113000..127, inspected source
 side=floor(index/2)%2 to balance four side/quality cells32 each. Actual public
-preparation in three source bodies,8 actions each: first source chooses the supplied
+preparation in three source bodies,8 actions each: first source executes the supplied
 two moves and inspection followed by waiting; later source bodies wait. Use this
 new factory for every source and evaluated body. Preparation remains engineered
 and cannot establish autonomous acquisition.
