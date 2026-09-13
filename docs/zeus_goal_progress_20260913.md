@@ -60,9 +60,15 @@ PASS covers all256 exposed source bodies,64,331 decisions and213,835 public
 physical steps. Complete shared-hardware trajectories are exact; local NumPy
 probability/state errors stay below5.07e-7/9.54e-7. No old campaign is requalified.
 Fresh zero-update LMB3 froze at98824f5 after ten relevant mechanics tests; its
-endpoint is running on new worlds with all four fixed demonstration candidates,
+endpoint completed on new worlds with all four fixed demonstration candidates,
 original/warm references and complete native/delayed content regressions.
-Protocol: docs/lmb3_protocol_20260913.md. Audit and final verdict remain pending.
+Audited functional FAIL: parent3 inherited115/128 misses90%; all other gates pass.
+Audit PASS replays3,072 bodies,576,921 physical actions and579,993 neural decisions
+within exact shared-hardware/local-math bounds. Review: docs/lmb3_review_20260913.md.
+All34 candidate deaths are diagnosed:32 energy-only,1 both,1 integrity-only;
+26 between patches. A frozen offline public-state probe is running to distinguish
+state availability from mouth/action selection before a new learning mechanism.
+Known-memory birth transfer remains unearned; no old verdict or bar changes.
 
 Offline observation probe, sourcee7a3e85:5,319 interior WAIT-argmax records reproduce
 intact distributions within4.18e-7. Keeping the slow map while zeroing fast state
@@ -76,7 +82,7 @@ the other109 energy only. Notes: docs/native_body_observation_ledger_20260913.md
 
 | Roadmap item | Status | Evidence still needed |
 |---|---|---|
-| 1. Sustained body control/self-maintenance | INCOMPLETE; fresh LMB3 endpoint running; LMB2 stays VOID | Complete fresh qualification and audit; longer maintenance where repair matters remains owed. |
+| 1. Sustained body control/self-maintenance | INCOMPLETE; LMB3 audited FAIL, LMB2 stays VOID | Diagnose current-state availability versus action selection, then a fresh mechanism/qualification; long repair-dependent maintenance remains owed. |
 | 2. Native benefit of inherited memory | INCOMPLETE | Fresh closed-loop native function gain over acute and matched trained forgetting/content controls. Public reinspection remains available. |
 | 3. Self-directed acquisition | INCOMPLETE | Agent-selected information gathering and later causal benefit; engineered inspection/teacher targets do not close it. |
 | 4. Selective keeping/forgetting | INCOMPLETE | Utility-qualified selection under storage limits, consolidation and inheritance, independently useful over matched selection controls. |

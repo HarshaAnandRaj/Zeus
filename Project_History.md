@@ -4043,3 +4043,25 @@ This narrows pervasive teacher incapacity as an explanation, does not prove
 optimal recovery or diagnose recurrent credit/representation/objective failure.
 Dependent checkpoints are not independent trials. No learned endpoint is rescued;
 LMB2 stays VOID, LMB3 frozen unchanged. Review/report: public_teacher_recovery_diagnosis_20260913.
+
+### 2026-09-13 — LMB3 independently audited FAIL; complete death anatomy and state probe
+
+The original live audit completed; its missing terminal session is not a restart
+request. Audit PASS confirms fresh frozen functional FAIL, parent3 inherited
+115/128=.8984375 below90%, all other motor/native/delayed gates PASS. No rounding,
+extra cases or parent removal.3,072 full bodies,576,921 physical actions,579,993
+neural decisions,10,379 writes; hardware exact, local probability/state maxima
+6.55651e-7/1.63913e-6. Four fit twins and384 past correction batches verified.
+New failure observer6eeb4fd extracted all1,024 candidate bodies/34 deaths:32
+energy-only,1 both and1 integrity-only;26 between patches, median44 since feeding,
+364 WAITs in544 last16 records. All13 parent3 inherited deaths cross energy;
+two have no positive feeding. Descriptive teacher agreement is lower in fatal
+than surviving groups. No recovered viability or causal universal explanation.
+
+Closed review/report/audit/diagnosis committed atb625e4e. Fresh offline diagnostic
+froze there before compute: separate linear probes of fast h, integrated mouth
+vector and slow z for public energy/integrity/position, ecology0–63 fit/64–127 test,
+fixed ridge.001, all parent/mode/outcome/interior-WAIT counts, no model updates.
+This distinguishes linear public-state availability from readout/selection,
+never qualifies an endpoint. Probe is running; no result assumed. LBT1/known-memory
+scarce-birth transfer remains unearned. Full twelve-item goal remains active.
