@@ -178,3 +178,16 @@ verdictFAIL. Complete diagnosis80544 is COMPLETE: all2048 bodies die,
 bodies, but fails to sustain operation. Full review: docs/lmt1_review_20260913.md.
 This supersedes earlier launch-time running statuses above. All12 requirements
 remain incomplete; full goal remains active.
+
+### 2026-09-13 — LMB5 endpoint complete, independent audit running
+
+Evaluation session75282 terminated successfully after all12 variant/parent groups.
+Frozen finalization exited0: raw functionalFAIL, no qualified arm, exposure
+attributionFAIL. Independent full audit session89510 is running; no audited
+qualification is claimed. The raw balanced-minus-original inherited survival
+contrast at energy.12 is+.73828125 with95% bounds[.37890625,.955078125]; at.20
+it is+.162109375 with bounds[-.029296875,.3671875]. The latter fails the frozen
+confidence requirement, so the combined attributionFAIL is preserved. Partial
+improvement cannot replace whole-arm gates or qualify a source. Complete
+failure diagnosis is owed if the audit confirmsFAIL; agent-own acquisition
+remains unearned. All12 roadmap requirements remain incomplete.
