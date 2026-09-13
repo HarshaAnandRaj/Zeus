@@ -213,3 +213,16 @@ source, audit or functionalFAIL changes. Distinct full-coverage diagnosis2 froze
 at a43a130 after two real development fixture/corruption tests and launched as
 session67694. It repeats all bodies and explicitly checks body+query totals,
 publishing a different report. Complete diagnosis remains owed until it finishes.
+
+### 2026-09-13 — LMB5 complete successor diagnosis
+
+Diagnosis2 session67694 exited0 COMPLETE:7168 bodies,1454 energy-only deaths,
+1540015 body decisions plus12288 audited readout queries. Balanced has171 deaths,
+original645,warm638. Balanced lowest-energy third argmaxHARVEST512/512, sampled492:
+the prior immediate WAIT transfer is absent. Residual balanced fatalities often
+occur later/interior:156/171 terminal positions interior,142/171 had fed, fatal
+median83 steps and last-positive-feed gap49 among those with feeding. All group,
+body/death/decision totals and audit identity rechecked. Complete report/review
+preserved; no source qualifies. Next priority is a declared read-only causal
+state/position probe before a justified fresh control mechanism. All12 roadmap
+requirements remain incomplete, full goal active.
