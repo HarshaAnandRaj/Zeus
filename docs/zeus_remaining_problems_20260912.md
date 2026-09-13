@@ -49,8 +49,9 @@ steps/388347 decisions. Complete frozen diagnosis covers every639 energy-only
 death; all bodies recall correctly/reach the safe patch in two moves, but all512
 lowest-energy third-decision argmaxes are WAIT. LMB5 equal-profile campaign froze
 at58134f7 after4 campaign and4 training-component checks. Actual prerequisite
-guards and preparation pass; its public teacher check is running.96-update fits
-and the fresh endpoint remain unlaunched until independent reachabilityPASS.
+guards and preparation pass. Public teacher check and independent auditPASS
+verify1024 teacher bodies/278752 physical steps.96-update fits are now running;
+the fresh endpoint remains unlaunched until complete fit/twin checks.
 Pooled survivors
 by initial energy are89/512 at.12,371/512 at.20,448/512 at.35 and501/512 at.85;
 these descriptive totals do not replace the frozen per-cell gates. Its native
@@ -86,7 +87,7 @@ and discoveries reveal. Each new experiment still needs its own frozen protocol.
 | # | Problem | What would count as progress | Present limit / dependency |
 |---|---|---|---|
 | 1 | Sustained body control and self-maintenance | Learned raw-sampled actions feed, manage wear and maintain viable operation over a declared long horizon, with physical accounting and passive controls. | LMB4 both arms auditedPASS on256-step original bodies; grounding attributionFAIL. A separate repair-dependent reference ruler auditsPASS and LMT1 is prepared/unlaunched; long neural operation remains owed. LMB2 staysVOID and LMB3 staysFAIL. |
-| 2 | Functional benefit of inherited memory | Prior experience improves fresh native operation over acute forgetting, opposite content, disabled writes and matched trained forgetting controls. | Fresh LBT2 known-memory actuation is independently closedFAIL and completely diagnosed. LMB5 is frozen/prepared with its teacher check running; fits/endpoint unlaunched. Qualification and subsequent own-acquisition/forgetting/content controls remain owed. Equal survival from reinspection is a negative viability contrast; inspection savings cannot silently replace it. |
+| 2 | Functional benefit of inherited memory | Prior experience improves fresh native operation over acute forgetting, opposite content, disabled writes and matched trained forgetting controls. | Fresh LBT2 known-memory actuation is independently closedFAIL and completely diagnosed. LMB5 independently audited teacher checkPASS and fits running; endpoint unlaunched. Qualification and subsequent own-acquisition/forgetting/content controls remain owed. Equal survival from reinspection is a negative viability contrast; inspection savings cannot silently replace it. |
 | 3 | Acquiring experience through its own actions | The evaluated agent chooses information-gathering actions, experiences their consequences and later benefits from the information it obtained. | Preparation currently supplies inspection. Public supervised teaching can qualify prerequisites but does not demonstrate autonomous acquisition. |
 | 4 | Selective keeping and forgetting | Under limited storage, the agent retains independently useful experience and removes distracting or obsolete material, with matched quantity/recency/random controls. | Current evidence eligibility is fixed by the designer. Protected storage alone is not utility-based selection or the complete generate→select→consolidate→inherit ratchet. |
 | 5 | Revision without destructive interference | During continuing operation, new evidence corrects stale beliefs while preserving still-useful knowledge; stable and changing worlds distinguish appropriate revision from indiscriminate change. | Static one-safe-patch inheritance is insufficient. Multiple facts, contradictory evidence and repeated changes need their own task and controls. |
@@ -160,7 +161,7 @@ closed failures. Each component earns only its explicitly registered follow-up.
   [LBT2 protocol](lbt2_protocol_20260913.md).
 - Audited transfer outcome and complete failure anatomy:
   [LBT2 review](lbt2_review_20260913.md).
-- Fresh frozen controller exposure comparison, teacher check running:
+- Fresh frozen controller exposure comparison, teacher ruler auditedPASS/fits running:
   [LMB5 protocol](lmb5_protocol_20260913.md).
 - Next native functional checkpoints:
   [integration design](lcm4_native_integration_design_draft_20260912.md).

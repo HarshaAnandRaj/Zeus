@@ -4224,3 +4224,10 @@ Fresh declared endpoint7168 bodies/native readout12288 queries, every cell bars,
 separate scarce-exposure attribution and paired zero-update reference. Original
 LBT2FAIL is preserved. Eight independently twin-qualified fits would be a motor
 prerequisite, not native survival-memory benefit or a complete roadmap item.
+
+LMB5 public teacher check session19483 and independent calibration audit14066
+subsequently exited0 withPASS. Complete public teacher/scalar/source audit covers
+1024 teacher bodies/278752 physical steps; expected cold empty-memory deaths are
+retained. Exact hashed calibration guardPASS.96-update training session68944 is
+now running; actual whole fits/twins must finish and be checked before fresh
+endpoint exposure. This is a teacher ruler, not a neural functional result.
