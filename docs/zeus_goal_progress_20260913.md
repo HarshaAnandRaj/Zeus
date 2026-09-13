@@ -79,9 +79,16 @@ detached control blocks auxiliary body credit with separate motor/head clipping.
 Both arms PASS all raw qualification gates; grounded selected by frozen priority.
 Grounding attributionFAIL: inherited contrast-.005859375 CI[-.03515625,.01953125],
 empty-.00390625 CI[-.041015625,.03125]. No survival advantage detected; a negative
-point estimate does not establish harm. Independent full audit is running. Protocol:
+point estimate does not establish harm. Independent full auditPASS verifies512
+source/4096 endpoint bodies,768 batches,1126526 physical steps and998526 neural
+decisions; exact shared-hardware/local-math/head checks allPASS. Complete
+qualified-source artifact guard passes. Protocol:
 docs/lmb4_protocol_20260913.md. All older outcomes and transfer dependencies stay closed.
-Known-memory birth transfer remains unearned; no old verdict or bar changes.
+Fresh known-memory LBT2 froze at35aa9aa after3 campaign and8 shared mechanics
+tests; source/calibration guardsPASS and preparation exit0. Actual evaluation
+session41931 is running on4 parents/4 energy profiles/128 new ecologies,2048
+256-step bodies. Old LBT1 remains unlaunched; native memory-benefit follow-up
+unearned until LBT2 independent qualification. No old verdict or bar changes.
 
 Offline observation probe, sourcee7a3e85:5,319 interior WAIT-argmax records reproduce
 intact distributions within4.18e-7. Keeping the slow map while zeroing fast state
@@ -95,8 +102,8 @@ the other109 energy only. Notes: docs/native_body_observation_ledger_20260913.md
 
 | Roadmap item | Status | Evidence still needed |
 |---|---|---|
-| 1. Sustained body control/self-maintenance | INCOMPLETE; LMB4 both arms rawPASS, attributionFAIL, independent audit running; LMB3 stays FAIL | Complete independent qualification; long repair-dependent neural maintenance remains owed. |
-| 2. Native benefit of inherited memory | INCOMPLETE | Fresh closed-loop native function gain over acute and matched trained forgetting/content controls. Public reinspection remains available. |
+| 1. Sustained body control/self-maintenance | INCOMPLETE; LMB4 auditedPASS at256 steps, attributionFAIL; LMT1 prepared/unlaunched | Long repair-dependent neural maintenance remains owed. LMB3FAIL/LMB2VOID remain closed. |
+| 2. Native benefit of inherited memory | INCOMPLETE; LBT2 known-information actuation evaluating | Complete transfer qualification then fresh closed-loop native function gain over acute and matched trained forgetting/content controls. Public reinspection remains available. |
 | 3. Self-directed acquisition | INCOMPLETE | Agent-selected information gathering and later causal benefit; engineered inspection/teacher targets do not close it. |
 | 4. Selective keeping/forgetting | INCOMPLETE | Utility-qualified selection under storage limits, consolidation and inheritance, independently useful over matched selection controls. |
 | 5. Revision/interference resistance | INCOMPLETE | Correct stale information in continuous changing operation while preserving other useful facts. |

@@ -41,8 +41,10 @@ auditor and protocol are frozen after20 relevant tests; teacher calibration PASS
 and all16 fixed fits completed with8 exact whole-state twin pairs. Fresh raw
 evaluation/finalization completed: both arms PASS every raw gate, grounded selected
 by frozen priority, grounding attribution FAIL (contrasts-.005859/-.003906 with
-both confidence bounds crossing0). Independent audit is running; no transfer is
-earned before its PASS. Its instrument shares hardware operators
+both confidence bounds crossing0). Independent auditPASS verifies512 source and
+4096 endpoint bodies,768 batches and998526 neural decisions. Fresh known-memory
+LBT2 is frozen at35aa9aa, prepared and evaluating all4 models/4 energy profiles;
+its native memory-benefit follow-up is not yet earned. The instrument shares hardware operators
 and independently checks local mathematics; it does not prove engine portability.
 
 Storage identity and supplied inspection are engineered. Current evidence does
@@ -73,8 +75,8 @@ and discoveries reveal. Each new experiment still needs its own frozen protocol.
 
 | # | Problem | What would count as progress | Present limit / dependency |
 |---|---|---|---|
-| 1 | Sustained body control and self-maintenance | Learned raw-sampled actions feed, manage wear and maintain viable operation over a declared long horizon, with physical accounting and passive controls. | LMB2 stays VOID, LMB3 audited FAIL in one survival cell. LMB4 both arms rawPASS; grounding attributionFAIL. Independent qualification is running. A separate repair-dependent reference ruler auditsPASS, but long neural operation there remains owed. |
-| 2 | Functional benefit of inherited memory | Prior experience improves fresh native operation over acute forgetting, opposite content, disabled writes and matched trained forgetting controls. | Forgetting agents may recover equally well through public reinspection. Equal survival is a negative viability contrast; inspection savings cannot silently replace it. |
+| 1 | Sustained body control and self-maintenance | Learned raw-sampled actions feed, manage wear and maintain viable operation over a declared long horizon, with physical accounting and passive controls. | LMB4 both arms auditedPASS on256-step original bodies; grounding attributionFAIL. A separate repair-dependent reference ruler auditsPASS and LMT1 is prepared/unlaunched; long neural operation remains owed. LMB2 staysVOID and LMB3 staysFAIL. |
+| 2 | Functional benefit of inherited memory | Prior experience improves fresh native operation over acute forgetting, opposite content, disabled writes and matched trained forgetting controls. | Fresh LBT2 known-memory actuation is evaluating; its qualification and the subsequent own-acquisition/forgetting/content controls remain owed. Equal survival from reinspection is a negative viability contrast; inspection savings cannot silently replace it. |
 | 3 | Acquiring experience through its own actions | The evaluated agent chooses information-gathering actions, experiences their consequences and later benefits from the information it obtained. | Preparation currently supplies inspection. Public supervised teaching can qualify prerequisites but does not demonstrate autonomous acquisition. |
 | 4 | Selective keeping and forgetting | Under limited storage, the agent retains independently useful experience and removes distracting or obsolete material, with matched quantity/recency/random controls. | Current evidence eligibility is fixed by the designer. Protected storage alone is not utility-based selection or the complete generate→select→consolidate→inherit ratchet. |
 | 5 | Revision without destructive interference | During continuing operation, new evidence corrects stale beliefs while preserving still-useful knowledge; stable and changing worlds distinguish appropriate revision from indiscriminate change. | Static one-safe-patch inheritance is insufficient. Multiple facts, contradictory evidence and repeated changes need their own task and controls. |
@@ -129,6 +131,8 @@ closed failures. Each component earns only its explicitly registered follow-up.
   [offline probe protocol](lmb3_public_state_probe_protocol_20260913.md).
 - Fresh grounded/detached comparison:
   [LMB4 protocol](lmb4_protocol_20260913.md).
+- Closed audited motor outcome and limits:
+  [LMB4 review](lmb4_review_20260913.md).
 - Audited world calibration:
   [scarce-resource reference review](birth_resource_memory_calibration_review_20260913.md).
 - Maintenance-ruler limit:
@@ -139,6 +143,8 @@ closed failures. Each component earns only its explicitly registered follow-up.
   [LMT1 protocol](lmt1_protocol_20260913.md).
 - Conditional, unlaunched transfer:
   [LBT1 protocol](lbt1_protocol_20260913.md).
+- Fresh qualified-source transfer now evaluating:
+  [LBT2 protocol](lbt2_protocol_20260913.md).
 - Next native functional checkpoints:
   [integration design](lcm4_native_integration_design_draft_20260912.md).
 - Dated verdicts and implementation history: [Project History](../Project_History.md).
