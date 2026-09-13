@@ -124,6 +124,11 @@ disabled-tool-restoration and passive references die. Independent configured
 energy-envelope bound rules out survival through598 without tool restoration.
 This earns only preparation of long neural maintenance/controller transfer, not
 learned operation. Review: docs/repair_dependent_calibration_review_20260913.md.
+LMT1 complete guarded runner/auditor/protocol prepared at00f7401 after11 combined
+campaign/shared guard/operation/physical mechanics tests. Its directory is absent,
+no body endpoint launched. Complete audited LMB4 source and calibrated-world
+artifact guards are required before preparation; memory-transfer sequence stays
+first. Protocol: docs/lmt1_protocol_20260913.md.
 
 The goal remains active. No completion or blockage is claimed. Failed hypotheses
 can be sorted as negative evidence; they do not count as achieved capabilities.

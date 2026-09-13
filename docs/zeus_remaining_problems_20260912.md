@@ -60,7 +60,10 @@ repair bodies survive4096 with23 tool restorations each, while paired disabled
 restoration/no-repair/passive cases all die. A configured energy bound proves no
 tool-restoring action sequence can survive through598 under its assumptions.
 Only the world ruler is qualified; long neural maintenance remains owed and no
-current campaign gate changes.
+current campaign gate changes. Guarded LMT1 runner/auditor/protocol are prepared
+at00f7401 after11 campaign/shared mechanics tests; its directory is absent and
+body endpoint unlaunched. Memory transfer retains immediate priority after LMB4
+independent qualification.
 
 ## Remaining problems and evidence we would need
 
@@ -132,6 +135,8 @@ closed failures. Each component earns only its explicitly registered follow-up.
   [audited no-repair counterexample](repair_necessity_counterexample_review_20260913.md).
 - Separate repair-dependent ruler:
   [reference calibration review](repair_dependent_calibration_review_20260913.md).
+- Prepared, unlaunched long neural maintenance:
+  [LMT1 protocol](lmt1_protocol_20260913.md).
 - Conditional, unlaunched transfer:
   [LBT1 protocol](lbt1_protocol_20260913.md).
 - Next native functional checkpoints:

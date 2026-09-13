@@ -2,12 +2,14 @@
 
 Preparation earned by the audited repair-dependent reference calibration,
 sourcec244372. Draft only: no body endpoint, optimizer or experiment output created.
-Complete campaign runner, independent auditor and final protocol still need
-implementation, mechanics checks and a prospective freeze before exposure.
-Shared helpers are now prepared: lmb4_qualified_source binds the full independent
+Complete campaign runner, independent auditor and protocol are now prepared at
+commit00f7401: docs/lmt1_protocol_20260913.md. Three campaign mechanics tests
+PASS in addition to the eight shared tests. No campaign directory exists;
+complete LMB4 source qualification and memory-transfer priority remain explicit.
+Shared helpers are prepared: lmb4_qualified_source binds the full independent
 receipt and original artifacts before returning any arm; native_body_operation
 streams frozen raw actions/continuing recurrence in an explicitly supplied world.
-Six focused guard/operation tests PASS on short development fixtures, including
+Eight focused guard/operation/physical tests PASS on short development fixtures, including
 low-energy births, disabled restoration, acute memory erasure, observer-label
 independence, weight identity and rejection of altered physics/saved states.
 No held-out long body or qualified-source experiment has been launched.
