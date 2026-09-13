@@ -4321,3 +4321,15 @@ original outcome/WAIT preference. Actual current store is used: empty starts can
 acquire memory through subsequent public inspections. No replacement action
 executes and no immediate difference earns survival recovery or qualification.
 Full goal remains active, all12 roadmap requirements incomplete.
+
+### 2026-09-13 — LMB5 immediate state probe completed
+
+Probe90730 exited0 COMPLETE:36602 interior readings/all629550 balanced decisions,
+intact reproduction error7.450580596923828e-7 and unchanged models. Fatal interior
+WAIT strata show zero-fast teacher agreement84.01/87.73/36.40/88.63% byparent,
+versus slow-only2.09/0/9.77/11.62%. Parent2 differs: joint erasure86.76% versus
+fast-only36.40%. Preserve heterogeneous effects and successful/non-WAIT strata.
+No replacement action executed and no sustained recovery established. Review:
+docs/lmb5_interior_state_probe_review_20260913.md. Next is a distinct justified
+control mechanism retaining useful history and grounding current public physiology,
+not routine resets or reuse/tuning of any exposed endpoint. Full goal active.
