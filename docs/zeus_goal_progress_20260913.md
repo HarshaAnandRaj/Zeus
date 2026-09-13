@@ -226,3 +226,14 @@ body/death/decision totals and audit identity rechecked. Complete report/review
 preserved; no source qualifies. Next priority is a declared read-only causal
 state/position probe before a justified fresh control mechanism. All12 roadmap
 requirements remain incomplete, full goal active.
+
+### 2026-09-13 — fixed-reading causal contribution probe launched
+
+Complete LMB5 diagnosis earns the read-only state contribution probe, frozen at
+f045902 after real development pre-action reconstruction/corruption/frozen-weight
+checks. Session90730 compares intact/zero-fast/zero-slow/both-zero distributions
+for every balanced interior reading, stratified by parent/energy/mode/side/quality/
+original outcome/WAIT preference. Actual current store is used: empty starts can
+acquire memory through subsequent public inspections. No replacement action
+executes and no immediate difference earns survival recovery or qualification.
+Full goal remains active, all12 roadmap requirements incomplete.
