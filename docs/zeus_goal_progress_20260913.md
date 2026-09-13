@@ -114,8 +114,13 @@ Maintenance-ruler diagnosis, sourcead77bb2: a fresh public reference survives409
 steps in32/32 static original-world bodies without any repair, spending>=3369
 steps at tool0; passiveWAIT0/32. Independent policy/world/scalar auditPASS133312
 transitions. This is a counterexample to repair necessity at that horizon, not
-neural maintenance. Repair-dependent long operation remains owed in a separately
-calibrated family. Review: docs/repair_necessity_counterexample_review_20260913.md.
+neural maintenance. Review: docs/repair_necessity_counterexample_review_20260913.md.
+Separate repair-dependent reference sourcec244372 auditsPASS128 bodies/159680
+transitions:32/32 repair-enabled survive4096 with23 restorations; all no-repair,
+disabled-tool-restoration and passive references die. Independent configured
+energy-envelope bound rules out survival through598 without tool restoration.
+This earns only preparation of long neural maintenance/controller transfer, not
+learned operation. Review: docs/repair_dependent_calibration_review_20260913.md.
 
 The goal remains active. No completion or blockage is claimed. Failed hypotheses
 can be sorted as negative evidence; they do not count as achieved capabilities.

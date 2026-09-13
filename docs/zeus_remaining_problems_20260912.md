@@ -53,7 +53,12 @@ body-control success alone cannot establish an inheritance benefit.
 A fresh public-reference counterexample independently audits32/32 survivors at
 4096 steps without repair, including at least3369 tool0 steps per body; passive
 WAIT0/32. Original-world survival/repair counts cannot establish repair necessity.
-A separately calibrated repair-dependent family remains owed; no current gate changes.
+A separate repair-dependent reference family subsequently auditsPASS:32/32 public
+repair bodies survive4096 with23 tool restorations each, while paired disabled
+restoration/no-repair/passive cases all die. A configured energy bound proves no
+tool-restoring action sequence can survive through598 under its assumptions.
+Only the world ruler is qualified; long neural maintenance remains owed and no
+current campaign gate changes.
 
 ## Remaining problems and evidence we would need
 
@@ -123,6 +128,8 @@ closed failures. Each component earns only its explicitly registered follow-up.
   [scarce-resource reference review](birth_resource_memory_calibration_review_20260913.md).
 - Maintenance-ruler limit:
   [audited no-repair counterexample](repair_necessity_counterexample_review_20260913.md).
+- Separate repair-dependent ruler:
+  [reference calibration review](repair_dependent_calibration_review_20260913.md).
 - Conditional, unlaunched transfer:
   [LBT1 protocol](lbt1_protocol_20260913.md).
 - Next native functional checkpoints:
