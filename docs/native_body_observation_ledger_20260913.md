@@ -98,3 +98,24 @@ it for lack of usefulness or calling it self-maintenance.
 
 Sources: docs/lbt2_review_20260913.md and the complete audited failure diagnosis.
 Classification guidance: docs/emergence_affordance_classification_20260913.md.
+
+## LMT1: repair actions occur without sustained energy balance
+
+The independent maintenance audit confirms functionalFAIL across2048 bodies in
+the lower-yield repair-dependent world. Complete diagnosis preserves2047
+energy-only deaths and1 integrity-only death. Actual tool restoration occurs in
+433/512 enabled inherited bodies and431/512 enabled empty bodies, yet none
+survives4096. There are259058 safe-patch WAIT actions across all conditions.
+
+Classification: observed unprescribed failure of transfer, mechanism unresolved.
+Repair actions were explicitly taught; their existence is not an emergent finding.
+The joint learned behavior under this changed world fails to sustain itself,
+despite many repairs. Safe-patch waiting by itself is neither an attractor nor an
+internal priority. The complete descriptive evidence motivates investigation of
+energy-conditioned control and exposure, without attributing causality to a
+clock, motive or single state variable. Lower extraction yield and longer horizon
+both differ from qualification, so duration alone is not established as the cause.
+
+Evidence: docs/lmt1_review_20260913.md and the complete failure diagnosis.
+The necessary budget in docs/maintenance_energy_budget_notes_20260913.md is an
+explanation of physical constraints, not a new gate or a recovered policy.
