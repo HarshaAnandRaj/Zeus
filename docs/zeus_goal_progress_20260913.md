@@ -18,9 +18,12 @@ blocker in the declared setup, not every memory or authorship question.
 Latest goal continuation classification: progress. LMB5 is independently closed
 FAIL, its complete successor diagnosis and immediate state-contribution probe
 are finished. LMT1 long maintenance is independently FAIL. LMB6 candidate state-
-correction, training and replay components pass11 development checks; its full
-campaign runner, calibration, final audit and protocol are still being prepared.
-No training or evaluation process is currently running for this new candidate.
+correction now has a complete prospective runner, source/fit guards, independent
+physical/neural auditor and separate architecture judgment. All18 relevant
+checks pass, including a complete four-parent/three-arm development pipeline.
+Protocol: docs/lmb6_protocol_20260914.md. The fresh campaign is ready for freeze
+and teacher calibration; no campaign learning or endpoint has been exposed yet.
+Development success is not functional qualification. All12 requirements stay open.
 
 LMB1 body-control prerequisite froze at088e3fb. The new fast body recurrence,
 public teacher and independent physical/NumPy feedback auditor are built. The84-test

@@ -1,6 +1,6 @@
 # Zeus: the problems remaining beyond a usable memory path
 
-Roadmap created 2026-09-12; evidence refreshed 2026-09-13. Planning only: this list does not launch experiments,
+Roadmap created 2026-09-12; evidence refreshed 2026-09-14. Planning only: this list does not launch experiments,
 change frozen bars, reopen a closed verdict or establish a pillar result. The user
 asked for a durable list so that local repairs do not displace the program goal.
 
@@ -15,9 +15,11 @@ Zeus is the project; CDT and adaptive dimensionality are supporting hypotheses.
 Current status: LMB5 is independently FAIL and its complete successor diagnosis
 and fixed-reading state probe are finished. LMT1 long maintenance is independently
 FAIL. LMB6's learned current-observation state correction, matched recurrent
-control, legacy training control and independent replay are development components
-with11 passing checks. Its full campaign is not yet prepared or launched. All12
-requirements below remain incomplete. The following narrative preserves the
+control and legacy training control now have a complete prospective campaign,
+source/fit guards, independent replay and separate architectural attribution.
+All18 development checks pass, including the complete short pipeline across all
+four parents and three arms. Fresh calibration and training are still owed;
+protocol: docs/lmb6_protocol_20260914.md. All12 requirements remain incomplete. The following narrative preserves the
 sequence of earlier decisions; dated launch-time running statuses are historical.
 See [the candidate design](lmb6_anchored_state_design_draft_20260913.md).
 
@@ -98,7 +100,7 @@ and discoveries reveal. Each new experiment still needs its own frozen protocol.
 | # | Problem | What would count as progress | Present limit / dependency |
 |---|---|---|---|
 | 1 | Sustained body control and self-maintenance | Learned raw-sampled actions feed, manage wear and maintain viable operation over a declared long horizon, with physical accounting and passive controls. | LMT1 is independently FAIL and completely diagnosed:2048 deaths, with actual repairs in many enabled bodies. The calibrated repair-dependent world is viable under its public reference; sustained neural operation remains owed. LMB4's256-step qualification does not close this requirement. |
-| 2 | Functional benefit of inherited memory | Prior experience improves fresh native operation over acute forgetting, opposite content, disabled writes and matched trained forgetting controls. | LBT2 and LMB5 are independently FAIL, with complete diagnoses. The LMB5 state probe motivates LMB6 components now under preparation. Whole actuator qualification and subsequent own-acquisition/forgetting/content controls remain owed. Equal survival from reinspection is a negative viability contrast; inspection savings cannot silently replace it. |
+| 2 | Functional benefit of inherited memory | Prior experience improves fresh native operation over acute forgetting, opposite content, disabled writes and matched trained forgetting controls. | LBT2 and LMB5 are independently FAIL, with complete diagnoses. The LMB5 state probe motivates LMB6, whose complete protocol and18 development checks are ready for fresh calibration. Whole actuator qualification and subsequent own-acquisition/forgetting/content controls remain owed. Equal survival from reinspection is a negative viability contrast; inspection savings cannot silently replace it. |
 | 3 | Acquiring experience through its own actions | The evaluated agent chooses information-gathering actions, experiences their consequences and later benefits from the information it obtained. | Preparation currently supplies inspection. Public supervised teaching can qualify prerequisites but does not demonstrate autonomous acquisition. |
 | 4 | Selective keeping and forgetting | Under limited storage, the agent retains independently useful experience and removes distracting or obsolete material, with matched quantity/recency/random controls. | Current evidence eligibility is fixed by the designer. Protected storage alone is not utility-based selection or the complete generate→select→consolidate→inherit ratchet. |
 | 5 | Revision without destructive interference | During continuing operation, new evidence corrects stale beliefs while preserving still-useful knowledge; stable and changing worlds distinguish appropriate revision from indiscriminate change. | Static one-safe-patch inheritance is insufficient. Multiple facts, contradictory evidence and repeated changes need their own task and controls. |
@@ -182,7 +184,7 @@ Older documents retain their launch-time statuses. Current phase activity is rea
 from the dated history and current audit receipts; historical pauses are not new
 permission requests. This snapshot does not amend the charter or its reopening rules.
 
-### Current authoritative update: completed fits and closed maintenance
+### Historical update: completed fits and closed maintenance
 
 All sixteen LMB5 fits completed successfully. The read-only pre-exposure
 completion guard passes all eight whole model/head/optimizer/log twin pairs and

@@ -4359,3 +4359,31 @@ judgments and independent full auditor before any campaign training. Source stay
 all4 audited LMB4 grounded controllers. LMB5 remains unqualified; all12 roadmap
 requirements and the complete six-pillar/live-session objective remain open.
 Design: docs/lmb6_anchored_state_design_draft_20260913.md.
+
+
+### 2026-09-14 — LMB6 full prospective campaign and development qualification
+
+The prior user discussion clarified engineered affordances versus unprescribed
+organization; it was not experiment progress. This continuation builds the full
+three-arm LMB6 runner, frozen-role contract, complete fit guard, independent
+physical/anchored neural auditor and separately arranged cell/contrast judgment.
+Current must beat recurrent and legacy at both scarce profiles, while itself
+qualifying, for architecture attribution. All energy strata remain reported;
+qualification and attribution are separate. Source stays all4 audited LMB4 grounded
+controllers; the actual full source guard verifies all12 candidate initial states.
+
+All18 relevant development checksPASS in54.134s. These include the real24-fit short
+pipeline across all4 parents/3 arms,304 physical endpoint bodies,576 diagnostic
+queries, source/mode controls, resealed model/optimizer/log corruptions and stage
+barriers. The first complete fixture reached the final overwrite rejection but
+expected AssertionError instead of the actual FileExistsError; its assertion was
+corrected before the passing suite, without changing exclusive output protection.
+Development uses separate232 families (and existing230 component fixtures), never
+campaign231 roles. No fresh campaign data have been generated yet.
+
+Protocol docs/lmb6_protocol_20260914.md is ready to freeze with all campaign code
+before preparation/calibration. Fresh training teacher physics is independently
+checked before fitting and again before endpoint exposure. Distinguish actual body
+decisions from readout queries throughout. Candidate training targets remain
+explicitly taught; neither an emergence verdict nor a pillar result follows from
+these mechanics checks. Full roadmap/six-pillar/live-session goal remains active.
