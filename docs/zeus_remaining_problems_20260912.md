@@ -17,8 +17,12 @@ fruit-fly circuit organization and named the proposed new phase **Encephalon**.
 The [Encephalon plan](encephalon_phase_plan_20260919.md) defines staged causal
 tests of needs, memory, action, learning and continuity in one operating agent.
 The [research note](fruit_fly_connectome_research_notes_20260919.md) separates
-biological evidence from proposed engineering. LMB6 remains paused. No Encephalon
-implementation or experiment has begun, and all12 requirements remain incomplete.
+biological evidence from proposed engineering. The user subsequently authorized
+initiation: the [E0-A protocol](encephalon_e0_protocol_20260919.md) and
+[state/credit contract](encephalon_state_and_credit_contract_20260919.md) now bind
+a new two-need world and fresh neural mechanics. Twelve development tests pass;
+reference calibration and independent adjudication are next. LMB6 remains paused,
+and all12 program requirements remain incomplete.
 
 Latest completed engineering status before that pause: LMB5 is independently FAIL and its complete successor diagnosis
 and fixed-reading state probe are finished. LMT1 long maintenance is independently

@@ -1,9 +1,12 @@
 # Encephalon: fruit-fly-inspired organization for Zeus
 
-Planning proposal, 2026-09-19. Named Encephalon by the user. This document plans a
-new research lineage; it does not launch training, register an experiment, change
-a frozen verdict, or resume LMB6. Numerical proposals below become binding only
-in a prospective protocol committed before the corresponding experiment.
+Phase plan, 2026-09-19. Named Encephalon by the user, who subsequently authorized
+its initiation. The first implementation and calibration checkpoint is
+[E0-A](encephalon_e0_protocol_20260919.md), with an explicit
+[state and credit contract](encephalon_state_and_credit_contract_20260919.md).
+LMB6 remains paused. Numerical proposals below become binding only in a
+prospective protocol committed before the corresponding experiment; the plan
+does not itself change a frozen verdict or establish a capability result.
 
 ## Destination
 
@@ -400,8 +403,8 @@ separate diagnosis or fresh experiment, not an altered gate in an exposed one.
 
 ## First implementation checkpoint
 
-The next work package is **E0 plus the smallest E1 loop**, after this planning
-stage: write the state/observation/action and learning-credit contracts; calibrate
+The first authorized work package is **E0 plus the smallest E1 loop**:
+write the state/observation/action and learning-credit contracts; calibrate
 the smallest environment that distinguishes the intended claims; choose and
 freeze the baseline, candidate and budgets; then build and qualify the complete
 small loop. Prioritize need-dependent memory use next. Add differentiated

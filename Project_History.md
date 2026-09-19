@@ -4416,3 +4416,26 @@ the published base is unchanged. The working JSON remains byte-identical, its
 dependent probe checksum still matches, and no source implementation or verdict
 changed. Original source identifiers remain in frozen evidence; the full mapping
 and recovery details are in docs/lmb5_git_lfs_migration_20260919.md.
+
+### 2026-09-19 — Encephalon initiated; E0-A constructed before calibration
+
+The user authorized Encephalon initiation. On codex/encephalon-e0, a fresh integer-
+physiology world supplies independently varying food and repair facts, public
+inspection masks, partial changes, and real action costs. New state/information/
+credit and E0-A protocol documents separate environment qualification from neural
+capability. The initial neural loop has recurrent context, a current-sensing
+route with a matched comparator, and own-action actor-critic/consequence learning.
+There is no protected learned store or language head yet; later stages retain
+those obligations. No prior neural weights or frozen LMB sources are changed.
+
+Twelve development mechanics tests PASS, including independent physics/policy
+replay with primary methods disabled, corrupted-evidence rejection, actual public
+acquisition and wrong-content donors, all intended module gradients, delayed
+outcome credit, exact optimizer twins and uninterrupted save/restore behavior.
+These use the development family only and do not qualify learned survival.
+
+E0-A is prepared for a source-frozen 32-world, 27-case, 4096-step reference panel
+with exact twins and independent adjudication. Compact action packets and complete
+transition digests replace repeated large telemetry arrays. Calibration has not
+been opened at this entry; LMB6 remains paused and all full-program claims remain
+outstanding.
