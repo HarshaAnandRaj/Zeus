@@ -20,9 +20,12 @@ The [research note](fruit_fly_connectome_research_notes_20260919.md) separates
 biological evidence from proposed engineering. The user subsequently authorized
 initiation: the [E0-A protocol](encephalon_e0_protocol_20260919.md) and
 [state/credit contract](encephalon_state_and_credit_contract_20260919.md) now bind
-a new two-need world and fresh neural mechanics. Twelve development tests pass;
-reference calibration and independent adjudication are next. LMB6 remains paused,
-and all12 program requirements remain incomplete.
+a new two-need world and fresh neural mechanics. Twelve development tests pass.
+[E0-A calibration is independently PASS](encephalon_e0_review_20260919.md):
+26 gates, 1,728 bodies and 3,373,722 replayed physical steps, with exact twins.
+This qualifies the world, not learned control. The next work is the
+[E1 training campaign](encephalon_e1_training_design_draft_20260919.md).
+LMB6 remains paused, and all12 program requirements remain incomplete.
 
 Latest completed engineering status before that pause: LMB5 is independently FAIL and its complete successor diagnosis
 and fixed-reading state probe are finished. LMT1 long maintenance is independently

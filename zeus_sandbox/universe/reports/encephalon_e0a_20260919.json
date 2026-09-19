@@ -1,0 +1,379 @@
+{
+  "manifest": {
+    "version": "encephalon-e0a-20260919",
+    "world_version": "encephalon-world-v1-20260919",
+    "config": {
+      "development_base": 319000000,
+      "calibration_base": 319100000,
+      "ecologies": 32,
+      "horizon": 4096,
+      "twins": [
+        "a",
+        "b"
+      ],
+      "long_controls": [
+        "adaptive",
+        "frozen",
+        "reinspect",
+        "fixed_left",
+        "no_repair",
+        "repair_disabled",
+        "passive"
+      ],
+      "information_controls": [
+        "intact",
+        "erased",
+        "wrong_food",
+        "wrong_repair",
+        "prevented_writes"
+      ],
+      "information_reserves": {
+        "energy": [
+          55,
+          885
+        ],
+        "integrity": [
+          774,
+          10
+        ]
+      },
+      "visible_reserves": {
+        "balanced": [
+          850,
+          900
+        ],
+        "energy": [
+          180,
+          900
+        ],
+        "integrity": [
+          850,
+          120
+        ]
+      },
+      "warm_actions": [
+        1,
+        1,
+        4,
+        2,
+        2
+      ],
+      "minimum_survival": 1.0,
+      "required_survival_difference": 0.05,
+      "maximum_no_repair_ticks": 300,
+      "train_base_reserved": 319200000,
+      "development_base_reserved": 319300000,
+      "heldout_base_reserved": 319400000
+    },
+    "physics": {
+      "capacity": 1000,
+      "metabolism": 7,
+      "wear": 3,
+      "move_cost": 4,
+      "feed_cost": 3,
+      "inspect_cost": 25,
+      "repair_cost": 8,
+      "food_gain": 420,
+      "repair_gain": 450
+    },
+    "commit": "f97cee894e60b282525f8873b02ed4614a3e1274",
+    "sources": {
+      "core/encephalon_world.py": "77704f701dc7b21943c680149ab120ddd01d3d527c454b0ac2682478e056781b",
+      "core/encephalon_agent.py": "d2d34d00e4015fa6d31632832a8220e7fe6155ec5b04a17740afe418127601c4",
+      "training/encephalon_reference.py": "211f2e0268d116699ea9444ba19a03bd20e92ca00d458105d54dac8ad226b560",
+      "training/encephalon_e0_contract.py": "d1d22b912a66748bc0360bdb6c749d91c5d2ed8621d15b4f6b2fcaf27e36d85a",
+      "training/run_encephalon_e0.py": "c6a7501cd09bea973a6770884ea0ce6928d76020e83e5c7a630a434f614da545",
+      "training/audit_encephalon_e0.py": "57113841e9b2c6c7ee56e4f3dcfc91ef5c6385695cef3e076882b0e098f35a91",
+      "training/encephalon_learning.py": "6054f29e4b0b0b012ab835633d6ffdd9a479e0e93d5b37933eb212f534f69a71",
+      "training/test_encephalon_e0.py": "87189ba76bea1e708eeb305c6a18e488a181782578aca24ba1c9ffa38d8cd70e",
+      "docs/encephalon_e0_protocol_20260919.md": "98e27a3880c6ae4d4f6aa2f2e7b9e1b6c70c40477aa16b049cc712294e8b3f9f",
+      "docs/encephalon_state_and_credit_contract_20260919.md": "723f272c7abc4538a47e618f1e797fdb9bbcb6ca962664c1e7409544a67263b0"
+    },
+    "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "neural_forward_passes": 0
+  },
+  "verdict": {
+    "verdict": "PASS",
+    "gates": {
+      "adaptive_feasible_False": true,
+      "reinspect_feasible_False": true,
+      "repair_necessary_False": true,
+      "passive_fails_False": true,
+      "adaptive_repairs_False": true,
+      "frozen_preserves": true,
+      "adaptive_feasible_True": true,
+      "reinspect_feasible_True": true,
+      "repair_necessary_True": true,
+      "passive_fails_True": true,
+      "adaptive_repairs_True": true,
+      "frozen_fails": true,
+      "fixed_route_fails_changes": true,
+      "retained_feasible_energy": true,
+      "irrelevant_fact_preserves_energy": true,
+      "information_required_energy_erased": true,
+      "information_required_energy_prevented_writes": true,
+      "information_required_energy_wrong_food": true,
+      "retained_feasible_integrity": true,
+      "irrelevant_fact_preserves_integrity": true,
+      "information_required_integrity_erased": true,
+      "information_required_integrity_prevented_writes": true,
+      "information_required_integrity_wrong_repair": true,
+      "visible_feasible_balanced": true,
+      "visible_feasible_energy": true,
+      "visible_feasible_integrity": true
+    },
+    "summaries": [
+      {
+        "assay": "long",
+        "changing": false,
+        "control": "adaptive",
+        "bodies": 32,
+        "survivors": 32,
+        "max_ticks": 4096
+      },
+      {
+        "assay": "long",
+        "changing": false,
+        "control": "frozen",
+        "bodies": 32,
+        "survivors": 32,
+        "max_ticks": 4096
+      },
+      {
+        "assay": "long",
+        "changing": false,
+        "control": "reinspect",
+        "bodies": 32,
+        "survivors": 32,
+        "max_ticks": 4096
+      },
+      {
+        "assay": "long",
+        "changing": false,
+        "control": "fixed_left",
+        "bodies": 32,
+        "survivors": 8,
+        "max_ticks": 4096
+      },
+      {
+        "assay": "long",
+        "changing": false,
+        "control": "no_repair",
+        "bodies": 32,
+        "survivors": 0,
+        "max_ticks": 300
+      },
+      {
+        "assay": "long",
+        "changing": false,
+        "control": "repair_disabled",
+        "bodies": 32,
+        "survivors": 0,
+        "max_ticks": 300
+      },
+      {
+        "assay": "long",
+        "changing": false,
+        "control": "passive",
+        "bodies": 32,
+        "survivors": 0,
+        "max_ticks": 122
+      },
+      {
+        "assay": "long",
+        "changing": true,
+        "control": "adaptive",
+        "bodies": 32,
+        "survivors": 32,
+        "max_ticks": 4096
+      },
+      {
+        "assay": "long",
+        "changing": true,
+        "control": "frozen",
+        "bodies": 32,
+        "survivors": 0,
+        "max_ticks": 678
+      },
+      {
+        "assay": "long",
+        "changing": true,
+        "control": "reinspect",
+        "bodies": 32,
+        "survivors": 32,
+        "max_ticks": 4096
+      },
+      {
+        "assay": "long",
+        "changing": true,
+        "control": "fixed_left",
+        "bodies": 32,
+        "survivors": 0,
+        "max_ticks": 682
+      },
+      {
+        "assay": "long",
+        "changing": true,
+        "control": "no_repair",
+        "bodies": 32,
+        "survivors": 0,
+        "max_ticks": 300
+      },
+      {
+        "assay": "long",
+        "changing": true,
+        "control": "repair_disabled",
+        "bodies": 32,
+        "survivors": 0,
+        "max_ticks": 300
+      },
+      {
+        "assay": "long",
+        "changing": true,
+        "control": "passive",
+        "bodies": 32,
+        "survivors": 0,
+        "max_ticks": 122
+      },
+      {
+        "assay": "information",
+        "need": "energy",
+        "control": "intact",
+        "bodies": 32,
+        "survivors": 32
+      },
+      {
+        "assay": "information",
+        "need": "energy",
+        "control": "erased",
+        "bodies": 32,
+        "survivors": 0
+      },
+      {
+        "assay": "information",
+        "need": "energy",
+        "control": "wrong_food",
+        "bodies": 32,
+        "survivors": 0
+      },
+      {
+        "assay": "information",
+        "need": "energy",
+        "control": "wrong_repair",
+        "bodies": 32,
+        "survivors": 32
+      },
+      {
+        "assay": "information",
+        "need": "energy",
+        "control": "prevented_writes",
+        "bodies": 32,
+        "survivors": 0
+      },
+      {
+        "assay": "information",
+        "need": "integrity",
+        "control": "intact",
+        "bodies": 32,
+        "survivors": 32
+      },
+      {
+        "assay": "information",
+        "need": "integrity",
+        "control": "erased",
+        "bodies": 32,
+        "survivors": 0
+      },
+      {
+        "assay": "information",
+        "need": "integrity",
+        "control": "wrong_food",
+        "bodies": 32,
+        "survivors": 32
+      },
+      {
+        "assay": "information",
+        "need": "integrity",
+        "control": "wrong_repair",
+        "bodies": 32,
+        "survivors": 0
+      },
+      {
+        "assay": "information",
+        "need": "integrity",
+        "control": "prevented_writes",
+        "bodies": 32,
+        "survivors": 0
+      },
+      {
+        "assay": "visible",
+        "need": "balanced",
+        "bodies": 32,
+        "survivors": 32
+      },
+      {
+        "assay": "visible",
+        "need": "energy",
+        "bodies": 32,
+        "survivors": 32
+      },
+      {
+        "assay": "visible",
+        "need": "integrity",
+        "bodies": 32,
+        "survivors": 32
+      }
+    ],
+    "paired_finite_panel_contrasts": [
+      {
+        "need": "energy",
+        "control": "erased",
+        "difference": 1.0
+      },
+      {
+        "need": "energy",
+        "control": "prevented_writes",
+        "difference": 1.0
+      },
+      {
+        "need": "energy",
+        "control": "wrong_food",
+        "difference": 1.0
+      },
+      {
+        "need": "integrity",
+        "control": "erased",
+        "difference": 1.0
+      },
+      {
+        "need": "integrity",
+        "control": "prevented_writes",
+        "difference": 1.0
+      },
+      {
+        "need": "integrity",
+        "control": "wrong_repair",
+        "difference": 1.0
+      }
+    ],
+    "scope": "E0-A measuring-world qualification only; zero neural qualification"
+  },
+  "independent_audit": {
+    "status": "PASS",
+    "verdict": "PASS",
+    "bodies": 1728,
+    "independently_replayed_steps_including_acquisition": 3373722,
+    "exact_twins": true,
+    "neural_forward_passes": 0,
+    "evidence_sha": {
+      "manifest.json": "3adc8cae66c56cb39e46f92cc7becc11f940fc9b8f290879da9ebfce32910ac3",
+      "cases_a.jsonl.gz": "0b14a4201ef3fc964861bd788f2f40bec380157a1c299e72b6185e416aaa4095",
+      "cases_b.jsonl.gz": "0b14a4201ef3fc964861bd788f2f40bec380157a1c299e72b6185e416aaa4095",
+      "verdict_a.json": "ce2d03e9f67ee6dd296d85d1157565682a89ed5a0efb19dce4e40f6f771a384c",
+      "verdict_b.json": "ce2d03e9f67ee6dd296d85d1157565682a89ed5a0efb19dce4e40f6f771a384c"
+    },
+    "scope": "Independent integer physics, public policy and source replay; finite-panel instrument only"
+  },
+  "replay_archive": "encephalon_e0a_20260919_cases.json.gz",
+  "replay_archive_sha256": "0b14a4201ef3fc964861bd788f2f40bec380157a1c299e72b6185e416aaa4095"
+}

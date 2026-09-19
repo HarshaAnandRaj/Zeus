@@ -8,6 +8,12 @@ LMB6 remains paused. Numerical proposals below become binding only in a
 prospective protocol committed before the corresponding experiment; the plan
 does not itself change a frozen verdict or establish a capability result.
 
+**First completed checkpoint:** [E0-A independently PASSes](encephalon_e0_review_20260919.md)
+its measuring-world calibration, with 12 neural/instrument mechanics checks.
+This is not learned-agent qualification. The
+[E1 training handoff](encephalon_e1_training_design_draft_20260919.md) identifies
+the remaining campaign preparation before fitting.
+
 ## Destination
 
 **Build a continuing agent whose bodily needs regulate its use of experience,

@@ -4439,3 +4439,25 @@ with exact twins and independent adjudication. Compact action packets and comple
 transition digests replace repeated large telemetry arrays. Calibration has not
 been opened at this entry; LMB6 remains paused and all full-program claims remain
 outstanding.
+
+### 2026-09-19 — Encephalon E0-A independently closed PASS
+
+Source freeze f97cee8 precedes the exclusive calibration. Both 864-body reference
+repetitions completed and their compressed action/state evidence matches exactly.
+The separate auditor completed 1,728 bodies and 3,373,722 physical steps including
+acquisition/donor records; all26 registered gates PASS. It independently checks
+integer physiology, public observations/decisions, source identities and verdicts.
+
+Adaptive/reinspection references survive32/32 in stable and changing worlds;
+frozen memory survives32/32 stable but0/32 changing. Without effective repair,
+all bodies die by300, also established by the integrity bound. In each scarce-
+need family, intact and irrelevant-wrong-content memories survive32/32; erasure,
+prevented acquisition writes and relevant-wrong-content memories survive0/32.
+Ample-reserve reinspection matches memory's survival, limiting the benefit claim
+to the declared information constraint. These strategies are scripted references.
+
+The 10,535-byte published report and127,415-byte complete compressed replay packet
+archive preserve evidence without a large repeated telemetry JSON. Review:
+docs/encephalon_e0_review_20260919.md. E1 training has a concrete design handoff;
+its full campaign and neural replay must be frozen before fitting. No neural
+survival, selective-memory, emergence, language or full-pillar result is claimed.
