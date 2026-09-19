@@ -1,6 +1,6 @@
 # Zeus: the problems remaining beyond a usable memory path
 
-Roadmap created 2026-09-12; evidence refreshed 2026-09-14. Planning only: this list does not launch experiments,
+Roadmap created 2026-09-12; evidence refreshed 2026-09-14; planning updated 2026-09-19. This list does not launch experiments,
 change frozen bars, reopen a closed verdict or establish a pillar result. The user
 asked for a durable list so that local repairs do not displace the program goal.
 
@@ -12,7 +12,15 @@ Zeus is the project; CDT and adaptive dimensionality are supporting hypotheses.
 
 ## Where we stand
 
-Current status: LMB5 is independently FAIL and its complete successor diagnosis
+**2026-09-19 planning update:** the user paused the preceding work to examine
+fruit-fly circuit organization and named the proposed new phase **Encephalon**.
+The [Encephalon plan](encephalon_phase_plan_20260919.md) defines staged causal
+tests of needs, memory, action, learning and continuity in one operating agent.
+The [research note](fruit_fly_connectome_research_notes_20260919.md) separates
+biological evidence from proposed engineering. LMB6 remains paused. No Encephalon
+implementation or experiment has begun, and all12 requirements remain incomplete.
+
+Latest completed engineering status before that pause: LMB5 is independently FAIL and its complete successor diagnosis
 and fixed-reading state probe are finished. LMT1 long maintenance is independently
 FAIL. LMB6's learned current-observation state correction, matched recurrent
 control and legacy training control now have a complete prospective campaign,

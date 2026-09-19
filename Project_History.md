@@ -4387,3 +4387,18 @@ checked before fitting and again before endpoint exposure. Distinguish actual bo
 decisions from readout queries throughout. Candidate training targets remain
 explicitly taught; neither an emergence verdict nor a pillar result follows from
 these mechanics checks. Full roadmap/six-pillar/live-session goal remains active.
+
+### 2026-09-19 — Encephalon research plan; preceding campaign paused
+
+The user paused the preceding work to examine fruit-fly brain organization, then
+requested phases, causal boundaries, technical/plain-language expectations and
+a collective endpoint under the name Encephalon. The evidence review is recorded
+in docs/fruit_fly_connectome_research_notes_20260919.md; the proposed new-lineage
+plan is docs/encephalon_phase_plan_20260919.md. It prioritizes coordinated needs,
+memory use, agent-chosen acquisition, delayed credit, selective revision and
+integrated maintenance with actual information carried across declared cycles.
+
+The roadmap links this direction without changing any closed result or frozen
+protocol. Proposed numerical bars require prospective calibration and registration.
+No Encephalon code or experiment was run; LMB6 remains paused. The complete
+six-pillar goal and live session remain outstanding.
