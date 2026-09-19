@@ -177,7 +177,7 @@ def write_checkpoint(path, packet):
     if path.exists() or temporary.exists():
         raise FileExistsError(path)
     with temporary.open("xb") as stream:
-        torch.save(packet, stream)
+        torch.save(dict(payload=packet, sha256=tree_hash(packet)), stream)
         stream.flush()
         import os
         os.fsync(stream.fileno())
@@ -185,7 +185,10 @@ def write_checkpoint(path, packet):
 
 
 def read_checkpoint(path):
-    return torch.load(path, map_location="cpu", weights_only=False)
+    envelope = torch.load(path, map_location="cpu", weights_only=False)
+    if set(envelope) != {"payload", "sha256"} or tree_hash(envelope["payload"]) != envelope["sha256"]:
+        raise ValueError("checkpoint content hash mismatch")
+    return envelope["payload"]
 
 
 @torch.no_grad()
@@ -204,14 +207,17 @@ def evaluate(model, route, lineage, profile, control, *, count=None, horizon=Non
                     repair_enabled=control != "repair_disabled") for j in range(count)]
     initial = [w.snapshot() for w in worlds]
     state = agent.initial(count)
-    actions, counts = [], np.zeros((count, 6), dtype=np.int64)
+    actions, anchors, counts = [], [], np.zeros((count, 6), dtype=np.int64)
     feeding, repairs = np.zeros(count, dtype=np.int64), np.zeros(count, dtype=np.int64)
     digest = hashlib.sha256()
     for _ in range(horizon):
         alive = torch.tensor([w.viable() for w in worlds], dtype=torch.bool)
         if not alive.any(): break
         obs = torch.tensor([w.observation().values() for w in worlds], dtype=torch.float64)
-        logits, _, _, following = agent(obs, state)
+        logits, value, _, following = agent(obs, state)
+        if len(actions) % 64 == 0:
+            anchors.append(dict(tick=len(actions), h=following["h"][:4].tolist(),
+                                logits=logits[:4].tolist(), value=value[:4].tolist()))
         action = sample(logits.softmax(-1), sampler)
         recorded = action.clone(); recorded[~alive] = -1
         rewards = []
@@ -230,7 +236,7 @@ def evaluate(model, route, lineage, profile, control, *, count=None, horizon=Non
                                   observed[key], state[key]) for key in state}
     return dict(route=route, lineage=lineage, profile=profile, control=control,
                 development=development, sampler_seed=seed, initial=initial, horizon=horizon,
-                actions=actions, action_counts=counts.tolist(), feeding=feeding.tolist(),
+                actions=actions, anchors=anchors, action_counts=counts.tolist(), feeding=feeding.tolist(),
                 repairs=repairs.tolist(), ticks=[w.tick for w in worlds],
                 survived=[w.viable() and w.tick == horizon for w in worlds],
                 final=[w.snapshot() for w in worlds], controller={k: v.tolist() for k, v in state.items()},

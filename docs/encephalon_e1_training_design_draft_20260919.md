@@ -1,5 +1,8 @@
 # Encephalon E1: training handoff after E0-A
 
+The complete [E1-A protocol](encephalon_e1_protocol_20260919.md) now specifies
+these choices. This file remains the historical pre-campaign handoff.
+
 Design handoff, not a frozen campaign or launch receipt. E0-A's independent PASS
 qualifies a measuring world and a fully observed body-control setting. The
 [E0 review](encephalon_e0_review_20260919.md) records the exact limits.

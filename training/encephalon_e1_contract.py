@@ -9,7 +9,7 @@ ARCHIVE = ROOT / "zeus_sandbox/universe/reports/encephalon_e1a_20260919_evidence
 CONFIG = dict(
     routes=["observation", "recurrent"], lineages=8, twins=["a", "b"],
     width=32, dtype="float64", threads=1, workers=4,
-    batch=32, rollout=32, updates=1024, checkpoint_every=128,
+    batch=32, rollout=32, updates=2048, checkpoint_every=128,
     training_horizon=512, learning_rate=.001, gradient_clip=1.0,
     adam_betas=[.9, .999], adam_eps=1e-8,
     gamma=.99, value_weight=.5, prediction_weight=.1, entropy_weight=.01,
@@ -20,7 +20,7 @@ CONFIG = dict(
     endpoint_sampling_offset=10000,
     controls=["trained", "untrained", "repair_disabled"],
     survival_floor=.90, benefit_margin=.05, family_comparisons=9,
-    family_alpha=.05, bootstrap_draws=0,
+    family_alpha=.05,
     neural_atol=1e-8, neural_rtol=1e-8,
     maximum_wall_hours=6,
     selection_priority=["recurrent", "observation"],
