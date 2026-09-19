@@ -22,6 +22,21 @@ virtual environment. It is a substantial foundation for the full Zeus goal, not
 a replacement definition of that goal. Legible expression, the full six-pillar
 battery and the live human session remain explicit obligations afterward.
 
+### Language boundary
+
+E0–E6 use structured sensory observations and non-linguistic actions. They do not
+train or qualify language comprehension, language generation or conversational
+ability. An observer translating internal telemetry into words is not evidence
+that Zeus has produced or authored those words.
+
+The state/interface contract should preserve access to the operative state,
+retained experience and action history for a later expression mechanism. That
+later stage must demonstrate grounded language, raw free-run legibility and
+fixed-history causal attribution to the functioning agent, while checking that
+communication and self-maintenance coexist. A working controller does not prove
+that a language module can simply be attached without further learning or testing.
+Language remains a separate, explicit program obligation after Encephalon.
+
 ## Starting position and the biological lead
 
 The current lineage already has a protected store, a learned memory gate and a

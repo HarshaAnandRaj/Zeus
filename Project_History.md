@@ -4402,3 +4402,17 @@ The roadmap links this direction without changing any closed result or frozen
 protocol. Proposed numerical bars require prospective calibration and registration.
 No Encephalon code or experiment was run; LMB6 remains paused. The complete
 six-pillar goal and live session remain outstanding.
+
+### 2026-09-19 — language scope clarified; oversized LMB5 evidence migrated
+
+The user confirmed the need to distinguish Encephalon from language work and
+requested repair of the oversized diagnostic's Git storage. The Encephalon plan
+now explicitly excludes language comprehension/generation qualification while
+preserving a later grounded expression obligation and its state interface.
+
+The 110,048,017-byte LMB5 failure diagnostic now uses Git LFS at the same path.
+Eight unpublished commits were migrated after a verified original-history backup;
+the published base is unchanged. The working JSON remains byte-identical, its
+dependent probe checksum still matches, and no source implementation or verdict
+changed. Original source identifiers remain in frozen evidence; the full mapping
+and recovery details are in docs/lmb5_git_lfs_migration_20260919.md.
