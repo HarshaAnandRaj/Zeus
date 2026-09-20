@@ -1,0 +1,3389 @@
+{
+  "kind": "Exploratory diagnostic on exposed E1 states; not a qualification or successor campaign",
+  "intervention": "Replace categorical sampling with the policy's highest-probability action; weights and physics fixed",
+  "evidence_sha256": "eb8f8e163f7fa80351914e89db9dad7c37e8e1f7b8b985ada8fb5504fb582740",
+  "source_sha256": "ebb8edde474e9ce713ce194b17b4efe39b19d9afad9d42ef99cb0da73198bc38",
+  "archive_sha256": "1aa726d3dbdb6e9e4431f7f65237a04035f5124b54c677b091507291ec48240d",
+  "e1_verdict_unchanged": "FAIL",
+  "independent_initializations": 8,
+  "total_cases": 192,
+  "maximum_neural_error": 1.2212453270876722e-15,
+  "jobs": [
+    {
+      "route": "observation",
+      "lineage": 0,
+      "summary": [
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 228,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            216,
+            0,
+            5,
+            0,
+            7
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            259,
+            0,
+            4,
+            8,
+            0,
+            29
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 223,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            71,
+            0,
+            85,
+            0,
+            67
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 78,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            78,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 263,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            256,
+            0,
+            7,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            16,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 209,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            67,
+            0,
+            17,
+            0,
+            125
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            16,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 267,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            256,
+            0,
+            5,
+            0,
+            6
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            37,
+            0,
+            3,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            38,
+            0,
+            0,
+            0,
+            2
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            40,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "trace_sha256": "82c988ec274a8171abea0382f2545ba5fb225d27bf584b7ec9d1e5dbc498c3bd"
+    },
+    {
+      "route": "recurrent",
+      "lineage": 0,
+      "summary": [
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 78,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            77,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 91,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            72,
+            3,
+            0,
+            16
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 154,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            111,
+            37,
+            4,
+            0,
+            2
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 78,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            77,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            16,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            14,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 170,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            163,
+            0,
+            7,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            16,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            40,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 76,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            4,
+            65,
+            1,
+            0,
+            6
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            40,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 77,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            75,
+            1,
+            0,
+            1
+          ]
+        }
+      ],
+      "trace_sha256": "decdc53615e59b615460d5910429820e4ac7f2a19b654f2876d75a5aaba3213b"
+    },
+    {
+      "route": "observation",
+      "lineage": 1,
+      "summary": [
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            3,
+            0,
+            682,
+            0,
+            3411
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            587,
+            587,
+            639,
+            0,
+            2283
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 153,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            69,
+            0,
+            5,
+            0,
+            79
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            296,
+            295,
+            0,
+            3505
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            7,
+            0,
+            685,
+            0,
+            3404
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            570,
+            576,
+            632,
+            0,
+            2318
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 166,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            80,
+            0,
+            7,
+            0,
+            79
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            16,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            40,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            573,
+            574,
+            633,
+            0,
+            2316
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            39,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            39,
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "trace_sha256": "2877336db6085af7cb98eb2ecce7220c13c128ceedd4454208c26463fd92b541"
+    },
+    {
+      "route": "recurrent",
+      "lineage": 1,
+      "summary": [
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 287,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            280,
+            0,
+            7,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            433,
+            864,
+            648,
+            0,
+            2151
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            57,
+            28,
+            32,
+            0,
+            183
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            293,
+            7,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            291,
+            0,
+            9,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            434,
+            865,
+            649,
+            0,
+            2148
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            60,
+            28,
+            34,
+            0,
+            178
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            292,
+            8,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            40,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            40,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            9,
+            7,
+            3,
+            0,
+            21
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            40,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "trace_sha256": "e64d3428b3005a53a8e27da0d55183a5d4a79723a11ff7f0e0081cc46ea559b1"
+    },
+    {
+      "route": "observation",
+      "lineage": 2,
+      "summary": [
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 78,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            76,
+            0,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            277,
+            0,
+            2,
+            21,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 71,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            52,
+            0,
+            1,
+            0,
+            18
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 78,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            77,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            17,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            283,
+            0,
+            3,
+            14,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            16,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            16,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 167,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            156,
+            0,
+            5,
+            0,
+            6
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            36,
+            0,
+            2,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            10,
+            1,
+            1,
+            0,
+            28
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            40,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "trace_sha256": "e94547d858e6bac5be53e9bc486ac3d59698026b9ac29c74216258ec30b33126"
+    },
+    {
+      "route": "recurrent",
+      "lineage": 2,
+      "summary": [
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            292,
+            0,
+            8,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            292,
+            0,
+            2,
+            6,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            265,
+            0,
+            8,
+            0,
+            27
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 78,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            78,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            291,
+            0,
+            9,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            285,
+            0,
+            7,
+            8,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            277,
+            0,
+            10,
+            0,
+            13
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            17,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 190,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            184,
+            0,
+            5,
+            0,
+            1
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            37,
+            0,
+            3,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            14,
+            1,
+            1,
+            0,
+            24
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            40,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "trace_sha256": "205cbf9b11729208effca6f3a4e0edcc8b75dbf6b1c5fdbae49db61c010db1ee"
+    },
+    {
+      "route": "observation",
+      "lineage": 3,
+      "summary": [
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 78,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            78,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            750,
+            750,
+            1202,
+            0,
+            1394
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 78,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            78,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            6,
+            2046,
+            0,
+            2044
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            16,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            753,
+            753,
+            1202,
+            0,
+            1388
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            16,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            9,
+            2045,
+            0,
+            2042
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            40,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            756,
+            757,
+            1191,
+            0,
+            1392
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            40,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            40,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "trace_sha256": "07aff02b997f9bf00ec196a9f05fd33344b486b1fcd4cebbbf95f99eebf4affa"
+    },
+    {
+      "route": "recurrent",
+      "lineage": 3,
+      "summary": [
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            293,
+            0,
+            7,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            600,
+            600,
+            694,
+            0,
+            2202
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            291,
+            0,
+            9,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            3244,
+            767,
+            0,
+            85
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 18,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            0,
+            18,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 18,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            1,
+            17,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 18,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            1,
+            0,
+            17,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            3234,
+            777,
+            0,
+            85
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            40,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            597,
+            596,
+            674,
+            0,
+            2229
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            40,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            39,
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "trace_sha256": "2a1b23638b0de3b38d7cbb806059c76d0125f5b87768acb35ef54de8997398df"
+    },
+    {
+      "route": "observation",
+      "lineage": 4,
+      "summary": [
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 116,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            115,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 81,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            10,
+            35,
+            36,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 230,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            224,
+            0,
+            4,
+            0,
+            2
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 78,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            78,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 132,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            129,
+            0,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            14,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 207,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            198,
+            0,
+            5,
+            0,
+            4
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            17,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            40,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 75,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            7,
+            46,
+            15,
+            1,
+            6
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            10,
+            4,
+            26,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            40,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "trace_sha256": "a5cc59b74eb856c1c570cd2ab54dc5ff8cee4db756d0b0e05ddd237eaf28674d"
+    },
+    {
+      "route": "recurrent",
+      "lineage": 4,
+      "summary": [
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 78,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            78,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 99,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            60,
+            2,
+            35,
+            1,
+            0,
+            1
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 88,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            27,
+            61,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 78,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            78,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            17,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            14,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            17,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            17,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            40,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            18,
+            0,
+            0,
+            22
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            4,
+            33,
+            0,
+            0,
+            3
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            40,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "trace_sha256": "0afd63cce32413ba1fbb16acb571fadb01e077e3306d3e8f15d4a040a919354e"
+    },
+    {
+      "route": "observation",
+      "lineage": 5,
+      "summary": [
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 78,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            78,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            292,
+            8,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 346,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            30,
+            79,
+            22,
+            34,
+            0,
+            181
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 154,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            152,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            17,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            290,
+            10,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            16,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 132,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            128,
+            4,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            278,
+            0,
+            273,
+            0,
+            3545
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            39,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 71,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            47,
+            3,
+            2,
+            0,
+            19
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            40,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "trace_sha256": "ddba30d4ee8298990e8e8ae0f35311cbc25da7a26243b768e98cee278f0dcd16"
+    },
+    {
+      "route": "recurrent",
+      "lineage": 5,
+      "summary": [
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            2510,
+            0,
+            827,
+            733,
+            26
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            250,
+            35,
+            15,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            39,
+            192,
+            191,
+            1770,
+            0,
+            1904
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 332,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            297,
+            20,
+            14,
+            1
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            2509,
+            0,
+            827,
+            734,
+            26
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            263,
+            37,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            37,
+            196,
+            192,
+            1772,
+            0,
+            1899
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 261,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            249,
+            12,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            2494,
+            0,
+            818,
+            756,
+            28
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            40,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            37,
+            200,
+            197,
+            1764,
+            0,
+            1898
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            40,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "trace_sha256": "f2e6c0396dccad124d7f1264051651800b61a47e6e3eba69e7f10c231c1cd192"
+    },
+    {
+      "route": "observation",
+      "lineage": 6,
+      "summary": [
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            280,
+            0,
+            20,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            25,
+            27,
+            86,
+            69,
+            93
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 85,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            0,
+            85,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            745,
+            373,
+            750,
+            2228
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 18,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            0,
+            18,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            2,
+            27,
+            29,
+            74,
+            64,
+            104
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 18,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            0,
+            18,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            1,
+            0,
+            757,
+            374,
+            740,
+            2224
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            34,
+            0,
+            5,
+            1,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            2,
+            2,
+            9,
+            24,
+            3
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            35,
+            0,
+            2,
+            0,
+            3
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 70,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            65,
+            0,
+            4,
+            1
+          ]
+        }
+      ],
+      "trace_sha256": "586ec0b633568355a2fefebae9b96bc11d7a78991f4bd513a2d2deefcec889ca"
+    },
+    {
+      "route": "recurrent",
+      "lineage": 6,
+      "summary": [
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 78,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            77,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 300,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            6,
+            15,
+            42,
+            237
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 179,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            174,
+            0,
+            5,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            2045,
+            684,
+            0,
+            1367
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 93,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            90,
+            0,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            16,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 202,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            195,
+            0,
+            7,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            17,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            39,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            3,
+            2,
+            0,
+            35
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            39,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 77,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            76,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "trace_sha256": "5483408d03b4e8e69ac429a71e0f80d358b7c7afb2ee6fd6148f241643c7c40d"
+    },
+    {
+      "route": "observation",
+      "lineage": 7,
+      "summary": [
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 78,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            77,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 80,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            33,
+            26,
+            21,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 76,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            67,
+            0,
+            3,
+            0,
+            6
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 111,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            110,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            16,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            13,
+            4,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            14,
+            0,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 17,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            16,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            39,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 88,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            4,
+            41,
+            14,
+            0,
+            29
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            39,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            40,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "trace_sha256": "305017aa21e5516211a902ce040ef6c05a0c5e5af7a98e3e417adc972ee23dc9"
+    },
+    {
+      "route": "recurrent",
+      "lineage": 7,
+      "summary": [
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 78,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            77,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 166,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            71,
+            6,
+            0,
+            89
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            30,
+            345,
+            231,
+            2945,
+            372,
+            173
+          ]
+        },
+        {
+          "profile": "balanced",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 154,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            152,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 94,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            90,
+            0,
+            4,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 184,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            85,
+            10,
+            0,
+            89
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            29,
+            345,
+            228,
+            2952,
+            371,
+            171
+          ]
+        },
+        {
+          "profile": "energy",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 170,
+          "energy_death": true,
+          "integrity_death": false,
+          "action_counts": [
+            0,
+            0,
+            165,
+            5,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            39,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 0,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            40,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 0,
+          "repair_side": 1,
+          "survived": true,
+          "ticks": 4096,
+          "energy_death": false,
+          "integrity_death": false,
+          "action_counts": [
+            28,
+            339,
+            226,
+            2966,
+            364,
+            173
+          ]
+        },
+        {
+          "profile": "integrity",
+          "food_side": 1,
+          "repair_side": 1,
+          "survived": false,
+          "ticks": 40,
+          "energy_death": false,
+          "integrity_death": true,
+          "action_counts": [
+            0,
+            0,
+            40,
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "trace_sha256": "b190f94626be837347a02603b508441069a12349d6553d653553cf338faa387e"
+    }
+  ]
+}

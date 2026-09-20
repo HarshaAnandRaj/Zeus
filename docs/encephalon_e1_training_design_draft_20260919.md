@@ -3,6 +3,10 @@
 The complete [E1-A protocol](encephalon_e1_protocol_20260919.md) now specifies
 these choices. This file remains the historical pre-campaign handoff.
 
+E1-A subsequently completed with failed controller qualification. The
+[2026-09-20 review](encephalon_e1_review_20260920.md) records the results,
+report-order erratum, independent supplemental verification and next proposal.
+
 Design handoff, not a frozen campaign or launch receipt. E0-A's independent PASS
 qualifies a measuring world and a fully observed body-control setting. The
 [E0 review](encephalon_e0_review_20260919.md) records the exact limits.

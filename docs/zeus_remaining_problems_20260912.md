@@ -1,6 +1,6 @@
 # Zeus: the problems remaining beyond a usable memory path
 
-Roadmap created 2026-09-12; evidence refreshed 2026-09-14; planning updated 2026-09-19. This list does not launch experiments,
+Roadmap created 2026-09-12; Encephalon evidence and planning updated 2026-09-20. This list does not launch experiments,
 change frozen bars, reopen a closed verdict or establish a pillar result. The user
 asked for a durable list so that local repairs do not displace the program goal.
 
@@ -23,8 +23,16 @@ initiation: the [E0-A protocol](encephalon_e0_protocol_20260919.md) and
 a new two-need world and fresh neural mechanics. Twelve development tests pass.
 [E0-A calibration is independently PASS](encephalon_e0_review_20260919.md):
 26 gates, 1,728 bodies and 3,373,722 replayed physical steps, with exact twins.
-This qualifies the world, not learned control. The next work is the
-[E1 training campaign](encephalon_e1_training_design_draft_20260919.md).
+This qualifies the world, not learned control.
+**2026-09-20:** [E1-A training and diagnosis are complete](encephalon_e1_review_20260920.md).
+Both routes FAIL reliable body control: all48 lineage/need cells miss90% survival.
+Learning benefits PASS against untrained controls, but separate-station survival
+is only183/1536. The original auditor's report-order exception is preserved;
+a disclosed order-only supplement independently verifies the unchanged FAIL.
+All16 complete fit pairs match. E2 remains locked. The user prioritized
+[E1-B resource economics and capacity](encephalon_e1b_resource_economics_draft_20260920.md);
+the entropy comparison becomes the [E1-C fallback](encephalon_e1c_entropy_comparison_draft_20260920.md)
+if E1-B fails. Both remain proposals without successor fitting.
 LMB6 remains paused, and all12 program requirements remain incomplete.
 
 Latest completed engineering status before that pause: LMB5 is independently FAIL and its complete successor diagnosis

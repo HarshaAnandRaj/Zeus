@@ -4461,3 +4461,76 @@ archive preserve evidence without a large repeated telemetry JSON. Review:
 docs/encephalon_e0_review_20260919.md. E1 training has a concrete design handoff;
 its full campaign and neural replay must be frozen before fitting. No neural
 survival, selective-memory, emergence, language or full-pillar result is claimed.
+
+### 2026-09-20 — Encephalon E1-A completed FAIL; diagnosis identifies diffuse local maintenance
+
+The user authorized E1. Campaign sources and the full protocol were committed at
+833193df8450903e07cb7623bac24feada884bf4 before fitting. Eight independent initial
+parameter draws, two sensory routes and exact twins produced32 fit executions,
+each with2048 own-action updates. All16 complete-state fit pairs and endpoint
+archive pairs match. The full campaign contains64,493,154 live training decisions
+and18,432 endpoint bodies/17,036,154 physical steps across both repetitions.
+
+Neither route qualifies: all48 lineage/need cells score21–45/64 survivors against
+the required58. Observation sensing survives786/1536 and recurrent791/1536;
+untrained and physically repair-disabled controls each survive0/1536 per route.
+All six learning-benefit contrasts PASS, but all three direct-sensing advantage
+contrasts FAIL. E1 is FAIL and no E2 candidate is selected.
+
+The original auditor replays the evidence then fails a final list-order assertion:
+runner summaries are route-major, auditor summaries lineage-major. The original
+source/error remain preserved. A documented post-campaign supplement at e9a421c
+repeats the unchanged math/physics checks and verifies exact equality of all144
+unique cells, every bound and every verdict under canonical row identity. Its
+evidence verification PASS is explicitly supplemental, not an original clean
+audit pass. Maximum checked neural discrepancy is1.304512053934559e-15; all sampled
+actions and physical traces match. Review/erratum retain this distinction.
+
+Diagnosis: shared-station survival1394/1536 versus separate-station183/1536;
+917 separate-station deaths involve lost integrity, with one also losing energy.
+The policies retain near-maximal action entropy and devote14% of actions to
+redundant inspection. A post-campaign most-probable-action probe survives30/192,
+including14/96 at shared stations: useful local maintenance often depends on
+mixed actions, without reliable need-driven organization. Initial-need sensitivity
+increases and consequence prediction improves, but neither rescues function.
+
+Reconstruction of64 original late-training batches matches actual module gradient
+norms without optimizer updates. Backpropagation is present. Entropy actor-gradient
+norms are typically one quarter of policy-gradient norms; causal blame is not yet
+established. Proposed successor: matched fresh recurrent training with .01 versus
+zero entropy bonus, unchanged physical reward and raw sampling. No successor was
+launched. The subsequent user revision below changes its priority and the
+successor limit. Full-program obligations
+remain open, and LMB6 remains paused.
+
+Evidence is compactly published with complete portable checkpoints/action packets
+and diagnostic input archives; report bytes are protected from Git newline changes.
+Review: docs/encephalon_e1_review_20260920.md. The original entropy handoff is now
+docs/encephalon_e1c_entropy_comparison_draft_20260920.md.
+
+### 2026-09-20 — User prioritizes the Local Diner Trap as E1-B; entropy becomes E1-C
+
+The user proposed that unlimited local food and actual or learned travel costs
+could explain local maintenance, asked whether 32-wide context is restrictive,
+and requested that the earlier E1-B proposal become E1-C if the new E1-B fails.
+The plan now separates physical economics, the resource incentive, and neural
+width. This is the user's explicit E1-specific revision to the one-successor
+planning limit; a failed E1-C still triggers design review.
+
+Read-only accounting in the unchanged E1-A world confirms an affordable timely
+round trip: eight moves, repair and feed consume113 energy, can restore420, and
+net+307 before capacity clipping. A valid example starting at the food station
+with energy180/integrity120 ends ten ticks later at487/540. This is a physical
+reference, not learned behavior. The model has no explicit travel-cost planner.
+Width32/128/784 instantiation counts are6620/75548/2519804 for the current agent;
+these coordinates do not create external food sites or change bodily costs.
+
+E1-B proposes matched unlimited versus finite/replenishing food at both existing
+stations, with repair still restricted to one, crossed with widths32 and128.
+All arms retain the original body-control qualification as well as new common
+resource endpoints. Public stock visibility tests resource management; actual
+information-seeking exploration stays a later sensing/memory question. No novel
+reward, world code, candidate fitting or frozen numerical protocol was introduced
+by this planning update. Reference calibration and a complete development
+pipeline precede any campaign. E1-A FAIL and all program obligations are unchanged.
+Design: docs/encephalon_e1b_resource_economics_draft_20260920.md.

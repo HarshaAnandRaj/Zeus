@@ -1,0 +1,2318 @@
+{
+  "kind": "Post-campaign descriptive gradient diagnosis on 64 original training batches; no optimizer step or new fit",
+  "evidence_sha256": "eb8f8e163f7fa80351914e89db9dad7c37e8e1f7b8b985ada8fb5504fb582740",
+  "source_sha256": "0d84cee1cedcd36dc19be0858672c43a9c7cd48abd4244128bb46613515f0d40",
+  "archive_sha256": "47b3f5c1063722de3615d5113415591e360456ab6b15a1006fe784930b9924b7",
+  "original_updates": [
+    1537,
+    1665,
+    1793,
+    1921
+  ],
+  "rows": [
+    {
+      "route": "observation",
+      "lineage": 0,
+      "original_update": 1537,
+      "original_checkpoint_sha256": "62a61343a702b9816e22b8463288765480387348edbe8dd178663ea51398ce2c",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 980,
+      "loss_terms": {
+        "policy": -0.019535218485837152,
+        "value": 0.01305223478920208,
+        "prediction": 0.0006444182941221591,
+        "entropy": -0.017139758415943257
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.0170166921461624,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0021474974380557388
+          },
+          "entropy_to_policy_norm": 0.12619946459688652,
+          "policy_entropy_cosine": -0.3118182302802573
+        },
+        "context": {
+          "norms": {
+            "policy": 0.012412572450185448,
+            "value": 0.051789514483024476,
+            "prediction": 0.01154101550178425,
+            "entropy": 0.004824018753217713
+          },
+          "entropy_to_policy_norm": 0.3886397257762343,
+          "policy_entropy_cosine": -0.37237507431374256
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 0,
+      "original_update": 1665,
+      "original_checkpoint_sha256": "503b9cef62664a89fb73655960f2212e1e5a239357e777428ca1209ea42a5646",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1024,
+      "loss_terms": {
+        "policy": 0.04272478639505203,
+        "value": 0.004780349116797668,
+        "prediction": 0.0005187717492279129,
+        "entropy": -0.017228733618320665
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.00751655133619521,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0016459536307468624
+          },
+          "entropy_to_policy_norm": 0.21897723532079602,
+          "policy_entropy_cosine": 0.11898634511002303
+        },
+        "context": {
+          "norms": {
+            "policy": 0.009555152239014715,
+            "value": 0.07263168500594397,
+            "prediction": 0.00350803173764857,
+            "entropy": 0.004971402898478958
+          },
+          "entropy_to_policy_norm": 0.5202850539816817,
+          "policy_entropy_cosine": 0.5874139653968641
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 0,
+      "original_update": 1793,
+      "original_checkpoint_sha256": "a7ed3e383fbffcfbfd0afc28a92eb8332f7ba206bdf63c005cee97f7ce79789c",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 966,
+      "loss_terms": {
+        "policy": -0.042245447554727346,
+        "value": 0.023841837535882832,
+        "prediction": 0.0005146372720557853,
+        "entropy": -0.017131691442515747
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.02944844444622327,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0018412825115702888
+          },
+          "entropy_to_policy_norm": 0.06252562898297438,
+          "policy_entropy_cosine": -0.2153788126666217
+        },
+        "context": {
+          "norms": {
+            "policy": 0.038334545141197156,
+            "value": 0.12507140818741874,
+            "prediction": 0.0032293239307012857,
+            "entropy": 0.00408620422310424
+          },
+          "entropy_to_policy_norm": 0.10659326224045636,
+          "policy_entropy_cosine": 0.6070759310653951
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 0,
+      "original_update": 1921,
+      "original_checkpoint_sha256": "8f27899bee76958d89e7af8be920029ac33c596cf763562475b8a7df0fe76ee7",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1024,
+      "loss_terms": {
+        "policy": 0.03751417099512811,
+        "value": 0.0020040258626488764,
+        "prediction": 0.00034847191509863537,
+        "entropy": -0.017381873389382203
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.0053469545439096145,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.001354449691068075
+          },
+          "entropy_to_policy_norm": 0.25331236313030653,
+          "policy_entropy_cosine": -0.2999696431018809
+        },
+        "context": {
+          "norms": {
+            "policy": 0.005650076597015253,
+            "value": 0.05925073420823951,
+            "prediction": 0.001495954230700155,
+            "entropy": 0.004447109903590974
+          },
+          "entropy_to_policy_norm": 0.7870884274277333,
+          "policy_entropy_cosine": 0.4057827562437043
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 1,
+      "original_update": 1537,
+      "original_checkpoint_sha256": "114130796d0917ab5eb5951c6d5636ac2a595c01266bd0e94947610a831d5e4e",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1024,
+      "loss_terms": {
+        "policy": 0.01567056922198511,
+        "value": 0.0014885537802621996,
+        "prediction": 0.00043492177493523643,
+        "entropy": -0.017320645501980342
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.007431334098601847,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0016210379371047437
+          },
+          "entropy_to_policy_norm": 0.21813552123968302,
+          "policy_entropy_cosine": 0.1157919339120339
+        },
+        "context": {
+          "norms": {
+            "policy": 0.013384997220118622,
+            "value": 0.017521264289647263,
+            "prediction": 0.006339549388389634,
+            "entropy": 0.0025166487319264416
+          },
+          "entropy_to_policy_norm": 0.18802011614494293,
+          "policy_entropy_cosine": -0.7637470554670736
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 1,
+      "original_update": 1665,
+      "original_checkpoint_sha256": "e345922fec7b098ca27502de9f328d548cf717013ecc7127675c95c4cd6dd0b3",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1004,
+      "loss_terms": {
+        "policy": 0.013140960201450303,
+        "value": 0.0017181887766954738,
+        "prediction": 0.0003514144724270995,
+        "entropy": -0.017291961003067416
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.004407207977785582,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0019516335265839853
+          },
+          "entropy_to_policy_norm": 0.44282764426392934,
+          "policy_entropy_cosine": -0.07481730956144728
+        },
+        "context": {
+          "norms": {
+            "policy": 0.008713787295962868,
+            "value": 0.021426429091901015,
+            "prediction": 0.0013356181624872491,
+            "entropy": 0.0029869277104172453
+          },
+          "entropy_to_policy_norm": 0.3427818018694467,
+          "policy_entropy_cosine": -0.771714583873742
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 1,
+      "original_update": 1793,
+      "original_checkpoint_sha256": "1b8e840c6ccec79eef01428d7ce432167c550625fe11de3e7238fbc52a8527de",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 984,
+      "loss_terms": {
+        "policy": -0.014632343510909473,
+        "value": 0.016187663078969548,
+        "prediction": 0.00037559066546767264,
+        "entropy": -0.01741938652689272
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.01381599763158345,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.001993494760009364
+          },
+          "entropy_to_policy_norm": 0.14428887534348034,
+          "policy_entropy_cosine": 0.21871529795595143
+        },
+        "context": {
+          "norms": {
+            "policy": 0.014770612034832197,
+            "value": 0.04509413749213855,
+            "prediction": 0.004052299887296711,
+            "entropy": 0.003022370057192994
+          },
+          "entropy_to_policy_norm": 0.20462050252661249,
+          "policy_entropy_cosine": 0.6590813253209703
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 1,
+      "original_update": 1921,
+      "original_checkpoint_sha256": "32a3f330f2e487f7a391dbfed2204da0735faa64679751b82c814f1737fd23f6",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1004,
+      "loss_terms": {
+        "policy": -0.007299402462407383,
+        "value": 0.0016248098731406087,
+        "prediction": 0.0003366729766502905,
+        "entropy": -0.017313994528982475
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.003823555612117657,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0020390855710563
+          },
+          "entropy_to_policy_norm": 0.5332956488442344,
+          "policy_entropy_cosine": -0.7466796309218219
+        },
+        "context": {
+          "norms": {
+            "policy": 0.005228136464767772,
+            "value": 0.0222956143676133,
+            "prediction": 0.0016391947339566742,
+            "entropy": 0.0037709111975328664
+          },
+          "entropy_to_policy_norm": 0.7212725266344718,
+          "policy_entropy_cosine": -0.8097728921365912
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 2,
+      "original_update": 1537,
+      "original_checkpoint_sha256": "c09b004d6b9d04d070548e0e843063ea1dd6b97f394c6bba05fed558373852da",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1024,
+      "loss_terms": {
+        "policy": 0.004707694202384493,
+        "value": 0.0002701193260137009,
+        "prediction": 0.00041529721451569825,
+        "entropy": -0.01742325073542753
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.0038250228959103992,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0013693720510954948
+          },
+          "entropy_to_policy_norm": 0.35800362203310904,
+          "policy_entropy_cosine": -0.463117279807507
+        },
+        "context": {
+          "norms": {
+            "policy": 0.0032416813974733105,
+            "value": 0.004919814378101583,
+            "prediction": 0.00457390807804057,
+            "entropy": 0.0013433812898980136
+          },
+          "entropy_to_policy_norm": 0.4144087975286825,
+          "policy_entropy_cosine": -0.6913920629172978
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 2,
+      "original_update": 1665,
+      "original_checkpoint_sha256": "a7c9ff7267c2bdd8f094dfe4e7d1cc24f4e182ea95c84d3ff91e025f27aaf4ea",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1024,
+      "loss_terms": {
+        "policy": 0.011137728106830485,
+        "value": 0.0011978550477369134,
+        "prediction": 0.0003669209473444585,
+        "entropy": -0.017386096814485875
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.005344058220621703,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0018213681341448051
+          },
+          "entropy_to_policy_norm": 0.3408211622988111,
+          "policy_entropy_cosine": 0.3239173041857195
+        },
+        "context": {
+          "norms": {
+            "policy": 0.004544795387714291,
+            "value": 0.01982207924651717,
+            "prediction": 0.0019803717068241867,
+            "entropy": 0.0024317024013854097
+          },
+          "entropy_to_policy_norm": 0.5350521187288,
+          "policy_entropy_cosine": 0.45182671232958543
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 2,
+      "original_update": 1793,
+      "original_checkpoint_sha256": "837cb15154b8f2d17fba909a144b40e63ad357c0abbd235eb25dc2013d1fa9f6",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1000,
+      "loss_terms": {
+        "policy": -0.032601559869520895,
+        "value": 0.009684225091468907,
+        "prediction": 0.000300071609611492,
+        "entropy": -0.017331974876584583
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.01268334431988662,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0017956195603602437
+          },
+          "entropy_to_policy_norm": 0.14157303587073913,
+          "policy_entropy_cosine": -0.28000399097108175
+        },
+        "context": {
+          "norms": {
+            "policy": 0.02023611953292569,
+            "value": 0.03807099845065088,
+            "prediction": 0.0019571032454593017,
+            "entropy": 0.004519302746630743
+          },
+          "entropy_to_policy_norm": 0.22332852596949218,
+          "policy_entropy_cosine": -0.8513293858019315
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 2,
+      "original_update": 1921,
+      "original_checkpoint_sha256": "c0c7c4db095de6878904e1994b9fee1322acb67e5b3921add7b8831c2aebda2b",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1024,
+      "loss_terms": {
+        "policy": 0.009132413177531135,
+        "value": 0.002591177303659464,
+        "prediction": 0.000339241317662985,
+        "entropy": -0.017343569541338946
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.004057253408461922,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0016683028632626295
+          },
+          "entropy_to_policy_norm": 0.4111902056162354,
+          "policy_entropy_cosine": 0.5373603980741916
+        },
+        "context": {
+          "norms": {
+            "policy": 0.006835857726609322,
+            "value": 0.0244063583019548,
+            "prediction": 0.0016503218783381188,
+            "entropy": 0.002040867652668865
+          },
+          "entropy_to_policy_norm": 0.2985532663625466,
+          "policy_entropy_cosine": -0.5735737959264996
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 3,
+      "original_update": 1537,
+      "original_checkpoint_sha256": "dfe641f7140599c8d3eaba16fde12bb42e83ab75a8b305e2789514fc7555a288",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1004,
+      "loss_terms": {
+        "policy": 0.004977340124443412,
+        "value": 0.003051607550884275,
+        "prediction": 0.0004121215553900785,
+        "entropy": -0.017165751294105074
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.009733819309197438,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0025542974703910157
+          },
+          "entropy_to_policy_norm": 0.26241472018876216,
+          "policy_entropy_cosine": 0.13072088353563138
+        },
+        "context": {
+          "norms": {
+            "policy": 0.00617114027510724,
+            "value": 0.017588762844007653,
+            "prediction": 0.0040742020204407705,
+            "entropy": 0.0030328398947253366
+          },
+          "entropy_to_policy_norm": 0.4914553485291878,
+          "policy_entropy_cosine": 0.44893859078179577
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 3,
+      "original_update": 1665,
+      "original_checkpoint_sha256": "8c41085852d86aa0032609548c103abc83d3a99c0fbff252902cb0157ddd61e8",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1024,
+      "loss_terms": {
+        "policy": -0.0019008927362659167,
+        "value": 0.0026666618800759876,
+        "prediction": 0.0004347537692008358,
+        "entropy": -0.017166240855272245
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.007210853632030367,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.002581008643869393
+          },
+          "entropy_to_policy_norm": 0.3579338557649597,
+          "policy_entropy_cosine": -0.24912931473974845
+        },
+        "context": {
+          "norms": {
+            "policy": 0.00791557604257161,
+            "value": 0.03956516890370363,
+            "prediction": 0.0016646000842384947,
+            "entropy": 0.003866393817763429
+          },
+          "entropy_to_policy_norm": 0.4884538783998993,
+          "policy_entropy_cosine": 0.199320070770408
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 3,
+      "original_update": 1793,
+      "original_checkpoint_sha256": "7030f880ed56d3a04d66fef440dd092486640f1f58adefa8a23e01b6dae2450c",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 990,
+      "loss_terms": {
+        "policy": -0.03803005131779767,
+        "value": 0.01933394307327773,
+        "prediction": 0.0003831219096690813,
+        "entropy": -0.017139858142830484
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.014026978485916428,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.00226819249724667
+          },
+          "entropy_to_policy_norm": 0.16170214415912978,
+          "policy_entropy_cosine": 0.22960932516230495
+        },
+        "context": {
+          "norms": {
+            "policy": 0.017165305892745713,
+            "value": 0.06879792441154277,
+            "prediction": 0.003112178168432302,
+            "entropy": 0.003671122406596628
+          },
+          "entropy_to_policy_norm": 0.21386874370517878,
+          "policy_entropy_cosine": 0.4420658472739377
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 3,
+      "original_update": 1921,
+      "original_checkpoint_sha256": "f42dadc7a9ed836f2f7dc6f6308442df2f254872d6a0f5f797e77d0a65b6b1cd",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1000,
+      "loss_terms": {
+        "policy": 0.03799794948443428,
+        "value": 0.001933766598267507,
+        "prediction": 0.00036724469834534615,
+        "entropy": -0.01728551568504481
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.0033451489049968904,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.001937377867178186
+          },
+          "entropy_to_policy_norm": 0.5791604266955604,
+          "policy_entropy_cosine": -0.1813510216823481
+        },
+        "context": {
+          "norms": {
+            "policy": 0.0032351719469162735,
+            "value": 0.05062804649976917,
+            "prediction": 0.003063849610594342,
+            "entropy": 0.002138084686274385
+          },
+          "entropy_to_policy_norm": 0.6608874957364728,
+          "policy_entropy_cosine": -0.16291786139330583
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 4,
+      "original_update": 1537,
+      "original_checkpoint_sha256": "8bef74fd1dc1f9a918283998be9791264d6b7e4822558cfa3097f85bcb4501ff",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 994,
+      "loss_terms": {
+        "policy": 0.03552904456581197,
+        "value": 0.003752688609115982,
+        "prediction": 0.00048483070152391947,
+        "entropy": -0.01702133219376845
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.011460591328497003,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.003178986164932969
+          },
+          "entropy_to_policy_norm": 0.277384130871882,
+          "policy_entropy_cosine": 0.032192424663589216
+        },
+        "context": {
+          "norms": {
+            "policy": 0.008789130328132302,
+            "value": 0.04502506382848202,
+            "prediction": 0.003655902192263683,
+            "entropy": 0.005096950105630505
+          },
+          "entropy_to_policy_norm": 0.5799151810636094,
+          "policy_entropy_cosine": 0.46679817940990115
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 4,
+      "original_update": 1665,
+      "original_checkpoint_sha256": "8b4f7d281fee15d4a0f6454aa4a8dfe11a25cc6e9bf805e8ebe6fb91025218b1",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 970,
+      "loss_terms": {
+        "policy": -0.007365202803154056,
+        "value": 0.004670124059589178,
+        "prediction": 0.0004020274210887311,
+        "entropy": -0.017401994687303676
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.005680751637780651,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.002020837559062574
+          },
+          "entropy_to_policy_norm": 0.3557341858817951,
+          "policy_entropy_cosine": -0.2995957240884845
+        },
+        "context": {
+          "norms": {
+            "policy": 0.0051203952650882845,
+            "value": 0.02089871831100286,
+            "prediction": 0.003823913940111067,
+            "entropy": 0.0028644054177114388
+          },
+          "entropy_to_policy_norm": 0.5594109964989298,
+          "policy_entropy_cosine": -0.3463648966508302
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 4,
+      "original_update": 1793,
+      "original_checkpoint_sha256": "6ec19bd04f7c9752d296896b5961a3035060ae68d3eb62974d7e33f96f3ac47d",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1000,
+      "loss_terms": {
+        "policy": 0.012553372330792912,
+        "value": 0.01078692554298396,
+        "prediction": 0.0005375287328699933,
+        "entropy": -0.01717017186707039
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.007243649906444979,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.002431373017814263
+          },
+          "entropy_to_policy_norm": 0.33565578806493235,
+          "policy_entropy_cosine": 0.3684083886785184
+        },
+        "context": {
+          "norms": {
+            "policy": 0.006405323577741436,
+            "value": 0.025350353190794605,
+            "prediction": 0.004181636327574407,
+            "entropy": 0.0047698434833644875
+          },
+          "entropy_to_policy_norm": 0.7446686221972831,
+          "policy_entropy_cosine": -0.008385801740366905
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 4,
+      "original_update": 1921,
+      "original_checkpoint_sha256": "3c7929c0a84799fe4b7af6c33244b958ec79193526737a5343251172c30954f2",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 997,
+      "loss_terms": {
+        "policy": 0.017123447165887016,
+        "value": 0.009051428269668255,
+        "prediction": 0.00044755215130590513,
+        "entropy": -0.017328124005550644
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.011136779752145476,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0020698787936524942
+          },
+          "entropy_to_policy_norm": 0.18585972244389018,
+          "policy_entropy_cosine": -0.33787966678584913
+        },
+        "context": {
+          "norms": {
+            "policy": 0.011327894955020741,
+            "value": 0.07109994115444619,
+            "prediction": 0.0028945660144870573,
+            "entropy": 0.003790026038381096
+          },
+          "entropy_to_policy_norm": 0.33457461014866524,
+          "policy_entropy_cosine": -0.7405785400186544
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 5,
+      "original_update": 1537,
+      "original_checkpoint_sha256": "a27f0a1a97bf73f5f9b6c1647d780f2c7ba396fd5ddcda3eec60f3084cf968cd",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1024,
+      "loss_terms": {
+        "policy": 0.03224303240196359,
+        "value": 0.003399550245149625,
+        "prediction": 0.000375195304926593,
+        "entropy": -0.017167368383748934
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.006357608760522905,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.001661598946540674
+          },
+          "entropy_to_policy_norm": 0.26135596088552165,
+          "policy_entropy_cosine": 0.34936036854551616
+        },
+        "context": {
+          "norms": {
+            "policy": 0.007997964845355523,
+            "value": 0.08344107102449985,
+            "prediction": 0.004725040055956494,
+            "entropy": 0.0035078238790212392
+          },
+          "entropy_to_policy_norm": 0.4385895595750534,
+          "policy_entropy_cosine": 0.6535826075848032
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 5,
+      "original_update": 1665,
+      "original_checkpoint_sha256": "e6fde1a43e902862c5cff9f069033a5096c1d2571ed19a40b770028cc915f560",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 983,
+      "loss_terms": {
+        "policy": -0.05085955931576923,
+        "value": 0.02844480932634225,
+        "prediction": 0.0003339563807674211,
+        "entropy": -0.017184202875203638
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.016830727697895956,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0015594410569017385
+          },
+          "entropy_to_policy_norm": 0.09265440478231297,
+          "policy_entropy_cosine": -0.2157521437085238
+        },
+        "context": {
+          "norms": {
+            "policy": 0.023117557739678496,
+            "value": 0.07683850785140864,
+            "prediction": 0.0037183499048807967,
+            "entropy": 0.0026267668822040095
+          },
+          "entropy_to_policy_norm": 0.1136264873557764,
+          "policy_entropy_cosine": 0.5719564274156661
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 5,
+      "original_update": 1793,
+      "original_checkpoint_sha256": "8ad2524c6bb792614e288d32b0b7ead7bae646f458857819394bd97a86f2050b",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 957,
+      "loss_terms": {
+        "policy": -0.08817810803016374,
+        "value": 0.02686592649840943,
+        "prediction": 0.0004091210528142793,
+        "entropy": -0.01726211703953203
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.02279996934002488,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0022586213933156606
+          },
+          "entropy_to_policy_norm": 0.09906247502494211,
+          "policy_entropy_cosine": -0.054148184354110764
+        },
+        "context": {
+          "norms": {
+            "policy": 0.029619539346296114,
+            "value": 0.29821187149980133,
+            "prediction": 0.004576829472289548,
+            "entropy": 0.003167779115444382
+          },
+          "entropy_to_policy_norm": 0.10694896630256029,
+          "policy_entropy_cosine": 0.39034172673312995
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 5,
+      "original_update": 1921,
+      "original_checkpoint_sha256": "40fd6f6f151d84fbfefa95372a0398be58eb16944393e299e51cfa429d1c3337",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 989,
+      "loss_terms": {
+        "policy": -0.046947017321407165,
+        "value": 0.02557006729192361,
+        "prediction": 0.0004199680031454863,
+        "entropy": -0.017296735264816395
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.021670852174571008,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0015951526653668461
+          },
+          "entropy_to_policy_norm": 0.07360821127461839,
+          "policy_entropy_cosine": -0.6350746522780134
+        },
+        "context": {
+          "norms": {
+            "policy": 0.01957514202034756,
+            "value": 0.05732653540573845,
+            "prediction": 0.003120229972617989,
+            "entropy": 0.0021528451430597863
+          },
+          "entropy_to_policy_norm": 0.10997851973804286,
+          "policy_entropy_cosine": -0.10570530113741106
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 6,
+      "original_update": 1537,
+      "original_checkpoint_sha256": "8f25e5d4c26b4337d8bee3881888d2b65086e57d70e8616f2b77c61478179d4f",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1024,
+      "loss_terms": {
+        "policy": 0.033528036458223706,
+        "value": 0.013646253249825244,
+        "prediction": 0.0004921034865525163,
+        "entropy": -0.01711472315182565
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.009642154718683077,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.002386162826171988
+          },
+          "entropy_to_policy_norm": 0.24747194955796037,
+          "policy_entropy_cosine": -0.6814805367798398
+        },
+        "context": {
+          "norms": {
+            "policy": 0.013501515539156555,
+            "value": 0.09111527372185763,
+            "prediction": 0.0033297618682495795,
+            "entropy": 0.004265200162891483
+          },
+          "entropy_to_policy_norm": 0.31590528859680383,
+          "policy_entropy_cosine": -0.592147789663722
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 6,
+      "original_update": 1665,
+      "original_checkpoint_sha256": "a6e39366746f20ea0b94a49cfba7dfe549ad92585ceb56187b3bb32d851fd57c",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1004,
+      "loss_terms": {
+        "policy": 0.0021482087854003424,
+        "value": 0.0033734326120524877,
+        "prediction": 0.0004575342932919777,
+        "entropy": -0.01710374601686095
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.004964439315508725,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0021176266582080385
+          },
+          "entropy_to_policy_norm": 0.4265590782009664,
+          "policy_entropy_cosine": -0.01850793075886717
+        },
+        "context": {
+          "norms": {
+            "policy": 0.0057856033596315635,
+            "value": 0.03549830327767966,
+            "prediction": 0.005513788611941494,
+            "entropy": 0.003567943843737258
+          },
+          "entropy_to_policy_norm": 0.6166934755037321,
+          "policy_entropy_cosine": -0.25265549791086317
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 6,
+      "original_update": 1793,
+      "original_checkpoint_sha256": "1d22dc2033794fdce28ed1190cd25329820f337517fbca2ebfb76090ff87dbc3",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1004,
+      "loss_terms": {
+        "policy": 0.009436034026674157,
+        "value": 0.0017375649115667017,
+        "prediction": 0.00035186848173879715,
+        "entropy": -0.0171618821156045
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.0038793527086911535,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0021162982279156117
+          },
+          "entropy_to_policy_norm": 0.5455286968813994,
+          "policy_entropy_cosine": 0.014311591717348372
+        },
+        "context": {
+          "norms": {
+            "policy": 0.003961886760868734,
+            "value": 0.016512686759771016,
+            "prediction": 0.0020159017625815635,
+            "entropy": 0.0033817627623971445
+          },
+          "entropy_to_policy_norm": 0.8535738062477122,
+          "policy_entropy_cosine": 0.06923884391722945
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 6,
+      "original_update": 1921,
+      "original_checkpoint_sha256": "667e5f463562de4f90864d440083c69495cd559dbb3b3fa4dc63d30e606aefb2",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1004,
+      "loss_terms": {
+        "policy": 0.028480815092133332,
+        "value": 0.009419415941256228,
+        "prediction": 0.00043118894213824025,
+        "entropy": -0.017227011895016495
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.015981581000409684,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0023150457067751622
+          },
+          "entropy_to_policy_norm": 0.1448571143690863,
+          "policy_entropy_cosine": 0.27337961701879804
+        },
+        "context": {
+          "norms": {
+            "policy": 0.01620211571804904,
+            "value": 0.08165113914800623,
+            "prediction": 0.00534574360654296,
+            "entropy": 0.0032630109407530204
+          },
+          "entropy_to_policy_norm": 0.20139412639289136,
+          "policy_entropy_cosine": 0.6735563499239577
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 7,
+      "original_update": 1537,
+      "original_checkpoint_sha256": "806ffa50776f22281f72f2edc8f5154a61445dce4a70ab1f4c57044c372c9e38",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1024,
+      "loss_terms": {
+        "policy": 0.0023701569913297553,
+        "value": 0.0012861396145028607,
+        "prediction": 0.00042136219978120145,
+        "entropy": -0.017289652015315012
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.0051503540329692265,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0021802198710294944
+          },
+          "entropy_to_policy_norm": 0.42331456382864957,
+          "policy_entropy_cosine": -0.8552999671853301
+        },
+        "context": {
+          "norms": {
+            "policy": 0.023089223656351986,
+            "value": 0.00942315704579942,
+            "prediction": 0.0023690557632421163,
+            "entropy": 0.006892523576932605
+          },
+          "entropy_to_policy_norm": 0.29851690466155756,
+          "policy_entropy_cosine": -0.9654480665217205
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 7,
+      "original_update": 1665,
+      "original_checkpoint_sha256": "118e79d6dcb62e43396c5027eabaf1798f38d73e392d86ee18b9c9d8d3f239e6",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1024,
+      "loss_terms": {
+        "policy": -0.021668294342329197,
+        "value": 0.0031729336797112913,
+        "prediction": 0.00042353828491008575,
+        "entropy": -0.01727993462132691
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.007896669847606815,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.002702887799940306
+          },
+          "entropy_to_policy_norm": 0.34228198115176994,
+          "policy_entropy_cosine": -0.21645264890494695
+        },
+        "context": {
+          "norms": {
+            "policy": 0.016705629207532144,
+            "value": 0.036671934021302637,
+            "prediction": 0.005150708554954103,
+            "entropy": 0.005352027653411328
+          },
+          "entropy_to_policy_norm": 0.3203727071230717,
+          "policy_entropy_cosine": 0.2824949889034696
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 7,
+      "original_update": 1793,
+      "original_checkpoint_sha256": "8976ac0860e625e26f4bd287661899d1b5c858bbe7e4a5a141101f5d77f30bb6",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1000,
+      "loss_terms": {
+        "policy": 0.00479752699801857,
+        "value": 0.006672296419933277,
+        "prediction": 0.00050162169944222,
+        "entropy": -0.017195784274158535
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.009255700665529143,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0017512004683132919
+          },
+          "entropy_to_policy_norm": 0.18920236636814106,
+          "policy_entropy_cosine": -0.15174375040853885
+        },
+        "context": {
+          "norms": {
+            "policy": 0.030162567002586956,
+            "value": 0.06620318413848829,
+            "prediction": 0.0025319621011486043,
+            "entropy": 0.008699912091014497
+          },
+          "entropy_to_policy_norm": 0.28843407427054635,
+          "policy_entropy_cosine": 0.4089164936164255
+        }
+      }
+    },
+    {
+      "route": "observation",
+      "lineage": 7,
+      "original_update": 1921,
+      "original_checkpoint_sha256": "60184ec52818cbdf002d8feea102d41c8e7617bc91f0979b80689520c771e1c7",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1000,
+      "loss_terms": {
+        "policy": -0.016164945738419343,
+        "value": 0.00544739587867234,
+        "prediction": 0.00044209532999872473,
+        "entropy": -0.01709250966555549
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.005526652972245294,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0018965546485603417
+          },
+          "entropy_to_policy_norm": 0.34316514137666854,
+          "policy_entropy_cosine": -0.030907589913458083
+        },
+        "context": {
+          "norms": {
+            "policy": 0.03572747202269343,
+            "value": 0.03585575497187845,
+            "prediction": 0.00273740530847705,
+            "entropy": 0.01176271549316009
+          },
+          "entropy_to_policy_norm": 0.32923447496337366,
+          "policy_entropy_cosine": -0.8680231730240524
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 0,
+      "original_update": 1537,
+      "original_checkpoint_sha256": "5c8924afe863392d82cb05e9fb44fee22ffafe408200d69416931fb460ca6c55",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 980,
+      "loss_terms": {
+        "policy": -0.0037559004463620653,
+        "value": 0.011227591816196909,
+        "prediction": 0.00047862607998009244,
+        "entropy": -0.017375270541194556
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.01410521325221792,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0014901832562995798
+          },
+          "entropy_to_policy_norm": 0.10564769420024625,
+          "policy_entropy_cosine": -0.03314621703599215
+        },
+        "context": {
+          "norms": {
+            "policy": 0.02083506962552001,
+            "value": 0.039892832153719644,
+            "prediction": 0.004175419738397704,
+            "entropy": 0.0034288211174881554
+          },
+          "entropy_to_policy_norm": 0.16456969806754737,
+          "policy_entropy_cosine": -0.33712803505104005
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 0,
+      "original_update": 1665,
+      "original_checkpoint_sha256": "2caa77af295bf892bb1495e2348f4a6ec739cdc3fcbae9617820bd94fa6a3965",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1024,
+      "loss_terms": {
+        "policy": 0.015123446081334433,
+        "value": 0.003993488488923615,
+        "prediction": 0.0004952297032279263,
+        "entropy": -0.017375301255864103
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.003146969841515347,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0012261634186971294
+          },
+          "entropy_to_policy_norm": 0.38963303763556256,
+          "policy_entropy_cosine": 0.41326886220029146
+        },
+        "context": {
+          "norms": {
+            "policy": 0.007673375736346044,
+            "value": 0.03631450785207175,
+            "prediction": 0.0023981431982036863,
+            "entropy": 0.0035662624970146783
+          },
+          "entropy_to_policy_norm": 0.4647579656659539,
+          "policy_entropy_cosine": 0.6176153239060681
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 0,
+      "original_update": 1793,
+      "original_checkpoint_sha256": "d7767df39bd6b4641d821cbb4e0ded46b813c6fd343d7cd4b88dbdc92eda130b",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 984,
+      "loss_terms": {
+        "policy": 0.0038211992834722357,
+        "value": 0.011313613602033154,
+        "prediction": 0.0005588053677329488,
+        "entropy": -0.017352936172277622
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.009947458184567777,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0018803873918290103
+          },
+          "entropy_to_policy_norm": 0.189031947351756,
+          "policy_entropy_cosine": 0.7673851739244184
+        },
+        "context": {
+          "norms": {
+            "policy": 0.023651294494528227,
+            "value": 0.038534294660116056,
+            "prediction": 0.012759791323657812,
+            "entropy": 0.004974325652148209
+          },
+          "entropy_to_policy_norm": 0.21031938244644616,
+          "policy_entropy_cosine": 0.8142702987646594
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 0,
+      "original_update": 1921,
+      "original_checkpoint_sha256": "b8cdf951578f53a4a4804b73ab43161061a21fcbdf6c40027d6cdaf736fd3b65",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1024,
+      "loss_terms": {
+        "policy": 0.031134877982810654,
+        "value": 0.006563430988013176,
+        "prediction": 0.0005224028288382697,
+        "entropy": -0.01748134450157576
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.006085787652071152,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0017266512813573158
+          },
+          "entropy_to_policy_norm": 0.2837186211664305,
+          "policy_entropy_cosine": 0.5363349577821627
+        },
+        "context": {
+          "norms": {
+            "policy": 0.013228318996333836,
+            "value": 0.07825296416437635,
+            "prediction": 0.006167168632877496,
+            "entropy": 0.004180669127931083
+          },
+          "entropy_to_policy_norm": 0.3160393341806873,
+          "policy_entropy_cosine": 0.5500513615831616
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 1,
+      "original_update": 1537,
+      "original_checkpoint_sha256": "d153087767ce3b8b136e9b0d7e7373fbb87648e1f5376c516b9f6b14bc619105",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 986,
+      "loss_terms": {
+        "policy": -0.09590832109290084,
+        "value": 0.05147183680564955,
+        "prediction": 0.0006882649339807987,
+        "entropy": -0.01728024146048211
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.034957532597278185,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0020829604851472657
+          },
+          "entropy_to_policy_norm": 0.05958545499030576,
+          "policy_entropy_cosine": 0.3453253669334577
+        },
+        "context": {
+          "norms": {
+            "policy": 0.03935709735342698,
+            "value": 0.20977862478509243,
+            "prediction": 0.005044135575773436,
+            "entropy": 0.0018781885037277492
+          },
+          "entropy_to_policy_norm": 0.04772172314593235,
+          "policy_entropy_cosine": 0.40240419197517047
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 1,
+      "original_update": 1665,
+      "original_checkpoint_sha256": "4820118aa2a635625fbf8d3ec0476d154d8dfca37ac50f4badb1ab6186766f75",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1004,
+      "loss_terms": {
+        "policy": 0.01518938022196006,
+        "value": 0.004748396323202858,
+        "prediction": 0.0005246312260054744,
+        "entropy": -0.0172357532960798
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.009261393646295257,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.00199905211421845
+          },
+          "entropy_to_policy_norm": 0.21584787242232287,
+          "policy_entropy_cosine": -0.11918407491456089
+        },
+        "context": {
+          "norms": {
+            "policy": 0.015050539254733132,
+            "value": 0.05203544341312843,
+            "prediction": 0.0025530958272773135,
+            "entropy": 0.0030431530843357413
+          },
+          "entropy_to_policy_norm": 0.2021956178997854,
+          "policy_entropy_cosine": -0.6043322365939646
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 1,
+      "original_update": 1793,
+      "original_checkpoint_sha256": "1620e7c7226b7432dbe21e580662ac1e6955fc516ab368e4242b76bc521deed6",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1000,
+      "loss_terms": {
+        "policy": 0.005986399322971468,
+        "value": 0.002007392333435911,
+        "prediction": 0.000484486755919135,
+        "entropy": -0.017288846842568664
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.004449606573418523,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0018067776603468773
+          },
+          "entropy_to_policy_norm": 0.40605335113004715,
+          "policy_entropy_cosine": -0.3017072994453592
+        },
+        "context": {
+          "norms": {
+            "policy": 0.007584212462802695,
+            "value": 0.026837602908054273,
+            "prediction": 0.005229227236698765,
+            "entropy": 0.004393582393007011
+          },
+          "entropy_to_policy_norm": 0.5793063438762621,
+          "policy_entropy_cosine": 0.45293840252422757
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 1,
+      "original_update": 1921,
+      "original_checkpoint_sha256": "40b9bee1632445ca5b93909319a5c7b4e173bb1957586bb893e3810dc5bd247d",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1000,
+      "loss_terms": {
+        "policy": -0.020889960355705957,
+        "value": 0.012963370798536307,
+        "prediction": 0.0006852402970330835,
+        "entropy": -0.017280680307664237
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.011771994804059232,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0020499439514562613
+          },
+          "entropy_to_policy_norm": 0.17413734762687777,
+          "policy_entropy_cosine": 0.4695729993216193
+        },
+        "context": {
+          "norms": {
+            "policy": 0.013554194042358667,
+            "value": 0.041930079004920545,
+            "prediction": 0.012303893187042501,
+            "entropy": 0.004789819880737139
+          },
+          "entropy_to_policy_norm": 0.3533828618483926,
+          "policy_entropy_cosine": -0.353894742083105
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 2,
+      "original_update": 1537,
+      "original_checkpoint_sha256": "5e48d037d7e2a1d2e28f30ff8a66b8b97263641d2e04d862e6325854a9b18a78",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1000,
+      "loss_terms": {
+        "policy": 0.005297737737036097,
+        "value": 0.01206041356021154,
+        "prediction": 0.0005039116174187133,
+        "entropy": -0.017380843996232357
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.01127048679689842,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.001413280286988066
+          },
+          "entropy_to_policy_norm": 0.1253965611651303,
+          "policy_entropy_cosine": -0.2584769636867038
+        },
+        "context": {
+          "norms": {
+            "policy": 0.015283961096749496,
+            "value": 0.03233970206046471,
+            "prediction": 0.0023257358779149614,
+            "entropy": 0.002968994322115791
+          },
+          "entropy_to_policy_norm": 0.1942555534734526,
+          "policy_entropy_cosine": -0.7485744697137814
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 2,
+      "original_update": 1665,
+      "original_checkpoint_sha256": "57dac8221c2d81210d40296bdd2cce3506b975d34b7d715af988a325f70e30f5",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1010,
+      "loss_terms": {
+        "policy": -0.04008258820721468,
+        "value": 0.010956834432829212,
+        "prediction": 0.0004821325010778491,
+        "entropy": -0.017355825269360373
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.01177120935258825,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.00158123749340947
+          },
+          "entropy_to_policy_norm": 0.1343309294776741,
+          "policy_entropy_cosine": -0.24875775272990344
+        },
+        "context": {
+          "norms": {
+            "policy": 0.01712462003468628,
+            "value": 0.1002231472723031,
+            "prediction": 0.005183813345104025,
+            "entropy": 0.0031853590128130193
+          },
+          "entropy_to_policy_norm": 0.18601049286705384,
+          "policy_entropy_cosine": -0.0425191948834379
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 2,
+      "original_update": 1793,
+      "original_checkpoint_sha256": "1905d50026f6827feb36c737def9162efa6ad0053551d0d514a45e0a10e86b52",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 980,
+      "loss_terms": {
+        "policy": 0.013412489775188469,
+        "value": 0.00234576026518499,
+        "prediction": 0.0004973900167076935,
+        "entropy": -0.01742247237322401
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.0035000255181043705,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0014099957440709978
+          },
+          "entropy_to_policy_norm": 0.40285298972181716,
+          "policy_entropy_cosine": -0.49219149326398937
+        },
+        "context": {
+          "norms": {
+            "policy": 0.005017129780193091,
+            "value": 0.022402255987351117,
+            "prediction": 0.003653870170839893,
+            "entropy": 0.0033205673313971428
+          },
+          "entropy_to_policy_norm": 0.6618460109416078,
+          "policy_entropy_cosine": 0.15492173136575546
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 2,
+      "original_update": 1921,
+      "original_checkpoint_sha256": "e368230f94a6a5b755a97be776f7394f27c8825ca943cf85c72c28d833442ee7",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1024,
+      "loss_terms": {
+        "policy": 0.03208201398090089,
+        "value": 0.0028808673813511313,
+        "prediction": 0.0004949174806856499,
+        "entropy": -0.01742186884289659
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.010322781558282831,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0016504296854904458
+          },
+          "entropy_to_policy_norm": 0.1598822639200544,
+          "policy_entropy_cosine": 0.2410102443892501
+        },
+        "context": {
+          "norms": {
+            "policy": 0.016708113968316965,
+            "value": 0.04220051127468065,
+            "prediction": 0.004934039492515662,
+            "entropy": 0.0034730212967681853
+          },
+          "entropy_to_policy_norm": 0.20786435281408536,
+          "policy_entropy_cosine": 0.44925448249614697
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 3,
+      "original_update": 1537,
+      "original_checkpoint_sha256": "5bc44a7f6ef68c78f85e2f0d0954f1816bb0001e8747e0b64868585ed77d8137",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1024,
+      "loss_terms": {
+        "policy": 0.010942006628219808,
+        "value": 0.003565088828895407,
+        "prediction": 0.0005797242177318488,
+        "entropy": -0.017108110906644807
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.006657049257654681,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0020828586264060095
+          },
+          "entropy_to_policy_norm": 0.3128801584292037,
+          "policy_entropy_cosine": 0.22205680044962614
+        },
+        "context": {
+          "norms": {
+            "policy": 0.018568703310782246,
+            "value": 0.029106659603792717,
+            "prediction": 0.0035207652632850903,
+            "entropy": 0.005189854961687812
+          },
+          "entropy_to_policy_norm": 0.27949474310757233,
+          "policy_entropy_cosine": 0.8146902725803021
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 3,
+      "original_update": 1665,
+      "original_checkpoint_sha256": "eb7f3f480fe0344b537f34eda57d8fa11184d2e80598f5bba115ac0237b9667b",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1024,
+      "loss_terms": {
+        "policy": 0.023209906859852258,
+        "value": 0.0013679333336608752,
+        "prediction": 0.0006695728940862848,
+        "entropy": -0.01724154443621261
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.004165698053060391,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0017120745604421717
+          },
+          "entropy_to_policy_norm": 0.41099343702656777,
+          "policy_entropy_cosine": -0.5056978771109888
+        },
+        "context": {
+          "norms": {
+            "policy": 0.006689384370905411,
+            "value": 0.03988056914150796,
+            "prediction": 0.0033604878679438237,
+            "entropy": 0.004159538167784605
+          },
+          "entropy_to_policy_norm": 0.6218118046671026,
+          "policy_entropy_cosine": -0.6766204562565029
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 3,
+      "original_update": 1793,
+      "original_checkpoint_sha256": "9e60a55864325fe09ee3ca517ff6681313d4d1dc5c5515abd0f7081ff53c4066",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1010,
+      "loss_terms": {
+        "policy": -0.04532560588292089,
+        "value": 0.014434757177555357,
+        "prediction": 0.0005087033719132153,
+        "entropy": -0.01720850073840481
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.012393069913027186,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0019085721475539626
+          },
+          "entropy_to_policy_norm": 0.1540031776588087,
+          "policy_entropy_cosine": 0.1243245577867484
+        },
+        "context": {
+          "norms": {
+            "policy": 0.01193174461232646,
+            "value": 0.11297655093594185,
+            "prediction": 0.004226746857601027,
+            "entropy": 0.005570784474048887
+          },
+          "entropy_to_policy_norm": 0.4668876727627756,
+          "policy_entropy_cosine": 0.4355264562788004
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 3,
+      "original_update": 1921,
+      "original_checkpoint_sha256": "fa143dbcc5de772f60501719d2412b9e9994e2affa17f1c396b101560855121b",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1024,
+      "loss_terms": {
+        "policy": -0.00010271786779714968,
+        "value": 0.0016021599055821747,
+        "prediction": 0.00045971132814373247,
+        "entropy": -0.017376587238007543
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.002996813543744465,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0015802169724234846
+          },
+          "entropy_to_policy_norm": 0.5272990626066885,
+          "policy_entropy_cosine": 0.00015924364714863456
+        },
+        "context": {
+          "norms": {
+            "policy": 0.005400564815637664,
+            "value": 0.032659089575140195,
+            "prediction": 0.003384079648550913,
+            "entropy": 0.004298841560165496
+          },
+          "entropy_to_policy_norm": 0.7959985125477873,
+          "policy_entropy_cosine": -0.5381256681600516
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 4,
+      "original_update": 1537,
+      "original_checkpoint_sha256": "331bd67632f2454994ff82e67cec846ff9a9e0a898c95da413886a21af23d215",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1024,
+      "loss_terms": {
+        "policy": 0.005592268024492249,
+        "value": 0.0030235497486092236,
+        "prediction": 0.0005192293299790877,
+        "entropy": -0.017322797050749503
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.0060287712341813605,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0014458678183728352
+          },
+          "entropy_to_policy_norm": 0.23982794539875552,
+          "policy_entropy_cosine": -0.049540985190835364
+        },
+        "context": {
+          "norms": {
+            "policy": 0.013900278216510928,
+            "value": 0.039936269519904116,
+            "prediction": 0.002658063817491317,
+            "entropy": 0.004174920182777158
+          },
+          "entropy_to_policy_norm": 0.30034795834648365,
+          "policy_entropy_cosine": 0.6122719607237002
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 4,
+      "original_update": 1665,
+      "original_checkpoint_sha256": "b10921d8a40d9cdd92bb4b46cfcec69f0b8bd3d68a9f715e8d6213f6497a3085",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1007,
+      "loss_terms": {
+        "policy": -0.0007456699404872885,
+        "value": 0.014086045475434112,
+        "prediction": 0.001065920405649961,
+        "entropy": -0.01739257071216559
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.01138183790265084,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0017966330421822722
+          },
+          "entropy_to_policy_norm": 0.15785087237658119,
+          "policy_entropy_cosine": -0.4787195252083543
+        },
+        "context": {
+          "norms": {
+            "policy": 0.02929152885995637,
+            "value": 0.08144793053861216,
+            "prediction": 0.019400160006546114,
+            "entropy": 0.004116371019885125
+          },
+          "entropy_to_policy_norm": 0.14053110848414951,
+          "policy_entropy_cosine": -0.8540365384871328
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 4,
+      "original_update": 1793,
+      "original_checkpoint_sha256": "17afabc95805f25b4bdf849c059c2bf2a0f925d12fa422eecd35965a1d70fcc1",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1024,
+      "loss_terms": {
+        "policy": 0.004355022131757518,
+        "value": 0.0024452730832717267,
+        "prediction": 0.0005545245913697039,
+        "entropy": -0.017504795272621835
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.005181559251420024,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0018154952410519107
+          },
+          "entropy_to_policy_norm": 0.3503762386880683,
+          "policy_entropy_cosine": -0.4657726038508617
+        },
+        "context": {
+          "norms": {
+            "policy": 0.010605035032787993,
+            "value": 0.02426993622750786,
+            "prediction": 0.00583151748085834,
+            "entropy": 0.003745447486330847
+          },
+          "entropy_to_policy_norm": 0.35317634262884595,
+          "policy_entropy_cosine": -0.5685679559471539
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 4,
+      "original_update": 1921,
+      "original_checkpoint_sha256": "11230bac75621b78d9d68294dc62f2aa3f7dccbba757bcb2829f4e72d8abf0e5",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 950,
+      "loss_terms": {
+        "policy": -0.03745832344817331,
+        "value": 0.02342048298069687,
+        "prediction": 0.0007384687179316452,
+        "entropy": -0.017561907227962803
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.01527141651647107,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0014044563141092264
+          },
+          "entropy_to_policy_norm": 0.0919663419954817,
+          "policy_entropy_cosine": 0.052079364006864304
+        },
+        "context": {
+          "norms": {
+            "policy": 0.015270661631459834,
+            "value": 0.11117473845732542,
+            "prediction": 0.009958066480598365,
+            "entropy": 0.003527960422816699
+          },
+          "entropy_to_policy_norm": 0.23102865533662115,
+          "policy_entropy_cosine": -0.3577491935032745
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 5,
+      "original_update": 1537,
+      "original_checkpoint_sha256": "a46502096a72c9993f1da7f1132380e5724e94cc2519459ae444701bc5c91422",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1000,
+      "loss_terms": {
+        "policy": -0.008004630682099214,
+        "value": 0.0017785182710690006,
+        "prediction": 0.0005055366641303463,
+        "entropy": -0.016830258093569583
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.003498409170634907,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0034581326725581837
+          },
+          "entropy_to_policy_norm": 0.9884871962905889,
+          "policy_entropy_cosine": -0.4351319048012961
+        },
+        "context": {
+          "norms": {
+            "policy": 0.0051253620729921,
+            "value": 0.04184469631907068,
+            "prediction": 0.006257881122094836,
+            "entropy": 0.006337543935219305
+          },
+          "entropy_to_policy_norm": 1.236506581381782,
+          "policy_entropy_cosine": -0.5486845716810272
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 5,
+      "original_update": 1665,
+      "original_checkpoint_sha256": "780d3287dd45c68a5f6a125e96f696908a702843f6c1377c031fbcb320603e15",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1004,
+      "loss_terms": {
+        "policy": 0.014723254339676512,
+        "value": 0.0005004201942445998,
+        "prediction": 0.0005461616253784624,
+        "entropy": -0.017114329193022932
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.0019140833918914783,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0022454487530594674
+          },
+          "entropy_to_policy_norm": 1.173119605222914,
+          "policy_entropy_cosine": -0.5409988361269009
+        },
+        "context": {
+          "norms": {
+            "policy": 0.00341406760146096,
+            "value": 0.019349487201701297,
+            "prediction": 0.012720202351269319,
+            "entropy": 0.004835600469568251
+          },
+          "entropy_to_policy_norm": 1.4163751378264988,
+          "policy_entropy_cosine": 0.46372755238887803
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 5,
+      "original_update": 1793,
+      "original_checkpoint_sha256": "a5e02104afd1fea31af85f4d8a54351baf4e22dbdac148682ffc15271c69ddc1",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 985,
+      "loss_terms": {
+        "policy": -0.04892062679179957,
+        "value": 0.020302370471747554,
+        "prediction": 0.00045957238327541965,
+        "entropy": -0.01706571703099265
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.014461501233338845,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0027159057152081993
+          },
+          "entropy_to_policy_norm": 0.1878024744033546,
+          "policy_entropy_cosine": -0.4078583474297831
+        },
+        "context": {
+          "norms": {
+            "policy": 0.029096676943112822,
+            "value": 0.11265928930554686,
+            "prediction": 0.002458208281869269,
+            "entropy": 0.006242992819659397
+          },
+          "entropy_to_policy_norm": 0.21456033731498372,
+          "policy_entropy_cosine": -0.8244402506049651
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 5,
+      "original_update": 1921,
+      "original_checkpoint_sha256": "8d1e07688d7175d8ea530666481a5139bbcafd7bd40f667574f35555990ed49b",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1000,
+      "loss_terms": {
+        "policy": 0.011737149630513748,
+        "value": 0.004370629321434476,
+        "prediction": 0.0006720796826755185,
+        "entropy": -0.017017895993582412
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.007850581641572173,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0023635557334453355
+          },
+          "entropy_to_policy_norm": 0.30106759490651,
+          "policy_entropy_cosine": 0.5752131135768134
+        },
+        "context": {
+          "norms": {
+            "policy": 0.011365391638656732,
+            "value": 0.0506961590516624,
+            "prediction": 0.0078016798424464006,
+            "entropy": 0.005876386825079216
+          },
+          "entropy_to_policy_norm": 0.5170421760999467,
+          "policy_entropy_cosine": 0.7114996697960366
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 6,
+      "original_update": 1537,
+      "original_checkpoint_sha256": "7cd23f89af14f75a98732311ea085d504f6623787b9092327013b574299a2989",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 994,
+      "loss_terms": {
+        "policy": 0.0052367043048754955,
+        "value": 0.0069429713296978645,
+        "prediction": 0.0005825272607071947,
+        "entropy": -0.017038737229767998
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.006755474172550909,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.002091983276503643
+          },
+          "entropy_to_policy_norm": 0.3096723076825408,
+          "policy_entropy_cosine": -0.023552752753985422
+        },
+        "context": {
+          "norms": {
+            "policy": 0.009113079185336275,
+            "value": 0.08008717250954676,
+            "prediction": 0.005561286588077457,
+            "entropy": 0.0034328161401995954
+          },
+          "entropy_to_policy_norm": 0.3766911348387371,
+          "policy_entropy_cosine": 0.44921861085816345
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 6,
+      "original_update": 1665,
+      "original_checkpoint_sha256": "703bc44d234a2c8a88709038aa2b5595235dd8f509a35e160105f84f34f4f33f",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1000,
+      "loss_terms": {
+        "policy": 0.00047748919793093146,
+        "value": 0.003143368621068994,
+        "prediction": 0.0004970120162085009,
+        "entropy": -0.016925743896994968
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.004450619642849869,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.00226027838081792
+          },
+          "entropy_to_policy_norm": 0.507857009180545,
+          "policy_entropy_cosine": -0.46022182443955356
+        },
+        "context": {
+          "norms": {
+            "policy": 0.013255491860166294,
+            "value": 0.023491398925832636,
+            "prediction": 0.0045700576127915985,
+            "entropy": 0.0056335096505006135
+          },
+          "entropy_to_policy_norm": 0.42499438798115935,
+          "policy_entropy_cosine": -0.8368505522019999
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 6,
+      "original_update": 1793,
+      "original_checkpoint_sha256": "56b677e6f34c937922751942b127b14b51641fbaea0d61714ab5021e98980d26",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 976,
+      "loss_terms": {
+        "policy": -0.03198249334751811,
+        "value": 0.007464588978693005,
+        "prediction": 0.0005665651166506983,
+        "entropy": -0.01701079177914824
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.007542681483016477,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.002119511334758086
+          },
+          "entropy_to_policy_norm": 0.28100236494547676,
+          "policy_entropy_cosine": -0.13947349759095976
+        },
+        "context": {
+          "norms": {
+            "policy": 0.008889918118195606,
+            "value": 0.08411157513762203,
+            "prediction": 0.007876232004711646,
+            "entropy": 0.004560180681304953
+          },
+          "entropy_to_policy_norm": 0.5129609317740866,
+          "policy_entropy_cosine": -0.3991752881114525
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 6,
+      "original_update": 1921,
+      "original_checkpoint_sha256": "373c40d7a4816c2e1b8a958952bb8e5783ae38af350ec165dd012245afde5170",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1000,
+      "loss_terms": {
+        "policy": 0.004447293940720556,
+        "value": 0.003245113828105305,
+        "prediction": 0.00039251120741487207,
+        "entropy": -0.017156258794502995
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.007198574589676912,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0018184408998035855
+          },
+          "entropy_to_policy_norm": 0.252611246455835,
+          "policy_entropy_cosine": -0.2118038438895921
+        },
+        "context": {
+          "norms": {
+            "policy": 0.006895669390547953,
+            "value": 0.03363064409160626,
+            "prediction": 0.002290154501215665,
+            "entropy": 0.00190875486250083
+          },
+          "entropy_to_policy_norm": 0.27680486902652307,
+          "policy_entropy_cosine": -0.00918092703360949
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 7,
+      "original_update": 1537,
+      "original_checkpoint_sha256": "1149e4814c6493dc057b1e0bc9cdafb2630aba85d72049ee2fa4ad273d7686b7",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1010,
+      "loss_terms": {
+        "policy": -0.03816853034741217,
+        "value": 0.019937250294992853,
+        "prediction": 0.0004689039244623536,
+        "entropy": -0.017314952067174687
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.0185651354113837,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0016422728690132194
+          },
+          "entropy_to_policy_norm": 0.08846005335389133,
+          "policy_entropy_cosine": -0.3694537414872755
+        },
+        "context": {
+          "norms": {
+            "policy": 0.03640694122074809,
+            "value": 0.14916317241700378,
+            "prediction": 0.003956734402607952,
+            "entropy": 0.003796976398264837
+          },
+          "entropy_to_policy_norm": 0.10429265054821368,
+          "policy_entropy_cosine": -0.23152847359767978
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 7,
+      "original_update": 1665,
+      "original_checkpoint_sha256": "505715e58dd23243abd65ec0e05bbafaf16c500a1869a01f8b00a07005fa885e",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1000,
+      "loss_terms": {
+        "policy": -0.01848631606326937,
+        "value": 0.009529425586530966,
+        "prediction": 0.00043114916404048413,
+        "entropy": -0.017240088707420578
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.011009003812887767,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0014685267766018483
+          },
+          "entropy_to_policy_norm": 0.1333932480687042,
+          "policy_entropy_cosine": -0.4138795584411772
+        },
+        "context": {
+          "norms": {
+            "policy": 0.026324548710292415,
+            "value": 0.046802395624416904,
+            "prediction": 0.004540548528305515,
+            "entropy": 0.003599568561604946
+          },
+          "entropy_to_policy_norm": 0.1367380919315658,
+          "policy_entropy_cosine": 0.06316266909085956
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 7,
+      "original_update": 1793,
+      "original_checkpoint_sha256": "704a60a020e51eef5f5b8e054a1a6215efd9d78e2e04cad842f233b41118f880",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 983,
+      "loss_terms": {
+        "policy": -0.046873896841548024,
+        "value": 0.02343734146375634,
+        "prediction": 0.0005261099307336127,
+        "entropy": -0.017231030813094725
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.020323957713102313,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0013716615696885434
+          },
+          "entropy_to_policy_norm": 0.06748988504361382,
+          "policy_entropy_cosine": -0.2962525092257374
+        },
+        "context": {
+          "norms": {
+            "policy": 0.06028977756753159,
+            "value": 0.09379906251876462,
+            "prediction": 0.007737724917139104,
+            "entropy": 0.004507823030854192
+          },
+          "entropy_to_policy_norm": 0.07476927619785799,
+          "policy_entropy_cosine": -0.8882118533627176
+        }
+      }
+    },
+    {
+      "route": "recurrent",
+      "lineage": 7,
+      "original_update": 1921,
+      "original_checkpoint_sha256": "b5d57cb8a84ccc68b08b41b8cb1d8a582cd32ec286680ffaef3a983c13a0aad1",
+      "original_batch_gradient_verified": true,
+      "actual_live_decisions": 1008,
+      "loss_terms": {
+        "policy": 0.001072840718885463,
+        "value": 0.0007765478529686133,
+        "prediction": 0.0005133581414669024,
+        "entropy": -0.01736255925788437
+      },
+      "modules": {
+        "actor": {
+          "norms": {
+            "policy": 0.0038657361400409817,
+            "value": 0.0,
+            "prediction": 0.0,
+            "entropy": 0.0010099516222325054
+          },
+          "entropy_to_policy_norm": 0.26125725751727036,
+          "policy_entropy_cosine": -0.1706639230757273
+        },
+        "context": {
+          "norms": {
+            "policy": 0.005683224015573795,
+            "value": 0.017719771759666124,
+            "prediction": 0.005146016071470629,
+            "entropy": 0.0027097431165039
+          },
+          "entropy_to_policy_norm": 0.4767968162223351,
+          "policy_entropy_cosine": -0.20582668773072327
+        }
+      }
+    }
+  ]
+}

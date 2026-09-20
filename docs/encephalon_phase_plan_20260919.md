@@ -14,6 +14,14 @@ This is not learned-agent qualification. The
 [E1 training handoff](encephalon_e1_training_design_draft_20260919.md) identifies
 the remaining campaign preparation before fitting.
 
+**2026-09-20 update:** [E1-A has completed and FAILs](encephalon_e1_review_20260920.md).
+Both routes learn a survival improvement but miss every required body-control
+cell. The original auditor encountered a report-order exception; the disclosed
+order-only supplement verifies the unchanged negative result. E2 remains locked.
+The user subsequently prioritized [E1-B resource economics and capacity](encephalon_e1b_resource_economics_draft_20260920.md),
+moving the entropy comparison to [E1-C](encephalon_e1c_entropy_comparison_draft_20260920.md)
+as a fallback if E1-B fails. Neither successor has launched.
+
 ## Destination
 
 **Build a continuing agent whose bodily needs regulate its use of experience,
@@ -371,6 +379,13 @@ per stage under a fresh protocol and fresh evidence. A second failure triggers
 a design review before further experiments. Do not hide extra attempts in seed,
 reward, threshold or horizon sweeps. Tests that isolate one route are followed
 by a short integrated check before expanding the environment.
+
+**User revision, 2026-09-20, E1 only:** E1-B investigates the "Local Diner Trap"
+and capacity with separate controlled contrasts. If E1-B fails, the previously
+proposed entropy comparison is reserved as E1-C. This explicitly supersedes the
+one-successor limit for E1; each campaign still requires a fresh frozen protocol,
+and a failed E1-C triggers design review. Other stages retain the limit above.
+This revision changes experiment order, not E1-A's frozen protocol or verdict.
 
 ## What Encephalon completion buys, and what remains
 

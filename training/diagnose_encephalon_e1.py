@@ -63,6 +63,7 @@ def behavior(packet):
         rows.append(dict(food_side=int(food[j] // 4), repair_side=int(repair[j] // 4),
                          survived=packet["survived"][j], ticks=packet["ticks"][j],
                          energy_death=bool(energy[j] == 0), integrity_death=bool(integrity[j] == 0),
+                         both_depleted=bool(energy[j] == 0 and integrity[j] == 0),
                          successful_feed_actions=int(feeds[j]), successful_repair_actions=int(repairs[j]),
                          restored_energy=int(food_gain[j]), restored_integrity=int(repair_gain[j]),
                          ineffective_feed_actions=int(wasted_feed[j]), ineffective_repair_actions=int(wasted_repair[j]),
@@ -117,7 +118,7 @@ def run():
             rows = behavior(packet)
             for food, repair in ((0, 0), (1, 0), (0, 1), (1, 1)):
                 selected = [r for r in rows if r["food_side"] == food and r["repair_side"] == repair]
-                counts = {k: sum(r[k] for r in selected) for k in ("survived", "energy_death", "integrity_death", "successful_feed_actions",
+                counts = {k: sum(r[k] for r in selected) for k in ("survived", "energy_death", "integrity_death", "both_depleted", "successful_feed_actions",
                           "successful_repair_actions", "restored_energy", "restored_integrity", "ineffective_feed_actions",
                           "ineffective_repair_actions", "inspections", "immediate_move_reversals")}
                 groups.append(dict(route=packet["route"], lineage=packet["lineage"], profile=packet["profile"], control=packet["control"],
