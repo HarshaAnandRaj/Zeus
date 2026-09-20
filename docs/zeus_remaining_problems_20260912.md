@@ -32,9 +32,14 @@ a disclosed order-only supplement independently verifies the unchanged FAIL.
 All16 complete fit pairs match. E2 remains locked. The user prioritized
 [E1-B resource economics and capacity](encephalon_e1b_resource_economics_draft_20260920.md);
 the entropy comparison becomes the [E1-C fallback](encephalon_e1c_entropy_comparison_draft_20260920.md)
-if E1-B fails. E1-B resource calibration and the complete pipeline rehearsal now
-independently PASS; its [frozen campaign](encephalon_e1b_protocol_20260920.md)
-is ready for authorized fitting. These mechanics do not qualify a controller.
+if E1-B fails. [E1-B has now completed with independent evidence PASS and
+controller FAIL](encephalon_e1b_review_20260920.md) in all four arms. All6,144
+trained finite-world bodies die; resource/capacity positive claims FAIL. Partial
+stock-sensitive adaptation and improved coordination in some wider models are
+retained as observations. E1-C remains the original-world, width32 entropy-only
+fallback, awaiting its own prospective preparation. The user's subsequent
+[HEGH hypothesis](hegh_assessment_20260920.md) is under analysis; it changes no
+closed verdict and launches no training.
 LMB6 remains paused, and all12 program requirements remain incomplete.
 
 Latest completed engineering status before that pause: LMB5 is independently FAIL and its complete successor diagnosis

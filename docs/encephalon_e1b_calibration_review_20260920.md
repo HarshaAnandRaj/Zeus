@@ -39,3 +39,7 @@ readiness receipt records all source and local development-artifact hashes in
 `encephalon_e1b_development_20260920.json`; the34.7MB development shards remain
 local under `runs/`. These are mechanics evidence only. The actual E1-B campaign
 is now ready for its separately sealed launch, with no source change after rehearsal.
+
+Subsequent outcome: [the full E1-B campaign](encephalon_e1b_review_20260920.md)
+completed with independent evidence PASS and controller FAIL in every arm.
+World feasibility remains established; the learned controllers did not qualify.

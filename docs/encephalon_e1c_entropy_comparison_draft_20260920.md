@@ -6,6 +6,16 @@ The user moved this proposal from E1-B to E1-C on 2026-09-20, reserving it
 for a failed E1-B resource-economics/capacity campaign. No successor training
 has begun. See the [new E1-B proposal](encephalon_e1b_resource_economics_draft_20260920.md).
 
+**After E1-B, 2026-09-20:** [the completed evidence](encephalon_e1b_review_20260920.md)
+is independently PASS, with controller FAIL in all four arms. The retained setting
+for preparing this fallback is the original E1-A world and width32 recurrent
+architecture, as proposed below. Both entropy arms must train fresh. This tests
+the continuing randomness incentive in an affordable world where coordination
+still fails; it cannot requalify E1-B's finite world or erase its failure. No E1-C
+protocol has been frozen and no E1-C training has launched. The user's new
+[HEGH proposal](hegh_assessment_20260920.md) is being evaluated separately before
+any change in the agreed experiment order.
+
 The observed problem is specific: learned policies achieve substantial local
 survival through diffuse action mixtures, but fail when food and repair require
 different journeys. Entropy remains close to its maximum, useless inspections

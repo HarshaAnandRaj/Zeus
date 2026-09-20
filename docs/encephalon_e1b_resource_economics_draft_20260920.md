@@ -11,6 +11,10 @@ The [prospective E1-B protocol](encephalon_e1b_protocol_20260920.md) turns the
 proposal below into explicit comparisons, gates and a development-before-launch
 boundary. The proposal's original status statements describe its drafting date.
 
+Completion update: [the full E1-B review](encephalon_e1b_review_20260920.md)
+records independent evidence PASS, all four controllers FAIL, and the complete
+resource/capacity contrasts and diagnosis. E1-C remains a separate fallback.
+
 ## The hypothesis and its limits
 
 The user's "Local Diner Trap" identifies a real incentive question: if nearby

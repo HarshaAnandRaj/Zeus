@@ -1,3 +1,4 @@
 zeus_sandbox/universe/reports/lmb5_failure_diagnosis2_20260913.json filter=lfs diff=lfs merge=lfs -text
 zeus_sandbox/universe/reports/encephalon_e1a_20260919* -text whitespace=cr-at-eol
 zeus_sandbox/universe/reports/encephalon_e1b_* -text whitespace=cr-at-eol
+docs/hegh_user_hypothesis_20260920.txt -text whitespace=cr-at-eol

@@ -23,8 +23,13 @@ moving the entropy comparison to [E1-C](encephalon_e1c_entropy_comparison_draft_
 as a fallback if E1-B fails. E1-B's separately frozen
 [resource calibration independently PASSes](encephalon_e1b_calibration_review_20260920.md),
 and its complete development rehearsal passes. The
-[E1-B protocol](encephalon_e1b_protocol_20260920.md) is ready for the authorized
-four-arm campaign. No E1-B functional result is available yet.
+[E1-B campaign and diagnosis are now complete](encephalon_e1b_review_20260920.md):
+evidence PASS, controller FAIL in all four arms, 0/6,144 trained finite-world
+survivors. Scarcity changes behavior but does not produce sustainable maintenance;
+the registered resource and capacity claims FAIL. E1-C retains the original-world,
+width32 entropy-only setting for fresh preparation; no E1-C fit has launched.
+The user's subsequent [HEGH proposal](hegh_assessment_20260920.md) is recorded as
+a separate hypothesis under analysis, not as evidence or a launched replacement.
 
 ## Destination
 

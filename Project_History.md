@@ -4577,3 +4577,60 @@ capability authority. Original E1-A source identity remains833193d. No campaign
 source changed after rehearsal. The authorized full E1-B run is ready:64 fit
 executions, final checkpoints only, endpoints locked until all repeat checks,
 12-hour inclusive campaign/audit budget, no coefficient or width sweeps.
+
+### 2026-09-20 — E1-B independently closed FAIL; scarcity adaptation diagnosed
+
+The frozen campaign at312cf4efff9f5bda61059bdc7b95e65101a54904 completed all64
+fit executions and endpoint evaluations. All32 complete-state and endpoint
+repeat pairs match. Independent replay verifies55296 bodies/45024665 steps,
+all63 simultaneous contrasts and all decisions. Maximum neural discrepancy
+5.717648576819556e-15. EvidencePASS; every arm's controller qualificationFAIL.
+No selected arm; E2 remains locked. No audit supplement or source change was
+required. Original E1-A remains unchanged.
+
+All6144 trained finite-world bodies die by tick482, within the512-tick training
+lifetime. Resource, capacity and interaction positive claims FAIL. All24 learned
+benefit contrasts in original/abundant worlds PASS, while all12 finite contrasts
+FAIL. Finite-trained width128 reaches1205/1536 original-world survivors, including
+457/768 with separated stations, but does not meet the declared per-cell floor
+or the simultaneous capacity-benefit margin. Width effects are not ruled out.
+
+Read-only diagnosis records scarcity-induced increases in crossings per live
+tick, reduced inspection and expenditure, longer lifetimes and immediate stock
+sensitivity. Nevertheless nominal extra action spending remains about3.9–4.0
+energy per tick against a sustainable margin of1 before overflow. Energy causes
+5703/6144 deaths; many bodies have eaten at both patches and die with food still
+available. Backpropagation reaches every intended module. Low sampled state
+covariance dimension and prediction/control dissociation are retained as bounded
+observations, not capability or authorship passes.
+
+Portable evidence is split into32 complete arm/lineage shards totaling170896098
+bytes, largest8434424 bytes; each is hash-addressed by the authoritative report.
+Both read-only diagnoses preserve their source/report hashes. Review:
+docs/encephalon_e1b_review_20260920.md. The reserved E1-C entropy-only fallback
+retains the original-world, width32 recurrent setting for fresh preparation.
+No E1-C training has launched. Finite-world FAIL remains closed even if a future
+original-world controller qualifies. LMB6 stays paused; full obligations remain.
+
+### 2026-09-20 — User proposes HEGH; mathematical and research assessment only
+
+After reading the E1-B review, the user explicitly submitted the Hyperdimensional
+Exploration Geometry Hypothesis as a hypothesis, not evidence. Its original text
+is preserved verbatim in docs/hegh_user_hypothesis_20260920.txt with source hash.
+The proposal separates geometric concentration from exploration incentives and
+identifies the geometry-to-transition-cost bridge as uncertain.
+
+The assessment derives concentration under independent isotropic sampling,
+states effective-dimension and temporal-dependence limits, and gives exact
+equal-distance/unequal-control-energy and fixed-mean bonus-threshold
+counterexamples. It distinguishes cost dispersion from uncertainty, valid
+Gram-matrix geometry from independent pairwise draws, and an engineered price
+rule from a discovered recurrent-state bridge. A conditional control-energy
+formula makes the relevant dynamics assumptions explicit.
+
+Targeted Undermind searches and primary-source checks locate distance geometry,
+control-energy limitations and dynamical-distance learning. These are adjacent
+research, not evidence that the HEGH chain holds in Zeus. Recommended cheap
+instrument checks and bounded future comparisons are documented, with no
+protocol frozen, new training launched or experiment order changed. Assessment:
+docs/hegh_assessment_20260920.md.

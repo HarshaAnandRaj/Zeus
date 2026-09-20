@@ -1,0 +1,277 @@
+{
+  "scope": "Descriptive terminal-state accounting from the closed E1-B evidence",
+  "source_report_sha256": "c7f310a75752f24df82e904bc6a42ed0b40b356a04391aad4533eb62e49205af",
+  "diagnostic_source_sha256": "d886c1c5967af0adbc684498d1598d7b5d8f4884a134d76e711ca32b5ae41367",
+  "rows": [
+    {
+      "key": "abundant_128/all",
+      "bodies": 1536,
+      "terminal_positions": [
+        476,
+        298,
+        291,
+        227,
+        244
+      ],
+      "terminal_actions": [
+        67,
+        416,
+        267,
+        643,
+        70,
+        73
+      ],
+      "mean_integrity": 805.0885416666666,
+      "mean_body_energy": 27.041666666666668,
+      "mean_patch_energy": 273.9055989583333,
+      "median_patch_energy": 248.0,
+      "min_patch_energy": 64,
+      "max_patch_energy": 840,
+      "mean_larger_patch": 217.96614583333334,
+      "station_deaths": 720,
+      "mean_local_stock_at_station": 89.66666666666667,
+      "bodies_fed_at_both": 1411,
+      "bodies_crossed": 1452,
+      "min_ticks": 14,
+      "median_ticks": 207.0,
+      "max_ticks": 403
+    },
+    {
+      "key": "abundant_128/energy_death",
+      "bodies": 1467,
+      "terminal_positions": [
+        466,
+        290,
+        275,
+        214,
+        222
+      ],
+      "terminal_actions": [
+        56,
+        409,
+        251,
+        631,
+        62,
+        58
+      ],
+      "mean_integrity": 842.9556918882072,
+      "mean_body_energy": 0.0,
+      "mean_patch_energy": 264.80027266530334,
+      "median_patch_energy": 244,
+      "min_patch_energy": 96,
+      "max_patch_energy": 840,
+      "mean_larger_patch": 212.02113156100887,
+      "station_deaths": 688,
+      "mean_local_stock_at_station": 86.96511627906976,
+      "bodies_fed_at_both": 1402,
+      "bodies_crossed": 1421,
+      "min_ticks": 14,
+      "median_ticks": 213,
+      "max_ticks": 403
+    },
+    {
+      "key": "abundant_32/all",
+      "bodies": 1536,
+      "terminal_positions": [
+        251,
+        377,
+        350,
+        328,
+        230
+      ],
+      "terminal_actions": [
+        68,
+        384,
+        328,
+        589,
+        72,
+        95
+      ],
+      "mean_integrity": 752.3658854166666,
+      "mean_body_energy": 53.647135416666664,
+      "mean_patch_energy": 328.423828125,
+      "median_patch_energy": 300.0,
+      "min_patch_energy": 64,
+      "max_patch_energy": 840,
+      "mean_larger_patch": 256.1510416666667,
+      "station_deaths": 481,
+      "mean_local_stock_at_station": 131.73180873180874,
+      "bodies_fed_at_both": 1290,
+      "bodies_crossed": 1357,
+      "min_ticks": 13,
+      "median_ticks": 196.0,
+      "max_ticks": 360
+    },
+    {
+      "key": "abundant_32/energy_death",
+      "bodies": 1412,
+      "terminal_positions": [
+        230,
+        345,
+        329,
+        302,
+        206
+      ],
+      "terminal_actions": [
+        52,
+        362,
+        307,
+        568,
+        55,
+        68
+      ],
+      "mean_integrity": 818.4376770538244,
+      "mean_body_energy": 0.0,
+      "mean_patch_energy": 321.68767705382436,
+      "median_patch_energy": 296.0,
+      "min_patch_energy": 96,
+      "max_patch_energy": 840,
+      "mean_larger_patch": 252.06303116147308,
+      "station_deaths": 436,
+      "mean_local_stock_at_station": 132.2775229357798,
+      "bodies_fed_at_both": 1265,
+      "bodies_crossed": 1307,
+      "min_ticks": 13,
+      "median_ticks": 203.0,
+      "max_ticks": 360
+    },
+    {
+      "key": "finite_128/all",
+      "bodies": 1536,
+      "terminal_positions": [
+        430,
+        328,
+        193,
+        235,
+        350
+      ],
+      "terminal_actions": [
+        191,
+        446,
+        314,
+        529,
+        12,
+        44
+      ],
+      "mean_integrity": 694.904296875,
+      "mean_body_energy": 29.52734375,
+      "mean_patch_energy": 185.4453125,
+      "median_patch_energy": 144.0,
+      "min_patch_energy": 76,
+      "max_patch_energy": 840,
+      "mean_larger_patch": 127.52994791666667,
+      "station_deaths": 780,
+      "mean_local_stock_at_station": 114.83333333333333,
+      "bodies_fed_at_both": 1434,
+      "bodies_crossed": 1461,
+      "min_ticks": 14,
+      "median_ticks": 321.0,
+      "max_ticks": 480
+    },
+    {
+      "key": "finite_128/energy_death",
+      "bodies": 1462,
+      "terminal_positions": [
+        413,
+        311,
+        180,
+        217,
+        341
+      ],
+      "terminal_actions": [
+        182,
+        433,
+        299,
+        518,
+        6,
+        24
+      ],
+      "mean_integrity": 730.0772913816689,
+      "mean_body_energy": 0.0,
+      "mean_patch_energy": 170.61012311901504,
+      "median_patch_energy": 144.0,
+      "min_patch_energy": 76,
+      "max_patch_energy": 840,
+      "mean_larger_patch": 116.22708618331053,
+      "station_deaths": 754,
+      "mean_local_stock_at_station": 113.3342175066313,
+      "bodies_fed_at_both": 1426,
+      "bodies_crossed": 1435,
+      "min_ticks": 14,
+      "median_ticks": 327.0,
+      "max_ticks": 480
+    },
+    {
+      "key": "finite_32/all",
+      "bodies": 1536,
+      "terminal_positions": [
+        358,
+        287,
+        299,
+        279,
+        313
+      ],
+      "terminal_actions": [
+        195,
+        364,
+        330,
+        546,
+        35,
+        66
+      ],
+      "mean_integrity": 624.4537760416666,
+      "mean_body_energy": 64.35872395833333,
+      "mean_patch_energy": 260.24609375,
+      "median_patch_energy": 212.0,
+      "min_patch_energy": 84,
+      "max_patch_energy": 840,
+      "mean_larger_patch": 181.29557291666666,
+      "station_deaths": 671,
+      "mean_local_stock_at_station": 154.14754098360655,
+      "bodies_fed_at_both": 1305,
+      "bodies_crossed": 1338,
+      "min_ticks": 14,
+      "median_ticks": 298.5,
+      "max_ticks": 482
+    },
+    {
+      "key": "finite_32/energy_death",
+      "bodies": 1362,
+      "terminal_positions": [
+        310,
+        246,
+        262,
+        253,
+        291
+      ],
+      "terminal_actions": [
+        179,
+        336,
+        300,
+        517,
+        6,
+        24
+      ],
+      "mean_integrity": 704.2298091042585,
+      "mean_body_energy": 0.0,
+      "mean_patch_energy": 234.98751835535975,
+      "median_patch_energy": 200.0,
+      "min_patch_energy": 92,
+      "max_patch_energy": 840,
+      "mean_larger_patch": 161.4948604992658,
+      "station_deaths": 601,
+      "mean_local_stock_at_station": 155.70382695507487,
+      "bodies_fed_at_both": 1294,
+      "bodies_crossed": 1301,
+      "min_ticks": 14,
+      "median_ticks": 318.0,
+      "max_ticks": 482
+    }
+  ],
+  "limitations": [
+    "Stocks include the terminal tick's four-unit renewal at each patch.",
+    "Unused food at death does not prove it was still reachable before death.",
+    "Final states are not a counterfactual rescue or a new survival gate.",
+    "One of each exact pair is counted; deterministic twins are not independent evidence."
+  ]
+}
