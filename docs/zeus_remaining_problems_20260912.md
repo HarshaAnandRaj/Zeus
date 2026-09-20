@@ -32,7 +32,9 @@ a disclosed order-only supplement independently verifies the unchanged FAIL.
 All16 complete fit pairs match. E2 remains locked. The user prioritized
 [E1-B resource economics and capacity](encephalon_e1b_resource_economics_draft_20260920.md);
 the entropy comparison becomes the [E1-C fallback](encephalon_e1c_entropy_comparison_draft_20260920.md)
-if E1-B fails. Both remain proposals without successor fitting.
+if E1-B fails. E1-B resource calibration and the complete pipeline rehearsal now
+independently PASS; its [frozen campaign](encephalon_e1b_protocol_20260920.md)
+is ready for authorized fitting. These mechanics do not qualify a controller.
 LMB6 remains paused, and all12 program requirements remain incomplete.
 
 Latest completed engineering status before that pause: LMB5 is independently FAIL and its complete successor diagnosis

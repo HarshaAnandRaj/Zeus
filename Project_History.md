@@ -4560,3 +4560,20 @@ at both widths. Six additional development tests cover exact resume/twins,
 independent accumulating neural/physics replay, corrupted evidence and report
 order. Full multi-process rehearsal must pass before actual candidate fitting.
 Protocol: docs/encephalon_e1b_protocol_20260920.md. E2 remains locked.
+
+### 2026-09-20 — E1-B whole-pipeline rehearsal PASS; ready for frozen launch
+
+The user asked to resume. Source df306a9 completed the full development campaign:
+all four arms, four initialization blocks,32 short fit executions and exact
+endpoints, then independent replay of6912 bodies/631400 steps. Maximum neural
+error2.220446049250313e-16; minimum CDF boundary margin2.6183091461629004e-07.
+The independently recomputed scalar verdict and canonical report-row ordering
+agree. All12 resource/learning development tests pass. Complete-state portable
+checkpoint round trips and all intended module updates passed at both widths.
+
+Published a compact readiness receipt with exact source and local artifact
+hashes;34.7MB of development shards stay in runs/. The rehearsal has no learned
+capability authority. Original E1-A source identity remains833193d. No campaign
+source changed after rehearsal. The authorized full E1-B run is ready:64 fit
+executions, final checkpoints only, endpoints locked until all repeat checks,
+12-hour inclusive campaign/audit budget, no coefficient or width sweeps.

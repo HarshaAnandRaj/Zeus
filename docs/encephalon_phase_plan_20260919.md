@@ -20,7 +20,11 @@ cell. The original auditor encountered a report-order exception; the disclosed
 order-only supplement verifies the unchanged negative result. E2 remains locked.
 The user subsequently prioritized [E1-B resource economics and capacity](encephalon_e1b_resource_economics_draft_20260920.md),
 moving the entropy comparison to [E1-C](encephalon_e1c_entropy_comparison_draft_20260920.md)
-as a fallback if E1-B fails. Neither successor has launched.
+as a fallback if E1-B fails. E1-B's separately frozen
+[resource calibration independently PASSes](encephalon_e1b_calibration_review_20260920.md),
+and its complete development rehearsal passes. The
+[E1-B protocol](encephalon_e1b_protocol_20260920.md) is ready for the authorized
+four-arm campaign. No E1-B functional result is available yet.
 
 ## Destination
 

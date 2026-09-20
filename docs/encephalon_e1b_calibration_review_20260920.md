@@ -29,3 +29,13 @@ and its42,494-byte `_evidence.json.gz` packet archive, SHA-256
 `4cf6a2813be90354f13e07a3f4931c4b67c7b00727334592ead2982b0c3dea55`.
 Next is the [four-arm neural campaign](encephalon_e1b_protocol_20260920.md), gated
 on complete development rehearsal and exact prospective source identities.
+
+The full rehearsal subsequently PASSed at source df306a9: all32 short fit
+executions and their endpoints match in16 exact pairs. Independent replay
+checked6912 bodies/631400 steps; maximum neural discrepancy2.220446049250313e-16.
+The minimum sampled-action boundary margin was2.6183091461629004e-07. Canonical
+row ordering and independently recomputed scalar gates also passed. A public
+readiness receipt records all source and local development-artifact hashes in
+`encephalon_e1b_development_20260920.json`; the34.7MB development shards remain
+local under `runs/`. These are mechanics evidence only. The actual E1-B campaign
+is now ready for its separately sealed launch, with no source change after rehearsal.
