@@ -4634,3 +4634,26 @@ research, not evidence that the HEGH chain holds in Zeus. Recommended cheap
 instrument checks and bounded future comparisons are documented, with no
 protocol frozen, new training launched or experiment order changed. Assessment:
 docs/hegh_assessment_20260920.md.
+
+### 2026-09-20 — HEGH-0 authorized, frozen and independently rehearsed
+
+The user authorized the proposed cheap controlled test. HEGH-0 isolates actual
+price dispersion at a fixed mean and fixed decision-rule capacity before any
+new neural commitment. It compares128 independent maps,32 destinations, valid
+dimension32/2048 spheres, contracted prices, geometry-only relabeling, an
+isometric lift and constant prices. Known and hidden costs, three reserves and
+zero/.2 bonus separate safe requested access, refusals, deaths and first
+departure. Unbonused utility is recorded separately from delivered bonuses.
+
+The protocol and all six sources froze at1caf5d2 before complete rehearsal.
+Seven targeted mechanics tests PASS, including corruption rejection and an
+independent replay with primary geometry/controller calls disabled. Full
+development uses eight distinct maps and exact repeats; all19008 independent
+one-decision reconstructions PASS, as do scalar verdict calculations. Its
+functional-looking results are mechanics only. Compact readiness receipt:
+zeus_sandbox/universe/reports/hegh0_development_20260920.json.
+
+The next authorized action is the separately sealed128-map assay with unchanged
+sources, paired map-level intervals, seven prespecified claims and a30-minute
+inclusive budget. No neural fits or Zeus capability claims are included.
+E1-B remains closedFAIL; E1-C stays reserved/unlaunched; full obligations remain.

@@ -1,0 +1,108 @@
+{
+  "scope": "Complete HEGH-0 mechanics rehearsal; no formal affordability claim",
+  "evidence_verdict": "PASS",
+  "neural_fits": 0,
+  "manifest": {
+    "version": "hegh0-affordance-20260920",
+    "development": true,
+    "config": {
+      "maps": 8,
+      "destinations": 32,
+      "dimensions": [
+        32,
+        2048
+      ],
+      "contraction": 0.125,
+      "development_base": 330100000,
+      "heldout_base": 330200000,
+      "conditions": [
+        "wide",
+        "narrow",
+        "hd_priced",
+        "hd_relabel",
+        "lifted",
+        "constant"
+      ],
+      "reserves": [
+        0.9,
+        1.1,
+        1.3
+      ],
+      "information": [
+        "known",
+        "hidden"
+      ],
+      "bonuses": [
+        0.0,
+        0.2
+      ],
+      "tasks": [
+        "requested",
+        "any"
+      ],
+      "service_value": 1.0,
+      "local_value": 0.1,
+      "target_mean_cost": 1.0,
+      "twins": [
+        "a",
+        "b"
+      ],
+      "shard_maps": 4,
+      "family_alpha": 0.05,
+      "family_comparisons": 7,
+      "benefit_margin": 0.05,
+      "first_departure_margin": 0.02,
+      "geometry_cv_ratio_max": 0.25,
+      "normalized_second_moment_range": [
+        0.75,
+        1.25
+      ],
+      "normalized_mean_limit": 0.1,
+      "numerical_atol": 1e-10,
+      "boundary_margin": 1e-09,
+      "maximum_wall_seconds": 1800
+    },
+    "commit": "1caf5d29b0cd8829917b6ee076ec99cc34648b7b",
+    "sources": {
+      "training/hegh0_contract.py": "aff6d5f624d4b704bd85778bb945ae283f05aec37dfe03f6f91927c6022fb93c",
+      "training/hegh0.py": "8ee2317513c491ef17eb26ec3785ff0042483f0acddf0c641aabc9d8c8e8478f",
+      "training/audit_hegh0.py": "0ce85615255fa41bed208d1ffd51484bb84bd62180e2e3ca56b9cc0d9edbda14",
+      "training/run_hegh0.py": "7913dc62a21dff8fc9b30a63165188c6934757312f67d401c4a1bc2f4fae422e",
+      "training/test_hegh0.py": "1358dd7d3cb42b77fa664344f57f56969e597db9703f85a7fddd45f5dbb2b84f",
+      "docs/hegh0_protocol_20260920.md": "605ffb8a697a96e8d72d61169bc7d4b742c804c150df22adda0324f450808678"
+    },
+    "started_utc": "2026-09-20T18:14:44.949583+00:00",
+    "deadline_unix": 1789929884.9495833,
+    "python": "3.12.10",
+    "numpy": "2.5.2",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numerical_threads": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "rehearsal_sha256": null,
+    "neural_fits": 0
+  },
+  "qualification_sha256": "2decd55663e0a6347fb5747660f92134babdca2a3b8f5f1d5af809083345861f",
+  "exact_twins": true,
+  "independently_replayed_decisions": 19008,
+  "maximum_conservation_error": 0.0,
+  "minimum_boundary_margin": 1.1638994435569927e-05,
+  "artifacts": [
+    {
+      "first_map": 0,
+      "maps": 4,
+      "archive": "runs\\hegh0_development_20260920\\a_0000.json.gz",
+      "sha256": "82e22b08c8baa6bd0c3e1b9f20dbc499b4847dfd16046f0193266be55c9f5bb3",
+      "bytes": 2215252
+    },
+    {
+      "first_map": 4,
+      "maps": 4,
+      "archive": "runs\\hegh0_development_20260920\\a_0004.json.gz",
+      "sha256": "254c0fa3bdd573051ccf7297fa8274f5804e697573ae1289d13ec526c7ef80ef",
+      "bytes": 2215803
+    }
+  ]
+}

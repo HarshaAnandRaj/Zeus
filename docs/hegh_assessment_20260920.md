@@ -7,6 +7,14 @@ does not reopen that result, freeze a new protocol or launch training. The
 submitted text is preserved in [the original hypothesis](hegh_user_hypothesis_20260920.txt),
 SHA-256 `e8304e2b11498189a0b453dd9eb268aca7e7d6278756c0a08f9a74e353494663`.
 
+**Subsequent authorization:** the user said to proceed. The first bounded
+[HEGH-0 protocol](hegh0_protocol_20260920.md) now freezes a geometry and
+fixed-rule affordability assay. Its scope is narrower than learned exploration:
+no neural fitting, information discovery or recurrent-state bridge is claimed.
+The protocol and six sources froze at1caf5d2; all seven development checks and
+the complete independent rehearsal passed before formal exposure. The remainder
+of this assessment retains its original proposal-time status.
+
 The core proposal is coherent as a conditional mechanism: high-dimensional
 normalized states may have concentrated distances; if physically relevant
 transition costs inherit that concentration, a modest incentive might support
