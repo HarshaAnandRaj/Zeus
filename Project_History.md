@@ -4534,3 +4534,29 @@ reward, world code, candidate fitting or frozen numerical protocol was introduce
 by this planning update. Reference calibration and a complete development
 pipeline precede any campaign. E1-A FAIL and all program obligations are unchanged.
 Design: docs/encephalon_e1b_resource_economics_draft_20260920.md.
+
+### 2026-09-20 — E1-B resource calibration independently PASS; neural campaign preparation
+
+User authorized proceeding with E1-B. A separately versioned two-patch world
+retains the original body costs and adds finite420-unit stocks with4-unit renewal
+per tick, public stock sensing and complete energy/resource ledgers. Original
+E1-A sources remain frozen. Six development tests pass. An over-eager scripted
+reference was corrected before calibration; no resource parameters or candidate
+neural outcomes were tuned. The protocol discloses this development observation.
+
+Calibration froze at3a38db7 before its formal campaign:576 bodies per exact
+repeat, all30 gates PASS,1,238,608 independently replayed steps including two
+mirrored reachable100-tick maintenance cycles. A cycle consumes and spends746
+energy, so survival is supported by renewal, not a large initial buffer. All
+declared adaptive reference cases survive, finite residents fail, abundant
+residents survive, and disabled repair obeys its physical death bound. This is
+world qualification only. Compact report and42,494-byte replay archive retain
+the complete evidence.
+
+Prepared the four-arm32/128 by abundant/finite neural comparison. Half of every
+training batch remains in the original world; every candidate is evaluated in
+all three ecologies. Delayed credit and all intended module gradients are active
+at both widths. Six additional development tests cover exact resume/twins,
+independent accumulating neural/physics replay, corrupted evidence and report
+order. Full multi-process rehearsal must pass before actual candidate fitting.
+Protocol: docs/encephalon_e1b_protocol_20260920.md. E2 remains locked.

@@ -1,0 +1,283 @@
+{
+  "manifest": {
+    "commit": "3a38db75950ed4802204dedd84eef47f9ef4b0e9",
+    "sources": {
+      "core/encephalon_resources.py": "0f37eac36317f30fae78739fa6af55b9015619b67bc23dd0ab4401c6c2d7122d",
+      "core/encephalon_world.py": "77704f701dc7b21943c680149ab120ddd01d3d527c454b0ac2682478e056781b",
+      "training/encephalon_resource_reference.py": "ad350e052e91d27ee24e839663e8ac1f7d3506b04f1c608087cf2c4332977cac",
+      "training/encephalon_resource_physics.py": "a19f4763a9548ae1793693ccb57320313baff3a929ed8b19d6b8e64dda8ae8b3",
+      "training/test_encephalon_resources.py": "b011dc7cb344ab1bf18b36d693208ce3a3ea42d5b34bce6aba15b4a3e26d2651",
+      "training/calibrate_encephalon_resources.py": "d985a124219d0b633933b9a084e6b92e8593ef387ebebe02fa1024da93738219",
+      "training/run_encephalon_e0.py": "c6a7501cd09bea973a6770884ea0ce6928d76020e83e5c7a630a434f614da545",
+      "training/run_encephalon_e1.py": "99d95cdd2ccff93caa506e422871b35ec854f64e09e5b8e90fb5d7c03a6b7aa5",
+      "docs/encephalon_e1b_calibration_protocol_20260920.md": "3168d032e33d785d648bc56ad368078c64031dc5f9962603eea64b9171893c78"
+    },
+    "config": {
+      "base": 320100000,
+      "bodies": 32,
+      "horizon": 4096,
+      "profiles": {
+        "balanced": [
+          850,
+          900
+        ],
+        "energy": [
+          180,
+          900
+        ],
+        "integrity": [
+          850,
+          120
+        ]
+      },
+      "modes": [
+        "finite",
+        "abundant"
+      ],
+      "controls": [
+        "adaptive",
+        "resident",
+        "repair_disabled"
+      ]
+    },
+    "physiology": {
+      "capacity": 1000,
+      "metabolism": 7,
+      "wear": 3,
+      "move_cost": 4,
+      "feed_cost": 3,
+      "inspect_cost": 25,
+      "repair_cost": 8,
+      "food_gain": 420,
+      "repair_gain": 450
+    },
+    "resources": {
+      "capacity": 420,
+      "renewal": 4
+    }
+  },
+  "evidence_verdict": "PASS",
+  "verdict": "PASS",
+  "gates": {
+    "finite/adaptive/balanced": true,
+    "finite/adaptive/balanced/both_patches": true,
+    "finite/adaptive/energy": true,
+    "finite/adaptive/energy/both_patches": true,
+    "finite/adaptive/integrity": true,
+    "finite/adaptive/integrity/both_patches": true,
+    "finite/resident/balanced": true,
+    "finite/resident/balanced/bound": true,
+    "finite/resident/energy": true,
+    "finite/resident/energy/bound": true,
+    "finite/resident/integrity": true,
+    "finite/resident/integrity/bound": true,
+    "finite/repair_disabled/balanced": true,
+    "finite/repair_disabled/balanced/bound": true,
+    "finite/repair_disabled/energy": true,
+    "finite/repair_disabled/energy/bound": true,
+    "finite/repair_disabled/integrity": true,
+    "finite/repair_disabled/integrity/bound": true,
+    "abundant/adaptive/balanced": true,
+    "abundant/adaptive/energy": true,
+    "abundant/adaptive/integrity": true,
+    "abundant/resident/balanced": true,
+    "abundant/resident/energy": true,
+    "abundant/resident/integrity": true,
+    "abundant/repair_disabled/balanced": true,
+    "abundant/repair_disabled/balanced/bound": true,
+    "abundant/repair_disabled/energy": true,
+    "abundant/repair_disabled/energy/bound": true,
+    "abundant/repair_disabled/integrity": true,
+    "abundant/repair_disabled/integrity/bound": true
+  },
+  "summaries": [
+    {
+      "mode": "finite",
+      "control": "adaptive",
+      "profile": "balanced",
+      "bodies": 32,
+      "survivors": 32,
+      "min_ticks": 4096,
+      "max_ticks": 4096
+    },
+    {
+      "mode": "finite",
+      "control": "adaptive",
+      "profile": "energy",
+      "bodies": 32,
+      "survivors": 32,
+      "min_ticks": 4096,
+      "max_ticks": 4096
+    },
+    {
+      "mode": "finite",
+      "control": "adaptive",
+      "profile": "integrity",
+      "bodies": 32,
+      "survivors": 32,
+      "min_ticks": 4096,
+      "max_ticks": 4096
+    },
+    {
+      "mode": "finite",
+      "control": "resident",
+      "profile": "balanced",
+      "bodies": 32,
+      "survivors": 0,
+      "min_ticks": 200,
+      "max_ticks": 264
+    },
+    {
+      "mode": "finite",
+      "control": "resident",
+      "profile": "energy",
+      "bodies": 32,
+      "survivors": 0,
+      "min_ticks": 46,
+      "max_ticks": 97
+    },
+    {
+      "mode": "finite",
+      "control": "resident",
+      "profile": "integrity",
+      "bodies": 32,
+      "survivors": 0,
+      "min_ticks": 195,
+      "max_ticks": 262
+    },
+    {
+      "mode": "finite",
+      "control": "repair_disabled",
+      "profile": "balanced",
+      "bodies": 32,
+      "survivors": 0,
+      "min_ticks": 299,
+      "max_ticks": 300
+    },
+    {
+      "mode": "finite",
+      "control": "repair_disabled",
+      "profile": "energy",
+      "bodies": 32,
+      "survivors": 0,
+      "min_ticks": 286,
+      "max_ticks": 300
+    },
+    {
+      "mode": "finite",
+      "control": "repair_disabled",
+      "profile": "integrity",
+      "bodies": 32,
+      "survivors": 0,
+      "min_ticks": 40,
+      "max_ticks": 40
+    },
+    {
+      "mode": "abundant",
+      "control": "adaptive",
+      "profile": "balanced",
+      "bodies": 32,
+      "survivors": 32,
+      "min_ticks": 4096,
+      "max_ticks": 4096
+    },
+    {
+      "mode": "abundant",
+      "control": "adaptive",
+      "profile": "energy",
+      "bodies": 32,
+      "survivors": 32,
+      "min_ticks": 4096,
+      "max_ticks": 4096
+    },
+    {
+      "mode": "abundant",
+      "control": "adaptive",
+      "profile": "integrity",
+      "bodies": 32,
+      "survivors": 32,
+      "min_ticks": 4096,
+      "max_ticks": 4096
+    },
+    {
+      "mode": "abundant",
+      "control": "resident",
+      "profile": "balanced",
+      "bodies": 32,
+      "survivors": 32,
+      "min_ticks": 4096,
+      "max_ticks": 4096
+    },
+    {
+      "mode": "abundant",
+      "control": "resident",
+      "profile": "energy",
+      "bodies": 32,
+      "survivors": 32,
+      "min_ticks": 4096,
+      "max_ticks": 4096
+    },
+    {
+      "mode": "abundant",
+      "control": "resident",
+      "profile": "integrity",
+      "bodies": 32,
+      "survivors": 32,
+      "min_ticks": 4096,
+      "max_ticks": 4096
+    },
+    {
+      "mode": "abundant",
+      "control": "repair_disabled",
+      "profile": "balanced",
+      "bodies": 32,
+      "survivors": 0,
+      "min_ticks": 300,
+      "max_ticks": 300
+    },
+    {
+      "mode": "abundant",
+      "control": "repair_disabled",
+      "profile": "energy",
+      "bodies": 32,
+      "survivors": 0,
+      "min_ticks": 300,
+      "max_ticks": 300
+    },
+    {
+      "mode": "abundant",
+      "control": "repair_disabled",
+      "profile": "integrity",
+      "bodies": 32,
+      "survivors": 0,
+      "min_ticks": 40,
+      "max_ticks": 40
+    }
+  ],
+  "exact_twins": true,
+  "independently_replayed_bodies": 576,
+  "independently_replayed_steps": 1238608,
+  "cycle_witnesses": [
+    {
+      "seed": 320100000,
+      "period": 100,
+      "food": 746,
+      "spent": 746,
+      "state_repeat": "Complete time-homogeneous control state; monotone clock/ledger excluded"
+    },
+    {
+      "seed": 320100002,
+      "period": 100,
+      "food": 746,
+      "spent": 746,
+      "state_repeat": "Complete time-homogeneous control state; monotone clock/ledger excluded"
+    }
+  ],
+  "neural_fits": 0,
+  "archive": "zeus_sandbox\\universe\\reports\\encephalon_e1b_calibration_20260920_evidence.json.gz",
+  "archive_sha256": "4cf6a2813be90354f13e07a3f4931c4b67c7b00727334592ead2982b0c3dea55",
+  "twin_archive_sha256": [
+    "18a7ab890f2b7ae4b684194ec977fd7226ccbb337d799e757de21838db3bb9d1",
+    "18a7ab890f2b7ae4b684194ec977fd7226ccbb337d799e757de21838db3bb9d1"
+  ]
+}

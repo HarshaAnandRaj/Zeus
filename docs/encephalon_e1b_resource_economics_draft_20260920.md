@@ -5,6 +5,12 @@ User-directed revision, 2026-09-20. The former entropy comparison is now
 failing. This document is a design proposal, not a frozen protocol or a launch.
 E1-A remains [FAIL](encephalon_e1_review_20260920.md); E2 remains locked.
 
+Implementation update2026-09-20: the user authorized proceeding. The separately
+frozen [resource calibration now independently PASSes](encephalon_e1b_calibration_review_20260920.md).
+The [prospective E1-B protocol](encephalon_e1b_protocol_20260920.md) turns the
+proposal below into explicit comparisons, gates and a development-before-launch
+boundary. The proposal's original status statements describe its drafting date.
+
 ## The hypothesis and its limits
 
 The user's "Local Diner Trap" identifies a real incentive question: if nearby
