@@ -390,7 +390,7 @@ def campaign(development=False, resume=False, audit_only=False):
                         and (not development or a["margin"] != "tight")]
             assert len({a["initial_model_sha256"] for a in selected}) == 1
     verify(out)
-    report = dict(version=K.VERSION, development=development,
+    report = dict(development=development,
         scope="mechanics rehearsal only" if development else "E1-B finite-world margin diagnostic",
         evidence_verdict="PASS", manifest=m, manifest_sha256=sha(out / "manifest.json"),
         **decision, artifacts=audits, exact_training_and_endpoint_twins=True,
