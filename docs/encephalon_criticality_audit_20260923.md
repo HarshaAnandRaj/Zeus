@@ -10,6 +10,10 @@ classifier, not the underlying criticality hypothesis or the closed E1 verdicts.
 The verbatim note's SHA-256 is
 `bfc87580c8d9d921cc66ed4d91c977b58b0f6f310c4a7fce39f47c898721718f`.
 
+The replacement readout was subsequently frozen, run and audited across all
+816 logical E1-A/E1-B checkpoints; see the
+[2026-09-23 readout review](encephalon_memory_readout_review_20260923.md).
+
 ## What the frozen E1 evidence already establishes
 
 The [E1-B review](encephalon_e1b_review_20260920.md) reports 0/6,144 trained
