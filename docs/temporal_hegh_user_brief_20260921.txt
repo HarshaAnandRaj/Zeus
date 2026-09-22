@@ -1,0 +1,714 @@
+Task: Develop Temporal HEGH into a preregisterable experiment ready for Codex
+
+We have completed HEGH-0 and a subsequent structural audit. I now want you to stop debating the general idea and turn the surviving hypothesis into a rigorous, minimal experiment specification that can be handed directly to Codex for implementation.
+
+Your job is scientific design, not coding. Codex will implement what you specify. Do not leave major scientific choices for Codex to infer.
+
+⸻
+
+1. Fixed prior result: HEGH-0 is closed
+
+Do not reinterpret, repair, reopen, or retroactively change HEGH-0.
+
+HEGH-0 was an engineered one-decision accessibility assay with equal-mean Wide and Narrow transition-price constructions.
+
+Primary price mean:
+
+> \mu_C=1.
+>
+
+At reserve B=1.1:
+
+> P(\text{safe requested access})_W=3565/4096=87.04\%
+>
+
+versus
+
+> P(\text{safe requested access})_N=4096/4096=100\%.
+>
+
+At reserve B=0.9:
+
+> P(\text{access})_W=555/4096=13.55\%
+>
+
+versus
+
+> P(\text{access})_N=0.
+>
+
+Narrow therefore removed costly upper-tail transitions near an above-mean affordability boundary, but also removed the cheap lower tail below that boundary.
+
+This reversal is an empirical property of the actual HEGH-0 engineered distributions, not a universal theorem about variance, mean-preserving spreads, risk sensitivity, or all B<\mu_C and B>\mu_C.
+
+HEGH-0 also established that concentration did not generically make first departure easier.
+
+There were no neural fits and no natural geometry→operational-cost bridge in HEGH-0.
+
+⸻
+
+2. Why a new experiment is needed
+
+HEGH-0 used:
+
+> B=\text{externally fixed starting reserve}
+>
+
+a static candidate/resource structure, one decision, and episode termination after that decision.
+
+A continuing agent instead obeys something like
+
+> B_{t+1}=B_t-C_t+R_t-M_t,
+>
+
+while the opportunity state can itself evolve:
+
+> \mathcal R_t\rightarrow\mathcal R_{t+1}.
+>
+
+Resources can appear, disappear, deplete, replenish, or change usefulness.
+
+Current need state N_t may determine which available resource is consequential.
+
+If the controller contains memory, a sufficient internal state H_t may also matter.
+
+The conceptual full state is therefore approximately
+
+> X_t=(B_t,\mathcal R_t,N_t,H_t),
+>
+
+with components removable only if the experimental design makes them irrelevant.
+
+We have already rejected the following stronger claims:
+
+* greater variance universally gives Wide an advantage below the mean;
+* Narrow universally reduces entry into low-budget states;
+* Wide universally improves recovery from low-budget states;
+* stationary occupation P(B_t<\mu_C) determines viability;
+* a budget-only Markov kernel is automatically sufficient;
+* matching a coupled system’s aggregate survival curve with a memoryless model proves temporal coupling causally irrelevant.
+
+Do not restore any of these claims downstream.
+
+⸻
+
+3. Surviving scientific hypothesis
+
+Develop and sharpen the following working hypothesis:
+
+> \boxed{
+> \text{HEGH's local transition-cost structure interacts with endogenous reserve dynamics and history-dependent opportunity dynamics, such that trajectory-level viability cannot necessarily be inferred from the closed one-step HEGH-0 accessibility result.}
+> }
+>
+
+A stronger operational version worth evaluating is:
+
+> \boxed{
+> \text{Holding relevant one-step cost/resource marginals fixed, changing the temporal organization of the opportunity process can change the trajectory-level effect of Wide versus Narrow HEGH cost structure.}
+> }
+>
+
+This does not predict:
+
+> Wide>Narrow
+>
+
+or
+
+> Narrow>Wide.
+>
+
+The sign is deliberately unknown.
+
+Determine whether this should be one hypothesis or decomposed into:
+
+> H_{\text{temporal}}
+>
+
+— temporal organization affects continuing viability at all —
+
+and
+
+> H_{\text{interaction}}
+>
+
+— temporal organization specifically modifies the effect of HEGH Wide/Narrow cost structure.
+
+I suspect the second is the scientifically more HEGH-specific claim, but audit this rather than simply accepting it.
+
+⸻
+
+4. Null hypothesis
+
+Construct an actual falsifiable/equivalence null.
+
+A candidate is:
+
+> H_0:
+>
+
+once relevant one-step cost, access, resource-value, and total-supply statistics are matched, changing temporal organization does not consequentially alter the Wide-vs-Narrow trajectory dynamics beyond a preregistered equivalence margin.
+
+Do not use simple failure to reach significance as evidence for H_0.
+
+Specify what equivalence test or preregistered effect bound would be required to conclude that temporal organization is practically irrelevant in this assay.
+
+⸻
+
+5. Critical issue: do NOT assume B=\mu_C is the true viability boundary
+
+We previously used B<1 and B>1 because HEGH-0’s engineered price mean was 1.
+
+In a dynamic system containing R_t and M_t, there is no guarantee that
+
+> B=\mu_C
+>
+
+is the meaningful safe/vulnerable boundary.
+
+Audit this explicitly.
+
+Prefer either:
+
+* analysis continuously over B_t, or
+* a viability boundary defined independently from the Wide/Narrow result, such as a preregistered committor/ruin-risk criterion.
+
+Do not choose a threshold because it makes the HEGH effect easy to see.
+
+If a threshold is necessary, derive it before looking at Wide/Narrow outcomes.
+
+⸻
+
+6. Experimental object
+
+Design the smallest dynamic ecology capable of testing the temporal hypothesis.
+
+It must have:
+
+> B_{t+1}=B_t-C_t+R_t-M_t
+>
+
+and a genuinely changing opportunity state.
+
+At minimum, some resources must be consumable/depletable and subsequently replenishable or replaced, so that an action at time t can alter opportunities available at t+k.
+
+Avoid decorative complexity.
+
+We do not need a realistic ecosystem.
+
+We need the smallest system in which:
+
+> \text{current access}
+> \rightarrow
+> \text{resource use}
+> \rightarrow
+> \text{future opportunity state}
+> \rightarrow
+> \text{future access}
+>
+
+genuinely forms a loop.
+
+Determine whether changing needs N_t are necessary for this first temporal assay. If they are not required to identify the mechanism, freeze them and defer them.
+
+Likewise determine whether a recurrent neural controller H_t is necessary.
+
+My preference is to begin with the simplest fixed or explicitly specified policy if that isolates the mechanism better, then test a learned controller later.
+
+Do not add a neural network merely because Zeus ultimately uses one.
+
+⸻
+
+7. Wide/Narrow manipulation
+
+Reuse the actual HEGH-0 Wide/Narrow construction as faithfully as possible.
+
+Do not invent a generic Gaussian Wide/Narrow pair unless implementation of the original construction makes that impossible.
+
+The manipulation should remain:
+
+> \text{same intended mean transition price}
+>
+
+with different price dispersion/tail structure.
+
+Preserve the known HEGH-0 local accessibility behavior as a calibration check before the temporal run.
+
+The temporal experiment must not manually hold Wide in one budget regime and Narrow in another.
+
+Both begin from identical initial conditions.
+
+⸻
+
+8. Paired ecology requirement
+
+Wide and Narrow should encounter matched exogenous worlds.
+
+For each seed/map, pre-generate the same:
+
+> \text{resource appearance schedule},
+>
+
+> \text{resource values},
+>
+
+> \text{renewal events},
+>
+
+> \text{maintenance process},
+>
+
+and all other exogenous randomness.
+
+Then allow their realized opportunity states to diverge endogenously because their actions consume/deplete resources differently.
+
+Thus:
+
+> \mathcal R^{W}_0=\mathcal R^{N}_0
+>
+
+but potentially
+
+> \mathcal R^{W}_t\neq\mathcal R^{N}_t
+>
+
+later.
+
+This divergence is a feature, not a confound, provided the external schedule is paired.
+
+Specify exactly which randomness must be common-random-number paired and which randomness must remain condition-specific.
+
+⸻
+
+9. Temporal-organization intervention
+
+I want the design to test temporal coupling causally rather than merely fit a richer model afterward.
+
+Consider a factorial manipulation:
+
+> \text{Cost structure}\in\{Wide,Narrow\}
+>
+
+crossed with
+
+> \text{Temporal organization}\in\{Structured,Temporal\ Null\}.
+>
+
+The Structured and Temporal-Null environments should preserve as many static/one-step quantities as possible while differing in temporal organization.
+
+Candidate possibilities include preserving:
+
+* total resource supply;
+* resource-value multiset;
+* marginal availability;
+* mean replenishment;
+* starting state;
+* spatial candidate set;
+* maintenance;
+* cost distribution;
+
+while changing only things such as temporal autocorrelation, replenishment ordering, burstiness, persistence, or event order.
+
+One possible null is temporal permutation of an otherwise identical resource-event sequence.
+
+Another is two finite-state availability processes with identical stationary marginals but different persistence/autocorrelation.
+
+Another is matched total replenishment delivered steadily versus in temporally clustered bursts.
+
+Evaluate these and choose the cleanest minimal intervention.
+
+Be careful: if temporal manipulation changes one-step availability or average reward, it does not isolate temporal organization.
+
+State exactly what is preserved and what changes.
+
+⸻
+
+10. Primary scientific contrast
+
+Consider an interaction estimand of the form
+
+> I_M=
+> (M_W-M_N)_{\text{Structured}}
+> -
+> (M_W-M_N)_{\text{TemporalNull}},
+>
+
+for a preregistered trajectory metric M.
+
+Determine whether this is the right primary estimand.
+
+If not, replace it with something better and explain why.
+
+The point is to distinguish:
+
+> \text{dynamic ecology matters in general}
+>
+
+from
+
+> \text{dynamic ecology changes the consequence of HEGH cost structure}.
+>
+
+⸻
+
+11. Metrics
+
+Do not use survival time alone.
+
+Develop the smallest measurement set capable of distinguishing different trajectory mechanisms.
+
+Candidate quantities include:
+
+> S(t)=P(\tau_{\rm ruin}>t),
+>
+
+the full time-to-ruin/first-passage distribution,
+
+transition into a preregistered vulnerable region,
+
+depth of budget excursions,
+
+repeated entries,
+
+and recovery defined as a first-passage/committor quantity:
+
+> P(\tau_{\rm safe}<\tau_{\rm ruin}\mid X_t\in V).
+>
+
+Recovery should not necessarily mean “cross the threshold in one step.”
+
+Measure recovery-time distributions if useful.
+
+Also consider:
+
+> \Delta B_t=-C_t+R_t-M_t,
+>
+
+resource depletion state at vulnerable entry,
+
+useful opportunities remaining,
+
+successful acquisitions,
+
+and resource-state-conditioned hazard.
+
+But avoid an enormous metric zoo.
+
+Separate:
+
+primary outcome(s),
+
+mechanism diagnostics,
+
+and exploratory diagnostics.
+
+⸻
+
+12. Accessibility is not recovery
+
+Preserve these distinctions explicitly:
+
+> \text{resource accessible}
+> \neq
+> \text{resource useful},
+>
+
+> \text{resource useful}
+> \neq
+> \text{net-positive recovery},
+>
+
+and
+
+> \text{net-positive step}
+> \neq
+> \text{long-term viability}.
+>
+
+If a resource costs C_t, provides R_t, and maintenance costs M_t, the relevant budget change is
+
+> R_t-C_t-M_t.
+>
+
+Do not label a cheap-tail transition a “rescue” until the trajectory actually satisfies a preregistered recovery criterion.
+
+⸻
+
+13. Causal versus predictive sufficiency
+
+A reduced memoryless model may reproduce an aggregate survival curve even when hidden temporal state is causally important.
+
+Therefore:
+
+> S_{\rm reduced}(t)\approx S_{\rm coupled}(t)
+>
+
+is not by itself falsification.
+
+If you use reduced models, use them as diagnostics.
+
+A stronger causal test should rely on temporal interventions while preserving relevant marginals.
+
+Specify what result would count as:
+
+> \text{failure to detect temporal coupling},
+>
+
+versus
+
+> \text{positive evidence of practical equivalence},
+>
+
+versus
+
+> \text{positive evidence that temporal organization changes HEGH-mediated viability}.
+>
+
+⸻
+
+14. Reference controller
+
+Decide whether the first temporal experiment should use:
+
+* a fixed decision rule;
+* a simple non-learning controller;
+* an oracle/reference controller;
+* or a learned recurrent controller.
+
+Prefer the lowest-complexity controller that still allows the mechanism to express itself.
+
+We are trying to test the temporal hypothesis before confounding it with neural learning failure.
+
+If a non-neural reference test passes, a later Encephalon neural version can ask whether the controller can exploit the structure.
+
+If you think neural adaptation is logically indispensable, prove why.
+
+⸻
+
+15. Controls
+
+Specify minimal controls capable of separating:
+
+> \text{temporal HEGH effect}
+>
+
+from:
+
+> \text{mere total-resource difference},
+>
+
+> \text{mean-cost difference},
+>
+
+> \text{different initial budgets},
+>
+
+> \text{different exogenous randomness},
+>
+
+or
+
+> \text{trivial impossible-world effects}.
+>
+
+Include a calibration/reference policy proving that the world is sustainable in principle but not trivially immortal.
+
+Do not tune the environment after seeing which condition wins.
+
+⸻
+
+16. Calibration versus formal test
+
+Provide a clearly separated calibration phase.
+
+Calibration may establish:
+
+* a nontrivial viability regime;
+* replenishment rates;
+* episode horizon;
+* maintenance;
+* resource yields;
+* availability;
+* whether reference policies can survive;
+* whether degenerate always-die/always-live regimes have been avoided.
+
+Once formal parameters are frozen, no favorable tuning based on Wide/Narrow outcomes is allowed.
+
+State what information is permitted during calibration and what must remain blinded until protocol freeze.
+
+⸻
+
+17. Statistical unit and replication
+
+Define the actual independent statistical unit.
+
+Prefer matched environment seeds/maps rather than individual trajectory steps.
+
+Specify:
+
+* number of independent ecologies;
+* executions per ecology if stochastic action remains;
+* paired comparisons;
+* confidence intervals;
+* correction for multiple primary claims if needed;
+* equivalence bounds;
+* exact-repeat requirements;
+* failure handling.
+
+Avoid pseudoreplication from treating thousands of steps from one ecology as independent samples.
+
+⸻
+
+18. Preregistered possible outcomes
+
+Before implementation, enumerate the scientifically meaningful possible outcomes without ranking them.
+
+For example:
+
+Outcome A: temporal organization changes Wide/Narrow trajectory effects.
+
+Outcome B: temporal organization strongly changes trajectories but similarly for Wide and Narrow.
+
+Outcome C: Wide and Narrow differ dynamically, but temporal restructuring does not materially change that difference.
+
+Outcome D: all relevant trajectory contrasts are equivalent within preregistered bounds.
+
+Outcome E: world calibration is invalid because everyone dies or everyone survives trivially.
+
+Outcome F: local HEGH-0 calibration itself fails to reproduce, invalidating the temporal test implementation rather than HEGH-0 historically.
+
+Improve this outcome table and attach interpretation rules before results exist.
+
+⸻
+
+19. What would count as FAIL?
+
+Keep our project convention:
+
+> FAIL\neq\text{mechanism absent}.
+>
+
+> FAIL\neq\text{mechanism useless}.
+>
+
+> FAIL=\text{registered evidence did not satisfy the registered claim}.
+>
+
+Distinguish:
+
+* hypothesis FAIL;
+* assay invalid;
+* underpowered/inconclusive;
+* calibration failure;
+* implementation failure.
+
+Do not rescue a FAIL by inventing post-hoc favorable variants.
+
+⸻
+
+20. Relation to larger HEGH chain
+
+Preserve this causal hierarchy:
+
+> \text{high effective dimensionality}
+>
+
+> \downarrow
+>
+
+> \text{geometric distance concentration}
+>
+
+> \downarrow\quad\text{conditional on suitable dynamics}
+>
+
+> \text{operational cost structure}
+>
+
+> \downarrow
+>
+
+> \text{accessibility}
+>
+
+> \downarrow
+>
+
+> \text{resource interaction}
+>
+
+> \downarrow
+>
+
+> \text{future agent/environment state}
+>
+
+> \downarrow
+>
+
+> \text{continuing viability}.
+>
+
+HEGH-0 directly engineered operational prices and tested local accessibility.
+
+This temporal experiment should test the next downstream link:
+
+> \boxed{
+> \text{local accessibility structure}
+> \rightarrow
+> \text{coupled trajectory dynamics/viability}.
+> }
+>
+
+It still does not establish:
+
+> \text{natural high-dimensional geometry}
+> \rightarrow
+> \text{operational cost}.
+>
+
+That bridge remains a later experiment.
+
+⸻
+
+Required final deliverable
+
+Produce a complete research specification with:
+
+A. Final hypothesis, one paragraph plus formal H_0/H_1.
+
+B. Exact experimental state and update equations.
+
+C. Exact resource ecology, including depletion/replenishment/turnover rules.
+
+D. Exact Wide/Narrow construction and calibration checks.
+
+E. Exact temporal-structure manipulation and its matched null.
+
+F. Agent/reference policy.
+
+G. Primary estimand and secondary mechanism metrics.
+
+H. Preregistered gates with numerical thresholds wherever scientifically defensible.
+
+I. Statistical unit, sample size rationale, randomization/pairing and confidence intervals.
+
+J. Calibration protocol and freeze boundary.
+
+K. Complete outcome/interpretation table.
+
+L. Exact FAIL/PASS/inconclusive rules.
+
+M. Codex implementation contract: modules, inputs, outputs, logged variables, deterministic seed behavior, replay requirements, expected artifacts, hashes/manifests, and independent reconstruction checks.
+
+N. A final adversarial audit: construct the strongest simple counterexample to the chosen design and state which claim the experiment would not earn even on a perfect PASS.
+
+Make the result implementation-ready. Do not leave sentences such as “choose a reasonable threshold,” “use enough seeds,” “set a suitable replenishment rate,” or “measure recovery somehow.” Wherever a value cannot yet be justified, specify a calibration rule that determines it without observing the formal Wide/Narrow outcome.
+
+Most importantly:
+
+Do not design an experiment whose parameters encode the answer.
+
+Wide and Narrow must be allowed to create their own reserve trajectories and their own realized depletion histories inside matched dynamic ecologies.
+
+We are asking what happens when the HEGH-0 local mechanism is finally allowed to live through time.

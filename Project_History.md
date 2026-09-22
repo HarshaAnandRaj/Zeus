@@ -4416,3 +4416,288 @@ the published base is unchanged. The working JSON remains byte-identical, its
 dependent probe checksum still matches, and no source implementation or verdict
 changed. Original source identifiers remain in frozen evidence; the full mapping
 and recovery details are in docs/lmb5_git_lfs_migration_20260919.md.
+<<<<<<< Updated upstream
+=======
+
+### 2026-09-19 — Encephalon initiated; E0-A constructed before calibration
+
+The user authorized Encephalon initiation. On codex/encephalon-e0, a fresh integer-
+physiology world supplies independently varying food and repair facts, public
+inspection masks, partial changes, and real action costs. New state/information/
+credit and E0-A protocol documents separate environment qualification from neural
+capability. The initial neural loop has recurrent context, a current-sensing
+route with a matched comparator, and own-action actor-critic/consequence learning.
+There is no protected learned store or language head yet; later stages retain
+those obligations. No prior neural weights or frozen LMB sources are changed.
+
+Twelve development mechanics tests PASS, including independent physics/policy
+replay with primary methods disabled, corrupted-evidence rejection, actual public
+acquisition and wrong-content donors, all intended module gradients, delayed
+outcome credit, exact optimizer twins and uninterrupted save/restore behavior.
+These use the development family only and do not qualify learned survival.
+
+E0-A is prepared for a source-frozen 32-world, 27-case, 4096-step reference panel
+with exact twins and independent adjudication. Compact action packets and complete
+transition digests replace repeated large telemetry arrays. Calibration has not
+been opened at this entry; LMB6 remains paused and all full-program claims remain
+outstanding.
+
+### 2026-09-19 — Encephalon E0-A independently closed PASS
+
+Source freeze f97cee8 precedes the exclusive calibration. Both 864-body reference
+repetitions completed and their compressed action/state evidence matches exactly.
+The separate auditor completed 1,728 bodies and 3,373,722 physical steps including
+acquisition/donor records; all26 registered gates PASS. It independently checks
+integer physiology, public observations/decisions, source identities and verdicts.
+
+Adaptive/reinspection references survive32/32 in stable and changing worlds;
+frozen memory survives32/32 stable but0/32 changing. Without effective repair,
+all bodies die by300, also established by the integrity bound. In each scarce-
+need family, intact and irrelevant-wrong-content memories survive32/32; erasure,
+prevented acquisition writes and relevant-wrong-content memories survive0/32.
+Ample-reserve reinspection matches memory's survival, limiting the benefit claim
+to the declared information constraint. These strategies are scripted references.
+
+The 10,535-byte published report and127,415-byte complete compressed replay packet
+archive preserve evidence without a large repeated telemetry JSON. Review:
+docs/encephalon_e0_review_20260919.md. E1 training has a concrete design handoff;
+its full campaign and neural replay must be frozen before fitting. No neural
+survival, selective-memory, emergence, language or full-pillar result is claimed.
+
+### 2026-09-20 — Encephalon E1-A completed FAIL; diagnosis identifies diffuse local maintenance
+
+The user authorized E1. Campaign sources and the full protocol were committed at
+833193df8450903e07cb7623bac24feada884bf4 before fitting. Eight independent initial
+parameter draws, two sensory routes and exact twins produced32 fit executions,
+each with2048 own-action updates. All16 complete-state fit pairs and endpoint
+archive pairs match. The full campaign contains64,493,154 live training decisions
+and18,432 endpoint bodies/17,036,154 physical steps across both repetitions.
+
+Neither route qualifies: all48 lineage/need cells score21–45/64 survivors against
+the required58. Observation sensing survives786/1536 and recurrent791/1536;
+untrained and physically repair-disabled controls each survive0/1536 per route.
+All six learning-benefit contrasts PASS, but all three direct-sensing advantage
+contrasts FAIL. E1 is FAIL and no E2 candidate is selected.
+
+The original auditor replays the evidence then fails a final list-order assertion:
+runner summaries are route-major, auditor summaries lineage-major. The original
+source/error remain preserved. A documented post-campaign supplement at e9a421c
+repeats the unchanged math/physics checks and verifies exact equality of all144
+unique cells, every bound and every verdict under canonical row identity. Its
+evidence verification PASS is explicitly supplemental, not an original clean
+audit pass. Maximum checked neural discrepancy is1.304512053934559e-15; all sampled
+actions and physical traces match. Review/erratum retain this distinction.
+
+Diagnosis: shared-station survival1394/1536 versus separate-station183/1536;
+917 separate-station deaths involve lost integrity, with one also losing energy.
+The policies retain near-maximal action entropy and devote14% of actions to
+redundant inspection. A post-campaign most-probable-action probe survives30/192,
+including14/96 at shared stations: useful local maintenance often depends on
+mixed actions, without reliable need-driven organization. Initial-need sensitivity
+increases and consequence prediction improves, but neither rescues function.
+
+Reconstruction of64 original late-training batches matches actual module gradient
+norms without optimizer updates. Backpropagation is present. Entropy actor-gradient
+norms are typically one quarter of policy-gradient norms; causal blame is not yet
+established. Proposed successor: matched fresh recurrent training with .01 versus
+zero entropy bonus, unchanged physical reward and raw sampling. No successor was
+launched. The subsequent user revision below changes its priority and the
+successor limit. Full-program obligations
+remain open, and LMB6 remains paused.
+
+Evidence is compactly published with complete portable checkpoints/action packets
+and diagnostic input archives; report bytes are protected from Git newline changes.
+Review: docs/encephalon_e1_review_20260920.md. The original entropy handoff is now
+docs/encephalon_e1c_entropy_comparison_draft_20260920.md.
+
+### 2026-09-20 — User prioritizes the Local Diner Trap as E1-B; entropy becomes E1-C
+
+The user proposed that unlimited local food and actual or learned travel costs
+could explain local maintenance, asked whether 32-wide context is restrictive,
+and requested that the earlier E1-B proposal become E1-C if the new E1-B fails.
+The plan now separates physical economics, the resource incentive, and neural
+width. This is the user's explicit E1-specific revision to the one-successor
+planning limit; a failed E1-C still triggers design review.
+
+Read-only accounting in the unchanged E1-A world confirms an affordable timely
+round trip: eight moves, repair and feed consume113 energy, can restore420, and
+net+307 before capacity clipping. A valid example starting at the food station
+with energy180/integrity120 ends ten ticks later at487/540. This is a physical
+reference, not learned behavior. The model has no explicit travel-cost planner.
+Width32/128/784 instantiation counts are6620/75548/2519804 for the current agent;
+these coordinates do not create external food sites or change bodily costs.
+
+E1-B proposes matched unlimited versus finite/replenishing food at both existing
+stations, with repair still restricted to one, crossed with widths32 and128.
+All arms retain the original body-control qualification as well as new common
+resource endpoints. Public stock visibility tests resource management; actual
+information-seeking exploration stays a later sensing/memory question. No novel
+reward, world code, candidate fitting or frozen numerical protocol was introduced
+by this planning update. Reference calibration and a complete development
+pipeline precede any campaign. E1-A FAIL and all program obligations are unchanged.
+Design: docs/encephalon_e1b_resource_economics_draft_20260920.md.
+
+### 2026-09-20 — E1-B resource calibration independently PASS; neural campaign preparation
+
+User authorized proceeding with E1-B. A separately versioned two-patch world
+retains the original body costs and adds finite420-unit stocks with4-unit renewal
+per tick, public stock sensing and complete energy/resource ledgers. Original
+E1-A sources remain frozen. Six development tests pass. An over-eager scripted
+reference was corrected before calibration; no resource parameters or candidate
+neural outcomes were tuned. The protocol discloses this development observation.
+
+Calibration froze at3a38db7 before its formal campaign:576 bodies per exact
+repeat, all30 gates PASS,1,238,608 independently replayed steps including two
+mirrored reachable100-tick maintenance cycles. A cycle consumes and spends746
+energy, so survival is supported by renewal, not a large initial buffer. All
+declared adaptive reference cases survive, finite residents fail, abundant
+residents survive, and disabled repair obeys its physical death bound. This is
+world qualification only. Compact report and42,494-byte replay archive retain
+the complete evidence.
+
+Prepared the four-arm32/128 by abundant/finite neural comparison. Half of every
+training batch remains in the original world; every candidate is evaluated in
+all three ecologies. Delayed credit and all intended module gradients are active
+at both widths. Six additional development tests cover exact resume/twins,
+independent accumulating neural/physics replay, corrupted evidence and report
+order. Full multi-process rehearsal must pass before actual candidate fitting.
+Protocol: docs/encephalon_e1b_protocol_20260920.md. E2 remains locked.
+
+### 2026-09-20 — E1-B whole-pipeline rehearsal PASS; ready for frozen launch
+
+The user asked to resume. Source df306a9 completed the full development campaign:
+all four arms, four initialization blocks,32 short fit executions and exact
+endpoints, then independent replay of6912 bodies/631400 steps. Maximum neural
+error2.220446049250313e-16; minimum CDF boundary margin2.6183091461629004e-07.
+The independently recomputed scalar verdict and canonical report-row ordering
+agree. All12 resource/learning development tests pass. Complete-state portable
+checkpoint round trips and all intended module updates passed at both widths.
+
+Published a compact readiness receipt with exact source and local artifact
+hashes;34.7MB of development shards stay in runs/. The rehearsal has no learned
+capability authority. Original E1-A source identity remains833193d. No campaign
+source changed after rehearsal. The authorized full E1-B run is ready:64 fit
+executions, final checkpoints only, endpoints locked until all repeat checks,
+12-hour inclusive campaign/audit budget, no coefficient or width sweeps.
+
+### 2026-09-20 — E1-B independently closed FAIL; scarcity adaptation diagnosed
+
+The frozen campaign at312cf4efff9f5bda61059bdc7b95e65101a54904 completed all64
+fit executions and endpoint evaluations. All32 complete-state and endpoint
+repeat pairs match. Independent replay verifies55296 bodies/45024665 steps,
+all63 simultaneous contrasts and all decisions. Maximum neural discrepancy
+5.717648576819556e-15. EvidencePASS; every arm's controller qualificationFAIL.
+No selected arm; E2 remains locked. No audit supplement or source change was
+required. Original E1-A remains unchanged.
+
+All6144 trained finite-world bodies die by tick482, within the512-tick training
+lifetime. Resource, capacity and interaction positive claims FAIL. All24 learned
+benefit contrasts in original/abundant worlds PASS, while all12 finite contrasts
+FAIL. Finite-trained width128 reaches1205/1536 original-world survivors, including
+457/768 with separated stations, but does not meet the declared per-cell floor
+or the simultaneous capacity-benefit margin. Width effects are not ruled out.
+
+Read-only diagnosis records scarcity-induced increases in crossings per live
+tick, reduced inspection and expenditure, longer lifetimes and immediate stock
+sensitivity. Nevertheless nominal extra action spending remains about3.9–4.0
+energy per tick against a sustainable margin of1 before overflow. Energy causes
+5703/6144 deaths; many bodies have eaten at both patches and die with food still
+available. Backpropagation reaches every intended module. Low sampled state
+covariance dimension and prediction/control dissociation are retained as bounded
+observations, not capability or authorship passes.
+
+Portable evidence is split into32 complete arm/lineage shards totaling170896098
+bytes, largest8434424 bytes; each is hash-addressed by the authoritative report.
+Both read-only diagnoses preserve their source/report hashes. Review:
+docs/encephalon_e1b_review_20260920.md. The reserved E1-C entropy-only fallback
+retains the original-world, width32 recurrent setting for fresh preparation.
+No E1-C training has launched. Finite-world FAIL remains closed even if a future
+original-world controller qualifies. LMB6 stays paused; full obligations remain.
+
+### 2026-09-20 — User proposes HEGH; mathematical and research assessment only
+
+After reading the E1-B review, the user explicitly submitted the Hyperdimensional
+Exploration Geometry Hypothesis as a hypothesis, not evidence. Its original text
+is preserved verbatim in docs/hegh_user_hypothesis_20260920.txt with source hash.
+The proposal separates geometric concentration from exploration incentives and
+identifies the geometry-to-transition-cost bridge as uncertain.
+
+The assessment derives concentration under independent isotropic sampling,
+states effective-dimension and temporal-dependence limits, and gives exact
+equal-distance/unequal-control-energy and fixed-mean bonus-threshold
+counterexamples. It distinguishes cost dispersion from uncertainty, valid
+Gram-matrix geometry from independent pairwise draws, and an engineered price
+rule from a discovered recurrent-state bridge. A conditional control-energy
+formula makes the relevant dynamics assumptions explicit.
+
+Targeted Undermind searches and primary-source checks locate distance geometry,
+control-energy limitations and dynamical-distance learning. These are adjacent
+research, not evidence that the HEGH chain holds in Zeus. Recommended cheap
+instrument checks and bounded future comparisons are documented, with no
+protocol frozen, new training launched or experiment order changed. Assessment:
+docs/hegh_assessment_20260920.md.
+
+### 2026-09-20 — HEGH-0 authorized, frozen and independently rehearsed
+
+The user authorized the proposed cheap controlled test. HEGH-0 isolates actual
+price dispersion at a fixed mean and fixed decision-rule capacity before any
+new neural commitment. It compares128 independent maps,32 destinations, valid
+dimension32/2048 spheres, contracted prices, geometry-only relabeling, an
+isometric lift and constant prices. Known and hidden costs, three reserves and
+zero/.2 bonus separate safe requested access, refusals, deaths and first
+departure. Unbonused utility is recorded separately from delivered bonuses.
+
+The protocol and all six sources froze at1caf5d2 before complete rehearsal.
+Seven targeted mechanics tests PASS, including corruption rejection and an
+independent replay with primary geometry/controller calls disabled. Full
+development uses eight distinct maps and exact repeats; all19008 independent
+one-decision reconstructions PASS, as do scalar verdict calculations. Its
+functional-looking results are mechanics only. Compact readiness receipt:
+zeus_sandbox/universe/reports/hegh0_development_20260920.json.
+
+The next authorized action is the separately sealed128-map assay with unchanged
+sources, paired map-level intervals, seven prespecified claims and a30-minute
+inclusive budget. No neural fits or Zeus capability claims are included.
+E1-B remains closedFAIL; E1-C stays reserved/unlaunched; full obligations remain.
+
+### 2026-09-21 — HEGH-0 completed with conditional affordability PASS
+
+The frozen 128-map campaign completed with independent evidence PASS, exact
+twins and 304,128 independently reconstructed decisions (608,256 bodies across
+both twins). The six source hashes and runtime match the sealed manifest.
+All eight portable evidence shards match their recorded hashes; none approaches
+the 100 MiB Git object limit. No neural fitting occurred.
+
+At reserve 1.1 and bonus 0.2, narrow prices yield 4,096/4,096 safe requested
+arrivals versus 3,565/4,096 for wide prices. The three primary contrasts clear
+their bars; the same 531 upper-tail routes underlie them. At reserve 0.9,
+wide admits 555/4,096 requests and narrow admits none. Easier first departure
+also FAILs. This reversal belongs to these distributions and rules, not a
+universal theorem about prices above/below their mean. The natural geometry
+bridge, learned exploration and Zeus controller qualification remain untested.
+Review: docs/hegh0_review_20260920.md. Portable index:
+zeus_sandbox/universe/reports/hegh0_20260920.json.
+
+### 2026-09-21 — Temporal HEGH requested as scientific design, not coding
+
+The user supplied a detailed continuing-ecology brief after reading the closed
+HEGH-0 review. It preserves that result and asks whether temporal opportunity
+organization changes the Wide/Narrow trajectory contrast. The verbatim brief
+is preserved at docs/temporal_hegh_user_brief_20260921.txt, SHA-256
+4e6ff3f458090fb9608c037f1760af180373348009a5d7420bc83e658b0ffdcd.
+
+The A-N specification at docs/temporal_hegh_design_20260921.md separates a
+general temporal effect from the primary HEGH-specific interaction. It defines
+32 consumable renewable bins, finite body storage, fixed acquisition/reference
+rules and a clustered-versus-permuted event schedule with matched offered
+resource marginals. Realized stock, accepted food and body reserve may diverge
+through actions; they are outcomes, not forced matching variables. Unit-price
+calibration alone selects yield/capacity, followed by untouched validation and
+a second freeze before any Wide/Narrow trajectory. The design specifies 8,192
+paired formal ecologies, a 2,048-tick horizon, bounded simultaneous intervals,
+practical-equivalence rules, independent replay and explicit assay/claim failures.
+
+No Temporal HEGH implementation, calibration or formal simulation has run.
+No E1-C training or E2 promotion was made. Learned exploitation, the natural
+geometry-to-cost bridge, paused LMB6 and the full program obligations remain.
+>>>>>>> Stashed changes

@@ -17,8 +17,39 @@ fruit-fly circuit organization and named the proposed new phase **Encephalon**.
 The [Encephalon plan](encephalon_phase_plan_20260919.md) defines staged causal
 tests of needs, memory, action, learning and continuity in one operating agent.
 The [research note](fruit_fly_connectome_research_notes_20260919.md) separates
+<<<<<<< Updated upstream
 biological evidence from proposed engineering. LMB6 remains paused. No Encephalon
 implementation or experiment has begun, and all12 requirements remain incomplete.
+=======
+biological evidence from proposed engineering. The user subsequently authorized
+initiation: the [E0-A protocol](encephalon_e0_protocol_20260919.md) and
+[state/credit contract](encephalon_state_and_credit_contract_20260919.md) now bind
+a new two-need world and fresh neural mechanics. Twelve development tests pass.
+[E0-A calibration is independently PASS](encephalon_e0_review_20260919.md):
+26 gates, 1,728 bodies and 3,373,722 replayed physical steps, with exact twins.
+This qualifies the world, not learned control.
+**2026-09-20:** [E1-A training and diagnosis are complete](encephalon_e1_review_20260920.md).
+Both routes FAIL reliable body control: all48 lineage/need cells miss90% survival.
+Learning benefits PASS against untrained controls, but separate-station survival
+is only183/1536. The original auditor's report-order exception is preserved;
+a disclosed order-only supplement independently verifies the unchanged FAIL.
+All16 complete fit pairs match. E2 remains locked. The user prioritized
+[E1-B resource economics and capacity](encephalon_e1b_resource_economics_draft_20260920.md);
+the entropy comparison becomes the [E1-C fallback](encephalon_e1c_entropy_comparison_draft_20260920.md)
+if E1-B fails. [E1-B has now completed with independent evidence PASS and
+controller FAIL](encephalon_e1b_review_20260920.md) in all four arms. All6,144
+trained finite-world bodies die; resource/capacity positive claims FAIL. Partial
+stock-sensitive adaptation and improved coordination in some wider models are
+retained as observations. E1-C remains the original-world, width32 entropy-only
+fallback, awaiting its own prospective preparation. The subsequent
+[HEGH-0 assay is complete](hegh0_review_20260920.md): independent evidence PASS,
+conditional affordability PASS, easier first departure and below-mean access
+positive claims FAIL. No neural fits or natural geometry-to-cost bridge were
+established. [Temporal HEGH-1](temporal_hegh_design_20260921.md) is the user's
+design-only follow-up on continuing reserves and renewable stocks; it changes
+no closed verdict and launches no training.
+LMB6 remains paused, and all12 program requirements remain incomplete.
+>>>>>>> Stashed changes
 
 Latest completed engineering status before that pause: LMB5 is independently FAIL and its complete successor diagnosis
 and fixed-reading state probe are finished. LMT1 long maintenance is independently

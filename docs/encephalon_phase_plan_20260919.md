@@ -1,9 +1,47 @@
 # Encephalon: fruit-fly-inspired organization for Zeus
 
+<<<<<<< Updated upstream
 Planning proposal, 2026-09-19. Named Encephalon by the user. This document plans a
 new research lineage; it does not launch training, register an experiment, change
 a frozen verdict, or resume LMB6. Numerical proposals below become binding only
 in a prospective protocol committed before the corresponding experiment.
+=======
+Phase plan, 2026-09-19. Named Encephalon by the user, who subsequently authorized
+its initiation. The first implementation and calibration checkpoint is
+[E0-A](encephalon_e0_protocol_20260919.md), with an explicit
+[state and credit contract](encephalon_state_and_credit_contract_20260919.md).
+LMB6 remains paused. Numerical proposals below become binding only in a
+prospective protocol committed before the corresponding experiment; the plan
+does not itself change a frozen verdict or establish a capability result.
+
+**First completed checkpoint:** [E0-A independently PASSes](encephalon_e0_review_20260919.md)
+its measuring-world calibration, with 12 neural/instrument mechanics checks.
+This is not learned-agent qualification. The
+[E1 training handoff](encephalon_e1_training_design_draft_20260919.md) identifies
+the remaining campaign preparation before fitting.
+
+**2026-09-20 update:** [E1-A has completed and FAILs](encephalon_e1_review_20260920.md).
+Both routes learn a survival improvement but miss every required body-control
+cell. The original auditor encountered a report-order exception; the disclosed
+order-only supplement verifies the unchanged negative result. E2 remains locked.
+The user subsequently prioritized [E1-B resource economics and capacity](encephalon_e1b_resource_economics_draft_20260920.md),
+moving the entropy comparison to [E1-C](encephalon_e1c_entropy_comparison_draft_20260920.md)
+as a fallback if E1-B fails. E1-B's separately frozen
+[resource calibration independently PASSes](encephalon_e1b_calibration_review_20260920.md),
+and its complete development rehearsal passes. The
+[E1-B campaign and diagnosis are now complete](encephalon_e1b_review_20260920.md):
+evidence PASS, controller FAIL in all four arms, 0/6,144 trained finite-world
+survivors. Scarcity changes behavior but does not produce sustainable maintenance;
+the registered resource and capacity claims FAIL. E1-C retains the original-world,
+width32 entropy-only setting for fresh preparation; no E1-C fit has launched.
+The user's subsequent [HEGH proposal](hegh_assessment_20260920.md) is recorded as
+a separate investigation. [HEGH-0 is now complete](hegh0_review_20260920.md):
+evidence PASS and conditional affordability PASS, but easier first departure
+and below-mean access positive claims FAIL. This engineered non-neural assay
+qualifies no Zeus controller. [Temporal HEGH-1](temporal_hegh_design_20260921.md)
+specifies the user's next continuing-ecology hypothesis as a design-only
+interaction test, with no implementation or launch. E2 remains locked.
+>>>>>>> Stashed changes
 
 ## Destination
 

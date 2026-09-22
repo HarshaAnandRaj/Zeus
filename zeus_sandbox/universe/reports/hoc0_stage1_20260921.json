@@ -1,0 +1,81 @@
+{
+  "kind": "hoc0_stage1_eval",
+  "stage_version": "hoc0-stage1-20260921",
+  "arms": {
+    "forager": {
+      "eval": {
+        "n": 64,
+        "survival": 0,
+        "survival_rate": 0.0,
+        "mean_age": 137.4375,
+        "mean_reward": 2.5415216344027693,
+        "action_fractions": {
+          "rest": 0.49704411095952705,
+          "harvest": 0.38392451114142795,
+          "move_right": 0.05343337880854934,
+          "move_left": 0.06559799909049568
+        },
+        "zero_flip": 0.6160754888585721,
+        "permuted_flip": 0.6961118690313779,
+        "band_occupancy": 0.36505229649840837
+      },
+      "fresh_mean_reward": -1.149849502550525,
+      "band_gain_vs_rest": null,
+      "bars": {
+        "twin_exact": true,
+        "finite": true,
+        "zero_flip_ge_0_20": true,
+        "harvest_ge_0_05": true,
+        "move_ge_0_10": true,
+        "reward_gt_fresh": true,
+        "pass": true
+      }
+    },
+    "regulator": {
+      "eval": {
+        "n": 64,
+        "survival": 0,
+        "survival_rate": 0.0,
+        "mean_age": 37.59375,
+        "mean_reward": -0.9091537754757204,
+        "action_fractions": {
+          "rest": 1.0
+        },
+        "zero_flip": 0.0,
+        "permuted_flip": 0.1400665004156276,
+        "band_occupancy": 0.3250207813798836
+      },
+      "fresh_mean_reward": -1.0520881748841848,
+      "band_gain_vs_rest": 0.0,
+      "bars": {
+        "twin_exact": true,
+        "finite": true,
+        "zero_flip_ge_0_20": false,
+        "regulate_ge_0_03": false,
+        "band_gain_ge_0_10": false,
+        "pass": false
+      }
+    },
+    "quotient": {
+      "eval": {
+        "mse": 0.0024186627439260595,
+        "persistence": 0.004856206096781178,
+        "wrong_action": 0.0068700454039565895,
+        "zero_quotient": 0.04506341706575039,
+        "shuffled_quotient": 0.0024590890191171504
+      },
+      "ratio_ub_95": 0.4980560329861645,
+      "min_coord_std": 0.13352295756340027,
+      "bars": {
+        "twin_exact": true,
+        "mse_ratio_ub_le_0_75": true,
+        "wrong_worse": true,
+        "zero_worse": true,
+        "shuffled_worse": true,
+        "min_coord_std_gt_0_01": true,
+        "pass": true
+      }
+    }
+  },
+  "pass": false
+}
