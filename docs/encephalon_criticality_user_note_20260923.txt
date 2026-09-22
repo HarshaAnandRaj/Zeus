@@ -1,0 +1,104 @@
+# Criticality — Operational Definition for Encephalon E1-A/E1-B
+
+## What criticality is
+
+A dynamical regime characterized by scale-free statistics: no characteristic timescale, no characteristic length scale, and maximal susceptibility to perturbation. Between a subcritical regime (activity decays, information about the past is lost within a correlation time) and a supercritical regime (activity amplifies, trajectory becomes chaotic, information is destroyed by divergence).
+
+For a recurrent network, this is a property of the *trajectory under the trained policy*, not of the weights alone. The same weights can sit in different regimes under different inputs. The measurement must therefore be made on trajectories in the world the policy operates in.
+
+## Four operational measurements
+
+Applied to the recurrent state `h_t` of the E1-A/E1-B trained core over rollouts of length `T = 512`, starting from states drawn from the training distribution, under the trained policy with no exploration noise.
+
+### 1. Largest Lyapunov exponent
+
+At each step compute the local Jacobian `J_t = ∂h_{t+1}/∂h_t` by autograd. Let `ρ_t = max|eig(J_t)|`.
+
+```
+λ_max = (1/T) Σ log ρ_t
+```
+
+- `λ_max < −ε` → contracting (subcritical)
+- `|λ_max| < ε` → marginal (critical)
+- `λ_max > +ε` → expanding (supercritical)
+
+`ε` is set by the numerical noise floor of the Jacobian estimate. Report the full distribution of `λ_max` across rollouts, not just the mean.
+
+### 2. Branching parameter
+
+Binarize per-unit activity change. Unit `i` is "active" at `t` if `|h_i(t+1) − h_i(t)| > θ`, where `θ` is set so that baseline activity across the trajectory is 5%.
+
+Let `A_t` = active count at `t`. Then:
+
+```
+σ_branch = mean(A_{t+1} / A_t)   over frames with A_t > 0
+```
+
+- `σ < 1` → subcritical
+- `σ ≈ 1` → critical
+- `σ > 1` → supercritical
+
+Report per-rollout; report the distribution.
+
+### 3. Avalanche size and duration distributions
+
+Avalanche = maximal contiguous interval where at least one unit is active.
+
+Record size `S` (total activations in the interval) and duration `D` (number of frames). Fit:
+
+```
+P(S) ~ S^{−τ},   P(D) ~ D^{−α}
+```
+
+- Critical: `τ ∈ [1.3, 1.7]`, `α ∈ [1.8, 2.2]`, good power-law fit over at least one decade
+- Subcritical: exponential cutoff, power law fails
+- Supercritical: delta function at maximum, no distribution
+
+Report `τ`, `α`, and the AIC weight of the power-law fit against an exponential fit.
+
+### 4. Autocorrelation time
+
+Autocorrelation of the population activity `A_t`. Fit the decay envelope. Report `τ_corr`, the time to 1/e.
+
+At criticality, `τ_corr` grows with system size. Subcritical: `τ_corr` is bounded. Report `τ_corr` alongside the ratio `τ_corr / T` as a fraction of the rollout.
+
+## Thresholds and classification
+
+For each checkpoint, classify as:
+
+- **Near-critical:** `σ_branch ∈ [0.9, 1.1]` AND `|λ_max| < 0.05` AND power-law fit beats exponential by AIC > 10 AND `τ_corr > 20`
+- **Subcritical:** `σ_branch < 0.9` OR `λ_max < −0.05` OR exponential fit wins
+- **Supercritical:** `σ_branch > 1.1` OR `λ_max > 0.05` OR `τ_corr` saturates at the rollout length
+- **Ambiguous:** does not cleanly fall into any category
+
+Report per checkpoint, per rollout. Do not aggregate across seeds until per-rollout classification is available.
+
+## What this does and does not establish
+
+**Establishes:** the dynamical regime in which the trained E1-A/E1-B core operates on the world distribution it was trained on, as characterized by four standard signatures of criticality.
+
+**Does not establish:**
+- That the substrate is a critical system in the strict statistical-mechanics sense. These are signatures, not a phase-transition proof.
+- That criticality causes or enables learning. Correlation is not causation; a perturbation experiment (induce σ_branch, see whether outcome changes) is separate and not covered here.
+- That Ren & Feng's LSTM result transfers to a GRU under a policy-gradient objective. Their paper measured criticality on sequence prediction; the extrapolation is a hypothesis, not a claim.
+- That the measurement is meaningful if the trajectory is not stationary. If the policy's behavior drifts within a rollout, the Jacobian statistics are not well-defined over the full `T`. Report stationarity diagnostics (mean and variance of activity in the first and second halves of the rollout); if they differ by more than 20%, split the rollout.
+- Anything about any other lineage. This is scoped to E1-A/E1-B only. No CYC, no LMB, no legacy Zeus.
+
+## What the classification would tell you about E1-B
+
+E1-B failed with 0/6144 survivors and a specific death signature: energy depletion at mean age ~180, per-tick spend 3.9–4.0 against renewable margin 1.0.
+
+If the trained cores classify as subcritical on the world distribution:
+- Information about the state at tick `t` has decayed by tick `t + k` for `k` on the order of `τ_corr`. The credit signal at death cannot reach the actions that caused the depletion. The policy learns proximal adjustments (which is what the diagnostics show) but not long-horizon budgeting.
+- This would make the criticality regime a candidate explanation for why E1-B's failure is specifically temporal.
+
+If the trained cores classify as near-critical:
+- Long-range correlations exist in the state. The failure is not informational; it is optimization, objective, or architecture.
+- E1-C's entropy hypothesis becomes the leading candidate.
+
+If the trained cores classify as supercritical:
+- The policy's dynamics are chaotic. Small perturbations produce divergent futures. Credit assignment through the trajectory is unstable.
+- This would suggest a stability intervention is prior to any other change.
+
+If classification is ambiguous:
+- The regime is not the binding constraint, or the measurement is not well-posed for this architecture. Report honestly and treat the criticality hypothesis as undecided rather than confirmed or falsified.

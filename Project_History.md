@@ -4657,3 +4657,23 @@ The next authorized action is the separately sealed128-map assay with unchanged
 sources, paired map-level intervals, seven prespecified claims and a30-minute
 inclusive budget. No neural fits or Zeus capability claims are included.
 E1-B remains closedFAIL; E1-C stays reserved/unlaunched; full obligations remain.
+
+### 2026-09-23 — E1 criticality classifier audited before use
+
+The user supplied an operational criticality definition for the trained E1-A
+and E1-B recurrent cores. Its original text is preserved in
+docs/encephalon_criticality_user_note_20260923.txt, with its SHA-256 in the audit at
+docs/encephalon_criticality_audit_20260923.md. The proposed mean log spectral
+radius is not a trajectory Lyapunov exponent, and the adjacent active-count
+ratio is not a branching estimator. Its OR labels can also conflict. All
+trained finite-world E1-B bodies die before 512 ticks, so a 512-tick live
+classification would select none or contaminate the trace with dead padding.
+The classifier is instrument-VOID, not evidence for any dynamical regime.
+
+The audited E1-B energy account remains a physical deficit: about 3.9–4.0
+extra action units per tick on top of seven basal, against eight maximum
+renewed units. Backpropagation existed. A bounded replacement readout is
+specified: living-prefix driven Jacobian products, fixed-input perturbations
+of hidden state and action probabilities, complete checkpoint identities and
+exact replay. It is an unrun retrospective diagnostic, not a new E1-B gate,
+neural fit, Encephalon promotion or causal explanation of the failure.
