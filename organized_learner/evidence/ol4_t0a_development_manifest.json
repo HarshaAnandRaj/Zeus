@@ -1,0 +1,423 @@
+{
+  "archive_sha256": "8ddb06dc7ef449c3f1f902005af751354f880e14301a18d8e549af1d8734d4e9",
+  "balance": {
+    "binary_true_counts": {
+      "correction_context": 2048,
+      "correction_demo_before_0": 2048,
+      "correction_demo_before_1": 2048,
+      "flip_mode": 2048,
+      "flip_rule": 2048,
+      "flip_word": 2048,
+      "initial_demo_before_0": 2048,
+      "initial_demo_before_1": 2048,
+      "mode_swap": 2048,
+      "query_first": 2048,
+      "rule_on": 2048,
+      "safe_left_0": 2048,
+      "safe_left_1": 2048,
+      "word_on_0": 2048,
+      "word_on_1": 2048
+    },
+    "correction_pattern_counts": [
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512,
+      512
+    ],
+    "delay_counts": {
+      "0": {
+        "10": 455,
+        "11": 455,
+        "12": 455,
+        "4": 456,
+        "5": 455,
+        "6": 455,
+        "7": 455,
+        "8": 455,
+        "9": 455
+      },
+      "1": {
+        "10": 455,
+        "11": 455,
+        "12": 455,
+        "4": 455,
+        "5": 455,
+        "6": 456,
+        "7": 455,
+        "8": 455,
+        "9": 455
+      },
+      "2": {
+        "10": 455,
+        "11": 455,
+        "12": 455,
+        "4": 455,
+        "5": 455,
+        "6": 455,
+        "7": 455,
+        "8": 455,
+        "9": 456
+      }
+    },
+    "ordered_context_pair_counts": {
+      "0,1": 73,
+      "0,2": 73,
+      "0,3": 73,
+      "0,4": 74,
+      "0,5": 73,
+      "0,6": 73,
+      "0,7": 73,
+      "1,0": 73,
+      "1,2": 73,
+      "1,3": 74,
+      "1,4": 74,
+      "1,5": 73,
+      "1,6": 73,
+      "1,7": 73,
+      "2,0": 73,
+      "2,1": 73,
+      "2,3": 73,
+      "2,4": 74,
+      "2,5": 73,
+      "2,6": 73,
+      "2,7": 73,
+      "3,0": 73,
+      "3,1": 73,
+      "3,2": 73,
+      "3,4": 73,
+      "3,5": 73,
+      "3,6": 73,
+      "3,7": 73,
+      "4,0": 73,
+      "4,1": 73,
+      "4,2": 73,
+      "4,3": 73,
+      "4,5": 73,
+      "4,6": 73,
+      "4,7": 74,
+      "5,0": 73,
+      "5,1": 73,
+      "5,2": 73,
+      "5,3": 73,
+      "5,4": 73,
+      "5,6": 73,
+      "5,7": 73,
+      "6,0": 73,
+      "6,1": 74,
+      "6,2": 73,
+      "6,3": 73,
+      "6,4": 73,
+      "6,5": 73,
+      "6,7": 73,
+      "7,0": 73,
+      "7,1": 74,
+      "7,2": 74,
+      "7,3": 73,
+      "7,4": 73,
+      "7,5": 73,
+      "7,6": 73
+    },
+    "ordered_token_pair_counts": {
+      "0,1": 341,
+      "0,2": 341,
+      "0,3": 341,
+      "1,0": 341,
+      "1,2": 342,
+      "1,3": 341,
+      "2,0": 341,
+      "2,1": 342,
+      "2,3": 341,
+      "3,0": 341,
+      "3,1": 342,
+      "3,2": 342
+    },
+    "primary_query_counts": [
+      1365,
+      1365,
+      1366
+    ]
+  },
+  "diagnostics": "all three query rewards and their mean, separately",
+  "field_dtype_shape": {
+    "action_uniforms.move": {
+      "dtype": "<f4",
+      "shape": [
+        4096,
+        3
+      ]
+    },
+    "action_uniforms.press": {
+      "dtype": "<f4",
+      "shape": [
+        4096,
+        3
+      ]
+    },
+    "evaluator.context_channels": {
+      "dtype": "<i8",
+      "shape": [
+        4096,
+        2
+      ]
+    },
+    "evaluator.correction_context": {
+      "dtype": "<i8",
+      "shape": [
+        4096
+      ]
+    },
+    "evaluator.delays": {
+      "dtype": "<i8",
+      "shape": [
+        4096,
+        3
+      ]
+    },
+    "evaluator.flip_mode": {
+      "dtype": "|b1",
+      "shape": [
+        4096
+      ]
+    },
+    "evaluator.flip_rule": {
+      "dtype": "|b1",
+      "shape": [
+        4096
+      ]
+    },
+    "evaluator.flip_word": {
+      "dtype": "|b1",
+      "shape": [
+        4096
+      ]
+    },
+    "evaluator.mode_swap": {
+      "dtype": "|b1",
+      "shape": [
+        4096
+      ]
+    },
+    "evaluator.query_first": {
+      "dtype": "<i8",
+      "shape": [
+        4096
+      ]
+    },
+    "evaluator.rule_on": {
+      "dtype": "|b1",
+      "shape": [
+        4096
+      ]
+    },
+    "evaluator.safe_left": {
+      "dtype": "|b1",
+      "shape": [
+        4096,
+        2
+      ]
+    },
+    "evaluator.token_rows": {
+      "dtype": "<i8",
+      "shape": [
+        4096,
+        2
+      ]
+    },
+    "evaluator.word_on": {
+      "dtype": "|b1",
+      "shape": [
+        4096,
+        2
+      ]
+    },
+    "primary_query": {
+      "dtype": "<i8",
+      "shape": [
+        4096
+      ]
+    },
+    "schedule.correction_demo_before": {
+      "dtype": "|b1",
+      "shape": [
+        4096,
+        2
+      ]
+    },
+    "schedule.decoy_channels": {
+      "dtype": "<i8",
+      "shape": [
+        4096,
+        3,
+        12
+      ]
+    },
+    "schedule.decoy_sides": {
+      "dtype": "|b1",
+      "shape": [
+        4096,
+        3,
+        12
+      ]
+    },
+    "schedule.exposure_order": {
+      "dtype": "<i8",
+      "shape": [
+        4096,
+        4
+      ]
+    },
+    "schedule.initial_demo_before": {
+      "dtype": "|b1",
+      "shape": [
+        4096,
+        2
+      ]
+    },
+    "schedule.marker_schedule": {
+      "dtype": "|b1",
+      "shape": [
+        4096,
+        3,
+        12
+      ]
+    },
+    "teaching.corrected_demo_after": {
+      "dtype": "|b1",
+      "shape": [
+        4096,
+        2
+      ]
+    },
+    "teaching.corrected_demo_before": {
+      "dtype": "|b1",
+      "shape": [
+        4096,
+        2
+      ]
+    },
+    "teaching.corrected_mode_cue": {
+      "dtype": "|b1",
+      "shape": [
+        4096
+      ]
+    },
+    "teaching.corrected_word_state": {
+      "dtype": "|b1",
+      "shape": [
+        4096
+      ]
+    },
+    "teaching.initial_demo_after": {
+      "dtype": "|b1",
+      "shape": [
+        4096,
+        2
+      ]
+    },
+    "teaching.initial_demo_before": {
+      "dtype": "|b1",
+      "shape": [
+        4096,
+        2
+      ]
+    },
+    "teaching.initial_mode_cue": {
+      "dtype": "|b1",
+      "shape": [
+        4096
+      ]
+    },
+    "teaching.initial_word_states": {
+      "dtype": "|b1",
+      "shape": [
+        4096,
+        2
+      ]
+    },
+    "teaching.marker_sides": {
+      "dtype": "|b1",
+      "shape": [
+        4096,
+        2
+      ]
+    }
+  },
+  "field_sha256": {
+    "action_uniforms.move": "82f630966446ff0b16fd873333d8e210d6622d4c27d7a74798a3c01089b78f7b",
+    "action_uniforms.press": "89fb9523d8a4fe85aceca69719b0a1e54e7db3fee0a2b6777332ef2a388034a7",
+    "evaluator.context_channels": "b9f8666aea7576d242da105b07f3b49894fc711a72db166661539d53db6dc216",
+    "evaluator.correction_context": "6b3cd8a8d14bd35df0d6ed5d6b9fcd59e077a90b1104302570481f2f3691aa31",
+    "evaluator.delays": "7b31708fac75c7e91fb2b3c6562a453f6072174d28edf7711de5870d9138f1ba",
+    "evaluator.flip_mode": "6ec389c234de6f4f556fb8017e80ddcfd2c1a8d8a850b7c49d91624afbe30928",
+    "evaluator.flip_rule": "29da98a38427ec6b4b301179cf467533beb8a3bf049c55b1cae764bc685f3ec4",
+    "evaluator.flip_word": "160b2747712b34671c10d772530b235477e5e335a9e46d03a8dbb0ffe7aa85f1",
+    "evaluator.mode_swap": "3362beaa8debb623fff0f55e6b43de7197c60de07ee7aae7b7f827368722ce28",
+    "evaluator.query_first": "a32c430722d4a84d0495db8a34bb4863e432fa641a853b3ea606d197e241c243",
+    "evaluator.rule_on": "7382d3b04797230157ae39bb2a1d25d22676a0369c549a257e9446c2a6b2a168",
+    "evaluator.safe_left": "9986715ca6374d998bc3a5e9decacbc97867d555c2f7f31348b83072ee94ddac",
+    "evaluator.token_rows": "7997d32c902881a0dfd798d0587e30466c8992cb3b3d0a0ae6a8bdcbdeb2dbc1",
+    "evaluator.word_on": "a05c9b5378ddd01b6289abd2109b1dd97b631c6c5f57cf408032a68094b80acf",
+    "primary_query": "caa82af596bb652e646a737ef4cde2c2e1a91952aeb20b7648be0003bd6692e4",
+    "schedule.correction_demo_before": "f6d582d0c9ca79e891e3cd0a4d9884977d73a28c7707b435072ff8c0d6794818",
+    "schedule.decoy_channels": "8ee7ecadd44270725389e1d24829dc73355efb2f0c88fa95ad008f634e680c02",
+    "schedule.decoy_sides": "5b8fd0dc5619b5f13f700fa2befbaca64e1ddb92ef79027089665e2d3b2036a8",
+    "schedule.exposure_order": "85dbfa27eea07f115283a392af98794aeecde790bf86ac9ea30d03f05b3274b9",
+    "schedule.initial_demo_before": "90ad8f32c3d3fcb7a4325ae8b0b6c295d72141226a5b288d5dcee97d178c6133",
+    "schedule.marker_schedule": "d17949293800735a269c0ea74617587e8283d719845d25d235aade1d87d2aa0a",
+    "teaching.corrected_demo_after": "017966c6af681bc1a991bd150955ef7f4cf1ed98106b174c230de97e3c1d8ae3",
+    "teaching.corrected_demo_before": "f6d582d0c9ca79e891e3cd0a4d9884977d73a28c7707b435072ff8c0d6794818",
+    "teaching.corrected_mode_cue": "2459e1edc4a136ef72f57e0e006b134fe58ed2349640998ed656dda18244418d",
+    "teaching.corrected_word_state": "e8bcf70f4f46a051da99027f1fc3109a0cb38ce842433fd0fae15f6b476030db",
+    "teaching.initial_demo_after": "148058eb6e21ba4507f47bd6550e17fe68b3b1b797c0c476ea22e220a06fa7bf",
+    "teaching.initial_demo_before": "90ad8f32c3d3fcb7a4325ae8b0b6c295d72141226a5b288d5dcee97d178c6133",
+    "teaching.initial_mode_cue": "3362beaa8debb623fff0f55e6b43de7197c60de07ee7aae7b7f827368722ce28",
+    "teaching.initial_word_states": "a05c9b5378ddd01b6289abd2109b1dd97b631c6c5f57cf408032a68094b80acf",
+    "teaching.marker_sides": "9986715ca6374d998bc3a5e9decacbc97867d555c2f7f31348b83072ee94ddac"
+  },
+  "life_count": 4096,
+  "primary_endpoint": "one preassigned query reward per life; chance 0.25",
+  "rng": "NumPy PCG64; SHA256(namespace/name) low 64 bits, little endian",
+  "schema": "ol4-t0a-development-v1",
+  "seed_namespace": "OL4-T0a/development/identities/v1",
+  "seeds": {
+    "context_extra": 4785402246183790229,
+    "context_order": 16168534787027403859,
+    "correction_context": 10390522193778282503,
+    "correction_demo_before_0": 7949805070146933727,
+    "correction_demo_before_1": 17735113940399462704,
+    "correction_pattern": 14871992322066649273,
+    "decoy_channels": 18326179121139145473,
+    "decoy_sides": 8602417577727683608,
+    "delay_0_extra": 3661143631213181877,
+    "delay_0_order": 1227801116727025731,
+    "delay_1_extra": 7782979436499274696,
+    "delay_1_order": 5863059295321422745,
+    "delay_2_extra": 5135938343254319512,
+    "delay_2_order": 6653930758667961627,
+    "exposure_order": 2781296318467299591,
+    "initial_demo_before_0": 4122440829847412060,
+    "initial_demo_before_1": 17889112599081282016,
+    "marker_schedule": 8556669205982760432,
+    "mode_swap": 2781965914195968560,
+    "move_0": 4113124764874522294,
+    "move_1": 5680173542793937982,
+    "move_2": 15565242030010955583,
+    "press_0": 7495711511599480554,
+    "press_1": 4585388712775493449,
+    "press_2": 18212212669070090260,
+    "primary_extra": 8586062797843268731,
+    "primary_order": 18390951687396011401,
+    "query_first": 5310292637685553507,
+    "rule_on": 11801845500474540477,
+    "safe_left_0": 18389853966558363877,
+    "safe_left_1": 16730215848766229801,
+    "token_extra": 6211357450055985021,
+    "token_order": 11263287280277156097,
+    "word_on_0": 18388181451272839696,
+    "word_on_1": 10158554873900554448
+  }
+}
