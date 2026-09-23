@@ -78,6 +78,7 @@ class WorldState:
     location_right: Tensor
     lamp_on: Tensor
     selected_actuator_plain: Tensor
+    press_completed: Tensor
     lamp_before_on: Tensor
     lamp_after_on: Tensor
     reset_count: Tensor
@@ -100,6 +101,7 @@ def reset_task_world(state: LifetimeState,
         location_right=zeros.clone(),
         lamp_on=zeros.clone(),
         selected_actuator_plain=zeros.clone(),
+        press_completed=zeros.clone(),
         lamp_before_on=zeros.clone(),
         lamp_after_on=zeros.clone(),
         reset_count=reset_count,
@@ -114,6 +116,7 @@ class QueryTrace:
     context_slot: Tensor
     token_row: Tensor
     world_before: WorldState
+    world_after_move: WorldState
     world_after: WorldState
 
 
@@ -412,7 +415,16 @@ def _query(program: InheritedProgram, state: LifetimeState, context_channels: Te
     move_right, move_log_probability = program.sample_move(distribution, move_uniform)
     # MOVE result: public location only. It advances the clock, but the pending
     # pre-MOVE distribution remains the sole source for the PRESS conditional.
-    program.move_event(state, move_right)
+    world_after_move = WorldState(
+        location_right=move_right,
+        lamp_on=world.lamp_on,
+        selected_actuator_plain=world.selected_actuator_plain,
+        press_completed=world.press_completed,
+        lamp_before_on=world.lamp_on,
+        lamp_after_on=world.lamp_on,
+        reset_count=world.reset_count,
+    )
+    program.move_event(state, world_after_move.location_right)
     press_plain, press_log_probability = program.sample_press(
         distribution, move_right, press_uniform)
     joint = move_right.to(torch.long) * 2 + press_plain.to(torch.long)
@@ -422,12 +434,13 @@ def _query(program: InheritedProgram, state: LifetimeState, context_channels: Te
                          press_uniform, move_log_probability + press_log_probability,
                          entropy)
 
-    before_on = world.lamp_on
+    before_on = world_after_move.lamp_on
     after_on = _actuator_after(rule_on, action.press_plain)
     world_after = WorldState(
-        location_right=action.move_right,
+        location_right=world_after_move.location_right,
         lamp_on=after_on,
         selected_actuator_plain=action.press_plain,
+        press_completed=torch.ones_like(action.press_plain),
         lamp_before_on=before_on,
         lamp_after_on=after_on,
         reset_count=world.reset_count,
@@ -439,7 +452,8 @@ def _query(program: InheritedProgram, state: LifetimeState, context_channels: Te
     program.transition_event(state, action.press_plain, before_on, after_on)
 
     return QueryTrace(distribution, action, reward.to(dtype),
-                      context_channels, token_rows, world, world_after)
+                      context_channels, token_rows, world, world_after_move,
+                      world_after)
 
 
 def run_life(program: InheritedProgram, evaluator: EvaluatorBatch,

@@ -15,6 +15,8 @@ OL4-T0 did not pass preflight. The task, public schedule, fixed compartment grap
 
 The two controls and every gate below use new T0a source hashes. Any later change to the task distribution, objective, optimization budget, thresholds, or generator requires another version and fresh development identities.
 
+The original T0 text did not specify how three correlated query rewards become a Bernoulli Wilson endpoint. T0a fixes **one scored joint MOVE+PRESS query per life before optimization**. A frozen selector assigns query 1, 2, or 3 to 1,366, 1,365, and 1,365 of the 4,096 lives, respectively. The single selected reward is the primary full, lesion, shuffle, and no-write outcome used for Wilson intervals and paired lesion bootstrap. All three query rewards, their mean, and the all-three-success rate are retained as diagnostics. The 28 context-pair floor uses the mean of all three query rewards within each pair as a secondary point criterion. The outer training objective remains the mean of all three rewards. This gives Wilson one binary observation per distinct life and keeps the chance comparator at `0.25`; fixed factor balancing makes the success probabilities heterogeneous, so Wilson is a registered decision statistic rather than an exact IID coverage claim.
+
 ## 1. Identifiability and gradient gate
 
 The 1,008-life deterministic fixture supplies finite, coordinatewise policy Jacobians and central-difference checks, but coordinate support does not prove independent identification. The T0 preflight measured rank 64 for 87 raw scalars. Exactly 23 local null directions are explained by the declared parameterization:

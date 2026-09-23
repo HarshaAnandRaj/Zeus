@@ -20,10 +20,12 @@ from typing import Iterable, Sequence
 import torch
 from torch import Tensor
 
+from .ol4_life import TrainingSignals, reinforce_loss
 from .ol4_model import CONTEXT_WIDTH, InheritedProgram, PlanDistribution
 
 
 ACTION_SEQUENCES = tuple(product(range(4), repeat=3))
+ENTROPY_COEFFICIENT = 0.01
 
 
 @dataclass(frozen=True)
@@ -66,6 +68,8 @@ class EstimatorDiagnostic:
     max_staged_log_error: float
     block_comparisons: dict[str, BlockGradientComparison]
     entropy_block_comparisons: dict[str, BlockGradientComparison]
+    combined_block_comparisons: dict[str, BlockGradientComparison]
+    production_block_comparisons: dict[str, BlockGradientComparison]
     direct_only_entropy_missing_gradient_norm: float
     direct_only_entropy_missing_gradient_max_abs: float
     entropy_gradient_norm: float
@@ -293,11 +297,51 @@ def _weighted_entropy_value(branches: Iterable[FixedBranchTrace],
                start=torch.zeros((), dtype=weights[0].dtype, device=weights[0].device))
 
 
+def _production_expected_surrogate(
+        branches: tuple[FixedBranchTrace, ...],
+        entropy_coefficient: float) -> Tensor:
+    """Exact expectation of ``-reinforce_loss`` with a two-life LOO batch.
+
+    For an independent second life, the first life's leave-one-out baseline is
+    that second life's return at each query. Linearity permits replacing it by
+    its exact 64-branch expectation. The second life's log probabilities are
+    zero in this reduced calculation; multiplying by two removes the batch
+    mean. Its detached entropy contributes a constant, so its removal has no
+    effect on the gradient. This calls the production loss itself on every
+    action-conditioned branch, including its baseline and sign conventions.
+    """
+    weights = tuple(branch.probability.detach() for branch in branches)
+    expected_rewards = sum(
+        (weight * branch.rewards.detach() for weight, branch in zip(weights, branches)),
+        start=torch.zeros_like(branches[0].rewards),
+    ).detach()
+    expected_entropies = sum(
+        (weight * branch.entropies.detach() for weight, branch in zip(weights, branches)),
+        start=torch.zeros_like(branches[0].entropies),
+    ).detach()
+    zero_log_probability = torch.zeros_like(branches[0].log_probabilities)
+    return sum(
+        (
+            -2.0 * weight * reinforce_loss(
+                TrainingSignals(
+                    rewards=torch.stack((branch.rewards, expected_rewards)),
+                    log_probabilities=torch.stack(
+                        (branch.log_probabilities, zero_log_probability)),
+                    entropies=torch.stack((branch.entropies, expected_entropies)),
+                ),
+                entropy_coefficient=entropy_coefficient,
+            )
+            for weight, branch in zip(weights, branches)
+        ),
+        start=torch.zeros_like(weights[0]),
+    )
+
+
 def evaluate_estimator(
         program: InheritedProgram,
         branches: tuple[FixedBranchTrace, ...] | None = None,
         *, entropy_difference_step: float = 1e-6) -> EstimatorDiagnostic:
-    """Compare exact reward and entropy gradients with complete-life estimators."""
+    """Compare exact reward, entropy, and J gradients with production loss."""
     if program.memory_key.dtype != torch.float64:
         raise ValueError("estimator diagnostic requires float64 parameters")
     branches = enumerate_complete_life(program) if branches is None else branches
@@ -340,9 +384,20 @@ def evaluate_estimator(
         start=torch.zeros_like(zero),
     )
     complete_entropy_surrogate = direct_entropy_objective + entropy_score_surrogate
+    exact_combined_objective = (
+        exact_expected_return + ENTROPY_COEFFICIENT * exact_expected_entropy)
+    combined_surrogate = (
+        score_surrogate + ENTROPY_COEFFICIENT * complete_entropy_surrogate)
+    production_surrogate = _production_expected_surrogate(
+        branches, ENTROPY_COEFFICIENT)
 
     exact_gradients = _gradients(exact_expected_return, parameters, retain_graph=True)
     score_gradients = _gradients(score_surrogate, parameters, retain_graph=True)
+    exact_combined_gradients = _gradients(
+        exact_combined_objective, parameters, retain_graph=True)
+    combined_gradients = _gradients(combined_surrogate, parameters, retain_graph=True)
+    production_gradients = _gradients(
+        production_surrogate, parameters, retain_graph=True)
     exact_entropy_gradients = _gradients(
         exact_expected_entropy, parameters, retain_graph=True)
     entropy_gradients = _gradients(
@@ -376,6 +431,10 @@ def evaluate_estimator(
     comparisons = compare_blocks(exact_gradients, score_gradients)
     entropy_comparisons = compare_blocks(
         exact_entropy_gradients, entropy_gradients)
+    combined_comparisons = compare_blocks(
+        exact_combined_gradients, combined_gradients)
+    production_comparisons = compare_blocks(
+        exact_combined_gradients, production_gradients)
     missing_direct_only = torch.cat(tuple(
         (exact - direct).reshape(-1)
         for exact, direct in zip(exact_entropy_gradients,
@@ -422,6 +481,8 @@ def evaluate_estimator(
               and maximum_staged_error < 1e-12
               and all(comparison.passed for comparison in comparisons.values())
               and all(comparison.passed for comparison in entropy_comparisons.values())
+              and all(comparison.passed for comparison in combined_comparisons.values())
+              and all(comparison.passed for comparison in production_comparisons.values())
               and entropy_passed and all_finite)
     return EstimatorDiagnostic(
         branch_count=len(branches),
@@ -429,6 +490,8 @@ def evaluate_estimator(
         max_staged_log_error=maximum_staged_error,
         block_comparisons=comparisons,
         entropy_block_comparisons=entropy_comparisons,
+        combined_block_comparisons=combined_comparisons,
+        production_block_comparisons=production_comparisons,
         direct_only_entropy_missing_gradient_norm=float(
             torch.linalg.vector_norm(missing_direct_only)),
         direct_only_entropy_missing_gradient_max_abs=float(
@@ -446,4 +509,18 @@ def evaluate_estimator(
 def run_estimator_diagnostic(seed: int = 6101) -> EstimatorDiagnostic:
     """Run the complete registered estimator check on a fresh float64 program."""
     program = InheritedProgram(seed, dtype=torch.float64)
+    return evaluate_estimator(program)
+
+
+def run_entropy_route_stress_diagnostic() -> EstimatorDiagnostic:
+    """Check the future-entropy score route where direct-only fails clearly."""
+    program = InheritedProgram(6101, dtype=torch.float64)
+    with torch.no_grad():
+        program.rule_evidence.copy_(torch.tensor(
+            [-2.0, 2.0, -2.0, 2.0, 2.0, 2.0, 2.0, -2.0],
+            dtype=torch.float64))
+        program.mode_evidence.copy_(torch.tensor([-2.0, 2.0], dtype=torch.float64))
+        program.lexical_evidence.copy_(torch.tensor([-2.0, 2.0], dtype=torch.float64))
+        beta_fraction = (8.0 - 0.5) / 19.5
+        program.policy_beta_raw.fill_(math.log(beta_fraction / (1.0 - beta_fraction)))
     return evaluate_estimator(program)

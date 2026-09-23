@@ -5,6 +5,7 @@ import torch
 
 from organized_learner.ol4_estimator import (
     ACTION_SEQUENCES,
+    ENTROPY_COEFFICIENT,
     enumerate_complete_life,
     evaluate_estimator,
 )
@@ -74,6 +75,25 @@ class OL4CompleteLifeEstimatorTests(unittest.TestCase):
                     self.assertLess(comparison.relative_error, 1e-6)
                 self.assertTrue(comparison.passed)
 
+    def test_exact_combined_j_matches_estimator_and_production_loss(self) -> None:
+        self.assertEqual(0.01, ENTROPY_COEFFICIENT)
+        self.assertEqual(
+            set(self.program.parameter_blocks()),
+            set(self.diagnostic.combined_block_comparisons),
+        )
+        self.assertEqual(
+            set(self.program.parameter_blocks()),
+            set(self.diagnostic.production_block_comparisons),
+        )
+        for family in (self.diagnostic.combined_block_comparisons,
+                       self.diagnostic.production_block_comparisons):
+            for name, comparison in family.items():
+                with self.subTest(family=id(family), block=name):
+                    self.assertTrue(comparison.passed)
+                    self.assertLess(comparison.max_absolute_error, 1e-7)
+                    if comparison.exact_norm > 1e-10:
+                        self.assertLess(comparison.relative_error, 1e-6)
+
     def test_entropy_direct_gradient_is_separate_and_finite(self) -> None:
         self.assertTrue(self.diagnostic.entropy_passed)
         self.assertEqual(
@@ -115,6 +135,10 @@ class OL4CompleteLifeEstimatorTests(unittest.TestCase):
         self.assertLess(max(item.max_absolute_error
                             for item in result.entropy_block_comparisons.values()),
                         1e-7)
+        self.assertTrue(all(item.passed for item in
+                            result.combined_block_comparisons.values()))
+        self.assertTrue(all(item.passed for item in
+                            result.production_block_comparisons.values()))
 
     def test_float64_is_mandatory_for_registered_tolerances(self) -> None:
         with self.assertRaisesRegex(ValueError, "float64"):

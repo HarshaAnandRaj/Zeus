@@ -1,6 +1,6 @@
 # What humans installed and what the learner has shown
 
-**Lineage:** Organized Learner v2 reference, 2026-09-23. This document separates design decisions, code-level observations, functional measurements, and interpretations. The [architecture plan](../../docs/organized_learner_architecture_v2_plan.md) defines the intended direction; the [checkpoint map](checkpoints.md) records what has actually reached review.
+**Lineage:** Organized Learner reference, OL3, and OL4, updated 2026-09-24. This document separates design decisions, code-level observations, functional measurements, and interpretations. The [architecture plan](../../docs/organized_learner_architecture_v2_plan.md) defines the intended direction; the [checkpoint map](checkpoints.md) records what has actually reached review.
 
 ## OL3 successor: current engineered organization
 
@@ -29,11 +29,13 @@ The [OL3 structural/mechanics result](../evidence/ol3_structural_mechanics_resul
 
 Outer training, learned specialization, a matched partition advantage, broader relational induction, and natural language remain unobserved.
 
-## OL4-T0 registered engineering, not yet observed
+## OL4-T0 and T0a: engineered organization and preflight evidence
 
 The [OL4-T0 contract](v4_outer_training_readiness.md) freezes a five-owner topology, fixed XOR/equality planner, eight inherited context glyph channels, four token rows, FIFO marker memory, complete-life score-function training, and an 87-scalar inherited program. Humans still install the compartments, information permissions, action grammar, correction schedule, and operator skeleton. Outer training is asked to learn memory projections, evidence polarity, retention, source gains, and policy confidence across two bindings and later correction.
 
-At this revision there is no OL4 implementation or result. The contract's parameter count, recurrences, estimator, diagnostic fixture, development controls, and confidence gates are engineering commitments rather than observed properties.
+OL4-T0 received an implementation and failed [pre-optimization review](review_07_ol4_t0_preflight.md). On 1,008 complete diagnostic lives, all 87 raw coordinates had a finite effect on at least one plan probability and finite differences matched autograd. The full policy Jacobian nevertheless had rank 64. Twenty-three analytic gauge directions explained the nullity: 16 key/query basis changes, four common key translations removed by softmax, and three evidence-state/gain rescalings. These are alternative parameter settings for the same behavior, so the 87 numbers are not 87 independently identifiable organizational properties.
+
+The T0 reward estimator passed a 64-branch complete-life gradient check. Its direct-only entropy bonus omitted how earlier actions alter later entropy through public rule updates; a legal diagnostic program produced a missing gradient of norm 0.0184. This is a **T0 preflight FAIL**, with no outer optimization run opened. The [T0a amendment](v4_t0a_amendment.md) repairs the full trajectory estimator, makes world reset explicit, narrows optimizer inputs, and requires boundary, route, and shuffled-source checks before optimization. Passing those mechanics would establish readiness only; acquired behavior remains unobserved.
 
 ## Engineered properties: human-readable account
 

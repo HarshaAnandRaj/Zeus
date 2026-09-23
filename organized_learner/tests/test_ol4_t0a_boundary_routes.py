@@ -322,6 +322,7 @@ class BoundaryAndResetTests(unittest.TestCase):
             location_right=torch.tensor([True, False]),
             lamp_on=torch.tensor([True, True]),
             selected_actuator_plain=torch.tensor([True, False]),
+            press_completed=torch.tensor([True, True]),
             lamp_before_on=torch.tensor([True, False]),
             lamp_after_on=torch.tensor([True, True]),
             reset_count=first.reset_count,
@@ -331,6 +332,7 @@ class BoundaryAndResetTests(unittest.TestCase):
         for count, world in enumerate((first, second, third)):
             self.assertTrue(torch.all(world.reset_count == count))
             for name in ("location_right", "lamp_on", "selected_actuator_plain",
+                         "press_completed",
                          "lamp_before_on", "lamp_after_on"):
                 self.assertFalse(bool(getattr(world, name).any()), name)
         self.assertTrue(torch.equal(state.event_count, original_event_count))
@@ -350,6 +352,12 @@ class BoundaryAndResetTests(unittest.TestCase):
             self.assertFalse(bool(query.world_before.location_right.any()))
             self.assertFalse(bool(query.world_before.lamp_on.any()))
             self.assertFalse(bool(query.world_before.lamp_before_on.any()))
+            self.assertFalse(bool(query.world_before.press_completed.any()))
+            self.assertTrue(torch.equal(query.world_after_move.location_right,
+                                        query.action.move_right))
+            self.assertTrue(torch.equal(query.world_after_move.lamp_on,
+                                        query.world_before.lamp_on))
+            self.assertFalse(bool(query.world_after_move.press_completed.any()))
             self.assertTrue(torch.equal(query.world_after.location_right,
                                         query.action.move_right))
             self.assertTrue(torch.equal(query.world_after.selected_actuator_plain,
@@ -358,8 +366,42 @@ class BoundaryAndResetTests(unittest.TestCase):
                                         query.world_before.lamp_on))
             self.assertTrue(torch.equal(query.world_after.lamp_on,
                                         query.world_after.lamp_after_on))
+            self.assertTrue(bool(query.world_after.press_completed.all()))
         self.assertTrue(torch.equal(trace.event_count,
                                     20 + evaluator.delays.sum(dim=1)))
+
+    def test_move_updates_world_before_press_and_public_calls_follow_action_order(self) -> None:
+        evaluator = fixed_evaluator()
+        schedule = generate_life_schedule(evaluator, generator(791))
+        uniforms = ActionUniformBatch(
+            torch.full((1, 3), 0.999999, dtype=DTYPE),
+            torch.full((1, 3), 0.25, dtype=DTYPE),
+        )
+        program = AuditProgram(792)
+        with torch.no_grad():
+            trace = run_life(program, evaluator, None, None,
+                             schedule=schedule, action_uniforms=uniforms)
+        actions = [call for call in program.calls if call.method in (
+            "sample_move", "move_event", "sample_press", "transition_event")]
+        # Demonstrations also use transition_event; inspect the query-local
+        # interval that begins with each sampled MOVE.
+        move_starts = [index for index, call in enumerate(actions)
+                       if call.method == "sample_move"]
+        self.assertEqual(len(move_starts), 3)
+        for query, start in zip(trace.queries, move_starts):
+            self.assertEqual([call.method for call in actions[start:start + 4]],
+                             ["sample_move", "move_event", "sample_press",
+                              "transition_event"])
+            self.assertTrue(torch.equal(actions[start + 1].public[0],
+                                        query.world_after_move.location_right))
+            self.assertTrue(torch.equal(actions[start + 2].public[0],
+                                        query.world_after_move.location_right))
+            self.assertTrue(bool(query.world_after_move.location_right.all()))
+            self.assertFalse(bool(query.world_before.location_right.any()))
+            self.assertTrue(torch.equal(query.world_after_move.lamp_on,
+                                        query.world_before.lamp_on))
+            self.assertFalse(bool(query.world_after_move.press_completed.any()))
+            self.assertTrue(bool(query.world_after.press_completed.all()))
 
 
 class SourceRouteTests(unittest.TestCase):
