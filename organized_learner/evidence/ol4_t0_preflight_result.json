@@ -1,0 +1,50 @@
+{
+  "contract_commit": "7cc2d07",
+  "created_utc": "2026-09-23T18:49:28.839051+00:00",
+  "entropy_estimator_component": {
+    "complete_score_plus_direct_max_block_error": 2.636779683484747e-16,
+    "direct_only_missing_gradient_max_abs": 0.00804634739817981,
+    "direct_only_missing_gradient_norm": 0.018397321713705703,
+    "stress_program": "seed 6101; rule evidence [-2,2,-2,2,2,2,2,-2]; mode and lexical evidence [-2,2]; effective beta 8",
+    "verdict": "FAIL_FOR_T0_DIRECT_ONLY_OBJECTIVE"
+  },
+  "gradient_component": {
+    "coordinate_support_passes": 87,
+    "fixture_lives": 1008,
+    "maximum_finite_difference_error": 1.0813426131080217e-10,
+    "minimum_coordinate_support": 0.0005773199627310186,
+    "verdict": "PASS"
+  },
+  "identifiability": {
+    "analytic_gauge_basis_rank": 23,
+    "maximum_analytic_gauge_residual": 8.592757858250441e-17,
+    "nullity": 23,
+    "policy_jacobian_rank": 64,
+    "raw_parameters": 87,
+    "reason": "T0 said an unidentifiable scalar fails this version.",
+    "verdict": "FAIL_FOR_T0_CONTRACT"
+  },
+  "identity": "OL4-T0 pre-optimization design prosecution",
+  "optimization_seeds_opened": 0,
+  "other_T0_gates": {
+    "optimizer_oracle_boundary": "FAIL_IN_INITIAL_UNCOMMITTED_IMPLEMENTATION",
+    "route_closure": "UNTESTED_AT_T0_DECISION",
+    "runtime_taint": "UNTESTED_AT_T0_DECISION",
+    "shuffled_source_control": "UNTESTED_AT_T0_DECISION",
+    "world_reset": "FAIL_IN_INITIAL_UNCOMMITTED_IMPLEMENTATION"
+  },
+  "reward_estimator_component": {
+    "enumerated_action_histories": 64,
+    "maximum_block_gradient_error": 3.9898639947466563e-17,
+    "verdict": "PASS"
+  },
+  "source_limit": "The original T0 implementation was uncommitted and was not archived before repairs. These diagnostics reproduce structural claims on the same 87-scalar parameterization and a legal three-query stress life; they are not a byte-identical replay of that transient source.",
+  "source_sha256": {
+    "organized_learner/docs/v4_outer_training_readiness.md": "1d6a73e37d693fcb62f8bbc605f48e27c8c181f3dd6be971097b94841ed4501a",
+    "organized_learner/ol4_estimator.py": "6f12b8cb431a8106c8e0eb5bf3bedec2d6c74eba8e9ac38557c5db893eb62059",
+    "organized_learner/ol4_gradient.py": "f9702ea1b0c8aaa3aeca9e778574121911cde9c085be44b648992b633c629e99",
+    "organized_learner/ol4_model.py": "c953d7b065d10b0c4bcc96c16c03abc54c2bc616834c7caac5190692fe1cea97",
+    "organized_learner/run_ol4_t0_preflight.py": "e32525d20dca0ce04e4197c821a55a240e6c65cb592776e0fa40bae894f3aae0"
+  },
+  "verdict": "FAIL"
+}
