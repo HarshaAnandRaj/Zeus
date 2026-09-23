@@ -21,6 +21,7 @@ This folder contains the new architecture line. It starts from the [v2 architect
 | [OL3 structural/mechanics review](docs/review_04_ol3_structural_mechanics.md) and [result](evidence/ol3_structural_mechanics_result.json) | PASS evidence for 16-case routes, predictions, lesions, attribution, and closed-loop mechanics |
 | [OL3-F1 registered protocol](evidence/ol3_f1_protocol.md) | Frozen 1,024-life sampled integration and four-lesion causal gate; unopened at the structural checkpoint |
 | [OL3-F1 result](evidence/ol3_f1_result.json) and [review](docs/review_05_ol3_f1.md) | PASS: 1023/1024 full success and >47-point lower confidence bounds for all four source effects |
+| [OL4-T0 readiness contract](docs/v4_outer_training_readiness.md) and [prosecution](docs/review_06_ol4_t0_prosecution.md) | Frozen 87-parameter outer-training design with multi-binding, correction, delayed credit, controls, and pre-optimization gates; no OL4 result yet |
 
 Run the mechanics checks from the repository root:
 

@@ -29,6 +29,12 @@ The [OL3 structural/mechanics result](../evidence/ol3_structural_mechanics_resul
 
 Outer training, learned specialization, a matched partition advantage, broader relational induction, and natural language remain unobserved.
 
+## OL4-T0 registered engineering, not yet observed
+
+The [OL4-T0 contract](v4_outer_training_readiness.md) freezes a five-owner topology, fixed XOR/equality planner, eight inherited context glyph channels, four token rows, FIFO marker memory, complete-life score-function training, and an 87-scalar inherited program. Humans still install the compartments, information permissions, action grammar, correction schedule, and operator skeleton. Outer training is asked to learn memory projections, evidence polarity, retention, source gains, and policy confidence across two bindings and later correction.
+
+At this revision there is no OL4 implementation or result. The contract's parameter count, recurrences, estimator, diagnostic fixture, development controls, and confidence gates are engineering commitments rather than observed properties.
+
 ## Engineered properties: human-readable account
 
 The reference agent is born with a great deal of organization. It receives already segmented objects with visible feature channels and positions. It knows a small syntax for action requests and reports. A visible pointer tells it which feature a new word is being taught. It has dedicated places for current state, remembered events, word evidence, rule evidence, action selection, and activity regulation. Those places have different allowed updates.
