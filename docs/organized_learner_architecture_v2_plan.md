@@ -1,6 +1,6 @@
 # Organized Learner v2: Architectural Plan
 
-**Status:** Candidate computational architecture, 2026-09-23. It replaces [v1.1](organized_learner_architecture_v1_1.md) as the next design target and answers its [adversarial prosecution](organized_learner_architecture_v1_1_prosecution.md). Frozen OL2 failed its sampled gate and route audit. Its isolated OL3 successor now passes a bounded hand-set structural/mechanics gate and has a registered, unopened sampled integration protocol. No outer-trained learner or architecture advantage has been tested. The worked example below checks proposed interfaces, not the ability of an outer-trained learner.
+**Status:** Candidate computational architecture, 2026-09-23. It replaces [v1.1](organized_learner_architecture_v1_1.md) as the next design target and answers its [adversarial prosecution](organized_learner_architecture_v1_1_prosecution.md). Frozen OL2 failed its sampled gate and route audit. Its isolated OL3 successor passes bounded hand-set structural/mechanics and registered sampled-integration gates. No outer-trained learner or architecture advantage has been tested. The worked example below checks proposed interfaces, not the ability of an outer-trained learner.
 
 ## 1. What is being built and what can be claimed
 

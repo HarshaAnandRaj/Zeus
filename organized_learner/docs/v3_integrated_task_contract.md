@@ -1,6 +1,6 @@
 # OL3 integrated core: prospective task and interface contract
 
-**Status:** Prospective contract, 2026-09-23. Written before OL3 implementation after the [C2 functional failure](review_02_reference_causal.md) and [C3 connectivity failure](review_03_training_readiness.md). The hand-set OL3 successor now passes the bounded [structural/mechanics review](review_04_ol3_structural_mechanics.md); its registered sampled gate remains unopened. No outer-trained OL3 learner exists. The [OL2 reference](../reference.py) and its registered result remain frozen by their source hashes.
+**Status:** Prospective contract, 2026-09-23. Written before OL3 implementation after the [C2 functional failure](review_02_reference_causal.md) and [C3 connectivity failure](review_03_training_readiness.md). The hand-set OL3 successor passes both the bounded [structural/mechanics review](review_04_ol3_structural_mechanics.md) and registered [sampled integration review](review_05_ol3_f1.md). No outer-trained OL3 learner exists. The [OL2 reference](../reference.py) and its registered result remain frozen by their source hashes.
 
 ## Question the next version must answer
 

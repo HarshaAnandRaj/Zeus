@@ -17,7 +17,17 @@ OL3 is a separate successor inside this lineage, created because OL2's named mem
 
 The task itself is highly engineered: public objects are already segmented; marker, mode cue, pointer, and demonstrations are explicit; grammar is fixed; the actuator rule has exactly two inherited hypotheses; active side is inherited XOR; planning has four candidates and horizon two. These are legitimate substrate priors under the new research hypothesis, but they bound the claim sharply.
 
-The [OL3 structural/mechanics result](../evidence/ol3_structural_mechanics_result.json) is a `PASS` for wiring and update semantics. It is not sampled functional evidence. The registered [OL3-F1 protocol](../evidence/ol3_f1_protocol.md) is unopened at this ledger revision. Outer training, learned specialization, a matched partition advantage, broader relational induction, and natural language remain unobserved.
+The [OL3 structural/mechanics result](../evidence/ol3_structural_mechanics_result.json) is a `PASS` for wiring and update semantics. The registered [OL3-F1 result](../evidence/ol3_f1_result.json) is a separate `PASS` for sampled behavior and source necessity in this task.
+
+| OL3 observation | Evidence | Supported claim | Excluded claim |
+| --- | --- | --- | --- |
+| Full reference completed the correct sampled two-action plan in 1023/1024 fresh lives; 99% Wilson lower bound 0.9917 | [OL3-F1 result](../evidence/ol3_f1_result.json), [review](review_05_ol3_f1.md) | Reliable execution of the engineered four-source solver on the registered generator | Outer learning or robustness beyond this generator |
+| Marker and mode write lesions each reduced paired success by 0.5107; 99% lower bound 0.4707 | Same result; isolated-message invariants passed | Both prior-site retrieval and retained mode are causally required by this solver | Distinct rich representations; these two lesions are task-symmetric |
+| Lexical and rule write lesions each reduced paired success by 0.5254; 99% lower bound 0.4854 | Same result; isolated-message invariants passed | Both word grounding and transition-rule belief are causally required | General semantics or operator induction; these two lesions are task-symmetric |
+| All-four lesion achieved 242/1024 = 0.2363; 99% interval includes 0.25 | Leakage sentinel in the same run | No detected answer path remains after all four writes are neutralized | A universal absence of leakage in future adapters |
+| The sole full miss sampled a 0.000795 wrong-side tail while the correct plan remained top-ranked at probability 0.9989 | Complete saved trace for life 923 | Registered stochastic sampling was honored | A reason to retune temperature after exposure |
+
+Outer training, learned specialization, a matched partition advantage, broader relational induction, and natural language remain unobserved.
 
 ## Engineered properties: human-readable account
 
