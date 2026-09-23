@@ -1,0 +1,41 @@
+{
+  "checkpoint": "OL3-SM1",
+  "date": "2026-09-23",
+  "verdict": "PASS",
+  "scope": "hand-set OL3 public-boundary, four-route, 16-case, and closed-loop mechanics",
+  "commands": [
+    ".\\.venv\\Scripts\\python.exe -m unittest discover -s organized_learner/tests -v",
+    ".\\.venv\\Scripts\\python.exe -m py_compile organized_learner\\ol3_contracts.py organized_learner\\ol3_world.py organized_learner\\ol3_reference.py organized_learner\\run_ol3_functional.py",
+    ".\\.venv\\Scripts\\python.exe -c \"import organized_learner.run_ol3_functional as r; r.preflight(); print('OL3-F1 preflight PASS')\""
+  ],
+  "results": {
+    "ol3_tests_passed": 7,
+    "ol3_tests_failed": 0,
+    "total_lineage_tests_passed": 21,
+    "total_lineage_tests_failed": 0,
+    "compile": "PASS",
+    "registered_runner_preflight": "PASS"
+  },
+  "covered_properties": [
+    "all 16 factor histories share the same current semantic scene and rank the evaluator-correct plan first",
+    "all 16 cases execute MOVE then PRESS and produce the predicted public lamp outcome and reward",
+    "each plan records lamp, success, and policy predictions before action",
+    "each single-source lesion neutralizes its target message while preserving other messages, bank occupancy, version, and clock",
+    "event streams and decision IDs reject cross-stream, forged-decision, and replayed results",
+    "birth clears lifetime state, task boundary preserves it, and FIFO eviction removes the old marker",
+    "malformed public events and nonfinite or route-dead program settings are rejected"
+  ],
+  "source_sha256": {
+    "ol3_contracts.py": "bcff579a1f28c16dc592bf20458b2ec1e666d75d5654ead71011305116fa555c",
+    "ol3_world.py": "02bf80ca50d3326687d51fdcb057bb678e3df91da7eb653cb949edc939371b5f",
+    "ol3_reference.py": "1554f01b65b8c262985c14441491624be178435fc94c8113761616adbf884b62",
+    "tests/test_ol3.py": "0e9315456af8106f1b1df728bd6d99b8936c40fb7b099683788e0971a318850a",
+    "run_ol3_functional.py": "08affd24c56327cd51b25a8c0f000214bcd7edfb44b9704af50e61393f300604",
+    "evidence/ol3_f1_protocol.md": "95670cb5cf9c385907242aa70cf21f4075359f9d298c2b27f248b8d4a49046cb"
+  },
+  "limits": [
+    "This is mechanics and route evidence for a hand-set symbolic reference, not an outer-trained learner.",
+    "Correct top ranking is not sampled functional success; OL3-F1 remains unopened at this checkpoint.",
+    "The task grammar, source ownership, XOR, paired actuator hypotheses, and supervision are engineered."
+  ]
+}

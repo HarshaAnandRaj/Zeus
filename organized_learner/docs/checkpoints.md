@@ -1,0 +1,19 @@
+# Organized Learner checkpoint map
+
+The goal is an inherited organization that acquires behavior, rules, and grounded expression during fresh lifetimes, with separate evidence for each claimed property. A checkpoint is reviewed before the next critical promotion. A failed checkpoint triggers diagnosis and an explicit versioned decision, not a silent parameter sweep.
+
+| Checkpoint | Claim being adjudicated | Required evidence | Current verdict |
+| --- | --- | --- | --- |
+| C0. Public contract | New lineage has public-only observations, birth/reset rules, and a before-outcome decision record | Contract inspection, replay/duplicate guards, birth/task-boundary tests | **PASS**, limited to reference schema and toy world; [review](review_00_01_reference.md) |
+| C1. Reference mechanics | Hand-set compartments execute their declared updates, bounded storage, reversal, and grounded report path | [14 mechanics tests](../evidence/reference_mechanics_tests.txt), trace-level assertions, [review](review_00_01_reference.md) | **PASS** for implemented reference mechanisms |
+| C2. Reference choice | Hand-set rule evidence improves sampled first actions against an otherwise matched rule-write lesion | Registered [protocol](../evidence/reference_causal_protocol.md), immutable [result](../evidence/reference_causal_result.json), [review](review_02_reference_causal.md) | **FAIL** on absolute action target; causal threshold **UNDECIDED** |
+| C3a. OL2 route readiness | Every claimed OL2 core source has a path to behavior | [Connectivity audit](../evidence/reference_connectivity_audit.json) | **FAIL for frozen OL2**: memory and belief paths are inert; [review](review_03_training_readiness.md) |
+| C3b. OL3 structural/mechanics | Four public sources change action-specific values; all 16 histories execute with pre-outcome predictions and valid provenance | [Mechanics result](../evidence/ol3_structural_mechanics_result.json), source lesions, complete-loop tests | **PASS** for the hand-set reference; [review](review_04_ol3_structural_mechanics.md) |
+| C3c. OL3 sampled integration | Full hand-set reference achieves reliable sampled two-step behavior and every source has a material paired lesion effect | Frozen [OL3-F1 protocol](../evidence/ol3_f1_protocol.md), immutable result and review | **REGISTERED; UNOPENED** |
+| C3d. Outer-training readiness | Every trainable inherited parameter and hard operation has an optimizer/estimator path and resource bound | Complete-life trainer, differentiability/estimator audit, independent training seeds, leakage test | **UNTESTED** |
+| C4. Trained acquisition | Independently trained inherited programs acquire new mappings and relational rules in fresh lives | Registered development and held-out generator split, closed-loop endpoints, store-specific interventions, seed hierarchy | **UNTESTED** |
+| C5. Grounded integration | The trained core combines language, hidden state, episodic information, relational prediction, and two-step action | Paired counterfactual worlds, pre-feedback predictions, retention after distractor, source ablations | **UNTESTED** |
+| C6. Partition advantage | Specialized state ownership helps beyond the same primitives in a shared core or arbitrary partition | Independently retrained matched controls, resources/search effort, hierarchical uncertainty | **UNTESTED** |
+| Extensions | Long-delay credit, metaplasticity, structural change, broader operators/grammar, information seeking | Separate versioned contracts, prospective interventions and gates | **UNTESTED** |
+
+`PASS` proves only the named checkpoint. `FAIL` is bounded by the exact protocol and tested system. `UNDECIDED` means a valid result cannot resolve the registered threshold. `VOID` means the experiment cannot answer its question because an input, identity, state boundary, or control is invalid. Tests of mechanics never substitute for functional acquisition evidence.

@@ -1,0 +1,24 @@
+{
+  "diagnostic": "force episodic message and recurrent states while holding observed scene, rule, and lexical evidence fixed",
+  "hypothetical_common_memory_weight": 0.7,
+  "interpretation_limit": "A zero difference proves only that these reference routes are inert for this decision. It does not test a future integrated architecture.",
+  "left_action_probabilities": [
+    0.5954007103673988,
+    0.11586660384509029,
+    0.11588002453958816,
+    0.17285266124792273
+  ],
+  "max_absolute_probability_difference": 3.3306690738754696e-16,
+  "memory_values": [
+    -1.0,
+    1.0
+  ],
+  "reference_sha256": "d032c1f9181795019d364e95475af9b82b40384db7f98c58971c93ba9cb107f9",
+  "right_action_probabilities": [
+    0.5954007103673985,
+    0.11586660384509039,
+    0.11588002453958822,
+    0.1728526612479229
+  ],
+  "same_candidates": true
+}

@@ -1,0 +1,4494 @@
+{
+  "absolute_target": 0.75,
+  "bootstrap_samples": 10000,
+  "bootstrap_seed": 99173,
+  "causal_target": 0.15,
+  "created_utc": "2026-09-23T09:58:59.729166+00:00",
+  "lives": [
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1000",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1000",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 26,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 24,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1000",
+      "seed": 1000,
+      "test_start": 24
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 8,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1001",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 8,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673989
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 6,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1001",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 8,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 8,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1001",
+      "seed": 1001,
+      "test_start": 6
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1002",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1002",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 10,
+            "words": []
+          },
+          "selected_action_probability": 0.11709975015421953
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 9,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1002",
+      "seed": 1002,
+      "test_start": 9
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 14,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1003",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 13,
+            "words": []
+          },
+          "selected_action_probability": 0.11586660384509027
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1003",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 14,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1003",
+      "seed": 1003,
+      "test_start": 12
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 15,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1004",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 15,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 15,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1004",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 15,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 15,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1004",
+      "seed": 1004,
+      "test_start": 15
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 20,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1005",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "selected_action_probability": 0.11588002453958818
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1005",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 20,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1005",
+      "seed": 1005,
+      "test_start": 18
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 21,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1006",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 21,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 21,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1006",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 21,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 21,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1006",
+      "seed": 1006,
+      "test_start": 21
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 26,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1007",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "selected_action_probability": 0.11588002453958818
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1007",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 26,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1007",
+      "seed": 1007,
+      "test_start": 24
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 6,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1008",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 6,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 6,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1008",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 6,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 6,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1008",
+      "seed": 1008,
+      "test_start": 6
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 11,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1009",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "selected_action_probability": 0.11588002453958818
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1009",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 11,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1009",
+      "seed": 1009,
+      "test_start": 9
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1010",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1010",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 12,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1010",
+      "seed": 1010,
+      "test_start": 12
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 17,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1011",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 17,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673989
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 15,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1011",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 15,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 17,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1011",
+      "seed": 1011,
+      "test_start": 15
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1012",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1012",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 18,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1012",
+      "seed": 1012,
+      "test_start": 18
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 23,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1013",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 23,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673989
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 21,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1013",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 23,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 23,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1013",
+      "seed": 1013,
+      "test_start": 21
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1014",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1014",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 25,
+            "words": []
+          },
+          "selected_action_probability": 0.11709975015421953
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 24,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1014",
+      "seed": 1014,
+      "test_start": 24
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 8,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1015",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 8,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673989
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 6,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1015",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 7,
+            "words": []
+          },
+          "selected_action_probability": 0.11709975015421953
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 8,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1015",
+      "seed": 1015,
+      "test_start": 6
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1016",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1016",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 9,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1016",
+      "seed": 1016,
+      "test_start": 9
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 14,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1017",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.1728526612479227
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1017",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.17469229936768674
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 14,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1017",
+      "seed": 1017,
+      "test_start": 12
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 15,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1018",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 15,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 15,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1018",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 17,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 15,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1018",
+      "seed": 1018,
+      "test_start": 15
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 20,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1019",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 19,
+            "words": []
+          },
+          "selected_action_probability": 0.11586660384509027
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1019",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 20,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1019",
+      "seed": 1019,
+      "test_start": 18
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 21,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1020",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 21,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 21,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1020",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 23,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 21,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1020",
+      "seed": 1020,
+      "test_start": 21
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 26,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1021",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 26,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673989
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1021",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 25,
+            "words": []
+          },
+          "selected_action_probability": 0.11709975015421953
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 26,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1021",
+      "seed": 1021,
+      "test_start": 24
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 6,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1022",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 6,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 6,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1022",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 6,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 6,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1022",
+      "seed": 1022,
+      "test_start": 6
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 11,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1023",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 11,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673989
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1023",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 11,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1023",
+      "seed": 1023,
+      "test_start": 9
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1024",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1024",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 12,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1024",
+      "seed": 1024,
+      "test_start": 12
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 17,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1025",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 17,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673989
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 15,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1025",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 17,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 17,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1025",
+      "seed": 1025,
+      "test_start": 15
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1026",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1026",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 18,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1026",
+      "seed": 1026,
+      "test_start": 18
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 23,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1027",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 21,
+            "words": []
+          },
+          "selected_action_probability": 0.11588002453958818
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 21,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1027",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 21,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 23,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1027",
+      "seed": 1027,
+      "test_start": 21
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1028",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 26,
+            "words": []
+          },
+          "selected_action_probability": 0.11588002453958816
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1028",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 26,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 24,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1028",
+      "seed": 1028,
+      "test_start": 24
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 8,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1029",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.1728526612479227
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 6,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1029",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.17469229936768674
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 8,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1029",
+      "seed": 1029,
+      "test_start": 6
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1030",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1030",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 9,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1030",
+      "seed": 1030,
+      "test_start": 9
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 14,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1031",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 14,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673989
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1031",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 14,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 14,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1031",
+      "seed": 1031,
+      "test_start": 12
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 15,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1032",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.17285266124792267
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 15,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1032",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.17469229936768674
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 15,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1032",
+      "seed": 1032,
+      "test_start": 15
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 20,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1033",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.1728526612479227
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1033",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.17469229936768674
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 20,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1033",
+      "seed": 1033,
+      "test_start": 18
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 21,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1034",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.17285266124792267
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 21,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1034",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.17469229936768674
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 21,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1034",
+      "seed": 1034,
+      "test_start": 21
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 26,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1035",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 26,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673989
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1035",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 26,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1035",
+      "seed": 1035,
+      "test_start": 24
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 6,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1036",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 6,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 6,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1036",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 6,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 6,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1036",
+      "seed": 1036,
+      "test_start": 6
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 11,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1037",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 11,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673989
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1037",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 11,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1037",
+      "seed": 1037,
+      "test_start": 9
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1038",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1038",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 12,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1038",
+      "seed": 1038,
+      "test_start": 12
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 17,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1039",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.1728526612479227
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 15,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1039",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.17469229936768674
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 17,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1039",
+      "seed": 1039,
+      "test_start": 15
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1040",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.17285266124792267
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1040",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.17469229936768674
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 18,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1040",
+      "seed": 1040,
+      "test_start": 18
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 23,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1041",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.1728526612479227
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 21,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1041",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.17469229936768674
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 23,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1041",
+      "seed": 1041,
+      "test_start": 21
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1042",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1042",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 25,
+            "words": []
+          },
+          "selected_action_probability": 0.11709975015421953
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 24,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1042",
+      "seed": 1042,
+      "test_start": 24
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 8,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1043",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 7,
+            "words": []
+          },
+          "selected_action_probability": 0.11586660384509027
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 6,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1043",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 6,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 8,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1043",
+      "seed": 1043,
+      "test_start": 6
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1044",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1044",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 9,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1044",
+      "seed": 1044,
+      "test_start": 9
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 14,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1045",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.1728526612479227
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1045",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.17469229936768674
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 14,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1045",
+      "seed": 1045,
+      "test_start": 12
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 15,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1046",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 15,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 15,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1046",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 15,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 15,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1046",
+      "seed": 1046,
+      "test_start": 15
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 20,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1047",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 20,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673989
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1047",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 20,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 20,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1047",
+      "seed": 1047,
+      "test_start": 18
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 21,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1048",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 23,
+            "words": []
+          },
+          "selected_action_probability": 0.11588002453958816
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 21,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1048",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 23,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 21,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1048",
+      "seed": 1048,
+      "test_start": 21
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 26,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1049",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 26,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673989
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1049",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 26,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1049",
+      "seed": 1049,
+      "test_start": 24
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 6,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1050",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 6,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 6,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1050",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 8,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 6,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1050",
+      "seed": 1050,
+      "test_start": 6
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 11,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1051",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 11,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673989
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1051",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 11,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 11,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1051",
+      "seed": 1051,
+      "test_start": 9
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1052",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1052",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 12,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1052",
+      "seed": 1052,
+      "test_start": 12
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 17,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1053",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.1728526612479227
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 15,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1053",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.17469229936768674
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 17,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1053",
+      "seed": 1053,
+      "test_start": 15
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1054",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1054",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 18,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1054",
+      "seed": 1054,
+      "test_start": 18
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 23,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1055",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 23,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673989
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 21,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1055",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 23,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 23,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1055",
+      "seed": 1055,
+      "test_start": 21
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1056",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.17285266124792267
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1056",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.17469229936768674
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 24,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1056",
+      "seed": 1056,
+      "test_start": 24
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 8,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1057",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 8,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673989
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 6,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1057",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 7,
+            "words": []
+          },
+          "selected_action_probability": 0.11709975015421953
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 8,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1057",
+      "seed": 1057,
+      "test_start": 6
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1058",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673988
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1058",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 9,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 9,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1058",
+      "seed": 1058,
+      "test_start": 9
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 14,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1059",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 14,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673989
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 12,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1059",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 13,
+            "words": []
+          },
+          "selected_action_probability": 0.11709975015421953
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 14,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1059",
+      "seed": 1059,
+      "test_start": 12
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 15,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1060",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.17285266124792267
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 15,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1060",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.17469229936768674
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 15,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1060",
+      "seed": 1060,
+      "test_start": 15
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 20,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1061",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 20,
+            "words": []
+          },
+          "selected_action_probability": 0.5954007103673989
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 1,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 18,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1061",
+            "LAMP",
+            "ON"
+          ],
+          "sampled_correct": true,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 20,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 20,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1061",
+      "seed": 1061,
+      "test_start": 18
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673988,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 21,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1062",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 22,
+            "words": []
+          },
+          "selected_action_probability": 0.11586660384509026
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 21,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1062",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "PRESS",
+            "position": 23,
+            "words": []
+          },
+          "selected_action_probability": 0.35410397523904685
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 21,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "on",
+      "novel_token": "w1062",
+      "seed": 1062,
+      "test_start": 21
+    },
+    {
+      "arms": {
+        "full": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.5954007103673989,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.9642857142857143,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 26,
+            "words": []
+          },
+          "preferred_correct": true,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1063",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.1728526612479227
+        },
+        "rule_write_lesion": {
+          "bank_size_before_test": 2,
+          "bank_version_before_test": 2,
+          "correct_action_probability": 0.35410397523904685,
+          "lexical_stripe_probability": 0.9950495049504952,
+          "neighbor_lamp_after_action": 0,
+          "posterior_true_rule": 0.5,
+          "preferred_action": {
+            "kind": "PRESS",
+            "position": 24,
+            "words": []
+          },
+          "preferred_correct": false,
+          "report": [
+            "NEIGHBOR",
+            "OF",
+            "w1063",
+            "LAMP",
+            "OFF"
+          ],
+          "sampled_correct": false,
+          "selected_action": {
+            "kind": "OBSERVE",
+            "position": null,
+            "words": []
+          },
+          "selected_action_probability": 0.17469229936768674
+        }
+      },
+      "correct_action_for_evaluator": {
+        "kind": "PRESS",
+        "position": 26,
+        "words": []
+      },
+      "hidden_rule_for_evaluator": "off",
+      "novel_token": "w1063",
+      "seed": 1063,
+      "test_start": 24
+    }
+  ],
+  "program": {
+    "action_temperature": 0.1,
+    "activity_penalty": 0.25,
+    "activity_rate": 0.1,
+    "activity_target": 0.5,
+    "association_decay": 0.0,
+    "association_rate": 0.5,
+    "consolidation_examples": 2,
+    "consolidation_fraction": 0.5,
+    "consolidation_tolerance": 0.0,
+    "feature_count": 2,
+    "gain_max": 1.0,
+    "gain_min": 0.25,
+    "lexical_discount": 0.5,
+    "lexical_pseudocount": 0.01,
+    "max_actions": 4,
+    "max_objects": 4,
+    "max_records": 32,
+    "memory_temperature": 1.0,
+    "observe_cost": 0.01,
+    "plan_temperature": 0.1,
+    "policy_decay": 0.01,
+    "policy_rate": 0.1,
+    "policy_trace_decay": 0.5,
+    "press_cost": 0.05,
+    "reward_baseline_rate": 0.1,
+    "rule_discount": 0.5,
+    "rule_match_likelihood": 0.9,
+    "rule_prior_on": 0.5,
+    "slow_interval": 3,
+    "track_distance_limit": 2.0,
+    "uncertainty_cost": 0.01,
+    "update_cap": 1.0,
+    "update_penalty": 0.1,
+    "weight_bound": 1.0
+  },
+  "protocol": "OL2 reference causal protocol, 2026-09-23",
+  "seed_range": [
+    1000,
+    1063
+  ],
+  "source_sha256": {
+    "contracts.py": "e0fe7ad29702c567f39a2374f4948f79b85c8b0557aff2729f8047eaf460ebb5",
+    "evidence/reference_causal_protocol.md": "dbf58844be1e64d1d8fbf8c50cad369f827737d7aae447b8cc3a0ecd3059cd81",
+    "reference.py": "d032c1f9181795019d364e95475af9b82b40384db7f98c58971c93ba9cb107f9",
+    "run_reference_causal.py": "3f0294a1f827accbd220cb837ceba1c9dd6d19e954c44a9096d6a52e35fe3413",
+    "toy_world.py": "6ed85b28e7c44532e4a368feef3b6ea94dd6136ad7d6425ef256445f7eb38b5c"
+  },
+  "summary": {
+    "absolute_95_wilson": [
+      0.518208506097791,
+      0.7471159770854825
+    ],
+    "full_correct": 41,
+    "full_preferred_correct": 64,
+    "full_rate": 0.640625,
+    "lesion_correct": 25,
+    "lesion_preferred_correct": 32,
+    "lesion_rate": 0.390625,
+    "mean_correct_action_probability_full": 0.5954007103673988,
+    "mean_correct_action_probability_lesion": 0.3541039752390468,
+    "n_paired_lives": 64,
+    "paired_effect": 0.25,
+    "paired_effect_95_bootstrap": [
+      0.140625,
+      0.359375
+    ],
+    "verdict": "FAIL"
+  }
+}

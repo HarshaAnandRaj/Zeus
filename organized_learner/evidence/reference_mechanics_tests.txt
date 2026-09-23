@@ -1,0 +1,22 @@
+Command: .\.venv\Scripts\python.exe -m unittest discover -s organized_learner/tests -v
+Exit code: 0
+
+test_episodic_write_intervention_does_not_turn_off_rule_learning (test_reference.MemoryAndPlasticityTests.test_episodic_write_intervention_does_not_turn_off_rule_learning) ... ok
+test_fast_to_slow_transfer_preserves_effective_weight_and_can_reverse (test_reference.MemoryAndPlasticityTests.test_fast_to_slow_transfer_preserves_effective_weight_and_can_reverse) ... ok
+test_fifo_memory_soft_read_and_duplicate_credit_guard (test_reference.MemoryAndPlasticityTests.test_fifo_memory_soft_read_and_duplicate_credit_guard) ... ok
+test_null_feedback_cannot_update_policy_and_reward_cannot_be_replayed (test_reference.MemoryAndPlasticityTests.test_null_feedback_cannot_update_policy_and_reward_cannot_be_replayed) ... ok
+test_regulator_reads_activity_and_track_capacity_is_bounded (test_reference.MemoryAndPlasticityTests.test_regulator_reads_activity_and_track_capacity_is_bounded) ... ok
+test_birth_is_independent_of_the_world_and_task_boundary_preserves_learning (test_reference.PublicBoundaryTests.test_birth_is_independent_of_the_world_and_task_boundary_preserves_learning) ... ok
+test_invalid_pointing_does_not_mutate_lifetime_state (test_reference.PublicBoundaryTests.test_invalid_pointing_does_not_mutate_lifetime_state) ... ok
+test_pointing_event_cannot_be_replayed (test_reference.PublicBoundaryTests.test_pointing_event_cannot_be_replayed) ... ok
+test_public_contract_has_no_hidden_rule_identity_or_answer (test_reference.PublicBoundaryTests.test_public_contract_has_no_hidden_rule_identity_or_answer) ... ok
+test_ambiguous_neighbor_does_not_create_rule_credit (test_reference.RuleAndLanguageTests.test_ambiguous_neighbor_does_not_create_rule_credit) ... ok
+test_grounded_action_and_report_use_new_word_and_workspace_return (test_reference.RuleAndLanguageTests.test_grounded_action_and_report_use_new_word_and_workspace_return) ... ok
+test_paired_rules_require_opposite_actions_on_the_same_current_scene (test_reference.RuleAndLanguageTests.test_paired_rules_require_opposite_actions_on_the_same_current_scene) ... ok
+test_posterior_transfer_reversal_and_pre_outcome_record (test_reference.RuleAndLanguageTests.test_posterior_transfer_reversal_and_pre_outcome_record) ... ok
+test_rule_write_intervention_preserves_other_exposure (test_reference.RuleAndLanguageTests.test_rule_write_intervention_preserves_other_exposure) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.028s
+
+OK
