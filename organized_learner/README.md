@@ -2,7 +2,7 @@
 
 This folder contains the new architecture line. It starts from the [v2 architectural plan](../docs/organized_learner_architecture_v2_plan.md) and the [adversarial prosecution](../docs/organized_learner_architecture_v1_1_prosecution.md). Earlier Zeus models, checkpoints, and empirical outcomes are not inputs to its design or results.
 
-**Current status:** OL2 remains frozen after its sampled-action failure and inactive-route audit. OL3 passed its registered sampled integration gate as a hand-set solver. OL4-T0 failed pre-optimization prosecution; T0a repairs its training boundary and estimator and is undergoing readiness checks. No outer-trained inherited program or architecture comparison exists yet.
+**Current status:** OL2 remains frozen after its sampled-action failure and inactive-route audit. OL3 passed its registered sampled integration gate as a hand-set solver. OL4-T0 failed pre-optimization prosecution. T0a passed its eight registered readiness gates, then failed a separate deterministic CUDA execution smoke before any registered optimization. T0a-R1 repairs that execution defect and is undergoing a new source-hashed gate. No outer-trained inherited program or architecture comparison exists yet.
 
 | Artifact | Purpose |
 | --- | --- |
@@ -23,6 +23,7 @@ This folder contains the new architecture line. It starts from the [v2 architect
 | [OL3-F1 result](evidence/ol3_f1_result.json) and [review](docs/review_05_ol3_f1.md) | PASS: 1023/1024 full success and >47-point lower confidence bounds for all four source effects |
 | [OL4-T0 contract](docs/v4_outer_training_readiness.md), [preflight failure](docs/review_07_ol4_t0_preflight.md), and [result](evidence/ol4_t0_preflight_result.json) | Preserved failure: 87 raw scalars span 64 locally identifiable directions; the direct-only entropy estimator omitted a future-trajectory term |
 | [OL4-T0a amendment](docs/v4_t0a_amendment.md), [model](ol4_model.py), [life](ol4_life.py), and [controls](ol4_controls.py) | Repaired five-owner implementation and explicit pre-optimization gates; no outer training opened |
+| [T0a preflight PASS](evidence/ol4_t0a_preflight_result.json), [execution FAIL](evidence/ol4_t0a_execution_smoke_fail.json), and [R1 repair](docs/v4_t0a_r1_execution_repair.md) | Preserved mechanics evidence and the later deterministic CUDA failure; R1 reruns readiness before training |
 
 Run the mechanics checks from the repository root:
 

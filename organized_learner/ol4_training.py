@@ -38,7 +38,7 @@ from .ol4_model import InheritedProgram, WritePermissions
 ROOT = Path(__file__).resolve().parent.parent
 EVIDENCE = ROOT / "organized_learner/evidence"
 PROTOCOL = EVIDENCE / "ol4_t0a_development_protocol.md"
-PREFLIGHT = EVIDENCE / "ol4_t0a_preflight_result.json"
+PREFLIGHT = EVIDENCE / "ol4_t0a_r1_preflight_result.json"
 IDENTITY_ARCHIVE = EVIDENCE / "ol4_t0a_development_identities.npz"
 IDENTITY_MANIFEST = EVIDENCE / "ol4_t0a_development_manifest.json"
 DEFAULT_OUTPUT = EVIDENCE / "ol4_t0a_development"
@@ -168,7 +168,7 @@ def validate_source_freeze(preflight_path: Path = PREFLIGHT) -> dict[str, Any]:
         raise ValueError("registered preflight path changed")
     preflight = json.loads(preflight_path.read_text(encoding="utf-8"))
     if preflight.get("verdict") != "PASS":
-        raise ValueError("T0a preflight is not PASS")
+        raise ValueError("T0a-R1 execution preflight is not PASS")
     hashes = source_hashes()
     if not _git_committed(PREFLIGHT):
         raise ValueError("PASS preflight result is not committed at HEAD")

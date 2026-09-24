@@ -560,14 +560,19 @@ def reinforce_loss(signals: TrainingSignals, entropy_coefficient: float = 0.01) 
             or signals.log_probabilities.shape != rewards.shape
             or signals.entropies.shape != rewards.shape):
         raise ValueError("training signals must have three aligned queries")
-    reward_to_go = torch.flip(torch.cumsum(torch.flip(rewards, dims=(1,)), dim=1), dims=(1,)) / 3.0
+    # The horizon is fixed at three queries. Explicit sums retain the exact
+    # return while avoiding a CUDA cumsum kernel without deterministic support.
+    reward_to_go = torch.stack(
+        (rewards[:, 0] + rewards[:, 1] + rewards[:, 2],
+         rewards[:, 1] + rewards[:, 2], rewards[:, 2]), dim=1) / 3.0
     # An action at query q changes public transitions and therefore later
     # policies. Include those later entropies in its score-function return.
     # Current-query entropy is determined before sampling that action and has
     # its ordinary differentiable path below.
-    future_entropy = torch.flip(
-        torch.cumsum(torch.flip(signals.entropies, dims=(1,)), dim=1), dims=(1,))
-    future_entropy = (future_entropy - signals.entropies) / 3.0
+    future_entropy = torch.stack(
+        (signals.entropies[:, 1] + signals.entropies[:, 2],
+         signals.entropies[:, 2], torch.zeros_like(signals.entropies[:, 2])),
+        dim=1) / 3.0
     score_return = reward_to_go + entropy_coefficient * future_entropy
     total = score_return.sum(dim=0, keepdim=True)
     baseline = (total - score_return) / (batch_size - 1)

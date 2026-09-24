@@ -1,0 +1,21 @@
+{
+  "identity": "OL4-T0a-E0 deterministic CUDA execution smoke",
+  "verdict": "FAIL",
+  "observed_date_utc": "2026-09-23",
+  "source_commit": "025ee7e",
+  "preflight_result": "organized_learner/evidence/ol4_t0a_preflight_result.json",
+  "development_archive_sha256": "8ddb06dc7ef449c3f1f902005af751354f880e14301a18d8e549af1d8734d4e9",
+  "registered_outer_seeds_opened": false,
+  "unregistered_smoke_seed": 9101,
+  "arm": "full",
+  "requested_steps": 1,
+  "batch_size": 2,
+  "device": "cuda:0",
+  "deterministic_algorithms": true,
+  "cublas_workspace_config": ":4096:8",
+  "completed_steps": 0,
+  "failure_type": "RuntimeError",
+  "failure_summary": "cumsum_cuda_kernel does not have a deterministic implementation while torch.use_deterministic_algorithms(True) is set",
+  "failure_location": "organized_learner/ol4_life.py:reinforce_loss reward_to_go",
+  "disposition": "Stop before registered training; replace fixed three-query cumulative sums with algebraically equivalent explicit sums, then freeze a new source-hashed execution gate."
+}

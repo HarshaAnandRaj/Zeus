@@ -16,6 +16,7 @@ import re
 import subprocess
 import sys
 from datetime import datetime, timezone
+from tempfile import TemporaryDirectory
 
 import torch
 
@@ -30,10 +31,11 @@ from organized_learner.ol4_estimator import (
 from organized_learner.ol4_gradient import run_gradient_diagnostic
 from organized_learner.ol4_life import run_life
 from organized_learner.ol4_model import InheritedProgram
+from organized_learner.ol4_training import train_unit
 
 
 ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_RESULT = ROOT / "organized_learner/evidence/ol4_t0a_preflight_result.json"
+DEFAULT_RESULT = ROOT / "organized_learner/evidence/ol4_t0a_r1_preflight_result.json"
 REQUIRED_TESTS = (
     "test_ol4.py",
     "test_ol4_controls.py",
@@ -53,7 +55,12 @@ def _hash_sources() -> dict[str, str]:
         ROOT / "organized_learner/run_ol4_t0a_development.py",
         ROOT / "organized_learner/docs/v4_outer_training_readiness.md",
         ROOT / "organized_learner/docs/v4_t0a_amendment.md",
+        ROOT / "organized_learner/docs/v4_t0a_r1_execution_repair.md",
         ROOT / "organized_learner/evidence/ol4_t0a_development_protocol.md",
+        ROOT / "organized_learner/evidence/ol4_t0a_execution_smoke_fail.json",
+        ROOT / "organized_learner/evidence/ol4_t0a_preflight_result.json",
+        ROOT / "organized_learner/evidence/ol4_t0a_development_identities.npz",
+        ROOT / "organized_learner/evidence/ol4_t0a_development_manifest.json",
     ]
     if not all(path.is_file() for path in candidates):
         raise FileNotFoundError("a required OL4-T0a source file is missing")
@@ -275,11 +282,47 @@ def _resources() -> dict[str, object]:
     }
 
 
+def _execution_smoke() -> dict[str, object]:
+    """Check one unrelated complete-life optimizer step under CUDA determinism."""
+    os.environ.setdefault("CUBLAS_WORKSPACE_CONFIG", ":4096:8")
+    if os.environ["CUBLAS_WORKSPACE_CONFIG"] != ":4096:8":
+        raise ValueError("CUBLAS workspace differs from the frozen setting")
+    torch.use_deterministic_algorithms(True)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+    evidence_dir = ROOT / "organized_learner/evidence"
+    with TemporaryDirectory(prefix="ol4-t0a-r1-smoke-", dir=evidence_dir) as directory:
+        scratch = Path(directory).resolve()
+        if evidence_dir.resolve() not in scratch.parents:
+            raise ValueError("execution smoke scratch escaped the evidence directory")
+        outcome = train_unit(9101, "full", scratch, {}, steps=1,
+                             batch_size=2, smoke=True)
+        checkpoint = scratch / "checkpoints" / outcome["final_checkpoint"]
+        checkpoint_sha = hashlib.sha256(checkpoint.read_bytes()).hexdigest()
+        valid = (outcome["completed_steps"] == 1
+                 and outcome["config"]["device"] == (
+                     "cuda:0" if torch.cuda.is_available() else "cpu")
+                 and checkpoint_sha == outcome["final_checkpoint_sha256"])
+        return {
+            "verdict": "PASS" if valid else "FAIL",
+            "diagnostic_seed": 9101,
+            "registered_outer_seed_opened": False,
+            "complete_lives": 2,
+            "completed_optimizer_steps": outcome["completed_steps"],
+            "device": outcome["config"]["device"],
+            "deterministic_algorithms": torch.are_deterministic_algorithms_enabled(),
+            "cublas_workspace_config": os.environ["CUBLAS_WORKSPACE_CONFIG"],
+            "checkpoint_sha256": checkpoint_sha,
+            "checkpoint_integrity": valid,
+            "reward_not_adjudicated": True,
+        }
+
+
 def run(result_path: Path = DEFAULT_RESULT) -> dict[str, object]:
     if result_path.exists():
         raise FileExistsError(f"immutable result already exists: {result_path}")
     result: dict[str, object] = {
-        "identity": "OL4-T0a pre-optimization readiness",
+        "identity": "OL4-T0a-R1 pre-optimization and execution readiness",
         "created_utc": datetime.now(timezone.utc).isoformat(),
         "original_t0_contract_commit": "7cc2d07",
         "python": sys.version,
@@ -318,6 +361,7 @@ def run(result_path: Path = DEFAULT_RESULT) -> dict[str, object]:
             ("resource_manifest", _resources),
             ("shuffle_structure", _shuffle),
             ("all_mechanics_tests", _tests),
+            ("deterministic_execution_smoke", _execution_smoke),
         )
         for name, fn in units:
             gate = fn()
