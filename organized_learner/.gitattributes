@@ -1,0 +1,10 @@
+# Preserve source and evidence bytes used by registered SHA256 identities.
+* -text whitespace=cr-at-eol
+# These older artifacts were hashed as CRLF bytes on the Windows checkout.
+evidence/ol3_f1_result.json text eol=crlf
+evidence/ol4_t0_preflight_result.json text eol=crlf
+evidence/ol4_t0a_preflight_result.json text eol=crlf
+evidence/ol4_t0a_r1_preflight_result.json text eol=crlf
+evidence/reference_causal_result.json text eol=crlf
+evidence/reference_connectivity_audit.json text eol=crlf
+evidence/reference_mechanics_tests.txt text eol=crlf

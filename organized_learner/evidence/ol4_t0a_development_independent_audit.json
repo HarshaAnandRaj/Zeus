@@ -1,0 +1,32 @@
+{
+  "created_utc": "2026-09-24T06:33:48.471235+00:00",
+  "current_git_head": "2f0cc732181c88ae19c047d4cedf8a3ad44efbf5",
+  "decision": {
+    "all_four_control_pairs_pass": true,
+    "development_verdict": "PASS",
+    "maximum_control_wilson_upper": 0.276547173447954,
+    "minimum_context_pair_mean": 0.9954337899543378,
+    "minimum_full_wilson_lower": 0.996723389986264,
+    "minimum_lesion_bootstrap_lower": 0.473876953125,
+    "qualifying_full_runs": 4
+  },
+  "development_result_sha256": "f5dd95f68c72de786c65911fa9caecab3d1e398ba4020bdc373a3fd9505f7240",
+  "frozen_git_head": "c181f0afc5e7e0b1cdc2b2fc81cd66bee2d5f643",
+  "identity": "OL4-T0a-independent-audit-v1",
+  "identity_archive_sha256": "8ddb06dc7ef449c3f1f902005af751354f880e14301a18d8e549af1d8734d4e9",
+  "preflight_sha256": "4ba966c59b071b48499d1c0c8cd7a0e03d9500b578134ecd62b10c5a47c44af6",
+  "scope": "Registered toy-family development evidence only; raw policy trajectories are not rerun.",
+  "shuffle_audit_sha256": "89c4e0b7246c8808dbe67a6ef50bd416bfb73848f5eed8696ccf73fd365a120a",
+  "verdict": "PASS",
+  "verified": {
+    "bootstrap_replicates_per_lesion": 10000,
+    "checkpoint_hash_chains": 8,
+    "checkpoint_links": 160,
+    "completed_steps_per_unit": 2000,
+    "evaluation_pairs": 28,
+    "identity_fields": 30,
+    "paired_bootstraps": 16,
+    "training_units": 8
+  },
+  "verifier_sha256": "b2b2dacbb4afe5009c2929e83d1f1f1abad28c702c4e1c8ad71b91b0ec667413"
+}
