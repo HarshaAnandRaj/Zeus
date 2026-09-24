@@ -1,0 +1,28 @@
+{
+  "all_three_successes": 509,
+  "arm": "full",
+  "bank_count_max": 14,
+  "bank_count_min": 14,
+  "checkpoint_sha256": "9a649a08685aca9e438ed653385e392cb126beecc084d5d8baeb24b5310aa302",
+  "event_count_max": 56,
+  "event_count_min": 32,
+  "life_count": 4096,
+  "mean_of_three_rewards": 0.4971516927083333,
+  "primary_successes": 2066,
+  "public_teaching_sha256": "ab9b040324d1376e966ad40aa4bb83d90d8119e9d7fbfe43b460360ce35682f3",
+  "query_successes": [
+    2074,
+    2031,
+    2004
+  ],
+  "raw_file": "run4102_full_lesion_lexical.npz",
+  "raw_sha256": "1d29ecf95d3fbdbae8ba348056aee9694673c46ab556d715cf36f7d5e2fff990",
+  "run_id": 4102,
+  "variant": "lesion_lexical",
+  "write_permissions": {
+    "lexical": false,
+    "marker": true,
+    "mode": true,
+    "rule": true
+  }
+}

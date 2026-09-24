@@ -1,0 +1,54 @@
+{
+  "arms": [
+    "full",
+    "no_write"
+  ],
+  "created_utc": "2026-09-24T04:47:05.732503+00:00",
+  "cublas_workspace_config": ":4096:8",
+  "cuda": "12.1",
+  "cudnn_benchmark": false,
+  "cudnn_deterministic": true,
+  "deterministic_algorithms": true,
+  "device": "cuda:0",
+  "freeze": {
+    "git_head": "c181f0afc5e7e0b1cdc2b2fc81cd66bee2d5f643",
+    "identity_archive_sha256": "8ddb06dc7ef449c3f1f902005af751354f880e14301a18d8e549af1d8734d4e9",
+    "identity_manifest_sha256": "292459d24d96d5454a554d22b9a13a821323f97e7106cc858a53e9ee0b37f04d",
+    "preflight_sha256": "4ba966c59b071b48499d1c0c8cd7a0e03d9500b578134ecd62b10c5a47c44af6",
+    "protocol_sha256": "0aeacf075e21db6b08e445eceb1a69bae4b1cdb0e54223dcfd54722fbc6b2ad4",
+    "source_sha256": {
+      "organized_learner/docs/v4_outer_training_readiness.md": "1d6a73e37d693fcb62f8bbc605f48e27c8c181f3dd6be971097b94841ed4501a",
+      "organized_learner/docs/v4_t0a_amendment.md": "91d38d3128a3a721732a1b8abf91fe7da75d673d5539f286d72595259942c10c",
+      "organized_learner/docs/v4_t0a_r1_execution_repair.md": "a2a6ccffab0e1ba3a85f830ff4177bda487d6a444e0edb616ce234dedcf6c0b9",
+      "organized_learner/evidence/ol4_t0a_development_identities.npz": "8ddb06dc7ef449c3f1f902005af751354f880e14301a18d8e549af1d8734d4e9",
+      "organized_learner/evidence/ol4_t0a_development_manifest.json": "292459d24d96d5454a554d22b9a13a821323f97e7106cc858a53e9ee0b37f04d",
+      "organized_learner/evidence/ol4_t0a_development_protocol.md": "0aeacf075e21db6b08e445eceb1a69bae4b1cdb0e54223dcfd54722fbc6b2ad4",
+      "organized_learner/evidence/ol4_t0a_execution_smoke_fail.json": "79d352ae52045326322ea1da3fde338c34245727e4b53e778e4764a3573ca92d",
+      "organized_learner/evidence/ol4_t0a_preflight_result.json": "662c21d8986ba2ed47d2260138d742bec9716c88a25d910f8df4924e5ed19be3",
+      "organized_learner/ol4_controls.py": "88b258f421545ea570690168ea2f3d7326da73bd6cdd018cd58fc9906ed5dc40",
+      "organized_learner/ol4_development.py": "f1ab505f53ba8954b8eac6477be500e8f8c3a09472ac96e45134a735a95d423f",
+      "organized_learner/ol4_estimator.py": "6acbfe69af50c9d02cdbcd43f62f7ea3cdde7c6f50a4d6829421cf691f38b6e3",
+      "organized_learner/ol4_gradient.py": "f9702ea1b0c8aaa3aeca9e778574121911cde9c085be44b648992b633c629e99",
+      "organized_learner/ol4_life.py": "86a8742e4173623a538f7b7f210d998a55ba37a0daaa7e2a90049c4cd284f99a",
+      "organized_learner/ol4_model.py": "c953d7b065d10b0c4bcc96c16c03abc54c2bc616834c7caac5190692fe1cea97",
+      "organized_learner/ol4_training.py": "c3f29b3538f87cbedc36dba6a358024543b9e283394e31da9348c1f6c6819acb",
+      "organized_learner/run_ol4_t0a_development.py": "7d4564c6c8cfa0c11278b0cf3a00cc45654800dffb0e898ae2f1577fb5b7aaa0",
+      "organized_learner/run_ol4_t0a_preflight.py": "613ccf08f3f8627a04e576551fe5d7fa3b7dd8eee92babc907bb0d893cccf91c",
+      "organized_learner/tests/test_ol4.py": "ce2b1f6cbc453687662ec525f41128ceb1880f837330f325480da1ecd401a6a6",
+      "organized_learner/tests/test_ol4_controls.py": "82a0c05d7c4ec4a338d6a812deb27c5dd50df31c8ad117bb455fd4733733abb0",
+      "organized_learner/tests/test_ol4_development.py": "e1473907e69b1e7505bffaf732162e831fff33c2f922a57cbd47b84f3f4ed3cf",
+      "organized_learner/tests/test_ol4_estimator.py": "8a38949c7f5acbacc19614e65907a8c2c7f683461378ea46b32070642006b870",
+      "organized_learner/tests/test_ol4_gradient.py": "da3f9e388460fe8b78787aa12f8dd115e56c49818cade3cffafe525526d18b3d",
+      "organized_learner/tests/test_ol4_t0a_boundary_routes.py": "0aa491ee9e04cd91675091ee635a8b73a6ccc65cf4d6ba9bef422574df4c07ad",
+      "organized_learner/tests/test_ol4_training.py": "d41ab8634b27e5a50a9dfe8665d48651c233ab98c81fd65917eeaed0b23159c8"
+    }
+  },
+  "identity": "OL4-T0a-development",
+  "run_ids": [
+    4101,
+    4102,
+    4103,
+    4104
+  ],
+  "torch": "2.5.1+cu121"
+}

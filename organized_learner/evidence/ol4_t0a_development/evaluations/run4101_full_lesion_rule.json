@@ -1,0 +1,28 @@
+{
+  "all_three_successes": 485,
+  "arm": "full",
+  "bank_count_max": 14,
+  "bank_count_min": 14,
+  "checkpoint_sha256": "41e7b521a1c3760da1985de3a8d2c2d7bd8c14a3399efbb359a57bac919e8533",
+  "event_count_max": 56,
+  "event_count_min": 32,
+  "life_count": 4096,
+  "mean_of_three_rewards": 0.494384765625,
+  "primary_successes": 2053,
+  "public_teaching_sha256": "ab9b040324d1376e966ad40aa4bb83d90d8119e9d7fbfe43b460360ce35682f3",
+  "query_successes": [
+    2046,
+    2004,
+    2025
+  ],
+  "raw_file": "run4101_full_lesion_rule.npz",
+  "raw_sha256": "0da96ea3f6b8621f2c0f34524b8102f9497c99339804a48f4e2f290f08f7449a",
+  "run_id": 4101,
+  "variant": "lesion_rule",
+  "write_permissions": {
+    "lexical": true,
+    "marker": true,
+    "mode": true,
+    "rule": false
+  }
+}

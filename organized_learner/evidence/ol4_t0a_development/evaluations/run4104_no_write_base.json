@@ -1,0 +1,28 @@
+{
+  "all_three_successes": 58,
+  "arm": "no_write",
+  "bank_count_max": 14,
+  "bank_count_min": 14,
+  "checkpoint_sha256": "9cf3e089e188df58438b5d7a1a66f507a3f354a6cc91b7251704c1ceef555d44",
+  "event_count_max": 56,
+  "event_count_min": 32,
+  "life_count": 4096,
+  "mean_of_three_rewards": 0.252197265625,
+  "primary_successes": 1042,
+  "public_teaching_sha256": "ab9b040324d1376e966ad40aa4bb83d90d8119e9d7fbfe43b460360ce35682f3",
+  "query_successes": [
+    1054,
+    1007,
+    1038
+  ],
+  "raw_file": "run4104_no_write_base.npz",
+  "raw_sha256": "1da7e1ce8eaba34c64d567284b52eca43e5fa92b1806fa2d33c5931a619b32e4",
+  "run_id": 4104,
+  "variant": "base",
+  "write_permissions": {
+    "lexical": false,
+    "marker": false,
+    "mode": false,
+    "rule": false
+  }
+}
